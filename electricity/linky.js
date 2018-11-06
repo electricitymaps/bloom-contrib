@@ -1,7 +1,7 @@
 import moment from 'moment';
 import request from 'superagent';
 
-import { ACTIVITY_TYPE_ELECTRICITY } from '../../constants';
+import { ACTIVITY_TYPE_ELECTRICITY } from '../../../constants';
 
 const GRANULARITY = {
   day: 'urlCdcJour',

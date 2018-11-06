@@ -1,7 +1,7 @@
 import moment from 'moment';
 import request from 'superagent';
 
-import { ACTIVITY_TYPE_ELECTRIC_VEHICLE_CHARGING } from '../../constants';
+import { ACTIVITY_TYPE_ELECTRIC_VEHICLE_CHARGING } from '../../../constants';
 
 const EXPIRED_TOKEN_MESSAGE = 'com.worldline.renault.myzeonline.exception.InvalidAuthenticationException.ExpiredToken';
 const BATTERY_SIZE = 22000; // in Wh
