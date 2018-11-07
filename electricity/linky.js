@@ -95,10 +95,12 @@ export async function collect(state) {
   payload[`_${PPID}_dateFin`] = endDate;
 
   const res = await agent
-    .withCredentials()
     .post('https://espace-client-particuliers.enedis.fr/group/espace-particuliers/suivi-de-consommation')
     .query(query)
     .type('form')
+    // Those are required to avoid the client to cache responses
+    .set('Cache-Control', 'no-cache')
+    .set('If-None-Match', '*')
     .send(payload);
 
   const json = JSON.parse(res.text);
