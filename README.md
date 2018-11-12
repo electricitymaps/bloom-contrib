@@ -7,3 +7,5 @@ You can [contribute](#contribute) by
 - **adding a new integration**
 - correcting a [bug](https://github.com/tmrowco/greenbit-contrib/issues) in an existing integration.
 - submitting ideas, feature requests, or bugs in the [issues](https://github.com/tmrowco/greenbit-contrib/issues/new) section.
+
+Join us on [Slack](https://slack.tmrow.com) if you wish to discuss development or need help to get started.
