@@ -142,7 +142,7 @@ export async function collect(state) {
   // Subtract one day to make sure we always have a full day
   const lastFullyCollectedDay = endMoment.subtract(1, 'day').format('DD/MM/YYYY');
 
-  return { activities, lastFullyCollectedDay };
+  return { activities, state: { lastFullyCollectedDay } };
 }
 
 export const config = {
