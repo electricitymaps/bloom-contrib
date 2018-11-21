@@ -188,6 +188,11 @@ function parseTravels(allTravelsHTML) {
     const startTime = new Date(`20${dateSplit[2]}-${dateSplit[1]}-${dateSplit[0]}T${travelList[a]['start-time']}`);
     let endTime = new Date(`20${dateSplit[2]}-${dateSplit[1]}-${dateSplit[0]}T${travelList[a]['end-time']}`);
 
+    if (Number.isNaN(endTime.getTime())) {
+      // Skip that item. It's probably a trip that doesn't have a checkout time
+      continue;
+    }
+
     if (endTime < startTime) {
       endTime = moment(endTime).add(1, 'day').toDate();
     }
