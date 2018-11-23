@@ -146,7 +146,7 @@ export async function collect(state) {
 }
 
 export const config = {
-  label: 'Linky',
+  label: 'Linky 🇫🇷',
   type: 'electricity',
   subType: 'smartMeter',
   isPrivate: true,

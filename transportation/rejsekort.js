@@ -264,7 +264,7 @@ export async function collect(state) {
 }
 
 export const config = {
-  label: 'Rejsekort',
+  label: 'Rejsekort 🇩🇰',
   type: 'Transportation',
   subType: 'travel',
   isPrivate: true,
