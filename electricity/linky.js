@@ -147,8 +147,7 @@ export async function collect(state) {
 
 export const config = {
   label: 'Linky 🇫🇷',
-  type: 'electricity',
-  subType: 'smartMeter',
+  type: ACTIVITY_TYPE_ELECTRICITY,
   isPrivate: true,
   // minRefreshInterval: 60
 };

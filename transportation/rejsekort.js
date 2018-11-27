@@ -265,8 +265,7 @@ export async function collect(state) {
 
 export const config = {
   label: 'Rejsekort 🇩🇰',
-  type: 'Transportation',
-  subType: 'travel',
+  type: ACTIVITY_TYPE_TRANSPORTATION,
   isPrivate: true,
   // minRefreshInterval: 60
 };
