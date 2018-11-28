@@ -266,6 +266,7 @@ export async function collect(state) {
 export const config = {
   label: 'Rejsekort 🇩🇰',
   type: ACTIVITY_TYPE_TRANSPORTATION,
+  description: 'collects trips from your travel card',
   isPrivate: true,
   // minRefreshInterval: 60
 };

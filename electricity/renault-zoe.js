@@ -131,6 +131,7 @@ export async function collect(state) {
 
 export const config = {
   label: 'Renault Zoé',
+  description: 'collects car charging times',
   type: ACTIVITY_TYPE_ELECTRIC_VEHICLE_CHARGING,
   isPrivate: true,
   // minRefreshInterval: 60
