@@ -45,7 +45,8 @@ async function logIn(username, password) {
   }
 }
 
-export async function connect(requestLogin, requestWebView) {
+
+async function connect(requestLogin, requestWebView) {
   // Here we can request credentials etc..
 
   // Here we can use two functions to invoke screens
@@ -60,12 +61,14 @@ export async function connect(requestLogin, requestWebView) {
   };
 }
 
-export function disconnect() {
+
+function disconnect() {
   // Here we should do any cleanup (deleting tokens etc..)
   return {};
 }
 
-export async function collect(state) {
+
+async function collect(state) {
   const { username, password } = state;
   // LogIn to set Cookies
   await logIn(username, password);
@@ -145,10 +148,18 @@ export async function collect(state) {
   return { activities, state: { lastFullyCollectedDay } };
 }
 
-export const config = {
+
+const config = {
   label: 'Linky 🇫🇷',
   description: 'collects electricity data from your smart meter',
   type: ACTIVITY_TYPE_ELECTRICITY,
   isPrivate: true,
   // minRefreshInterval: 60
+};
+
+export default {
+  connect,
+  disconnect,
+  collect,
+  config,
 };

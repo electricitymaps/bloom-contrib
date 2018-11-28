@@ -32,7 +32,7 @@ async function _refreshToken(state) {
   return { token: res.body.token };
 }
 
-export async function connect(requestLogin, requestWebView) {
+async function connect(requestLogin, requestWebView) {
   // Here we can request credentials etc..
 
   // Here we can use two functions to invoke screens
@@ -56,12 +56,12 @@ export async function connect(requestLogin, requestWebView) {
   };
 }
 
-export function disconnect() {
+function disconnect() {
   // Here we should do any cleanup (deleting tokens etc..)
   return {};
 }
 
-export async function collect(state) {
+async function collect(state) {
   const { vin } = state;
   const startMonth = state.lastFullyCollectedMonth || moment().subtract(2, 'year').format('MMYY');
   const endMonth = moment().format('MMYY');
@@ -129,10 +129,17 @@ export async function collect(state) {
   return { activities, state: newState };
 }
 
-export const config = {
+const config = {
   label: 'Renault Zoé',
   description: 'collects car charging times',
   type: ACTIVITY_TYPE_ELECTRIC_VEHICLE_CHARGING,
   isPrivate: true,
   // minRefreshInterval: 60
+};
+
+export default {
+  connect,
+  disconnect,
+  collect,
+  config,
 };

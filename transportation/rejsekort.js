@@ -211,7 +211,7 @@ function parseTravels(allTravelsHTML) {
   return activities;
 }
 
-export async function connect(requestLogin, requestWebView) {
+async function connect(requestLogin, requestWebView) {
   // Here we can request credentials etc.
 
   // Here we can use two functions to invoke screens
@@ -228,12 +228,12 @@ export async function connect(requestLogin, requestWebView) {
   };
 }
 
-export function disconnect() {
+function disconnect() {
   // Here we should do any cleanup (deleting tokens etc..)
   return {};
 }
 
-export async function collect(state) {
+async function collect(state) {
   await logIn(state.username, state.password);
   const allTravelsHTML = await getAllTravels();
   const activities = parseTravels(allTravelsHTML);
@@ -263,10 +263,17 @@ export async function collect(state) {
   return { activities, state };
 }
 
-export const config = {
+const config = {
   label: 'Rejsekort 🇩🇰',
   type: ACTIVITY_TYPE_TRANSPORTATION,
   description: 'collects trips from your travel card',
   isPrivate: true,
   // minRefreshInterval: 60
+};
+
+export default {
+  connect,
+  disconnect,
+  collect,
+  config,
 };
