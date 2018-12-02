@@ -115,6 +115,7 @@ async function collect(state) {
         now.add(1, 'hour'))
       {
         activities.push({
+          id: `renaultzoe${now.toISOString()}`,
           activityType: ACTIVITY_TYPE_ELECTRIC_VEHICLE_CHARGING,
           datetime: now.toDate(),
           durationHours: 1,
