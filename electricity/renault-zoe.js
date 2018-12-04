@@ -28,7 +28,7 @@ async function _refreshToken(state) {
     .post('https://www.services.renault-ze.com/api/user/token/refresh')
     .set('Content-Type', 'application/json')
     .set('Accept', 'application/json')
-    .send({ token, refresh_oken: refreshToken });
+    .send({ token, refresh_token: refreshToken });
   return { token: res.body.token };
 }
 
