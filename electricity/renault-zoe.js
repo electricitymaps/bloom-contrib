@@ -3,6 +3,8 @@ import request from 'superagent';
 
 import { ACTIVITY_TYPE_ELECTRIC_VEHICLE_CHARGING } from '../../../constants';
 
+const VERSION = 1;
+
 const EXPIRED_TOKEN_MESSAGE = 'com.worldline.renault.myzeonline.exception.InvalidAuthenticationException.ExpiredToken';
 const BATTERY_SIZE = 22000; // in Wh
 
@@ -62,7 +64,10 @@ async function connect(requestLogin, requestWebView) {
   // Here we can use two functions to invoke screens
   // requestLogin() or requestWebView()
   const { username, password } = await requestLogin();
-  return _login(username, password);
+  return {
+    version: VERSION,
+    ...(await _login(username, password)),
+  };
 }
 
 function disconnect() {
@@ -70,8 +75,17 @@ function disconnect() {
   return {};
 }
 
-async function collect(state = {}, logger) {
-  const { username, password, vin } = state;
+async function collect(state = {}, logger, utils) {
+  const {
+    username, password, vin, version,
+  } = state;
+
+  // Perform migrations
+  if (version < 1) {
+    utils.deleteAllActivities();
+    state.lastFullyCollectedMonth = null;
+  }
+
   let { countryISO2 } = state;
   if (!countryISO2) {
     // Force a login to get the country
@@ -91,6 +105,7 @@ async function collect(state = {}, logger) {
     ...state,
     countryISO2,
     lastFullyCollectedMonth,
+    version: VERSION,
   };
   let res;
   try {
