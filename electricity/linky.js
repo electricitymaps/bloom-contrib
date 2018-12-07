@@ -150,7 +150,8 @@ async function collect(state) {
 
 
 const config = {
-  label: 'Linky 🇫🇷',
+  label: 'Linky',
+  country: 'FR',
   description: 'collects electricity data from your smart meter',
   type: ACTIVITY_TYPE_ELECTRICITY,
   isPrivate: true,
