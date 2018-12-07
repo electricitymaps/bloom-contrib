@@ -264,7 +264,8 @@ async function collect(state) {
 }
 
 const config = {
-  label: 'Rejsekort 🇩🇰',
+  label: 'Rejsekort',
+  country: 'DK',
   type: ACTIVITY_TYPE_TRANSPORTATION,
   description: 'collects trips from your travel card',
   isPrivate: true,
