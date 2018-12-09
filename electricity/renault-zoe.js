@@ -3,7 +3,7 @@ import request from 'superagent';
 
 import { ACTIVITY_TYPE_ELECTRIC_VEHICLE_CHARGING } from '../../../constants';
 
-const VERSION = 1;
+const VERSION = 2;
 
 const EXPIRED_TOKEN_MESSAGE = 'com.worldline.renault.myzeonline.exception.InvalidAuthenticationException.ExpiredToken';
 const BATTERY_SIZE = 22000; // in Wh
@@ -81,7 +81,7 @@ async function collect(state = {}, logger, utils) {
   } = state;
 
   // Perform migrations
-  if (version < 1) {
+  if (!version || version < 2) {
     utils.deleteAllActivities();
     state.lastFullyCollectedMonth = null;
   }
