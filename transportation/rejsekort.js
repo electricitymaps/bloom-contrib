@@ -41,7 +41,7 @@ async function getLoginRequestToken() {
 }
 
 // Login
-async function logIn(username, password) {
+async function logIn(username, password, logger) {
   const requestToken = await getLoginRequestToken();
 
   const res = await agent
@@ -73,7 +73,9 @@ async function logIn(username, password) {
     throw Error(errors.join(', '));
   }
 
-  if (!res.text.match(/(My Rejsekort|Mit rejsekort)/)) {
+  if (!res.text.match(/(is logged in|er logget in)/)) {
+    // Log more info
+    logger.logDebug(`Seems like logIn failed. Headers: ${JSON.stringify(res.header)}`);
     throw Error('This doesn\'t look like the logged-in home page');
   }
 }
@@ -211,7 +213,7 @@ function parseTravels(allTravelsHTML) {
   return activities;
 }
 
-async function connect(requestLogin, requestWebView) {
+async function connect(requestLogin, requestWebView, logger) {
   // Here we can request credentials etc.
 
   // Here we can use two functions to invoke screens
@@ -219,7 +221,7 @@ async function connect(requestLogin, requestWebView) {
   const { username, password } = await requestLogin();
 
   // Try to login
-  await logIn(username, password);
+  await logIn(username, password, logger);
 
   // Set state to be persisted
   return {
@@ -233,8 +235,8 @@ function disconnect() {
   return {};
 }
 
-async function collect(state) {
-  await logIn(state.username, state.password);
+async function collect(state, logger) {
+  await logIn(state.username, state.password, logger);
   const allTravelsHTML = await getAllTravels();
   const activities = parseTravels(allTravelsHTML);
 
