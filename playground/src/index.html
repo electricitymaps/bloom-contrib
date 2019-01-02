@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <script type="text/javascript" src="vendor/socket.io.dev.js"></script>
+    <script type="text/javascript">
+      const socket = io('http://localhost:3000');
+      socket.on('connect', () => {
+        console.log('(re)connected');
+        socket.emit('run', {
+          sourceIdentifier: 'rejsekort',
+          username: 'oliviercorradi',
+          password: 'iDVU6D4svytJ8Q3',
+        });
+      });
+      socket.on('reconnecting', () => console.log('reconnecting..'));
+      socket.on('runError', obj => console.error(Object.assign(new Error(), { stack: undefined }, obj)));
+      socket.on('runLogs', (logs) => {
+        console.clear();
+        console.log('############### EXECUTION LOGS ###############');
+        logs.forEach((log) => {
+          switch (log.level) {
+            case 'warning':
+              console.warn(log.message);
+              break;
+            case 'error':
+              console.error(log.message);
+              break;
+            default:
+              console.log(log.message);
+          }
+        });
+        console.log('############### END EXECUTION LOGS ###############');
+      });
+      socket.on('runResults', (results) => {
+        console.log('state:', results.state);
+        console.table(results.activities);
+      });
+     </script>
+  </head>
+</html>

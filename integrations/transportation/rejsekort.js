@@ -2,7 +2,7 @@ import moment from 'moment';
 import request from 'superagent';
 import { DOMParser } from 'xmldom';
 
-import { ACTIVITY_TYPE_TRANSPORTATION, TRANSPORTATION_MODE_PUBLIC_TRANSPORT } from '../../../constants';
+import { ACTIVITY_TYPE_TRANSPORTATION, TRANSPORTATION_MODE_PUBLIC_TRANSPORT } from '../../definitions';
 
 /*
 Potential improvements:

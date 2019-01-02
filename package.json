@@ -1,0 +1,20 @@
+{
+  "name": "playground",
+  "version": "1.0.0",
+  "main": "server.js",
+  "license": "MIT",
+  "dependencies": {
+    "babel-preset-env": "^1.7.0",
+    "express": "^4.16.4",
+    "socket.io": "^2.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-register": "^6.26.0",
+    "nodemon": "^1.18.9"
+  },
+  "scripts": {
+    "serve": "nodemon --watch . playground/server.js"
+  }
+}
