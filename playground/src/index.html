@@ -6,7 +6,7 @@
       socket.on('connect', () => {
         console.log('(re)connected');
         socket.emit('run', {
-          sourceIdentifier: 'rejsekort',
+          sourceIdentifier: 'rejsekort', // <-- change this!
           username: null,
           password: null,
         });
