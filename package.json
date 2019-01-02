@@ -13,11 +13,16 @@
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
+    "babel-eslint": "^10.0.1",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-register": "^6.26.0",
+    "eslint": "^5.5.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
     "nodemon": "^1.18.9"
   },
   "scripts": {
+    "lint": "eslint integrations",
     "serve": "nodemon --watch . playground/server.js"
   }
 }
