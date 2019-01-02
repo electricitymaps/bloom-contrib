@@ -19,6 +19,9 @@ app.use('/vendor', express.static(path.join(__dirname, 'vendor')));
 
 io.on('connection', (socket) => {
   console.log('client connected');
+
+  socket.emit('integrations', Object.keys(sourceInstances));
+
   socket.on('run', async (data) => {
     console.log(`running ${data.sourceIdentifier}..`);
     const sourceInstance = sourceInstances[data.sourceIdentifier];
