@@ -9,3 +9,13 @@ You can [contribute](#contribute) by
 - submitting ideas, feature requests, or bugs in the [issues](https://github.com/tmrowco/greenbit-contrib/issues/new) section.
 
 Join us on [Slack](https://slack.tmrow.com) if you wish to discuss development or need help to get started.
+
+## Playground
+To ease development, we've created a playground.
+First run `yarn` to install dependencies, then run `yarn serve` to start the playground and point your browser to [localhost:3000](http://localhost:3000) to get started.
+
+## Folder structure
+- ./integrations: contains all integrations
+- ./integrations/img: contains all integration logos
+- ./playground: source code of the playground
+- ./definitions.js: constant definitions

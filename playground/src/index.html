@@ -1,0 +1,99 @@
+<html>
+  <head>
+    <script type="text/javascript" src="vendor/socket.io.dev.js"></script>
+  </head>
+  <form>
+    <h1>Playground</h1>
+    <p>
+      State: <span id="connection-state"></span>
+    </p>
+    <p>
+      1/ Select an integration<br />
+      2/ Fill out username/password if needed<br />
+      3/ Open Chrome console to see results (any change in any field will trigger a re-run)<br />
+    </p>
+    <p>
+      Integration: <select id="integrations"></select>
+    </p>
+    <p>
+      <label for="username">Username: </label>
+      <input type="text" id="username">
+    </p>
+    <p>
+      <label for="password">Password: </label>
+      <input type="password" id="password">
+    </p>
+  </form>
+  <script type="text/javascript">
+    // Global state
+    let connectionState = 'disconnected';
+
+    // Socket
+    const socket = io('http://localhost:3000');
+    socket.on('integrations', renderIntegrations);
+    socket.on('reconnecting', () => setConnectionState('reconnecting ⌛️'));
+    socket.on('runError', obj => {
+      setConnectionState('error 💥');
+      console.error(Object.assign(new Error(), { stack: undefined }, obj))
+    });
+    socket.on('runLogs', (logs) => {
+      console.clear();
+      console.log('############### EXECUTION LOGS ###############');
+      logs.forEach((log) => {
+        switch (log.level) {
+          case 'warning':
+            console.warn(log.message);
+            break;
+          case 'error':
+            console.error(log.message);
+            break;
+          default:
+            console.log(log.message);
+        }
+      });
+      console.log('############### END EXECUTION LOGS ###############');
+    });
+    socket.on('runResults', (results) => {
+      console.log('state:', results.state);
+      console.table(results.activities);
+      setConnectionState('success ✔︎');
+    });
+    socket.on('connect', () => {
+      console.log('(re)connected');
+      setConnectionState('connected ✔︎');
+      run();
+    });
+
+    // DOM elements
+    const connectionStateEl = document.getElementById('connection-state');
+    const integrationsEl = document.getElementById('integrations');
+    const usernameEl = document.getElementById('username');
+    const passwordEl = document.getElementById('password');
+
+    // Actions
+    function run() {
+      if (!socket.connected) { return; }
+      if (!integrationsEl.value) { return; }
+
+      console.log(`Running ${integrationsEl.value}..`);
+      socket.emit('run', {
+        sourceIdentifier: integrationsEl.value,
+        username: usernameEl.value,
+        password: passwordEl.value,
+      });
+    }
+    function setConnectionState(state) {
+      connectionStateEl.innerHTML = state;
+    }
+
+    // Bindings
+    [integrationsEl, usernameEl, passwordEl].forEach(d => d.addEventListener('change', run));
+
+    // Rendering
+    function renderIntegrations(integrations) {
+      integrationsEl.options.add(new Option(''));
+      integrations.forEach(d => integrationsEl.options.add(new Option(d)));
+      integrationsEl.size = integrations.length + 1;
+    }
+   </script>
+</html>

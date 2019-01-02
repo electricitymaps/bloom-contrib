@@ -1,7 +1,7 @@
 import moment from 'moment';
 import request from 'superagent';
 
-import { ACTIVITY_TYPE_ELECTRIC_VEHICLE_CHARGING } from '../../../constants';
+import { ACTIVITY_TYPE_ELECTRIC_VEHICLE_CHARGING } from '../../definitions';
 
 const VERSION = 2;
 
