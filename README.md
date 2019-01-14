@@ -1,4 +1,4 @@
-# tmrowapp-contrib [![Slack Status](http://slack.tmrow.co/badge.svg)](http://slack.tmrow.co) [![CircleCI](https://circleci.com/gh/tmrowco/greenbit-contrib.svg?style=shield)](https://circleci.com/gh/tmrowco/greenbit-contrib)
+# tmrowapp-contrib [![Slack Status](http://slack.tmrow.co/badge.svg)](http://slack.tmrow.co) [![CircleCI](https://circleci.com/gh/tmrowco/tmrowapp-contrib.svg?style=shield)](https://circleci.com/gh/tmrowco/tmrowapp-contrib)
 
 This repository contains the open-source integrations that allows the Greenbit app to fetch 3rd party activities.
 This code is maintained by [Tomorrow](https://www.tmrow.com).
