@@ -1,12 +1,12 @@
-# tmrowapp-contrib [![Slack Status](http://slack.tmrow.co/badge.svg)](http://slack.tmrow.co) [![CircleCI](https://circleci.com/gh/tmrowco/tmrowapp-contrib.svg?style=shield)](https://circleci.com/gh/tmrowco/tmrowapp-contrib)
+# tmrowapp-contrib [![Slack Status](http://slack.tmrow.cow/badge.svg)](http://slack.tmrow.co) [![CircleCI](https://circleci.com/gh/tmrowco/tmrowapp-contrib.svg?style=shield)](https://circleci.com/gh/tmrowco/tmrowapp-contrib)
 
-This repository contains the open-source integrations that allows the Greenbit app to fetch 3rd party activities.
+This repository contains the open-source integrations that allows the Tomorrow app to fetch 3rd party activities.
 This code is maintained by [Tomorrow](https://www.tmrow.com).
 
 You can [contribute](#contribute) by
 - **adding a new integration**
-- correcting a [bug](https://github.com/tmrowco/greenbit-contrib/issues) in an existing integration.
-- submitting ideas, feature requests, or bugs in the [issues](https://github.com/tmrowco/greenbit-contrib/issues/new) section.
+- correcting a [bug](https://github.com/tmrowco/tmrowapp-contrib/issues) in an existing integration.
+- submitting ideas, feature requests, or bugs in the [issues](https://github.com/tmrowco/tmrowapp-contrib/issues/new) section.
 
 Join us on [Slack](https://slack.tmrow.com) if you wish to discuss development or need help to get started.
 
