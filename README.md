@@ -5,6 +5,7 @@ This code is maintained by [Tomorrow](https://www.tmrow.com).
 
 You can [contribute](#contribute) by
 - **adding a new integration**
+- **updating our carbon models**
 - correcting a [bug](https://github.com/tmrowco/tmrowapp-contrib/issues) in an existing integration.
 - submitting ideas, feature requests, or bugs in the [issues](https://github.com/tmrowco/tmrowapp-contrib/issues/new) section.
 
@@ -15,6 +16,7 @@ To ease development, we've created a playground.
 First run `yarn` to install dependencies, then run `yarn serve` to start the playground and point your browser to [localhost:3000](http://localhost:3000) to get started.
 
 ## Folder structure
+- ./co2eq: carbon models
 - ./integrations: contains all integrations
 - ./integrations/img: contains all integration logos
 - ./playground: source code of the playground
