@@ -4,6 +4,8 @@
   "main": "server.js",
   "license": "MIT",
   "dependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-wildcard": "^5.0.0",
     "babel-preset-env": "^1.7.0",
     "express": "^4.16.4",
     "moment": "^2.23.0",
