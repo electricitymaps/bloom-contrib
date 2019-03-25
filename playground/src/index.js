@@ -1,10 +1,9 @@
 // Import all integrations that should/can be tested
-import linky from '../../integrations/electricity/linky';
-import rejsekort from '../../integrations/transportation/rejsekort';
-// TODO(olc): Do the fancy autoimport to put in a dict
+import * as electricityContribSources from '../../integrations/electricity'; // eslint-disable-line
+import * as transportationContribSources from '../../integrations/transportation'; // eslint-disable-line
 const sourceInstances = {
-  linky,
-  rejsekort,
+  ...electricityContribSources,
+  ...transportationContribSources,
 };
 
 const express = require('express');

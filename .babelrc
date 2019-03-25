@@ -1,9 +1,14 @@
 {
   "presets": ["env"],
   "plugins": [
+    ["transform-object-rest-spread"],
     ["transform-runtime", {
       "polyfill": false,
       "regenerator": true
+    }],
+    ["wildcard", {
+      "exts": ["js", "es6", "es", "jsx", "javascript", "png"],
+      "useCamelCase": true
     }]
   ]
 }
