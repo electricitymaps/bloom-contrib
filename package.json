@@ -7,6 +7,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-wildcard": "^5.0.0",
     "babel-preset-env": "^1.7.0",
+    "d3-geo": "^1.11.3",
     "express": "^4.16.4",
     "moment": "^2.23.0",
     "socket.io": "^2.2.0",
@@ -26,7 +27,7 @@
     "nodemon": "^1.18.9"
   },
   "scripts": {
-    "lint": "eslint integrations",
+    "lint": "eslint co2eq integrations",
     "serve": "nodemon --watch . playground/server.js"
   }
 }
