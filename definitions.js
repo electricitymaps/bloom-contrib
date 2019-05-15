@@ -11,3 +11,4 @@ export const TRANSPORTATION_MODE_CAR = 'car';
 export const TRANSPORTATION_MODE_BUS = 'bus';
 export const TRANSPORTATION_MODE_PUBLIC_TRANSPORT = 'public_transport';
 export const TRANSPORTATION_MODE_TRAIN = 'train';
+export const TRANSPORTATION_MODE_FERRY = 'ferry';

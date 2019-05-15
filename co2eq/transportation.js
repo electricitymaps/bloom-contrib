@@ -4,6 +4,7 @@ import {
   TRANSPORTATION_MODE_BUS,
   TRANSPORTATION_MODE_TRAIN,
   TRANSPORTATION_MODE_PUBLIC_TRANSPORT,
+  TRANSPORTATION_MODE_FERRY,
 } from '../definitions';
 
 import flightEmissions from './flights';
@@ -27,6 +28,9 @@ function carbonIntensity(mode) {
       // Average of train and bus
       return (0.5 * carbonIntensity(TRANSPORTATION_MODE_TRAIN)
         + 0.5 * carbonIntensity(TRANSPORTATION_MODE_BUS));
+    case TRANSPORTATION_MODE_FERRY:
+      // See https://en.wikipedia.org/wiki/Carbon_footprint
+      return 0.12;
     default:
       throw Error(`Unknown transportation mode: ${mode}`);
   }
@@ -44,6 +48,8 @@ function durationToDistance(durationHours, mode) {
       // Average of train and bus
       return (0.5 * durationToDistance(durationHours, TRANSPORTATION_MODE_TRAIN)
         + 0.5 * durationToDistance(durationHours, TRANSPORTATION_MODE_BUS));
+    case TRANSPORTATION_MODE_FERRY:
+      return durationHours * 30; // ~16 knots
     default:
       throw Error(`Unknown transportation mode: ${mode}`);
   }
@@ -53,13 +59,19 @@ function durationToDistance(durationHours, mode) {
 Carbon emissions of an activity (in kgCO2eq)
 */
 export function carbonEmissions(activity) {
+  // Plane-specific model
   if (activity.transportationMode === TRANSPORTATION_MODE_PLANE) {
     return flightEmissions(activity);
   }
-  // for non-plane activity types, computation is based on activity duration
-  if (!activity.durationHours || activity.durationHours <= 0) {
-    return null;
+
+  let distanceKilometers = activity.distanceKilometers;
+  if (!distanceKilometers) {
+    // fallback on duration if available
+    if ((activity.durationHours || 0) > 0) {
+      distanceKilometers = durationToDistance(activity.durationHours, activity.transportationMode);
+    } else {
+      return null;
+    }
   }
-  const distance = durationToDistance(activity.durationHours, activity.transportationMode);
-  return carbonIntensity(activity.transportationMode) * distance;
+  return carbonIntensity(activity.transportationMode) * distanceKilometers;
 }
