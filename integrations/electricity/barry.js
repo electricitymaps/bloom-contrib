@@ -1,8 +1,21 @@
+import { Buffer } from 'buffer';
 import moment from 'moment';
 
 import { ACTIVITY_TYPE_ELECTRICITY } from '../../definitions';
 
 const btoa = b => Buffer.from(b).toString('base64');
+
+const REGION_TO_LOCATION = {
+  DK1: {
+    locationLat: 55.927443,
+    locationLon: 9.248319,
+  },
+  DK2: {
+    locationLat: 55.582066,
+    locationLon: 11.920338,
+  },
+};
+
 let id = 0;
 
 async function request(username, password, method, params) {
@@ -71,15 +84,14 @@ async function connect(requestLogin, requestWebView) {
   }
 
   const meteringPointId = associatedMeteringPoints[0].mpid;
-  const region = await getRegion(meteringPointId);
-  const electricityMapRegion = `DK-${region}`;
+  const priceRegion = await getRegion(meteringPointId);
 
   // Set state to be persisted
   return {
     username,
     password,
     meteringPointId,
-    electricityMapRegion,
+    priceRegion,
   };
 }
 
@@ -91,12 +103,13 @@ function disconnect() {
 
 async function collect(state, { logWarning }) {
   const {
-    username, password, meteringPointId, electricityMapRegion,
+    username, password, meteringPointId, priceRegion,
   } = state;
 
   const response = await getMeterTimeSeries(
     username, password, meteringPointId,
     // Make sure to pass UTC times
+    // TODO(olc): right now, Barry API ignores input datetime
     new Date('2019-05-01').toISOString(),
     new Date('2019-05-15').toISOString()
   );
@@ -104,6 +117,8 @@ async function collect(state, { logWarning }) {
   // Note: some entries contain more than 24 values.
   // that's because they cover several days
   // we need to separate those manually
+
+  const { locationLon, locationLat } = REGION_TO_LOCATION[priceRegion];
 
   const activities = response.map(d => ({
     id: `barry${d.id}`,
@@ -113,6 +128,8 @@ async function collect(state, { logWarning }) {
       .map(x => x.energyQuantity * 1000.0) // kWh -> Wh
       .reduce((a, b) => a + b, 0),
     durationHours: d.intervalEnergyObservations.length,
+    locationLon,
+    locationLat,
   }));
   activities
     .filter(d => d.durationHours !== 24)
