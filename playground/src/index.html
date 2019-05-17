@@ -28,13 +28,16 @@
     // Global state
     let connectionState = 'disconnected';
 
+    // Methods
+    const deSerializeError = obj => Object.assign(new Error(), { stack: undefined }, obj);
+
     // Socket
     const socket = io('http://localhost:3000');
     socket.on('integrations', renderIntegrations);
     socket.on('reconnecting', () => setConnectionState('reconnecting ⌛️'));
     socket.on('runError', obj => {
       setConnectionState('error 💥');
-      console.error(Object.assign(new Error(), { stack: undefined }, obj))
+      // console.error(deSerializeError(obj))
     });
     socket.on('runLogs', (logs) => {
       console.clear();
@@ -42,19 +45,19 @@
       logs.forEach((log) => {
         switch (log.level) {
           case 'warning':
-            console.warn(log.message);
+            console.warn(log.obj);
             break;
           case 'error':
-            console.error(log.message);
+            console.error(deSerializeError(log.obj));
             break;
           default:
-            console.log(log.message);
+            console.log(log.obj);
         }
       });
       console.log('############### END EXECUTION LOGS ###############');
     });
     socket.on('runResults', (results) => {
-      console.log('state:', results.state);
+      // console.log('state:', results.state);
       console.table(results.activities);
       setConnectionState('success ✔︎');
     });
