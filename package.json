@@ -8,11 +8,15 @@
     "babel-plugin-wildcard": "^5.0.0",
     "babel-preset-env": "^1.7.0",
     "buffer": "^5.2.1",
+    "crypto-js": "^3.1.9-1",
     "d3-geo": "^1.11.3",
     "express": "^4.16.4",
+    "lodash": "^4.17.11",
     "moment": "^2.23.0",
+    "oauth-1.0a": "^2.2.5",
     "socket.io": "^2.2.0",
     "superagent": "^4.1.0",
+    "whatwg-url": "^7.0.0",
     "xmldom": "^0.1.27"
   },
   "devDependencies": {
