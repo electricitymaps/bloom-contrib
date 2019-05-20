@@ -17,7 +17,12 @@ Join us on [Slack](https://slack.tmrow.com) if you wish to discuss development, 
 
 ## Playground
 To ease development, we've created a development playground.
-First run `yarn` to install dependencies, then run `yarn serve` to start the playground and point your browser to [localhost:3000](http://localhost:3000) to get started.
+
+### Integrations
+First, you will have to create a JSON file called `env.json` where to store integration credientials when needed.
+You can start by creating an empty file.
+
+Run `yarn` to install dependencies, then run `yarn serve` to start the playground and point your browser to [localhost:3000](http://localhost:3000) to get started.
 
 ## Folder structure
 - `./co2eq`: carbon models

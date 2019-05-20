@@ -1,6 +1,6 @@
 {
   "extends": "airbnb",
-  "globals": { "__DEV__": true, "fetch": false, "window": false },
+  "globals": { "__DEV__": true, "fetch": false, "window": false, "Buffer": false },
   "parser": "babel-eslint",
   "rules": {
     "comma-dangle": ["error", {

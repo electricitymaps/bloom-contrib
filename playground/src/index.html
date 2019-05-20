@@ -66,6 +66,7 @@
       setConnectionState('connected ✔︎');
       run();
     });
+    socket.on('openUrl', (url) => window.open(url));
 
     // DOM elements
     const connectionStateEl = document.getElementById('connection-state');
