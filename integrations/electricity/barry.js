@@ -1,5 +1,6 @@
 import { Buffer } from 'buffer';
 import moment from 'moment';
+import groupBy from 'lodash/groupBy';
 
 import { ACTIVITY_TYPE_ELECTRICITY } from '../../definitions';
 
@@ -64,8 +65,8 @@ async function getMeteringPointAssociated(username, password, customerId) {
 async function getRegion(username, password, meteringPointId) {
   return request(username, password, 'co.getbarry.megatron.controller.PriceController.getRegion', [meteringPointId]);
 }
-async function getMeterTimeSeries(username, password, meteringPointId, fromISO, toISO) {
-  return request(username, password, 'co.getbarry.megatron.controller.MeteredDataTimeSeriesController.findAllLatestByMeteringPointId', [meteringPointId, fromISO, toISO]);
+async function getHourlyConsumption(username, password, meteringPointId, fromISO, toISO) {
+  return request(username, password, 'co.getbarry.megatron.controller.ConsumptionController.getHourlyConsumption', [[meteringPointId], fromISO, toISO]);
 }
 
 async function connect(requestLogin, requestWebView) {
@@ -106,12 +107,12 @@ async function collect(state, { logWarning }) {
     username, password, meteringPointId, priceRegion,
   } = state;
 
-  const response = await getMeterTimeSeries(
+  const startDate = state.lastFullyCollectedDay || moment().subtract(1, 'month').toISOString();
+  const endDate = moment().toISOString();
+
+  const response = await getHourlyConsumption(
     username, password, meteringPointId,
-    // Make sure to pass UTC times
-    // TODO(olc): right now, Barry API ignores input datetime
-    new Date('2019-05-01').toISOString(),
-    new Date('2019-05-15').toISOString()
+    startDate, endDate,
   );
 
   // Note: some entries contain more than 24 values.
@@ -120,22 +121,35 @@ async function collect(state, { logWarning }) {
 
   const { locationLon, locationLat } = REGION_TO_LOCATION[priceRegion];
 
-  const activities = response.map(d => ({
-    id: `barry${d.id}`,
-    datetime: moment(d.start).toDate(),
-    activityType: ACTIVITY_TYPE_ELECTRICITY,
-    energyWattHours: d.intervalEnergyObservations
-      .map(x => x.energyQuantity * 1000.0) // kWh -> Wh
-      .reduce((a, b) => a + b, 0),
-    durationHours: d.intervalEnergyObservations.length,
-    locationLon,
-    locationLat,
-  }));
+  const activities = Object.entries(groupBy(response, d => moment(d.date).startOf('day').toISOString()))
+    .map(([k, values]) => ({
+      id: `barry${k}`,
+      datetime: moment(k).toDate(),
+      activityType: ACTIVITY_TYPE_ELECTRICITY,
+      energyWattHours: values
+        .map(x => x.value * 1000.0) // kWh -> Wh
+        .reduce((a, b) => a + b, 0),
+      durationHours: values.length,
+      hourlyEnergyWattHours: values.map(x => x.value * 1000.0),
+      locationLon,
+      locationLat,
+    }));
   activities
     .filter(d => d.durationHours !== 24)
-    .forEach(d => logWarning(`Ignoring activity with ${d.durationHours} hours instead of 24`));
+    .forEach(d => logWarning(`Ignoring activity from ${d.datetime.toISOString()} with ${d.durationHours} hours instead of 24`));
 
-  return { activities: activities.filter(d => d.durationHours === 24), state };
+  if (!activities.length) {
+    return { activities: [] };
+  }
+
+  // Subtract one day to make sure we always have a full day
+  const lastFullyCollectedDay = moment(activities[activities.length - 1].datetime)
+    .subtract(1, 'day').toISOString();
+
+  return {
+    activities: activities.filter(d => d.durationHours === 24),
+    state: { ...state, lastFullyCollectedDay },
+  };
 }
 
 const config = {
