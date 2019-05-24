@@ -49,7 +49,6 @@ export class OAuthManager {
       },
     };
     let res = await fetch(this.requestTokenUrl, req);
-    // console.warn(req.body.toString())
     if (!res.ok) {
       const text = await res.text();
       // throw new HTTPError(text, res.status);
