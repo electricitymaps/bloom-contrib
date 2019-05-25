@@ -84,22 +84,26 @@ function emissionsFromDistanceAndClass(distance, bookingClass) {
   return emissionsBetweenShortAndLongHaul(distance, bookingClass);
 }
 
+export function activityDistance(activity) {
+  if (activity.departureAirportCode && activity.destinationAirportCode) {
+    // compute distance from airport codes
+    return distanceFromAirports(activity.departureAirportCode, activity.destinationAirportCode);
+  }
+  if (activity.distance && activity.distance > 50) {
+    // we trust the activity's distance
+    return activity.distance;
+  }
+  // If no airport code is available, and no distance is trusteable
+  // therefore, compute distance based on duration
+  return distanceFromDuration(activity.durationHours);
+}
+
 /*
   Calculates emissions in kgCO2eq
 */
 export default function (activity) {
-  let distance;
-  if (activity.departureAirportCode && activity.destinationAirportCode) {
-    // compute distance from airport codes
-    distance = distanceFromAirports(activity.departureAirportCode, activity.destinationAirportCode);
-  } else if (activity.distance && activity.distance > 50) {
-    // we trust the activity's distance
-    distance = activity.distance;
-  } else {
-    // If no airport code is available, and no distance is trusteable
-    // therefore, compute distance based on duration
-    distance = distanceFromDuration(activity.durationHours);
-  }
+  const distance = activityDistance(activity);
+
   if (!Number.isFinite(distance)) {
     throw Error(`Incorrect distance obtained: ${distance}`);
   }
