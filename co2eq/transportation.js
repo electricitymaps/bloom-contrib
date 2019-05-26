@@ -36,7 +36,7 @@ function carbonIntensity(mode) {
   }
 }
 
-function durationToDistance(durationHours, mode) {
+export function durationToDistance(durationHours, mode) {
   switch (mode) {
     case TRANSPORTATION_MODE_BUS:
       return durationHours * 50.0;

@@ -89,12 +89,15 @@ export function activityDistance(activity) {
     // compute distance from airport codes
     return distanceFromAirports(activity.departureAirportCode, activity.destinationAirportCode);
   }
-  if (activity.distance && activity.distance > 50) {
+  if (activity.distanceKilometers && activity.distanceKilometers > 50) {
     // we trust the activity's distance
-    return activity.distance;
+    return activity.distanceKilometers;
   }
   // If no airport code is available, and no distance is trusteable
   // therefore, compute distance based on duration
+  if (!activity.durationHours) {
+    throw Error(`Invalid durationHours ${activity.durationHours}`);
+  }
   return distanceFromDuration(activity.durationHours);
 }
 
