@@ -285,6 +285,8 @@ const config = {
   type: ACTIVITY_TYPE_TRANSPORTATION,
   description: 'collects trips from your travel card',
   isPrivate: true,
+  signupLink: 'https://selvbetjening.rejsekort.dk/CWS/CustomerRegistration/ValidateNemId',
+  contributors: ['tranberg'],
   // minRefreshInterval: 60
 };
 

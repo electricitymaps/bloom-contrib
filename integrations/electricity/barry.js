@@ -121,6 +121,11 @@ async function collect(state, { logWarning }) {
 
   const { locationLon, locationLat } = REGION_TO_LOCATION[priceRegion];
 
+  /*
+    Note: right now days are defined as UTC days.
+    We should probably use local time to define days
+  */
+
   const activities = Object.entries(groupBy(response, d => moment(d.date).startOf('day').toISOString()))
     .map(([k, values]) => ({
       id: `barry${k}`,
@@ -158,6 +163,8 @@ const config = {
   country: 'DK',
   isPrivate: true,
   type: ACTIVITY_TYPE_ELECTRICITY,
+  signupLink: 'https://getbarry.co/',
+  contributors: ['corradio'],
 };
 
 export default {
