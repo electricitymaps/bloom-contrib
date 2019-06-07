@@ -201,11 +201,12 @@ function parseTravels(allTravelsHTML, logger) {
     const splitToken = travelList[a]['date'].indexOf('-') !== -1 ? '-' : '/';
     const dateSplit = travelList[a]['date'].split(splitToken);
     const startTime = new Date(`20${dateSplit[2]}-${dateSplit[1]}-${dateSplit[0]}T${travelList[a]['start-time']}`);
-    let endTime = new Date(`20${dateSplit[2]}-${dateSplit[1]}-${dateSplit[0]}T${travelList[a]['end-time']}`);
+    const endStr = `20${dateSplit[2]}-${dateSplit[1]}-${dateSplit[0]}T${travelList[a]['end-time']}`;
+    let endTime = new Date(endStr);
 
     if (Number.isNaN(endTime.getTime())) {
       // Skip that item. It's probably a trip that doesn't have a checkout time
-      logger.logWarning(`Skipping item as it has an invalid checkout time "${travelList[a]['end-time']}".`);
+      logger.logWarning(`Skipping item as it has an invalid checkout time "${endStr}".`);
       continue;
     }
 
