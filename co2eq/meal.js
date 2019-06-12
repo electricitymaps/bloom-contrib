@@ -1,6 +1,6 @@
 export const modelVersion = 1;
 
-const MEAL_WEIGHT = 400; // grams
+export const MEAL_WEIGHT = 400; // grams
 
 // From http://www.greeneatz.com/foods-carbon-footprint.html
 const CARBON_INTENSITY = { // kgCO2eq / kg
