@@ -31,9 +31,12 @@ const b = isShortHaul => (isShortHaul ? 2.9866 : 6.1798); // empiric fuel consum
 const c = isShortHaul => (isShortHaul ? 1263.42 : 3446.20); // empiric fuel consumption parameter
 
 function airportIataCodeToCoordinates(iata) {
+  if (!airports[iata]) {
+    throw new Error(`Unknown airport code ${iata}`);
+  }
   return {
-    latitude: airports[iata].lat,
-    longitude: airports[iata].lon,
+    latitude: airports[iata].lonlat[0],
+    longitude: airports[iata].lonlat[1],
   };
 }
 
@@ -96,7 +99,7 @@ export function activityDistance(activity) {
   // If no airport code is available, and no distance is trusteable
   // therefore, compute distance based on duration
   if (!activity.durationHours) {
-    throw Error(`Invalid durationHours ${activity.durationHours}`);
+    throw new Error(`Invalid durationHours ${activity.durationHours}`);
   }
   return distanceFromDuration(activity.durationHours);
 }
@@ -108,7 +111,7 @@ export default function (activity) {
   const distance = activityDistance(activity);
 
   if (!Number.isFinite(distance)) {
-    throw Error(`Incorrect distance obtained: ${distance}`);
+    throw new Error(`Incorrect distance obtained: ${distance}`);
   }
   return emissionsFromDistanceAndClass(distance, activity.bookingClass);
 }
