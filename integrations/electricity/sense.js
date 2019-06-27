@@ -91,6 +91,9 @@ async function collect(state, { logWarning }) {
 const config = {
   description: 'collects electricity usage from your Sense device',
   label: 'Sense',
+  // Sense is currently in US and CA as of June 2019.
+  // https://help.sense.com/hc/en-us#article-205775488
+  // TODO: change this to ['US', 'CA'] if/when it supports multiple values.
   country: 'US',
   isPrivate: true,
   type: ACTIVITY_TYPE_ELECTRICITY,
