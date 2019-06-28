@@ -61,8 +61,10 @@ function disconnect() {
 }
 
 
-async function collect(state, { logWarning }) {
+async function collect(state, { logWarning }, { settings }) {
   const { token, user, monitor } = state;
+
+  const { locationLat, locationLon } = settings;
 
   const start = moment().startOf('day').subtract(1, 'day');
   const response = await request('GET', 'app/history/trends', token, {
@@ -82,6 +84,8 @@ async function collect(state, { logWarning }) {
       energyWattHours: whs.reduce((a, b) => a + b, 0),
       durationHours: whs.length,
       hourlyEnergyWattHours: whs,
+      locationLon,
+      locationLat,
     }],
     state,
   };
@@ -98,6 +102,7 @@ const config = {
   type: ACTIVITY_TYPE_ELECTRICITY,
   signupLink: 'https://sense.com/',
   contributors: ['snarfed'],
+  requiresLocationPrompt: true,
 };
 
 export default {
