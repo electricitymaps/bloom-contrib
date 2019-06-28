@@ -23,7 +23,7 @@ async function request(method, call, token, params) {
   }
 
   const response = await res.json();
-  if (response.status == 'error') {
+  if (response.status === 'error') {
     throw new Error(`Login failed: ${response.error_reason}`);
   }
 
