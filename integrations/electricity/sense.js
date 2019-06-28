@@ -7,16 +7,15 @@ import moment from 'moment';
 import { ACTIVITY_TYPE_ELECTRICITY } from '../../definitions';
 
 async function request(method, call, token, params) {
-  var req = {
-    method: method,
-    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+  const req = {
+    method,
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
   };
   if (token) {
-    req.headers['Authorization'] = 'Bearer ' + token
+    req.headers['Authorization'] = `Bearer ${token}`;
   }
 
-  const url = 'https://api.sense.com/apiservice/api/v1/' + call +
-        '?' + new URLSearchParams(params).toString();
+  const url = `https://api.sense.com/apiservice/api/v1/${call}?${new URLSearchParams(params).toString()}`;
   const res = await fetch(url, req);
   if (!res.ok) {
     const text = await res.text();
@@ -41,8 +40,8 @@ async function connect(requestLogin, requestWebView) {
 
   const response = await request('POST', 'authenticate', null, {
     email: username,
-    password: password,
-  })
+    password,
+  });
 
   // Set state to be persisted
   const token = response.access_token;
@@ -63,7 +62,7 @@ function disconnect() {
 
 
 async function collect(state, { logWarning }) {
-  const {token, user, monitor} = state;
+  const { token, user, monitor } = state;
 
   const start = moment().startOf('day').subtract(1, 'day');
   const response = await request('GET', 'app/history/trends', token, {
@@ -71,7 +70,7 @@ async function collect(state, { logWarning }) {
     device_id: 'usage',
     scale: 'day',
     start: start.toISOString(),
-  })
+  });
 
   const kwhs = response.consumption.totals;
   const whs = kwhs.map(kwh => kwh * 1000.0);
@@ -84,7 +83,7 @@ async function collect(state, { logWarning }) {
       durationHours: whs.length,
       hourlyEnergyWattHours: whs,
     }],
-    state: state,
+    state,
   };
 }
 
