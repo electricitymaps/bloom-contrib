@@ -3,14 +3,8 @@ import Base64 from 'crypto-js/enc-base64';
 import OAuth from 'oauth-1.0a';
 import { URLSearchParams } from 'whatwg-url';
 
-function objectToFormData(obj) {
-  const body = new URLSearchParams();
-  Object.keys(obj).forEach((k) => { body.append(k, obj[k]); });
-  return body.toString();
-}
-
-// eslint-disable-next-line no-undef
-const isPlayground = !(typeof navigator !== 'undefined' && navigator.product === 'ReactNative');
+import objectToFormData from './objectToFormData';
+import isPlayground from '../../playground/isPlayground';
 
 export class OAuthManager {
   constructor({
