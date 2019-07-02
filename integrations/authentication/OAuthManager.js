@@ -6,7 +6,7 @@ import { URLSearchParams } from 'whatwg-url';
 import objectToFormData from './objectToFormData';
 import isPlayground from '../../playground/isPlayground';
 
-export class OAuthManager {
+export default class {
   constructor({
     baseUrl,
     consumerKey,

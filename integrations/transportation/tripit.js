@@ -1,8 +1,8 @@
 import moment from 'moment';
 import flatten from 'lodash/flatten';
 
-import env from '../utils/loadenv';
-import { OAuthManager } from '../utils/oauth';
+import env from '../loadEnv';
+import { OAuthManager } from '../authentication';
 import {
   ACTIVITY_TYPE_TRANSPORTATION,
   TRANSPORTATION_MODE_PLANE,

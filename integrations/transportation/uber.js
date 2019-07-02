@@ -1,7 +1,7 @@
 import { ACTIVITY_TYPE_TRANSPORTATION, TRANSPORTATION_MODE_CAR } from '../../definitions';
 
-import env from '../utils/loadenv';
-import { OAuth2Manager } from '../utils/oauth2';
+import env from '../loadEnv';
+import { OAuth2Manager } from '../authentication';
 
 const manager = new OAuth2Manager({
   accessTokenUrl: 'https://login.uber.com/oauth/v2/token',
