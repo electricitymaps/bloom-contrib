@@ -3,7 +3,7 @@ import Base64 from 'crypto-js/enc-base64';
 import OAuth from 'oauth-1.0a';
 import { URLSearchParams } from 'whatwg-url';
 
-import objectToFormData from './objectToFormData';
+import objectToURLParams from './objectToURLParams';
 import isPlayground from '../../playground/isPlayground';
 
 export default class {
@@ -37,7 +37,7 @@ export default class {
     const method = 'POST';
     let req = {
       method,
-      body: objectToFormData(this.oauth.authorize({ url: this.requestTokenUrl, method, data: {} })),
+      body: objectToURLParams(this.oauth.authorize({ url: this.requestTokenUrl, method, data: {} })),
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
@@ -64,7 +64,7 @@ export default class {
     // Step 3 - Obtain an access token
     req = {
       method,
-      body: objectToFormData(this.oauth.authorize(
+      body: objectToURLParams(this.oauth.authorize(
         { url: this.accessTokenUrl, method, data: {} },
         { key: oauthToken, secret: oauthTokenSecret },
       )),

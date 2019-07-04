@@ -1,20 +1,10 @@
-import { URL } from 'url';
-
 import AuthenticationError from './AuthenticationError';
-import objectToFormData from './objectToFormData';
+import objectToURLParams from './objectToURLParams';
 import isPlayground from '../../playground/isPlayground';
 
 const callbackUrl = isPlayground
   ? 'http://localhost:3000/oauth_callback'
   : 'com.tmrow.greenbit://oauth_callback';
-
-function buildUrlWithParams(baseUrl, params) {
-  const url = new URL(baseUrl);
-
-  Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
-
-  return url;
-}
 
 export default class {
   constructor({
@@ -44,7 +34,7 @@ export default class {
 
     const response = await fetch(this.accessTokenUrl, {
       method: 'POST',
-      body: objectToFormData(formData),
+      body: objectToURLParams(formData),
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
@@ -67,12 +57,12 @@ export default class {
 
   async authorize(openUrlAndWaitForCallback) {
     // Step 1 - user authorizes app
-    const authorizationCodeRequestUrl = buildUrlWithParams(this.authorizeUrl, {
+    const requestURLParams = objectToURLParams({
       client_id: this.clientId,
       redirect_uri: callbackUrl,
       response_type: 'code',
     });
-
+    const authorizationCodeRequestUrl = `${this.authorizeUrl}?${requestURLParams}`;
     const authorizationResponse = await openUrlAndWaitForCallback(
       authorizationCodeRequestUrl,
       callbackUrl
@@ -92,7 +82,7 @@ export default class {
 
     const response = await fetch(this.accessTokenUrl, {
       method: 'POST',
-      body: objectToFormData(formData),
+      body: objectToURLParams(formData),
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
