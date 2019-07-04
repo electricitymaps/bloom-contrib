@@ -1,6 +1,6 @@
 # tmrowapp-contrib [![Slack Status](http://slack.tmrow.com/badge.svg)](http://slack.tmrow.com) [![CircleCI](https://circleci.com/gh/tmrowco/tmrowapp-contrib.svg?style=shield)](https://circleci.com/gh/tmrowco/tmrowapp-contrib)
 
-This repository contains the open-source integrations that allows the [Tomorrow](https://www.tmrow.com) app to automatically calculate your carbon impact.
+This repository contains the open-source integrations that allows the [Tomorrow](https://www.tmrow.com) app to automatically calculate your carbon impact. The [Tomorrow](https://www.tmrow.com) app is private-by-design: data will stay on device, unless the user explicitly gives consent.
 It also contains the CO2 models used by the app.
 This code is maintained by [Tomorrow](https://www.tmrow.com).
 
