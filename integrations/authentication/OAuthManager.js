@@ -4,7 +4,7 @@ import OAuth from 'oauth-1.0a';
 import { URLSearchParams } from 'whatwg-url';
 
 import objectToURLParams from './objectToURLParams';
-import isPlayground from '../../playground/isPlayground';
+import isReactNative from '../utils/isReactNative';
 
 export default class {
   constructor({
@@ -53,9 +53,10 @@ export default class {
     const oauthTokenSecret = resultParams.get('oauth_token_secret');
 
     // Step 2 - open window to get autorization credentials
-    const callbackUrl = isPlayground
-      ? 'http://localhost:3000/oauth_callback'
-      : 'com.tmrow.greenbit://oauth_callback';
+    const callbackUrl = isReactNative
+      ? 'com.tmrow.greenbit://oauth_callback'
+      : 'http://localhost:3000/oauth_callback';
+
     await openUrlAndWaitForCallback(
       `${this.authorizeUrl}?oauth_token=${oauthToken}&oauth_callback=${callbackUrl}`,
       callbackUrl

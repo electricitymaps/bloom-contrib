@@ -1,10 +1,10 @@
 import AuthenticationError from './AuthenticationError';
 import objectToURLParams from './objectToURLParams';
-import isPlayground from '../../playground/isPlayground';
+import isReactNative from '../utils/isReactNative';
 
-const callbackUrl = isPlayground
-  ? 'http://localhost:3000/oauth_callback'
-  : 'com.tmrow.greenbit://oauth_callback';
+const callbackUrl = isReactNative
+  ? 'com.tmrow.greenbit://oauth_callback'
+  : 'http://localhost:3000/oauth_callback';
 
 export default class {
   constructor({
