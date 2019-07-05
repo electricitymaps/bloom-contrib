@@ -3,16 +3,10 @@ import Base64 from 'crypto-js/enc-base64';
 import OAuth from 'oauth-1.0a';
 import { URLSearchParams } from 'whatwg-url';
 
-function objectToFormData(obj) {
-  const body = new URLSearchParams();
-  Object.keys(obj).forEach((k) => { body.append(k, obj[k]); });
-  return body.toString();
-}
+import objectToURLParams from './objectToURLParams';
+import isReactNative from '../utils/isReactNative';
 
-// eslint-disable-next-line no-undef
-const isPlayground = !(typeof navigator !== 'undefined' && navigator.product === 'ReactNative');
-
-export class OAuthManager {
+export default class {
   constructor({
     baseUrl,
     consumerKey,
@@ -43,7 +37,7 @@ export class OAuthManager {
     const method = 'POST';
     let req = {
       method,
-      body: objectToFormData(this.oauth.authorize({ url: this.requestTokenUrl, method, data: {} })),
+      body: objectToURLParams(this.oauth.authorize({ url: this.requestTokenUrl, method, data: {} })),
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
@@ -59,9 +53,10 @@ export class OAuthManager {
     const oauthTokenSecret = resultParams.get('oauth_token_secret');
 
     // Step 2 - open window to get autorization credentials
-    const callbackUrl = isPlayground
-      ? 'http://localhost:3000/oauth_callback'
-      : 'com.tmrow.greenbit://oauth_callback';
+    const callbackUrl = isReactNative
+      ? 'com.tmrow.greenbit://oauth_callback'
+      : 'http://localhost:3000/oauth_callback';
+
     await openUrlAndWaitForCallback(
       `${this.authorizeUrl}?oauth_token=${oauthToken}&oauth_callback=${callbackUrl}`,
       callbackUrl
@@ -70,7 +65,7 @@ export class OAuthManager {
     // Step 3 - Obtain an access token
     req = {
       method,
-      body: objectToFormData(this.oauth.authorize(
+      body: objectToURLParams(this.oauth.authorize(
         { url: this.accessTokenUrl, method, data: {} },
         { key: oauthToken, secret: oauthTokenSecret },
       )),
