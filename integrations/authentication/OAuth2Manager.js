@@ -113,26 +113,27 @@ export default class {
     return this.state;
   }
 
-  async fetch(route, method = 'GET', data = undefined) {
+  async fetch(route, init, logger) {
     if (typeof this.state.accessToken === 'undefined') {
       throw new AuthenticationError('not currently logged in, suggest re-authorizing.');
     }
 
     if (this.state.tokenExpiresAt < Date.now()) {
-      console.log('token expired, refreshing');
+      if (logger) {
+        logger.logDebug('token expired, refreshing');
+      }
 
       await this._authorizeWithRefreshToken();
     }
 
-    const url = `${this.baseUrl}${route}`;
-    const req = {
-      method,
-      body: data,
+    const resource = `${this.baseUrl}${route}`;
+
+    return fetch(resource, {
+      ...init,
       headers: {
+        ...init.headers,
         Authorization: `Bearer ${this.state.accessToken}`,
       },
-    };
-
-    return fetch(url, req);
+    });
   }
 }

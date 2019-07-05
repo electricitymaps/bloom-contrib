@@ -24,12 +24,12 @@ async function disconnect() {
   return {};
 }
 
-async function queryActivitiesFromOffset(offset) {
+async function queryActivitiesFromOffset(offset, logger) {
   /*
   API Documentation at https://developer.uber.com/docs/riders/references/api/v1.2/history-get
   */
   const url = `/v1.2/history?limit=50&offset=${offset || 0}`;
-  const res = await manager.fetch(url);
+  const res = await manager.fetch(url, {}, logger);
 
   if (!res.ok) {
     const text = await res.text();
@@ -60,7 +60,7 @@ async function collect(state, { logDebug }) {
   let nextOffset = 0;
   let hasMore;
   do {
-    const { activities, totalCount, limit } = await queryActivitiesFromOffset(nextOffset);
+    const { activities, totalCount, limit } = await queryActivitiesFromOffset(nextOffset, { logDebug });
     activities.forEach(d => allActivities.push(d));
     numItemsFetched += activities.length;
 
