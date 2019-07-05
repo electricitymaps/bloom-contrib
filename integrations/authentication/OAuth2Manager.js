@@ -63,12 +63,12 @@ export default class {
       response_type: 'code',
     });
     const authorizationCodeRequestUrl = `${this.authorizeUrl}?${requestURLParams}`;
-    const authorizationResponse = await openUrlAndWaitForCallback(
+    const authorizationResponseQuery = await openUrlAndWaitForCallback(
       authorizationCodeRequestUrl,
       callbackUrl
     );
     // Redirect response from authorization dialog contains auth code
-    const { code: authorizationCode } = authorizationResponse.query;
+    const { code: authorizationCode } = authorizationResponseQuery;
 
     // Step 2 - Obtain an access token
     const formData = {

@@ -85,8 +85,7 @@ io.on('connection', (socket) => {
 app.get('/', (req, res) => { res.sendFile('index.html', { root: __dirname }); });
 app.get('/oauth_callback', (req, res) => {
   // Fulfill promise and make sure client closes the window
-
-  resolveWebView(req);
+  resolveWebView(req.query);
   res.send('<script type="text/javascript">window.close()</script>');
 });
 
