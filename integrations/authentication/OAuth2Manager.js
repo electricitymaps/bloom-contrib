@@ -105,6 +105,10 @@ export default class {
     return this.state;
   }
 
+  async deauthorize() {
+    this.state = {};
+  }
+
   setState(state) {
     this.state = state;
   }

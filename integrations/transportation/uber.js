@@ -20,7 +20,7 @@ async function connect(requestLogin, requestWebView) {
 
 async function disconnect() {
   // Here we should do any cleanup (deleting tokens etc..)
-  await manager.deauthorize('uber');
+  await manager.deauthorize();
   return {};
 }
 
