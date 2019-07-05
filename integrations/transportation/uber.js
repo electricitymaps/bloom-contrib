@@ -59,6 +59,9 @@ async function collect(state, { logDebug }) {
   let numItemsFetched = 0;
   let nextOffset = 0;
   let hasMore;
+
+  manager.setState(state);
+
   do {
     const { activities, totalCount, limit } = await queryActivitiesFromOffset(nextOffset, { logDebug });
     activities.forEach(d => allActivities.push(d));
@@ -78,7 +81,7 @@ async function collect(state, { logDebug }) {
 
   return {
     activities: allActivities,
-    state: {},
+    state,
   };
 }
 
