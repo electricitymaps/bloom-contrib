@@ -163,7 +163,7 @@ const config = {
   country: 'DK',
   isPrivate: true,
   type: ACTIVITY_TYPE_ELECTRICITY,
-  signupLink: 'https://getbarry.co/',
+  signupLink: 'https://getbarry.page.link/download-barry',
   contributors: ['corradio'],
 };
 
