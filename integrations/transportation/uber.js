@@ -86,6 +86,7 @@ async function collect(state, { logDebug }) {
 }
 
 const config = {
+  contributors: ['willtonkin', 'corradio'],
   label: 'Uber',
   type: ACTIVITY_TYPE_TRANSPORTATION,
   isPrivate: true,
