@@ -12,6 +12,8 @@ const manager = new OAuth2Manager({
 });
 
 const MILES_TO_KM = 1.60934;
+const HISTORY_API_FETCH_LIMIT = 50;
+
 
 async function connect(requestLogin, requestWebView) {
   const state = await manager.authorize(requestWebView);
@@ -28,7 +30,7 @@ async function queryActivitiesFromOffset(offset, logger) {
   /*
   API Documentation at https://developer.uber.com/docs/riders/references/api/v1.2/history-get
   */
-  const url = `/v1.2/history?limit=50&offset=${offset || 0}`;
+  const url = `/v1.2/history?limit=${HISTORY_API_FETCH_LIMIT}&offset=${offset || 0}`;
   const res = await manager.fetch(url, {}, logger);
 
   if (!res.ok) {
@@ -51,37 +53,41 @@ async function queryActivitiesFromOffset(offset, logger) {
   }));
 
   // Note: `data.count` is the total number of items available
-  return { activities, totalCount: data.count, limit: 50 };
+  return { activities, totalCount: data.count };
 }
 
 async function collect(state, { logDebug }) {
-  const allActivities = [];
-  let numItemsFetched = 0;
-  let nextOffset = 0;
-  let hasMore;
-
   manager.setState(state);
 
-  do {
-    const { activities, totalCount, limit } = await queryActivitiesFromOffset(nextOffset, { logDebug });
-    activities.forEach(d => allActivities.push(d));
-    numItemsFetched += activities.length;
+  // fetch first result to check total number of rides
+  const {
+    activities: latestActivities,
+    totalCount,
+  } = await queryActivitiesFromOffset(0, { logDebug });
+  const fetches = [];
+  // return all items or the difference since last collect()
+  const itemsToFetch = totalCount - (state.lastTotalCount || 0);
 
-    // Query results are given from most recent to least.
-    // `totalCount` represents the total number of rides available in the API
-    if (totalCount - numItemsFetched > 0) {
-      // There's still items to fetch!
-      nextOffset += limit;
-      hasMore = true;
-      logDebug(`hasMore=true, nextOffset=${nextOffset}`);
-    } else {
-      hasMore = false;
-    }
-  } while (hasMore);
+  // we've already done one fetch, skip first
+  let fetchIndex = HISTORY_API_FETCH_LIMIT;
+
+  while (fetchIndex < itemsToFetch) {
+    fetches.push(queryActivitiesFromOffset(fetchIndex, { logDebug }));
+    fetchIndex += HISTORY_API_FETCH_LIMIT;
+  }
+
+  const allResults = (await Promise.all(fetches))
+    .reduce((acc, val) => acc.concat(val.activities), latestActivities);
+
+  // we possibly fetched too many results, only return new items
+  const cappedResults = allResults.slice(0, itemsToFetch);
 
   return {
-    activities: allActivities,
-    state,
+    activities: cappedResults,
+    state: {
+      ...state,
+      lastTotalCount: totalCount,
+    },
   };
 }
 
