@@ -9,7 +9,7 @@ import {
 
 import flightEmissions from './flights';
 
-export const modelVersion = 4;
+export const modelVersion = 5;
 
 /*
 Carbon intensity of transportation (kgCO2 per passenger and per km)
@@ -72,6 +72,11 @@ export function carbonEmissions(activity) {
     } else {
       return null;
     }
+  }
+
+  // Take into account the passenger count if this is a car
+  if (activity.transportationMode === TRANSPORTATION_MODE_CAR) {
+    return carbonIntensity(activity.transportationMode) * distanceKilometers / (activity.passengerCount || 1);
   }
   return carbonIntensity(activity.transportationMode) * distanceKilometers;
 }
