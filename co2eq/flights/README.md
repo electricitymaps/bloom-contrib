@@ -9,5 +9,5 @@ npm install -g dsv2json
 
 ```bash
 wget https://datahub.io/core/airport-codes/r/airport-codes.csv
-cat airport-codes.csv | csv2json -n | jq -s '.[] | select(.iata_code!="") | {iata_code,name,lonlat: (.coordinates / ", ")}' | jq -s 'INDEX(.iata_code)' > airports.json
+cat airport-codes.csv | csv2json -n | jq -s '.[] | select(.iata_code!="") | {iata_code,name,lonlat: (.coordinates / ", " | map(. | tonumber))}' | jq -s 'INDEX(.iata_code)' > airports.json
 ```
