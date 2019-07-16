@@ -49,7 +49,19 @@ The `collect` method is called periodically (typically every few hours) to fetch
 As the methods are pure, and to avoid re-asking the user for credentials everytime the `collect` method is called, a `state` object can be used to persist information (such as password, tokens..) across `collect`s.
 
 ### Activity formats
-For now please check the examples.
+#### electricity consumption
+```javascript
+{
+  id, // a string that uniquely represents this activity
+  datetime, // a javascript Date object that represents the start of the activity
+  durationHours, // an integer that represents the duration of the activity
+  activityType: ACTIVITY_TYPE_ELECTRICITY,
+  energyWattHours, // a float that represents the total energy used
+  hourlyEnergyWattHours, // (optional) an array of 24 floats that represent the hourly metering values
+  locationLon, // the location of the electricity consumption
+  locationLat, // the location of the electricity consumption
+}
+```
 
 ## Folder structure
 - `./co2eq`: carbon models
