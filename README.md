@@ -15,7 +15,7 @@ You can [contribute](#contribute) by
 
 Join us on [Slack](https://slack.tmrow.com) if you wish to discuss development, need help to get started and want to get access to a developer preview of the app.
 
-## Playground
+## Getting started
 To ease development, we've created a development playground.
 
 ### Integrations
@@ -23,6 +23,45 @@ First, you will have to create a JSON file called `env.json` where to store inte
 You can start by creating an empty file.
 
 Run `yarn` to install dependencies, then run `yarn serve` to start the playground and point your browser to [localhost:3000](http://localhost:3000) to get started.
+
+### How an integration works
+The job of an integration is to gather activities from a 3rd party datasource.
+To this end, 3 async methods need to be exported:
+
+```javascript
+async function connect(requestLogin, requestWebView) {
+  const { username, password } = await requestLogin();
+  // ...
+  return newState;
+}
+async function collect(state = {}, logger) {
+  // ...
+  return { activities, state: newState };
+}
+async function disconnect() {
+  // ...
+  return newState;
+}
+```
+
+The `connect` method is used to ask for user credentials (we also support OAuth flows).
+The `collect` method is called periodically (typically every few hours) to fetch new activities.
+As the methods are pure, and to avoid re-asking the user for credentials everytime the `collect` method is called, a `state` object can be used to persist information (such as password, tokens..) across `collect`s.
+
+### Activity formats
+#### electricity consumption
+```javascript
+{
+  id, // a string that uniquely represents this activity
+  datetime, // a javascript Date object that represents the start of the activity
+  durationHours, // an integer that represents the duration of the activity
+  activityType: ACTIVITY_TYPE_ELECTRICITY,
+  energyWattHours, // a float that represents the total energy used
+  hourlyEnergyWattHours, // (optional) an array of 24 floats that represent the hourly metering values
+  locationLon, // the location of the electricity consumption
+  locationLat, // the location of the electricity consumption
+}
+```
 
 ## Folder structure
 - `./co2eq`: carbon models
