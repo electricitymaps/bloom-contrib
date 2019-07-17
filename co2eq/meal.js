@@ -2,8 +2,8 @@ export const modelVersion = 1;
 
 export const MEAL_WEIGHT = 400; // grams
 
-// From http://www.greeneatz.com/foods-carbon-footprint.html
 const CARBON_INTENSITY = { // kgCO2eq / kg
+// From http://www.greeneatz.com/foods-carbon-footprint.html
   'Lamb': 39.2,
   'Beef': 27.0,
   'Cheese': 13.5,
@@ -20,6 +20,7 @@ const CARBON_INTENSITY = { // kgCO2eq / kg
   'Milk': 1.9,
   'Fruit': 1.1,
   'Lentils': 0.9,
+// From https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
   'Pasta': 1.2,
   'Cod': 2.4,
   'Flatfish': 6.2,
@@ -27,7 +28,7 @@ const CARBON_INTENSITY = { // kgCO2eq / kg
   'Shrimp (Fresh)': 3,
   'Shrimp (Frozen)': 10.5,
   'Clams': 0.1,
-  'Lobster': 20.2
+  'Lobster': 20.2,
 };
 export const INGREDIENTS = Object.keys(CARBON_INTENSITY);
 
