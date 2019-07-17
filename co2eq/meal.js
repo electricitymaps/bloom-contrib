@@ -20,7 +20,7 @@ const CARBON_INTENSITY = { // kgCO2eq / kg
   'Milk': 1.9,
   'Fruit': 1.1,
   'Lentils': 0.9,
-// From https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
+  // From https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
   'Pasta': 1.2,
   'Cod': 2.4,
   'Flatfish': 6.2,
