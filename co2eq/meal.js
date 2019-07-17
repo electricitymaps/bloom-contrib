@@ -20,6 +20,14 @@ const CARBON_INTENSITY = { // kgCO2eq / kg
   'Milk': 1.9,
   'Fruit': 1.1,
   'Lentils': 0.9,
+  'Pasta': 1.2,
+  'Cod': 2.4,
+  'Flatfish': 6.2,
+  'Herring': 1.3,
+  'Shrimp (Fresh)': 3,
+  'Shrimp (Frozen)': 10.5,
+  'Clams': 0.1,
+  'Lobster': 20.2
 };
 export const INGREDIENTS = Object.keys(CARBON_INTENSITY);
 
