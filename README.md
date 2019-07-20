@@ -4,7 +4,7 @@ This repository contains the open-source integrations that allows the [Tomorrow]
 It also contains the CO2 models used by the app.
 This code is maintained by [Tomorrow](https://www.tmrow.com).
 
-To get started, browse existing [suggestions](https://github.com/tmrowco/tmrowapp-contrib/issues). Feel free to watch [the presentation](https://www.youtube.com/watch?v=keOPXD-ojWY) of our CEO & Founder Olivier that he gave to CopenhagenJS, explaining what can a javascript developer do to combat climate change.
+To get started, browse existing [suggestions](https://github.com/tmrowco/tmrowapp-contrib/issues). Feel free to watch [the presentation](https://www.youtube.com/watch?v=keOPXD-ojWY) of our CEO & Founder Olivier gave to CopenhagenJS, explaining what a javascript developer can do to combat climate change.
 
 You can [contribute](#contribute) by
 - [suggesting](https://github.com/tmrowco/tmrowapp-contrib/issues/new) a new integration
