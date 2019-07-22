@@ -38,6 +38,7 @@ Working on it.
 - Linky (contributor:[bokub](https://github.com/bokub))
 - Barry
 - Renault Zoé
+
 Help us out with an integration and CO2 models. Check what [we think makes a great integration!](https://tmrow.slite.com/api/s/note/8LLSWazeBZZyS4BEQiLTnJ/What-makes-a-great-integration-for-Tomorrow)
 
 ### Groceries
