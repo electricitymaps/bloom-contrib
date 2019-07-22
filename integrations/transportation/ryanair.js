@@ -9,7 +9,6 @@ const PROFILE_URL = `${BASE_URL}secure/users/`;
 // user info available at `${PROFILE_URL}${customerId}/profile/full/`
 
 async function logIn(username, password) {
-
   const res = await agent
     .post(LOGIN_URL)
     .type('application/x-www-form-urlencoded')
@@ -76,8 +75,6 @@ async function getAllFlights(entries, customerId, token) {
   return allFlights;
 }
 
-// const minToHours = mins => `${Math.floor(mins / 60)}:${mins % 60}`;
-
 async function collect(state) {
   const { token, customerId } = state;
 
@@ -99,9 +96,7 @@ async function collect(state) {
       // WHY: there can be multiple bookings for the same flight (e.g. for different passengers)
       // HOW: filters flights with the same flight number
       const uniqueFlights = Array.from(new Set(allFlights.map(a => a.flightInfo.FlightNumber)))
-        .map((mappedFlightNumber) => {
-          return allFlights.find(a => a.flightInfo.FlightNumber === mappedFlightNumber)
-        });
+        .map(mappedFlightNumber => allFlights.find(a => a.flightInfo.FlightNumber === mappedFlightNumber));
 
       return Object.values(uniqueFlights)
         .map(k => ({
@@ -110,7 +105,7 @@ async function collect(state) {
           datetime: k.flightInfo.DepartLocal,
           // TODO: calculate distance between airports using some API
           // distanceKilometers: ,
-          durationHours: moment(k.flightInfo.Arrive).diff(moment(k.flightInfo.Depart), 'minutes'),
+          durationHours: moment(k.flightInfo.Arrive).diff(moment(k.flightInfo.Depart), 'minutes') / 60,
           activityType: ACTIVITY_TYPE_TRANSPORTATION,
           transportationMode: TRANSPORTATION_MODE_PLANE,
           carrier: 'Ryanair',
