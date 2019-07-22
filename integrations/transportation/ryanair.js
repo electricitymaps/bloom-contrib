@@ -9,7 +9,6 @@ const PROFILE_URL = `${BASE_URL}secure/users/`;
 // user info available at `${PROFILE_URL}${customerId}/profile/full/`
 
 async function logIn(username, password) {
-
   const res = await agent
     .post(LOGIN_URL)
     .type('application/x-www-form-urlencoded')
@@ -100,7 +99,7 @@ async function collect(state) {
       // HOW: filters flights with the same flight number
       const uniqueFlights = Array.from(new Set(allFlights.map(a => a.flightInfo.FlightNumber)))
         .map((mappedFlightNumber) => {
-          return allFlights.find(a => a.flightInfo.FlightNumber === mappedFlightNumber)
+          return allFlights.find(a => a.flightInfo.FlightNumber === mappedFlightNumber);
         });
 
       return Object.values(uniqueFlights)
