@@ -105,7 +105,7 @@ async function collect(state) {
           datetime: k.flightInfo.DepartLocal,
           // TODO: calculate distance between airports using some API
           // distanceKilometers: ,
-          durationHours: moment(k.flightInfo.Arrive).diff(moment(k.flightInfo.Depart), 'minutes')/60,
+          durationHours: moment(k.flightInfo.Arrive).diff(moment(k.flightInfo.Depart), 'minutes') / 60,
           activityType: ACTIVITY_TYPE_TRANSPORTATION,
           transportationMode: TRANSPORTATION_MODE_PLANE,
           carrier: 'Ryanair',
