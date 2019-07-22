@@ -98,9 +98,7 @@ async function collect(state) {
       // WHY: there can be multiple bookings for the same flight (e.g. for different passengers)
       // HOW: filters flights with the same flight number
       const uniqueFlights = Array.from(new Set(allFlights.map(a => a.flightInfo.FlightNumber)))
-        .map((mappedFlightNumber) => {
-          return allFlights.find(a => a.flightInfo.FlightNumber === mappedFlightNumber);
-        });
+        .map(mappedFlightNumber => allFlights.find(a => a.flightInfo.FlightNumber === mappedFlightNumber));
 
       return Object.values(uniqueFlights)
         .map(k => ({
