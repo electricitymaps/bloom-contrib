@@ -8,7 +8,7 @@ const LOGIN_URL = `${BASE_URL}login`;
 const PROFILE_URL = `${BASE_URL}secure/users/`;
 // user info available at `${PROFILE_URL}${customerId}/profile/full/`
 
-async function logIn(username, password) {
+async function logIn(username, password, logger) {
   const res = await agent
     .post(LOGIN_URL)
     .type('application/x-www-form-urlencoded')
@@ -19,8 +19,8 @@ async function logIn(username, password) {
     });
 
   if (!res.ok) {
-    console.error('--------RESPONSE---------', res);
-    throw Error('Error while logging in.');
+    logger.logDebug('Error while logging in.');
+    throw Error('We\'re not logged in.');
   }
 
   return {
@@ -29,7 +29,7 @@ async function logIn(username, password) {
   };
 }
 
-async function connect(requestLogin, requestWebView) {
+async function connect(requestLogin, requestWebView, logger) {
   // Here we can request credentials etc..
 
   // Here we can use two functions to invoke screens
@@ -40,7 +40,7 @@ async function connect(requestLogin, requestWebView) {
     throw Error('Password cannot be empty');
   }
 
-  return logIn(username, password);
+  return logIn(username, password, logger);
 }
 
 function disconnect() {
@@ -84,8 +84,8 @@ async function collect(state, logger) {
     .set('X-Auth-Token', token);
 
   if (!pastBookings.ok) {
-    console.error('--------RESPONSE---------', pastBookings);
-    throw Error('Error while fetching past bookings.');
+    log.debug(`Error while fetching past bookings. ${pastBookings}`);
+    throw Error('We couldn\'t find any past bookings.');
   }
 
   const entries = pastBookings.body.bookings.filter(entry => entry.status === 'Confirmed');
@@ -103,15 +103,12 @@ async function collect(state, logger) {
           // TODO: make sure it's always unique
           id: `B${k.bookingId}${k.flightInfo.FlightNumber}PNR${k.pnr}`,
           datetime: k.flightInfo.DepartLocal,
-          // TODO: calculate distance between airports using some API
-          // distanceKilometers: ,
           durationHours: moment(k.flightInfo.Arrive).diff(moment(k.flightInfo.Depart), 'minutes') / 60,
           activityType: ACTIVITY_TYPE_TRANSPORTATION,
           transportationMode: TRANSPORTATION_MODE_PLANE,
           carrier: 'Ryanair',
-          // TODO: "translate" city name abrrievations to full names
-          departureStation: k.flightInfo.Origin,
-          destinationStation: k.flightInfo.Destination,
+          departureAirportCode: k.flightInfo.Origin,
+          destinationAirportCode: k.flightInfo.Destination,
         }));
     });
 
