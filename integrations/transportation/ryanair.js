@@ -84,7 +84,7 @@ async function collect(state, logger) {
     .set('X-Auth-Token', token);
 
   if (!pastBookings.ok) {
-    log.debug(`Error while fetching past bookings. ${pastBookings}`);
+    logger.debug(`Error while fetching past bookings. ${pastBookings}`);
     throw Error('We couldn\'t find any past bookings.');
   }
 
