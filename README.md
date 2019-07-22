@@ -26,6 +26,7 @@ The app let's you input trips manually by distance or time and transportation mo
 - Tripit
 - Uber (contributor:[willtonkin](https://github.com/willtonkin))
 - Rejsekort
+
 Help us out with an integration and CO2 models. Check what [we think makes a great integration!](https://tmrow.slite.com/api/s/note/8LLSWazeBZZyS4BEQiLTnJ/What-makes-a-great-integration-for-Tomorrow)
 
 ### Utilities
