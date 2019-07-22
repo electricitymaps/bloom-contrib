@@ -106,6 +106,20 @@ As the methods are pure, and to avoid re-asking the user for credentials everyti
   locationLat, // the location of the electricity consumption
 }
 ```
+#### transportation consumption
+```javascript
+{
+  id, // a string that uniquely represents this activity
+  datetime, // a javascript Date object that represents the start of the activity
+  durationHours, // a floating point that represents the duration of the activity in decimal hours
+  distanceKilometers, // an integer that represents the amount of kilometers traveled
+  activityType: ACTIVITY_TYPE_TRANSPORTATION,
+  transportationMode, // a variable (from definitions.js) that represents the transportation mode
+  carrier, // (optional) a string that represents the transportation company
+  departureStation, // a string that represents the original starting point
+  destinationStation, // a string that represents the final destination
+}
+```
 
 ## Folder structure
 - `./co2eq`: carbon models
