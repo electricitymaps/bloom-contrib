@@ -75,7 +75,7 @@ async function getAllFlights(entries, customerId, token) {
   return allFlights;
 }
 
-async function collect(state) {
+async function collect(state, logger) {
   const { token, customerId } = state;
 
   const pastBookings = await agent
