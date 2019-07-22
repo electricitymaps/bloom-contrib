@@ -106,7 +106,7 @@ As the methods are pure, and to avoid re-asking the user for credentials everyti
   locationLat, // the location of the electricity consumption
 }
 ```
-#### transportation consumption
+#### transportation
 ```javascript
 {
   id, // a string that uniquely represents this activity
