@@ -4,7 +4,7 @@ This repository contains the open-source integrations that allows the [Tomorrow]
 It also contains the CO2 models used by the app.
 This code is maintained by [Tomorrow](https://www.tmrow.com).
 
-To get started, browse existing [suggestions](https://github.com/tmrowco/tmrowapp-contrib/issues).
+To get started, browse existing [suggestions](https://github.com/tmrowco/tmrowapp-contrib/issues). Feel free to watch [the presentation](https://www.youtube.com/watch?v=keOPXD-ojWY) of our CEO & Founder Olivier gave to CopenhagenJS, explaining what a javascript developer can do to combat climate change.
 
 You can [contribute](#contribute) by
 - [suggesting](https://github.com/tmrowco/tmrowapp-contrib/issues/new) a new integration
@@ -14,6 +14,50 @@ You can [contribute](#contribute) by
 - submitting ideas, feature requests, or bugs in the [issues](https://github.com/tmrowco/tmrowapp-contrib/issues/new) section.
 
 Join us on [Slack](https://slack.tmrow.com) if you wish to discuss development, need help to get started and want to get access to a developer preview of the app.
+
+## Status on [integrations](https://github.com/tmrowco/tmrowapp-contrib/tree/master/integrations)
+
+### Transportation
+
+#### Manual
+The app let's you input trips manually by distance or time and transportation mode, and amount of passengers for a car trip.
+
+#### Automated
+- Tripit
+- Uber (contributor:[willtonkin](https://github.com/willtonkin))
+- Rejsekort
+Help us out with an integration and CO2 models. Check what [we think makes a great integration!](https://tmrow.slite.com/api/s/note/8LLSWazeBZZyS4BEQiLTnJ/What-makes-a-great-integration-for-Tomorrow)
+
+### Utilities
+
+#### Manual
+Working on it.
+
+#### Automated
+- Sense (contributor:[snarfed](https://github.com/snarfed))
+- Linky (contributor:[bokub](https://github.com/bokub))
+- Barry
+- Renault Zoé
+
+Help us out with an integration and CO2 models. Check what [we think makes a great integration!](https://tmrow.slite.com/api/s/note/8LLSWazeBZZyS4BEQiLTnJ/What-makes-a-great-integration-for-Tomorrow)
+
+### Groceries
+#### Manual
+The app let's you input meals manually by type of food. Help us out with more CO2 models!
+
+#### Automated
+Nothing yet! Help us out with an integration and CO2 models. Check what [we think makes a great integration!](https://tmrow.slite.com/api/s/note/8LLSWazeBZZyS4BEQiLTnJ/What-makes-a-great-integration-for-Tomorrow)
+
+### Others
+#### Manual
+Working on it.
+
+#### Automated
+Nothing yet! Help us out with an integration and CO2 models. Check what [we think makes a great integration!](https://tmrow.slite.com/api/s/note/8LLSWazeBZZyS4BEQiLTnJ/What-makes-a-great-integration-for-Tomorrow)
+
+## Status on [CO2 models](https://github.com/tmrowco/tmrowapp-contrib/tree/master/integrations)
+
+Our CO2 models sources can be checked by anyone [here](https://github.com/tmrowco/tmrowapp-contrib/tree/master/integrations) . Help us out with more and more precise models.
 
 ## Getting started
 To ease development, we've created a development playground.
