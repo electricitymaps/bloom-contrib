@@ -57,13 +57,13 @@ Nothing yet! Help us out with an integration and CO2 models. Check what [we thin
 
 ## Status on [CO2 models](https://github.com/tmrowco/tmrowapp-contrib/tree/master/integrations)
 
-Our CO2 models sources can be checked by anyone [here](https://github.com/tmrowco/tmrowapp-contrib/tree/master/integrations) . Help us out with more and more precise models.
+Our CO2 models sources can be checked by anyone [here](https://github.com/tmrowco/tmrowapp-contrib/tree/master/integrations). Help us out with more and more precise models.
 
 ## Getting started
 To ease development, we've created a development playground.
 
 ### Integrations
-First, you will have to create a JSON file called `env.json` where to store integration credientials when needed.
+First, you will have to create a JSON file called `env.json` where to store integration credentials when needed.
 You can start by creating an empty file.
 
 Run `yarn` to install dependencies, then run `yarn serve` to start the playground and point your browser to [localhost:3000](http://localhost:3000) to get started.
