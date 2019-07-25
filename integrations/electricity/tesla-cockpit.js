@@ -33,9 +33,8 @@ function disconnect() {
   return {};
 }
 
-async function collect(state, logger, utils) {
-  const { token } = state;
-  const res = await fetch(`${BASE_URL}/Vehicle/Charges/989`, {
+async function fetchVehicleCharges(token, vehicleId) {
+  const res = await fetch(`${BASE_URL}/Vehicle/Charges/${vehicleId}`, {
     headers: {
       Authorization: token,
       'Cache-control': 'no-cache',
@@ -46,9 +45,38 @@ async function collect(state, logger, utils) {
     throw new Error(`HTTP error ${res.status}: ${text}`);
   }
   const data = await res.json();
+  return data;
+}
+async function fetchVehicleInfo(token) {
+  const res = await fetch(`${BASE_URL}/Account/Vehicles`, {
+    headers: {
+      Authorization: token,
+      'Cache-control': 'no-cache',
+    },
+  });
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`HTTP error ${res.status}: ${text}`);
+  }
+  const data = await res.json();
+  return data;
+}
+
+async function collect(state, logger, utils) {
+  const { token } = state;
+  // Get timezone of vehicle
+  const vehicles = await fetchVehicleInfo(token);
+  if (!vehicles.length) {
+    throw new Error('No vehicles found');
+  }
+  const vehicle = vehicles[0];
+  const timezone = /\+\d\d:\d\d/.exec(vehicle.TimeZoneDisplayName); // +01:00
+  const vehicleId = vehicle.VehicleID;
+
+  const data = await fetchVehicleCharges(token, vehicleId);
   const activities = data.map((d) => {
-    const startMoment = moment(d.ChargeStartDate, 'DD/MM/YYYY HH:mm');
-    const endMoment = moment(d.ChargeEndDate, 'DD/MM/YYYY HH:mm');
+    const startMoment = moment(`${d.ChargeStartDate} ${timezone}`, 'DD/MM/YYYY HH:mm Z');
+    const endMoment = moment(`${d.ChargeEndDate} ${timezone}`, 'DD/MM/YYYY HH:mm Z');
     let efficiency = parseFloat(d.Efficiency.replace(',', '.').replace(' %', '')) / 100.0;
 
     if (efficiency <= 0.8 || efficiency > 1) {
