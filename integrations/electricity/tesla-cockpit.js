@@ -25,7 +25,7 @@ async function connect(requestLogin, requestWebView) {
   if (!data.length) {
     throw new Error('No API token were found in response');
   }
-  return { token: data[0].APIToken };
+  return { token: data[0].CreatorToken };
 }
 
 function disconnect() {
