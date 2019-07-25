@@ -5,6 +5,12 @@ import generateGUID from '../utils/generateGUID';
 
 import env from '../loadEnv';
 
+/*
+Potential improvements:
+- only refetch items since last fetch.
+- only fetch data from selected accounts
+*/
+
 const categoriesMap = require('./nordic-api-gateway/categories_map.json');
 const categoriesTranslation = require('./nordic-api-gateway/categories_translation.json');
 
