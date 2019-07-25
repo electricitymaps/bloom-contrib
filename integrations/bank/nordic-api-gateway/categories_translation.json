@@ -1,11 +1,11 @@
 [
   {
     "APIcat": "Supermarket",
-    "AlandCat": "Grocery Stores And Supermarkets"
+    "AlandCat": "Grocery Stores and Supermarkets"
   },
   {
     "APIcat": "Remodeling & Repair",
-    "AlandCat": "Department Store"
+    "AlandCat": "Department Stores"
   },
   {
     "APIcat": "Food & Drinks",
@@ -342,7 +342,7 @@
   },
   {
     "APIcat": "Furniture & Interior",
-    "AlandCat": "House furnishing specialty shops"
+    "AlandCat": "House furnishing speciality shops"
   },
   {
     "APIcat": "Clothing & Accessories",
