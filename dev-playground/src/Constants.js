@@ -1,5 +1,6 @@
-const INITIAL_CODE =
-  `import logger from '../../Logger';
+const INITIAL_CODE = `import {Logger} from '../../Logger';
+
+const logger = new Logger();
 
 //Parameters must be methods
 async function connect(requestLogin, requestWebView) {

@@ -1,90 +1,62 @@
-.App {
-    text-align: center;
-    user-select: none;
+.root {
+	user-select: none;
+	color: white;
 }
 
-/** {*/
-/*    background-color: #F9FAFC;*/
-/*    color: black;*/
-/*}*/
-
-.test-results {
-    position: absolute;
-    left: 61%;
-    top: 22%;
-    height: 77%;
-    width: 38.5%;
-    font-size: 20px;
-    overflow-y: scroll;
+.vertical-split {
+	width: 50%;
+	position: fixed;
+	z-index: 1;
+	top: 0;
 }
 
-.integrations {
-    position: absolute;
-    left: 61%;
-    top: 1%;
-    height: 20%;
-    width: 13%;
-    font-size: 20px;
+.left {
+	left: 0;
 }
 
-.auth-input {
-    position: absolute;
-    left: 21.5%;
-    top: 73%;
-    width: 9%;
-    height: 26%;
-    font-size: 20px
+/* Control the right side */
+.right {
+	right: 0;
+	height: 100%;
+	background-color: #1e1e1e;
 }
 
-.env-input {
-    position: absolute;
-    left: 74.5%;
-    top: 1%;
-    width: 25%;
-    height: 20%;
-    font-size: 20px;
+.top {
+	top: 0;
+	height: 50%;
+	left: 50%;
 }
 
-.documentation {
-    position: absolute;
-    left: 31%;
-    top: 73%;
-    width: 28%;
-    height: 26%;
-    font-size: 16px;
-    overflow-y: scroll;
+.bottom {
+	bottom: 0;
+	height: 50%;
+	left: 50%;
 }
 
-.log {
-    position: absolute;
-    left: 1%;
-    top: 73%;
-    width: 20%;
-    height: 26%;
-    font-size: 16px;
-    overflow-y: scroll;
-}
+/* If you want the content centered horizontally and vertically */
 
-.title {
-    margin-left: 10px
+.gauge {
+	margin: auto;
+	width: 50%;
+	padding: 10px;
 }
 
 .log-demo {
-    background-color: black;
+	background-color: black;
 }
 
 .log-info {
-    color: white
+	color: white;
 }
 
 .log-debug {
-    color: green;
+	color: green;
 }
 
 .log-warning {
-    color: yellow
+	color: yellow;
 }
 
 .log-error {
-    color: red
+	color: red;
 }

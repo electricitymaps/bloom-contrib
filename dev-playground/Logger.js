@@ -1,12 +1,12 @@
-let logs = [];
+export class Logger {
+	constructor() {
+		this.logs = [];
+		this.log = (level, message) => this.logs.push({ level, message });
 
-const log = (level, message) => logs.push({ level, message })
-
-const popLogs = () => {
-    const tempLogs = logs;
-    logs = [];
-    return tempLogs;
+		this.popLogs = () => {
+			const tempLogs = this.logs;
+			this.logs = [];
+			return tempLogs;
+		};
+	}
 }
-
-module.exports.log = log;
-module.exports.popLogs = popLogs;
