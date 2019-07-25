@@ -4,6 +4,9 @@ import isReactNative from '../utils/isReactNative';
 
 import env from '../loadEnv';
 
+const categoriesMap = require('./nordic-api-gateway/categories_map.json');
+const categoriesTranslation = require('./nordic-api-gateway/categories_translation.json');
+
 const callbackUrl = isReactNative
   ? 'com.tmrow.greenbit://oauth_callback'
   : 'http://localhost:3000/oauth_callback';
@@ -46,6 +49,22 @@ async function disconnect() {
   return {};
 }
 
+function parseCategory(category) {
+  if (category) {
+    // Map id to name
+    const mapped = categoriesMap.categories.find(cat => cat.category.id === category.id);
+    const mappedName = mapped.category.name.en;
+
+    // Translate name to name recognized by åland
+    const translated = categoriesTranslation.find(m => m.APIcat === mappedName);
+    const translatedName = translated.AlandCat;
+
+    return translatedName;
+  }
+
+  return null;
+}
+
 function parseTransactions(transactions, accountName) {
   // { id: '20190608-2600-0',
   //   date: '2019-06-08',
@@ -65,7 +84,7 @@ function parseTransactions(transactions, accountName) {
     activityType: ACTIVITY_TYPE_BANK,
     datetime: t.date,
     text: t.text,
-    category: t.category,
+    category: parseCategory(t.category),
     amount: t.amount,
   }));
 }
@@ -81,7 +100,7 @@ async function collect(state, { logDebug }) {
 
   // eslint-disable-next-line no-restricted-syntax
   for (const account of accounts) {
-    logDebug(account.id); 
+    logDebug(account.id);
     const tr = await agent.get(transactionsUrl.replace('{accountId}', account.id));
     const a = parseTransactions(tr.body.transactions, account.name);
     activities = a.concat(activities);

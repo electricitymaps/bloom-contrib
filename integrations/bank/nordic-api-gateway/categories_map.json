@@ -1,0 +1,1024 @@
+{
+    "categories": [
+        {
+            "category": {
+                "id": "10",
+                "parentId": "0",
+                "name": {
+                    "en": "Hide"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "100",
+                "parentId": "10",
+                "name": {
+                    "en": "Transfer"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "101",
+                "parentId": "10",
+                "name": {
+                    "en": "Shared Expense"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "102",
+                "parentId": "10",
+                "name": {
+                    "en": "Exclude"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "103",
+                "parentId": "11",
+                "name": {
+                    "en": "Salary"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "104",
+                "parentId": "11",
+                "name": {
+                    "en": "Pension Payout"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "105",
+                "parentId": "11",
+                "name": {
+                    "en": "Unemployment Benefits"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "106",
+                "parentId": "11",
+                "name": {
+                    "en": "Student Grant"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "107",
+                "parentId": "11",
+                "name": {
+                    "en": "Child Benefit"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "108",
+                "parentId": "11",
+                "name": {
+                    "en": "Alimony & Child Support"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "109",
+                "parentId": "11",
+                "name": {
+                    "en": "Holiday Pay"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "11",
+                "parentId": "0",
+                "name": {
+                    "en": "Income"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "110",
+                "parentId": "11",
+                "name": {
+                    "en": "Interest Income"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "111",
+                "parentId": "11",
+                "name": {
+                    "en": "Yield & Returns"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "112",
+                "parentId": "11",
+                "name": {
+                    "en": "Overpaid Tax"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "113",
+                "parentId": "11",
+                "name": {
+                    "en": "Other Income"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "114",
+                "parentId": "12",
+                "name": {
+                    "en": "Mortgage/Rent"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "115",
+                "parentId": "12",
+                "name": {
+                    "en": "Utilities"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "116",
+                "parentId": "12",
+                "name": {
+                    "en": "Homeowners Association"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "117",
+                "parentId": "12",
+                "name": {
+                    "en": "Property Tax"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "118",
+                "parentId": "12",
+                "name": {
+                    "en": "Building Insurance"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "119",
+                "parentId": "12",
+                "name": {
+                    "en": "Contents Insurance"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "12",
+                "parentId": "0",
+                "name": {
+                    "en": "Home"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "120",
+                "parentId": "12",
+                "name": {
+                    "en": "Home Security"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "121",
+                "parentId": "12",
+                "name": {
+                    "en": "Vacation Home Expenses"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "122",
+                "parentId": "12",
+                "name": {
+                    "en": "Remodeling & Repair"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "123",
+                "parentId": "13",
+                "name": {
+                    "en": "Auto Loan etc."
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "124",
+                "parentId": "13",
+                "name": {
+                    "en": "Fuel"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "125",
+                "parentId": "13",
+                "name": {
+                    "en": "Auto Insurance & Assistance"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "126",
+                "parentId": "13",
+                "name": {
+                    "en": "Road Tax & Green Tax"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "127",
+                "parentId": "13",
+                "name": {
+                    "en": "Public Transport"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "128",
+                "parentId": "13",
+                "name": {
+                    "en": "Taxi"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "129",
+                "parentId": "13",
+                "name": {
+                    "en": "Parking"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "13",
+                "parentId": "0",
+                "name": {
+                    "en": "Auto & Transport"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "130",
+                "parentId": "13",
+                "name": {
+                    "en": "Garage & Auto Parts"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "131",
+                "parentId": "13",
+                "name": {
+                    "en": "Other Transport"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "132",
+                "parentId": "14",
+                "name": {
+                    "en": "Supermarket"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "133",
+                "parentId": "14",
+                "name": {
+                    "en": "Mini-markets & Delicacies"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "134",
+                "parentId": "16",
+                "name": {
+                    "en": "Pharmacy"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "135",
+                "parentId": "15",
+                "name": {
+                    "en": "Flights & Hotels"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "138",
+                "parentId": "15",
+                "name": {
+                    "en": "Car Rental"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "139",
+                "parentId": "15",
+                "name": {
+                    "en": "Vacation Home & Camping"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "14",
+                "parentId": "0",
+                "name": {
+                    "en": "Household"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "140",
+                "parentId": "15",
+                "name": {
+                    "en": "Vacation Activities"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "141",
+                "parentId": "15",
+                "name": {
+                    "en": "Travel Insurance"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "142",
+                "parentId": "16",
+                "name": {
+                    "en": "Alimony & Child Support"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "143",
+                "parentId": "16",
+                "name": {
+                    "en": "Child Care & Tuition"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "144",
+                "parentId": "16",
+                "name": {
+                    "en": "Union & Unemployment Insurance"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "145",
+                "parentId": "16",
+                "name": {
+                    "en": "Life & Accident Insurance"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "146",
+                "parentId": "16",
+                "name": {
+                    "en": "Health Insurance"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "147",
+                "parentId": "17",
+                "name": {
+                    "en": "Sports & Leisure"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "148",
+                "parentId": "16",
+                "name": {
+                    "en": "TV license & Cable"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "149",
+                "parentId": "16",
+                "name": {
+                    "en": "Phone & Internet"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "15",
+                "parentId": "0",
+                "name": {
+                    "en": "Travel"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "151",
+                "parentId": "17",
+                "name": {
+                    "en": "Housekeeping & Gardening"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "153",
+                "parentId": "16",
+                "name": {
+                    "en": "Medical Specialists"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "154",
+                "parentId": "16",
+                "name": {
+                    "en": "Glasses & Contacts"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "155",
+                "parentId": "17",
+                "name": {
+                    "en": "Fast Food & Takeaway"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "156",
+                "parentId": "17",
+                "name": {
+                    "en": "Food & Drinks"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "157",
+                "parentId": "17",
+                "name": {
+                    "en": "Clothing & Accessories"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "158",
+                "parentId": "17",
+                "name": {
+                    "en": "Furniture & Interior"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "159",
+                "parentId": "17",
+                "name": {
+                    "en": "Electronics & Computer"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "16",
+                "parentId": "0",
+                "name": {
+                    "en": "Basic Expenses"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "160",
+                "parentId": "17",
+                "name": {
+                    "en": "Games & Toys"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "161",
+                "parentId": "17",
+                "name": {
+                    "en": "Hobby & Sports Equipment"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "162",
+                "parentId": "17",
+                "name": {
+                    "en": "Hairdresser & Personal Care"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "163",
+                "parentId": "17",
+                "name": {
+                    "en": "Movies, Music & Books"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "164",
+                "parentId": "17",
+                "name": {
+                    "en": "Cinema, Concerts & Entertainment"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "165",
+                "parentId": "17",
+                "name": {
+                    "en": "Betting"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "167",
+                "parentId": "17",
+                "name": {
+                    "en": "Baby"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "168",
+                "parentId": "17",
+                "name": {
+                    "en": "Pets"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "169",
+                "parentId": "17",
+                "name": {
+                    "en": "Gifts & Charity"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "17",
+                "parentId": "0",
+                "name": {
+                    "en": "Leisure"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "170",
+                "parentId": "17",
+                "name": {
+                    "en": "Other Private Consumption"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "171",
+                "parentId": "18",
+                "name": {
+                    "en": "Unknown"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "172",
+                "parentId": "17",
+                "name": {
+                    "en": "ATM & Checks"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "174",
+                "parentId": "18",
+                "name": {
+                    "en": "Bank Fees"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "175",
+                "parentId": "18",
+                "name": {
+                    "en": "Late Fees"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "176",
+                "parentId": "18",
+                "name": {
+                    "en": "Fines"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "177",
+                "parentId": "18",
+                "name": {
+                    "en": "Unpayed Tax"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "178",
+                "parentId": "19",
+                "name": {
+                    "en": "Student Loan"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "179",
+                "parentId": "19",
+                "name": {
+                    "en": "Consumer Loan"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "18",
+                "parentId": "0",
+                "name": {
+                    "en": "Other"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "180",
+                "parentId": "19",
+                "name": {
+                    "en": "Private Loan (Friends & Family}"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "181",
+                "parentId": "19",
+                "name": {
+                    "en": "Interest"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "182",
+                "parentId": "20",
+                "name": {
+                    "en": "Pension Savings"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "183",
+                "parentId": "20",
+                "name": {
+                    "en": "Child Savings"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "184",
+                "parentId": "20",
+                "name": {
+                    "en": "Other Savings"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "185",
+                "parentId": "20",
+                "name": {
+                    "en": "Stock Trading"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "186",
+                "parentId": "17",
+                "name": {
+                    "en": "Online Services & Software"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "187",
+                "parentId": "12",
+                "name": {
+                    "en": "Other Housing Expenses"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "188",
+                "parentId": "17",
+                "name": {
+                    "en": "Tobacco & Alcohol"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "189",
+                "parentId": "16",
+                "name": {
+                    "en": "Education"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "19",
+                "parentId": "0",
+                "name": {
+                    "en": "Debt & Interest"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "190",
+                "parentId": "11",
+                "name": {
+                    "en": "Housing Benefit"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "191",
+                "parentId": "16",
+                "name": {
+                    "en": "Memberships"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "192",
+                "parentId": "14",
+                "name": {
+                    "en": "Meal Plan"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "193",
+                "parentId": "17",
+                "name": {
+                    "en": "Tuition"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "194",
+                "parentId": "17",
+                "name": {
+                    "en": "Advisors & Services"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "195",
+                "parentId": "12",
+                "name": {
+                    "en": "Garden & Plants"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "196",
+                "parentId": "18",
+                "name": {
+                    "en": "Public fee"
+                },
+                "description": null
+            }
+        },
+        {
+            "category": {
+                "id": "20",
+                "parentId": "0",
+                "name": {
+                    "en": "Pension & Savings"
+                },
+                "description": null
+            }
+        }
+    ]
+}

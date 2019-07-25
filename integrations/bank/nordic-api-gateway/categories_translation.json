@@ -1,0 +1,391 @@
+[
+  {
+    "APIcat": "Supermarket",
+    "AlandCat": "Grocery Stores And Supermarkets"
+  },
+  {
+    "APIcat": "Remodeling & Repair",
+    "AlandCat": "Department Store"
+  },
+  {
+    "APIcat": "Food & Drinks",
+    "AlandCat": "Grocery Stores and Supermarkets"
+  },
+  {
+    "APIcat": "Transfer",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Shared Expense",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Exclude",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Pension Payout",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Unemployment Benefits",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Student Grant",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Child Benefit",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Alimony & Child Support",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Holiday Pay",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Income",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Yield & Returns",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Overpaid Tax",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Mortgage/Rent",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Utilities",
+    "AlandCat": null
+  },
+  {
+    "APIcat": "Homeowners Association",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Property Tax",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Mortgage/Rent",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Building Insurance",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Contents Insurance",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Home",
+    "AlandCat": null
+  },
+  {
+    "APIcat": "Home Security",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Vacation Home Expenses",
+    "AlandCat": null
+  },
+  {
+    "APIcat": "Mortgage/Rent",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Auto loan etc.",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Fuel",
+    "AlandCat": "Fuel"
+  },
+  {
+    "APIcat": "Auto Insurance & Assistance",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Road Tax & Green Tax",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Public Transport",
+    "AlandCat": "Railroads, freight"
+  },
+  {
+    "APIcat": "Taxi",
+    "AlandCat": "Taxicabs"
+  },
+  {
+    "APIcat": "Parking",
+    "AlandCat": "Automobile parking lots and garage"
+  },
+  {
+    "APIcat": "Auto & Transport",
+    "AlandCat": "Automotive parts accessories stores"
+  },
+  {
+    "APIcat": "Garage & Auto Parts",
+    "AlandCat": "Automotive services shops"
+  },
+  {
+    "APIcat": "Mini-markets & Delicacies",
+    "AlandCat": "Cigar stores and stands"
+  },
+  {
+    "APIcat": "Pharmacy",
+    "AlandCat": "Drug Stores Pharmacies"
+  },
+  {
+    "APIcat": "Flights & Hotels",
+    "AlandCat": "Airlines"
+  },
+  {
+    "APIcat": "Car Rental",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Vacation Home & Camping",
+    "AlandCat": "Department Stores"
+  },
+  {
+    "APIcat": "Household",
+    "AlandCat": null
+  },
+  {
+    "APIcat": "Vacation Activities",
+    "AlandCat": "Amusement parks, carnivals, circus"
+  },
+  {
+    "APIcat": "Travel Insurance",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Child Care & Tuition",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Union & Unemployment Insurance",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Life & Accident Insurance",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Pension & Savings",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Salary",
+    "AlandCat": "IGNORE"
+  },
+  
+  {
+    "APIcat": "Public fee",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Garden & Plants",
+    "AlandCat": "Lawn and garden supply stores"
+  },
+  {
+    "APIcat": "Advisors & Services",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Meal Plan",
+    "AlandCat": "Grocery Stores and Supermarkets"
+  },
+  {
+    "APIcat": "Memberships",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Housing Benefit",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Debt & Interest",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Education",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Tobacco & Alcohol",
+    "AlandCat": "Bar Lounge Disco nightclub taverna - alcoholic drinks"
+  },
+  {
+    "APIcat": "Other Housing Expenses",
+    "AlandCat": null
+  },
+  {
+    "APIcat": "Online Services & Software",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Stock Trading",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Other Savings",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Child Savings",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Pension Savings",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Interest",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Private Loan (Friends & Family}",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Other",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Consumer Loan",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Unpayed Tax",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Fines",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Late Fees'",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Bank Fees",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "ATM & Checks",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Unknown",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Other Private Consumption",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Leisure",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Gifts & Charity",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Pets",
+    "AlandCat": "Pet shops, pet foods and supplies"
+  },
+  {
+    "APIcat": "Baby",
+    "AlandCat": "Department Stores"
+  },
+  {
+    "APIcat": "Betting",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Cinema, Concerts & Entertainment",
+    "AlandCat": "Motion Picture Theaters"
+  },
+  {
+    "APIcat": "Movies, Music & Books",
+    "AlandCat": "Book stores"
+  },
+  {
+    "APIcat": "Hairdresser & Personal Care",
+    "AlandCat": "Barber and beauty shops"
+  },
+  {
+    "APIcat": "Hobby & Sports Equipment",
+    "AlandCat": "Equipment furniture stores"
+  },
+  {
+    "APIcat": "Games & Toys",
+    "AlandCat": "Department Stores"
+  },
+  {
+    "APIcat": "Electronics & Computer",
+    "AlandCat": "Hardware Stores"
+  },
+  {
+    "APIcat": "Furniture & Interior",
+    "AlandCat": "House furnishing specialty shops"
+  },
+  {
+    "APIcat": "Clothing & Accessories",
+    "AlandCat": "Clothing"
+  },
+  {
+    "APIcat": "Food & Drinks",
+    "AlandCat": "Restaurants"
+  },
+  {
+    "APIcat": "Fast Food & Takeaway",
+    "AlandCat": "Restaurants"
+  },
+  {
+    "APIcat": "Glasses & Contacts",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Medical Specialists",
+    "AlandCat": "Doctors"
+  },
+  {
+    "APIcat": "Housekeeping & Gardening",
+    "AlandCat": "Lawn and garden supply stores"
+  },
+  {
+    "APIcat": "Travel",
+    "AlandCat": "Railroads, freight"
+  },
+  {
+    "APIcat": "Phone & Internet",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "TV license & Cable",
+    "AlandCat": "IGNORE"
+  },
+  {
+    "APIcat": "Sports & Leisure",
+    "AlandCat": "Department Stores"
+  },
+  {
+    "APIcat": "Health Insurance",
+    "AlandCat": "IGNORE"
+  }
+]
