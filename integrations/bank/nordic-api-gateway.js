@@ -1,6 +1,7 @@
 import request from 'superagent';
 import { ACTIVITY_TYPE_BANK } from '../../definitions';
 import isReactNative from '../utils/isReactNative';
+import generateGUID from '../utils/generateGUID';
 
 import env from '../loadEnv';
 
@@ -14,40 +15,12 @@ const callbackUrl = isReactNative
 const baseUrl = 'https://api.nordicapigateway.com';
 const initializeUrl = `${baseUrl}/v1/authentication/initialize`;
 const tokenUrl = `${baseUrl}/v1/authentication/tokens`;
+const unattendedUrl = `${baseUrl}/v1/authentication/unattended`;
 const accountInfoUrl = `${baseUrl}/v2/accounts`;
 const transactionsUrl = `${baseUrl}/v2/accounts/{accountId}/transactions`;
 
 const agent = request.agent();
 agent.set('X-Client-Id', env.NAG_CLIENT_ID).set('X-Client-Secret', env.NAG_CLIENT_SECRET);
-
-async function connect(requestLogin, requestWebView) {
-  const state = {};
-
-  // Get authUrl
-  const j = await agent.post(initializeUrl).send({
-    userHash: env.NAG_USERHASH,
-    redirectUrl: callbackUrl,
-    language: 'en',
-  });
-
-  // User login
-  const code = await requestWebView(j.body.authUrl, callbackUrl);
-
-  // Get accessToken from code
-  const res = await agent.post(tokenUrl).send(code);
-
-  state.accessToken = res.body.session.accessToken;
-  state.accessExpiresAt = res.body.session.expires;
-  state.loginToken = res.body.login.loginToken;
-  state.loginExpiresAt = res.body.login.expires;
-
-  return state;
-}
-
-async function disconnect() {
-  // Here we should do any cleanup (deleting tokens etc..)
-  return {};
-}
 
 function parseCategory(category) {
   if (category) {
@@ -79,7 +52,7 @@ function parseTransactions(transactions, accountName) {
   //   state: 'Booked'}
 
   return transactions.map(t => ({
-    id: `nag${t.id}`,
+    id: `nag_${t.id}`,
     accountName,
     activityType: ACTIVITY_TYPE_BANK,
     datetime: t.date,
@@ -89,8 +62,66 @@ function parseTransactions(transactions, accountName) {
   }));
 }
 
-async function collect(state, { logDebug }) {
+async function connect(requestLogin, requestWebView) {
+  const state = {};
+
+  // Unique id for user
+  state.userHash = generateGUID();
+
+  // Get authUrl
+  const j = await agent.post(initializeUrl).send({
+    userHash: state.userHash,
+    redirectUrl: callbackUrl,
+    language: 'en',
+  });
+
+  // User login
+  const code = await requestWebView(j.body.authUrl, callbackUrl);
+
+  // Get accessToken from code
+  const res = await agent.post(tokenUrl).send(code);
+
+  state.accessToken = res.body.session.accessToken;
+  state.accessExpiresAt = res.body.session.expires;
+  state.loginToken = res.body.login.loginToken;
+  state.loginExpiresAt = res.body.login.expires;
+
+  return state;
+}
+
+async function unattendedLogin(state) {
+  const res = await agent.post(unattendedUrl).send({
+    userHash: state.userHash,
+    loginToken: state.loginToken,
+  });
+
+  state.accessToken = res.body.session.accessToken;
+  state.accessExpiresAt = res.body.session.expires;
+  state.loginToken = res.body.login.loginToken;
+  state.loginExpiresAt = res.body.login.expires;
+
   agent.set('Authorization', `Bearer ${state.accessToken}`);
+}
+
+async function refreshToken(state) {
+  if (state.accessToken && Date.now() < Date.parse(state.accessExpiresAt)) {
+    // Token is still valid
+    agent.set('Authorization', `Bearer ${state.accessToken}`);
+  } else if (state.loginToken && Date.now() < Date.parse(state.loginExpiresAt)) {
+    // Request a new token
+    await unattendedLogin(state);
+  } else {
+    throw Error('loginToken expired.');
+  }
+}
+
+async function disconnect() {
+  // Here we should do any cleanup (deleting tokens etc..)
+  return {};
+}
+
+async function collect(state, { logDebug }) {
+  await refreshToken(state);
 
   // Get accounts
   const res = await agent.get(accountInfoUrl);
