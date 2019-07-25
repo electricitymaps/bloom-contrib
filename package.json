@@ -17,7 +17,8 @@
     "socket.io": "^2.2.0",
     "superagent": "^4.1.0",
     "whatwg-url": "^7.0.0",
-    "xmldom": "^0.1.27"
+    "xmldom": "^0.1.27",
+    "cookiejar": "^2.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
