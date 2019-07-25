@@ -4,8 +4,7 @@ import { ACTIVITY_TYPE_ELECTRIC_VEHICLE_CHARGING } from '../../definitions';
 
 const BASE_URL = 'https://creators.teslacockpit.com';
 
-async function connect(requestLogin, requestWebView) {
-  const { username, password } = await requestLogin();
+async function requestToken(username, password) {
   const res = await fetch(`${BASE_URL}/Account/TeslaLogin`, {
     method: 'POST',
     headers: {
@@ -25,7 +24,14 @@ async function connect(requestLogin, requestWebView) {
   if (!data.length) {
     throw new Error('No API token were found in response');
   }
-  return { token: data[0].CreatorToken };
+  return data[0].CreatorToken;
+}
+
+async function connect(requestLogin, requestWebView) {
+  const { username, password } = await requestLogin();
+  // Try to login, but don't save the token as it has an expiry date
+  await requestToken(username, password);
+  return { username, password };
 }
 
 function disconnect() {
@@ -63,7 +69,8 @@ async function fetchVehicleInfo(token) {
 }
 
 async function collect(state, logger, utils) {
-  const { token } = state;
+  const { username, password } = state;
+  const token = await requestToken(username, password);
   // Get timezone of vehicle
   const vehicles = await fetchVehicleInfo(token);
   if (!vehicles.length) {
