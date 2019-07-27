@@ -26,6 +26,7 @@ The app let's you input trips manually by distance or time and transportation mo
 - Tripit
 - Uber (contributor:[willtonkin](https://github.com/willtonkin))
 - Rejsekort
+
 Help us out with an integration and CO2 models. Check what [we think makes a great integration!](https://tmrow.slite.com/api/s/note/8LLSWazeBZZyS4BEQiLTnJ/What-makes-a-great-integration-for-Tomorrow)
 
 ### Utilities
@@ -57,13 +58,13 @@ Nothing yet! Help us out with an integration and CO2 models. Check what [we thin
 
 ## Status on [CO2 models](https://github.com/tmrowco/tmrowapp-contrib/tree/master/integrations)
 
-Our CO2 models sources can be checked by anyone [here](https://github.com/tmrowco/tmrowapp-contrib/tree/master/integrations) . Help us out with more and more precise models.
+Our CO2 models sources can be checked by anyone [here](https://github.com/tmrowco/tmrowapp-contrib/tree/master/integrations). Help us out with more and more precise models.
 
 ## Getting started
 To ease development, we've created a development playground.
 
 ### Integrations
-First, you will have to create a JSON file called `env.json` where to store integration credientials when needed.
+First, you will have to create a JSON file called `env.json` where to store integration credentials when needed.
 You can start by creating an empty file.
 
 Run `yarn` to install dependencies, then run `yarn serve` to start the playground and point your browser to [localhost:3000](http://localhost:3000) to get started.
@@ -104,6 +105,22 @@ As the methods are pure, and to avoid re-asking the user for credentials everyti
   hourlyEnergyWattHours, // (optional) an array of 24 floats that represent the hourly metering values
   locationLon, // the location of the electricity consumption
   locationLat, // the location of the electricity consumption
+}
+```
+#### transportation
+```javascript
+{
+  id, // a string that uniquely represents this activity
+  datetime, // a javascript Date object that represents the start of the activity
+  durationHours, // a floating point that represents the duration of the activity in decimal hours
+  distanceKilometers, // a floating point that represents the amount of kilometers traveled
+  activityType: ACTIVITY_TYPE_TRANSPORTATION,
+  transportationMode, // a variable (from definitions.js) that represents the transportation mode
+  carrier, // (optional) a string that represents the transportation company
+  departureAirportCode, // (for plane travel) a string that represents the departure airport, IATA code
+  destinationAirportCode, // (for plane travel) a string that represents the final destination airport, IATA code
+  departureStation, // (for other travel types) a string that represents the original starting point
+  destinationStation, // (for other travel types) a string that represents the final destination
 }
 ```
 
