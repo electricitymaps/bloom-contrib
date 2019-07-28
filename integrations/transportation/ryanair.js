@@ -12,7 +12,6 @@ async function logIn(username, password, logger) {
   const res = await agent
     .post(LOGIN_URL)
     .type('application/x-www-form-urlencoded')
-    .set('Authorization', 'Basic ')
     .send({
       password,
       username,
@@ -48,10 +47,10 @@ function disconnect() {
   return {};
 }
 
-async function getAllFlights(entries, customerId, token) {
+async function getAllFlights(bookings, customerId, token) {
   const allFlights = [];
 
-  await Promise.all(entries.map(async (entry) => {
+  await Promise.all(bookings.map(async (entry) => {
     await agent
       .put(`${PROFILE_URL}${customerId}/bookings/booking`)
       .set('Accept', 'application/json')
@@ -63,7 +62,7 @@ async function getAllFlights(entries, customerId, token) {
       .then((res) => {
         if (res.ok) {
           res.body.Flights.forEach((singleFlight) => {
-            allFlights.push({ 
+            allFlights.push({
               bookingId: res.body.BookingId,
               flightInfo: singleFlight,
               pnr: res.body.RecordLocator,
@@ -75,9 +74,7 @@ async function getAllFlights(entries, customerId, token) {
   return allFlights;
 }
 
-async function collect(state, logger) {
-  const { token, customerId } = state;
-
+async function getPastBookings(customerId, token, logger) {
   const pastBookings = await agent
     .get(`${PROFILE_URL}${customerId}/bookings/past`)
     .set('Accept', 'application/json')
@@ -88,16 +85,17 @@ async function collect(state, logger) {
     throw Error('We couldn\'t find any past bookings.');
   }
 
-  const entries = pastBookings.body.bookings.filter(entry => entry.status === 'Confirmed');
+  return pastBookings.body.bookings.filter(entry => entry.status === 'Confirmed');
+}
 
+async function getActivities(pastBookings, customerId, token, logger) {
   // WHY: there can be multiple flights in one booking
-  const activities = await getAllFlights(entries, customerId, token)
+  const activities = await getAllFlights(pastBookings, customerId, token)
     .then((allFlights) => {
       // WHY: there can be multiple bookings for the same flight (e.g. for different passengers)
       // HOW: filters flights with the same flight number
       const uniqueFlights = Array.from(new Set(allFlights.map(a => a.flightInfo.FlightNumber)))
         .map(mappedFlightNumber => allFlights.find(a => a.flightInfo.FlightNumber === mappedFlightNumber));
-
       return Object.values(uniqueFlights)
         .map(k => ({
           // TODO: make sure it's always unique
@@ -111,6 +109,14 @@ async function collect(state, logger) {
           destinationAirportCode: k.flightInfo.Destination,
         }));
     });
+
+  return activities;
+}
+
+async function collect(state, logger) {
+  const { token, customerId } = state;
+  const pastBookings = await getPastBookings(customerId, token, logger);
+  const activities = await getActivities(pastBookings, customerId, token, logger);
 
   return { activities, state };
 }
