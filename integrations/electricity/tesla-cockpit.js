@@ -107,7 +107,7 @@ async function collect(state, logger, utils) {
       logger.logError(`Invalid startDate ${d.ChargeStartDate}`);
     }
 
-    const [ locationLat, locationLon ] = [
+    const [locationLat, locationLon] = [
       parseFloat(d.ChargerLatitude),
       parseFloat(d.ChargerLongitude),
     ];
