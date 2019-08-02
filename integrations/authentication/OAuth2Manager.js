@@ -1,4 +1,4 @@
-import AuthenticationError from './AuthenticationError';
+import AuthenticationError from '../utils/errors';
 import objectToURLParams from './objectToURLParams';
 import isReactNative from '../utils/isReactNative';
 

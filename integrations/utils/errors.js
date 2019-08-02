@@ -49,3 +49,10 @@ export class ValidationError extends CustomError {
     this.name = 'ValidationError';
   }
 }
+
+export class AuthenticationError extends CustomError {
+  constructor(message) {
+    super(message);
+    this.name = 'AuthenticationError';
+  }
+}
