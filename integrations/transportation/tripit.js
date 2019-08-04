@@ -8,6 +8,7 @@ import {
   TRANSPORTATION_MODE_PLANE,
   TRANSPORTATION_MODE_TRAIN,
 } from '../../definitions';
+import { HTTPError } from '../utils/errors';
 
 const manager = new OAuthManager({
   baseUrl: 'https://api.tripit.com',
@@ -36,8 +37,7 @@ async function fetchAir(modifiedSince, isPast = true, logger) {
   const res = await manager.fetch(url);
   if (!res.ok) {
     const text = await res.text();
-    // throw new HTTPError(text, res.status);
-    throw new Error(`HTTP error ${res.status}: ${text}`);
+    throw new HTTPError(text, res.status);
   }
   const data = await res.json();
   const pageNum = parseInt(data['page_num'], 10);
@@ -98,8 +98,7 @@ async function fetchRail(modifiedSince, isPast = true, logger) {
   const res = await manager.fetch(url);
   if (!res.ok) {
     const text = await res.text();
-    // throw new HTTPError(text, res.status);
-    throw new Error(`HTTP error ${res.status}: ${text}`);
+    throw new HTTPError(text, res.status);
   }
   const data = await res.json();
   const pageNum = parseInt(data['page_num'], 10);
