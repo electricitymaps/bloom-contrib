@@ -127,7 +127,7 @@ async function collect(state, logger, utils) {
     };
   });
 
-  return { activities: activities.filter(a => a) };
+  return { activities: activities.filter(a => a), state };
 }
 
 const config = {
