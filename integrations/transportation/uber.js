@@ -2,6 +2,7 @@ import { ACTIVITY_TYPE_TRANSPORTATION, TRANSPORTATION_MODE_CAR } from '../../def
 
 import env from '../loadEnv';
 import { OAuth2Manager } from '../authentication';
+import { HTTPError } from '../utils/errors';
 
 const manager = new OAuth2Manager({
   accessTokenUrl: 'https://login.uber.com/oauth/v2/token',
@@ -35,8 +36,7 @@ async function queryActivitiesFromOffset(offset, logger) {
 
   if (!res.ok) {
     const text = await res.text();
-    // throw new HTTPError(text, res.status);
-    throw new Error(`HTTP error ${res.status}: ${text}`);
+    throw new HTTPError(text, res.status);
   }
 
   const data = await res.json();

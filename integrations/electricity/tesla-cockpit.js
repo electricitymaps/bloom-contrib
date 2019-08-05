@@ -1,6 +1,7 @@
 import moment from 'moment';
 
 import { ACTIVITY_TYPE_ELECTRIC_VEHICLE_CHARGING } from '../../definitions';
+import { HTTPError } from '../utils/errors';
 
 const BASE_URL = 'https://creators.teslacockpit.com';
 
@@ -18,7 +19,7 @@ async function requestToken(username, password) {
   });
   if (!res.ok) {
     const text = await res.text();
-    throw new Error(`HTTP error ${res.status}: ${text}`);
+    throw new HTTPError(text, res.status);
   }
   const data = await res.json();
   if (!data.length) {
@@ -48,7 +49,7 @@ async function fetchVehicleCharges(token, vehicleId) {
   });
   if (!res.ok) {
     const text = await res.text();
-    throw new Error(`HTTP error ${res.status}: ${text}`);
+    throw new HTTPError(text, res.status);
   }
   const data = await res.json();
   return data;
@@ -62,7 +63,7 @@ async function fetchVehicleInfo(token) {
   });
   if (!res.ok) {
     const text = await res.text();
-    throw new Error(`HTTP error ${res.status}: ${text}`);
+    throw new HTTPError(text, res.status);
   }
   const data = await res.json();
   return data;
@@ -82,6 +83,12 @@ async function collect(state, logger, utils) {
 
   const data = await fetchVehicleCharges(token, vehicleId);
   const activities = data.map((d) => {
+    if (d.ChargeEndDate === '') {
+      // Skip that element
+      logger.logWarning('Skipping item as it has no ChargeEndDate');
+      return null;
+    }
+
     const startMoment = moment(`${d.ChargeStartDate} ${timezone}`, 'DD/MM/YYYY HH:mm Z');
     const endMoment = moment(`${d.ChargeEndDate} ${timezone}`, 'DD/MM/YYYY HH:mm Z');
     let efficiency = parseFloat(d.Efficiency.replace(',', '.').replace(' %', '')) / 100.0;
@@ -97,18 +104,31 @@ async function collect(state, logger, utils) {
       return null;
     }
 
+    if (!startMoment.isValid()) {
+      logger.logError(`Invalid startDate ${d.ChargeStartDate}`);
+    }
+
+    const [locationLat, locationLon] = [
+      parseFloat(d.ChargerLatitude),
+      parseFloat(d.ChargerLongitude),
+    ];
+
+    if (!Number.isFinite(locationLat) || !Number.isFinite(locationLon)) {
+      throw new Error(`Could not parse location. Input was lon=${d.ChargerLongitude}, lat=${d.ChargerLatitude}. Output was lon=${locationLon}, lat=${locationLat}`);
+    }
+
     return {
       id: `teslacockpit${startMoment.toISOString()}`,
       activityType: ACTIVITY_TYPE_ELECTRIC_VEHICLE_CHARGING,
       datetime: startMoment.toDate(),
       durationHours: endMoment.diff(startMoment, 'minutes') / 60.0,
       energyWattHours,
-      locationLat: parseFloat(d.ChargerLatitude),
-      locationLon: parseFloat(d.ChargerLongitude),
+      locationLat,
+      locationLon,
     };
   });
 
-  return { activities: activities.filter(a => a) };
+  return { activities: activities.filter(a => a), state };
 }
 
 const config = {
