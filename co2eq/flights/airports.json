@@ -617,7 +617,7 @@
   },
   "URZ": {
     "iata_code": "URZ",
-    "name": "OrÅ«zgÄn Airport",
+    "name": "Orūzg�?n Airport",
     "lonlat": [
       66.630897522,
       32.9029998779
@@ -1105,7 +1105,7 @@
   },
   "PPE": {
     "iata_code": "PPE",
-    "name": "Mar de CortÃ©s International Airport",
+    "name": "Mar de Cortés International Airport",
     "lonlat": [
       -113.305177,
       31.351987
@@ -1241,7 +1241,7 @@
   },
   "AOD": {
     "iata_code": "AOD",
-    "name": "Abou-DeÃ¯a Airport",
+    "name": "Abou-Deïa Airport",
     "lonlat": [
       19.2874,
       11.4773
@@ -1313,7 +1313,7 @@
   },
   "SZQ": {
     "iata_code": "SZQ",
-    "name": "Saenz PeÃ±a Airport",
+    "name": "Saenz Peña Airport",
     "lonlat": [
       -60.448299407958984,
       -26.815799713134766
@@ -3121,7 +3121,7 @@
   },
   "BHL": {
     "iata_code": "BHL",
-    "name": "BahÃ­a de los Ãngeles Airport",
+    "name": "Bahía de los �?ngeles Airport",
     "lonlat": [
       -113.560997,
       28.9786
@@ -3153,7 +3153,7 @@
   },
   "BGJ": {
     "iata_code": "BGJ",
-    "name": "BorgarfjÃ¶rÃ°ur eystri Airport",
+    "name": "Borgarfjörður eystri Airport",
     "lonlat": [
       -13.805000305175781,
       65.51640319824219
@@ -3161,7 +3161,7 @@
   },
   "BJD": {
     "iata_code": "BJD",
-    "name": "BakkafjÃ¶rÃ°ur Airport",
+    "name": "Bakkafjörður Airport",
     "lonlat": [
       -14.824399948120117,
       66.02189636230469
@@ -3177,7 +3177,7 @@
   },
   "BQD": {
     "iata_code": "BQD",
-    "name": "BÃºÃ°ardalur Airport",
+    "name": "Búðardalur Airport",
     "lonlat": [
       -21.80030059814453,
       65.07530212402344
@@ -3185,7 +3185,7 @@
   },
   "BXV": {
     "iata_code": "BXV",
-    "name": "BreiÃ°dalsvÃ­k Airport",
+    "name": "Breiðdalsvík Airport",
     "lonlat": [
       -14.02280044555664,
       64.79000091552734
@@ -3193,7 +3193,7 @@
   },
   "DJU": {
     "iata_code": "DJU",
-    "name": "DjÃºpivogur Airport",
+    "name": "Djúpivogur Airport",
     "lonlat": [
       -14.28279972076416,
       64.64420318603516
@@ -3201,7 +3201,7 @@
   },
   "EGS": {
     "iata_code": "EGS",
-    "name": "EgilsstaÃ°ir Airport",
+    "name": "Egilsstaðir Airport",
     "lonlat": [
       -14.401399612426758,
       65.2833023071289
@@ -3209,7 +3209,7 @@
   },
   "FAS": {
     "iata_code": "FAS",
-    "name": "FÃ¡skrÃºÃ°sfjÃ¶rÃ°ur Airport",
+    "name": "Fáskrúðsfjörður Airport",
     "lonlat": [
       -14.0606002808,
       64.9317016602
@@ -3217,7 +3217,7 @@
   },
   "FAG": {
     "iata_code": "FAG",
-    "name": "FagurhÃ³lsmÃ½ri Airport",
+    "name": "Fagurhólsmýri Airport",
     "lonlat": [
       -16.64109992980957,
       63.874698638916016
@@ -3225,7 +3225,7 @@
   },
   "GUU": {
     "iata_code": "GUU",
-    "name": "GrundarfjÃ¶rÃ°ur Airport",
+    "name": "Grundarfjörður Airport",
     "lonlat": [
       -23.224700927734375,
       64.99140167236328
@@ -3233,7 +3233,7 @@
   },
   "GJR": {
     "iata_code": "GJR",
-    "name": "GjÃ¶gur Airport",
+    "name": "Gjögur Airport",
     "lonlat": [
       -21.326900482177734,
       65.99530029296875
@@ -3241,7 +3241,7 @@
   },
   "GRY": {
     "iata_code": "GRY",
-    "name": "GrÃ­msey Airport",
+    "name": "Grímsey Airport",
     "lonlat": [
       -18.0173,
       66.5458
@@ -3249,7 +3249,7 @@
   },
   "HVK": {
     "iata_code": "HVK",
-    "name": "HÃ³lmavÃ­k Airport",
+    "name": "Hólmavík Airport",
     "lonlat": [
       -21.696399688720703,
       65.70469665527344
@@ -3257,7 +3257,7 @@
   },
   "HFN": {
     "iata_code": "HFN",
-    "name": "HornafjÃ¶rÃ°ur Airport",
+    "name": "Hornafjörður Airport",
     "lonlat": [
       -15.2272,
       64.295601
@@ -3273,7 +3273,7 @@
   },
   "HZK": {
     "iata_code": "HZK",
-    "name": "HÃºsavÃ­k Airport",
+    "name": "Húsavík Airport",
     "lonlat": [
       -17.426001,
       65.952301
@@ -3281,7 +3281,7 @@
   },
   "HVM": {
     "iata_code": "HVM",
-    "name": "KrÃ³kstaÃ°armelar Airport",
+    "name": "Krókstaðarmelar Airport",
     "lonlat": [
       -20.846900939941406,
       65.26640319824219
@@ -3289,7 +3289,7 @@
   },
   "HLO": {
     "iata_code": "HLO",
-    "name": "IngjaldssanÃ°ur Airport",
+    "name": "Ingjaldssanður Airport",
     "lonlat": [
       -23.69610023498535,
       66.05000305175781
@@ -3297,7 +3297,7 @@
   },
   "IFJ": {
     "iata_code": "IFJ",
-    "name": "ÃsafjÃ¶rÃ°ur Airport",
+    "name": "�?safjörður Airport",
     "lonlat": [
       -23.135299682617188,
       66.05809783935547
@@ -3321,7 +3321,7 @@
   },
   "OPA": {
     "iata_code": "OPA",
-    "name": "KÃ³pasker Airport",
+    "name": "Kópasker Airport",
     "lonlat": [
       -16.466699600219727,
       66.31079864501953
@@ -3329,7 +3329,7 @@
   },
   "SAK": {
     "iata_code": "SAK",
-    "name": "SauÃ°Ã¡rkrÃ³kur Airport",
+    "name": "Sauðárkrókur Airport",
     "lonlat": [
       -19.572799682599996,
       65.73169708249999
@@ -3337,7 +3337,7 @@
   },
   "NOR": {
     "iata_code": "NOR",
-    "name": "NorÃ°fjÃ¶rÃ°ur Airport",
+    "name": "Norðfjörður Airport",
     "lonlat": [
       -13.746399879455566,
       65.13189697265625
@@ -3345,7 +3345,7 @@
   },
   "OFJ": {
     "iata_code": "OFJ",
-    "name": "ÃlafsfjÃ¶rÃ°ur Airport",
+    "name": "�?lafsfjörður Airport",
     "lonlat": [
       -18.66670036315918,
       66.08329772949219
@@ -3353,7 +3353,7 @@
   },
   "PFJ": {
     "iata_code": "PFJ",
-    "name": "PatreksfjÃ¶rÃ°ur Airport",
+    "name": "Patreksfjörður Airport",
     "lonlat": [
       -23.965,
       65.555801
@@ -3361,7 +3361,7 @@
   },
   "RHA": {
     "iata_code": "RHA",
-    "name": "ReykhÃ³lar Airport",
+    "name": "Reykhólar Airport",
     "lonlat": [
       -22.20611572265625,
       65.45262908935547
@@ -3377,7 +3377,7 @@
   },
   "RFN": {
     "iata_code": "RFN",
-    "name": "RaufarhÃ¶fn Airport",
+    "name": "Raufarhöfn Airport",
     "lonlat": [
       -15.918299674987793,
       66.40640258789062
@@ -3393,7 +3393,7 @@
   },
   "MVA": {
     "iata_code": "MVA",
-    "name": "ReykjahlÃ­Ã° Airport",
+    "name": "Reykjahlíð Airport",
     "lonlat": [
       -16.918100357055664,
       65.65579986572266
@@ -3401,7 +3401,7 @@
   },
   "SIJ": {
     "iata_code": "SIJ",
-    "name": "SiglufjÃ¶rÃ°ur Airport",
+    "name": "Siglufjörður Airport",
     "lonlat": [
       -18.9167,
       66.133301
@@ -3409,7 +3409,7 @@
   },
   "SYK": {
     "iata_code": "SYK",
-    "name": "StykkishÃ³lmur Airport",
+    "name": "Stykkishólmur Airport",
     "lonlat": [
       -22.794200897216797,
       65.05809783935547
@@ -3417,7 +3417,7 @@
   },
   "TEY": {
     "iata_code": "TEY",
-    "name": "Ãingeyri Airport",
+    "name": "�?ingeyri Airport",
     "lonlat": [
       -23.559999465942383,
       65.87030029296875
@@ -3441,7 +3441,7 @@
   },
   "VPN": {
     "iata_code": "VPN",
-    "name": "VopnafjÃ¶rÃ°ur Airport",
+    "name": "Vopnafjörður Airport",
     "lonlat": [
       -14.850600242614746,
       65.72059631347656
@@ -3481,7 +3481,7 @@
   },
   "PRN": {
     "iata_code": "PRN",
-    "name": "PriÅ¡tina International Airport",
+    "name": "Priština International Airport",
     "lonlat": [
       21.035801,
       42.5728
@@ -3633,7 +3633,7 @@
   },
   "TUZ": {
     "iata_code": "TUZ",
-    "name": "TucumÃ£ Airport",
+    "name": "Tucumã Airport",
     "lonlat": [
       -51.1478,
       -6.7488
@@ -4465,7 +4465,7 @@
   },
   "YLE": {
     "iata_code": "YLE",
-    "name": "WhatÃ¬ Airport",
+    "name": "Whatì Airport",
     "lonlat": [
       -117.24600219726562,
       63.13169860839844
@@ -4545,7 +4545,7 @@
   },
   "YFJ": {
     "iata_code": "YFJ",
-    "name": "WekweÃ¨tÃ¬ Airport",
+    "name": "Wekweètì Airport",
     "lonlat": [
       -114.077002,
       64.190804
@@ -4777,7 +4777,7 @@
   },
   "CMT": {
     "iata_code": "CMT",
-    "name": "New CametÃ¡ Airport",
+    "name": "New Cametá Airport",
     "lonlat": [
       -49.56,
       -2.2468
@@ -4793,7 +4793,7 @@
   },
   "TVS": {
     "iata_code": "TVS",
-    "name": "Tangshan SannÃ¼he Airport",
+    "name": "Tangshan Sannühe Airport",
     "lonlat": [
       118.002624512,
       39.7178001404
@@ -5033,7 +5033,7 @@
   },
   "PRM": {
     "iata_code": "PRM",
-    "name": "PortimÃ£o Airport",
+    "name": "Portimão Airport",
     "lonlat": [
       -8.58396,
       37.1493
@@ -5065,7 +5065,7 @@
   },
   "TCD": {
     "iata_code": "TCD",
-    "name": "TarapacÃ¡ Airport",
+    "name": "Tarapacá Airport",
     "lonlat": [
       -69.747222,
       -2.894722
@@ -5161,7 +5161,7 @@
   },
   "ZTB": {
     "iata_code": "ZTB",
-    "name": "TÃªte-Ã -la-Baleine Airport",
+    "name": "Tête-à-la-Baleine Airport",
     "lonlat": [
       -59.38359832763672,
       50.674400329589844
@@ -5225,7 +5225,7 @@
   },
   "ZLT": {
     "iata_code": "ZLT",
-    "name": "La TabatiÃ¨re Airport",
+    "name": "La Tabatière Airport",
     "lonlat": [
       -58.97560119628906,
       50.8307991027832
@@ -5913,7 +5913,7 @@
   },
   "YGL": {
     "iata_code": "YGL",
-    "name": "La Grande RiviÃ¨re Airport",
+    "name": "La Grande Rivière Airport",
     "lonlat": [
       -77.7042007446289,
       53.625301361083984
@@ -5937,7 +5937,7 @@
   },
   "YGP": {
     "iata_code": "YGP",
-    "name": "GaspÃ© (Michel-Pouliot) Airport",
+    "name": "Gaspé (Michel-Pouliot) Airport",
     "lonlat": [
       -64.4785995483,
       48.7752990723
@@ -5953,7 +5953,7 @@
   },
   "YGR": {
     "iata_code": "YGR",
-    "name": "Ãles-de-la-Madeleine Airport",
+    "name": "�?les-de-la-Madeleine Airport",
     "lonlat": [
       -61.778099060058594,
       47.42470169067383
@@ -6041,7 +6041,7 @@
   },
   "YHF": {
     "iata_code": "YHF",
-    "name": "Hearst RenÃ© Fontaine Municipal Airport",
+    "name": "Hearst René Fontaine Municipal Airport",
     "lonlat": [
       -83.68609619140625,
       49.71419906616211
@@ -6113,7 +6113,7 @@
   },
   "YHU": {
     "iata_code": "YHU",
-    "name": "MontrÃ©al / Saint-Hubert Airport",
+    "name": "Montréal / Saint-Hubert Airport",
     "lonlat": [
       -73.4169006348,
       45.5175018311
@@ -7001,7 +7001,7 @@
   },
   "YRI": {
     "iata_code": "YRI",
-    "name": "RiviÃ¨re-du-Loup Airport",
+    "name": "Rivière-du-Loup Airport",
     "lonlat": [
       -69.58470153808594,
       47.764400482177734
@@ -7041,7 +7041,7 @@
   },
   "YRQ": {
     "iata_code": "YRQ",
-    "name": "Trois-RiviÃ¨res Airport",
+    "name": "Trois-Rivières Airport",
     "lonlat": [
       -72.67939758300781,
       46.35279846191406
@@ -7433,7 +7433,7 @@
   },
   "YWJ": {
     "iata_code": "YWJ",
-    "name": "DÃ©line Airport",
+    "name": "Déline Airport",
     "lonlat": [
       -123.43599700927734,
       65.21109771728516
@@ -7841,7 +7841,7 @@
   },
   "YZV": {
     "iata_code": "YZV",
-    "name": "Sept-Ãles Airport",
+    "name": "Sept-�?les Airport",
     "lonlat": [
       -66.2656021118164,
       50.22330093383789
@@ -8001,7 +8001,7 @@
   },
   "CZJ": {
     "iata_code": "CZJ",
-    "name": "CorazÃ³n de JesÃºs Airport",
+    "name": "Corazón de Jesús Airport",
     "lonlat": [
       -78.5888,
       9.4446
@@ -8297,7 +8297,7 @@
   },
   "TMR": {
     "iata_code": "TMR",
-    "name": "Aguenar â Hadj Bey Akhamok Airport",
+    "name": "Aguenar �?? Hadj Bey Akhamok Airport",
     "lonlat": [
       5.45107984543,
       22.8115005493
@@ -8353,7 +8353,7 @@
   },
   "TEE": {
     "iata_code": "TEE",
-    "name": "Cheikh Larbi TÃ©bessi Airport",
+    "name": "Cheikh Larbi Tébessi Airport",
     "lonlat": [
       8.12071990967,
       35.4315986633
@@ -8433,7 +8433,7 @@
   },
   "TLM": {
     "iata_code": "TLM",
-    "name": "Zenata â Messali El Hadj Airport",
+    "name": "Zenata �?? Messali El Hadj Airport",
     "lonlat": [
       -1.45000004768,
       35.0167007446
@@ -8449,7 +8449,7 @@
   },
   "CBH": {
     "iata_code": "CBH",
-    "name": "BÃ©char Boudghene Ben Ali Lotfi Airport",
+    "name": "Béchar Boudghene Ben Ali Lotfi Airport",
     "lonlat": [
       -2.269860029220581,
       31.645700454711914
@@ -8521,7 +8521,7 @@
   },
   "GHA": {
     "iata_code": "GHA",
-    "name": "NoumÃ©rat - Moufdi Zakaria Airport",
+    "name": "Noumérat - Moufdi Zakaria Airport",
     "lonlat": [
       3.794110059738159,
       32.38410186767578
@@ -8585,7 +8585,7 @@
   },
   "IAM": {
     "iata_code": "IAM",
-    "name": "In AmÃ©nas Airport",
+    "name": "In Aménas Airport",
     "lonlat": [
       9.64291,
       28.0515
@@ -8633,7 +8633,7 @@
   },
   "SVF": {
     "iata_code": "SVF",
-    "name": "SavÃ© Airport",
+    "name": "Savé Airport",
     "lonlat": [
       2.4645800590515137,
       8.018170356750488
@@ -8713,7 +8713,7 @@
   },
   "PHM": {
     "iata_code": "PHM",
-    "name": "BÃ¶blingen Flugfeld",
+    "name": "Böblingen Flugfeld",
     "lonlat": [
       8.996193,
       48.689544
@@ -8873,7 +8873,7 @@
   },
   "XZA": {
     "iata_code": "XZA",
-    "name": "ZabrÃ© Airport",
+    "name": "Zabré Airport",
     "lonlat": [
       -0.6169999837875366,
       11.166999816894531
@@ -9057,7 +9057,7 @@
   },
   "BYK": {
     "iata_code": "BYK",
-    "name": "BouakÃ© Airport",
+    "name": "Bouaké Airport",
     "lonlat": [
       -5.073669910430908,
       7.738800048828125
@@ -9545,7 +9545,7 @@
   },
   "GAE": {
     "iata_code": "GAE",
-    "name": "GabÃ¨s Matmata International Airport",
+    "name": "Gabès Matmata International Airport",
     "lonlat": [
       10.103300094604492,
       33.87689971923828
@@ -9625,7 +9625,7 @@
   },
   "LFW": {
     "iata_code": "LFW",
-    "name": "LomÃ©-Tokoin Airport",
+    "name": "Lomé-Tokoin Airport",
     "lonlat": [
       1.2545100450515747,
       6.165609836578369
@@ -9673,7 +9673,7 @@
   },
   "LGG": {
     "iata_code": "LGG",
-    "name": "LiÃ¨ge Airport",
+    "name": "Liège Airport",
     "lonlat": [
       5.443220138549805,
       50.63740158081055
@@ -9705,7 +9705,7 @@
   },
   "MZD": {
     "iata_code": "MZD",
-    "name": "MÃ©ndez Airport",
+    "name": "Méndez Airport",
     "lonlat": [
       -78.31670379638672,
       -2.733330011367798
@@ -9737,7 +9737,7 @@
   },
   "IES": {
     "iata_code": "IES",
-    "name": "Riesa-GÃ¶hlis Airport",
+    "name": "Riesa-Göhlis Airport",
     "lonlat": [
       13.3561105728,
       51.2936096191
@@ -9745,7 +9745,7 @@
   },
   "REB": {
     "iata_code": "REB",
-    "name": "Rechlin-LÃ¤rz Airport",
+    "name": "Rechlin-Lärz Airport",
     "lonlat": [
       12.7522220612,
       53.306388855
@@ -9753,7 +9753,7 @@
   },
   "QXH": {
     "iata_code": "QXH",
-    "name": "SchÃ¶nhagen Airport",
+    "name": "Schönhagen Airport",
     "lonlat": [
       13.156389,
       52.203609
@@ -9801,7 +9801,7 @@
   },
   "GTI": {
     "iata_code": "GTI",
-    "name": "Flugplatz GÃ¼ttin / RÃ¼gen",
+    "name": "Flugplatz Güttin / Rügen",
     "lonlat": [
       13.325556,
       54.383331
@@ -9809,7 +9809,7 @@
   },
   "KOQ": {
     "iata_code": "KOQ",
-    "name": "KÃ¶then Airport",
+    "name": "Köthen Airport",
     "lonlat": [
       11.952777862500001,
       51.7211112976
@@ -9817,7 +9817,7 @@
   },
   "PEF": {
     "iata_code": "PEF",
-    "name": "PeenemÃ¼nde Airport",
+    "name": "Peenemünde Airport",
     "lonlat": [
       13.774443626399998,
       54.1577796936
@@ -9825,7 +9825,7 @@
   },
   "SXF": {
     "iata_code": "SXF",
-    "name": "Berlin-SchÃ¶nefeld Airport",
+    "name": "Berlin-Schönefeld Airport",
     "lonlat": [
       13.5225,
       52.380001
@@ -9857,7 +9857,7 @@
   },
   "FMO": {
     "iata_code": "FMO",
-    "name": "MÃ¼nster OsnabrÃ¼ck Airport",
+    "name": "Münster Osnabrück Airport",
     "lonlat": [
       7.68483018875,
       52.134601593
@@ -9889,7 +9889,7 @@
   },
   "DUS": {
     "iata_code": "DUS",
-    "name": "DÃ¼sseldorf Airport",
+    "name": "Düsseldorf Airport",
     "lonlat": [
       6.76678,
       51.289501
@@ -9897,7 +9897,7 @@
   },
   "MUC": {
     "iata_code": "MUC",
-    "name": "Flughafen MÃ¼nchen-Riem",
+    "name": "Flughafen München-Riem",
     "lonlat": [
       11.69029999,
       48.137798309
@@ -9921,7 +9921,7 @@
   },
   "SCN": {
     "iata_code": "SCN",
-    "name": "SaarbrÃ¼cken Airport",
+    "name": "Saarbrücken Airport",
     "lonlat": [
       7.10950994492,
       49.214599609400004
@@ -10017,7 +10017,7 @@
   },
   "LBC": {
     "iata_code": "LBC",
-    "name": "LÃ¼beck Blankensee Airport",
+    "name": "Lübeck Blankensee Airport",
     "lonlat": [
       10.7192001343,
       53.8054008484
@@ -10025,7 +10025,7 @@
   },
   "EUM": {
     "iata_code": "EUM",
-    "name": "NeumÃ¼nster Airport",
+    "name": "Neumünster Airport",
     "lonlat": [
       9.941389083862305,
       54.079444885253906
@@ -10041,7 +10041,7 @@
   },
   "AAH": {
     "iata_code": "AAH",
-    "name": "Aachen-MerzbrÃ¼ck Airport",
+    "name": "Aachen-Merzbrück Airport",
     "lonlat": [
       6.186388969421387,
       50.823055267333984
@@ -10073,7 +10073,7 @@
   },
   "MGL": {
     "iata_code": "MGL",
-    "name": "MÃ¶nchengladbach Airport",
+    "name": "Mönchengladbach Airport",
     "lonlat": [
       6.504444,
       51.230278
@@ -10185,7 +10185,7 @@
   },
   "ZQW": {
     "iata_code": "ZQW",
-    "name": "ZweibrÃ¼cken Airport",
+    "name": "Zweibrücken Airport",
     "lonlat": [
       7.40056,
       49.2094
@@ -10329,7 +10329,7 @@
   },
   "HEI": {
     "iata_code": "HEI",
-    "name": "Heide-BÃ¼sum Airport",
+    "name": "Heide-Büsum Airport",
     "lonlat": [
       8.90166664124,
       54.153331756600004
@@ -10337,7 +10337,7 @@
   },
   "FLF": {
     "iata_code": "FLF",
-    "name": "Flensburg-SchÃ¤ferhaus Airport",
+    "name": "Flensburg-Schäferhaus Airport",
     "lonlat": [
       9.378889083862305,
       54.77333450317383
@@ -10345,7 +10345,7 @@
   },
   "HGL": {
     "iata_code": "HGL",
-    "name": "Helgoland-DÃ¼ne Airport",
+    "name": "Helgoland-Düne Airport",
     "lonlat": [
       7.91583299637,
       54.185279846200004
@@ -10377,7 +10377,7 @@
   },
   "OHR": {
     "iata_code": "OHR",
-    "name": "Wyk auf FÃ¶hr Airport",
+    "name": "Wyk auf Föhr Airport",
     "lonlat": [
       8.528332710266113,
       54.684444427490234
@@ -10385,7 +10385,7 @@
   },
   "KDL": {
     "iata_code": "KDL",
-    "name": "KÃ¤rdla Airport",
+    "name": "Kärdla Airport",
     "lonlat": [
       22.830699920654297,
       58.99079895019531
@@ -10401,7 +10401,7 @@
   },
   "EPU": {
     "iata_code": "EPU",
-    "name": "PÃ¤rnu Airport",
+    "name": "Pärnu Airport",
     "lonlat": [
       24.47279930114746,
       58.41899871826172
@@ -10465,7 +10465,7 @@
   },
   "HYV": {
     "iata_code": "HYV",
-    "name": "HyvinkÃ¤Ã¤ Airfield",
+    "name": "Hyvinkää Airfield",
     "lonlat": [
       24.8810997009,
       60.6543998718
@@ -10553,7 +10553,7 @@
   },
   "KTT": {
     "iata_code": "KTT",
-    "name": "KittilÃ¤ Airport",
+    "name": "Kittilä Airport",
     "lonlat": [
       24.846799850464,
       67.700996398926
@@ -10633,7 +10633,7 @@
   },
   "SJY": {
     "iata_code": "SJY",
-    "name": "SeinÃ¤joki Airport",
+    "name": "Seinäjoki Airport",
     "lonlat": [
       22.8323,
       62.692101
@@ -11985,7 +11985,7 @@
   },
   "BYR": {
     "iata_code": "BYR",
-    "name": "LÃ¦sÃ¸ Airport",
+    "name": "Læsø Airport",
     "lonlat": [
       11.000100135803223,
       57.277198791503906
@@ -12025,7 +12025,7 @@
   },
   "SGD": {
     "iata_code": "SGD",
-    "name": "SÃ¸nderborg Airport",
+    "name": "Sønderborg Airport",
     "lonlat": [
       9.791729927062988,
       54.96440124511719
@@ -12089,7 +12089,7 @@
   },
   "-": {
     "iata_code": "-",
-    "name": "VejrÃ¸",
+    "name": "Vejrø",
     "lonlat": [
       11.375,
       55.035
@@ -12105,7 +12105,7 @@
   },
   "AES": {
     "iata_code": "AES",
-    "name": "Ãlesund Airport",
+    "name": "�?lesund Airport",
     "lonlat": [
       6.119699954986572,
       62.5625
@@ -12113,7 +12113,7 @@
   },
   "ANX": {
     "iata_code": "ANX",
-    "name": "AndÃ¸ya Airport",
+    "name": "Andøya Airport",
     "lonlat": [
       16.144199371338,
       69.292503356934
@@ -12129,7 +12129,7 @@
   },
   "FDE": {
     "iata_code": "FDE",
-    "name": "FÃ¸rde Airport",
+    "name": "Førde Airport",
     "lonlat": [
       5.7569398880005,
       61.391101837158
@@ -12137,7 +12137,7 @@
   },
   "BNN": {
     "iata_code": "BNN",
-    "name": "BrÃ¸nnÃ¸ysund Airport",
+    "name": "Brønnøysund Airport",
     "lonlat": [
       12.217499732971,
       65.461097717285
@@ -12145,7 +12145,7 @@
   },
   "BOO": {
     "iata_code": "BOO",
-    "name": "BodÃ¸ Airport",
+    "name": "Bodø Airport",
     "lonlat": [
       14.365300178527832,
       67.26920318603516
@@ -12161,7 +12161,7 @@
   },
   "BJF": {
     "iata_code": "BJF",
-    "name": "BÃ¥tsfjord Airport",
+    "name": "Båtsfjord Airport",
     "lonlat": [
       29.691400527954,
       70.60050201416
@@ -12169,7 +12169,7 @@
   },
   "BVG": {
     "iata_code": "BVG",
-    "name": "BerlevÃ¥g Airport",
+    "name": "Berlevåg Airport",
     "lonlat": [
       29.034201,
       70.871399
@@ -12225,7 +12225,7 @@
   },
   "FRO": {
     "iata_code": "FRO",
-    "name": "FlorÃ¸ Airport",
+    "name": "Florø Airport",
     "lonlat": [
       5.0247201919556,
       61.583599090576
@@ -12305,7 +12305,7 @@
   },
   "KKN": {
     "iata_code": "KKN",
-    "name": "Kirkenes Airport (HÃ¸ybuktmoen)",
+    "name": "Kirkenes Airport (Høybuktmoen)",
     "lonlat": [
       29.891300201416,
       69.725799560547
@@ -12345,7 +12345,7 @@
   },
   "MJF": {
     "iata_code": "MJF",
-    "name": "MosjÃ¸en Airport (KjÃ¦rstad)",
+    "name": "Mosjøen Airport (Kjærstad)",
     "lonlat": [
       13.214900016785,
       65.783996582031
@@ -12369,7 +12369,7 @@
   },
   "OSY": {
     "iata_code": "OSY",
-    "name": "Namsos HÃ¸knesÃ¸ra Airport",
+    "name": "Namsos Høknesøra Airport",
     "lonlat": [
       11.57859992981,
       64.472198486328
@@ -12385,7 +12385,7 @@
   },
   "OLA": {
     "iata_code": "OLA",
-    "name": "Ãrland Airport",
+    "name": "�?rland Airport",
     "lonlat": [
       9.604000091552734,
       63.69889831542969
@@ -12393,7 +12393,7 @@
   },
   "HOV": {
     "iata_code": "HOV",
-    "name": "Ãrsta-Volda Airport, Hovden",
+    "name": "�?rsta-Volda Airport, Hovden",
     "lonlat": [
       6.0741000175476,
       62.180000305176
@@ -12401,7 +12401,7 @@
   },
   "MQN": {
     "iata_code": "MQN",
-    "name": "Mo i Rana Airport, RÃ¸ssvoll",
+    "name": "Mo i Rana Airport, Røssvoll",
     "lonlat": [
       14.301400184631,
       66.363899230957
@@ -12409,7 +12409,7 @@
   },
   "RVK": {
     "iata_code": "RVK",
-    "name": "RÃ¸rvik Airport, Ryum",
+    "name": "Rørvik Airport, Ryum",
     "lonlat": [
       11.14610004425,
       64.838302612305
@@ -12417,7 +12417,7 @@
   },
   "RRS": {
     "iata_code": "RRS",
-    "name": "RÃ¸ros Airport",
+    "name": "Røros Airport",
     "lonlat": [
       11.342300415039,
       62.578399658203
@@ -12425,7 +12425,7 @@
   },
   "RET": {
     "iata_code": "RET",
-    "name": "RÃ¸st Airport",
+    "name": "Røst Airport",
     "lonlat": [
       12.103300094604,
       67.527801513672
@@ -12465,7 +12465,7 @@
   },
   "SVJ": {
     "iata_code": "SVJ",
-    "name": "SvolvÃ¦r Helle Airport",
+    "name": "Svolvær Helle Airport",
     "lonlat": [
       14.669199943542,
       68.243301391602
@@ -12497,7 +12497,7 @@
   },
   "SOJ": {
     "iata_code": "SOJ",
-    "name": "SÃ¸rkjosen Airport",
+    "name": "Sørkjosen Airport",
     "lonlat": [
       20.959400177002,
       69.786796569824
@@ -12505,7 +12505,7 @@
   },
   "VAW": {
     "iata_code": "VAW",
-    "name": "VardÃ¸ Airport, Svartnes",
+    "name": "Vardø Airport, Svartnes",
     "lonlat": [
       31.044900894165,
       70.355400085449
@@ -12513,7 +12513,7 @@
   },
   "SSJ": {
     "iata_code": "SSJ",
-    "name": "SandnessjÃ¸en Airport (Stokka)",
+    "name": "Sandnessjøen Airport (Stokka)",
     "lonlat": [
       12.468899726868,
       65.956802368164
@@ -12521,7 +12521,7 @@
   },
   "TOS": {
     "iata_code": "TOS",
-    "name": "TromsÃ¸ Airport",
+    "name": "Tromsø Airport",
     "lonlat": [
       18.918899536132812,
       69.68329620361328
@@ -12537,7 +12537,7 @@
   },
   "TRD": {
     "iata_code": "TRD",
-    "name": "Trondheim Airport VÃ¦rnes",
+    "name": "Trondheim Airport Værnes",
     "lonlat": [
       10.9239998,
       63.4578018
@@ -12545,7 +12545,7 @@
   },
   "VDS": {
     "iata_code": "VDS",
-    "name": "VadsÃ¸ Airport",
+    "name": "Vadsø Airport",
     "lonlat": [
       29.844699859619,
       70.065299987793
@@ -12553,7 +12553,7 @@
   },
   "VRY": {
     "iata_code": "VRY",
-    "name": "VÃ¦rÃ¸y Heliport",
+    "name": "Værøy Heliport",
     "lonlat": [
       12.727257,
       67.654555
@@ -12569,7 +12569,7 @@
   },
   "BXP": {
     "iata_code": "BXP",
-    "name": "BiaÅa Podlaska Airfield",
+    "name": "Bia�?a Podlaska Airfield",
     "lonlat": [
       23.1325278,
       52.00078
@@ -12585,7 +12585,7 @@
   },
   "CZW": {
     "iata_code": "CZW",
-    "name": "CzÄstochowa-Rudniki",
+    "name": "Cz�?stochowa-Rudniki",
     "lonlat": [
       19.2047,
       50.884998
@@ -12593,7 +12593,7 @@
   },
   "GDN": {
     "iata_code": "GDN",
-    "name": "GdaÅsk Lech WaÅÄsa Airport",
+    "name": "Gda�?sk Lech Wa�?�?sa Airport",
     "lonlat": [
       18.46619987487793,
       54.377601623535156
@@ -12601,7 +12601,7 @@
   },
   "KRK": {
     "iata_code": "KRK",
-    "name": "KrakÃ³w John Paul II International Airport",
+    "name": "Kraków John Paul II International Airport",
     "lonlat": [
       19.7848,
       50.077702
@@ -12633,7 +12633,7 @@
   },
   "LCJ": {
     "iata_code": "LCJ",
-    "name": "ÅÃ³dÅº WÅadysÅaw Reymont Airport",
+    "name": "�?ódź W�?adys�?aw Reymont Airport",
     "lonlat": [
       19.3980998993,
       51.721900939899996
@@ -12657,7 +12657,7 @@
   },
   "POZ": {
     "iata_code": "POZ",
-    "name": "PoznaÅ-Åawica Airport",
+    "name": "Pozna�?-�?awica Airport",
     "lonlat": [
       16.8262996674,
       52.421001434299995
@@ -12673,7 +12673,7 @@
   },
   "RZE": {
     "iata_code": "RZE",
-    "name": "RzeszÃ³w-Jasionka Airport",
+    "name": "Rzeszów-Jasionka Airport",
     "lonlat": [
       22.0189990997,
       50.1100006104
@@ -12681,7 +12681,7 @@
   },
   "SZZ": {
     "iata_code": "SZZ",
-    "name": "Szczecin-GoleniÃ³w \"SolidarnoÅÄ\" Airport",
+    "name": "Szczecin-Goleniów \"Solidarno�?�?\" Airport",
     "lonlat": [
       14.902199745199999,
       53.584701538100006
@@ -12713,7 +12713,7 @@
   },
   "WRO": {
     "iata_code": "WRO",
-    "name": "Copernicus WrocÅaw Airport",
+    "name": "Copernicus Wroc�?aw Airport",
     "lonlat": [
       16.885799408,
       51.1026992798
@@ -12721,7 +12721,7 @@
   },
   "IEG": {
     "iata_code": "IEG",
-    "name": "Zielona GÃ³ra-Babimost Airport",
+    "name": "Zielona Góra-Babimost Airport",
     "lonlat": [
       15.7986001968,
       52.138500213600004
@@ -12753,7 +12753,7 @@
   },
   "JKG": {
     "iata_code": "JKG",
-    "name": "JÃ¶nkÃ¶ping Airport",
+    "name": "Jönköping Airport",
     "lonlat": [
       14.068699836730957,
       57.757598876953125
@@ -12761,7 +12761,7 @@
   },
   "LDK": {
     "iata_code": "LDK",
-    "name": "LidkÃ¶ping-Hovby Airport",
+    "name": "Lidköping-Hovby Airport",
     "lonlat": [
       13.1744,
       58.4655
@@ -12777,7 +12777,7 @@
   },
   "KVB": {
     "iata_code": "KVB",
-    "name": "SkÃ¶vde Airport",
+    "name": "Skövde Airport",
     "lonlat": [
       13.972700119018555,
       58.45640182495117
@@ -12785,7 +12785,7 @@
   },
   "THN": {
     "iata_code": "THN",
-    "name": "TrollhÃ¤ttan-VÃ¤nersborg Airport",
+    "name": "Trollhättan-Vänersborg Airport",
     "lonlat": [
       12.345000267028809,
       58.31809997558594
@@ -12841,7 +12841,7 @@
   },
   "MMX": {
     "iata_code": "MMX",
-    "name": "MalmÃ¶ Sturup Airport",
+    "name": "Malmö Sturup Airport",
     "lonlat": [
       13.376197814900001,
       55.536305364
@@ -12857,7 +12857,7 @@
   },
   "VXO": {
     "iata_code": "VXO",
-    "name": "VÃ¤xjÃ¶ Kronoberg Airport",
+    "name": "Växjö Kronoberg Airport",
     "lonlat": [
       14.727999687194824,
       56.929100036621094
@@ -12873,7 +12873,7 @@
   },
   "GEV": {
     "iata_code": "GEV",
-    "name": "GÃ¤llivare Airport",
+    "name": "Gällivare Airport",
     "lonlat": [
       20.814599990844727,
       67.13240051269531
@@ -12889,7 +12889,7 @@
   },
   "KRF": {
     "iata_code": "KRF",
-    "name": "Kramfors SollefteÃ¥ Airport",
+    "name": "Kramfors Sollefteå Airport",
     "lonlat": [
       17.76889991760254,
       63.04859924316406
@@ -12905,7 +12905,7 @@
   },
   "SDL": {
     "iata_code": "SDL",
-    "name": "Sundsvall-HÃ¤rnÃ¶sand Airport",
+    "name": "Sundsvall-Härnösand Airport",
     "lonlat": [
       17.443899154663086,
       62.528099060058594
@@ -12913,7 +12913,7 @@
   },
   "OER": {
     "iata_code": "OER",
-    "name": "ÃrnskÃ¶ldsvik Airport",
+    "name": "�?rnsköldsvik Airport",
     "lonlat": [
       18.989999771118164,
       63.40829849243164
@@ -12929,7 +12929,7 @@
   },
   "SFT": {
     "iata_code": "SFT",
-    "name": "SkellefteÃ¥ Airport",
+    "name": "Skellefteå Airport",
     "lonlat": [
       21.076900482177734,
       64.62480163574219
@@ -12937,7 +12937,7 @@
   },
   "UME": {
     "iata_code": "UME",
-    "name": "UmeÃ¥ Airport",
+    "name": "Umeå Airport",
     "lonlat": [
       20.282800674438,
       63.791801452637
@@ -12961,7 +12961,7 @@
   },
   "SOO": {
     "iata_code": "SOO",
-    "name": "SÃ¶derhamn Airport",
+    "name": "Söderhamn Airport",
     "lonlat": [
       17.09910011291504,
       61.26150131225586
@@ -12969,7 +12969,7 @@
   },
   "OSD": {
     "iata_code": "OSD",
-    "name": "Ãre Ãstersund Airport",
+    "name": "�?re �?stersund Airport",
     "lonlat": [
       14.50030040741,
       63.194400787354
@@ -12977,7 +12977,7 @@
   },
   "ORB": {
     "iata_code": "ORB",
-    "name": "Ãrebro Airport",
+    "name": "�?rebro Airport",
     "lonlat": [
       15.038000106811523,
       59.22370147705078
@@ -13001,7 +13001,7 @@
   },
   "VST": {
     "iata_code": "VST",
-    "name": "Stockholm VÃ¤sterÃ¥s Airport",
+    "name": "Stockholm Västerås Airport",
     "lonlat": [
       16.63360023498535,
       59.58940124511719
@@ -13017,7 +13017,7 @@
   },
   "LLA": {
     "iata_code": "LLA",
-    "name": "LuleÃ¥ Airport",
+    "name": "Luleå Airport",
     "lonlat": [
       22.121999740601,
       65.543800354004
@@ -13057,7 +13057,7 @@
   },
   "GVX": {
     "iata_code": "GVX",
-    "name": "GÃ¤vle Sandviken Airport",
+    "name": "Gävle Sandviken Airport",
     "lonlat": [
       16.951400756835938,
       60.593299865722656
@@ -13065,7 +13065,7 @@
   },
   "LPI": {
     "iata_code": "LPI",
-    "name": "LinkÃ¶ping City Airport",
+    "name": "Linköping City Airport",
     "lonlat": [
       15.680500030500001,
       58.4062004089
@@ -13073,7 +13073,7 @@
   },
   "NRK": {
     "iata_code": "NRK",
-    "name": "NorrkÃ¶ping Airport",
+    "name": "Norrköping Airport",
     "lonlat": [
       16.250600814819336,
       58.586299896240234
@@ -13105,7 +13105,7 @@
   },
   "VVK": {
     "iata_code": "VVK",
-    "name": "VÃ¤stervik Airport",
+    "name": "Västervik Airport",
     "lonlat": [
       16.52359962463379,
       57.779998779296875
@@ -13113,7 +13113,7 @@
   },
   "AGH": {
     "iata_code": "AGH",
-    "name": "Ãngelholm-Helsingborg Airport",
+    "name": "�?ngelholm-Helsingborg Airport",
     "lonlat": [
       12.847100257873535,
       56.29610061645508
@@ -13265,7 +13265,7 @@
   },
   "FEL": {
     "iata_code": "FEL",
-    "name": "FÃ¼rstenfeldbruck Air Base",
+    "name": "Fürstenfeldbruck Air Base",
     "lonlat": [
       11.266944,
       48.205555
@@ -13281,7 +13281,7 @@
   },
   "GUT": {
     "iata_code": "GUT",
-    "name": "GÃ¼tersloh Air Base",
+    "name": "Gütersloh Air Base",
     "lonlat": [
       8.30633,
       51.922798
@@ -13297,7 +13297,7 @@
   },
   "LPX": {
     "iata_code": "LPX",
-    "name": "LiepÄja International Airport",
+    "name": "Liep�?ja International Airport",
     "lonlat": [
       21.096900939941406,
       56.51750183105469
@@ -13345,7 +13345,7 @@
   },
   "KLJ": {
     "iata_code": "KLJ",
-    "name": "KlaipÄda Airport",
+    "name": "Klaip�?da Airport",
     "lonlat": [
       21.242799758900002,
       55.7118988037
@@ -13361,7 +13361,7 @@
   },
   "PNV": {
     "iata_code": "PNV",
-    "name": "PanevÄÅ¾ys Air Base",
+    "name": "Panev�?žys Air Base",
     "lonlat": [
       24.460800170898438,
       55.729400634765625
@@ -13369,7 +13369,7 @@
   },
   "SQQ": {
     "iata_code": "SQQ",
-    "name": "Å iauliai International Airport",
+    "name": "Šiauliai International Airport",
     "lonlat": [
       23.395000457763672,
       55.89390182495117
@@ -14417,7 +14417,7 @@
   },
   "NDL": {
     "iata_code": "NDL",
-    "name": "N'DÃ©lÃ© Airport",
+    "name": "N'Délé Airport",
     "lonlat": [
       20.635156631469727,
       8.427206039428711
@@ -14449,7 +14449,7 @@
   },
   "BBT": {
     "iata_code": "BBT",
-    "name": "BerbÃ©rati Airport",
+    "name": "Berbérati Airport",
     "lonlat": [
       15.786399841308594,
       4.2215800285339355
@@ -14513,7 +14513,7 @@
   },
   "ODJ": {
     "iata_code": "ODJ",
-    "name": "Ouanda DjallÃ© Airport",
+    "name": "Ouanda Djallé Airport",
     "lonlat": [
       22.783000946044922,
       8.899999618530273
@@ -14521,7 +14521,7 @@
   },
   "RFA": {
     "iata_code": "RFA",
-    "name": "RafaÃ¯ Airport",
+    "name": "Rafaï Airport",
     "lonlat": [
       23.927799224853516,
       4.988609790802002
@@ -14545,7 +14545,7 @@
   },
   "NBN": {
     "iata_code": "NBN",
-    "name": "AnnobÃ³n Airport",
+    "name": "Annobón Airport",
     "lonlat": [
       5.621944,
       -1.410277
@@ -14673,7 +14673,7 @@
   },
   "KLE": {
     "iata_code": "KLE",
-    "name": "KaÃ©lÃ© Airport",
+    "name": "Kaélé Airport",
     "lonlat": [
       14.445599555969238,
       10.092499732971191
@@ -14713,7 +14713,7 @@
   },
   "NGE": {
     "iata_code": "NGE",
-    "name": "N'GaoundÃ©rÃ© Airport",
+    "name": "N'Gaoundéré Airport",
     "lonlat": [
       13.559200286865234,
       7.3570098876953125
@@ -14769,7 +14769,7 @@
   },
   "YAO": {
     "iata_code": "YAO",
-    "name": "YaoundÃ© Airport",
+    "name": "Yaoundé Airport",
     "lonlat": [
       11.523500442504883,
       3.8360400199890137
@@ -14777,7 +14777,7 @@
   },
   "NSI": {
     "iata_code": "NSI",
-    "name": "YaoundÃ© Nsimalen International Airport",
+    "name": "Yaoundé Nsimalen International Airport",
     "lonlat": [
       11.553299903869629,
       3.722559928894043
@@ -14985,7 +14985,7 @@
   },
   "NWA": {
     "iata_code": "NWA",
-    "name": "MohÃ©li Bandar Es Eslam Airport",
+    "name": "Mohéli Bandar Es Eslam Airport",
     "lonlat": [
       43.76639938354492,
       -12.298100471496582
@@ -15217,7 +15217,7 @@
   },
   "WPB": {
     "iata_code": "WPB",
-    "name": "Port BergÃ© Airport",
+    "name": "Port Bergé Airport",
     "lonlat": [
       47.623587,
       -15.584286
@@ -15353,7 +15353,7 @@
   },
   "FTU": {
     "iata_code": "FTU",
-    "name": "TÃ´lanaro Airport",
+    "name": "Tôlanaro Airport",
     "lonlat": [
       46.95610046386719,
       -25.03809928894043
@@ -15969,7 +15969,7 @@
   },
   "TMS": {
     "iata_code": "TMS",
-    "name": "SÃ£o TomÃ© International Airport",
+    "name": "São Tomé International Airport",
     "lonlat": [
       6.7121500968933105,
       0.3781749904155731
@@ -16057,7 +16057,7 @@
   },
   "MZB": {
     "iata_code": "MZB",
-    "name": "MocÃ­mboa da Praia Airport",
+    "name": "Mocímboa da Praia Airport",
     "lonlat": [
       40.35490036010742,
       -11.361800193786621
@@ -16201,7 +16201,7 @@
   },
   "FRK": {
     "iata_code": "FRK",
-    "name": "FrÃ©gate Island Airport",
+    "name": "Frégate Island Airport",
     "lonlat": [
       55.950001,
       -4.583
@@ -17497,7 +17497,7 @@
   },
   "EYL": {
     "iata_code": "EYL",
-    "name": "YÃ©limanÃ© Airport",
+    "name": "Yélimané Airport",
     "lonlat": [
       -10.567000389099121,
       15.133000373840332
@@ -17769,7 +17769,7 @@
   },
   "GHE": {
     "iata_code": "GHE",
-    "name": "GarachinÃ© Airport",
+    "name": "Garachiné Airport",
     "lonlat": [
       -78.3673,
       8.0644
@@ -17905,7 +17905,7 @@
   },
   "FEZ": {
     "iata_code": "FEZ",
-    "name": "SaÃ¯ss Airport",
+    "name": "Saïss Airport",
     "lonlat": [
       -4.977960109709999,
       33.9272994995
@@ -17969,7 +17969,7 @@
   },
   "RBA": {
     "iata_code": "RBA",
-    "name": "Rabat-SalÃ© Airport",
+    "name": "Rabat-Salé Airport",
     "lonlat": [
       -6.75152,
       34.051498
@@ -18145,7 +18145,7 @@
   },
   "DKR": {
     "iata_code": "DKR",
-    "name": "LÃ©opold SÃ©dar Senghor International Airport",
+    "name": "Léopold Sédar Senghor International Airport",
     "lonlat": [
       -17.49020004272461,
       14.739700317382812
@@ -18193,7 +18193,7 @@
   },
   "KGG": {
     "iata_code": "KGG",
-    "name": "KÃ©dougou Airport",
+    "name": "Kédougou Airport",
     "lonlat": [
       -12.22029972076416,
       12.57229995727539
@@ -18273,7 +18273,7 @@
   },
   "EMN": {
     "iata_code": "EMN",
-    "name": "NÃ©ma Airport",
+    "name": "Néma Airport",
     "lonlat": [
       -7.3165998458862305,
       16.621999740600586
@@ -18289,7 +18289,7 @@
   },
   "KED": {
     "iata_code": "KED",
-    "name": "KaÃ©di Airport",
+    "name": "Kaédi Airport",
     "lonlat": [
       -13.507599830627441,
       16.159500122070312
@@ -18305,7 +18305,7 @@
   },
   "NKC": {
     "iata_code": "NKC",
-    "name": "NouakchottâOumtounsy International Airport",
+    "name": "Nouakchott�??Oumtounsy International Airport",
     "lonlat": [
       -15.9697222,
       18.31
@@ -18313,7 +18313,7 @@
   },
   "SEY": {
     "iata_code": "SEY",
-    "name": "SÃ©libaby Airport",
+    "name": "Sélibaby Airport",
     "lonlat": [
       -12.207300186157227,
       15.179699897766113
@@ -18417,7 +18417,7 @@
   },
   "TKM": {
     "iata_code": "TKM",
-    "name": "El PetÃ©n Airport",
+    "name": "El Petén Airport",
     "lonlat": [
       -89.6050033569336,
       17.226388931274414
@@ -18505,7 +18505,7 @@
   },
   "NZE": {
     "iata_code": "NZE",
-    "name": "NzÃ©rÃ©korÃ© Airport",
+    "name": "Nzérékoré Airport",
     "lonlat": [
       -8.7017974853516,
       7.8060193061829
@@ -18513,7 +18513,7 @@
   },
   "BKJ": {
     "iata_code": "BKJ",
-    "name": "BokÃ© Baralande Airport",
+    "name": "Boké Baralande Airport",
     "lonlat": [
       -14.2811,
       10.9658
@@ -18545,7 +18545,7 @@
   },
   "SID": {
     "iata_code": "SID",
-    "name": "AmÃ­lcar Cabral International Airport",
+    "name": "Amílcar Cabral International Airport",
     "lonlat": [
       -22.9494,
       16.7414
@@ -18601,7 +18601,7 @@
   },
   "SFL": {
     "iata_code": "SFL",
-    "name": "SÃ£o Filipe Airport",
+    "name": "São Filipe Airport",
     "lonlat": [
       -24.4799995422,
       14.8850002289
@@ -18609,7 +18609,7 @@
   },
   "SNE": {
     "iata_code": "SNE",
-    "name": "PreguiÃ§a Airport",
+    "name": "Preguiça Airport",
     "lonlat": [
       -24.284700393676758,
       16.58839988708496
@@ -18617,7 +18617,7 @@
   },
   "VXE": {
     "iata_code": "VXE",
-    "name": "SÃ£o Pedro Airport",
+    "name": "São Pedro Airport",
     "lonlat": [
       -25.055299758911133,
       16.833200454711914
@@ -23841,7 +23841,7 @@
   },
   "CKV": {
     "iata_code": "CKV",
-    "name": "ClarksvilleâMontgomery County Regional Airport",
+    "name": "Clarksville�??Montgomery County Regional Airport",
     "lonlat": [
       -87.4150009155,
       36.6218986511
@@ -24393,7 +24393,7 @@
   },
   "KCZ": {
     "iata_code": "KCZ",
-    "name": "KÅchi RyÅma Airport",
+    "name": "K�?chi Ry�?ma Airport",
     "lonlat": [
       133.669006,
       33.546101
@@ -26745,7 +26745,7 @@
   },
   "GWO": {
     "iata_code": "GWO",
-    "name": "GreenwoodâLeflore Airport",
+    "name": "Greenwood�??Leflore Airport",
     "lonlat": [
       -90.0847015381,
       33.4943008423
@@ -26769,7 +26769,7 @@
   },
   "GXY": {
     "iata_code": "GXY",
-    "name": "GreeleyâWeld County Airport",
+    "name": "Greeley�??Weld County Airport",
     "lonlat": [
       -104.633003235,
       40.4374008179
@@ -30665,7 +30665,7 @@
   },
   "YJS": {
     "iata_code": "YJS",
-    "name": "SamjiyÅn Airport",
+    "name": "Samjiy�?n Airport",
     "lonlat": [
       128.409834,
       41.907132
@@ -31817,7 +31817,7 @@
   },
   "ROA": {
     "iata_code": "ROA",
-    "name": "RoanokeâBlacksburg Regional Airport",
+    "name": "Roanoke�??Blacksburg Regional Airport",
     "lonlat": [
       -79.975403,
       37.3255
@@ -34481,7 +34481,7 @@
   },
   "LSZ": {
     "iata_code": "LSZ",
-    "name": "LoÅ¡inj Island Airport",
+    "name": "Lošinj Island Airport",
     "lonlat": [
       14.3930997849,
       44.5657997131
@@ -34569,7 +34569,7 @@
   },
   "LEI": {
     "iata_code": "LEI",
-    "name": "AlmerÃ­a International Airport",
+    "name": "Almería International Airport",
     "lonlat": [
       -2.3701000213623047,
       36.84389877319336
@@ -34585,7 +34585,7 @@
   },
   "ODB": {
     "iata_code": "ODB",
-    "name": "CÃ³rdoba Airport",
+    "name": "Córdoba Airport",
     "lonlat": [
       -4.848879814147949,
       37.84199905395508
@@ -34625,7 +34625,7 @@
   },
   "CDT": {
     "iata_code": "CDT",
-    "name": "CastellÃ³n-Costa Azahar Airport",
+    "name": "Castellón-Costa Azahar Airport",
     "lonlat": [
       0.073333,
       40.213889
@@ -34633,7 +34633,7 @@
   },
   "LCG": {
     "iata_code": "LCG",
-    "name": "A CoruÃ±a Airport",
+    "name": "A Coruña Airport",
     "lonlat": [
       -8.37726,
       43.302101
@@ -34721,7 +34721,7 @@
   },
   "RJL": {
     "iata_code": "RJL",
-    "name": "LogroÃ±o-Agoncillo Airport",
+    "name": "Logroño-Agoncillo Airport",
     "lonlat": [
       -2.32223510742,
       42.4609534888
@@ -34729,7 +34729,7 @@
   },
   "MAD": {
     "iata_code": "MAD",
-    "name": "Adolfo SuÃ¡rez MadridâBarajas Airport",
+    "name": "Adolfo Suárez Madrid�??Barajas Airport",
     "lonlat": [
       -3.56264,
       40.471926
@@ -34737,7 +34737,7 @@
   },
   "AGP": {
     "iata_code": "AGP",
-    "name": "MÃ¡laga Airport",
+    "name": "Málaga Airport",
     "lonlat": [
       -4.499110221862793,
       36.67490005493164
@@ -34849,7 +34849,7 @@
   },
   "TOJ": {
     "iata_code": "TOJ",
-    "name": "TorrejÃ³n Airport",
+    "name": "Torrejón Airport",
     "lonlat": [
       -3.4458699226379395,
       40.496700286865234
@@ -34937,7 +34937,7 @@
   },
   "LTQ": {
     "iata_code": "LTQ",
-    "name": "Le Touquet-CÃ´te d'Opale Airport",
+    "name": "Le Touquet-Côte d'Opale Airport",
     "lonlat": [
       1.6205899715423584,
       50.517398834228516
@@ -34961,7 +34961,7 @@
   },
   "BOD": {
     "iata_code": "BOD",
-    "name": "Bordeaux-MÃ©rignac Airport",
+    "name": "Bordeaux-Mérignac Airport",
     "lonlat": [
       -0.715556025505,
       44.828300476100004
@@ -34969,7 +34969,7 @@
   },
   "EGC": {
     "iata_code": "EGC",
-    "name": "Bergerac-RoumaniÃ¨re Airport",
+    "name": "Bergerac-Roumanière Airport",
     "lonlat": [
       0.5186110138893127,
       44.82529830932617
@@ -34977,7 +34977,7 @@
   },
   "CNG": {
     "iata_code": "CNG",
-    "name": "Cognac-ChÃ¢teaubernard (BA 709) Air Base",
+    "name": "Cognac-Châteaubernard (BA 709) Air Base",
     "lonlat": [
       -0.3174999952316284,
       45.65829849243164
@@ -34985,7 +34985,7 @@
   },
   "LRH": {
     "iata_code": "LRH",
-    "name": "La Rochelle-Ãle de RÃ© Airport",
+    "name": "La Rochelle-�?le de Ré Airport",
     "lonlat": [
       -1.1952799558639526,
       46.17919921875
@@ -35001,7 +35001,7 @@
   },
   "MCU": {
     "iata_code": "MCU",
-    "name": "MontluÃ§on-GuÃ©ret Airport",
+    "name": "Montluçon-Guéret Airport",
     "lonlat": [
       2.363960027694702,
       46.222599029541016
@@ -35017,7 +35017,7 @@
   },
   "NIT": {
     "iata_code": "NIT",
-    "name": "Niort-SouchÃ© Airport",
+    "name": "Niort-Souché Airport",
     "lonlat": [
       -0.394529,
       46.313477
@@ -35033,7 +35033,7 @@
   },
   "PUF": {
     "iata_code": "PUF",
-    "name": "Pau PyrÃ©nÃ©es Airport",
+    "name": "Pau Pyrénées Airport",
     "lonlat": [
       -0.41861099004745483,
       43.380001068115234
@@ -35041,7 +35041,7 @@
   },
   "LDE": {
     "iata_code": "LDE",
-    "name": "Tarbes-Lourdes-PyrÃ©nÃ©es Airport",
+    "name": "Tarbes-Lourdes-Pyrénées Airport",
     "lonlat": [
       -0.006438999902456999,
       43.1786994934082
@@ -35049,7 +35049,7 @@
   },
   "ANG": {
     "iata_code": "ANG",
-    "name": "AngoulÃªme-Brie-Champniers Airport",
+    "name": "Angoulême-Brie-Champniers Airport",
     "lonlat": [
       0.22145600616931915,
       45.72919845581055
@@ -35057,7 +35057,7 @@
   },
   "PGX": {
     "iata_code": "PGX",
-    "name": "PÃ©rigueux-Bassillac Airport",
+    "name": "Périgueux-Bassillac Airport",
     "lonlat": [
       0.815555989742279,
       45.19810104370117
@@ -35089,7 +35089,7 @@
   },
   "LBI": {
     "iata_code": "LBI",
-    "name": "Albi-Le SÃ©questre Airport",
+    "name": "Albi-Le Séquestre Airport",
     "lonlat": [
       2.1130599975585938,
       43.91389846801758
@@ -35113,7 +35113,7 @@
   },
   "RYN": {
     "iata_code": "RYN",
-    "name": "Royan-MÃ©dis Airport",
+    "name": "Royan-Médis Airport",
     "lonlat": [
       -0.9725000262260437,
       45.62810134887695
@@ -35137,7 +35137,7 @@
   },
   "IDY": {
     "iata_code": "IDY",
-    "name": "Ãle d'Yeu Airport",
+    "name": "�?le d'Yeu Airport",
     "lonlat": [
       -2.3911099433898926,
       46.71860122680664
@@ -35161,7 +35161,7 @@
   },
   "MVV": {
     "iata_code": "MVV",
-    "name": "MegÃ¨ve Airport",
+    "name": "Megève Airport",
     "lonlat": [
       6.652219772338867,
       45.82080078125
@@ -35169,7 +35169,7 @@
   },
   "OBS": {
     "iata_code": "OBS",
-    "name": "Aubenas-ArdÃ¨che MÃ©ridional Airport",
+    "name": "Aubenas-Ardèche Méridional Airport",
     "lonlat": [
       4.372192,
       44.544203
@@ -35233,7 +35233,7 @@
   },
   "AJA": {
     "iata_code": "AJA",
-    "name": "Ajaccio-NapolÃ©on Bonaparte Airport",
+    "name": "Ajaccio-Napoléon Bonaparte Airport",
     "lonlat": [
       8.8029203414917,
       41.92359924316406
@@ -35257,7 +35257,7 @@
   },
   "MFX": {
     "iata_code": "MFX",
-    "name": "MÃ©ribel Altiport",
+    "name": "Méribel Altiport",
     "lonlat": [
       6.577942,
       45.407003
@@ -35273,7 +35273,7 @@
   },
   "CMF": {
     "iata_code": "CMF",
-    "name": "ChambÃ©ry-Savoie Airport",
+    "name": "Chambéry-Savoie Airport",
     "lonlat": [
       5.880229949951172,
       45.638099670410156
@@ -35313,7 +35313,7 @@
   },
   "LYS": {
     "iata_code": "LYS",
-    "name": "Lyon Saint-ExupÃ©ry Airport",
+    "name": "Lyon Saint-Exupéry Airport",
     "lonlat": [
       5.081111,
       45.725556
@@ -35345,7 +35345,7 @@
   },
   "GNB": {
     "iata_code": "GNB",
-    "name": "Grenoble-IsÃ¨re Airport",
+    "name": "Grenoble-Isère Airport",
     "lonlat": [
       5.329370021820068,
       45.36289978027344
@@ -35377,7 +35377,7 @@
   },
   "CHR": {
     "iata_code": "CHR",
-    "name": "ChÃ¢teauroux-DÃ©ols \"Marcel Dassault\" Airport",
+    "name": "Châteauroux-Déols \"Marcel Dassault\" Airport",
     "lonlat": [
       1.721111,
       46.860278
@@ -35401,7 +35401,7 @@
   },
   "EBU": {
     "iata_code": "EBU",
-    "name": "Saint-Ãtienne-BouthÃ©on Airport",
+    "name": "Saint-�?tienne-Bouthéon Airport",
     "lonlat": [
       4.296390056610107,
       45.54059982299805
@@ -35425,7 +35425,7 @@
   },
   "NCE": {
     "iata_code": "NCE",
-    "name": "Nice-CÃ´te d'Azur Airport",
+    "name": "Nice-Côte d'Azur Airport",
     "lonlat": [
       7.215869903560001,
       43.6584014893
@@ -35441,7 +35441,7 @@
   },
   "PGF": {
     "iata_code": "PGF",
-    "name": "Perpignan-Rivesaltes (LlabanÃ¨re) Airport",
+    "name": "Perpignan-Rivesaltes (Llabanère) Airport",
     "lonlat": [
       2.8706700801849365,
       42.74039840698242
@@ -35465,7 +35465,7 @@
   },
   "MPL": {
     "iata_code": "MPL",
-    "name": "Montpellier-MÃ©diterranÃ©e Airport",
+    "name": "Montpellier-Méditerranée Airport",
     "lonlat": [
       3.96301007270813,
       43.57619857788086
@@ -35473,7 +35473,7 @@
   },
   "BZR": {
     "iata_code": "BZR",
-    "name": "BÃ©ziers-Vias Airport",
+    "name": "Béziers-Vias Airport",
     "lonlat": [
       3.3538999557495117,
       43.32350158691406
@@ -35505,7 +35505,7 @@
   },
   "SCP": {
     "iata_code": "SCP",
-    "name": "Mont-Dauphin - St-CrÃ©pin Airport",
+    "name": "Mont-Dauphin - St-Crépin Airport",
     "lonlat": [
       6.60028,
       44.701698
@@ -35513,7 +35513,7 @@
   },
   "BVA": {
     "iata_code": "BVA",
-    "name": "Paris Beauvais TillÃ© Airport",
+    "name": "Paris Beauvais Tillé Airport",
     "lonlat": [
       2.1127800941467285,
       49.45439910888672
@@ -35521,7 +35521,7 @@
   },
   "EVX": {
     "iata_code": "EVX",
-    "name": "Ãvreux-Fauville (BA 105) Air Base",
+    "name": "�?vreux-Fauville (BA 105) Air Base",
     "lonlat": [
       1.2198599576950073,
       49.02870178222656
@@ -35545,7 +35545,7 @@
   },
   "ORE": {
     "iata_code": "ORE",
-    "name": "OrlÃ©ans-Bricy (BA 123) Air Base",
+    "name": "Orléans-Bricy (BA 123) Air Base",
     "lonlat": [
       1.7605600357100002,
       47.9878005981
@@ -35553,7 +35553,7 @@
   },
   "XCR": {
     "iata_code": "XCR",
-    "name": "ChÃ¢lons-Vatry Airport",
+    "name": "Châlons-Vatry Airport",
     "lonlat": [
       4.206111111,
       48.7733333333
@@ -35617,7 +35617,7 @@
   },
   "XBX": {
     "iata_code": "XBX",
-    "name": "Bernay â St Martin Airport",
+    "name": "Bernay �?? St Martin Airport",
     "lonlat": [
       0.566667020321,
       49.102798461899994
@@ -35665,7 +35665,7 @@
   },
   "VIY": {
     "iata_code": "VIY",
-    "name": "Villacoublay-VÃ©lizy (BA 107) Air Base",
+    "name": "Villacoublay-Vélizy (BA 107) Air Base",
     "lonlat": [
       2.1916667,
       48.7741667
@@ -35681,7 +35681,7 @@
   },
   "XME": {
     "iata_code": "XME",
-    "name": "Maubeuge-Ãlesmes Airport",
+    "name": "Maubeuge-�?lesmes Airport",
     "lonlat": [
       4.033120155334473,
       50.31050109863281
@@ -35705,7 +35705,7 @@
   },
   "XCZ": {
     "iata_code": "XCZ",
-    "name": "Charleville-MÃ©ziÃ¨res Airport",
+    "name": "Charleville-Mézières Airport",
     "lonlat": [
       4.647079944610596,
       49.78390121459961
@@ -35809,7 +35809,7 @@
   },
   "LAI": {
     "iata_code": "LAI",
-    "name": "Lannion-CÃ´te de Granit Airport",
+    "name": "Lannion-Côte de Granit Airport",
     "lonlat": [
       -3.47166,
       48.754398
@@ -35889,7 +35889,7 @@
   },
   "EPL": {
     "iata_code": "EPL",
-    "name": "Ãpinal-Mirecourt Airport",
+    "name": "�?pinal-Mirecourt Airport",
     "lonlat": [
       6.06998,
       48.325001
@@ -35929,7 +35929,7 @@
   },
   "TLN": {
     "iata_code": "TLN",
-    "name": "Toulon-HyÃ¨res Airport",
+    "name": "Toulon-Hyères Airport",
     "lonlat": [
       6.14602994919,
       43.0973014832
@@ -35937,7 +35937,7 @@
   },
   "FRJ": {
     "iata_code": "FRJ",
-    "name": "FrÃ©jus Airport",
+    "name": "Fréjus Airport",
     "lonlat": [
       6.7357,
       43.4175
@@ -35945,7 +35945,7 @@
   },
   "FNI": {
     "iata_code": "FNI",
-    "name": "NÃ®mes-Arles-Camargue Airport",
+    "name": "Nîmes-Arles-Camargue Airport",
     "lonlat": [
       4.4163498878479,
       43.75740051269531
@@ -35953,7 +35953,7 @@
   },
   "LTT": {
     "iata_code": "LTT",
-    "name": "La MÃ´le Airport",
+    "name": "La Môle Airport",
     "lonlat": [
       6.482,
       43.205399
@@ -36393,7 +36393,7 @@
   },
   "PEV": {
     "iata_code": "PEV",
-    "name": "PÃ©cs-PogÃ¡ny Airport",
+    "name": "Pécs-Pogány Airport",
     "lonlat": [
       18.240996,
       45.990898
@@ -36401,7 +36401,7 @@
   },
   "SOB": {
     "iata_code": "SOB",
-    "name": "SÃ¡rmellÃ©k International Airport",
+    "name": "Sármellék International Airport",
     "lonlat": [
       17.159084,
       46.686391
@@ -36409,7 +36409,7 @@
   },
   "TZR": {
     "iata_code": "TZR",
-    "name": "TaszÃ¡r Air Base",
+    "name": "Taszár Air Base",
     "lonlat": [
       17.917499542236328,
       46.39310073852539
@@ -36417,7 +36417,7 @@
   },
   "QAQ": {
     "iata_code": "QAQ",
-    "name": "L'AquilaâPreturo Airport",
+    "name": "L'Aquila�??Preturo Airport",
     "lonlat": [
       13.3092,
       42.379902
@@ -36433,7 +36433,7 @@
   },
   "BRI": {
     "iata_code": "BRI",
-    "name": "Bari Karol WojtyÅa Airport",
+    "name": "Bari Karol Wojty�?a Airport",
     "lonlat": [
       16.760599,
       41.138901
@@ -36473,7 +36473,7 @@
   },
   "BDS": {
     "iata_code": "BDS",
-    "name": "Brindisi â Salento Airport",
+    "name": "Brindisi �?? Salento Airport",
     "lonlat": [
       17.947001,
       40.6576
@@ -36521,7 +36521,7 @@
   },
   "PMO": {
     "iata_code": "PMO",
-    "name": "FalconeâBorsellino Airport",
+    "name": "Falcone�??Borsellino Airport",
     "lonlat": [
       13.091,
       38.175999
@@ -36617,7 +36617,7 @@
   },
   "TTB": {
     "iata_code": "TTB",
-    "name": "TortolÃ¬ Airport",
+    "name": "Tortolì Airport",
     "lonlat": [
       9.68298,
       39.9188
@@ -36737,7 +36737,7 @@
   },
   "FRL": {
     "iata_code": "FRL",
-    "name": "ForlÃ¬ Airport",
+    "name": "Forlì Airport",
     "lonlat": [
       12.0701,
       44.194801
@@ -36753,7 +36753,7 @@
   },
   "TRS": {
     "iata_code": "TRS",
-    "name": "TriesteâFriuli Venezia Giulia Airport",
+    "name": "Trieste�??Friuli Venezia Giulia Airport",
     "lonlat": [
       13.4722,
       45.827499
@@ -36841,7 +36841,7 @@
   },
   "CIA": {
     "iata_code": "CIA",
-    "name": "CiampinoâG. B. Pastine International Airport",
+    "name": "Ciampino�??G. B. Pastine International Airport",
     "lonlat": [
       12.5949,
       41.7994
@@ -36849,7 +36849,7 @@
   },
   "FCO": {
     "iata_code": "FCO",
-    "name": "Leonardo da VinciâFiumicino Airport",
+    "name": "Leonardo da Vinci�??Fiumicino Airport",
     "lonlat": [
       12.2388889,
       41.8002778
@@ -36913,7 +36913,7 @@
   },
   "PEG": {
     "iata_code": "PEG",
-    "name": "Perugia San Francesco d'Assisi â Umbria International Airport",
+    "name": "Perugia San Francesco d'Assisi �?? Umbria International Airport",
     "lonlat": [
       12.5132,
       43.095901
@@ -36921,7 +36921,7 @@
   },
   "LJU": {
     "iata_code": "LJU",
-    "name": "Ljubljana JoÅ¾e PuÄnik Airport",
+    "name": "Ljubljana Jože Pu�?nik Airport",
     "lonlat": [
       14.4576,
       46.223701
@@ -36953,7 +36953,7 @@
   },
   "GTW": {
     "iata_code": "GTW",
-    "name": "HoleÅ¡ov Airport",
+    "name": "Holešov Airport",
     "lonlat": [
       17.5688992,
       49.3143997
@@ -36977,7 +36977,7 @@
   },
   "MKA": {
     "iata_code": "MKA",
-    "name": "MariÃ¡nskÃ© LÃ¡znÄ Airport",
+    "name": "Mariánské Lázn�? Airport",
     "lonlat": [
       12.72469997406,
       49.922798156738
@@ -36985,7 +36985,7 @@
   },
   "OSR": {
     "iata_code": "OSR",
-    "name": "Ostrava Leos JanÃ¡Äek Airport",
+    "name": "Ostrava Leos Janá�?ek Airport",
     "lonlat": [
       18.111099243164062,
       49.6963005065918
@@ -36993,7 +36993,7 @@
   },
   "OLO": {
     "iata_code": "OLO",
-    "name": "Olomouc-NeÅedÃ­n Airport",
+    "name": "Olomouc-Ne�?edín Airport",
     "lonlat": [
       17.210800170898,
       49.587799072266
@@ -37009,7 +37009,7 @@
   },
   "PRV": {
     "iata_code": "PRV",
-    "name": "PÅerov Air Base",
+    "name": "P�?erov Air Base",
     "lonlat": [
       17.404699325561523,
       49.42580032348633
@@ -37017,7 +37017,7 @@
   },
   "PRG": {
     "iata_code": "PRG",
-    "name": "VÃ¡clav Havel Airport Prague",
+    "name": "Václav Havel Airport Prague",
     "lonlat": [
       14.26,
       50.1008
@@ -37025,7 +37025,7 @@
   },
   "BRQ": {
     "iata_code": "BRQ",
-    "name": "Brno-TuÅany Airport",
+    "name": "Brno-Tu�?any Airport",
     "lonlat": [
       16.694400787353516,
       49.15129852294922
@@ -37313,7 +37313,7 @@
   },
   "LNZ": {
     "iata_code": "LNZ",
-    "name": "Linz HÃ¶rsching Airport",
+    "name": "Linz Hörsching Airport",
     "lonlat": [
       14.1875,
       48.2332
@@ -37353,7 +37353,7 @@
   },
   "BGC": {
     "iata_code": "BGC",
-    "name": "BraganÃ§a Airport",
+    "name": "Bragança Airport",
     "lonlat": [
       -6.70713,
       41.8578
@@ -37457,7 +37457,7 @@
   },
   "PDL": {
     "iata_code": "PDL",
-    "name": "JoÃ£o Paulo II Airport",
+    "name": "João Paulo II Airport",
     "lonlat": [
       -25.6979007721,
       37.7411994934
@@ -37473,7 +37473,7 @@
   },
   "OPO": {
     "iata_code": "OPO",
-    "name": "Francisco de SÃ¡ Carneiro Airport",
+    "name": "Francisco de Sá Carneiro Airport",
     "lonlat": [
       -8.68138980865,
       41.2481002808
@@ -37505,7 +37505,7 @@
   },
   "SJZ": {
     "iata_code": "SJZ",
-    "name": "SÃ£o Jorge Airport",
+    "name": "São Jorge Airport",
     "lonlat": [
       -28.175800323486328,
       38.66550064086914
@@ -37569,7 +37569,7 @@
   },
   "BCM": {
     "iata_code": "BCM",
-    "name": "BacÄu Airport",
+    "name": "Bac�?u Airport",
     "lonlat": [
       26.91029930114746,
       46.52190017700195
@@ -37577,7 +37577,7 @@
   },
   "BAY": {
     "iata_code": "BAY",
-    "name": "MaramureÈ International Airport",
+    "name": "Maramure�? International Airport",
     "lonlat": [
       23.467252,
       47.660598
@@ -37585,7 +37585,7 @@
   },
   "BBU": {
     "iata_code": "BBU",
-    "name": "BÄneasa International Airport",
+    "name": "B�?neasa International Airport",
     "lonlat": [
       26.102100372314453,
       44.50320053100586
@@ -37593,7 +37593,7 @@
   },
   "CND": {
     "iata_code": "CND",
-    "name": "Mihail KogÄlniceanu International Airport",
+    "name": "Mihail Kog�?lniceanu International Airport",
     "lonlat": [
       28.488300323486328,
       44.36220169067383
@@ -37609,7 +37609,7 @@
   },
   "CSB": {
     "iata_code": "CSB",
-    "name": "CaransebeÅ Airport",
+    "name": "Caransebe�? Airport",
     "lonlat": [
       22.253299713134766,
       45.41999816894531
@@ -37625,7 +37625,7 @@
   },
   "IAS": {
     "iata_code": "IAS",
-    "name": "IaÅi Airport",
+    "name": "Ia�?i Airport",
     "lonlat": [
       27.6205997467041,
       47.17850112915039
@@ -37649,7 +37649,7 @@
   },
   "OTP": {
     "iata_code": "OTP",
-    "name": "Henri CoandÄ International Airport",
+    "name": "Henri Coand�? International Airport",
     "lonlat": [
       26.085,
       44.5711111
@@ -37689,7 +37689,7 @@
   },
   "TGM": {
     "iata_code": "TGM",
-    "name": "Transilvania TÃ¢rgu MureÅ International Airport",
+    "name": "Transilvania Târgu Mure�? International Airport",
     "lonlat": [
       24.412500381469727,
       46.46770095825195
@@ -37697,7 +37697,7 @@
   },
   "TSR": {
     "iata_code": "TSR",
-    "name": "TimiÅoara Traian Vuia Airport",
+    "name": "Timi�?oara Traian Vuia Airport",
     "lonlat": [
       21.337900161743164,
       45.809898376464844
@@ -37785,7 +37785,7 @@
   },
   "ZRH": {
     "iata_code": "ZRH",
-    "name": "ZÃ¼rich Airport",
+    "name": "Zürich Airport",
     "lonlat": [
       8.54917,
       47.464699
@@ -37825,7 +37825,7 @@
   },
   "ESB": {
     "iata_code": "ESB",
-    "name": "EsenboÄa International Airport",
+    "name": "Esenbo�?a International Airport",
     "lonlat": [
       32.995098114,
       40.128101348899996
@@ -37849,7 +37849,7 @@
   },
   "UAB": {
     "iata_code": "UAB",
-    "name": "Ä°ncirlik Air Base",
+    "name": "İncirlik Air Base",
     "lonlat": [
       35.4258995056,
       37.002101898199996
@@ -37905,7 +37905,7 @@
   },
   "VAS": {
     "iata_code": "VAS",
-    "name": "Sivas Nuri DemiraÄ Airport",
+    "name": "Sivas Nuri Demira�? Airport",
     "lonlat": [
       36.9035,
       39.813801
@@ -37921,7 +37921,7 @@
   },
   "MLX": {
     "iata_code": "MLX",
-    "name": "Malatya ErhaÃ§ Airport",
+    "name": "Malatya Erhaç Airport",
     "lonlat": [
       38.0909996033,
       38.435298919699996
@@ -37945,7 +37945,7 @@
   },
   "DNZ": {
     "iata_code": "DNZ",
-    "name": "Ãardak Airport",
+    "name": "�?ardak Airport",
     "lonlat": [
       29.7012996674,
       37.7855987549
@@ -37953,7 +37953,7 @@
   },
   "NAV": {
     "iata_code": "NAV",
-    "name": "NevÅehir Kapadokya Airport",
+    "name": "Nev�?ehir Kapadokya Airport",
     "lonlat": [
       34.5345,
       38.7719
@@ -37969,7 +37969,7 @@
   },
   "ISL": {
     "iata_code": "ISL",
-    "name": "AtatÃ¼rk International Airport",
+    "name": "Atatürk International Airport",
     "lonlat": [
       28.8146,
       40.976898
@@ -37977,7 +37977,7 @@
   },
   "CII": {
     "iata_code": "CII",
-    "name": "ÃÄ±ldÄ±r Airport",
+    "name": "�?ıldır Airport",
     "lonlat": [
       27.895299911499997,
       37.8149986267
@@ -37993,7 +37993,7 @@
   },
   "BZI": {
     "iata_code": "BZI",
-    "name": "BalÄ±kesir Merkez Airport",
+    "name": "Balıkesir Merkez Airport",
     "lonlat": [
       27.926000595092773,
       39.619300842285156
@@ -38001,7 +38001,7 @@
   },
   "BDM": {
     "iata_code": "BDM",
-    "name": "BandÄ±rma Airport",
+    "name": "Bandırma Airport",
     "lonlat": [
       27.977699279785156,
       40.31800079345703
@@ -38009,7 +38009,7 @@
   },
   "CKZ": {
     "iata_code": "CKZ",
-    "name": "Ãanakkale Airport",
+    "name": "�?anakkale Airport",
     "lonlat": [
       26.4267997742,
       40.1376991272
@@ -38017,7 +38017,7 @@
   },
   "ESK": {
     "iata_code": "ESK",
-    "name": "EskiÅehir Air Base",
+    "name": "Eski�?ehir Air Base",
     "lonlat": [
       30.582099914599997,
       39.7840995789
@@ -38033,7 +38033,7 @@
   },
   "IGL": {
     "iata_code": "IGL",
-    "name": "ÃiÄli Airport",
+    "name": "�?i�?li Airport",
     "lonlat": [
       27.010099411,
       38.513000488299994
@@ -38041,7 +38041,7 @@
   },
   "USQ": {
     "iata_code": "USQ",
-    "name": "UÅak Airport",
+    "name": "U�?ak Airport",
     "lonlat": [
       29.47170066833496,
       38.68149948120117
@@ -38057,7 +38057,7 @@
   },
   "YEI": {
     "iata_code": "YEI",
-    "name": "Bursa YeniÅehir Airport",
+    "name": "Bursa Yeni�?ehir Airport",
     "lonlat": [
       29.5625991821,
       40.2551994324
@@ -38073,7 +38073,7 @@
   },
   "TEQ": {
     "iata_code": "TEQ",
-    "name": "TekirdaÄ Ãorlu Airport",
+    "name": "Tekirda�? �?orlu Airport",
     "lonlat": [
       27.919099807739258,
       41.13819885253906
@@ -38081,7 +38081,7 @@
   },
   "BXN": {
     "iata_code": "BXN",
-    "name": "ImsÄ±k Airport",
+    "name": "Imsık Airport",
     "lonlat": [
       27.669700622558594,
       37.140098571777344
@@ -38105,7 +38105,7 @@
   },
   "EZS": {
     "iata_code": "EZS",
-    "name": "ElazÄ±Ä Airport",
+    "name": "Elazı�? Airport",
     "lonlat": [
       39.2914009094,
       38.6068992615
@@ -38153,7 +38153,7 @@
   },
   "SFQ": {
     "iata_code": "SFQ",
-    "name": "ÅanlÄ±urfa Airport",
+    "name": "�?anlıurfa Airport",
     "lonlat": [
       38.84709930419922,
       37.09429931640625
@@ -38177,7 +38177,7 @@
   },
   "MSR": {
     "iata_code": "MSR",
-    "name": "MuÅ Airport",
+    "name": "Mu�? Airport",
     "lonlat": [
       41.66120147705078,
       38.747798919677734
@@ -38201,7 +38201,7 @@
   },
   "KCM": {
     "iata_code": "KCM",
-    "name": "KahramanmaraÅ Airport",
+    "name": "Kahramanmara�? Airport",
     "lonlat": [
       36.9535217285,
       37.5388259888
@@ -38209,7 +38209,7 @@
   },
   "AJI": {
     "iata_code": "AJI",
-    "name": "AÄrÄ± Airport",
+    "name": "A�?rı Airport",
     "lonlat": [
       43.025978088378906,
       39.654541015625
@@ -38217,7 +38217,7 @@
   },
   "ADF": {
     "iata_code": "ADF",
-    "name": "AdÄ±yaman Airport",
+    "name": "Adıyaman Airport",
     "lonlat": [
       38.4688987732,
       37.7313995361
@@ -38233,7 +38233,7 @@
   },
   "GNY": {
     "iata_code": "GNY",
-    "name": "ÅanlÄ±urfa GAP Airport",
+    "name": "�?anlıurfa GAP Airport",
     "lonlat": [
       38.895592,
       37.445663
@@ -38241,7 +38241,7 @@
   },
   "NKT": {
     "iata_code": "NKT",
-    "name": "ÅÄ±rnak Åerafettin ElÃ§i Airport",
+    "name": "�?ırnak �?erafettin Elçi Airport",
     "lonlat": [
       42.0582,
       37.3647
@@ -38249,7 +38249,7 @@
   },
   "YKO": {
     "iata_code": "YKO",
-    "name": "Hakkari YÃ¼ksekova Airport",
+    "name": "Hakkari Yüksekova Airport",
     "lonlat": [
       44.2381,
       37.5497
@@ -38273,7 +38273,7 @@
   },
   "ISE": {
     "iata_code": "ISE",
-    "name": "SÃ¼leyman Demirel International Airport",
+    "name": "Süleyman Demirel International Airport",
     "lonlat": [
       30.368400573699997,
       37.8554000854
@@ -38281,7 +38281,7 @@
   },
   "EDO": {
     "iata_code": "EDO",
-    "name": "BalÄ±kesir KÃ¶rfez Airport",
+    "name": "Balıkesir Körfez Airport",
     "lonlat": [
       27.0137996674,
       39.554599762
@@ -38297,7 +38297,7 @@
   },
   "SZF": {
     "iata_code": "SZF",
-    "name": "Samsun ÃarÅamba Airport",
+    "name": "Samsun �?ar�?amba Airport",
     "lonlat": [
       36.567101,
       41.254501
@@ -38305,7 +38305,7 @@
   },
   "SAW": {
     "iata_code": "SAW",
-    "name": "Sabiha GÃ¶kÃ§en International Airport",
+    "name": "Sabiha Gökçen International Airport",
     "lonlat": [
       29.3092002869,
       40.898601532
@@ -38313,7 +38313,7 @@
   },
   "GZP": {
     "iata_code": "GZP",
-    "name": "GazipaÅa Airport",
+    "name": "Gazipa�?a Airport",
     "lonlat": [
       32.300598,
       36.299217
@@ -38329,7 +38329,7 @@
   },
   "BZY": {
     "iata_code": "BZY",
-    "name": "BÄlÈi International Airport",
+    "name": "B�?l�?i International Airport",
     "lonlat": [
       27.777222,
       47.843056
@@ -38337,7 +38337,7 @@
   },
   "KIV": {
     "iata_code": "KIV",
-    "name": "ChiÅinÄu International Airport",
+    "name": "Chi�?in�?u International Airport",
     "lonlat": [
       28.930999755859375,
       46.92770004272461
@@ -38489,7 +38489,7 @@
   },
   "BTS": {
     "iata_code": "BTS",
-    "name": "M. R. Å tefÃ¡nik Airport",
+    "name": "M. R. Štefánik Airport",
     "lonlat": [
       17.21269989013672,
       48.17020034790039
@@ -38497,7 +38497,7 @@
   },
   "KSC": {
     "iata_code": "KSC",
-    "name": "KoÅ¡ice Airport",
+    "name": "Košice Airport",
     "lonlat": [
       21.241100311279297,
       48.66310119628906
@@ -38505,7 +38505,7 @@
   },
   "LUE": {
     "iata_code": "LUE",
-    "name": "LuÄenec Airport",
+    "name": "Lu�?enec Airport",
     "lonlat": [
       19.73579978942871,
       48.33940124511719
@@ -38513,7 +38513,7 @@
   },
   "PZY": {
     "iata_code": "PZY",
-    "name": "PieÅ¡Å¥any Airport",
+    "name": "Piešťany Airport",
     "lonlat": [
       17.828399658203125,
       48.62519836425781
@@ -38521,7 +38521,7 @@
   },
   "POV": {
     "iata_code": "POV",
-    "name": "PreÅ¡ov Air Base",
+    "name": "Prešov Air Base",
     "lonlat": [
       21.315599441528,
       49.02970123291
@@ -38529,7 +38529,7 @@
   },
   "SLD": {
     "iata_code": "SLD",
-    "name": "SliaÄ Airport",
+    "name": "Slia�? Airport",
     "lonlat": [
       19.13409996032715,
       48.63779830932617
@@ -38545,7 +38545,7 @@
   },
   "ILZ": {
     "iata_code": "ILZ",
-    "name": "Å½ilina Airport",
+    "name": "Žilina Airport",
     "lonlat": [
       18.6135005951,
       49.231498718299996
@@ -38657,7 +38657,7 @@
   },
   "AZS": {
     "iata_code": "AZS",
-    "name": "SamanÃ¡ El Catey International Airport",
+    "name": "Samaná El Catey International Airport",
     "lonlat": [
       -69.7419967651,
       19.2670001984
@@ -38665,7 +38665,7 @@
   },
   "COZ": {
     "iata_code": "COZ",
-    "name": "Constanza - ExpediciÃ³n 14 de Junio National Airport",
+    "name": "Constanza - Expedición 14 de Junio National Airport",
     "lonlat": [
       -70.721900939941,
       18.907499313354
@@ -38729,7 +38729,7 @@
   },
   "SDQ": {
     "iata_code": "SDQ",
-    "name": "Las AmÃ©ricas International Airport",
+    "name": "Las Américas International Airport",
     "lonlat": [
       -69.668899536133,
       18.42970085144
@@ -38753,7 +38753,7 @@
   },
   "MDV": {
     "iata_code": "MDV",
-    "name": "MÃ©douneu Airport",
+    "name": "Médouneu Airport",
     "lonlat": [
       10.7552,
       1.0085
@@ -38873,7 +38873,7 @@
   },
   "PON": {
     "iata_code": "PON",
-    "name": "PoptÃºn Airport",
+    "name": "Poptún Airport",
     "lonlat": [
       -89.41609954834,
       16.325799942017
@@ -38921,7 +38921,7 @@
   },
   "GSJ": {
     "iata_code": "GSJ",
-    "name": "San JosÃ© Airport",
+    "name": "San José Airport",
     "lonlat": [
       -90.83580017090001,
       13.936200141899999
@@ -39145,7 +39145,7 @@
   },
   "OAN": {
     "iata_code": "OAN",
-    "name": "El ArrayÃ¡n Airport",
+    "name": "El Arrayán Airport",
     "lonlat": [
       -86.574722,
       15.505556
@@ -39201,7 +39201,7 @@
   },
   "SAP": {
     "iata_code": "SAP",
-    "name": "RamÃ³n Villeda Morales International Airport",
+    "name": "Ramón Villeda Morales International Airport",
     "lonlat": [
       -87.923599,
       15.4526
@@ -39249,7 +39249,7 @@
   },
   "SDH": {
     "iata_code": "SDH",
-    "name": "Santa Rosa de CopÃ¡n Airport",
+    "name": "Santa Rosa de Copán Airport",
     "lonlat": [
       -88.775021,
       14.777889
@@ -39257,7 +39257,7 @@
   },
   "RUY": {
     "iata_code": "RUY",
-    "name": "CopÃ¡n Ruinas Airport",
+    "name": "Copán Ruinas Airport",
     "lonlat": [
       -89.007837,
       14.914885
@@ -39281,7 +39281,7 @@
   },
   "TGU": {
     "iata_code": "TGU",
-    "name": "ToncontÃ­n International Airport",
+    "name": "Toncontín International Airport",
     "lonlat": [
       -87.21720123291016,
       14.06089973449707
@@ -39457,7 +39457,7 @@
   },
   "AGU": {
     "iata_code": "AGU",
-    "name": "JesÃºs TerÃ¡n Paredo International Airport",
+    "name": "Jesús Terán Paredo International Airport",
     "lonlat": [
       -102.318001,
       21.705601
@@ -39465,7 +39465,7 @@
   },
   "HUX": {
     "iata_code": "HUX",
-    "name": "BahÃ­as de Huatulco International Airport",
+    "name": "Bahías de Huatulco International Airport",
     "lonlat": [
       -96.262604,
       15.7753
@@ -39489,7 +39489,7 @@
   },
   "ACN": {
     "iata_code": "ACN",
-    "name": "Ciudad AcuÃ±a New International Airport",
+    "name": "Ciudad Acuña New International Airport",
     "lonlat": [
       -101.098998,
       29.332899
@@ -39529,7 +39529,7 @@
   },
   "CEN": {
     "iata_code": "CEN",
-    "name": "Ciudad ObregÃ³n International Airport",
+    "name": "Ciudad Obregón International Airport",
     "lonlat": [
       -109.83300018310547,
       27.39259910583496
@@ -39545,7 +39545,7 @@
   },
   "CPE": {
     "iata_code": "CPE",
-    "name": "Ingeniero Alberto AcuÃ±a Ongay International Airport",
+    "name": "Ingeniero Alberto Acuña Ongay International Airport",
     "lonlat": [
       -90.5002975464,
       19.816799163800003
@@ -39553,7 +39553,7 @@
   },
   "CJS": {
     "iata_code": "CJS",
-    "name": "Abraham GonzÃ¡lez International Airport",
+    "name": "Abraham González International Airport",
     "lonlat": [
       -106.42900085449219,
       31.63610076904297
@@ -39601,7 +39601,7 @@
   },
   "CUA": {
     "iata_code": "CUA",
-    "name": "Ciudad ConstituciÃ³n Airport",
+    "name": "Ciudad Constitución Airport",
     "lonlat": [
       -111.61499786377,
       25.053800582886
@@ -39649,7 +39649,7 @@
   },
   "GYM": {
     "iata_code": "GYM",
-    "name": "General JosÃ© MarÃ­a YÃ¡Ã±ez International Airport",
+    "name": "General José María Yáñez International Airport",
     "lonlat": [
       -110.92500305175781,
       27.9689998626709
@@ -39729,7 +39729,7 @@
   },
   "LZC": {
     "iata_code": "LZC",
-    "name": "LÃ¡zaro CÃ¡rdenas Airport",
+    "name": "Lázaro Cárdenas Airport",
     "lonlat": [
       -102.221000671,
       18.0016994476
@@ -39745,7 +39745,7 @@
   },
   "BJX": {
     "iata_code": "BJX",
-    "name": "Del BajÃ­o International Airport",
+    "name": "Del Bajío International Airport",
     "lonlat": [
       -101.481003,
       20.9935
@@ -39753,7 +39753,7 @@
   },
   "LAP": {
     "iata_code": "LAP",
-    "name": "Manuel MÃ¡rquez de LeÃ³n International Airport",
+    "name": "Manuel Márquez de León International Airport",
     "lonlat": [
       -110.361999512,
       24.072700500499998
@@ -39793,7 +39793,7 @@
   },
   "MXL": {
     "iata_code": "MXL",
-    "name": "General Rodolfo SÃ¡nchez Taboada International Airport",
+    "name": "General Rodolfo Sánchez Taboada International Airport",
     "lonlat": [
       -115.241997,
       32.6306
@@ -39809,7 +39809,7 @@
   },
   "MTT": {
     "iata_code": "MTT",
-    "name": "MinatitlÃ¡n/Coatzacoalcos National Airport",
+    "name": "Minatitlán/Coatzacoalcos National Airport",
     "lonlat": [
       -94.58070373540001,
       18.1033992767
@@ -39857,7 +39857,7 @@
   },
   "NLD": {
     "iata_code": "NLD",
-    "name": "QuetzalcÃ³atl International Airport",
+    "name": "Quetzalcóatl International Airport",
     "lonlat": [
       -99.5705032349,
       27.4438991547
@@ -39865,7 +39865,7 @@
   },
   "OAX": {
     "iata_code": "OAX",
-    "name": "XoxocotlÃ¡n International Airport",
+    "name": "Xoxocotlán International Airport",
     "lonlat": [
       -96.726600647,
       16.9999008179
@@ -39873,7 +39873,7 @@
   },
   "PAZ": {
     "iata_code": "PAZ",
-    "name": "El TajÃ­n National Airport",
+    "name": "El Tajín National Airport",
     "lonlat": [
       -97.46080017090001,
       20.6026992798
@@ -39881,7 +39881,7 @@
   },
   "PBC": {
     "iata_code": "PBC",
-    "name": "Hermanos SerdÃ¡n International Airport",
+    "name": "Hermanos Serdán International Airport",
     "lonlat": [
       -98.3713989258,
       19.1581001282
@@ -39921,7 +39921,7 @@
   },
   "PVR": {
     "iata_code": "PVR",
-    "name": "Licenciado Gustavo DÃ­az Ordaz International Airport",
+    "name": "Licenciado Gustavo Díaz Ordaz International Airport",
     "lonlat": [
       -105.25399780273438,
       20.680099487304688
@@ -39937,7 +39937,7 @@
   },
   "QRO": {
     "iata_code": "QRO",
-    "name": "QuerÃ©taro Intercontinental Airport",
+    "name": "Querétaro Intercontinental Airport",
     "lonlat": [
       -100.185997,
       20.6173
@@ -40009,7 +40009,7 @@
   },
   "TIJ": {
     "iata_code": "TIJ",
-    "name": "General Abelardo L. RodrÃ­guez International Airport",
+    "name": "General Abelardo L. Rodríguez International Airport",
     "lonlat": [
       -116.97000122070312,
       32.541099548339844
@@ -40049,7 +40049,7 @@
   },
   "CUN": {
     "iata_code": "CUN",
-    "name": "CancÃºn International Airport",
+    "name": "Cancún International Airport",
     "lonlat": [
       -86.8770980835,
       21.036500930800003
@@ -40065,7 +40065,7 @@
   },
   "VSA": {
     "iata_code": "VSA",
-    "name": "Carlos Rovirosa PÃ©rez International Airport",
+    "name": "Carlos Rovirosa Pérez International Airport",
     "lonlat": [
       -92.81739807128906,
       17.996999740600586
@@ -40257,7 +40257,7 @@
   },
   "CHX": {
     "iata_code": "CHX",
-    "name": "Cap Manuel NiÃ±o International Airport",
+    "name": "Cap Manuel Niño International Airport",
     "lonlat": [
       -82.515062,
       9.458962
@@ -40305,7 +40305,7 @@
   },
   "JQE": {
     "iata_code": "JQE",
-    "name": "JaquÃ© Airport",
+    "name": "Jaqué Airport",
     "lonlat": [
       -78.1572036743164,
       7.51777982711792
@@ -40641,7 +40641,7 @@
   },
   "SAL": {
     "iata_code": "SAL",
-    "name": "MonseÃ±or Ãscar Arnulfo Romero International Airport",
+    "name": "Monseñor �?scar Arnulfo Romero International Airport",
     "lonlat": [
       -89.055702,
       13.4409
@@ -40681,7 +40681,7 @@
   },
   "JEE": {
     "iata_code": "JEE",
-    "name": "JÃ©rÃ©mie Airport",
+    "name": "Jérémie Airport",
     "lonlat": [
       -74.17030334472656,
       18.66309928894043
@@ -40761,7 +40761,7 @@
   },
   "CYO": {
     "iata_code": "CYO",
-    "name": "Vilo AcuÃ±a International Airport",
+    "name": "Vilo Acuña International Airport",
     "lonlat": [
       -81.5459976196,
       21.6165008545
@@ -40777,7 +40777,7 @@
   },
   "QCO": {
     "iata_code": "QCO",
-    "name": "ColÃ³n Airport",
+    "name": "Colón Airport",
     "lonlat": [
       -80.92279815670001,
       22.7110996246
@@ -40809,7 +40809,7 @@
   },
   "HAV": {
     "iata_code": "HAV",
-    "name": "JosÃ© MartÃ­ International Airport",
+    "name": "José Martí International Airport",
     "lonlat": [
       -82.40910339355469,
       22.989200592041016
@@ -41065,7 +41065,7 @@
   },
   "UAC": {
     "iata_code": "UAC",
-    "name": "San Luis RÃ­o Colorado Airport",
+    "name": "San Luis Río Colorado Airport",
     "lonlat": [
       -114.797996521,
       32.445301055908
@@ -41073,7 +41073,7 @@
   },
   "XAL": {
     "iata_code": "XAL",
-    "name": "Ãlamos Airport",
+    "name": "�?lamos Airport",
     "lonlat": [
       -108.947998,
       27.035701
@@ -41481,7 +41481,7 @@
   },
   "TGS": {
     "iata_code": "TGS",
-    "name": "ChokwÃ© Airport",
+    "name": "Chokwé Airport",
     "lonlat": [
       32.965301513671875,
       -24.520599365234375
@@ -42809,7 +42809,7 @@
   },
   "ULB": {
     "iata_code": "ULB",
-    "name": "UlÃ©i Airport",
+    "name": "Uléi Airport",
     "lonlat": [
       168.3011,
       -16.3297
@@ -42929,7 +42929,7 @@
   },
   "BMY": {
     "iata_code": "BMY",
-    "name": "Ãle Art - Waala Airport",
+    "name": "�?le Art - Waala Airport",
     "lonlat": [
       163.66099548339844,
       -19.720600128173828
@@ -42937,7 +42937,7 @@
   },
   "KNQ": {
     "iata_code": "KNQ",
-    "name": "KonÃ© Airport",
+    "name": "Koné Airport",
     "lonlat": [
       164.83700561523438,
       -21.05430030822754
@@ -42945,7 +42945,7 @@
   },
   "ILP": {
     "iata_code": "ILP",
-    "name": "Ãle des Pins Airport",
+    "name": "�?le des Pins Airport",
     "lonlat": [
       167.45599365234375,
       -22.588899612426758
@@ -42977,7 +42977,7 @@
   },
   "GEA": {
     "iata_code": "GEA",
-    "name": "NoumÃ©a Magenta Airport",
+    "name": "Nouméa Magenta Airport",
     "lonlat": [
       166.47300720214844,
       -22.25830078125
@@ -42985,7 +42985,7 @@
   },
   "IOU": {
     "iata_code": "IOU",
-    "name": "Edmond CanÃ© Airport",
+    "name": "Edmond Cané Airport",
     "lonlat": [
       166.7830047607422,
       -22.459999084472656
@@ -43009,7 +43009,7 @@
   },
   "MEE": {
     "iata_code": "MEE",
-    "name": "MarÃ© Airport",
+    "name": "Maré Airport",
     "lonlat": [
       168.03799438476562,
       -21.481700897216797
@@ -43025,7 +43025,7 @@
   },
   "UVE": {
     "iata_code": "UVE",
-    "name": "OuvÃ©a Airport",
+    "name": "Ouvéa Airport",
     "lonlat": [
       166.572998046875,
       -20.640600204467773
@@ -44001,7 +44001,7 @@
   },
   "TIF": {
     "iata_code": "TIF",
-    "name": "Taâif Regional Airport",
+    "name": "Ta�??if Regional Airport",
     "lonlat": [
       40.543442,
       21.483001
@@ -45817,7 +45817,7 @@
   },
   "PYC": {
     "iata_code": "PYC",
-    "name": "PlayÃ³n Chico Airport",
+    "name": "Playón Chico Airport",
     "lonlat": [
       -78.235874176,
       9.305184161299998
@@ -45849,7 +45849,7 @@
   },
   "BFQ": {
     "iata_code": "BFQ",
-    "name": "Bahia PiÃ±a Airport",
+    "name": "Bahia Piña Airport",
     "lonlat": [
       -78.19999694824219,
       7.583000183105469
@@ -47337,7 +47337,7 @@
   },
   "PDR": {
     "iata_code": "PDR",
-    "name": "Presidente JosÃ© Sarney Airport",
+    "name": "Presidente José Sarney Airport",
     "lonlat": [
       -44.481,
       -5.3098
@@ -48329,7 +48329,7 @@
   },
   "BFA": {
     "iata_code": "BFA",
-    "name": "BahÃ­a Negra Airport",
+    "name": "Bahía Negra Airport",
     "lonlat": [
       -58.1791992188,
       -20.2245998383
@@ -48889,7 +48889,7 @@
   },
   "KKJ": {
     "iata_code": "KKJ",
-    "name": "KitakyÅ«shÅ« Airport",
+    "name": "Kitakyūshū Airport",
     "lonlat": [
       131.035003662,
       33.8459014893
@@ -49521,7 +49521,7 @@
   },
   "RMU": {
     "iata_code": "RMU",
-    "name": "RegiÃ³n de Murcia International Airport",
+    "name": "Región de Murcia International Airport",
     "lonlat": [
       -1.125,
       37.803
@@ -50409,7 +50409,7 @@
   },
   "LGS": {
     "iata_code": "LGS",
-    "name": "Comodoro D.R. SalomÃ³n Airport",
+    "name": "Comodoro D.R. Salomón Airport",
     "lonlat": [
       -69.5743026733,
       -35.493598938
@@ -50433,7 +50433,7 @@
   },
   "SDE": {
     "iata_code": "SDE",
-    "name": "Vicecomodoro Angel D. La Paz AragonÃ©s Airport",
+    "name": "Vicecomodoro Angel D. La Paz Aragonés Airport",
     "lonlat": [
       -64.3099975586,
       -27.765556335399996
@@ -50449,7 +50449,7 @@
   },
   "RHD": {
     "iata_code": "RHD",
-    "name": "Termas de RÃ­o Hondo international Airport",
+    "name": "Termas de Río Hondo international Airport",
     "lonlat": [
       -64.93595,
       -27.4966
@@ -50545,7 +50545,7 @@
   },
   "IGR": {
     "iata_code": "IGR",
-    "name": "Cataratas Del IguazÃº International Airport",
+    "name": "Cataratas Del Iguazú International Airport",
     "lonlat": [
       -54.4734,
       -25.737301
@@ -50601,7 +50601,7 @@
   },
   "ORA": {
     "iata_code": "ORA",
-    "name": "OrÃ¡n Airport",
+    "name": "Orán Airport",
     "lonlat": [
       -64.3292007446,
       -23.1527996063
@@ -50713,7 +50713,7 @@
   },
   "IGB": {
     "iata_code": "IGB",
-    "name": "Cabo F.A.A. H. R. BordÃ³n Airport",
+    "name": "Cabo F.A.A. H. R. Bordón Airport",
     "lonlat": [
       -69.5748977661,
       -41.320899963399995
@@ -50721,7 +50721,7 @@
   },
   "OES": {
     "iata_code": "OES",
-    "name": "Antoine de Saint ExupÃ©ry Airport",
+    "name": "Antoine de Saint Exupéry Airport",
     "lonlat": [
       -65.0343,
       -40.7512
@@ -50809,7 +50809,7 @@
   },
   "RGL": {
     "iata_code": "RGL",
-    "name": "Piloto Civil N. FernÃ¡ndez Airport",
+    "name": "Piloto Civil N. Fernández Airport",
     "lonlat": [
       -69.3126,
       -51.6089
@@ -50929,7 +50929,7 @@
   },
   "MDQ": {
     "iata_code": "MDQ",
-    "name": "Ãstor Piazzola International Airport",
+    "name": "�?stor Piazzola International Airport",
     "lonlat": [
       -57.5733,
       -37.9342
@@ -50977,7 +50977,7 @@
   },
   "TDL": {
     "iata_code": "TDL",
-    "name": "HÃ©roes De Malvinas Airport",
+    "name": "Héroes De Malvinas Airport",
     "lonlat": [
       -59.2279014587,
       -37.2374000549
@@ -51025,7 +51025,7 @@
   },
   "CDJ": {
     "iata_code": "CDJ",
-    "name": "ConceiÃ§Ã£o do Araguaia Airport",
+    "name": "Conceição do Araguaia Airport",
     "lonlat": [
       -49.30149841308594,
       -8.348349571228027
@@ -51057,7 +51057,7 @@
   },
   "ARU": {
     "iata_code": "ARU",
-    "name": "AraÃ§atuba Airport",
+    "name": "Araçatuba Airport",
     "lonlat": [
       -50.4247016907,
       -21.1413002014
@@ -51073,7 +51073,7 @@
   },
   "BEL": {
     "iata_code": "BEL",
-    "name": "Val de Cans/JÃºlio Cezar Ribeiro International Airport",
+    "name": "Val de Cans/Júlio Cezar Ribeiro International Airport",
     "lonlat": [
       -48.4762992859,
       -1.3792500495900002
@@ -51145,7 +51145,7 @@
   },
   "BPG": {
     "iata_code": "BPG",
-    "name": "Barra do GarÃ§as Airport",
+    "name": "Barra do Garças Airport",
     "lonlat": [
       -52.3889007568,
       -15.861300468400001
@@ -51177,7 +51177,7 @@
   },
   "CFC": {
     "iata_code": "CFC",
-    "name": "CaÃ§ador Airport",
+    "name": "Caçador Airport",
     "lonlat": [
       -50.9398002625,
       -26.78840065
@@ -51217,7 +51217,7 @@
   },
   "CKS": {
     "iata_code": "CKS",
-    "name": "CarajÃ¡s Airport",
+    "name": "Carajás Airport",
     "lonlat": [
       -50.0013885498,
       -6.11527776718
@@ -51225,7 +51225,7 @@
   },
   "CCM": {
     "iata_code": "CCM",
-    "name": "DiomÃ­cio Freitas Airport",
+    "name": "Diomício Freitas Airport",
     "lonlat": [
       -49.4213905334,
       -28.7244434357
@@ -51233,7 +51233,7 @@
   },
   "CLV": {
     "iata_code": "CLV",
-    "name": "Nelson Ribeiro GuimarÃ£es Airport",
+    "name": "Nelson Ribeiro Guimarães Airport",
     "lonlat": [
       -48.607498168945,
       -17.725299835205
@@ -51249,7 +51249,7 @@
   },
   "CMG": {
     "iata_code": "CMG",
-    "name": "CorumbÃ¡ International Airport",
+    "name": "Corumbá International Airport",
     "lonlat": [
       -57.6713905334,
       -19.0119438171
@@ -51337,7 +51337,7 @@
   },
   "0": {
     "iata_code": "0",
-    "name": "CorixÃ¡ Airport",
+    "name": "Corixá Airport",
     "lonlat": [
       -58.31719970703125,
       -16.38360023498535
@@ -51353,7 +51353,7 @@
   },
   "FLN": {
     "iata_code": "FLN",
-    "name": "HercÃ­lio Luz International Airport",
+    "name": "Hercílio Luz International Airport",
     "lonlat": [
       -48.5525016784668,
       -27.670278549194336
@@ -51377,7 +51377,7 @@
   },
   "GIG": {
     "iata_code": "GIG",
-    "name": "Rio GaleÃ£o â Tom Jobim International Airport",
+    "name": "Rio Galeão �?? Tom Jobim International Airport",
     "lonlat": [
       -43.2505569458,
       -22.8099994659
@@ -51385,7 +51385,7 @@
   },
   "GJM": {
     "iata_code": "GJM",
-    "name": "GuajarÃ¡-Mirim Airport",
+    "name": "Guajará-Mirim Airport",
     "lonlat": [
       -65.28479766845703,
       -10.786399841308594
@@ -51401,7 +51401,7 @@
   },
   "GRU": {
     "iata_code": "GRU",
-    "name": "Guarulhos - Governador AndrÃ© Franco Montoro International Airport",
+    "name": "Guarulhos - Governador André Franco Montoro International Airport",
     "lonlat": [
       -46.47305679321289,
       -23.435556411743164
@@ -51425,7 +51425,7 @@
   },
   "GUJ": {
     "iata_code": "GUJ",
-    "name": "GuaratinguetÃ¡ Airport",
+    "name": "Guaratinguetá Airport",
     "lonlat": [
       -45.20479965209961,
       -22.79159927368164
@@ -51529,7 +51529,7 @@
   },
   "CPV": {
     "iata_code": "CPV",
-    "name": "Presidente JoÃ£o Suassuna Airport",
+    "name": "Presidente João Suassuna Airport",
     "lonlat": [
       -35.8964,
       -7.26992
@@ -51545,7 +51545,7 @@
   },
   "LEC": {
     "iata_code": "LEC",
-    "name": "Coronel HorÃ¡cio de Mattos Airport",
+    "name": "Coronel Horácio de Mattos Airport",
     "lonlat": [
       -41.2770004272,
       -12.4822998047
@@ -51569,7 +51569,7 @@
   },
   "LDB": {
     "iata_code": "LDB",
-    "name": "Governador JosÃ© Richa Airport",
+    "name": "Governador José Richa Airport",
     "lonlat": [
       -51.1301002502,
       -23.333599090599996
@@ -51585,7 +51585,7 @@
   },
   "MAB": {
     "iata_code": "MAB",
-    "name": "JoÃ£o Correa da Rocha Airport",
+    "name": "João Correa da Rocha Airport",
     "lonlat": [
       -49.138000488299994,
       -5.36858987808
@@ -51593,7 +51593,7 @@
   },
   "MQH": {
     "iata_code": "MQH",
-    "name": "MinaÃ§u Airport",
+    "name": "Minaçu Airport",
     "lonlat": [
       -48.195301,
       -13.5491
@@ -51609,7 +51609,7 @@
   },
   "MEA": {
     "iata_code": "MEA",
-    "name": "MacaÃ© Airport",
+    "name": "Macaé Airport",
     "lonlat": [
       -41.7659988403,
       -22.343000412
@@ -51617,7 +51617,7 @@
   },
   "MGF": {
     "iata_code": "MGF",
-    "name": "Regional de MaringÃ¡ - SÃ­lvio Nane Junior Airport",
+    "name": "Regional de Maringá - Sílvio Nane Junior Airport",
     "lonlat": [
       -52.01222229,
       -23.479444503799996
@@ -51625,7 +51625,7 @@
   },
   "MOC": {
     "iata_code": "MOC",
-    "name": "MÃ¡rio Ribeiro Airport",
+    "name": "Mário Ribeiro Airport",
     "lonlat": [
       -43.818901062,
       -16.706899642899998
@@ -51633,7 +51633,7 @@
   },
   "MII": {
     "iata_code": "MII",
-    "name": "Frank Miloye MilenkowichiâMarÃ­lia State Airport",
+    "name": "Frank Miloye Milenkowichi�??Marília State Airport",
     "lonlat": [
       -49.926399231,
       -22.1968994141
@@ -51673,7 +51673,7 @@
   },
   "MNX": {
     "iata_code": "MNX",
-    "name": "ManicorÃ© Airport",
+    "name": "Manicoré Airport",
     "lonlat": [
       -61.278301239014,
       -5.8113799095154
@@ -51689,7 +51689,7 @@
   },
   "GEL": {
     "iata_code": "GEL",
-    "name": "Santo Ãngelo Airport",
+    "name": "Santo �?ngelo Airport",
     "lonlat": [
       -54.169102,
       -28.2817
@@ -51713,7 +51713,7 @@
   },
   "PHB": {
     "iata_code": "PHB",
-    "name": "Prefeito Doutor JoÃ£o Silva Filho Airport",
+    "name": "Prefeito Doutor João Silva Filho Airport",
     "lonlat": [
       -41.73199844359999,
       -2.89374995232
@@ -51721,7 +51721,7 @@
   },
   "POO": {
     "iata_code": "POO",
-    "name": "PoÃ§os de Caldas - Embaixador Walther Moreira Salles Airport",
+    "name": "Poços de Caldas - Embaixador Walther Moreira Salles Airport",
     "lonlat": [
       -46.567901611328,
       -21.843000411987
@@ -51745,7 +51745,7 @@
   },
   "PET": {
     "iata_code": "PET",
-    "name": "JoÃ£o SimÃµes Lopes Neto International Airport",
+    "name": "João Simões Lopes Neto International Airport",
     "lonlat": [
       -52.327702,
       -31.718399
@@ -51769,7 +51769,7 @@
   },
   "PMG": {
     "iata_code": "PMG",
-    "name": "Ponta PorÃ£ Airport",
+    "name": "Ponta Porã Airport",
     "lonlat": [
       -55.702598571777344,
       -22.54960060119629
@@ -51793,7 +51793,7 @@
   },
   "VDC": {
     "iata_code": "VDC",
-    "name": "VitÃ³ria da Conquista Airport",
+    "name": "Vitória da Conquista Airport",
     "lonlat": [
       -40.8630981445,
       -14.8627996445
@@ -51801,7 +51801,7 @@
   },
   "RBR": {
     "iata_code": "RBR",
-    "name": "PlÃ¡cido de Castro Airport",
+    "name": "Plácido de Castro Airport",
     "lonlat": [
       -67.89805603027344,
       -9.868888854980469
@@ -51849,7 +51849,7 @@
   },
   "NAT": {
     "iata_code": "NAT",
-    "name": "Governador AluÃ­zio Alves International Airport",
+    "name": "Governador Aluízio Alves International Airport",
     "lonlat": [
       -35.376111,
       -5.768056
@@ -51913,7 +51913,7 @@
   },
   "SSZ": {
     "iata_code": "SSZ",
-    "name": "Base AÃ©rea de Santos Airport",
+    "name": "Base Aérea de Santos Airport",
     "lonlat": [
       -46.299720764160156,
       -23.928056716918945
@@ -51921,7 +51921,7 @@
   },
   "SSA": {
     "iata_code": "SSA",
-    "name": "Deputado Luiz Eduardo MagalhÃ£es International Airport",
+    "name": "Deputado Luiz Eduardo Magalhães International Airport",
     "lonlat": [
       -38.3224983215,
       -12.9086112976
@@ -51929,7 +51929,7 @@
   },
   "QHP": {
     "iata_code": "QHP",
-    "name": "Base de AviaÃ§Ã£o de TaubatÃ© Airport",
+    "name": "Base de Aviação de Taubaté Airport",
     "lonlat": [
       -45.51599884033203,
       -23.04010009765625
@@ -51945,7 +51945,7 @@
   },
   "UNA": {
     "iata_code": "UNA",
-    "name": "Hotel TransamÃ©rica Airport",
+    "name": "Hotel Transamérica Airport",
     "lonlat": [
       -38.9990005493,
       -15.355199813799999
@@ -51961,7 +51961,7 @@
   },
   "THE": {
     "iata_code": "THE",
-    "name": "Senador PetrÃ´nio Portela Airport",
+    "name": "Senador Petrônio Portela Airport",
     "lonlat": [
       -42.8235015869,
       -5.0599398613
@@ -51969,7 +51969,7 @@
   },
   "TFF": {
     "iata_code": "TFF",
-    "name": "TefÃ© Airport",
+    "name": "Tefé Airport",
     "lonlat": [
       -64.7240982056,
       -3.38294005394
@@ -51977,7 +51977,7 @@
   },
   "TRQ": {
     "iata_code": "TRQ",
-    "name": "TarauacÃ¡ Airport",
+    "name": "Tarauacá Airport",
     "lonlat": [
       -70.783302307129,
       -8.1552600860596
@@ -51985,7 +51985,7 @@
   },
   "TEC": {
     "iata_code": "TEC",
-    "name": "TelÃªmaco Borba Airport",
+    "name": "Telêmaco Borba Airport",
     "lonlat": [
       -50.6515998840332,
       -24.317800521850586
@@ -52009,7 +52009,7 @@
   },
   "TUR": {
     "iata_code": "TUR",
-    "name": "TucuruÃ­ Airport",
+    "name": "Tucuruí Airport",
     "lonlat": [
       -49.72029876709,
       -3.7860100269318
@@ -52017,7 +52017,7 @@
   },
   "SJL": {
     "iata_code": "SJL",
-    "name": "SÃ£o Gabriel da Cachoeira Airport",
+    "name": "São Gabriel da Cachoeira Airport",
     "lonlat": [
       -66.9855,
       -0.14835
@@ -52041,7 +52041,7 @@
   },
   "UDI": {
     "iata_code": "UDI",
-    "name": "Ten. Cel. Aviador CÃ©sar Bombonato Airport",
+    "name": "Ten. Cel. Aviador César Bombonato Airport",
     "lonlat": [
       -48.225277,
       -18.883612
@@ -52049,7 +52049,7 @@
   },
   "UBA": {
     "iata_code": "UBA",
-    "name": "MÃ¡rio de Almeida Franco Airport",
+    "name": "Mário de Almeida Franco Airport",
     "lonlat": [
       -47.966110229492,
       -19.764722824097
@@ -52065,7 +52065,7 @@
   },
   "BVH": {
     "iata_code": "BVH",
-    "name": "Brigadeiro CamarÃ£o Airport",
+    "name": "Brigadeiro Camarão Airport",
     "lonlat": [
       -60.098300933838,
       -12.694399833679
@@ -52129,7 +52129,7 @@
   },
   "WPA": {
     "iata_code": "WPA",
-    "name": "Cabo 1Â° Juan RomÃ¡n Airport",
+    "name": "Cabo 1° Juan Román Airport",
     "lonlat": [
       -72.67030334472656,
       -45.399200439453125
@@ -52185,7 +52185,7 @@
   },
   "YAI": {
     "iata_code": "YAI",
-    "name": "Gral. Bernardo OÂ´Higgins Airport",
+    "name": "Gral. Bernardo O´Higgins Airport",
     "lonlat": [
       -72.03140258789062,
       -36.58250045776367
@@ -52193,7 +52193,7 @@
   },
   "PUQ": {
     "iata_code": "PUQ",
-    "name": "Pdte. Carlos IbaÃ±ez del Campo Airport",
+    "name": "Pdte. Carlos Ibañez del Campo Airport",
     "lonlat": [
       -70.854599,
       -53.002602
@@ -52225,7 +52225,7 @@
   },
   "SCL": {
     "iata_code": "SCL",
-    "name": "Comodoro Arturo Merino BenÃ­tez International Airport",
+    "name": "Comodoro Arturo Merino Benítez International Airport",
     "lonlat": [
       -70.78579711914062,
       -33.393001556396484
@@ -52233,7 +52233,7 @@
   },
   "ESR": {
     "iata_code": "ESR",
-    "name": "Ricardo GarcÃ­a Posada Airport",
+    "name": "Ricardo García Posada Airport",
     "lonlat": [
       -69.76519775390625,
       -26.311100006103516
@@ -52249,7 +52249,7 @@
   },
   "ANF": {
     "iata_code": "ANF",
-    "name": "AndrÃ©s Sabella GÃ¡lvez International Airport",
+    "name": "Andrés Sabella Gálvez International Airport",
     "lonlat": [
       -70.445099,
       -23.444501
@@ -52265,7 +52265,7 @@
   },
   "FFU": {
     "iata_code": "FFU",
-    "name": "FutaleufÃº Airport",
+    "name": "Futaleufú Airport",
     "lonlat": [
       -71.8510971069336,
       -43.18920135498047
@@ -52273,7 +52273,7 @@
   },
   "LSQ": {
     "iata_code": "LSQ",
-    "name": "MarÃ­a Dolores Airport",
+    "name": "María Dolores Airport",
     "lonlat": [
       -72.42539978027344,
       -37.40169906616211
@@ -52281,7 +52281,7 @@
   },
   "WPU": {
     "iata_code": "WPU",
-    "name": "Guardiamarina ZaÃ±artu Airport",
+    "name": "Guardiamarina Zañartu Airport",
     "lonlat": [
       -67.62629699707031,
       -54.93109893798828
@@ -52313,7 +52313,7 @@
   },
   "ZOS": {
     "iata_code": "ZOS",
-    "name": "CaÃ±al Bajo Carlos - Hott Siebert Airport",
+    "name": "Cañal Bajo Carlos - Hott Siebert Airport",
     "lonlat": [
       -73.06099700927734,
       -40.61119842529297
@@ -52361,7 +52361,7 @@
   },
   "ZPC": {
     "iata_code": "ZPC",
-    "name": "PucÃ³n Airport",
+    "name": "Pucón Airport",
     "lonlat": [
       -71.91590118408203,
       -39.29280090332031
@@ -52385,7 +52385,7 @@
   },
   "ZCO": {
     "iata_code": "ZCO",
-    "name": "La AraucanÃ­a Airport",
+    "name": "La Araucanía Airport",
     "lonlat": [
       -72.6515,
       -38.9259
@@ -52401,7 +52401,7 @@
   },
   "CNR": {
     "iata_code": "CNR",
-    "name": "ChaÃ±aral Airport",
+    "name": "Chañaral Airport",
     "lonlat": [
       -70.6072998046875,
       -26.332500457763672
@@ -52449,7 +52449,7 @@
   },
   "SSD": {
     "iata_code": "SSD",
-    "name": "VÃ­ctor LafÃ³n Airport",
+    "name": "Víctor Lafón Airport",
     "lonlat": [
       -70.70500183105469,
       -32.74580001831055
@@ -52497,7 +52497,7 @@
   },
   "WCH": {
     "iata_code": "WCH",
-    "name": "ChaitÃ©n Airport",
+    "name": "Chaitén Airport",
     "lonlat": [
       -72.6990966796875,
       -42.93280029296875
@@ -52529,7 +52529,7 @@
   },
   "KNA": {
     "iata_code": "KNA",
-    "name": "ViÃ±a del mar Airport",
+    "name": "Viña del mar Airport",
     "lonlat": [
       -71.4786,
       -32.9496
@@ -52601,7 +52601,7 @@
   },
   "QGC": {
     "iata_code": "QGC",
-    "name": "LenÃ§Ã³is Paulista Airport",
+    "name": "Lençóis Paulista Airport",
     "lonlat": [
       -48.774600982666016,
       -22.578399658203125
@@ -52625,7 +52625,7 @@
   },
   "OIA": {
     "iata_code": "OIA",
-    "name": "OurilÃ¢ndia do Norte Airport",
+    "name": "Ourilândia do Norte Airport",
     "lonlat": [
       -51.0499000549,
       -6.763100147250001
@@ -52657,7 +52657,7 @@
   },
   "QSC": {
     "iata_code": "QSC",
-    "name": "MÃ¡rio Pereira LopesâSÃ£o Carlos Airport",
+    "name": "Mário Pereira Lopes�??São Carlos Airport",
     "lonlat": [
       -47.903703,
       -21.875401
@@ -52705,7 +52705,7 @@
   },
   "ATF": {
     "iata_code": "ATF",
-    "name": "ChachoÃ¡n Airport",
+    "name": "Chachoán Airport",
     "lonlat": [
       -78.57460021972656,
       -1.2120699882507324
@@ -52737,7 +52737,7 @@
   },
   "GYE": {
     "iata_code": "GYE",
-    "name": "JosÃ© JoaquÃ­n de Olmedo International Airport",
+    "name": "José Joaquín de Olmedo International Airport",
     "lonlat": [
       -79.88359832760001,
       -2.1574199199699997
@@ -52865,7 +52865,7 @@
   },
   "SCY": {
     "iata_code": "SCY",
-    "name": "San CristÃ³bal Airport",
+    "name": "San Cristóbal Airport",
     "lonlat": [
       -89.617401,
       -0.910206
@@ -52977,7 +52977,7 @@
   },
   "ENO": {
     "iata_code": "ENO",
-    "name": "EncarnaciÃ³n Airport",
+    "name": "Encarnación Airport",
     "lonlat": [
       -55.837495,
       -27.227366
@@ -53001,7 +53001,7 @@
   },
   "ESG": {
     "iata_code": "ESG",
-    "name": "Dr. Luis Maria ArgaÃ±a International Airport",
+    "name": "Dr. Luis Maria Argaña International Airport",
     "lonlat": [
       -60.619998931884766,
       -22.049999237060547
@@ -53025,7 +53025,7 @@
   },
   "SIC": {
     "iata_code": "SIC",
-    "name": "San JosÃ© Island Airport",
+    "name": "San José Island Airport",
     "lonlat": [
       -79.078,
       8.2622
@@ -53057,7 +53057,7 @@
   },
   "JUA": {
     "iata_code": "JUA",
-    "name": "InÃ¡cio LuÃ­s do Nascimento Airport",
+    "name": "Inácio Luís do Nascimento Airport",
     "lonlat": [
       -57.5495,
       -11.2966
@@ -53105,7 +53105,7 @@
   },
   "ARS": {
     "iata_code": "ARS",
-    "name": "AragarÃ§as Airport",
+    "name": "Aragarças Airport",
     "lonlat": [
       -52.2411,
       -15.8994
@@ -53257,7 +53257,7 @@
   },
   "SJH": {
     "iata_code": "SJH",
-    "name": "San Juan Del CÃ©sar Airport",
+    "name": "San Juan Del César Airport",
     "lonlat": [
       -73.016667,
       10.766667
@@ -53393,7 +53393,7 @@
   },
   "ISD": {
     "iata_code": "ISD",
-    "name": "Santa BÃ¡rbara Airport",
+    "name": "Santa Bárbara Airport",
     "lonlat": [
       -77.981753,
       2.445825
@@ -53473,7 +53473,7 @@
   },
   "ACD": {
     "iata_code": "ACD",
-    "name": "Alcides FernÃ¡ndez Airport",
+    "name": "Alcides Fernández Airport",
     "lonlat": [
       -77.3,
       8.51667
@@ -53553,7 +53553,7 @@
   },
   "BSC": {
     "iata_code": "BSC",
-    "name": "JosÃ© Celestino Mutis Airport",
+    "name": "José Celestino Mutis Airport",
     "lonlat": [
       -77.3947,
       6.20292
@@ -53561,7 +53561,7 @@
   },
   "BUN": {
     "iata_code": "BUN",
-    "name": "Gerardo Tobar LÃ³pez Airport",
+    "name": "Gerardo Tobar López Airport",
     "lonlat": [
       -76.9898,
       3.81963
@@ -53569,7 +53569,7 @@
   },
   "CPB": {
     "iata_code": "CPB",
-    "name": "CapurganÃ¡ Airport",
+    "name": "Capurganá Airport",
     "lonlat": [
       -77.35,
       8.63333
@@ -53593,7 +53593,7 @@
   },
   "CTG": {
     "iata_code": "CTG",
-    "name": "Rafael NuÃ±ez International Airport",
+    "name": "Rafael Nuñez International Airport",
     "lonlat": [
       -75.513,
       10.4424
@@ -53641,7 +53641,7 @@
   },
   "CUO": {
     "iata_code": "CUO",
-    "name": "CarurÃº Airport",
+    "name": "Carurú Airport",
     "lonlat": [
       -71.2961,
       1.0136
@@ -53657,7 +53657,7 @@
   },
   "CVE": {
     "iata_code": "CVE",
-    "name": "CoveÃ±as Airport",
+    "name": "Coveñas Airport",
     "lonlat": [
       -75.6913,
       9.40092
@@ -53681,7 +53681,7 @@
   },
   "EJA": {
     "iata_code": "EJA",
-    "name": "YariguÃ­es Airport",
+    "name": "Yariguíes Airport",
     "lonlat": [
       -73.8068,
       7.02433
@@ -53697,7 +53697,7 @@
   },
   "FDA": {
     "iata_code": "FDA",
-    "name": "FundaciÃ³n Airport",
+    "name": "Fundación Airport",
     "lonlat": [
       -74.2,
       10.5333
@@ -53761,7 +53761,7 @@
   },
   "IGO": {
     "iata_code": "IGO",
-    "name": "ChigorodÃ³ Airport",
+    "name": "Chigorodó Airport",
     "lonlat": [
       -76.6865,
       7.68038
@@ -53817,7 +53817,7 @@
   },
   "LET": {
     "iata_code": "LET",
-    "name": "Alfredo VÃ¡squez Cobo International Airport",
+    "name": "Alfredo Vásquez Cobo International Airport",
     "lonlat": [
       -69.9432,
       -4.19355
@@ -53945,7 +53945,7 @@
   },
   "PEI": {
     "iata_code": "PEI",
-    "name": "MatecaÃ±a International Airport",
+    "name": "Matecaña International Airport",
     "lonlat": [
       -75.7395,
       4.81267
@@ -53977,7 +53977,7 @@
   },
   "PPN": {
     "iata_code": "PPN",
-    "name": "Guillermo LeÃ³n Valencia Airport",
+    "name": "Guillermo León Valencia Airport",
     "lonlat": [
       -76.6093,
       2.4544
@@ -54033,7 +54033,7 @@
   },
   "MDE": {
     "iata_code": "MDE",
-    "name": "Jose Maria CÃ³rdova International Airport",
+    "name": "Jose Maria Córdova International Airport",
     "lonlat": [
       -75.4231,
       6.16454
@@ -54073,7 +54073,7 @@
   },
   "SMR": {
     "iata_code": "SMR",
-    "name": "SimÃ³n BolÃ­var International Airport",
+    "name": "Simón Bolívar International Airport",
     "lonlat": [
       -74.2306,
       11.1196
@@ -54113,7 +54113,7 @@
   },
   "TIB": {
     "iata_code": "TIB",
-    "name": "TibÃº Airport",
+    "name": "Tibú Airport",
     "lonlat": [
       -72.7304,
       8.63152
@@ -54153,7 +54153,7 @@
   },
   "TRB": {
     "iata_code": "TRB",
-    "name": "Gonzalo MejÃ­a Airport",
+    "name": "Gonzalo Mejía Airport",
     "lonlat": [
       -76.7415,
       8.07453
@@ -54169,7 +54169,7 @@
   },
   "UIB": {
     "iata_code": "UIB",
-    "name": "El CaraÃ±o Airport",
+    "name": "El Caraño Airport",
     "lonlat": [
       -76.6412,
       5.69076
@@ -54177,7 +54177,7 @@
   },
   "ULQ": {
     "iata_code": "ULQ",
-    "name": "Heriberto GÃ­l MartÃ­nez Airport",
+    "name": "Heriberto Gíl Martínez Airport",
     "lonlat": [
       -76.2351,
       4.08836
@@ -54193,7 +54193,7 @@
   },
   "VGZ": {
     "iata_code": "VGZ",
-    "name": "Villa GarzÃ³n Airport",
+    "name": "Villa Garzón Airport",
     "lonlat": [
       -76.6056,
       0.978767
@@ -54201,7 +54201,7 @@
   },
   "PYA": {
     "iata_code": "PYA",
-    "name": "VelÃ¡squez Airport",
+    "name": "Velásquez Airport",
     "lonlat": [
       -74.457,
       5.93904
@@ -54209,7 +54209,7 @@
   },
   "VUP": {
     "iata_code": "VUP",
-    "name": "Alfonso LÃ³pez Pumarejo Airport",
+    "name": "Alfonso López Pumarejo Airport",
     "lonlat": [
       -73.2495,
       10.435
@@ -54257,7 +54257,7 @@
   },
   "ASC": {
     "iata_code": "ASC",
-    "name": "AscenciÃ³n De Guarayos Airport",
+    "name": "Ascención De Guarayos Airport",
     "lonlat": [
       -63.156700134277344,
       -15.930299758911133
@@ -54297,7 +54297,7 @@
   },
   "CIJ": {
     "iata_code": "CIJ",
-    "name": "CapitÃ¡n AnÃ­bal Arab Airport",
+    "name": "Capitán Aníbal Arab Airport",
     "lonlat": [
       -68.7829971313,
       -11.040399551400002
@@ -54305,7 +54305,7 @@
   },
   "CEP": {
     "iata_code": "CEP",
-    "name": "ConcepciÃ³n Airport",
+    "name": "Concepción Airport",
     "lonlat": [
       -62.02859878540039,
       -16.1382999420166
@@ -54321,7 +54321,7 @@
   },
   "GYA": {
     "iata_code": "GYA",
-    "name": "CapitÃ¡n de Av. Emilio BeltrÃ¡n Airport",
+    "name": "Capitán de Av. Emilio Beltrán Airport",
     "lonlat": [
       -65.3455963135,
       -10.820599556
@@ -54345,7 +54345,7 @@
   },
   "SJS": {
     "iata_code": "SJS",
-    "name": "San JosÃ© De Chiquitos Airport",
+    "name": "San José De Chiquitos Airport",
     "lonlat": [
       -60.743099212646484,
       -17.830799102783203
@@ -54353,7 +54353,7 @@
   },
   "SJB": {
     "iata_code": "SJB",
-    "name": "San JoaquÃ­n Airport",
+    "name": "San Joaquín Airport",
     "lonlat": [
       -64.661697,
       -13.0528
@@ -54409,7 +54409,7 @@
   },
   "PSZ": {
     "iata_code": "PSZ",
-    "name": "CapitÃ¡n Av. Salvador Ogaya G. airport",
+    "name": "Capitán Av. Salvador Ogaya G. airport",
     "lonlat": [
       -57.820599,
       -18.975301
@@ -54417,7 +54417,7 @@
   },
   "SRD": {
     "iata_code": "SRD",
-    "name": "San RamÃ³n Airport",
+    "name": "San Ramón Airport",
     "lonlat": [
       -64.603897,
       -13.2639
@@ -54425,7 +54425,7 @@
   },
   "RBO": {
     "iata_code": "RBO",
-    "name": "RoborÃ© Airport",
+    "name": "Roboré Airport",
     "lonlat": [
       -59.76499938964844,
       -18.329200744628906
@@ -54433,7 +54433,7 @@
   },
   "RIB": {
     "iata_code": "RIB",
-    "name": "CapitÃ¡n Av. Selin Zeitun Lopez Airport",
+    "name": "Capitán Av. Selin Zeitun Lopez Airport",
     "lonlat": [
       -66,
       -11
@@ -54457,7 +54457,7 @@
   },
   "SRJ": {
     "iata_code": "SRJ",
-    "name": "CapitÃ¡n Av. German Quiroga G. Airport",
+    "name": "Capitán Av. German Quiroga G. Airport",
     "lonlat": [
       -66.73750305175781,
       -14.859199523925781
@@ -54465,7 +54465,7 @@
   },
   "SNG": {
     "iata_code": "SNG",
-    "name": "CapitÃ¡n Av. Juan Cochamanidis S. Airport",
+    "name": "Capitán Av. Juan Cochamanidis S. Airport",
     "lonlat": [
       -60.962799072265625,
       -16.38360023498535
@@ -54497,7 +54497,7 @@
   },
   "MQK": {
     "iata_code": "MQK",
-    "name": "San MatÃ­as Airport",
+    "name": "San Matías Airport",
     "lonlat": [
       -58.40190124511719,
       -16.33919906616211
@@ -54529,7 +54529,7 @@
   },
   "VAH": {
     "iata_code": "VAH",
-    "name": "CapitÃ¡n Av. Vidal Villagomez Toledo Airport",
+    "name": "Capitán Av. Vidal Villagomez Toledo Airport",
     "lonlat": [
       -64.09940338134766,
       -18.482500076293945
@@ -54537,7 +54537,7 @@
   },
   "VLM": {
     "iata_code": "VLM",
-    "name": "Teniente Coronel Rafael PabÃ³n Airport",
+    "name": "Teniente Coronel Rafael Pabón Airport",
     "lonlat": [
       -63.4056015015,
       -21.255199432399998
@@ -54657,7 +54657,7 @@
   },
   "APY": {
     "iata_code": "APY",
-    "name": "Alto ParnaÃ­ba Airport",
+    "name": "Alto Parnaíba Airport",
     "lonlat": [
       -45.950557708740234,
       -9.083610534667969
@@ -54673,7 +54673,7 @@
   },
   "AMJ": {
     "iata_code": "AMJ",
-    "name": "Cirilo QueirÃ³z Airport",
+    "name": "Cirilo Queiróz Airport",
     "lonlat": [
       -40.66722,
       -16.18389
@@ -54721,7 +54721,7 @@
   },
   "BMS": {
     "iata_code": "BMS",
-    "name": "SÃ³crates Mariani Bittencourt Airport",
+    "name": "Sócrates Mariani Bittencourt Airport",
     "lonlat": [
       -41.817501068115234,
       -14.255399703979492
@@ -54761,7 +54761,7 @@
   },
   "RDC": {
     "iata_code": "RDC",
-    "name": "RedenÃ§Ã£o Airport",
+    "name": "Redenção Airport",
     "lonlat": [
       -49.97990036010742,
       -8.033289909362793
@@ -54793,7 +54793,7 @@
   },
   "CNV": {
     "iata_code": "CNV",
-    "name": "SÃ³crates Rezende Airport",
+    "name": "Sócrates Rezende Airport",
     "lonlat": [
       -38.954700469971,
       -15.666999816895
@@ -54801,7 +54801,7 @@
   },
   "SXX": {
     "iata_code": "SXX",
-    "name": "SÃ£o FÃ©lix do Xingu Airport",
+    "name": "São Félix do Xingu Airport",
     "lonlat": [
       -51.9523,
       -6.6413
@@ -54849,7 +54849,7 @@
   },
   "IRE": {
     "iata_code": "IRE",
-    "name": "IrecÃª Airport",
+    "name": "Irecê Airport",
     "lonlat": [
       -41.84700012207031,
       -11.339900016784668
@@ -54873,7 +54873,7 @@
   },
   "IPU": {
     "iata_code": "IPU",
-    "name": "IpiaÃº Airport",
+    "name": "Ipiaú Airport",
     "lonlat": [
       -39.733890533447266,
       -14.133889198303223
@@ -54889,7 +54889,7 @@
   },
   "FEC": {
     "iata_code": "FEC",
-    "name": "JoÃ£o Durval Carneiro Airport",
+    "name": "João Durval Carneiro Airport",
     "lonlat": [
       -38.906799,
       -12.2003
@@ -54897,7 +54897,7 @@
   },
   "JEQ": {
     "iata_code": "JEQ",
-    "name": "JequiÃ© Airport",
+    "name": "Jequié Airport",
     "lonlat": [
       -40.07160186767578,
       -13.877699851989746
@@ -54905,7 +54905,7 @@
   },
   "JNA": {
     "iata_code": "JNA",
-    "name": "JanuÃ¡ria Airport",
+    "name": "Januária Airport",
     "lonlat": [
       -44.385501861572266,
       -15.473799705505371
@@ -54913,7 +54913,7 @@
   },
   "JDR": {
     "iata_code": "JDR",
-    "name": "Prefeito OctÃ¡vio de Almeida Neves Airport",
+    "name": "Prefeito Octávio de Almeida Neves Airport",
     "lonlat": [
       -44.2247238159,
       -21.0849990845
@@ -54945,7 +54945,7 @@
   },
   "SSO": {
     "iata_code": "SSO",
-    "name": "SÃ£o LourenÃ§o Airport",
+    "name": "São Lourenço Airport",
     "lonlat": [
       -45.044498443603516,
       -22.090900421142578
@@ -54969,7 +54969,7 @@
   },
   "SBJ": {
     "iata_code": "SBJ",
-    "name": "SÃ£o Mateus Airport",
+    "name": "São Mateus Airport",
     "lonlat": [
       -39.83369827270508,
       -18.72130012512207
@@ -54993,7 +54993,7 @@
   },
   "PSW": {
     "iata_code": "PSW",
-    "name": "Municipal JosÃ© Figueiredo Airport",
+    "name": "Municipal José Figueiredo Airport",
     "lonlat": [
       -46.661800384521484,
       -20.732200622558594
@@ -55001,7 +55001,7 @@
   },
   "FEJ": {
     "iata_code": "FEJ",
-    "name": "FeijÃ³ Airport",
+    "name": "Feijó Airport",
     "lonlat": [
       -70.347221374512,
       -8.140832901001
@@ -55009,7 +55009,7 @@
   },
   "ORX": {
     "iata_code": "ORX",
-    "name": "OriximinÃ¡ Airport",
+    "name": "Oriximiná Airport",
     "lonlat": [
       -55.83620071411133,
       -1.7140799760818481
@@ -55041,7 +55041,7 @@
   },
   "SNQ": {
     "iata_code": "SNQ",
-    "name": "San QuintÃ­n Military Airstrip",
+    "name": "San Quintín Military Airstrip",
     "lonlat": [
       -115.9462,
       30.5288
@@ -55089,7 +55089,7 @@
   },
   "OBI": {
     "iata_code": "OBI",
-    "name": "Ãbidos Airport",
+    "name": "�?bidos Airport",
     "lonlat": [
       -55.514400482177734,
       -1.867169976234436
@@ -55105,7 +55105,7 @@
   },
   "VAL": {
     "iata_code": "VAL",
-    "name": "ValenÃ§a Airport",
+    "name": "Valença Airport",
     "lonlat": [
       -38.992401,
       -13.2965
@@ -55113,7 +55113,7 @@
   },
   "QID": {
     "iata_code": "QID",
-    "name": "MÃ©lio Viana Airport",
+    "name": "Mélio Viana Airport",
     "lonlat": [
       -45.26919937133789,
       -21.790599822998047
@@ -55145,7 +55145,7 @@
   },
   "ITI": {
     "iata_code": "ITI",
-    "name": "AgropecuÃ¡ria Castanhais Airport",
+    "name": "Agropecuária Castanhais Airport",
     "lonlat": [
       -51.17416763305664,
       -8.699999809265137
@@ -55153,7 +55153,7 @@
   },
   "GMS": {
     "iata_code": "GMS",
-    "name": "AntÃ´nio Guerreiro Airport",
+    "name": "Antônio Guerreiro Airport",
     "lonlat": [
       -44.651114,
       -2.109444
@@ -55169,7 +55169,7 @@
   },
   "ITE": {
     "iata_code": "ITE",
-    "name": "ItuberÃ¡ Airport",
+    "name": "Ituberá Airport",
     "lonlat": [
       -39.1416664124,
       -13.7322216034
@@ -55193,7 +55193,7 @@
   },
   "SOA": {
     "iata_code": "SOA",
-    "name": "SÃ³c TrÄng Airport",
+    "name": "Sóc Tr�?ng Airport",
     "lonlat": [
       105.9602,
       9.5814
@@ -55257,7 +55257,7 @@
   },
   "XAU": {
     "iata_code": "XAU",
-    "name": "SaÃºl Airport",
+    "name": "Saúl Airport",
     "lonlat": [
       -53.204201,
       3.61361
@@ -55393,7 +55393,7 @@
   },
   "LIM": {
     "iata_code": "LIM",
-    "name": "Jorge ChÃ¡vez International Airport",
+    "name": "Jorge Chávez International Airport",
     "lonlat": [
       -77.114305,
       -12.0219
@@ -55545,7 +55545,7 @@
   },
   "AQP": {
     "iata_code": "AQP",
-    "name": "RodrÃ­guez BallÃ³n International Airport",
+    "name": "Rodríguez Ballón International Airport",
     "lonlat": [
       -71.5830993652,
       -16.3411006927
@@ -55561,7 +55561,7 @@
   },
   "PIO": {
     "iata_code": "PIO",
-    "name": "CapitÃ¡n FAP RenÃ¡n ElÃ­as Olivera International Airport",
+    "name": "Capitán FAP Renán Elías Olivera International Airport",
     "lonlat": [
       -76.22029876708984,
       -13.74489974975586
@@ -55601,7 +55601,7 @@
   },
   "PIU": {
     "iata_code": "PIU",
-    "name": "CapitÃ¡n FAP Guillermo Concha Iberico International Airport",
+    "name": "Capitán FAP Guillermo Concha Iberico International Airport",
     "lonlat": [
       -80.61640167239999,
       -5.20574998856
@@ -55721,7 +55721,7 @@
   },
   "APU": {
     "iata_code": "APU",
-    "name": "Captain JoÃ£o Busse Airport",
+    "name": "Captain João Busse Airport",
     "lonlat": [
       -51.384499,
       -23.609501
@@ -55729,7 +55729,7 @@
   },
   "BGV": {
     "iata_code": "BGV",
-    "name": "Aeroclube de Bento GonÃ§alves Airport",
+    "name": "Aeroclube de Bento Gonçalves Airport",
     "lonlat": [
       -51.5363883972,
       -29.1483325958
@@ -55745,7 +55745,7 @@
   },
   "CCI": {
     "iata_code": "CCI",
-    "name": "ConcÃ³rdia Airport",
+    "name": "Concórdia Airport",
     "lonlat": [
       -52.05270004272461,
       -27.180599212646484
@@ -55753,7 +55753,7 @@
   },
   "CSS": {
     "iata_code": "CSS",
-    "name": "CassilÃ¢ndia Airport",
+    "name": "Cassilândia Airport",
     "lonlat": [
       -51.685279846200004,
       -19.146389007599996
@@ -55769,7 +55769,7 @@
   },
   "CKO": {
     "iata_code": "CKO",
-    "name": "CornÃ©lio ProcÃ³pio Airport",
+    "name": "Cornélio Procópio Airport",
     "lonlat": [
       -50.602500915527344,
       -23.15250015258789
@@ -55793,7 +55793,7 @@
   },
   "FBE": {
     "iata_code": "FBE",
-    "name": "Francisco BeltrÃ£o Airport",
+    "name": "Francisco Beltrão Airport",
     "lonlat": [
       -53.063499450683594,
       -26.059200286865234
@@ -55801,7 +55801,7 @@
   },
   "QGA": {
     "iata_code": "QGA",
-    "name": "GuaÃ­ra Airport",
+    "name": "Guaíra Airport",
     "lonlat": [
       -54.19169998168945,
       -24.081100463867188
@@ -55809,7 +55809,7 @@
   },
   "HRZ": {
     "iata_code": "HRZ",
-    "name": "Walter BÃ¼ndchen Airport",
+    "name": "Walter Bündchen Airport",
     "lonlat": [
       -54.339099884,
       -27.638299942
@@ -55817,7 +55817,7 @@
   },
   "IJU": {
     "iata_code": "IJU",
-    "name": "IjuÃ­ Airport",
+    "name": "Ijuí Airport",
     "lonlat": [
       -53.84659957885742,
       -28.36870002746582
@@ -55841,7 +55841,7 @@
   },
   "CBW": {
     "iata_code": "CBW",
-    "name": "Campo MourÃ£o Airport",
+    "name": "Campo Mourão Airport",
     "lonlat": [
       -52.3568000793,
       -24.009199142499998
@@ -55913,7 +55913,7 @@
   },
   "SQX": {
     "iata_code": "SQX",
-    "name": "SÃ£o Miguel do Oeste Airport",
+    "name": "São Miguel do Oeste Airport",
     "lonlat": [
       -53.503501892089844,
       -26.781600952148438
@@ -55937,7 +55937,7 @@
   },
   "PNG": {
     "iata_code": "PNG",
-    "name": "ParanaguÃ¡ Airport",
+    "name": "Paranaguá Airport",
     "lonlat": [
       -48.53120040893555,
       -25.54010009765625
@@ -55945,7 +55945,7 @@
   },
   "PVI": {
     "iata_code": "PVI",
-    "name": "ParanavaÃ­ Airport",
+    "name": "Paranavaí Airport",
     "lonlat": [
       -52.48849868774414,
       -23.08989906311035
@@ -55953,7 +55953,7 @@
   },
   "PBB": {
     "iata_code": "PBB",
-    "name": "ParanaÃ­ba Airport",
+    "name": "Paranaíba Airport",
     "lonlat": [
       -51.19940185546875,
       -19.651199340820312
@@ -55969,7 +55969,7 @@
   },
   "SQY": {
     "iata_code": "SQY",
-    "name": "SÃ£o LourenÃ§o do Sul Airport",
+    "name": "São Lourenço do Sul Airport",
     "lonlat": [
       -52.032798767089844,
       -31.38330078125
@@ -55985,7 +55985,7 @@
   },
   "QOJ": {
     "iata_code": "QOJ",
-    "name": "SÃ£o Borja Airport",
+    "name": "São Borja Airport",
     "lonlat": [
       -56.03459930419922,
       -28.65489959716797
@@ -56001,7 +56001,7 @@
   },
   "TJL": {
     "iata_code": "TJL",
-    "name": "PlÃ­nio Alarcom Airport",
+    "name": "Plínio Alarcom Airport",
     "lonlat": [
       -51.684200286865,
       -20.754199981689
@@ -56049,7 +56049,7 @@
   },
   "CTQ": {
     "iata_code": "CTQ",
-    "name": "Santa VitÃ³ria do Palmar Airport",
+    "name": "Santa Vitória do Palmar Airport",
     "lonlat": [
       -53.34416580200195,
       -33.50222396850586
@@ -56065,7 +56065,7 @@
   },
   "AXE": {
     "iata_code": "AXE",
-    "name": "XanxerÃª Airport",
+    "name": "Xanxerê Airport",
     "lonlat": [
       -52.373054504399995,
       -26.875556945800003
@@ -56233,7 +56233,7 @@
   },
   "BLA": {
     "iata_code": "BLA",
-    "name": "General JosÃ© Antonio Anzoategui International Airport",
+    "name": "General José Antonio Anzoategui International Airport",
     "lonlat": [
       -64.692222,
       10.111111
@@ -56321,7 +56321,7 @@
   },
   "CUP": {
     "iata_code": "CUP",
-    "name": "General Francisco BermÃºdez Airport",
+    "name": "General Francisco Bermúdez Airport",
     "lonlat": [
       -63.261680603027344,
       10.660014152526855
@@ -56329,7 +56329,7 @@
   },
   "CZE": {
     "iata_code": "CZE",
-    "name": "JosÃ© Leonardo Chirinos Airport",
+    "name": "José Leonardo Chirinos Airport",
     "lonlat": [
       -69.68090057373047,
       11.41494369506836
@@ -56337,7 +56337,7 @@
   },
   "CUM": {
     "iata_code": "CUM",
-    "name": "CumanÃ¡ (Antonio JosÃ© de Sucre) Airport",
+    "name": "Cumaná (Antonio José de Sucre) Airport",
     "lonlat": [
       -64.1304702758789,
       10.450332641601562
@@ -56401,7 +56401,7 @@
   },
   "ICA": {
     "iata_code": "ICA",
-    "name": "IcabarÃº Airport",
+    "name": "Icabarú Airport",
     "lonlat": [
       -61.739601135253906,
       4.336319923400879
@@ -56409,7 +56409,7 @@
   },
   "ICC": {
     "iata_code": "ICC",
-    "name": "AndrÃ©s Miguel Salazar Marcano Airport",
+    "name": "Andrés Miguel Salazar Marcano Airport",
     "lonlat": [
       -63.98159,
       10.794432
@@ -56457,7 +56457,7 @@
   },
   "PMV": {
     "iata_code": "PMV",
-    "name": "Del Caribe Santiago MariÃ±o International Airport",
+    "name": "Del Caribe Santiago Mariño International Airport",
     "lonlat": [
       -63.96659851074219,
       10.912603378295898
@@ -56465,7 +56465,7 @@
   },
   "CCS": {
     "iata_code": "CCS",
-    "name": "SimÃ³n BolÃ­var International Airport",
+    "name": "Simón Bolívar International Airport",
     "lonlat": [
       -66.991222,
       10.601194
@@ -56473,7 +56473,7 @@
   },
   "MUN": {
     "iata_code": "MUN",
-    "name": "MaturÃ­n Airport",
+    "name": "Maturín Airport",
     "lonlat": [
       -63.14739990234375,
       9.75452995300293
@@ -56569,7 +56569,7 @@
   },
   "SBB": {
     "iata_code": "SBB",
-    "name": "Santa BÃ¡rbara de Barinas Airport",
+    "name": "Santa Bárbara de Barinas Airport",
     "lonlat": [
       -71.16571807861328,
       7.803514003753662
@@ -56609,7 +56609,7 @@
   },
   "SOM": {
     "iata_code": "SOM",
-    "name": "San TomÃ© Airport",
+    "name": "San Tomé Airport",
     "lonlat": [
       -64.151084899902,
       8.9451465606689
@@ -56617,7 +56617,7 @@
   },
   "STB": {
     "iata_code": "STB",
-    "name": "Santa BÃ¡rbara del Zulia Airport",
+    "name": "Santa Bárbara del Zulia Airport",
     "lonlat": [
       -71.94325256347656,
       8.974550247192383
@@ -56657,7 +56657,7 @@
   },
   "VIG": {
     "iata_code": "VIG",
-    "name": "Juan Pablo PÃ©rez Alfonso Airport",
+    "name": "Juan Pablo Pérez Alfonso Airport",
     "lonlat": [
       -71.672668,
       8.624139
@@ -56665,7 +56665,7 @@
   },
   "VLV": {
     "iata_code": "VLV",
-    "name": "Dr. Antonio NicolÃ¡s BriceÃ±o Airport",
+    "name": "Dr. Antonio Nicolás Briceño Airport",
     "lonlat": [
       -70.58406066894531,
       9.34047794342041
@@ -56729,7 +56729,7 @@
   },
   "DNO": {
     "iata_code": "DNO",
-    "name": "DianÃ³polis Airport",
+    "name": "Dianópolis Airport",
     "lonlat": [
       -46.846698761,
       -11.5953998566
@@ -56745,7 +56745,7 @@
   },
   "ERN": {
     "iata_code": "ERN",
-    "name": "EirunepÃ© Airport",
+    "name": "Eirunepé Airport",
     "lonlat": [
       -69.87979888916016,
       -6.639530181884766
@@ -56761,7 +56761,7 @@
   },
   "SXO": {
     "iata_code": "SXO",
-    "name": "SÃ£o FÃ©lix do Araguaia Airport",
+    "name": "São Félix do Araguaia Airport",
     "lonlat": [
       -50.68960189819336,
       -11.632399559020996
@@ -56785,7 +56785,7 @@
   },
   "AUX": {
     "iata_code": "AUX",
-    "name": "AraguaÃ­na Airport",
+    "name": "Araguaína Airport",
     "lonlat": [
       -48.240501,
       -7.22787
@@ -56793,7 +56793,7 @@
   },
   "HUW": {
     "iata_code": "HUW",
-    "name": "HumaitÃ¡ Airport",
+    "name": "Humaitá Airport",
     "lonlat": [
       -63.072101593,
       -7.532120227810001
@@ -56817,7 +56817,7 @@
   },
   "JPR": {
     "iata_code": "JPR",
-    "name": "Ji-ParanÃ¡ Airport",
+    "name": "Ji-Paraná Airport",
     "lonlat": [
       -61.8465003967,
       -10.870800018299999
@@ -56825,7 +56825,7 @@
   },
   "JIA": {
     "iata_code": "JIA",
-    "name": "JuÃ­na Airport",
+    "name": "Juína Airport",
     "lonlat": [
       -58.701668,
       -11.419444
@@ -56841,7 +56841,7 @@
   },
   "JTI": {
     "iata_code": "JTI",
-    "name": "JataÃ­ Airport",
+    "name": "Jataí Airport",
     "lonlat": [
       -51.7729988098,
       -17.8299007416
@@ -56849,7 +56849,7 @@
   },
   "CCX": {
     "iata_code": "CCX",
-    "name": "CÃ¡ceres Airport",
+    "name": "Cáceres Airport",
     "lonlat": [
       -57.62990188598633,
       -16.04360008239746
@@ -56865,7 +56865,7 @@
   },
   "TLZ": {
     "iata_code": "TLZ",
-    "name": "CatalÃ£o Airport",
+    "name": "Catalão Airport",
     "lonlat": [
       -47.89970016479492,
       -18.216800689697266
@@ -56873,7 +56873,7 @@
   },
   "LBR": {
     "iata_code": "LBR",
-    "name": "LÃ¡brea Airport",
+    "name": "Lábrea Airport",
     "lonlat": [
       -64.76950073242188,
       -7.278969764709473
@@ -56889,7 +56889,7 @@
   },
   "MBZ": {
     "iata_code": "MBZ",
-    "name": "MauÃ©s Airport",
+    "name": "Maués Airport",
     "lonlat": [
       -57.7248,
       -3.37217
@@ -56897,7 +56897,7 @@
   },
   "NVP": {
     "iata_code": "NVP",
-    "name": "Novo AripuanÃ£ Airport",
+    "name": "Novo Aripuanã Airport",
     "lonlat": [
       -60.364898681640625,
       -5.118030071258545
@@ -56921,7 +56921,7 @@
   },
   "NQL": {
     "iata_code": "NQL",
-    "name": "NiquelÃ¢ndia Airport",
+    "name": "Niquelândia Airport",
     "lonlat": [
       -48.49150085449219,
       -14.434900283813477
@@ -56929,7 +56929,7 @@
   },
   "APS": {
     "iata_code": "APS",
-    "name": "AnÃ¡polis Airport",
+    "name": "Anápolis Airport",
     "lonlat": [
       -48.9271011353,
       -16.3623008728
@@ -56945,7 +56945,7 @@
   },
   "PBV": {
     "iata_code": "PBV",
-    "name": "Porto dos GaÃºchos Airport",
+    "name": "Porto dos Gaúchos Airport",
     "lonlat": [
       -57.3782,
       -11.5404
@@ -57001,7 +57001,7 @@
   },
   "AIR": {
     "iata_code": "AIR",
-    "name": "AripuanÃ£ Airport",
+    "name": "Aripuanã Airport",
     "lonlat": [
       -59.457273,
       -10.188278
@@ -57009,7 +57009,7 @@
   },
   "OPS": {
     "iata_code": "OPS",
-    "name": "Presidente JoÃ£o Batista Figueiredo Airport",
+    "name": "Presidente João Batista Figueiredo Airport",
     "lonlat": [
       -55.586109,
       -11.885001
@@ -57033,7 +57033,7 @@
   },
   "TGQ": {
     "iata_code": "TGQ",
-    "name": "TangarÃ¡ da Serra Airport",
+    "name": "Tangará da Serra Airport",
     "lonlat": [
       -57.4435005188,
       -14.661999702500001
@@ -57041,7 +57041,7 @@
   },
   "AZL": {
     "iata_code": "AZL",
-    "name": "Fazenda TucunarÃ© Airport",
+    "name": "Fazenda Tucunaré Airport",
     "lonlat": [
       -58.866934776300006,
       -13.4655278136
@@ -57057,7 +57057,7 @@
   },
   "SQM": {
     "iata_code": "SQM",
-    "name": "SÃ£o Miguel do Araguaia Airport",
+    "name": "São Miguel do Araguaia Airport",
     "lonlat": [
       -50.197601318359375,
       -13.331299781799316
@@ -57065,7 +57065,7 @@
   },
   "MTG": {
     "iata_code": "MTG",
-    "name": "Vila Bela da SantÃ­ssima Trindade Airport",
+    "name": "Vila Bela da Santíssima Trindade Airport",
     "lonlat": [
       -59.9458,
       -14.9942
@@ -57481,7 +57481,7 @@
   },
   "DSD": {
     "iata_code": "DSD",
-    "name": "La DÃ©sirade Airport",
+    "name": "La Désirade Airport",
     "lonlat": [
       -61.0844,
       16.296902
@@ -57497,7 +57497,7 @@
   },
   "SFC": {
     "iata_code": "SFC",
-    "name": "St-FranÃ§ois Airport",
+    "name": "St-François Airport",
     "lonlat": [
       -61.26250076293945,
       16.25779914855957
@@ -57505,7 +57505,7 @@
   },
   "FDF": {
     "iata_code": "FDF",
-    "name": "Martinique AimÃ© CÃ©saire International Airport",
+    "name": "Martinique Aimé Césaire International Airport",
     "lonlat": [
       -61.00320053100586,
       14.590999603271484
@@ -57513,7 +57513,7 @@
   },
   "SFG": {
     "iata_code": "SFG",
-    "name": "L'EspÃ©rance Airport",
+    "name": "L'Espérance Airport",
     "lonlat": [
       -63.047199249268,
       18.099899291992
@@ -57537,7 +57537,7 @@
   },
   "PTP": {
     "iata_code": "PTP",
-    "name": "Pointe-Ã -Pitre Le Raizet",
+    "name": "Pointe-à-Pitre Le Raizet",
     "lonlat": [
       -61.531799,
       16.265301
@@ -57689,7 +57689,7 @@
   },
   "NRR": {
     "iata_code": "NRR",
-    "name": "JosÃ© Aponte de la Torre Airport",
+    "name": "José Aponte de la Torre Airport",
     "lonlat": [
       -65.6434020996,
       18.245300293
@@ -57865,7 +57865,7 @@
   },
   "BGG": {
     "iata_code": "BGG",
-    "name": "BingÃ¶l Ãeltiksuyu Airport",
+    "name": "Bingöl �?eltiksuyu Airport",
     "lonlat": [
       40.5959625244,
       38.8592605591
@@ -57881,7 +57881,7 @@
   },
   "IGD": {
     "iata_code": "IGD",
-    "name": "IÄdÄ±r Airport",
+    "name": "I�?dır Airport",
     "lonlat": [
       43.8766479492,
       39.9766273499
@@ -60081,7 +60081,7 @@
   },
   "TAZ": {
     "iata_code": "TAZ",
-    "name": "DaÅoguz Airport",
+    "name": "Da�?oguz Airport",
     "lonlat": [
       59.826698,
       41.761101
@@ -61633,7 +61633,7 @@
   },
   "VIB": {
     "iata_code": "VIB",
-    "name": "Villa ConstituciÃ³n Airport",
+    "name": "Villa Constitución Airport",
     "lonlat": [
       -111.6874,
       25.0552
@@ -62649,7 +62649,7 @@
   },
   "MLE": {
     "iata_code": "MLE",
-    "name": "MalÃ© International Airport",
+    "name": "Malé International Airport",
     "lonlat": [
       73.52909851074219,
       4.191830158233643
@@ -63081,7 +63081,7 @@
   },
   "CAH": {
     "iata_code": "CAH",
-    "name": "CÃ  Mau Airport",
+    "name": "Cà Mau Airport",
     "lonlat": [
       105.177778,
       9.177667
@@ -65745,7 +65745,7 @@
   },
   "XLO": {
     "iata_code": "XLO",
-    "name": "Long XuyÃªn Airport",
+    "name": "Long Xuyên Airport",
     "lonlat": [
       105.473144,
       10.330134
@@ -65761,7 +65761,7 @@
   },
   "XNG": {
     "iata_code": "XNG",
-    "name": "Quáº£ng NgÃ£i Airfield",
+    "name": "Quảng Ngãi Airfield",
     "lonlat": [
       108.771816,
       15.115474
@@ -70649,7 +70649,7 @@
   },
   "ZBK": {
     "iata_code": "ZBK",
-    "name": "Å½abljak Airport",
+    "name": "Žabljak Airport",
     "lonlat": [
       19.233334,
       43.116669
@@ -70673,7 +70673,7 @@
   },
   "LLV": {
     "iata_code": "LLV",
-    "name": "LÃ¼liang Airport",
+    "name": "Lüliang Airport",
     "lonlat": [
       111.142778,
       37.683333
@@ -71169,7 +71169,7 @@
   },
   "ZLG": {
     "iata_code": "ZLG",
-    "name": "La GÃ¼era Airport",
+    "name": "La Güera Airport",
     "lonlat": [
       -17.074167,
       20.836389
@@ -71417,7 +71417,7 @@
   },
   "MXV": {
     "iata_code": "MXV",
-    "name": "MÃ¶rÃ¶n Airport",
+    "name": "Mörön Airport",
     "lonlat": [
       100.0989990234375,
       49.663299560546875
@@ -72009,7 +72009,7 @@
   },
   "UNR": {
     "iata_code": "UNR",
-    "name": "ÃndÃ¶rkhaan Airport",
+    "name": "�?ndörkhaan Airport",
     "lonlat": [
       110.6092,
       47.30486
@@ -72257,7 +72257,7 @@
   },
   "URC": {
     "iata_code": "URC",
-    "name": "ÃrÃ¼mqi Diwopu International Airport",
+    "name": "�?rümqi Diwopu International Airport",
     "lonlat": [
       87.47419738769531,
       43.907100677490234
