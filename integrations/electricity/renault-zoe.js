@@ -2,6 +2,7 @@ import moment from 'moment';
 import request from 'superagent';
 
 import { ACTIVITY_TYPE_ELECTRIC_VEHICLE_CHARGING } from '../../definitions';
+import { HTTPError } from '../utils/errors';
 
 const VERSION = 2;
 
@@ -45,9 +46,15 @@ async function _login(username, password) {
     .set('Accept', 'application/json')
     .send({ username, password });
 
+  if (!res.ok) {
+    const text = await res.text();
+    throw new HTTPError(text, res.status);
+  }
+  
   if (res.body.user.associated_vehicles.length > 1) {
     throw Error('More than one VIN number detected.');
   }
+
 
   // Set state to be persisted
   return {
@@ -112,7 +119,8 @@ async function collect(state = {}, logger, utils) {
       res = await _fetchData(vin, token, startMonth, endMonth);
     } else {
       // Throw
-      throw new Error(e);
+      const text = await res.text();
+      throw new HTTPError(text, res.status);
     }
   }
 

@@ -3,6 +3,7 @@ import moment from 'moment';
 import groupBy from 'lodash/groupBy';
 
 import { ACTIVITY_TYPE_ELECTRICITY } from '../../definitions';
+import { HTTPError } from '../utils/errors';
 
 const btoa = b => Buffer.from(b).toString('base64');
 
@@ -37,8 +38,7 @@ async function request(username, password, method, params) {
   const res = await fetch('https://jsonrpc.getbarry.dk/json-rpc', req);
   if (!res.ok) {
     const text = await res.text();
-    // throw new HTTPError(text, res.status);
-    throw new Error(`HTTP error ${res.status}: ${text}`);
+    throw new HTTPError(text, res.status);
   }
   const response = await res.json();
   if (response.error) {

@@ -5,6 +5,7 @@
 import moment from 'moment';
 
 import { ACTIVITY_TYPE_ELECTRICITY } from '../../definitions';
+import { HTTPError } from '../utils/errors';
 
 async function request(method, call, token, params) {
   const req = {
@@ -19,7 +20,7 @@ async function request(method, call, token, params) {
   const res = await fetch(url, req);
   if (!res.ok) {
     const text = await res.text();
-    throw new Error(`HTTP error ${res.status}: ${text}`);
+    throw new HTTPError(text, res.status);
   }
 
   const response = await res.json();

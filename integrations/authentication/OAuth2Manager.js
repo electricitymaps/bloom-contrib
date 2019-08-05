@@ -1,4 +1,4 @@
-import AuthenticationError from './AuthenticationError';
+import { AuthenticationError, HTTPError } from '../utils/errors';
 import objectToURLParams from './objectToURLParams';
 import isReactNative from '../utils/isReactNative';
 
@@ -45,7 +45,7 @@ export default class {
     }
 
     if (!response.ok) {
-      throw new Error('unable to re-authenticate user with refresh token, suggest retrying later');
+      throw new HTTPError('unable to re-authenticate user with refresh token, suggest retrying later', response.status);
     }
 
     const responseJson = await response.json();
@@ -93,7 +93,7 @@ export default class {
     }
 
     if (!response.ok) {
-      throw new Error('unable to authenticate user with fresh auth code, suggest retrying');
+      throw new HTTPError('unable to authenticate user with fresh auth code, suggest retrying', response.status);
     }
 
     const responseJson = await response.json();

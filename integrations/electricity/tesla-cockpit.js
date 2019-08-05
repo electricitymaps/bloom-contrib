@@ -1,6 +1,7 @@
 import moment from 'moment';
 
 import { ACTIVITY_TYPE_ELECTRIC_VEHICLE_CHARGING } from '../../definitions';
+import { HTTPError } from '../utils/errors';
 
 const BASE_URL = 'https://creators.teslacockpit.com';
 
@@ -18,7 +19,7 @@ async function requestToken(username, password) {
   });
   if (!res.ok) {
     const text = await res.text();
-    throw new Error(`HTTP error ${res.status}: ${text}`);
+    throw new HTTPError(text, res.status);
   }
   const data = await res.json();
   if (!data.length) {
@@ -48,7 +49,7 @@ async function fetchVehicleCharges(token, vehicleId) {
   });
   if (!res.ok) {
     const text = await res.text();
-    throw new Error(`HTTP error ${res.status}: ${text}`);
+    throw new HTTPError(text, res.status);
   }
   const data = await res.json();
   return data;
@@ -62,7 +63,7 @@ async function fetchVehicleInfo(token) {
   });
   if (!res.ok) {
     const text = await res.text();
-    throw new Error(`HTTP error ${res.status}: ${text}`);
+    throw new HTTPError(text, res.status);
   }
   const data = await res.json();
   return data;
