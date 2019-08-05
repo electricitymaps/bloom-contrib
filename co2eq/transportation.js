@@ -5,11 +5,12 @@ import {
   TRANSPORTATION_MODE_TRAIN,
   TRANSPORTATION_MODE_PUBLIC_TRANSPORT,
   TRANSPORTATION_MODE_FERRY,
+  TRANSPORTATION_MODE_BIKE,
 } from '../definitions';
 
 import flightEmissions from './flights';
 
-export const modelVersion = 5;
+export const modelVersion = 6;
 
 /*
 Carbon intensity of transportation (kgCO2 per passenger and per km)
@@ -31,6 +32,9 @@ function carbonIntensity(mode) {
     case TRANSPORTATION_MODE_FERRY:
       // See https://en.wikipedia.org/wiki/Carbon_footprint
       return 0.12;
+    case TRANSPORTATION_MODE_BIKE:
+      // https://ecf.com/files/wp-content/uploads/ECF_BROCHURE_EN_planche.pdf
+      return 5 / 1000.0;
     default:
       throw Error(`Unknown transportation mode: ${mode}`);
   }
