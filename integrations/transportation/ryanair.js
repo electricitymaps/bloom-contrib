@@ -1,7 +1,7 @@
 import moment from 'moment';
 import request from 'superagent';
 import { ACTIVITY_TYPE_TRANSPORTATION, TRANSPORTATION_MODE_PLANE } from '../../definitions';
-import { HTTPError } from '../utils/errors';
+import { HTTPError, AuthenticationError } from '../utils/errors';
 
 const agent = request.agent();
 const BASE_URL = 'https://api.ryanair.com/userprofile/rest/api/v1/';
@@ -19,7 +19,7 @@ async function logIn(username, password) {
     });
 
   if (!res.ok) {
-    throw HTTPError('Error while logging in.');
+    throw new HTTPError(res.text, res.status);
   }
 
   return {
@@ -36,7 +36,7 @@ async function connect(requestLogin, requestWebView) {
   const { username, password } = await requestLogin();
 
   if (!(password || '').length) {
-    throw HTTPError('Password cannot be empty');
+    throw new AuthenticationError('Password cannot be empty');
   }
 
   return logIn(username, password);
@@ -49,32 +49,29 @@ function disconnect() {
 
 async function getAllFlights(bookings, customerId, token) {
   const allFlights = [];
-  try {
-    await Promise.all(bookings.map(async (entry) => {
-      await agent
-        .put(`${PROFILE_URL}${customerId}/bookings/booking`)
-        .set('Accept', 'application/json')
-        .set('X-Auth-Token', token)
-        .send({
-          bookingId: entry.bookingId,
-          pnr: entry.pnr,
-        })
-        .then((res) => {
-          if (res.ok) {
-            res.body.Flights.forEach((singleFlight) => {
-              allFlights.push({
-                bookingId: res.body.BookingId,
-                flightInfo: singleFlight,
-                pnr: res.body.RecordLocator,
-              });
-            });
-          }
-        });
-    }));
-  } catch (error) {
-    throw HTTPError(`Error while fetching past flights. ${error}`);
-  }
+ 
+  await Promise.all(bookings.map(async (entry) => {
+    const res = await agent
+      .put(`${PROFILE_URL}${customerId}/bookings/booking`)
+      .set('Accept', 'application/json')
+      .set('X-Auth-Token', token)
+      .send({
+        bookingId: entry.bookingId,
+        pnr: entry.pnr,
+      });
 
+    if (res.ok) {
+      res.body.Flights.forEach((singleFlight) => {
+        allFlights.push({
+          bookingId: res.body.BookingId,
+          flightInfo: singleFlight,
+          pnr: res.body.RecordLocator,
+        });
+      });
+    } else {
+      throw new HTTPError(res.text, res.status);
+    }
+  }));
   return allFlights;
 }
 
@@ -85,9 +82,8 @@ async function getPastBookings(customerId, token) {
     .set('X-Auth-Token', token);
 
   if (!pastBookings.ok) {
-    throw HTTPError(`Error while fetching past bookings. ${pastBookings}`);
+    throw new HTTPError(pastBookings.text, pastBookings.status);
   }
-
   return pastBookings.body.bookings.filter(entry => entry.status === 'Confirmed');
 }
 
@@ -102,8 +98,7 @@ async function getActivities(pastBookings, customerId, token) {
 
   const activities = Object.values(uniqueFlights)
     .map(k => ({
-      // TODO: make sure it's always unique
-      id: `B${k.bookingId}${k.flightInfo.FlightNumber}PNR${k.pnr}`,
+      id: `ryanairB${k.bookingId}${k.flightInfo.FlightNumber}`,
       datetime: k.flightInfo.DepartLocal,
       durationHours: moment(k.flightInfo.Arrive).diff(moment(k.flightInfo.Depart), 'minutes') / 60,
       activityType: ACTIVITY_TYPE_TRANSPORTATION,
