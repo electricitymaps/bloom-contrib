@@ -54,6 +54,8 @@ export function durationToDistance(durationHours, mode) {
         + 0.5 * durationToDistance(durationHours, TRANSPORTATION_MODE_BUS));
     case TRANSPORTATION_MODE_FERRY:
       return durationHours * 30; // ~16 knots
+    case TRANSPORTATION_MODE_BIKE:
+      return durationHours * 10;
     default:
       throw Error(`Unknown transportation mode: ${mode}`);
   }
