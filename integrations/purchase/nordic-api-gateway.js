@@ -35,8 +35,6 @@ Potential improvements:
 - only fetch data from selected accounts
 */
 
-const categoriesMap = require('./nordic-api-gateway/categories_map.json');
-
 const callbackUrl = isReactNative
   ? 'com.tmrow.greenbit://oauth_callback'
   : 'http://localhost:3000/oauth_callback';
@@ -302,23 +300,13 @@ async function collect(state, { logDebug }) {
     activities = a.concat(activities);
   }
 
-  function Comparator(a, b) {
-    if (a[1] > b[1]) return -1;
-    if (a[1] < b[1]) return 1;
-    return 0;
-  }
-
-  const categoiresCount = categoriesMap.categories.map(c => [
-    c.category.name.en,
-    activities.filter(a => a.category === c.category.name.en).length,
-  ]);
-  logDebug(categoiresCount.sort(Comparator).filter(f => f[1] > 0));
   return { activities, state };
 }
 
 const config = {
   contributors: ['FelixDQ', 'Kongkille'],
   label: 'Nordic API Gateway',
+  country: 'DK',
   type: ACTIVITY_TYPE_PURCHASE,
   isPrivate: true,
   description: 'collects bank statements',
