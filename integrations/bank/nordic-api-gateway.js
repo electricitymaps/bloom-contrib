@@ -1,5 +1,27 @@
 import request from 'superagent';
-import { ACTIVITY_TYPE_BANK } from '../../definitions';
+import {
+  ACTIVITY_TYPE_PURCHASE,
+  PURCHASE_CATEGORY_FOOD_SUPERMARKET,
+  PURCHASE_CATEGORY_STORE_DEPARTMENT,
+  PURCHASE_CATEGORY_TRANSPORTATION_FUEL,
+  PURCHASE_CATEGORY_TRANSPORTATION_RAILROAD,
+  PURCHASE_CATEGORY_TRANSPORTATION_TAXI,
+  PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARKING,
+  PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARTS,
+  PURCHASE_CATEGORY_HEALTHCARE_PHARMARCY,
+  PURCHASE_CATEGORY_ENTERTAINMENT_AMUSEMENT_PARKS,
+  PURCHASE_CATEGORY_STORE_GARDEN,
+  PURCHASE_CATEGORY_ENTERTAINMENT_LIQUOR_STORE,
+  PURCHASE_CATEGORY_STORE_PET,
+  PURCHASE_CATEGORY_ENTERTAINMENT_MOVIE_THEATER,
+  PURCHASE_CATEGORY_STORE_BOOKS,
+  PURCHASE_CATEGORY_STORE_BARBER_BEAUTY,
+  PURCHASE_CATEGORY_STORE_ELECTRONIC,
+  PURCHASE_CATEGORY_STORE_HOUSE_FURNISHING,
+  PURCHASE_CATEGORY_STORE_CLOTHING,
+  PURCHASE_CATEGORY_FOOD_RESTAURANT,
+  PURCHASE_CATEGORY_HEALTHCARE_DOCTOR,
+} from '../../definitions';
 import isReactNative from '../utils/isReactNative';
 import generateGUID from '../utils/generateGUID';
 
@@ -12,7 +34,6 @@ Potential improvements:
 */
 
 const categoriesMap = require('./nordic-api-gateway/categories_map.json');
-const categoriesTranslation = require('./nordic-api-gateway/categories_translation.json');
 
 const callbackUrl = isReactNative
   ? 'com.tmrow.greenbit://oauth_callback'
@@ -28,17 +49,106 @@ const transactionsUrl = `${baseUrl}/v2/accounts/{accountId}/transactions`;
 const agent = request.agent();
 agent.set('X-Client-Id', env.NAG_CLIENT_ID).set('X-Client-Secret', env.NAG_CLIENT_SECRET);
 
+const NAG_CATEGORY = {
+  Supermarket: PURCHASE_CATEGORY_FOOD_SUPERMARKET,
+  'Remodeling & Repair': PURCHASE_CATEGORY_STORE_DEPARTMENT,
+  'Food & Drinks': PURCHASE_CATEGORY_FOOD_RESTAURANT,
+  Transfer: null,
+  'Shared Expense': null,
+  Exclude: null,
+  'Pension Payout': null,
+  'Unemployment Benefits': null,
+  'Student Grant': null,
+  'Child Benefits': null,
+  'Alimony & Child Support': null,
+  'Holiday Pay': null,
+  Income: null,
+  'Yield & Returns': null,
+  'Overpaid Tax': null,
+  'Mortgage/Rent': null,
+  'Building Insurance': null,
+  'Contents Insurance': null,
+  Home: null,
+  'Home Security': null,
+  'Vacation Home Expenses': null,
+  'Auto loan etc.': null,
+  Fuel: PURCHASE_CATEGORY_TRANSPORTATION_FUEL,
+  'Auto Insurance & Assistance': null,
+  'Road Tax & Green Tax': null,
+  'Public Transport': PURCHASE_CATEGORY_TRANSPORTATION_RAILROAD,
+  Taxi: PURCHASE_CATEGORY_TRANSPORTATION_TAXI,
+  Parking: PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARKING,
+  'Auto & Transport': PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARTS,
+  'Garage & Auto Parts': PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARTS,
+  'Mini-markets & Delicacies': PURCHASE_CATEGORY_FOOD_SUPERMARKET,
+  Pharmacy: PURCHASE_CATEGORY_HEALTHCARE_PHARMARCY,
+  'Flights & Hotels': null,
+  'Car Rental': null,
+  'Vacation Home & Camping': PURCHASE_CATEGORY_STORE_DEPARTMENT,
+  Household: null,
+  'Vacation Activities': PURCHASE_CATEGORY_ENTERTAINMENT_AMUSEMENT_PARKS,
+  'Travel Insurance': null,
+  'Child Care & Tuition': null,
+  'Union & Unemployment Insurance': null,
+  'Life & Accident Insurance': null,
+  'Pension & Savings': null,
+  Salary: null,
+  'Public fee': null,
+  'Garden & Plants': PURCHASE_CATEGORY_STORE_GARDEN,
+  'Advisors & Services': null,
+  'Meal Plan': PURCHASE_CATEGORY_FOOD_SUPERMARKET,
+  Memberships: null,
+  'Housing Benefits': null,
+  'Debt & Interest': null,
+  Education: null,
+  'Tobacco & Alcohol': PURCHASE_CATEGORY_ENTERTAINMENT_LIQUOR_STORE,
+  'Other Housing Expenses': null,
+  'Online Services & Software': null,
+  'Stock Trading': null,
+  'Child Savings': null,
+  'Pension Savings': null,
+  Interest: null,
+  'Private Loan (Friends & Family}': null,
+  Other: null,
+  'Consumer Loan': null,
+  'Unpayed Tax': null,
+  Fines: null,
+  'Late Fees': null,
+  'Bank Fees': null,
+  'ATM & Checks': null,
+  Unknown: null,
+  'Other Private Consumption': null,
+  Leisure: null,
+  'Gifts & Charity': null,
+  Pets: PURCHASE_CATEGORY_STORE_PET,
+  Baby: PURCHASE_CATEGORY_STORE_DEPARTMENT,
+  Betting: null,
+  'Cinema, Concerts & Entertainment': PURCHASE_CATEGORY_ENTERTAINMENT_MOVIE_THEATER,
+  'Movies, Music & Books': PURCHASE_CATEGORY_STORE_BOOKS,
+  'Hairdresser & Personal Care': PURCHASE_CATEGORY_STORE_BARBER_BEAUTY,
+  'Hobby & Sports Equipment': PURCHASE_CATEGORY_STORE_DEPARTMENT,
+  'Games & Toys': PURCHASE_CATEGORY_STORE_DEPARTMENT,
+  'Electronics & Computer': PURCHASE_CATEGORY_STORE_ELECTRONIC,
+  'Furniture & Interior': PURCHASE_CATEGORY_STORE_HOUSE_FURNISHING,
+  'Clothing & Accessories': PURCHASE_CATEGORY_STORE_CLOTHING,
+  'Fast Food & Takeaway': PURCHASE_CATEGORY_FOOD_RESTAURANT,
+  'Glasses & Contacts': null,
+  'Medical Specialists': PURCHASE_CATEGORY_HEALTHCARE_DOCTOR,
+  'Housekeeping & Gardening': PURCHASE_CATEGORY_STORE_GARDEN,
+  Travel: null,
+  'Phone & Internet': null,
+  'TV license & Cable': null,
+  'Sports & Leisure': null,
+  'Health Insurance': null,
+};
+
 function parseCategory(category) {
   if (category) {
     // Map id to name
     const mapped = categoriesMap.categories.find(cat => cat.category.id === category.id);
     const mappedName = mapped.category.name.en;
 
-    // Translate name to name recognized by åland
-    const translated = categoriesTranslation.find(m => m.APIcat === mappedName);
-    const translatedName = translated.AlandCat;
-
-    return translatedName;
+    return mappedName;
   }
 
   return null;
@@ -60,7 +170,7 @@ function parseTransactions(transactions, accountName) {
   return transactions.map(t => ({
     id: `nag_${t.id}`,
     accountName,
-    activityType: ACTIVITY_TYPE_BANK,
+    activityType: ACTIVITY_TYPE_PURCHASE,
     datetime: t.date,
     text: t.text,
     category: parseCategory(t.category),
@@ -143,16 +253,26 @@ async function collect(state, { logDebug }) {
     activities = a.concat(activities);
   }
 
+  function Comparator(a, b) {
+    if (a[1] > b[1]) return -1;
+    if (a[1] < b[1]) return 1;
+    return 0;
+  }
+
+  const categoiresCount = categoriesMap.categories.map(c => [
+    c.category.name.en,
+    activities.filter(a => a.category === c.category.name.en).length,
+  ]);
+  logDebug(categoiresCount.sort(Comparator).filter(f => f[1] > 0));
   return { activities, state };
 }
 
 const config = {
   contributors: ['FelixDQ', 'Kongkille'],
   label: 'Nordic API Gateway',
-  type: ACTIVITY_TYPE_BANK,
+  type: ACTIVITY_TYPE_PURCHASE,
   isPrivate: true,
   description: 'collects bank statements',
-  // minRefreshInterval: 60
 };
 
 export default {
