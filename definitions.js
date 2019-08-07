@@ -8,6 +8,7 @@ export const ACTIVITY_TYPE_MEAL = 'ACTIVITY_TYPE_MEAL';
 export const ACTIVITY_TYPE_BANK = 'ACTIVITY_TYPE_BANK';
 
 export const TRANSPORTATION_MODE_PLANE = 'plane';
+export const TRANSPORTATION_MODE_BIKE = 'bike';
 export const TRANSPORTATION_MODE_CAR = 'car';
 export const TRANSPORTATION_MODE_BUS = 'bus';
 export const TRANSPORTATION_MODE_PUBLIC_TRANSPORT = 'public_transport';

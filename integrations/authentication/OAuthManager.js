@@ -5,6 +5,7 @@ import { URLSearchParams } from 'whatwg-url';
 
 import objectToURLParams from './objectToURLParams';
 import isReactNative from '../utils/isReactNative';
+import { HTTPError } from '../utils/errors';
 
 export default class {
   constructor({
@@ -45,8 +46,7 @@ export default class {
     let res = await fetch(this.requestTokenUrl, req);
     if (!res.ok) {
       const text = await res.text();
-      // throw new HTTPError(text, res.status);
-      throw new Error(`HTTP error ${res.status}: ${text}`);
+      throw new HTTPError(text, res.status);
     }
     let resultParams = new URLSearchParams(await res.text());
     const oauthToken = resultParams.get('oauth_token');
@@ -76,8 +76,7 @@ export default class {
     res = await fetch(this.accessTokenUrl, req);
     if (!res.ok) {
       const text = await res.text();
-      // throw new HTTPError(text, res.status);
-      throw new Error(`HTTP error ${res.status}: ${text}`);
+      throw new HTTPError(text, res.status);
     }
     resultParams = new URLSearchParams(await res.text());
     this.state.oauthToken = resultParams.get('oauth_token');
