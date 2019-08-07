@@ -24,8 +24,10 @@ import {
 } from '../../definitions';
 import isReactNative from '../utils/isReactNative';
 import generateGUID from '../utils/generateGUID';
+import { HTTPError } from '../utils/errors';
 
 import env from '../loadEnv';
+import { convertToEuro } from '../utils/currency/currency';
 
 /*
 Potential improvements:
@@ -45,9 +47,11 @@ const tokenUrl = `${baseUrl}/v1/authentication/tokens`;
 const unattendedUrl = `${baseUrl}/v1/authentication/unattended`;
 const accountInfoUrl = `${baseUrl}/v2/accounts`;
 const transactionsUrl = `${baseUrl}/v2/accounts/{accountId}/transactions`;
+const categoriesUrl = `${baseUrl}/v1/category-sets/DK/categories`;
+
 
 const agent = request.agent();
-agent.set('X-Client-Id', env.NAG_CLIENT_ID).set('X-Client-Secret', env.NAG_CLIENT_SECRET);
+agent.set('X-Client-Id', env.NAG_CLIENT_ID).set('X-Client-Secret', env.NAG_CLIENT_SECRET).set('Accept-Language', 'en');
 
 const NAG_CATEGORY = {
   Supermarket: PURCHASE_CATEGORY_FOOD_SUPERMARKET,
@@ -140,21 +144,38 @@ const NAG_CATEGORY = {
   'TV license & Cable': null,
   'Sports & Leisure': null,
   'Health Insurance': null,
+  Utilities: null,
+  'Other Savings': null,
 };
 
-function parseCategory(category) {
+function parseCategory(category, categoryList) {
   if (category) {
     // Map id to name
-    const mapped = categoriesMap.categories.find(cat => cat.category.id === category.id);
-    const mappedName = mapped.category.name.en;
+    const nagCategory = categoryList.categories.find(cat => cat.category.id === category.id);
+    if (!nagCategory) throw new Error(`Couldn't find category matching id '${category.id}'`);
+    const nagName = nagCategory.category.name.en;
 
-    return mappedName;
+    const purchaseCategory = NAG_CATEGORY[nagName];
+    if (purchaseCategory === undefined) {
+      throw new Error(`Unknown nordic-api-gateway category '${nagName}'`);
+    }
+
+    return purchaseCategory;
   }
 
   return null;
 }
 
-function parseTransactions(transactions, accountName) {
+async function getCategories() {
+  const res = await agent.get(categoriesUrl);
+  if (!res.ok) {
+    const text = await res.text();
+    throw new HTTPError(text, res.status);
+  }
+  return res.body;
+}
+
+async function parseTransactions(transactions, accountName) {
   // { id: '20190608-2600-0',
   //   date: '2019-06-08',
   //   creationTime: null,
@@ -167,15 +188,27 @@ function parseTransactions(transactions, accountName) {
   //   type: 'Card',
   //   state: 'Booked'}
 
-  return transactions.map(t => ({
-    id: `nag_${t.id}`,
-    accountName,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-    datetime: t.date,
-    text: t.text,
-    category: parseCategory(t.category),
-    amount: t.amount,
-  }));
+  const categories = await getCategories();
+
+  const res = [];
+  for (let i = 0; i < transactions.length; i += 1) {
+    const category = parseCategory(transactions[i].category, categories);
+    const amount = convertToEuro(transactions[i].amount.value, transactions[i].amount.currency);
+
+    if (category && amount < 0) {
+      res.push({
+        id: `nag_${transactions[i].id}`,
+        accountName,
+        activityType: ACTIVITY_TYPE_PURCHASE,
+        datetime: transactions[i].date,
+        text: transactions[i].text,
+        category,
+        costInEuro: -amount,
+      });
+    }
+  }
+   
+  return res;
 }
 
 async function connect(requestLogin, requestWebView) {
@@ -249,7 +282,7 @@ async function collect(state, { logDebug }) {
   for (const account of accounts) {
     logDebug(account.id);
     const tr = await agent.get(transactionsUrl.replace('{accountId}', account.id));
-    const a = parseTransactions(tr.body.transactions, account.name);
+    const a = await parseTransactions(tr.body.transactions, account.name);
     activities = a.concat(activities);
   }
 
