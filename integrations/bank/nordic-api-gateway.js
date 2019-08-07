@@ -24,7 +24,7 @@ import {
 } from '../../definitions';
 import isReactNative from '../utils/isReactNative';
 import generateGUID from '../utils/generateGUID';
-import { HTTPError } from '../utils/errors';
+import { HTTPError, AuthenticationError } from '../utils/errors';
 
 import env from '../loadEnv';
 import { convertToEuro } from '../utils/currency/currency';
@@ -230,6 +230,11 @@ async function connect(requestLogin, requestWebView) {
   // Get accessToken from code
   const res = await agent.post(tokenUrl).send(code);
 
+  if (!res.ok) {
+    const text = await res.text();
+    throw new HTTPError(text, res.status);
+  }
+
   state.accessToken = res.body.session.accessToken;
   state.accessExpiresAt = res.body.session.expires;
   state.loginToken = res.body.login.loginToken;
@@ -260,7 +265,7 @@ async function refreshToken(state) {
     // Request a new token
     await unattendedLogin(state);
   } else {
-    throw Error('loginToken expired.');
+    throw new AuthenticationError('loginToken expired.');
   }
 }
 
@@ -274,7 +279,12 @@ async function collect(state, { logDebug }) {
 
   // Get accounts
   const res = await agent.get(accountInfoUrl);
-  const accounts = res.body.accounts;
+  if (!res.ok) {
+    const text = await res.text();
+    throw new HTTPError(text, res.status);
+  }
+
+  const { accounts } = res.body;
 
   let activities = [];
 
@@ -282,6 +292,12 @@ async function collect(state, { logDebug }) {
   for (const account of accounts) {
     logDebug(account.id);
     const tr = await agent.get(transactionsUrl.replace('{accountId}', account.id));
+
+    if (!tr.ok) {
+      const text = await tr.text();
+      throw new HTTPError(text, tr.status);
+    }
+
     const a = await parseTransactions(tr.body.transactions, account.name);
     activities = a.concat(activities);
   }
