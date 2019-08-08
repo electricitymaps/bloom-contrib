@@ -199,13 +199,12 @@ async function parseTransactions(transactions, accountName) {
         accountName,
         activityType: ACTIVITY_TYPE_PURCHASE,
         datetime: transactions[i].date,
-        text: transactions[i].text,
-        category,
-        costInEuro: -amount,
+        label: transactions[i].text,
+        purchaseCategory: category,
+        costEuros: -amount,
       });
     }
   }
-   
   return res;
 }
 

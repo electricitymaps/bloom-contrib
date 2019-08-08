@@ -115,5 +115,5 @@ function carbonIntensity(category) {
   Carbon emissions of an activity (in kgCO2eq)
   */
 export function carbonEmissions(activity) {
-  return carbonIntensity(activity.category) * activity.costInEuro;
+  return carbonIntensity(activity.purchaseCategory) * activity.costEuros;
 }
