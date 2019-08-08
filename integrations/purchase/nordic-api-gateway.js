@@ -1,3 +1,4 @@
+import { v4 as uuid } from 'uuid';
 import request from 'superagent';
 import {
   ACTIVITY_TYPE_PURCHASE,
@@ -23,12 +24,10 @@ import {
   PURCHASE_CATEGORY_HEALTHCARE_DOCTOR,
 } from '../../definitions';
 import isReactNative from '../utils/isReactNative';
-import generateGUID from '../utils/generateGUID';
 import { HTTPError, AuthenticationError } from '../utils/errors';
 
 import env from '../loadEnv';
 import { convertToEuro } from '../utils/currency/currency';
-
 /*
 Potential improvements:
 - only refetch items since last fetch.
@@ -213,7 +212,8 @@ async function connect(requestLogin, requestWebView) {
   const state = {};
 
   // Unique id for user
-  state.userHash = generateGUID();
+  state.userHash = uuid();
+  console.log('hash', state.userHash);
 
   // Get authUrl
   const j = await agent.post(initializeUrl).send({
