@@ -6,6 +6,9 @@ import {
   PURCHASE_CATEGORY_TRANSPORTATION_TAXI,
   PURCHASE_CATEGORY_TRANSPORTATION_RAILROAD,
   PURCHASE_CATEGORY_TRANSPORTATION_AIRLINES,
+  TRANSPORTATION_MODE_PLANE,
+  TRANSPORTATION_MODE_TRAIN,
+  TRANSPORTATION_MODE_CAR,
 } from '../../definitions';
 
 export function getActivityTypeForCategory(category) {
@@ -18,5 +21,18 @@ export function getActivityTypeForCategory(category) {
       return ACTIVITY_TYPE_TRANSPORTATION;
     default:
       return ACTIVITY_TYPE_PURCHASE;
+  }
+}
+
+export function getTransportationModeForCategory(category) {
+  switch (category) {
+    case PURCHASE_CATEGORY_TRANSPORTATION_TAXI:
+      return TRANSPORTATION_MODE_CAR;
+    case PURCHASE_CATEGORY_TRANSPORTATION_RAILROAD:
+      return TRANSPORTATION_MODE_TRAIN;
+    case PURCHASE_CATEGORY_TRANSPORTATION_AIRLINES:
+      return TRANSPORTATION_MODE_PLANE;
+    default:
+      return null;
   }
 }

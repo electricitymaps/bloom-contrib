@@ -25,7 +25,7 @@ import {
 } from '../../definitions';
 import isReactNative from '../utils/isReactNative';
 import { HTTPError, AuthenticationError } from '../utils/errors';
-import { getActivityTypeForCategory } from '../utils/purchases';
+import { getActivityTypeForCategory, getTransportationModeForCategory } from '../utils/purchases';
 
 import env from '../loadEnv';
 import { convertToEuro } from '../utils/currency/currency';
@@ -200,6 +200,7 @@ async function parseTransactions(transactions, accountName) {
         activityType: getActivityTypeForCategory(category),
         datetime: transactions[i].date,
         label: transactions[i].text,
+        transportationMode: getTransportationModeForCategory(category),
         purchaseCategory: category,
         costEuros: -amount,
       });
