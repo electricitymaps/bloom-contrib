@@ -25,6 +25,7 @@ import {
 } from '../../definitions';
 import isReactNative from '../utils/isReactNative';
 import { HTTPError, AuthenticationError } from '../utils/errors';
+import { getActivityTypeForCategory } from '../utils/purchases';
 
 import env from '../loadEnv';
 import { convertToEuro } from '../utils/currency/currency';
@@ -196,7 +197,7 @@ async function parseTransactions(transactions, accountName) {
       res.push({
         id: `nag_${transactions[i].id}`,
         accountName,
-        activityType: ACTIVITY_TYPE_PURCHASE,
+        activityType: getActivityTypeForCategory(category),
         datetime: transactions[i].date,
         label: transactions[i].text,
         purchaseCategory: category,

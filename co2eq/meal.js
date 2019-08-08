@@ -1,3 +1,5 @@
+import { carbonEmissions as purchaseCarbonEmissions } from './purchase';
+
 export const modelVersion = 1;
 
 export const MEAL_WEIGHT = 400; // grams
@@ -46,8 +48,11 @@ export function carbonIntensity(ingredient) {
 Carbon emissions of an activity (in kgCO2eq)
 */
 export function carbonEmissions(activity) {
-  const { ingredients } = activity;
-  return ingredients
-    .map(k => carbonIntensity(k) * (MEAL_WEIGHT / 1000.0 / ingredients.length))
-    .reduce((a, b) => a + b, 0);
+  const { ingredients, costEuros, purchaseCategory } = activity;
+  if (ingredients && Object.keys(ingredients).length > 0) {
+    return ingredients.map(k => carbonIntensity(k) * (MEAL_WEIGHT / 1000.0 / ingredients.length)).reduce((a, b) => a + b, 0);
+  } if (costEuros && purchaseCategory) {
+    return purchaseCarbonEmissions(activity);
+  }
+  return null;
 }

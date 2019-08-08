@@ -38,7 +38,7 @@ export const modelVersion = 1;
 /*
   Carbon intensity of category (kg of CO2 per euro spent)
 */
-function carbonIntensity(category) {
+export function carbonIntensity(category) {
   // Source: http://www.balticproject.org/en/calculator-page
 
   switch (category) {

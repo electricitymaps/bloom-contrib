@@ -9,6 +9,7 @@ import {
 } from '../definitions';
 
 import flightEmissions from './flights';
+import { carbonEmissions as purchaseCarbonEmissions } from './purchase';
 
 export const modelVersion = 6;
 
@@ -65,6 +66,11 @@ export function durationToDistance(durationHours, mode) {
 Carbon emissions of an activity (in kgCO2eq)
 */
 export function carbonEmissions(activity) {
+  // If this came from a purchase
+  if (activity.costEuros && activity.purchaseCategory) {
+    return purchaseCarbonEmissions(activity);
+  }
+
   // Plane-specific model
   if (activity.transportationMode === TRANSPORTATION_MODE_PLANE) {
     return flightEmissions(activity);
