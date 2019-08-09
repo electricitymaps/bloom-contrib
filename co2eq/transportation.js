@@ -28,10 +28,8 @@ function carbonIntensity(mode) {
       return 20 / 1000.0;
     case TRANSPORTATION_MODE_PUBLIC_TRANSPORT:
       // Average of train and bus
-      return (
-        0.5 * carbonIntensity(TRANSPORTATION_MODE_TRAIN)
-        + 0.5 * carbonIntensity(TRANSPORTATION_MODE_BUS)
-      );
+      return (0.5 * carbonIntensity(TRANSPORTATION_MODE_TRAIN)
+        + 0.5 * carbonIntensity(TRANSPORTATION_MODE_BUS));
     case TRANSPORTATION_MODE_FERRY:
       // See https://en.wikipedia.org/wiki/Carbon_footprint
       return 0.12;
@@ -53,10 +51,8 @@ export function durationToDistance(durationHours, mode) {
       return durationHours * 80.0;
     case TRANSPORTATION_MODE_PUBLIC_TRANSPORT:
       // Average of train and bus
-      return (
-        0.5 * durationToDistance(durationHours, TRANSPORTATION_MODE_TRAIN)
-        + 0.5 * durationToDistance(durationHours, TRANSPORTATION_MODE_BUS)
-      );
+      return (0.5 * durationToDistance(durationHours, TRANSPORTATION_MODE_TRAIN)
+        + 0.5 * durationToDistance(durationHours, TRANSPORTATION_MODE_BUS));
     case TRANSPORTATION_MODE_FERRY:
       return durationHours * 30; // ~16 knots
     case TRANSPORTATION_MODE_BIKE:
@@ -70,37 +66,29 @@ export function durationToDistance(durationHours, mode) {
 Carbon emissions of an activity (in kgCO2eq)
 */
 export function carbonEmissions(activity) {
-  const {
-    transportationMode,
-    durationHours,
-    costEuros,
-    purchaseCategory,
-    passengerCount,
-  } = activity;
-  let { distanceKilometers } = activity;
+  // If this came from a purchase
+  if (activity.costEuros && activity.purchaseCategory) {
+    return purchaseCarbonEmissions(activity);
+  }
 
   // Plane-specific model
-  if (transportationMode === TRANSPORTATION_MODE_PLANE) {
+  if (activity.transportationMode === TRANSPORTATION_MODE_PLANE) {
     return flightEmissions(activity);
   }
 
-  if (!distanceKilometers && (activity.durationHours || 0) > 0) {
+  let distanceKilometers = activity.distanceKilometers;
+  if (!distanceKilometers) {
     // fallback on duration if available
-    distanceKilometers = durationToDistance(durationHours, transportationMode);
+    if ((activity.durationHours || 0) > 0) {
+      distanceKilometers = durationToDistance(activity.durationHours, activity.transportationMode);
+    } else {
+      return null;
+    }
   }
 
-  if (distanceKilometers) {
-    // Take into account the passenger count if this is a car
-    if (transportationMode === TRANSPORTATION_MODE_CAR) {
-      return (
-        (carbonIntensity(transportationMode) * distanceKilometers)
-        / (passengerCount || 1)
-      );
-    }
-    return carbonIntensity(transportationMode) * distanceKilometers;
-  } if (costEuros && purchaseCategory) {
-    // If this came from a purchase
-    return purchaseCarbonEmissions(activity);
+  // Take into account the passenger count if this is a car
+  if (activity.transportationMode === TRANSPORTATION_MODE_CAR) {
+    return carbonIntensity(activity.transportationMode) * distanceKilometers / (activity.passengerCount || 1);
   }
-  return null;
+  return carbonIntensity(activity.transportationMode) * distanceKilometers;
 }
