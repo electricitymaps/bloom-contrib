@@ -108,7 +108,7 @@ export function carbonIntensity(category) {
     case PURCHASE_CATEGORY_ENTERTAINMENT_LIQUOR_STORE:
       return 80.61 / 1000;
     default:
-      throw Error(`Unknown purchase category: ${category}`);
+      throw new Error(`Unknown purchase category: ${category}`);
   }
 }
 
