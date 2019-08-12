@@ -79,7 +79,7 @@ export function carbonEmissions(activity) {
       return purchaseCarbonIntensity(PURCHASE_CATEGORY_TRANSPORTATION_RAILROAD) * costEuros;
     }
     if (activity.transportationMode === TRANSPORTATION_MODE_CAR) {
-      return purchaseCarbonIntensity(PURCHASE_CATEGORY_TRANSPORTATION_TAXI) * costEuros / (activity.passengerCount || 1);
+      return purchaseCarbonIntensity(PURCHASE_CATEGORY_TRANSPORTATION_TAXI) * costEuros / (activity.participants || 1);
     }
     if (activity.purchaseCategory) {
       return purchaseCarbonEmissions(activity);
@@ -103,7 +103,7 @@ export function carbonEmissions(activity) {
 
   // Take into account the passenger count if this is a car
   if (activity.transportationMode === TRANSPORTATION_MODE_CAR) {
-    return carbonIntensity(activity.transportationMode) * distanceKilometers / (activity.passengerCount || 1);
+    return carbonIntensity(activity.transportationMode) * distanceKilometers / (activity.participants || 1);
   }
   return carbonIntensity(activity.transportationMode) * distanceKilometers;
 }

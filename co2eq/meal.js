@@ -51,7 +51,7 @@ Carbon emissions of an activity (in kgCO2eq)
 */
 export function carbonEmissions(activity) {
   const {
-    ingredients, costAmount, costCurrency, purchaseCategory, passengerCount,
+    ingredients, costAmount, costCurrency, purchaseCategory, participants,
   } = activity;
   if (ingredients && Object.keys(ingredients).length > 0) {
     return ingredients
@@ -62,7 +62,7 @@ export function carbonEmissions(activity) {
     const intensity = purchaseCategory
       ? purchaseCarbonIntensity(purchaseCategory)
       : purchaseCarbonIntensity(PURCHASE_CATEGORY_FOOD_RESTAURANT);
-    return (intensity * convertToEuro(costAmount, costCurrency)) / (passengerCount || 1);
+    return (intensity * convertToEuro(costAmount, costCurrency)) / (participants || 1);
   }
   throw new Error(`Couldn't calculate carbonEmissions for ${activity}`);
 }
