@@ -23,21 +23,17 @@ import {
   PURCHASE_CATEGORY_FOOD_RESTAURANT,
   PURCHASE_CATEGORY_HEALTHCARE_DOCTOR,
 } from '../../definitions';
-import isReactNative from '../utils/isReactNative';
 import { HTTPError, AuthenticationError } from '../utils/errors';
 import { getActivityTypeForCategory, getTransportationModeForCategory } from '../utils/purchases';
 
 import env from '../loadEnv';
 import { convertToEuro } from '../utils/currency/currency';
+import { getCallbackUrl } from '../utils/oauth';
 /*
 Potential improvements:
 - only refetch items since last fetch.
 - only fetch data from selected accounts
 */
-
-const callbackUrl = isReactNative
-  ? 'com.tmrow.greenbit://oauth_callback'
-  : 'http://localhost:3000/oauth_callback';
 
 const baseUrl = 'https://api.nordicapigateway.com';
 const initializeUrl = `${baseUrl}/v1/authentication/initialize`;
@@ -192,7 +188,6 @@ async function parseTransactions(transactions, accountDisplayName, bankName) {
   const res = [];
   for (let i = 0; i < transactions.length; i += 1) {
     const category = parseCategory(transactions[i].category, categories);
-    const amount = convertToEuro(transactions[i].amount.value, transactions[i].amount.currency);
 
     if (category && transactions[i].amount.value < 0) {
       res.push({
@@ -222,12 +217,12 @@ async function connect(requestLogin, requestWebView) {
   // Get authUrl
   const j = await agent.post(initializeUrl).send({
     userHash: state.userHash,
-    redirectUrl: callbackUrl,
+    redirectUrl: getCallbackUrl(),
     language: 'en',
   });
 
   // User login
-  const code = await requestWebView(j.body.authUrl, callbackUrl);
+  const code = await requestWebView(j.body.authUrl, getCallbackUrl());
 
   // Get accessToken from code
   const res = await agent.post(tokenUrl).send(code);
