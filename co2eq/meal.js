@@ -1,4 +1,5 @@
-import { carbonEmissions as purchaseCarbonEmissions } from './purchase';
+import { carbonIntensity as purchaseCarbonIntensity } from './purchase';
+import { PURCHASE_CATEGORY_FOOD_RESTAURANT } from '../definitions';
 
 export const modelVersion = 1;
 
@@ -48,11 +49,22 @@ export function carbonIntensity(ingredient) {
 Carbon emissions of an activity (in kgCO2eq)
 */
 export function carbonEmissions(activity) {
-  const { ingredients, costEuros, purchaseCategory } = activity;
+  const {
+    ingredients, costEuros, purchaseCategory, passengerCount,
+  } = activity;
   if (ingredients && Object.keys(ingredients).length > 0) {
-    return ingredients.map(k => carbonIntensity(k) * (MEAL_WEIGHT / 1000.0 / ingredients.length)).reduce((a, b) => a + b, 0);
-  } if (costEuros && purchaseCategory) {
-    return purchaseCarbonEmissions(activity);
+    return ingredients
+      .map(k => carbonIntensity(k) * (MEAL_WEIGHT / 1000.0 / ingredients.length))
+      .reduce((a, b) => a + b, 0);
+  }
+  if (costEuros) {
+    let intensity;
+    if (purchaseCategory) {
+      intensity = purchaseCarbonIntensity(purchaseCategory);
+    } else {
+      intensity = purchaseCarbonIntensity(PURCHASE_CATEGORY_FOOD_RESTAURANT);
+    }
+    return (intensity * costEuros) / (passengerCount || 1);
   }
   return null;
 }

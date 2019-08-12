@@ -6,10 +6,13 @@ import {
   TRANSPORTATION_MODE_PUBLIC_TRANSPORT,
   TRANSPORTATION_MODE_FERRY,
   TRANSPORTATION_MODE_BIKE,
+  PURCHASE_CATEGORY_TRANSPORTATION_AIRLINES,
+  PURCHASE_CATEGORY_TRANSPORTATION_RAILROAD,
+  PURCHASE_CATEGORY_TRANSPORTATION_TAXI,
 } from '../definitions';
 
 import flightEmissions from './flights';
-import { carbonEmissions as purchaseCarbonEmissions } from './purchase';
+import { carbonEmissions as purchaseCarbonEmissions, carbonIntensity as purchaseCarbonIntensity } from './purchase';
 
 export const modelVersion = 6;
 
@@ -66,9 +69,19 @@ export function durationToDistance(durationHours, mode) {
 Carbon emissions of an activity (in kgCO2eq)
 */
 export function carbonEmissions(activity) {
-  // If this came from a purchase
-  if (activity.costEuros && activity.purchaseCategory) {
-    return purchaseCarbonEmissions(activity);
+  if (activity.costEuros) {
+    if (activity.transportationMode === TRANSPORTATION_MODE_PLANE) {
+      return purchaseCarbonIntensity(PURCHASE_CATEGORY_TRANSPORTATION_AIRLINES) * activity.costEuros;
+    }
+    if (activity.transportationMode === TRANSPORTATION_MODE_TRAIN) {
+      return purchaseCarbonIntensity(PURCHASE_CATEGORY_TRANSPORTATION_RAILROAD) * activity.costEuros;
+    }
+    if (activity.transportationMode === TRANSPORTATION_MODE_CAR) {
+      return purchaseCarbonIntensity(PURCHASE_CATEGORY_TRANSPORTATION_TAXI) * activity.costEuros / (activity.passengerCount || 1);
+    }
+    if (activity.purchaseCategory) {
+      return purchaseCarbonEmissions(activity);
+    }
   }
 
   // Plane-specific model
