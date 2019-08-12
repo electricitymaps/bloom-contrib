@@ -64,5 +64,5 @@ export function carbonEmissions(activity) {
       : purchaseCarbonIntensity(PURCHASE_CATEGORY_FOOD_RESTAURANT);
     return (intensity * convertToEuro(costAmount, costCurrency)) / (passengerCount || 1);
   }
-  return null;
+  throw new Error(`Couldn't calculate carbonEmissions for ${activity}`);
 }
