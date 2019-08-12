@@ -170,7 +170,7 @@ async function getCategories() {
   return res.body;
 }
 
-async function parseTransactions(transactions, accountDisplayName, bankName) {
+async function parseTransactions(transactions, accountDisplayName, bankDisplayName, bankIdentifier) {
   // { id: '20190608-2600-0',
   //   date: '2019-06-08',
   //   creationTime: null,
@@ -197,7 +197,8 @@ async function parseTransactions(transactions, accountDisplayName, bankName) {
         label: transactions[i].text,
         transportationMode: getTransportationModeForCategory(category),
         accountDisplayName,
-        bankName,
+        bankDisplayName,
+        bankIdentifier,
         purchaseCategory: category,
         costAmount: -transactions[i].amount.value,
         costCurrency: transactions[i].amount.currency,
@@ -303,7 +304,7 @@ async function collect(state, { logDebug }) {
       throw new HTTPError(text, provider.status);
     }
 
-    const a = await parseTransactions(transactions.body.transactions, account.name, provider.body.name);
+    const a = await parseTransactions(transactions.body.transactions, account.name, provider.body.name, account.providerId);
     activities = a.concat(activities);
   }
 
