@@ -44,6 +44,7 @@ const initializeUrl = `${baseUrl}/v1/authentication/initialize`;
 const tokenUrl = `${baseUrl}/v1/authentication/tokens`;
 const unattendedUrl = `${baseUrl}/v1/authentication/unattended`;
 const accountInfoUrl = `${baseUrl}/v2/accounts`;
+const providerInfoUrl = `${baseUrl}/v1/providers/{providerId}`;
 const transactionsUrl = `${baseUrl}/v2/accounts/{accountId}/transactions`;
 const categoriesUrl = `${baseUrl}/v1/category-sets/DK/categories`;
 
@@ -173,7 +174,7 @@ async function getCategories() {
   return res.body;
 }
 
-async function parseTransactions(transactions, accountName) {
+async function parseTransactions(transactions, accountName, bankName) {
   // { id: '20190608-2600-0',
   //   date: '2019-06-08',
   //   creationTime: null,
@@ -196,11 +197,12 @@ async function parseTransactions(transactions, accountName) {
     if (category && amount < 0) {
       res.push({
         id: `nag_${transactions[i].id}`,
-        accountName,
         activityType: getActivityTypeForCategory(category),
         datetime: transactions[i].date,
         label: transactions[i].text,
         transportationMode: getTransportationModeForCategory(category),
+        accountName,
+        bankName,
         purchaseCategory: category,
         costEuros: -amount,
       });
@@ -215,7 +217,6 @@ async function connect(requestLogin, requestWebView) {
 
   // Unique id for user
   state.userHash = uuid();
-  console.log('hash', state.userHash);
 
   // Get authUrl
   const j = await agent.post(initializeUrl).send({
@@ -290,15 +291,23 @@ async function collect(state, { logDebug }) {
 
   // eslint-disable-next-line no-restricted-syntax
   for (const account of accounts) {
-    logDebug(account.id);
-    const tr = await agent.get(transactionsUrl.replace('{accountId}', account.id));
+    // Get transactions
+    const transactions = await agent.get(transactionsUrl.replace('{accountId}', account.id));
 
-    if (!tr.ok) {
-      const text = await tr.text();
-      throw new HTTPError(text, tr.status);
+    if (!transactions.ok) {
+      const text = await transactions.text();
+      throw new HTTPError(text, transactions.status);
     }
 
-    const a = await parseTransactions(tr.body.transactions, account.name);
+    // Get bank info
+    const provider = await agent.get(providerInfoUrl.replace('{providerId}', account.providerId));
+
+    if (!provider.ok) {
+      const text = await provider.text();
+      throw new HTTPError(text, provider.status);
+    }
+
+    const a = await parseTransactions(transactions.body.transactions, account.name, provider.body.name);
     activities = a.concat(activities);
   }
 
