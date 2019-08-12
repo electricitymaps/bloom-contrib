@@ -8,3 +8,7 @@ export function convertToEuro(amount, currency) {
 
   return amount / exchangeRate;
 }
+
+export function getAvailableCurrencies() {
+  return Object.keys(exchangeRates.rates)
+}
