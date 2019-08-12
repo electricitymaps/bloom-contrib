@@ -174,7 +174,7 @@ async function getCategories() {
   return res.body;
 }
 
-async function parseTransactions(transactions, accountName, bankName) {
+async function parseTransactions(transactions, accountDisplayName, bankName) {
   // { id: '20190608-2600-0',
   //   date: '2019-06-08',
   //   creationTime: null,
@@ -194,17 +194,18 @@ async function parseTransactions(transactions, accountName, bankName) {
     const category = parseCategory(transactions[i].category, categories);
     const amount = convertToEuro(transactions[i].amount.value, transactions[i].amount.currency);
 
-    if (category && amount < 0) {
+    if (category && transactions[i].amount.value < 0) {
       res.push({
         id: `nag_${transactions[i].id}`,
         activityType: getActivityTypeForCategory(category),
         datetime: transactions[i].date,
         label: transactions[i].text,
         transportationMode: getTransportationModeForCategory(category),
-        accountName,
+        accountDisplayName,
         bankName,
         purchaseCategory: category,
-        costEuros: -amount,
+        costAmount: -transactions[i].amount.value,
+        costCurrency: transactions[i].amount.currency,
       });
     }
   }

@@ -1,5 +1,6 @@
 import { carbonIntensity as purchaseCarbonIntensity } from './purchase';
 import { PURCHASE_CATEGORY_FOOD_RESTAURANT } from '../definitions';
+import { convertToEuro } from '../integrations/utils/currency/currency';
 
 export const modelVersion = 1;
 
@@ -50,21 +51,21 @@ Carbon emissions of an activity (in kgCO2eq)
 */
 export function carbonEmissions(activity) {
   const {
-    ingredients, costEuros, purchaseCategory, passengerCount,
+    ingredients, costAmount, costCurrency, purchaseCategory, passengerCount,
   } = activity;
   if (ingredients && Object.keys(ingredients).length > 0) {
     return ingredients
       .map(k => carbonIntensity(k) * (MEAL_WEIGHT / 1000.0 / ingredients.length))
       .reduce((a, b) => a + b, 0);
   }
-  if (costEuros) {
+  if (costAmount && costCurrency) {
     let intensity;
     if (purchaseCategory) {
       intensity = purchaseCarbonIntensity(purchaseCategory);
     } else {
       intensity = purchaseCarbonIntensity(PURCHASE_CATEGORY_FOOD_RESTAURANT);
     }
-    return (intensity * costEuros) / (passengerCount || 1);
+    return (intensity * convertToEuro(costAmount, costCurrency)) / (passengerCount || 1);
   }
   return null;
 }

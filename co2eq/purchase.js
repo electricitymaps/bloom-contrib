@@ -32,6 +32,7 @@ import {
   PURCHASE_CATEGORY_ENTERTAINMENT_CRUISE_LINES,
   PURCHASE_CATEGORY_ENTERTAINMENT_LIQUOR_STORE,
 } from '../definitions';
+import { convertToEuro } from '../integrations/utils/currency/currency';
 
 export const modelVersion = 1;
 
@@ -115,5 +116,5 @@ export function carbonIntensity(category) {
   Carbon emissions of an activity (in kgCO2eq)
   */
 export function carbonEmissions(activity) {
-  return carbonIntensity(activity.purchaseCategory) * activity.costEuros;
+  return carbonIntensity(activity.purchaseCategory) * convertToEuro(activity.costAmount, activity.costCurrency);
 }

@@ -13,6 +13,7 @@ import {
 
 import flightEmissions from './flights';
 import { carbonEmissions as purchaseCarbonEmissions, carbonIntensity as purchaseCarbonIntensity } from './purchase';
+import { convertToEuro } from '../integrations/utils/currency/currency';
 
 export const modelVersion = 6;
 
@@ -69,15 +70,16 @@ export function durationToDistance(durationHours, mode) {
 Carbon emissions of an activity (in kgCO2eq)
 */
 export function carbonEmissions(activity) {
-  if (activity.costEuros) {
+  if (activity.costAmount && activity.costCurrency) {
+    const costEuros = convertToEuro(activity.costAmount, activity.costCurrency);
     if (activity.transportationMode === TRANSPORTATION_MODE_PLANE) {
-      return purchaseCarbonIntensity(PURCHASE_CATEGORY_TRANSPORTATION_AIRLINES) * activity.costEuros;
+      return purchaseCarbonIntensity(PURCHASE_CATEGORY_TRANSPORTATION_AIRLINES) * costEuros;
     }
     if (activity.transportationMode === TRANSPORTATION_MODE_TRAIN) {
-      return purchaseCarbonIntensity(PURCHASE_CATEGORY_TRANSPORTATION_RAILROAD) * activity.costEuros;
+      return purchaseCarbonIntensity(PURCHASE_CATEGORY_TRANSPORTATION_RAILROAD) * costEuros;
     }
     if (activity.transportationMode === TRANSPORTATION_MODE_CAR) {
-      return purchaseCarbonIntensity(PURCHASE_CATEGORY_TRANSPORTATION_TAXI) * activity.costEuros / (activity.passengerCount || 1);
+      return purchaseCarbonIntensity(PURCHASE_CATEGORY_TRANSPORTATION_TAXI) * costEuros / (activity.passengerCount || 1);
     }
     if (activity.purchaseCategory) {
       return purchaseCarbonEmissions(activity);
