@@ -59,12 +59,9 @@ export function carbonEmissions(activity) {
       .reduce((a, b) => a + b, 0);
   }
   if (costAmount && costCurrency) {
-    let intensity;
-    if (purchaseCategory) {
-      intensity = purchaseCarbonIntensity(purchaseCategory);
-    } else {
-      intensity = purchaseCarbonIntensity(PURCHASE_CATEGORY_FOOD_RESTAURANT);
-    }
+    const intensity = purchaseCategory
+      ? purchaseCarbonIntensity(purchaseCategory)
+      : purchaseCarbonIntensity(PURCHASE_CATEGORY_FOOD_RESTAURANT);
     return (intensity * convertToEuro(costAmount, costCurrency)) / (passengerCount || 1);
   }
   return null;
