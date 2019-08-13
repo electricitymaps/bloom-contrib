@@ -10,5 +10,5 @@ export function convertToEuro(amount, currency) {
 }
 
 export function getAvailableCurrencies() {
-  return Object.keys(exchangeRates.rates);
+  return [...Object.keys(exchangeRates.rates), 'EUR'];
 }

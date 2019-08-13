@@ -51,9 +51,7 @@ export function carbonIntensity(ingredient) {
 Carbon emissions of an activity (in kgCO2eq)
 */
 export function carbonEmissions(activity) {
-  const {
-    ingredients, costAmount, costCurrency, purchaseCategory, participants,
-  } = activity;
+  const { ingredients } = activity;
   if (ingredients && Object.keys(ingredients).length > 0) {
     return ingredients
       .map(k => carbonIntensity(k) * (MEAL_WEIGHT / 1000.0 / ingredients.length))
