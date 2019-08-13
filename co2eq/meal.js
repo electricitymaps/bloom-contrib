@@ -3,6 +3,7 @@ import { PURCHASE_CATEGORY_FOOD_RESTAURANT } from '../definitions';
 import { convertToEuro } from '../integrations/utils/currency/currency';
 
 export const modelVersion = 1;
+export const modelName = 'meal';
 
 export const MEAL_WEIGHT = 400; // grams
 
@@ -58,11 +59,6 @@ export function carbonEmissions(activity) {
       .map(k => carbonIntensity(k) * (MEAL_WEIGHT / 1000.0 / ingredients.length))
       .reduce((a, b) => a + b, 0);
   }
-  if (costAmount && costCurrency) {
-    const intensity = purchaseCategory
-      ? purchaseCarbonIntensity(purchaseCategory)
-      : purchaseCarbonIntensity(PURCHASE_CATEGORY_FOOD_RESTAURANT);
-    return (intensity * convertToEuro(costAmount, costCurrency)) / (participants || 1);
-  }
+
   throw new Error(`Couldn't calculate carbonEmissions for ${activity}`);
 }

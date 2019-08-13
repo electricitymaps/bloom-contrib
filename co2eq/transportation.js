@@ -16,6 +16,7 @@ import { carbonEmissions as purchaseCarbonEmissions, carbonIntensity as purchase
 import { convertToEuro } from '../integrations/utils/currency/currency';
 
 export const modelVersion = 6;
+export const modelName = 'transportation';
 
 /*
 Carbon intensity of transportation (kgCO2 per passenger and per km)
@@ -70,22 +71,6 @@ export function durationToDistance(durationHours, mode) {
 Carbon emissions of an activity (in kgCO2eq)
 */
 export function carbonEmissions(activity) {
-  if (activity.costAmount && activity.costCurrency) {
-    const costEuros = convertToEuro(activity.costAmount, activity.costCurrency);
-    if (activity.transportationMode === TRANSPORTATION_MODE_PLANE) {
-      return purchaseCarbonIntensity(PURCHASE_CATEGORY_TRANSPORTATION_AIRLINES) * costEuros;
-    }
-    if (activity.transportationMode === TRANSPORTATION_MODE_TRAIN) {
-      return purchaseCarbonIntensity(PURCHASE_CATEGORY_TRANSPORTATION_RAILROAD) * costEuros;
-    }
-    if (activity.transportationMode === TRANSPORTATION_MODE_CAR) {
-      return purchaseCarbonIntensity(PURCHASE_CATEGORY_TRANSPORTATION_TAXI) * costEuros / (activity.participants || 1);
-    }
-    if (activity.purchaseCategory) {
-      return purchaseCarbonEmissions(activity);
-    }
-  }
-
   // Plane-specific model
   if (activity.transportationMode === TRANSPORTATION_MODE_PLANE) {
     return flightEmissions(activity);

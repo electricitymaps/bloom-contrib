@@ -31,10 +31,16 @@ import {
   PURCHASE_CATEGORY_ENTERTAINMENT_GAMBLING,
   PURCHASE_CATEGORY_ENTERTAINMENT_CRUISE_LINES,
   PURCHASE_CATEGORY_ENTERTAINMENT_LIQUOR_STORE,
+  ACTIVITY_TYPE_MEAL,
+  ACTIVITY_TYPE_TRANSPORTATION,
+  TRANSPORTATION_MODE_CAR,
+  TRANSPORTATION_MODE_TRAIN,
+  TRANSPORTATION_MODE_PLANE,
 } from '../definitions';
 import { convertToEuro } from '../integrations/utils/currency/currency';
 
 export const modelVersion = 1;
+export const modelName = 'purchase';
 
 /*
   Carbon intensity of category (kg of CO2 per euro spent)
@@ -116,5 +122,24 @@ export function carbonIntensity(category) {
   Carbon emissions of an activity (in kgCO2eq)
   */
 export function carbonEmissions(activity) {
-  return carbonIntensity(activity.purchaseCategory) * convertToEuro(activity.costAmount, activity.costCurrency);
+  let category = activity.purchaseCategory;
+
+  if (!category) {
+    if (activity.activityType === ACTIVITY_TYPE_MEAL) {
+      category = PURCHASE_CATEGORY_FOOD_RESTAURANT;
+    } else if (activity.activityType === ACTIVITY_TYPE_TRANSPORTATION) {
+      if (activity.transportationMode === TRANSPORTATION_MODE_CAR) {
+        category = PURCHASE_CATEGORY_TRANSPORTATION_TAXI;
+      } else if (activity.activityType === TRANSPORTATION_MODE_TRAIN) {
+        category = PURCHASE_CATEGORY_TRANSPORTATION_RAILROAD;
+      } else if (activity.activityType === TRANSPORTATION_MODE_PLANE) {
+        category = PURCHASE_CATEGORY_TRANSPORTATION_AIRLINES;
+      }
+    }
+    else {
+      throw new Error(`Couldn't find purchaseCategory for activity ${activity}`);
+    }
+  }
+
+  return (carbonIntensity(category) * convertToEuro(activity.costAmount, activity.costCurrency)) / (activity.participants || 1);
 }
