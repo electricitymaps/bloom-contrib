@@ -91,7 +91,7 @@ const NAG_CATEGORY = {
   'Advisors & Services': null,
   'Meal Plan': PURCHASE_CATEGORY_FOOD_SUPERMARKET,
   Memberships: null,
-  'Housing Benefits': null,
+  'Housing Benefit': null,
   'Debt & Interest': null,
   Education: null,
   'Tobacco & Alcohol': PURCHASE_CATEGORY_ENTERTAINMENT_LIQUOR_STORE,
@@ -136,6 +136,15 @@ const NAG_CATEGORY = {
   Utilities: null,
   'Other Savings': null,
   'Other Transport': null,
+  'Other Income': null,
+  Hide: null,
+  'Interest Income': null,
+  'Homeowners Association': null,
+  'Property Tax': null,
+  'Basic Expenses': null,
+  'Student Loan': null,
+  Tuition: null,
+  
 };
 
 function parseCategory(category, categoryList) {
