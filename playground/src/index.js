@@ -3,9 +3,12 @@ global.fetch = require('node-fetch');
 
 // Import all integrations that should/can be tested
 import * as electricityContribSources from '../../integrations/electricity'; // eslint-disable-line
+import * as purchaseContribSources from '../../integrations/purchase'; // eslint-disable-line
 import * as transportationContribSources from '../../integrations/transportation'; // eslint-disable-line
+
 const sourceInstances = {
   ...electricityContribSources,
+  ...purchaseContribSources,
   ...transportationContribSources,
 };
 

@@ -10,6 +10,8 @@ import {
 
 import flightEmissions from './flights';
 
+// ** modelName must not be changed. If changed then old activities will not be re-calculated **
+export const modelName = 'transportation';
 export const modelVersion = 6;
 
 /*
@@ -76,13 +78,13 @@ export function carbonEmissions(activity) {
     if ((activity.durationHours || 0) > 0) {
       distanceKilometers = durationToDistance(activity.durationHours, activity.transportationMode);
     } else {
-      return null;
+      throw new Error(`Couldn't calculate carbonEmissions for ${activity}`);
     }
   }
 
   // Take into account the passenger count if this is a car
   if (activity.transportationMode === TRANSPORTATION_MODE_CAR) {
-    return carbonIntensity(activity.transportationMode) * distanceKilometers / (activity.passengerCount || 1);
+    return carbonIntensity(activity.transportationMode) * distanceKilometers / (activity.participants || 1);
   }
   return carbonIntensity(activity.transportationMode) * distanceKilometers;
 }

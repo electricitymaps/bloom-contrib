@@ -1,3 +1,5 @@
+// ** modelName must not be changed. If changed then old activities will not be re-calculated **
+export const modelName = 'meal';
 export const modelVersion = 1;
 
 export const MEAL_WEIGHT = 400; // grams
@@ -47,7 +49,11 @@ Carbon emissions of an activity (in kgCO2eq)
 */
 export function carbonEmissions(activity) {
   const { ingredients } = activity;
-  return ingredients
-    .map(k => carbonIntensity(k) * (MEAL_WEIGHT / 1000.0 / ingredients.length))
-    .reduce((a, b) => a + b, 0);
+  if (ingredients && Object.keys(ingredients).length > 0) {
+    return ingredients
+      .map(k => carbonIntensity(k) * (MEAL_WEIGHT / 1000.0 / ingredients.length))
+      .reduce((a, b) => a + b, 0);
+  }
+
+  throw new Error(`Couldn't calculate carbonEmissions for ${activity}`);
 }

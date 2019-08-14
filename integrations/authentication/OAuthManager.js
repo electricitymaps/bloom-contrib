@@ -6,6 +6,7 @@ import { URLSearchParams } from 'whatwg-url';
 import objectToURLParams from './objectToURLParams';
 import isReactNative from '../utils/isReactNative';
 import { HTTPError } from '../utils/errors';
+import { getCallbackUrl } from '../utils/oauth';
 
 export default class {
   constructor({
@@ -53,13 +54,9 @@ export default class {
     const oauthTokenSecret = resultParams.get('oauth_token_secret');
 
     // Step 2 - open window to get autorization credentials
-    const callbackUrl = isReactNative
-      ? 'com.tmrow.greenbit://oauth_callback'
-      : 'http://localhost:3000/oauth_callback';
-
     await openUrlAndWaitForCallback(
-      `${this.authorizeUrl}?oauth_token=${oauthToken}&oauth_callback=${callbackUrl}`,
-      callbackUrl
+      `${this.authorizeUrl}?oauth_token=${oauthToken}&oauth_callback=${getCallbackUrl()}`,
+      getCallbackUrl()
     );
 
     // Step 3 - Obtain an access token

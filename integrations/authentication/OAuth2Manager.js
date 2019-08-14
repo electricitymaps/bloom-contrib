@@ -1,10 +1,6 @@
 import { AuthenticationError, HTTPError } from '../utils/errors';
 import objectToURLParams from './objectToURLParams';
-import isReactNative from '../utils/isReactNative';
-
-const callbackUrl = isReactNative
-  ? 'com.tmrow.greenbit://oauth_callback'
-  : 'http://localhost:3000/oauth_callback';
+import { getCallbackUrl } from '../utils/oauth';
 
 export default class {
   constructor({
@@ -59,13 +55,13 @@ export default class {
     // Step 1 - user authorizes app
     const requestURLParams = objectToURLParams({
       client_id: this.clientId,
-      redirect_uri: callbackUrl,
+      redirect_uri: getCallbackUrl(),
       response_type: 'code',
     });
     const authorizationCodeRequestUrl = `${this.authorizeUrl}?${requestURLParams}`;
     const authorizationResponseQuery = await openUrlAndWaitForCallback(
       authorizationCodeRequestUrl,
-      callbackUrl
+      getCallbackUrl()
     );
     // Redirect response from authorization dialog contains auth code
     const { code: authorizationCode } = authorizationResponseQuery;
@@ -76,7 +72,7 @@ export default class {
       client_id: this.clientId,
       code: authorizationCode,
       grant_type: 'authorization_code',
-      redirect_uri: callbackUrl,
+      redirect_uri: getCallbackUrl(),
       scope: 'history offline_access',
     };
 
