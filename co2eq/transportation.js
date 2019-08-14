@@ -6,17 +6,13 @@ import {
   TRANSPORTATION_MODE_PUBLIC_TRANSPORT,
   TRANSPORTATION_MODE_FERRY,
   TRANSPORTATION_MODE_BIKE,
-  PURCHASE_CATEGORY_TRANSPORTATION_AIRLINES,
-  PURCHASE_CATEGORY_TRANSPORTATION_RAILROAD,
-  PURCHASE_CATEGORY_TRANSPORTATION_TAXI,
 } from '../definitions';
 
 import flightEmissions from './flights';
-import { carbonEmissions as purchaseCarbonEmissions, carbonIntensity as purchaseCarbonIntensity } from './purchase';
-import { convertToEuro } from '../integrations/utils/currency/currency';
 
-export const modelVersion = 6;
+// ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'transportation';
+export const modelVersion = 6;
 
 /*
 Carbon intensity of transportation (kgCO2 per passenger and per km)

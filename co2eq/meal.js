@@ -1,9 +1,6 @@
-import { carbonIntensity as purchaseCarbonIntensity } from './purchase';
-import { PURCHASE_CATEGORY_FOOD_RESTAURANT } from '../definitions';
-import { convertToEuro } from '../integrations/utils/currency/currency';
-
-export const modelVersion = 1;
+// ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'meal';
+export const modelVersion = 1;
 
 export const MEAL_WEIGHT = 400; // grams
 

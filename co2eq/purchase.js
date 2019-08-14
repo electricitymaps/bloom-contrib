@@ -39,8 +39,9 @@ import {
 } from '../definitions';
 import { convertToEuro } from '../integrations/utils/currency/currency';
 
-export const modelVersion = 1;
+// ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'purchase';
+export const modelVersion = 1;
 
 /*
   Carbon intensity of category (kg of CO2 per euro spent)
