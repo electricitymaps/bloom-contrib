@@ -27,13 +27,7 @@ import { HTTPError, AuthenticationError } from '../utils/errors';
 import { getActivityTypeForCategory, getTransportationModeForCategory } from '../utils/purchases';
 
 import env from '../loadEnv';
-import { convertToEuro } from '../utils/currency/currency';
 import { getCallbackUrl } from '../utils/oauth';
-/*
-Potential improvements:
-- only refetch items since last fetch.
-- only fetch data from selected accounts
-*/
 
 const baseUrl = 'https://api.nordicapigateway.com';
 const initializeUrl = `${baseUrl}/v1/authentication/initialize`;
@@ -272,6 +266,22 @@ async function disconnect() {
   return {};
 }
 
+async function fetchTransactions(accountId, fromDate, pagingToken) {
+  const res = await agent.get(transactionsUrl.replace('{accountId}', accountId)).query({ fromDate }).query({ pagingToken });
+
+  if (!res.ok) {
+    const text = await res.text();
+    throw new HTTPError(text, res.status);
+  }
+
+  // If there's more pages of transactions
+  if (res.body.pagingToken) {
+    return res.body.transactions.concat(await fetchTransactions(accountId, fromDate, res.body.pagingToken));
+  }
+
+  return res.body.transactions;
+}
+
 async function collect(state, { logDebug }) {
   await refreshToken(state);
 
@@ -288,13 +298,17 @@ async function collect(state, { logDebug }) {
 
   // eslint-disable-next-line no-restricted-syntax
   for (const account of accounts) {
-    // Get transactions
-    const transactions = await agent.get(transactionsUrl.replace('{accountId}', account.id));
+    // Fetch from last update. If not available, then update from the last 90 days.
+    if (!state.lastUpdate) { state.lastUpdate = {}; }
+    let fromDate = state.lastUpdate[account.id];
 
-    if (!transactions.ok) {
-      const text = await transactions.text();
-      throw new HTTPError(text, transactions.status);
+    if (!fromDate) {
+      fromDate = new Date();
+      fromDate.setDate(fromDate.getDate() - 90);
     }
+
+    // Get transactions
+    const transactions = await fetchTransactions(account.id, fromDate);
 
     // Get bank info
     const provider = await agent.get(providerInfoUrl.replace('{providerId}', account.providerId));
@@ -304,9 +318,12 @@ async function collect(state, { logDebug }) {
       throw new HTTPError(text, provider.status);
     }
 
-    const a = await parseTransactions(transactions.body.transactions, account.name, provider.body.name, account.providerId);
+    const a = await parseTransactions(transactions, account.name, provider.body.name, account.providerId);
     activities = a.concat(activities);
+
+    state.lastUpdate[account.id] = new Date();
   }
+
 
   return { activities, state };
 }
