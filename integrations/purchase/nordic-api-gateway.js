@@ -135,6 +135,7 @@ const NAG_CATEGORY = {
   'Health Insurance': null,
   Utilities: null,
   'Other Savings': null,
+  'Other Transport': null,
 };
 
 function parseCategory(category, categoryList) {
@@ -267,8 +268,7 @@ async function disconnect() {
 }
 
 async function fetchTransactions(accountId, fromDate, pagingToken) {
-  const res = await agent.get(transactionsUrl.replace('{accountId}', accountId)).query({ fromDate }).query({ pagingToken });
-
+  const res = await agent.get(transactionsUrl.replace('{accountId}', accountId)).query({ fromDate: fromDate.toISOString(), pagingToken });
   if (!res.ok) {
     const text = await res.text();
     throw new HTTPError(text, res.status);
@@ -296,17 +296,16 @@ async function collect(state, { logDebug }) {
 
   let activities = [];
 
+  // Fetch from last update. If not available, then update from the last 90 days.
+  let fromDate = state.lastUpdate;
+
+  if (!fromDate) {
+    fromDate = new Date();
+    fromDate.setDate(fromDate.getDate() - 90);
+  }
+
   // eslint-disable-next-line no-restricted-syntax
   for (const account of accounts) {
-    // Fetch from last update. If not available, then update from the last 90 days.
-    if (!state.lastUpdate) { state.lastUpdate = {}; }
-    let fromDate = state.lastUpdate[account.id];
-
-    if (!fromDate) {
-      fromDate = new Date();
-      fromDate.setDate(fromDate.getDate() - 90);
-    }
-
     // Get transactions
     const transactions = await fetchTransactions(account.id, fromDate);
 
@@ -320,10 +319,8 @@ async function collect(state, { logDebug }) {
 
     const a = await parseTransactions(transactions, account.name, provider.body.name, account.providerId);
     activities = a.concat(activities);
-
-    state.lastUpdate[account.id] = new Date();
   }
-
+  state.lastUpdate = new Date();
 
   return { activities, state };
 }
