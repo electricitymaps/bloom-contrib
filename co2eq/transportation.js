@@ -78,7 +78,7 @@ export function carbonEmissions(activity) {
     if ((activity.durationHours || 0) > 0) {
       distanceKilometers = durationToDistance(activity.durationHours, activity.transportationMode);
     } else {
-      throw new Error(`Couldn't calculate carbonEmissions for ${activity}`);
+      throw new Error(`Couldn't calculate carbonEmissions for activity because distanceKilometers = ${distanceKilometers} and durationHours = ${activity.durationHours}`);
     }
   }
 

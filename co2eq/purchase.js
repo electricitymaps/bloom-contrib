@@ -136,9 +136,8 @@ export function carbonEmissions(activity) {
       } else if (activity.activityType === TRANSPORTATION_MODE_PLANE) {
         category = PURCHASE_CATEGORY_TRANSPORTATION_AIRLINES;
       }
-    }
-    else {
-      throw new Error(`Couldn't find purchaseCategory for activity ${activity}`);
+    } else {
+      throw new Error(`Couldn't find any purchaseCategory for activity with type ${activity.activityType}`);
     }
   }
 

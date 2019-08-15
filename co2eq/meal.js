@@ -55,5 +55,5 @@ export function carbonEmissions(activity) {
       .reduce((a, b) => a + b, 0);
   }
 
-  throw new Error(`Couldn't calculate carbonEmissions for ${activity}`);
+  throw new Error('Couldn\'t calculate carbonEmissions for activity because it does not have any ingredients');
 }
