@@ -197,7 +197,7 @@ async function parseTransactions(transactions, accountDisplayName, bankDisplayNa
       res.push({
         id: `nag_${transactions[i].id}`,
         activityType: getActivityTypeForCategory(category),
-        datetime: transactions[i].date,
+        datetime: (transactions[i].creationTime || transactions[i].date), // Creation time is not always available. Fallback to booked date
         label: transactions[i].text,
         transportationMode: getTransportationModeForCategory(category),
         accountDisplayName,
@@ -277,7 +277,7 @@ async function disconnect() {
 }
 
 async function fetchTransactions(accountId, fromDate, pagingToken) {
-  const res = await agent.get(transactionsUrl.replace('{accountId}', accountId)).query({ fromDate: fromDate.toISOString(), pagingToken });
+  const res = await agent.get(transactionsUrl.replace('{accountId}', accountId)).query({ fromDate, pagingToken });
   if (!res.ok) {
     const text = await res.text();
     throw new HTTPError(text, res.status);
@@ -305,12 +305,18 @@ async function collect(state, { logDebug }) {
 
   let activities = [];
 
-  // Fetch from last update. If not available, then update from the last 90 days.
+  // Fetch from last update. If not available, then fetch data from the last 90 days.
   let fromDate = state.lastUpdate;
 
   if (!fromDate) {
+    /*
+     When saved in the database, the date object gets converted to string.
+     We therefore convert it here to make sure that it both when ran directly
+     and when the state is loaded from database.
+    */
     fromDate = new Date();
     fromDate.setDate(fromDate.getDate() - 90);
+    fromDate = fromDate.toISOString();
   }
 
   // eslint-disable-next-line no-restricted-syntax
@@ -329,7 +335,7 @@ async function collect(state, { logDebug }) {
     const a = await parseTransactions(transactions, account.name, provider.body.name, account.providerId);
     activities = a.concat(activities);
   }
-  state.lastUpdate = new Date();
+  state.lastUpdate = new Date().toISOString();
 
   return { activities, state };
 }
