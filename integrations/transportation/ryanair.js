@@ -107,7 +107,7 @@ async function getActivities(pastBookings, customerId, token) {
       departureAirportCode: k.flightInfo.Origin,
       destinationAirportCode: k.flightInfo.Destination,
     }));
-
+     
   return activities;
 }
 
