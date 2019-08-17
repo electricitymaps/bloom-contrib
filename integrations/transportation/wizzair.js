@@ -84,7 +84,6 @@ async function getAllFlights(booking) {
       })
       .then(
         (res) => {
-          
           allFlights.push({
             id: `pnr${res.body.pnr}fn${res.body.outboundFlight.flightNumber}`,
             flight: res.body.outboundFlight || false, // not every booking has both an outbound and a return flight, hence false
