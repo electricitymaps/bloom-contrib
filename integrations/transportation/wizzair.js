@@ -5,29 +5,26 @@ import { HTTPError, AuthenticationError } from '../utils/errors';
 
 const API_VERSION_URL = 'https://wizzair.com/static/metadata.json';
 const agent = request.agent();
-
-// async function getApiVersionUrl() {
-//   // try {
-//   console.log('res');
-//   const res = await agent
-//     .get(API_VERSION_URL)
-//     .set('Accept', 'application/json')
-//     .set('Content-Type', 'application/json')
-//     .catch(res => console.error(res));
-    
-//   console.log(res.rawResponse, 'STATUS', res.status);
-  
-//   // } catch (e) {
-//   //   console.error('error', e);
-//   // }
-// }
-
-const BASE_URL = 'https://be.wizzair.com/9.15.0/Api/';
-const LOGIN_URL = `${BASE_URL}customer/login`;
-const ITINERARY_URL = `${BASE_URL}booking/itinerary`;
 const HISTORY_API_FETCH_LIMIT = 5;
 
+async function getApiVersionUrl() {
+  return fetch(API_VERSION_URL).then(response => response.text());
+}
+
+let API_URL;
+let BASE_URL;
+let LOGIN_URL;
+let ITINERARY_URL;
+
 async function logIn(username, password) {
+  // urls have to be assigned here as they're asynchronous and have to be awaited
+  await Promise.all(
+    API_URL = await getApiVersionUrl(),
+    BASE_URL = JSON.parse(API_URL.trim()).apiUrl,
+    LOGIN_URL = `${await BASE_URL}/customer/login`,
+    ITINERARY_URL = `${await BASE_URL}/booking/itinerary`,
+  );
+
   const res = await agent
     .post(LOGIN_URL)
     .type('application/json')
@@ -48,7 +45,7 @@ async function logIn(username, password) {
 
 async function getPastBookings() {
   const pastBookings = await agent
-    .post(`${BASE_URL}customer/mybookings`)
+    .post(`${BASE_URL}/customer/mybookings`)
     .type('application/json')
     .set('Accept', '*/*')
     .send({
@@ -143,8 +140,6 @@ function disconnect() {
 }
 
 async function collect(state) {
-  // TODO: automatically get the url of the latest API
-  // await getApiVersionUrl();
   const {
     pastBookings,
     // totalCount,
