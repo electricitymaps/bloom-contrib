@@ -31,6 +31,21 @@ const CARBON_INTENSITY = { // kgCO2eq / kg
   'Shrimp (Frozen)': 10.5,
   'Clams': 0.1,
   'Lobster': 20.2,
+  // From http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
+  'Beer': 1.123,
+  'Wine': 2.344,
+  'Spirits': 3.144,
+  'Juice': 0.93,
+  'Coffee': 0.33,
+  'Tea': 0.184,
+  'Soft drink': 1.035,
+  'Water (bottled)': 0.215,
+  'Water (tap)': 0.001,
+  'Rye bread': 0.93,
+  'White bread': 1.054,
+  'Milk Yogurt': 1.372,
+  'Morning cereals': 0.864,
+
 };
 export const INGREDIENTS = Object.keys(CARBON_INTENSITY);
 
