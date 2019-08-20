@@ -23,8 +23,10 @@ Join us on [Slack](https://slack.tmrow.com) if you wish to discuss development, 
 The app let's you input trips manually by distance or time and transportation mode, and amount of passengers for a car trip.
 
 #### Automated
+- Automated Activity tracking
 - Tripit
 - Uber (contributor:[willtonkin](https://github.com/willtonkin))
+- Ryanair (contributor:[lauvrenn](https://github.com/lauvrenn))
 - Rejsekort
 
 Help us out with an integration and CO2 models. Check what [we think makes a great integration!](https://tmrow.slite.com/api/s/note/8LLSWazeBZZyS4BEQiLTnJ/What-makes-a-great-integration-for-Tomorrow)
