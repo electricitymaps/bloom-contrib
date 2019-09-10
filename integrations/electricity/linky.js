@@ -2,6 +2,7 @@ import moment from 'moment';
 import request from 'superagent';
 
 import { ACTIVITY_TYPE_ELECTRICITY } from '../../definitions';
+import { AuthenticationError, HTTPError } from '../utils/errors';
 
 const GRANULARITY = {
   day: 'urlCdcJour',
@@ -36,12 +37,12 @@ async function logIn(username, password) {
 
   if (!res.ok) {
     console.error(res);
-    throw Error('Error while logging in.');
+    throw new HTTPError('Error while logging in.', res.status);
   }
   if (res.xhr.responseURL.indexOf('messages') !== -1) {
     // Redirected to https://espace-client-connexion.enedis.fr/messages/{information,inexistant}.html
     // which indicates a login error.
-    throw Error('Invalid credentials');
+    throw new AuthenticationError('Invalid credentials');
   }
 }
 
