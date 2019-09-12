@@ -40,12 +40,12 @@ function airportIataCodeToCoordinates(iata) {
     throw new Error(`Unknown airport code ${iata}`);
   }
   return {
-    latitude: airports[iata].lonlat[0],
-    longitude: airports[iata].lonlat[1],
+    latitude: airports[iata].lonlat[1],
+    longitude: airports[iata].lonlat[0],
   };
 }
 
-function distanceFromAirports(airportCode1, airportCode2, isShortHaul) {
+function distanceFromAirports(airportCode1, airportCode2) {
   return (
     geoDistance(
       [
@@ -70,12 +70,11 @@ function distanceFromDuration(hour) {
 }
 
 function emissionsForShortOrLongHaul(distance, bookingClass, isShortHaul) {
-  return (((a(isShortHaul) * distance * distance) + (b(isShortHaul) * distance) + c(isShortHaul)) / (averageNumberOfSeats(isShortHaul) * passengerLoadFactor)
-          
+  return ((a(isShortHaul) * distance * distance) + (b(isShortHaul) * distance) + c(isShortHaul)) / (averageNumberOfSeats(isShortHaul) * passengerLoadFactor)
     * passengerToFreightRatio(isShortHaul)
     * bookingClassWeightingFactor(bookingClass, isShortHaul)
-    * ((fuelCo2Intensity * radiativeForcingMultiplier) + fuelPreProductionCo2Intensity))
-    * aircraftFactor * distance
+    * ((fuelCo2Intensity * radiativeForcingMultiplier) + fuelPreProductionCo2Intensity)
+    + (aircraftFactor * distance)
     + airportinfrastructureFactor;
 }
 
