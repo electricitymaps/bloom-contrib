@@ -2,14 +2,17 @@ import { geoDistance } from 'd3-geo'; // todo - add d3-geo in package.json
 import airports from './airports.json';
 
 // Key constants used in the model
-// source: http://www.myclimate.org/fileadmin/myc/files_myc_perf/12_flight_calculator_documentation_EN.pdf
+// source: https://www.myclimate.org/fileadmin/user_upload/myclimate_-_home/01_Information/01_About_myclimate/09_Calculation_principles/Documents/myclimate-flight-calculator-documentation_EN.pdf
 const shortHaulDistanceThreshold = 1500; // km
 const longHaulDistanceThreshold = 2500; // km
-const passengerLoadFactor = 0.77; // i.e. 77% of seats occupied on average
-const passengerToFreightRatio = 0.951;
+const passengerLoadFactor = 0.82; // i.e. 77% of seats occupied on average
 const fuelCo2Intensity = 3.150; // kgCO2 per kg jet Fuel
-const fuelPreProductionCo2Intensity = 0.51; // kgCO2eq per kg jet fuel
+const fuelPreProductionCo2Intensity = 0.54; // kgCO2eq per kg jet fuel
 const radiativeForcingMultiplier = 2; // accounts for non-CO2 effect in high altitude (uncertain parameter between 1.5 and 4)
+const aircraftFactor = 0.00038; // accounts for aircrafts using produced, then maintained and at the end of their life disposed.
+const detourConstant = 95; // km
+const airportinfrastructureFactor = 11.68; // accounts for using the airport infrastructure
+
 
 const bookingClassWeightingFactor = (bookingClass, isShortHaul) => {
   // TODO(bl): use constants in sources to improve matching probability
@@ -24,23 +27,25 @@ const bookingClassWeightingFactor = (bookingClass, isShortHaul) => {
 };
 
 // long/short-haul dependent constants
-const detourConstant = isShortHaul => (isShortHaul ? 50 : 125); // km
-const averageNumberOfSeats = isShortHaul => (isShortHaul ? 158.440 : 280.39);
-const a = isShortHaul => (isShortHaul ? 3.87871E-05 : 0.000134576); // empiric fuel consumption parameter
-const b = isShortHaul => (isShortHaul ? 2.9866 : 6.1798); // empiric fuel consumption parameter
-const c = isShortHaul => (isShortHaul ? 1263.42 : 3446.20); // empiric fuel consumption parameter
+const passengerToFreightRatio = isShortHaul => (isShortHaul ? 0.93 : 0.74); 
+// Passenger aircrafts often transport considerable amounts of freight and mail,
+// in particular in wide-body aircrafts on long-haul flights.
+const averageNumberOfSeats = isShortHaul => (isShortHaul ? 153.51 : 280.21); // 
+const a = isShortHaul => (isShortHaul ? 0 : 0.0001); // empiric fuel consumption parameter
+const b = isShortHaul => (isShortHaul ? 2.714 : 7.104); // empiric fuel consumption parameter
+const c = isShortHaul => (isShortHaul ? 1166.52 : 5044.93); // empiric fuel consumption parameter
 
 function airportIataCodeToCoordinates(iata) {
   if (!airports[iata]) {
     throw new Error(`Unknown airport code ${iata}`);
   }
   return {
-    latitude: airports[iata].lonlat[0],
-    longitude: airports[iata].lonlat[1],
+    latitude: airports[iata].lonlat[1],
+    longitude: airports[iata].lonlat[0],
   };
 }
 
-function distanceFromAirports(airportCode1, airportCode2, isShortHaul) {
+function distanceFromAirports(airportCode1, airportCode2) {
   return (
     geoDistance(
       [
@@ -52,20 +57,25 @@ function distanceFromAirports(airportCode1, airportCode2, isShortHaul) {
         airportIataCodeToCoordinates(airportCode2).latitude,
       ]
     ) * 6371 // To convert great-arc distance (in radians) into km.
-      + detourConstant(isShortHaul)
+      + detourConstant
   );
 }
 
 function distanceFromDuration(hour) {
-  // TODO(bl): improve the speed assumption
-  return hour * 800;
+  // Adapted from https://airasia.listedcompany.com/images/ir-speed-length_7.gif, could be improved!
+  if (hour < 3.3) {
+    return 14.1 + 495 * hour - 110 * hour * hour + 9.85 * hour * hour * hour - 0.309 * hour * hour * hour * hour;
+  }
+  return 770;
 }
 
 function emissionsForShortOrLongHaul(distance, bookingClass, isShortHaul) {
-  return (((a(isShortHaul) * distance * distance) + (b(isShortHaul) * distance) + c(isShortHaul)) / (averageNumberOfSeats(isShortHaul) * passengerLoadFactor)
-    * passengerToFreightRatio
+  return ((a(isShortHaul) * distance * distance) + (b(isShortHaul) * distance) + c(isShortHaul)) / (averageNumberOfSeats(isShortHaul) * passengerLoadFactor)
+    * passengerToFreightRatio(isShortHaul)
     * bookingClassWeightingFactor(bookingClass, isShortHaul)
-    * ((fuelCo2Intensity * radiativeForcingMultiplier) + fuelPreProductionCo2Intensity));
+    * ((fuelCo2Intensity * radiativeForcingMultiplier) + fuelPreProductionCo2Intensity)
+    + (aircraftFactor * distance)
+    + airportinfrastructureFactor;
 }
 
 function emissionsBetweenShortAndLongHaul(distance, bookingClass) {

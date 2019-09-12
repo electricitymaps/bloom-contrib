@@ -12,7 +12,7 @@ import flightEmissions from './flights';
 
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'transportation';
-export const modelVersion = 6;
+export const modelVersion = 7;
 
 /*
 Carbon intensity of transportation (kgCO2 per passenger and per km)
