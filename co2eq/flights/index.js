@@ -62,10 +62,9 @@ function distanceFromAirports(airportCode1, airportCode2, isShortHaul) {
 function distanceFromDuration(hour) {
   // Adapted from https://airasia.listedcompany.com/images/ir-speed-length_7.gif, could be improved!
   if (hour < 3.3) {
-    return 14.1 + 495*hour -110*hour*hour +9.85*hour*hour*hour-0.309*hour*hour*hour*hour ;
+    return 14.1 + 495 * hour - 110 * hour * hour +9.85 * hour * hour * hour - 0.309 * hour * hour * hour * hour ;
   }
-  else {
-    return 770};
+  return 770;
     
 }
 
@@ -75,7 +74,7 @@ function emissionsForShortOrLongHaul(distance, bookingClass, isShortHaul) {
     * 1-passengerToFreightRatio(isShortHaul)
     * bookingClassWeightingFactor(bookingClass, isShortHaul)
     * ((fuelCo2Intensity * radiativeForcingMultiplier) + fuelPreProductionCo2Intensity))
-    * aircraftFactor* distance 
+    * aircraftFactor * distance 
     + airportinfrastructureFactor;
 }
 
