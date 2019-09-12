@@ -65,8 +65,7 @@ function distanceFromDuration(hour) {
     return 14.1 + 495*hour -110*hour*hour +9.85*hour*hour*hour-0.309*hour*hour*hour*hour ;
   }
   else {
-    return 770}
-};
+    return 770};
     
 }
 
