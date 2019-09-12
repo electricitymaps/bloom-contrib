@@ -57,7 +57,7 @@ function distanceFromAirports(airportCode1, airportCode2, isShortHaul) {
         airportIataCodeToCoordinates(airportCode2).latitude,
       ]
     ) * 6371 // To convert great-arc distance (in radians) into km.
-      + detourConstant(isShortHaul)
+      + detourConstant
   );
 }
 
@@ -72,10 +72,10 @@ function distanceFromDuration(hour) {
 function emissionsForShortOrLongHaul(distance, bookingClass, isShortHaul) {
   return (((a(isShortHaul) * distance * distance) + (b(isShortHaul) * distance) + c(isShortHaul)) / (averageNumberOfSeats(isShortHaul) * passengerLoadFactor)
           
-    * (1 - passengerToFreightRatio(isShortHaul))
+    * passengerToFreightRatio(isShortHaul)
     * bookingClassWeightingFactor(bookingClass, isShortHaul)
     * ((fuelCo2Intensity * radiativeForcingMultiplier) + fuelPreProductionCo2Intensity))
-    * aircraftFactor * distance 
+    * aircraftFactor * distance
     + airportinfrastructureFactor;
 }
 
