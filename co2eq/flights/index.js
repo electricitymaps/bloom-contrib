@@ -10,7 +10,7 @@ const fuelCo2Intensity = 3.150; // kgCO2 per kg jet Fuel
 const fuelPreProductionCo2Intensity = 0.54; // kgCO2eq per kg jet fuel
 const radiativeForcingMultiplier = 2; // accounts for non-CO2 effect in high altitude (uncertain parameter between 1.5 and 4)
 const aircraftFactor = 0.00038; // accounts for using produced, then maintained and at the end of their life disposed.
-const detourConstant = 95; //km
+const detourConstant = 95; // km
 const airportinfrastructureFactor = 11.68; // accounts for using the airport infrastructure
 
 
@@ -62,16 +62,15 @@ function distanceFromAirports(airportCode1, airportCode2, isShortHaul) {
 function distanceFromDuration(hour) {
   // Adapted from https://airasia.listedcompany.com/images/ir-speed-length_7.gif, could be improved!
   if (hour < 3.3) {
-    return 14.1 + 495 * hour - 110 * hour * hour +9.85 * hour * hour * hour - 0.309 * hour * hour * hour * hour ;
+    return 14.1 + 495 * hour - 110 * hour * hour + 9.85 * hour * hour * hour - 0.309 * hour * hour * hour * hour;
   }
   return 770;
-    
 }
 
 function emissionsForShortOrLongHaul(distance, bookingClass, isShortHaul) {
   return (((a(isShortHaul) * distance * distance) + (b(isShortHaul) * distance) + c(isShortHaul)) / (averageNumberOfSeats(isShortHaul) * passengerLoadFactor)
           
-    * 1-passengerToFreightRatio(isShortHaul)
+    * (1 - passengerToFreightRatio(isShortHaul))
     * bookingClassWeightingFactor(bookingClass, isShortHaul)
     * ((fuelCo2Intensity * radiativeForcingMultiplier) + fuelPreProductionCo2Intensity))
     * aircraftFactor * distance 
