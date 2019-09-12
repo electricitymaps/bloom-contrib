@@ -9,7 +9,7 @@ const passengerLoadFactor = 0.82; // i.e. 77% of seats occupied on average
 const fuelCo2Intensity = 3.150; // kgCO2 per kg jet Fuel
 const fuelPreProductionCo2Intensity = 0.54; // kgCO2eq per kg jet fuel
 const radiativeForcingMultiplier = 2; // accounts for non-CO2 effect in high altitude (uncertain parameter between 1.5 and 4)
-const aircraftFactor = 0.00038; // accounts for using produced, then maintained and at the end of their life disposed.
+const aircraftFactor = 0.00038; // accounts for aircrafts using produced, then maintained and at the end of their life disposed.
 const detourConstant = 95; // km
 const airportinfrastructureFactor = 11.68; // accounts for using the airport infrastructure
 
@@ -27,8 +27,10 @@ const bookingClassWeightingFactor = (bookingClass, isShortHaul) => {
 };
 
 // long/short-haul dependent constants
-const passengerToFreightRatio = isShortHaul => (isShortHaul ? 0.93 : 0.74); // km
-const averageNumberOfSeats = isShortHaul => (isShortHaul ? 153.51 : 280.21);
+const passengerToFreightRatio = isShortHaul => (isShortHaul ? 0.93 : 0.74); 
+// Passenger aircrafts often transport considerable amounts of freight and mail,
+// in particular in wide-body aircrafts on long-haul flights.
+const averageNumberOfSeats = isShortHaul => (isShortHaul ? 153.51 : 280.21); // 
 const a = isShortHaul => (isShortHaul ? 0 : 0.0001); // empiric fuel consumption parameter
 const b = isShortHaul => (isShortHaul ? 2.714 : 7.104); // empiric fuel consumption parameter
 const c = isShortHaul => (isShortHaul ? 1166.52 : 5044.93); // empiric fuel consumption parameter
