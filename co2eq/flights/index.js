@@ -61,12 +61,16 @@ function distanceFromAirports(airportCode1, airportCode2) {
   );
 }
 
-function distanceFromDuration(hour) {
+function averageSpeedFromDuration(hour) {
   // Adapted from https://airasia.listedcompany.com/images/ir-speed-length_7.gif, could be improved!
   if (hour < 3.3) {
     return 14.1 + 495 * hour - 110 * hour * hour + 9.85 * hour * hour * hour - 0.309 * hour * hour * hour * hour;
   }
   return 770;
+}
+
+function distanceFromDuration(hour) {
+  return averageSpeedFromDuration(hour) * hour;
 }
 
 function emissionsForShortOrLongHaul(distance, bookingClass, isShortHaul) {
