@@ -16,7 +16,12 @@ export const TRANSPORTATION_MODE_PUBLIC_TRANSPORT = 'public_transport';
 export const TRANSPORTATION_MODE_TRAIN = 'train';
 export const TRANSPORTATION_MODE_FERRY = 'ferry';
 
-/* Purchases */ 
+/* Meals */
+export const MEAL_TYPE_VEGAN = 'MEAL_TYPE_VEGAN';
+export const MEAL_TYPE_VEGETARIAN = 'MEAL_TYPE_VEGETARIAN';
+export const MEAL_TYPE_MEAT_OR_FISH = 'MEAL_TYPE_MEAT_OR_FISH';
+
+/* Purchases */
 // Food and beverages
 export const PURCHASE_CATEGORY_FOOD_SUPERMARKET = 'PURCHASE_CATEGORY_FOOD_SUPERMARKET';
 export const PURCHASE_CATEGORY_FOOD_RESTAURANT = 'PURCHASE_CATEGORY_FOOD_RESTAURANT';

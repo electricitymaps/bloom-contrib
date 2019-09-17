@@ -1,9 +1,16 @@
+import {
+  MEAL_TYPE_VEGAN,
+  MEAL_TYPE_VEGETARIAN,
+  MEAL_TYPE_MEAT_OR_FISH,
+} from '../definitions';
+
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'meal';
-export const modelVersion = 1;
+export const modelVersion = 2;
 
 export const MEAL_WEIGHT = 400; // grams
 
+const MEALS_PER_DAY = 3;
 const CARBON_INTENSITY = { // kgCO2eq / kg
 // From http://www.greeneatz.com/foods-carbon-footprint.html
   'Lamb': 39.2,
@@ -52,7 +59,7 @@ export const INGREDIENTS = Object.keys(CARBON_INTENSITY);
 /*
 Carbon intensity of ingredient (kgCO2 per kg).
 */
-export function carbonIntensity(ingredient) {
+export function carbonIntensityOfIngredient(ingredient) {
   if (!CARBON_INTENSITY[ingredient]) {
     throw Error(`Unknown ingredient: ${ingredient}`);
   }
@@ -60,15 +67,37 @@ export function carbonIntensity(ingredient) {
 }
 
 /*
+Carbon intensity of meals (kgCO2 per meal).
+*/
+function carbonIntensityOfMealType(mealType) {
+  // Source: https://www.nature.com/articles/s41598-017-06466-8
+  switch (mealType) {
+    case MEAL_TYPE_VEGAN:
+      return 2336.1 / MEALS_PER_DAY / 1000.0;
+    case MEAL_TYPE_VEGETARIAN:
+      return 2598.3 / MEALS_PER_DAY / 1000.0;
+    case MEAL_TYPE_MEAT_OR_FISH:
+      return 3959.3 / MEALS_PER_DAY / 1000.0;
+    default:
+      throw Error(`Unknown meal type: ${mealType}`);
+  }
+}
+
+/*
 Carbon emissions of an activity (in kgCO2eq)
 */
 export function carbonEmissions(activity) {
-  const { ingredients } = activity;
+  const { ingredients, mealType } = activity;
+
   if (ingredients && Object.keys(ingredients).length > 0) {
     return ingredients
-      .map(k => carbonIntensity(k) * (MEAL_WEIGHT / 1000.0 / ingredients.length))
+      .map(k => carbonIntensityOfIngredient(k) * (MEAL_WEIGHT / 1000.0 / ingredients.length))
       .reduce((a, b) => a + b, 0);
   }
 
-  throw new Error('Couldn\'t calculate carbonEmissions for activity because it does not have any ingredients');
+  if (mealType) {
+    return carbonIntensityOfMealType(mealType);
+  }
+
+  throw new Error('Couldn\'t calculate carbonEmissions for activity because it does not have any ingredients or meal type');
 }
