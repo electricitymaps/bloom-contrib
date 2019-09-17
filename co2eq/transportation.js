@@ -39,7 +39,7 @@ function carbonIntensity(mode) {
       // https://ecf.com/files/wp-content/uploads/ECF_BROCHURE_EN_planche.pdf
       return 5 / 1000.0;
     case TRANSPORTATION_MODE_ESCOOTER:
-      //https://iopscience.iop.org/article/10.1088/1748-9326/ab2da8
+      // https://iopscience.iop.org/article/10.1088/1748-9326/ab2da8
       return 202 / 1000.0;  
     default:
       throw Error(`Unknown transportation mode: ${mode}`);
