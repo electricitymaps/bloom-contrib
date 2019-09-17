@@ -53,6 +53,7 @@ export class ValidationError extends CustomError {
 export class AuthenticationError extends CustomError {
   constructor(message) {
     super(message);
+    this.userMessage = 'Access denied';
     this.name = 'AuthenticationError';
   }
 }

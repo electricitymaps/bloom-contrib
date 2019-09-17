@@ -89,8 +89,8 @@ async function collect(state, logger, utils) {
       return null;
     }
 
-    const startMoment = moment(`${d.ChargeStartDate} ${timezone}`, 'DD/MM/YYYY HH:mm Z');
-    const endMoment = moment(`${d.ChargeEndDate} ${timezone}`, 'DD/MM/YYYY HH:mm Z');
+    const startMoment = moment(`${d.ChargeStartDate} ${timezone}`, 'YYYY-MM-DD HH:mm Z');
+    const endMoment = moment(`${d.ChargeEndDate} ${timezone}`, 'YYYY-MM-DD HH:mm Z');
     let efficiency = parseFloat(d.Efficiency.replace(',', '.').replace(' %', '')) / 100.0;
 
     if (efficiency <= 0.8 || efficiency > 1) {
@@ -105,7 +105,11 @@ async function collect(state, logger, utils) {
     }
 
     if (!startMoment.isValid()) {
-      logger.logError(`Invalid startDate ${d.ChargeStartDate}`);
+      throw new Error(`Invalid startDate ${d.ChargeStartDate}`);
+    }
+
+    if (!endMoment.isValid()) {
+      throw new Error(`Invalid endDate ${d.ChargeEndDate}`);
     }
 
     const [locationLat, locationLon] = [

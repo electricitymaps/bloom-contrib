@@ -6,13 +6,14 @@ import {
   TRANSPORTATION_MODE_PUBLIC_TRANSPORT,
   TRANSPORTATION_MODE_FERRY,
   TRANSPORTATION_MODE_BIKE,
+  TRANSPORTATION_MODE_ESCOOTER,
 } from '../definitions';
 
 import flightEmissions from './flights';
 
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'transportation';
-export const modelVersion = 6;
+export const modelVersion = 8;
 
 /*
 Carbon intensity of transportation (kgCO2 per passenger and per km)
@@ -37,6 +38,9 @@ function carbonIntensity(mode) {
     case TRANSPORTATION_MODE_BIKE:
       // https://ecf.com/files/wp-content/uploads/ECF_BROCHURE_EN_planche.pdf
       return 5 / 1000.0;
+    case TRANSPORTATION_MODE_ESCOOTER:
+      // https://iopscience.iop.org/article/10.1088/1748-9326/ab2da8
+      return 202 / 1000.0;  
     default:
       throw Error(`Unknown transportation mode: ${mode}`);
   }
@@ -58,6 +62,8 @@ export function durationToDistance(durationHours, mode) {
       return durationHours * 30; // ~16 knots
     case TRANSPORTATION_MODE_BIKE:
       return durationHours * 10;
+    case TRANSPORTATION_MODE_ESCOOTER:
+      return durationHours * 10;  
     default:
       throw Error(`Unknown transportation mode: ${mode}`);
   }

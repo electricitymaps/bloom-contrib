@@ -3,7 +3,7 @@ import moment from 'moment';
 import groupBy from 'lodash/groupBy';
 
 import { ACTIVITY_TYPE_ELECTRICITY } from '../../definitions';
-import { HTTPError } from '../utils/errors';
+import { AuthenticationError, HTTPError } from '../utils/errors';
 
 const btoa = b => Buffer.from(b).toString('base64');
 
@@ -45,7 +45,7 @@ async function request(username, password, method, params) {
     const { exception, message, stacktrace } = response.error.data;
     if (exception === 'java.lang.SecurityException') {
       // Access denied
-      throw new Error('Invalid username or password');
+      throw new AuthenticationError('Invalid username or password');
     } else {
       throw new Error(`${exception}: ${message}`);
     }

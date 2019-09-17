@@ -27,5 +27,12 @@
     "react/jsx-one-expression-per-line": "warn",
     "react/prop-types": "warn",
     "react/sort-comp": "warn"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".json", ".ios.js", ".android.js"]
+      }
+    }
   }
 }
