@@ -186,11 +186,11 @@ function carbonIntensityOfMealType(mealType) {
       return 3810 / MEALS_PER_DAY / 1000.0;
     case MEAL_TYPE_FISH:
       return 3910 / MEALS_PER_DAY / 1000.0;
-    case MEAL_TYPE_LOW_MEAT:
-      return 4670 / MEALS_PER_DAY / 1000.0;
-    case MEAL_TYPE_MEDIUM_MEAT:
+    case MEAL_TYPE_LOW_MEAT: //  < 50 g/day
+      return 4670 / MEALS_PER_DAY / 1000.0; 
+    case MEAL_TYPE_MEDIUM_MEAT: // 50–99 g/day
       return 5630 / MEALS_PER_DAY / 1000.0;
-    case MEAL_TYPE_HIGH_MEAT:
+    case MEAL_TYPE_HIGH_MEAT: // ≥ 100 g/day
       return 7190 / MEALS_PER_DAY / 1000.0;      
     default:
       throw Error(`Unknown meal type: ${mealType}`);
