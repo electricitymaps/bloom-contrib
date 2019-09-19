@@ -50,7 +50,7 @@ const CARBON_INTENSITY = { // kgCO2eq / kg
   'Pomfret': 6.63, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Rock fish': 6.94, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Octopus/squid/cuttlefish': 7.13, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Brill': 8,41, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Brill': 8.41, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Hake': 9.77, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Trout': 4.2, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Porbeagle': 11.44, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
