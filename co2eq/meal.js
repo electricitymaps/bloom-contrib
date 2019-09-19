@@ -37,14 +37,12 @@ const CARBON_INTENSITY = { // kgCO2eq / kg
   'Pollock': 1.61, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Carp': 1.76, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Mackerel': 1.8, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Whiting': 2.66, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Sea bass': 3.27, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Haddock': 3.41, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Salmon': 3.47, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Fish (all species)': 3.49, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Whiting': 2.66, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Eel': 3.88, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Trout': 4.2, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Common Ling': 6.45, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Trout': 4.2, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Pomfret': 6.63, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
@@ -52,7 +50,6 @@ const CARBON_INTENSITY = { // kgCO2eq / kg
   'Octopus/squid/cuttlefish': 7.13, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Brill': 8.41, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Hake': 9.77, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Trout': 4.2, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Porbeagle': 11.44, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Anglerfish': 12.29, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Swordfish': 12.84, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
@@ -111,7 +108,6 @@ const CARBON_INTENSITY = { // kgCO2eq / kg
   'Pomelo': 0.51, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Tangerines': 0.51, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Strawberries': 0.58, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Peppers': 0.66, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Bananas': 0.72, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Raspberries': 0.84, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Currants': 0.84, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
@@ -155,7 +151,7 @@ const CARBON_INTENSITY = { // kgCO2eq / kg
   'Beer': 1.123, // http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
   'Wine': 2.344, // http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
   'Spirits': 3.144, // http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
-  'Juice': 0.93,  // http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
+  'Juice': 0.93, // http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
   'Coffee': 0.33, // http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
   'Tea': 0.184, // http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
   'Soft drink': 1.035, // http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
@@ -186,11 +182,14 @@ function carbonIntensityOfMealType(mealType) {
       return 3810 / MEALS_PER_DAY / 1000.0;
     case MEAL_TYPE_FISH:
       return 3910 / MEALS_PER_DAY / 1000.0;
-    case MEAL_TYPE_LOW_MEAT: //  < 50 g/day
+    case MEAL_TYPE_LOW_MEAT: 
+      // <50g/day
       return 4670 / MEALS_PER_DAY / 1000.0; 
-    case MEAL_TYPE_MEDIUM_MEAT: // 50–99 g/day
+    case MEAL_TYPE_MED_MEAT: 
+      // 50–99g/day
       return 5630 / MEALS_PER_DAY / 1000.0;
-    case MEAL_TYPE_HIGH_MEAT: // ≥ 100 g/day
+    case MEAL_TYPE_HIGH_MEAT: 
+      // ≥ 100g/day
       return 7190 / MEALS_PER_DAY / 1000.0;      
     default:
       throw Error(`Unknown meal type: ${mealType}`);
