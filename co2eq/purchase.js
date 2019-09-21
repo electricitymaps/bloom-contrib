@@ -43,6 +43,53 @@ import { convertToEuro } from '../integrations/utils/currency/currency';
 export const modelName = 'purchase';
 export const modelVersion = 1;
 
+
+
+const CARBON_INTENSITY = { // kgCO2eq / item
+/*
+Source for Apple: https://www.apple.com/lae/environment/ there are more old models
+*/
+// Phones
+  'Apple, iPhone 11 Pro Max': 86, // including 18% use, https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_11_Pro_Max_PER_sept2019.pdf
+  'Apple, iPhone 11 Pro': 80, // including 13% use, https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_11_Pro_PER_sept2019.pdf
+  'Apple, iPhone 11': 72, // including 17% use, https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_11_PER_sept2019.pdf
+  'Apple, iPhone XR': 62, // including 19% use, https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_XR_PER_sept2018.pdf
+  'Apple, iPhone 8': 57, // including 16% use, https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_8_PER_sept2017.pdf
+  'Apple, iPhone 8 Plus': 68, // including 17% use, https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_8_Plus_PER_sept2017.pdf
+// Tablets
+  'Apple, iPad Pro (12.9-inch) (3rd generation)': 136, // including 6% use, https://www.apple.com/lae/environment/pdf/products/ipad/iPadPro_12.9-inch_PER_oct2018.pdf
+  'Apple, iPad Pro (11-inch)': 113, // including 5% use, https://www.apple.com/lae/environment/pdf/products/ipad/iPadPro_11-inch_PER_oct2018.pdf
+  'Apple, iPad (7th generation)': 87, // including 14% use, https://www.apple.com/lae/environment/pdf/products/ipad/iPad_PER_sept2019.pdf
+  'Apple, iPad Air (3rd generation)': 86, // including 13% use, https://www.apple.com/lae/environment/pdf/products/ipad/iPadAir_PER_Mar2019.pdf
+  'Apple, iPad mini (5th generation)': 70, // including 15% use, https://www.apple.com/lae/environment/pdf/products/ipad/iPadmini_PER_Mar2019.pdf
+// Watches
+  'Apple, Apple Watch Series 5 (GPS + Cellular)': 40, // including 13% use, https://www.apple.com/lae/environment/pdf/products/watch/Apple_Watch_Series5_PER_sept2019.pdf
+  'Apple, Apple Watch Series 3 (GPS + Cellular)': 36, // including 15% use, https://www.apple.com/lae/environment/pdf/products/watch/Apple_Watch_Series3_GPSCellular_PER_sept2018.pdf
+  'Apple, Apple Watch Series 3 (GPS)': 28, // including 20% use, https://www.apple.com/lae/environment/pdf/products/watch/Apple_Watch_Series3_GPS_PER_sept2018.pdf
+// Laptop computers 
+  'Apple, MacBook Pro 15-inch': 334, // including 21% use, https://www.apple.com/lae/environment/pdf/products/notebooks/15-inch_MacBookPro_PER_may2019.pdf
+  'Apple, MacBook Pro 13-inch': 210, // including 6% use, https://www.apple.com/lae/environment/pdf/products/notebooks/13-inch_MacBookPro_PER_June2019.pdf
+  'Apple, MacBook Air 13-inch': 176, // including 6% use, https://www.apple.com/lae/environment/pdf/products/notebooks/13-inch_MacBookAir_w_Retina_PER_June2019.pdf
+// Desktop computers 
+  'Apple, iMac 27-inch': 993, // including 55% use, https://www.apple.com/lae/environment/pdf/products/desktops/27-inch_iMac_with_Retina5KDisplay_PER_Mar2019.pdf
+  'Apple, iMac 21.5-inch with Retina 4k': 588, // including 51% use, https://www.apple.com/lae/environment/pdf/products/desktops/21.5-inch_iMac_with_Retina4KDisplay_PER_Mar2019.pdf
+  'Apple, iMac 21.5-inch': 494, // including 54% use, https://www.apple.com/lae/environment/pdf/products/desktops/21.5-inch_iMac_PER_June2017.pdf
+  'Apple, iMac Pro': 1468, // including 54% use, https://www.apple.com/lae/environment/pdf/products/desktops/iMac_Pro_PER_dec2017.pdf
+  'Apple, Mac Pro': 1000, // including 50% use, https://www.apple.com/lae/environment/pdf/products/desktops/MacPro_PER_June2017.pdf
+  'Apple, Mac mini': 226, // including 3% use, https://www.apple.com/lae/environment/pdf/products/desktops/Macmini_PER_oct2018.pdf
+// Speakers
+  'Apple, Homepod': 146, // including 41% use, https://www.apple.com/lae/environment/pdf/products/homepod/HomePod_PER_feb2018.pdf
+// Set top boxes 
+  'Apple, Apple TV 4K': 58, // including 29% use, https://www.apple.com/lae/environment/pdf/products/appletv/Apple_TV_4K_PER_sept2017.pdf
+  'Apple, Apple TV': 65, // including 30% use, https://www.apple.com/lae/environment/pdf/products/appletv/Apple_TV_PER_sept2017.pdf
+// Music players
+  'Apple, iPod touch': 32, // including 6% use, https://www.apple.com/lae/environment/pdf/products/ipod/iPodtouch_PER_may2019.pdf
+// Internet routers
+  'Apple, AirPort Extreme': 250, // including 76% use, https://www.apple.com/lae/environment/pdf/products/airport/AirPortExtreme_PER_june2013.pdf
+  'Apple, AirPort Time Capsule': 310, // including 70% use, https://www.apple.com/lae/environment/pdf/products/airport/AirPortTimeCapsule_PER_june2013.pdf
+  'Apple, AirPort Express': 95, // including 60% use, https://www.apple.com/lae/environment/pdf/products/airport/AirPortExpress_PER_june2012.pdf
+};
+
 /*
   Carbon intensity of category (kg of CO2 per euro spent)
 */
