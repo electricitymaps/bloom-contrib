@@ -29,7 +29,7 @@ const serializeError = e => ({
   code: e.code,
 });
 
-const oauthCallbackUrl = 'http://localhost:3000/oauth_callback';
+const oauthCallbackUrl = 'http://localhost:3333/oauth_callback';
 let resolveWebView = null;
 
 io.on('connection', (socket) => {
@@ -40,6 +40,7 @@ io.on('connection', (socket) => {
   socket.on('run', async (data) => {
     console.log(`running ${data.sourceIdentifier}..`);
     const sourceInstance = sourceInstances[data.sourceIdentifier];
+    console.log(sourceInstance);
     const log = [];
     const pushLog = (level, obj) => log.push({
       key: log.length.toString(),
@@ -85,13 +86,13 @@ io.on('connection', (socket) => {
   });
 });
 
-app.get('/', (req, res) => { res.sendFile('index.html', { root: __dirname }); });
+
 app.get('/oauth_callback', (req, res) => {
   // Fulfill promise and make sure client closes the window
   resolveWebView(req.query);
   res.send('<script type="text/javascript">window.close()</script>');
 });
 
-server.listen(3000, () => {
-  console.log('Listening on *:3000');
+server.listen(3333, () => {
+  console.log('Listening on *:3333');
 });
