@@ -126,6 +126,18 @@ As the methods are pure, and to avoid re-asking the user for credentials everyti
 }
 ```
 
+#### purchases
+```javascript
+{
+  id, // a string that uniquely represents this activity
+  datetime, // a javascript Date object that represents the start of the activity
+  label, // a string that represents the transaction
+  merchantDisplayName, // a string that represents the merchant where the purchase was made
+  purchaseCategory, // a string that represents the category of the purchase. Categories can be found here: https://github.com/tmrowco/tmrowapp-contrib/blob/master/definitions.js
+  costAmount, // a floating point that represents the amount of the purchase
+  costCurrency, // a string that represents the currency in which the currency was made
+```
+
 ## Folder structure
 - `./co2eq`: carbon models
 - `./integrations`: contains all integrations
