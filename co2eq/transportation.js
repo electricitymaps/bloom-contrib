@@ -58,12 +58,14 @@ function carbonIntensity(mode) {
 
 export function durationToDistance(durationHours, mode) {
   switch (mode) {
-    case TRANSPORTATION_MODE_BUS: // assumes mostly city-rides
-      return durationHours * 30.0;
-    case TRANSPORTATION_MODE_CAR: // https://setis.ec.europa.eu/system/files/Driving_and_parking_patterns_of_European_car_drivers-a_mobility_survey.pdf
-      return durationHours * 45.0;
-    case TRANSPORTATION_MODE_TRAIN: // assumes mostly suburban trips
-      return durationHours * 45.0;
+    case TRANSPORTATION_MODE_BUS: 
+      return durationHours * 30.0; // assumes mostly city-rides
+    case TRANSPORTATION_MODE_ICE_CAR: 
+    case TRANSPORTATION_MODE_ELECTRIC_CAR: 
+    case TRANSPORTATION_MODE_HYBRID_CAR:
+      return durationHours * 45.0; // https://setis.ec.europa.eu/system/files/Driving_and_parking_patterns_of_European_car_drivers-a_mobility_survey.pdf
+    case TRANSPORTATION_MODE_TRAIN: 
+      return durationHours * 45.0; // assumes mostly suburban trips
     case TRANSPORTATION_MODE_HIGH_SPEED_TRAIN: 
       return durationHours * 200.0;  
     case TRANSPORTATION_MODE_PUBLIC_TRANSPORT:
@@ -101,7 +103,7 @@ export function carbonEmissions(activity) {
   }
 
   // Take into account the passenger count if this is a car
-  if (activity.transportationMode === TRANSPORTATION_MODE_CAR) {
+  if ((activity.transportationMode === TRANSPORTATION_MODE_ICE_CAR || activity.transportationMode === TRANSPORTATION_MODE_HYBRID_CAR) || activity.transportationMode === TRANSPORTATION_MODE_ELECTRIC_CAR) {
     return carbonIntensity(activity.transportationMode) * distanceKilometers / (activity.participants || 1);
   }
   return carbonIntensity(activity.transportationMode) * distanceKilometers;
