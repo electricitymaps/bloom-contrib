@@ -8,7 +8,7 @@ import {
   PURCHASE_CATEGORY_TRANSPORTATION_AIRLINES,
   TRANSPORTATION_MODE_PLANE,
   TRANSPORTATION_MODE_TRAIN,
-  TRANSPORTATION_MODE_CAR,
+  TRANSPORTATION_MODE_ICE_CAR,
 } from '../../definitions';
 
 export function getActivityTypeForCategory(category) {
@@ -27,7 +27,7 @@ export function getActivityTypeForCategory(category) {
 export function getTransportationModeForCategory(category) {
   switch (category) {
     case PURCHASE_CATEGORY_TRANSPORTATION_TAXI:
-      return TRANSPORTATION_MODE_CAR;
+      return TRANSPORTATION_MODE_ICE_CAR;
     case PURCHASE_CATEGORY_TRANSPORTATION_RAILROAD:
       return TRANSPORTATION_MODE_TRAIN;
     case PURCHASE_CATEGORY_TRANSPORTATION_AIRLINES:
