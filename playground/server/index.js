@@ -86,6 +86,7 @@ io.on('connection', (socket) => {
     }
 
     const requestLogin = () => ({ username: data.username, password: data.password });
+    // eslint-disable-next-line arrow-body-style
     const requestWebView = (url, callbackUrl) => {
       return new Promise((resolve, reject) => {
         if (callbackUrl !== oauthCallbackUrl) {
