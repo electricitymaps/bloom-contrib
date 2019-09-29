@@ -34,6 +34,8 @@ import {
   ACTIVITY_TYPE_MEAL,
   ACTIVITY_TYPE_TRANSPORTATION,
   TRANSPORTATION_MODE_ICE_CAR,
+  TRANSPORTATION_MODE_HYBRID_CAR,
+  TRANSPORTATION_MODE_ELECTRIC_CAR,
   TRANSPORTATION_MODE_TRAIN,
   TRANSPORTATION_MODE_PLANE,
 } from '../definitions';
@@ -129,7 +131,7 @@ export function carbonEmissions(activity) {
     if (activity.activityType === ACTIVITY_TYPE_MEAL) {
       category = PURCHASE_CATEGORY_FOOD_RESTAURANT;
     } else if (activity.activityType === ACTIVITY_TYPE_TRANSPORTATION) {
-      if (activity.transportationMode === TRANSPORTATION_MODE_CAR) {
+      if (activity.transportationMode === TRANSPORTATION_MODE_ICE_CAR || activity.transportationMode === TRANSPORTATION_MODE_HYBRID_CAR || activity.transportationMode === TRANSPORTATION_MODE_ELECTRIC_CAR) {
         category = PURCHASE_CATEGORY_TRANSPORTATION_TAXI;
       } else if (activity.activityType === TRANSPORTATION_MODE_TRAIN) {
         category = PURCHASE_CATEGORY_TRANSPORTATION_RAILROAD;
