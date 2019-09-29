@@ -1,5 +1,5 @@
 import React from 'react';
-import socketIOClient from "socket.io-client";
+import socketIOClient from 'socket.io-client';
 import {
   Select,
   MenuItem,
@@ -15,7 +15,7 @@ import ResultsTable from './components/resultstable';
 
 const deSerializeError = obj => Object.assign(new Error(), { stack: undefined }, obj);
 
-const socket = socketIOClient('http://localhost:3333');
+const socket = socketIOClient('http://localhost:3000');
 
 class App extends React.Component {
   constructor() {
@@ -24,32 +24,33 @@ class App extends React.Component {
       response: false,
       connection: 'disconnected',
       integrations: [],
-      selectedIntegration: '',
-      username: '',
-      password: '',
+      selectedIntegration: null,
+      username: null,
+      password: null,
       results: [],
     };
   }
 
-  componentDidMount() {
+  run = () => {
     const { selectedIntegration, username, password } = this.state;
+    console.warn('selectedIntegration', selectedIntegration)
 
-    const run = () => {
-      if (!socket.connected) { return; }
-      if (!selectedIntegration) { return; }
-  
-      console.log(`Running ${selectedIntegration.value}..`);
-      socket.emit('run', {
-        sourceIdentifier: selectedIntegration,
-        username: username,
-        password: password,
-      });
-    }
+    if (!socket.connected) { return; }
+    if (!selectedIntegration) { return; }
 
+    console.log(`Running ${selectedIntegration.value}..`);
+    socket.emit('run', {
+      sourceIdentifier: selectedIntegration,
+      username,
+      password,
+    });
+  };
+
+  componentDidMount() {
     socket.on('connect', () => {
       console.log('(re)connected');
-      this.setState({ connection: 'connected ✔︎' })
-      run();
+      this.setState({ connection: 'connected ✔︎' });
+      this.run();
     });
 
     socket.on('integrations', integrations => this.setState({ integrations }));
@@ -80,30 +81,30 @@ class App extends React.Component {
         results: results.activities,
       });
     });
-    socket.on('openUrl', (url) => window.open(url));
+    socket.on('openUrl', url => window.open(url));
   }
 
-  handleChange = event => {
+  componentDidUpdate(prevProps, prevState) {
+    const prevSelectedIntegration = prevState.selectedIntegration;
+    const prevUsername = prevState.username;
+    const prevPassword = prevState.password;
+
+    const { selectedIntegration, username, password } = this.state;
+    if (prevSelectedIntegration !== selectedIntegration
+      || prevUsername !== username
+      || prevPassword !== password
+    ) {
+      this.run();
+    }
+  }
+
+  handleChange = (event) => {
     this.setState({
-      selectedIntegration: event.target.value
-    });
-    socket.emit('run', {
-      sourceIdentifier: this.state.selectedIntegration,
-      username: this.state.username,
-      password: this.state.password,
-    });
-  }
-
-  handleRun = () => {
-    socket.emit('run', {
-      sourceIdentifier: this.state.selectedIntegration,
-      username: this.state.username,
-      password: this.state.password,
+      selectedIntegration: event.target.value,
     });
   }
 
   render() {
-
     const { connection, integrations, selectedIntegration } = this.state;
       return (
         <div className="App">
@@ -126,7 +127,7 @@ class App extends React.Component {
                 >
                   <InputLabel htmlFor="age-simple">Integration</InputLabel>
                   <Select
-                    value={selectedIntegration}
+                    value={selectedIntegration || ''}
                     name="Integration"
                     displayEmpty
                     onChange={this.handleChange}
@@ -156,7 +157,7 @@ class App extends React.Component {
                   <Button
                   variant="contained"
                   color="secondary"
-                  onClick={this.handleRun}
+                  onClick={this.run}
                   style={{marginTop: '16px'}}
                   >
                   Run
