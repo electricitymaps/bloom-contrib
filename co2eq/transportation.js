@@ -1,8 +1,12 @@
 import {
   TRANSPORTATION_MODE_PLANE,
-  TRANSPORTATION_MODE_CAR,
+  TRANSPORTATION_MODE_ICE_CAR,
+  TRANSPORTATION_MODE_HYBRID_CAR,
+  TRANSPORTATION_MODE_ELECTRIC_CAR,
+  TRANSPORTATION_MODE_MOTORBIKE,  
   TRANSPORTATION_MODE_BUS,
   TRANSPORTATION_MODE_TRAIN,
+  TRANSPORTATION_MODE_HIGH_SPEED_TRAIN,
   TRANSPORTATION_MODE_PUBLIC_TRANSPORT,
   TRANSPORTATION_MODE_FERRY,
   TRANSPORTATION_MODE_BIKE,
@@ -13,28 +17,34 @@ import flightEmissions from './flights';
 
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'transportation';
-export const modelVersion = 8;
+export const modelVersion = 9;
 
 /*
 Carbon intensity of transportation (kgCO2 per passenger and per km)
 */
 function carbonIntensity(mode) {
-  // We use a very crude version of
-  // https://www.ipcc.ch/ipccreports/sres/aviation/125.htm#tab85
   switch (mode) {
-    case TRANSPORTATION_MODE_BUS:
-      return 15 / 1000.0;
-    case TRANSPORTATION_MODE_CAR:
-      return 50 / 1000.0;
-    case TRANSPORTATION_MODE_TRAIN:
-      return 20 / 1000.0;
+    case TRANSPORTATION_MODE_BUS: // https://static.ducky.eco/calculator_documentation.pdf, Ecoinvent 3 Regular bus, production = 9g
+      return 103 / 1000.0;
+    case TRANSPORTATION_MODE_ICE_CAR: // https://static.ducky.eco/calculator_documentation.pdf, Ecoinvent Avg european car, production = 43g
+      return 257 / 1000.0;
+    case TRANSPORTATION_MODE_HYBRID_CAR: // https://static.ducky.eco/calculator_documentation.pdf, Samaras 2008, Low Carbon Scenario
+      return 180 / 1000.0;  
+    case TRANSPORTATION_MODE_ELECTRIC_CAR: // https://static.ducky.eco/calculator_documentation.pdf, Ecoinvent 3, Electric vehicle with nordic electricity mix 
+      return 81 / 1000.0;  
+    case TRANSPORTATION_MODE_TRAIN: // https://static.ducky.eco/calculator_documentation.pdf, Andersen 2007
+      return 42 / 1000.0;
+    case TRANSPORTATION_MODE_HIGH_SPEED_TRAIN: // https://www.iea.org/newsroom/news/2017/december/high-speed-rail-presents-major-opportunities-for-decarbonisation-of-transport.html, EU average
+      return 24 / 1000.0;  
+    case TRANSPORTATION_MODE_MOTORBIKE: // https://static.ducky.eco/calculator_documentation.pdf, Ecoinvent Scooter, production = 14g
+      return 108 / 1000.0;  
     case TRANSPORTATION_MODE_PUBLIC_TRANSPORT:
       // Average of train and bus
       return (0.5 * carbonIntensity(TRANSPORTATION_MODE_TRAIN)
         + 0.5 * carbonIntensity(TRANSPORTATION_MODE_BUS));
-    case TRANSPORTATION_MODE_FERRY:
+    case TRANSPORTATION_MODE_FERRY: 
       // See https://en.wikipedia.org/wiki/Carbon_footprint
-      return 0.12;
+      return 120 / 1000.0 ;
     case TRANSPORTATION_MODE_BIKE:
       // https://ecf.com/files/wp-content/uploads/ECF_BROCHURE_EN_planche.pdf
       return 5 / 1000.0;
@@ -48,12 +58,14 @@ function carbonIntensity(mode) {
 
 export function durationToDistance(durationHours, mode) {
   switch (mode) {
-    case TRANSPORTATION_MODE_BUS:
-      return durationHours * 50.0;
-    case TRANSPORTATION_MODE_CAR:
-      return durationHours * 80.0;
-    case TRANSPORTATION_MODE_TRAIN:
-      return durationHours * 80.0;
+    case TRANSPORTATION_MODE_BUS: // assumes mostly city-rides
+      return durationHours * 30.0;
+    case TRANSPORTATION_MODE_CAR: // https://setis.ec.europa.eu/system/files/Driving_and_parking_patterns_of_European_car_drivers-a_mobility_survey.pdf
+      return durationHours * 45.0;
+    case TRANSPORTATION_MODE_TRAIN: // assumes mostly suburban trips
+      return durationHours * 45.0;
+    case TRANSPORTATION_MODE_HIGH_SPEED_TRAIN: 
+      return durationHours * 200.0;  
     case TRANSPORTATION_MODE_PUBLIC_TRANSPORT:
       // Average of train and bus
       return (0.5 * durationToDistance(durationHours, TRANSPORTATION_MODE_TRAIN)
@@ -61,9 +73,9 @@ export function durationToDistance(durationHours, mode) {
     case TRANSPORTATION_MODE_FERRY:
       return durationHours * 30; // ~16 knots
     case TRANSPORTATION_MODE_BIKE:
-      return durationHours * 10;
+      return durationHours * 15;
     case TRANSPORTATION_MODE_ESCOOTER:
-      return durationHours * 10;  
+      return durationHours * 15;  
     default:
       throw Error(`Unknown transportation mode: ${mode}`);
   }
