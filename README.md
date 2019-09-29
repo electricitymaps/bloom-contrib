@@ -83,7 +83,7 @@ Nothing yet! Help us out with an integration and CO2 models. Check what [we thin
 Our CO2 models sources can be checked by anyone [here](https://github.com/tmrowco/tmrowapp-contrib/tree/master/integrations). Help us out with more and more precise models.
 </details>
 
-### How an integration works
+## How an integration works
 The job of an integration is to gather activities from a 3rd party datasource.
 To this end, 3 async methods need to be exported:
 

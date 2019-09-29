@@ -25,6 +25,6 @@
     "eslint-plugin-react": "^7.11.1"
   },
   "scripts": {
-    "lint": "eslint *.js co2eq integrations playground"
+    "lint": "eslint --quiet *.js co2eq integrations playground"
   }
 }
