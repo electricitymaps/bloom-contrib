@@ -10,10 +10,14 @@ export const ACTIVITY_TYPE_PURCHASE = 'ACTIVITY_TYPE_PURCHASE';
 /* Transportation */
 export const TRANSPORTATION_MODE_PLANE = 'plane';
 export const TRANSPORTATION_MODE_BIKE = 'bike';
-export const TRANSPORTATION_MODE_CAR = 'car';
+export const TRANSPORTATION_MODE_ICE_CAR = 'ice_car';
+export const TRANSPORTATION_MODE_HYBRID_CAR = 'hybrid_car';
+export const TRANSPORTATION_MODE_ELECTRIC_CAR = 'electric_car';
+export const TRANSPORTATION_MODE_MOTORBIKE = 'motorbike';
 export const TRANSPORTATION_MODE_BUS = 'bus';
 export const TRANSPORTATION_MODE_PUBLIC_TRANSPORT = 'public_transport';
 export const TRANSPORTATION_MODE_TRAIN = 'train';
+export const TRANSPORTATION_MODE_HIGH_SPEED_TRAIN = 'high_speed_train';
 export const TRANSPORTATION_MODE_FERRY = 'ferry';
 export const TRANSPORTATION_MODE_ESCOOTER = 'escooter';
 
