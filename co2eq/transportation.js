@@ -44,7 +44,7 @@ function carbonIntensity(mode) {
         + 0.5 * carbonIntensity(TRANSPORTATION_MODE_BUS));
     case TRANSPORTATION_MODE_FERRY: 
       // See https://en.wikipedia.org/wiki/Carbon_footprint
-      return 120 / 1000.0 ;
+      return 120 / 1000.0;
     case TRANSPORTATION_MODE_BIKE:
       // https://ecf.com/files/wp-content/uploads/ECF_BROCHURE_EN_planche.pdf
       return 5 / 1000.0;
