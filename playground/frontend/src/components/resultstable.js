@@ -1,5 +1,4 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -16,35 +15,37 @@ export default function ResultsTable(results) {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-    }}>
+    }}
+    >
       {
         results.data.length === 0 
-        ? <p>waiting for data</p> 
-        :    
-          <Table size="small">
-            <TableHead>
-              <TableRow>
-                { results.data[0] ?
-                  Object.keys(results.data[0]).map((key, index) => (
-                  <TableCell align="right">
-                    {key}
-                  </TableCell>
-                )) : null
-                }   
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {results.data.map(row => (
-                <TableRow key={row.id}>
-                  {Object.keys(row).map((key, index) => (
-                    <TableCell key align="right">{row[key]}</TableCell>
-                  ))
+          ? <p>waiting for data</p> 
+          : (
+            <Table size="small">
+              <TableHead>
+                <TableRow>
+                  { results.data[0]
+                    ? Object.keys(results.data[0]).map((key, index) => (
+                      <TableCell align="right">
+                        {key}
+                      </TableCell>
+                    )) : null
                   }   
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+              </TableHead>
+              <TableBody>
+                {results.data.map(row => (
+                  <TableRow key={row.id}>
+                    {Object.keys(row).map((key, index) => (
+                      <TableCell key align="right">{row[key]}</TableCell>
+                    ))
+                    }   
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          )
       }
     </Paper>
-  )
+  );
 }

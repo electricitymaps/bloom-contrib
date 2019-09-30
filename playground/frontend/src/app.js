@@ -21,7 +21,6 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      response: false,
       connection: 'disconnected',
       integrations: [],
       selectedIntegration: null,
@@ -33,7 +32,7 @@ class App extends React.Component {
 
   run = () => {
     const { selectedIntegration, username, password } = this.state;
-    console.warn('selectedIntegration', selectedIntegration)
+    console.warn('selectedIntegration', selectedIntegration);
 
     if (!socket.connected) { return; }
     if (!selectedIntegration) { return; }
@@ -105,75 +104,78 @@ class App extends React.Component {
   }
 
   render() {
-    const { connection, integrations, selectedIntegration } = this.state;
-      return (
-        <div className="App">
-          <header className="App-header">
-              <h2>Tomorrow App Playground</h2>
-              <p>status: <span id="connection-state">{connection}</span></p>
-          </header>
-          <div className="main-content-container">
+    const {
+      connection,
+      integrations,
+      selectedIntegration,
+      results,
+    } = this.state;
+    return (
+      <div className="App">
+        <header className="App-header">
+          <h2>Tomorrow App Playground</h2>
+          <p>status: <span id="connection-state">{connection}</span></p>
+        </header>
+        <div className="main-content-container">
           <Grid container spacing={4}>
             <Grid item xs={3}>
               <h3>How to test an integration</h3>
-                <p>
+              <p>
                   1/ Select an integration<br />
                   2/ Fill out username/password if needed<br />
                   3/ Open Chrome console to see results (any change in any field will trigger a re-run)<br />
-                </p>
-
-                <FormControl
-                  style={{width: '100%'}}
+              </p>
+              <FormControl
+                style={{ width: '100%' }}
+              >
+                <InputLabel htmlFor="age-simple">Integration</InputLabel>
+                <Select
+                  value={selectedIntegration || ''}
+                  name="Integration"
+                  displayEmpty
+                  onChange={this.handleChange}
                 >
-                  <InputLabel htmlFor="age-simple">Integration</InputLabel>
-                  <Select
-                    value={selectedIntegration || ''}
-                    name="Integration"
-                    displayEmpty
-                    onChange={this.handleChange}
-                  >
-                    {integrations.map(integration => (
-                      <MenuItem key={integration} value={integration}>{integration}</MenuItem> 
-                    ))}
-                  </Select>
-                  <TextField
-                    label="Username"
-                    type="username"
-                    autoComplete="current-password"
-                    margin="normal"
-                    onChange={event => this.setState({
-                      username: event.target.value
-                    })}
-                  />
-                  <TextField
-                    label="Password"
-                    type="password"
-                    autoComplete="current-password"
-                    margin="normal"
-                    onChange={event => this.setState({
-                      password: event.target.value
-                    })}
-                  />
-                  <Button
+                  {integrations.map(integration => (
+                    <MenuItem key={integration} value={integration}>{integration}</MenuItem> 
+                  ))}
+                </Select>
+                <TextField
+                  label="Username"
+                  type="username"
+                  autoComplete="current-password"
+                  margin="normal"
+                  onChange={event => this.setState({
+                    username: event.target.value,
+                  })}
+                />
+                <TextField
+                  label="Password"
+                  type="password"
+                  autoComplete="current-password"
+                  margin="normal"
+                  onChange={event => this.setState({
+                    password: event.target.value,
+                  })}
+                />
+                <Button
                   variant="contained"
                   color="secondary"
                   onClick={this.run}
-                  style={{marginTop: '16px'}}
-                  >
+                  style={{ marginTop: '16px' }}
+                >
                   Run
-                  <RunIcon/>
+                  <RunIcon />
                 </Button>
-                </FormControl>
-                
-              </Grid>
-              <Grid item xs={9}>
-                <ResultsTable data={this.state.results}/>
-              </Grid>
+              </FormControl>
+            </Grid>
+            <Grid item xs={9}>
+              <ResultsTable data={results} />
+            </Grid>
           </Grid>
-          </div>
         </div>
-      );
-    }
+      </div>
+    );
   }
+}
 
 export default App;
