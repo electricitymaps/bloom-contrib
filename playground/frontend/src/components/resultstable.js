@@ -26,7 +26,7 @@ export default function ResultsTable(results) {
                 <TableRow>
                   { results.data[0]
                     ? Object.keys(results.data[0]).map((key, index) => (
-                      <TableCell align="right">
+                      <TableCell key={`headercell-${key}`} align="right">
                         {key}
                       </TableCell>
                     )) : null
@@ -37,7 +37,7 @@ export default function ResultsTable(results) {
                 {results.data.map(row => (
                   <TableRow key={row.id}>
                     {Object.keys(row).map((key, index) => (
-                      <TableCell key align="right">{row[key]}</TableCell>
+                      <TableCell key={`cell-${row.id}-${key}`} align="right">{row[key]}</TableCell>
                     ))
                     }   
                   </TableRow>
