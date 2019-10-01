@@ -136,6 +136,8 @@ As the methods are pure, and to avoid re-asking the user for credentials everyti
   purchaseCategory, // a string that represents the category of the purchase. Categories can be found here: https://github.com/tmrowco/tmrowapp-contrib/blob/master/definitions.js
   costAmount, // a floating point that represents the amount of the purchase
   costCurrency, // a string that represents the currency in which the currency was made
+  bankDisplayName, // (required for integrations with banks) a string that represents the banks' name
+  bankIdentifier, // (required for integrations with banks) a string that uniquely represents the bank.
 ```
 
 ## Folder structure
