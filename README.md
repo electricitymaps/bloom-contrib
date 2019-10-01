@@ -15,7 +15,25 @@ You can [contribute](#contribute) by
 
 Join us on [Slack](https://slack.tmrow.com) if you wish to discuss development, need help to get started and want to get access to a developer preview of the app.
 
+
+## Getting started
+To ease development, we've created a development playground.
+
+### Playground
+From the `playground` folder, run `yarn` to install dependencies, then run `yarn serve` to start the playground and point your browser to [localhost:3000](http://localhost:3000) to get started.
+
+
+## Folder structure
+- `./co2eq`: carbon models
+- `./integrations`: contains all integrations
+- `./integrations/img`: contains all integration logos
+- `./playground`: source code of the playground
+- `./definitions.js`: constant definitions
+
+
 ## Status on [integrations](https://github.com/tmrowco/tmrowapp-contrib/tree/master/integrations)
+
+<details><summary>Expand</summary>
 
 ### Transportation
 
@@ -57,21 +75,15 @@ Working on it.
 
 #### Automated
 Nothing yet! Help us out with an integration and CO2 models. Check what [we think makes a great integration!](https://tmrow.slite.com/api/s/note/8LLSWazeBZZyS4BEQiLTnJ/What-makes-a-great-integration-for-Tomorrow)
+</details>
 
 ## Status on [CO2 models](https://github.com/tmrowco/tmrowapp-contrib/tree/master/integrations)
 
+<details><summary>Expand</summary>
 Our CO2 models sources can be checked by anyone [here](https://github.com/tmrowco/tmrowapp-contrib/tree/master/integrations). Help us out with more and more precise models.
+</details>
 
-## Getting started
-To ease development, we've created a development playground.
-
-### Integrations
-First, you will have to create a JSON file called `env.json` where to store integration credentials when needed.
-You can start by creating an empty file.
-
-Run `yarn` to install dependencies, then run `yarn serve` to start the playground and point your browser to [localhost:3000](http://localhost:3000) to get started.
-
-### How an integration works
+## How an integration works
 The job of an integration is to gather activities from a 3rd party datasource.
 To this end, 3 async methods need to be exported:
 
@@ -125,10 +137,3 @@ As the methods are pure, and to avoid re-asking the user for credentials everyti
   destinationStation, // (for other travel types) a string that represents the final destination
 }
 ```
-
-## Folder structure
-- `./co2eq`: carbon models
-- `./integrations`: contains all integrations
-- `./integrations/img`: contains all integration logos
-- `./playground`: source code of the playground
-- `./definitions.js`: constant definitions
