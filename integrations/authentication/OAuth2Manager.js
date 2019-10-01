@@ -10,6 +10,7 @@ export default class {
     baseUrl,
     clientId,
     clientSecret,
+    scope,
   }) {
     this.accessTokenUrl = accessTokenUrl;
     this.apiUrl = apiUrl;
@@ -18,6 +19,7 @@ export default class {
     this.clientId = clientId;
     this.clientSecret = clientSecret;
     this.state = {};
+    this.scope = scope;
   }
 
   async _authorizeWithRefreshToken() {
@@ -58,7 +60,7 @@ export default class {
       redirect_uri: getCallbackUrl(),
       response_type: 'code',
     });
-    const authorizationCodeRequestUrl = `${this.authorizeUrl}?${requestURLParams}`;
+    const authorizationCodeRequestUrl = `${this.authorizeUrl}?${requestURLParams}&scope=${this.scope}`;
     const authorizationResponseQuery = await openUrlAndWaitForCallback(
       authorizationCodeRequestUrl,
       getCallbackUrl()
