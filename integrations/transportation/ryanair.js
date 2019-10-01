@@ -1,7 +1,7 @@
 import moment from 'moment';
 import request from 'superagent';
 import { ACTIVITY_TYPE_TRANSPORTATION, TRANSPORTATION_MODE_PLANE } from '../../definitions';
-import { HTTPError, AuthenticationError } from '../utils/errors';
+import { HTTPError, ValidationError } from '../utils/errors';
 
 const agent = request.agent();
 const BASE_URL = 'https://api.ryanair.com/userprofile/rest/api/v1/';
@@ -36,10 +36,17 @@ async function connect(requestLogin, requestWebView) {
   const { username, password } = await requestLogin();
 
   if (!(password || '').length) {
-    throw new AuthenticationError('Password cannot be empty');
+    throw new ValidationError('Password cannot be empty');
   }
 
-  return logIn(username, password);
+  const { token, customerId } = await logIn(username, password);
+
+  return {
+    token,
+    customerId,
+    username,
+    password,
+  }
 }
 
 function disconnect() {
@@ -112,7 +119,13 @@ async function getActivities(pastBookings, customerId, token) {
 }
 
 async function collect(state) {
-  const { token, customerId } = state;
+  const { 
+    token, 
+    customerId, 
+    username, 
+    password,
+  } = state;
+  await logIn(username, password);
   const pastBookings = await getPastBookings(customerId, token);
   const activities = await getActivities(pastBookings, customerId, token);
 

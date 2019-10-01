@@ -1,7 +1,7 @@
 import moment from 'moment';
 import request from 'superagent';
 import { ACTIVITY_TYPE_TRANSPORTATION, TRANSPORTATION_MODE_PLANE } from '../../definitions';
-import { HTTPError, AuthenticationError } from '../utils/errors';
+import { HTTPError, AuthenticationError, ValidationError } from '../utils/errors';
 
 const API_VERSION_URL = 'https://wizzair.com/static/metadata.json';
 const agent = request.agent();
@@ -15,6 +15,7 @@ let API_URL;
 let BASE_URL;
 let LOGIN_URL;
 let ITINERARY_URL;
+let BOOKINGS_URL;
 
 async function logIn(username, password) {
   // urls have to be assigned here as they're asynchronous and have to be awaited
@@ -23,6 +24,7 @@ async function logIn(username, password) {
     BASE_URL = JSON.parse(API_URL.trim()).apiUrl,
     LOGIN_URL = `${await BASE_URL}/customer/login`,
     ITINERARY_URL = `${await BASE_URL}/booking/itinerary`,
+    BOOKINGS_URL = `${await BASE_URL}/customer/mybookings`,
   );
 
   const res = await agent
@@ -45,20 +47,19 @@ async function logIn(username, password) {
 
 async function getPastBookings() {
   const pastBookings = await agent
-    .post(`${BASE_URL}/customer/mybookings`)
+    .post(BOOKINGS_URL)
     .type('application/json')
     .set('Accept', '*/*')
     .send({
       flightdestination: '',
       flightorigin: '',
       pnr: '',
-    })
-    .then(
-      null,
-      (res) => {
-        throw new HTTPError(`Error while fetching last bookings. ${res.body}`);
-      }
-    );
+    });
+    
+  if (!pastBookings.ok) {
+    const text = await pastBookings.text();
+    throw new HTTPError(text, pastBookings.status);
+  }
 
   return { 
     pastBookings: pastBookings.body.pastBookings, 
@@ -128,10 +129,16 @@ async function connect(requestLogin, requestWebView, logger) {
   const { username, password } = await requestLogin();
 
   if (!(password || '').length) {
-    throw new HTTPError('Password cannot be empty');
+    throw new ValidationError('Password cannot be empty');
   }
 
-  return logIn(username, password);
+  await logIn(username, password);
+
+  // sets state to be persisted
+  return {
+    username,
+    password,
+  }
 }
 
 function disconnect() {
@@ -140,6 +147,7 @@ function disconnect() {
 }
 
 async function collect(state) {
+  await logIn(state.username, state.password);
   const {
     pastBookings,
     // totalCount,
