@@ -6,7 +6,7 @@ import * as electricityContribSources from '../../integrations/electricity'; // 
 import * as purchaseContribSources from '../../integrations/purchase'; // eslint-disable-line
 import * as transportationContribSources from '../../integrations/transportation'; // eslint-disable-line
 
-const sourceInstances = {
+const sourceImplementations = {
   ...electricityContribSources,
   ...purchaseContribSources,
   ...transportationContribSources,
@@ -20,7 +20,35 @@ const server = require('http').Server(app);
 
 const io = require('socket.io')(server, { pingInterval: 5000 });
 
+const webpack = require('webpack');
+const webpackDevMiddleware = require('webpack-dev-middleware');
+const webpackHotMiddleware = require('webpack-hot-middleware');
+const config = require('../webpack.config.js');
+
+app.use(express.static('./public'));
+
 app.use('/vendor', express.static(path.join(__dirname, 'vendor')));
+
+const devServerEnabled = true;
+
+if (devServerEnabled) {
+  // reload=true:Enable auto reloading when changing JS files or content
+  // timeout=1000:Time from disconnecting from server to reconnecting
+  config.entry.app.unshift('webpack-hot-middleware/client?reload=true&timeout=1000');
+
+  // Add HMR plugin
+  config.plugins.push(new webpack.HotModuleReplacementPlugin());
+
+  const compiler = webpack(config);
+
+  // Enable "webpack-dev-middleware"
+  app.use(webpackDevMiddleware(compiler, {
+    publicPath: config.output.publicPath,
+  }));
+
+  // Enable "webpack-hot-middleware"
+  app.use(webpackHotMiddleware(compiler));
+}
 
 const serializeError = e => ({
   name: e.name,
@@ -35,11 +63,10 @@ let resolveWebView = null;
 io.on('connection', (socket) => {
   console.log('client connected');
 
-  socket.emit('integrations', Object.keys(sourceInstances));
+  socket.emit('integrations', Object.keys(sourceImplementations));
 
   socket.on('run', async (data) => {
     console.log(`running ${data.sourceIdentifier}..`);
-    const sourceInstance = sourceInstances[data.sourceIdentifier];
     const log = [];
     const pushLog = (level, obj) => log.push({
       key: log.length.toString(),
@@ -52,7 +79,14 @@ io.on('connection', (socket) => {
       logWarning: obj => pushLog('warning', obj),
       logError: obj => pushLog('error', obj),
     };
+
+    const sourceImplementation = sourceImplementations[data.sourceIdentifier];
+    if (!sourceImplementation) {
+      logger.logError(new Error(`Unknown integration "${data.sourceIdentifier}"`));
+    }
+
     const requestLogin = () => ({ username: data.username, password: data.password });
+    // eslint-disable-next-line arrow-body-style
     const requestWebView = (url, callbackUrl) => {
       return new Promise((resolve, reject) => {
         if (callbackUrl !== oauthCallbackUrl) {
@@ -65,11 +99,11 @@ io.on('connection', (socket) => {
     };
     try {
       pushLog('debug', '## start connect()');
-      const initState = await sourceInstance.connect(requestLogin, requestWebView, logger);
+      const initState = await sourceImplementation.connect(requestLogin, requestWebView, logger);
       pushLog('debug', '## end connect()');
       pushLog('debug', `## initial state: ${JSON.stringify(initState)}`);
       pushLog('debug', '## start collect()');
-      const results = await sourceInstance.collect(initState, logger);
+      const results = await sourceImplementation.collect(initState, logger);
       pushLog('debug', `## obtained ${(results.activities || []).length} activities`);
       pushLog('debug', `## new state: ${JSON.stringify(results.state)}`);
       pushLog('debug', '## end collect()');
@@ -85,12 +119,13 @@ io.on('connection', (socket) => {
   });
 });
 
-app.get('/', (req, res) => { res.sendFile('index.html', { root: __dirname }); });
+
 app.get('/oauth_callback', (req, res) => {
   // Fulfill promise and make sure client closes the window
   resolveWebView(req.query);
   res.send('<script type="text/javascript">window.close()</script>');
 });
+app.use(express.static('./public'));
 
 server.listen(3000, () => {
   console.log('Listening on *:3000');
