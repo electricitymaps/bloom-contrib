@@ -46,7 +46,7 @@ async function connect(requestLogin, requestWebView) {
     customerId,
     username,
     password,
-  }
+  };
 }
 
 function disconnect() {

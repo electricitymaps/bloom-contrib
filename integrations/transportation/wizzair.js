@@ -55,7 +55,7 @@ async function getPastBookings() {
       flightorigin: '',
       pnr: '',
     });
-    
+
   if (!pastBookings.ok) {
     const text = await pastBookings.text();
     throw new HTTPError(text, pastBookings.status);
@@ -138,7 +138,7 @@ async function connect(requestLogin, requestWebView, logger) {
   return {
     username,
     password,
-  }
+  };
 }
 
 function disconnect() {
