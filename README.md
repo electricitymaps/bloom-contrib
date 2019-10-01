@@ -7,7 +7,7 @@ The [Tomorrow](https://www.tmrow.com) app automatically calculates your carbon f
 
 The app is private-by-design: data will stay on device, unless the user explicitly gives consent. This code is maintained by [Tomorrow](https://www.tmrow.com).
 
-Feel free to watch [the presentation](https://www.youtube.com/watch?v=keOPXD-ojWY) our Founder Olivier gave to the CopenhagenJS meetup, explaining how a JavaScript developer can do to combat climate change. If you have any questions, want early access to the app or just want to hang out with people fighting climate change with code, join [our Slack community](slack.tmrow.com).
+Feel free to watch [the presentation](https://www.youtube.com/watch?v=keOPXD-ojWY) our Founder Olivier gave to the CopenhagenJS meetup, explaining what a JavaScript developer can do to combat climate change. If you have any question, want early access to the app or just want to hang out with people fighting climate change with code, join [our Slack community](slack.tmrow.com).
 
 ## Structure of this repository
 
