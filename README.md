@@ -1,29 +1,16 @@
 # tmrowapp-contrib [![Slack Status](http://slack.tmrow.com/badge.svg)](http://slack.tmrow.com) [![CircleCI](https://circleci.com/gh/tmrowco/tmrowapp-contrib.svg?style=shield)](https://circleci.com/gh/tmrowco/tmrowapp-contrib)
 
-This repository contains the open-source integrations that allows the [Tomorrow](https://www.tmrow.com) app to automatically calculate your carbon impact. The [Tomorrow](https://www.tmrow.com) app is private-by-design: data will stay on device, unless the user explicitly gives consent.
-It also contains the CO2 models used by the app.
-This code is maintained by [Tomorrow](https://www.tmrow.com).
+Welcome to the open-source repository of the Tomorrow app!👋
 
-To get started, browse existing [suggestions](https://github.com/tmrowco/tmrowapp-contrib/issues). Feel free to watch [the presentation](https://www.youtube.com/watch?v=keOPXD-ojWY) of our CEO & Founder Olivier gave to CopenhagenJS, explaining what a javascript developer can do to combat climate change.
+## What is the Tomorrow app?
+The [Tomorrow](https://www.tmrow.com) app automatically calculates your carbon footprint by connecting to other services and apps in your life and translating activities from these apps and activities to greenhouse gas emissions.
 
-You can [contribute](#contribute) by
-- [suggesting](https://github.com/tmrowco/tmrowapp-contrib/issues/new) a new integration
-- **coding a new [integration](https://github.com/tmrowco/tmrowapp-contrib/tree/master/integrations)**
-- **updating our [carbon models](https://github.com/tmrowco/tmrowapp-contrib/tree/master/co2eq)**
-- correcting a [bug](https://github.com/tmrowco/tmrowapp-contrib/issues) in an existing integration.
-- submitting ideas, feature requests, or bugs in the [issues](https://github.com/tmrowco/tmrowapp-contrib/issues/new) section.
+The app is private-by-design: data will stay on device, unless the user explicitly gives consent. This code is maintained by [Tomorrow](https://www.tmrow.com).
 
-Join us on [Slack](https://slack.tmrow.com) if you wish to discuss development, need help to get started and want to get access to a developer preview of the app.
+Feel free to watch [the presentation](https://www.youtube.com/watch?v=keOPXD-ojWY) our Founder Olivier gave to the CopenhagenJS meetup, explaining what a JavaScript developer can do to combat climate change. If you have any question, want early access to the app or just want to hang out with people fighting climate change with code, join [our Slack community](slack.tmrow.com).
 
+## Structure of this repository
 
-## Getting started
-To ease development, we've created a development playground.
-
-### Playground
-From the `playground` folder, run `yarn` to install dependencies, then run `yarn serve` to start the playground and point your browser to [localhost:3000](http://localhost:3000) to get started.
-
-
-## Folder structure
 - `./co2eq`: carbon models
 - `./integrations`: contains all integrations
 - `./integrations/img`: contains all integration logos
@@ -31,60 +18,43 @@ From the `playground` folder, run `yarn` to install dependencies, then run `yarn
 - `./definitions.js`: constant definitions
 
 
-## Status on [integrations](https://github.com/tmrowco/tmrowapp-contrib/tree/master/integrations)
+## How can I help?
+You can help by:
 
-<details><summary>Expand</summary>
+- Helping us find, add and improve integrations to 3rd party services
+- Helping us find, add and improve our Life Cycle Assesment / Carbon footprint data
+- Giving us ideas, feedback and reporting bugs
 
-### Transportation
+### Integrating purchases and activities
+[We wrote a little article about what we believe makes a great integration](https://tmrow.slite.com/api/s/note/8LLSWazeBZZyS4BEQiLTnJ/What-makes-a-great-integration-for-Tomorrow). 
+However, that shouldn't stop you from doing an integration which is interesting and useful to you! Our only requirement is that it can be quantified in greenhouse gas emissions.
 
-#### Manual
-The app let's you input trips manually by distance or time and transportation mode, and amount of passengers for a car trip.
+Integrations can rely on an API or even on scrapers if necessary.
 
-#### Automated
-- Automated Activity tracking
-- Tripit
-- Uber (contributor:[willtonkin](https://github.com/willtonkin))
-- Ryanair (contributor:[lauvrenn](https://github.com/lauvrenn))
-- Rejsekort
+#### Suggesting an integration
+Here is the list of current 3rd party integrations:
+- ✈️ Tripit (tracks most airlines!)
+- 🚗 Uber (contributor:[willtonkin](https://github.com/willtonkin))
+- ✈️ Ryanair (contributor:[lauvrenn](https://github.com/lauvrenn))
+- 🚂 Rejsekort
+- ⚡ Sense (contributor:[snarfed](https://github.com/snarfed))
+- ⚡ Linky (contributor:[bokub](https://github.com/bokub))
+- ⚡ Barry
+- 🚗 Renault Zoé
+- 🚗 Tesla Cockpit
 
-Help us out with an integration and CO2 models. Check what [we think makes a great integration!](https://tmrow.slite.com/api/s/note/8LLSWazeBZZyS4BEQiLTnJ/What-makes-a-great-integration-for-Tomorrow)
+You can [suggest a new integration here](https://github.com/tmrowco/tmrowapp-contrib/issues/new).
 
-### Utilities
+#### Coding or debugging a new integration
 
-#### Manual
-Working on it.
+If you don't have an idea on your own or prefer to debug an integration, you can find integration suggestions and bugs in [the issues](https://github.com/tmrowco/tmrowapp-contrib/issues).
 
-#### Automated
-- Sense (contributor:[snarfed](https://github.com/snarfed))
-- Linky (contributor:[bokub](https://github.com/bokub))
-- Barry
-- Renault Zoé
+To make it easy for anyone to help out, a development playground is available:
 
-Help us out with an integration and CO2 models. Check what [we think makes a great integration!](https://tmrow.slite.com/api/s/note/8LLSWazeBZZyS4BEQiLTnJ/What-makes-a-great-integration-for-Tomorrow)
+From the `playground` folder, run `yarn` to install dependencies, then run `yarn serve` to start the playground and point your browser to [localhost:3000](http://localhost:3000) to get started.
 
-### Groceries
-#### Manual
-The app let's you input meals manually by type of food. Help us out with more CO2 models!
-
-#### Automated
-Nothing yet! Help us out with an integration and CO2 models. Check what [we think makes a great integration!](https://tmrow.slite.com/api/s/note/8LLSWazeBZZyS4BEQiLTnJ/What-makes-a-great-integration-for-Tomorrow)
-
-### Others
-#### Manual
-Working on it.
-
-#### Automated
-Nothing yet! Help us out with an integration and CO2 models. Check what [we think makes a great integration!](https://tmrow.slite.com/api/s/note/8LLSWazeBZZyS4BEQiLTnJ/What-makes-a-great-integration-for-Tomorrow)
-</details>
-
-## Status on [CO2 models](https://github.com/tmrowco/tmrowapp-contrib/tree/master/integrations)
-
-<details><summary>Expand</summary>
-Our CO2 models sources can be checked by anyone [here](https://github.com/tmrowco/tmrowapp-contrib/tree/master/integrations). Help us out with more and more precise models.
-</details>
-
-## How an integration works
-The job of an integration is to gather activities from a 3rd party datasource.
+#### How to make an integration work
+An integration gathers activities from a 3rd party datasource.
 To this end, 3 async methods need to be exported:
 
 ```javascript
@@ -103,25 +73,13 @@ async function disconnect() {
 }
 ```
 
-The `connect` method is used to ask for user credentials (we also support OAuth flows).
+The `connect` method is used to ask for user credentials (OAuth flows are also supported).
 The `collect` method is called periodically (typically every few hours) to fetch new activities.
 As the methods are pure, and to avoid re-asking the user for credentials everytime the `collect` method is called, a `state` object can be used to persist information (such as password, tokens..) across `collect`s.
 
-### Activity formats
-#### electricity consumption
-```javascript
-{
-  id, // a string that uniquely represents this activity
-  datetime, // a javascript Date object that represents the start of the activity
-  durationHours, // an integer that represents the duration of the activity
-  activityType: ACTIVITY_TYPE_ELECTRICITY,
-  energyWattHours, // a float that represents the total energy used
-  hourlyEnergyWattHours, // (optional) an array of 24 floats that represent the hourly metering values
-  locationLon, // the location of the electricity consumption
-  locationLat, // the location of the electricity consumption
-}
-```
-#### transportation
+Activities require a certain formatting:
+
+##### Transportation activity formatting
 ```javascript
 {
   id, // a string that uniquely represents this activity
@@ -137,3 +95,24 @@ As the methods are pure, and to avoid re-asking the user for credentials everyti
   destinationStation, // (for other travel types) a string that represents the final destination
 }
 ```
+##### Electricity consumption activity formatting
+```javascript
+{
+  id, // a string that uniquely represents this activity
+  datetime, // a javascript Date object that represents the start of the activity
+  durationHours, // an integer that represents the duration of the activity
+  activityType: ACTIVITY_TYPE_ELECTRICITY,
+  energyWattHours, // a float that represents the total energy used
+  hourlyEnergyWattHours, // (optional) an array of 24 floats that represent the hourly metering values
+  locationLon, // the location of the electricity consumption
+  locationLat, // the location of the electricity consumption
+}
+```
+
+### Adding or updating Life Cycle Assessment / Carbon Footprint of purchases and activities
+
+Our current models and Life Cycle assessments are accessible [here](https://github.com/tmrowco/tmrowapp-contrib/tree/master/co2eq). If you know better sources, please contribute with your knowledge.
+
+### Giving ideas, features requests or bugs
+
+Please [add an issue here](https://github.com/tmrowco/tmrowapp-contrib/issues/new) or directly in the app.
