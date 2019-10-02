@@ -4,6 +4,7 @@ import moment from 'moment';
 import groupBy from 'lodash/groupBy';
 import { ACTIVITY_TYPE_ELECTRICITY } from '../../definitions';
 import { AuthenticationError, HTTPError, ValidationError } from '../utils/errors';
+import { cityToLonLat } from '../utils/location';
 
 const LOGIN_URL = 'https://api.obviux.dk/v2/authenticate';
 const DELIVERIES_URL = 'https://api.obviux.dk/v2/deliveries';
@@ -73,11 +74,14 @@ async function connect(requestLogin) {
   const { username, password } = await requestLogin();
 
   const { token, external_id, address } = await login(username, password);
-  const ean = await getUsersElectricityId(token);
+  await getUsersElectricityId(token);
+  const lonLat = await cityToLonLat('DK', address.zip_code);
 
   return {
     username,
     password,
+    locationLon: lonLat[0],
+    locationLat: lonLat[1],
   };
 }
 
@@ -87,7 +91,9 @@ function disconnect() {
 }
 
 async function collect(state, logger) {
-  const { username, password } = state;
+  const {
+    username, password, locationLon, locationLat,
+  } = state;
 
   const { token, external_id } = await login(username, password);
   const ean = await getUsersElectricityId(token);
@@ -112,11 +118,11 @@ async function collect(state, logger) {
       .reduce((a, b) => a + b, 0),
     durationHours: values.length,
     hourlyEnergyWattHours: values.map(x => x.kWh * 1000.0),
-    locationLat: 55.927443,
-    locationLon: 9.248319,
+    locationLon,
+    locationLat,
   }));
 
-  return { activities, state };
+  return { activities, state: { ...state, lastCollect: new Date().toISOString() } };
 }
 
 const config = {
