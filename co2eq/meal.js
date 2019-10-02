@@ -52,7 +52,14 @@ const CARBON_INTENSITY = { // kgCO2eq / kg
   'White bread': 1.054,
   'Milk Yogurt': 1.372,
   'Morning cereals': 0.864,
-
+  // From https://www.sciencedirect.com/science/article/abs/pii/S0260877417300122
+  'Pasta': 0.88,
+  // From https://www.sciencedirect.com/science/article/pii/S0022030213004797
+  'Cream': 83, 
+  'Sour cream': 78, 
+  'Butter': 730,
+  // From https://www.sciencedirect.com/science/article/pii/S0959652618332633
+  'Ice cream': 4
 };
 export const INGREDIENTS = Object.keys(CARBON_INTENSITY);
 
