@@ -74,7 +74,6 @@ async function connect(requestLogin) {
   const { username, password } = await requestLogin();
 
   const { token, external_id, address } = await login(username, password);
-  await getUsersElectricityId(token);
   const lonLat = await cityToLonLat('DK', address.zip_code);
 
   return {
