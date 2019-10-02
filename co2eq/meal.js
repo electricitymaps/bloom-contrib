@@ -14,160 +14,167 @@ export const modelVersion = 3;
 export const MEAL_WEIGHT = 400; // grams
 
 const MEALS_PER_DAY = 3;
-const CARBON_INTENSITY = { // kgCO2eq / kg
+export const INGREDIENT_LIST = { // kgCO2eq / kg
   // meat
-  'Lamb': 25.58, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Beef': 26.61, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Pork': 5.74, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Turkey': 7.17, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Chicken': 3.65, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Eggs': 3.46, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Duck': 3.09, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Rabbit': 4.7, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Buffalo': 60.43, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Lamb': { carbon_intensity: 25.58, category: 'Meat' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Beef': { carbon_intensity: 26.61, category: 'Meat' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Pork': { carbon_intensity: 5.74, category: 'Meat' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Turkey': { carbon_intensity: 7.17, category: 'Meat' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Chicken': { carbon_intensity: 3.65, category: 'Meat' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Eggs': { carbon_intensity: 3.46, category: 'Meat' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Duck': { carbon_intensity: 3.09, category: 'Meat' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Rabbit': { carbon_intensity: 4.7, category: 'Meat' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Buffalo': { carbon_intensity: 60.43, category: 'Meat' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   // seafood
-  'Tuna': 2.15, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Cod': 3.51, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Flatfish': 6.2, // From https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
-  'Herring': 1.16, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Prawns/shrimp': 7.8, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Clams': 0.1, // From https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
-  'Lobster': 27.8, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Mussels': 9.51, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Pollock': 1.61, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Carp': 1.76, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Mackerel': 1.8, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Sea bass': 3.27, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Haddock': 3.41, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Salmon': 3.47, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Fish (all species)': 3.49, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Whiting': 2.66, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Eel': 3.88, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Common Ling': 6.45, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Trout': 4.2, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Pomfret': 6.63, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Rock fish': 6.94, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Octopus/squid/cuttlefish': 7.13, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Brill': 8.41, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Hake': 9.77, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Porbeagle': 11.44, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Anglerfish': 12.29, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Swordfish': 12.84, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Megrim': 14.15, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Turbot': 14.51, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Sole': 20.86, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Tuna': { carbon_intensity: 2.15, category: 'Seafood' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Cod': { carbon_intensity: 3.51, category: 'Seafood' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Flatfish': { carbon_intensity: 6.2, category: 'Seafood' }, // From https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
+  'Herring': { carbon_intensity: 1.16, category: 'Seafood' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Prawns/shrimp': { carbon_intensity: 7.8, category: 'Seafood' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Clams': { carbon_intensity: 0.1, category: 'Seafood' }, // From https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
+  'Lobster': { carbon_intensity: 27.8, category: 'Seafood' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Mussels': { carbon_intensity: 9.51, category: 'Seafood' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Pollock': { carbon_intensity: 1.61, category: 'Seafood' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Carp': { carbon_intensity: 1.76, category: 'Seafood' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Mackerel': { carbon_intensity: 1.8, category: 'Seafood' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Sea bass': { carbon_intensity: 3.27, category: 'Seafood' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Haddock': { carbon_intensity: 3.41, category: 'Seafood' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Salmon': { carbon_intensity: 3.47, category: 'Seafood' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Fish (all species)': { carbon_intensity: 3.49, category: 'Seafood' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Whiting': { carbon_intensity: 2.66, category: 'Seafood' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Eel': { carbon_intensity: 3.88, category: 'Seafood' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Common Ling': { carbon_intensity: 6.45, category: 'Seafood' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Trout': { carbon_intensity: 4.2, category: 'Seafood' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Pomfret': { carbon_intensity: 6.63, category: 'Seafood' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Rock fish': { carbon_intensity: 6.94, category: 'Seafood' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Octopus/squid/cuttlefish': { carbon_intensity: 7.13, category: 'Seafood' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Brill': { carbon_intensity: 8.41, category: 'Seafood' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Hake': { carbon_intensity: 9.77, category: 'Seafood' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Porbeagle': { carbon_intensity: 11.44, category: 'Seafood' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Anglerfish': { carbon_intensity: 12.29, category: 'Seafood' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Swordfish': { carbon_intensity: 12.84, category: 'Seafood' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Megrim': { carbon_intensity: 14.15, category: 'Seafood' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Turbot': { carbon_intensity: 14.51, category: 'Seafood' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Sole': { carbon_intensity: 20.86, category: 'Seafood' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   // dairy
-  'Cheese': 8.55, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Milk': 1.29, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Cream': 5.64, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Milk Yogurt': 1.31, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Butter': 9.25, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Cheese': { carbon_intensity: 8.55, category: 'Dairy' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Milk': { carbon_intensity: 1.29, category: 'Dairy' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Cream': { carbon_intensity: 5.64, category: 'Dairy' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Milk Yogurt': { carbon_intensity: 1.31, category: 'Dairy' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Butter': { carbon_intensity: 9.25, category: 'Dairy' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   // vegetables
-  'Potatoes': 0.18, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Vegetables': 2.0, // http://www.greeneatz.com/foods-carbon-footprint.html
-  'Onion': 0.17, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Celery': 0.18, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Carrots': 0.2, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Beetroot': 0.24, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Mushrooms': 0.27, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Rutabage': 0.29, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Fennel': 0.48, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Artichokes': 0.48, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Spinach': 0.54, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Garlic': 0.57, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Aspargus': 0.83, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Ginger': 0.88, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Tomatoes': 0.45, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Olives': 0.63, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Peppers': 0.66, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Potatoes': { carbon_intensity: 0.18, category: 'Vegetables' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Vegetables': { carbon_intensity: 2.0, category: 'Vegetables' }, // http://www.greeneatz.com/foods-carbon-footprint.html
+  'Onion': { carbon_intensity: 0.17, category: 'Vegetables' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Celery': { carbon_intensity: 0.18, category: 'Vegetables' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Carrots': { carbon_intensity: 0.2, category: 'Vegetables' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Beetroot': { carbon_intensity: 0.24, category: 'Vegetables' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Mushrooms': { carbon_intensity: 0.27, category: 'Vegetables' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Rutabage': { carbon_intensity: 0.29, category: 'Vegetables' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Fennel': { carbon_intensity: 0.48, category: 'Vegetables' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Artichokes': { carbon_intensity: 0.48, category: 'Vegetables' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Spinach': { carbon_intensity: 0.54, category: 'Vegetables' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Garlic': { carbon_intensity: 0.57, category: 'Vegetables' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Aspargus': { carbon_intensity: 0.83, category: 'Vegetables' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Ginger': { carbon_intensity: 0.88, category: 'Vegetables' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Tomatoes': { carbon_intensity: 0.45, category: 'Vegetables' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Olives': { carbon_intensity: 0.63, category: 'Vegetables' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Peppers': { carbon_intensity: 0.66, category: 'Vegetables' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Zucchini': { carbon_intensity: 0.21, category: 'Vegetables' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Cucumbers': { carbon_intensity: 0.23, category: 'Vegetables' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Pumpkins': { carbon_intensity: 0.25, category: 'Vegetables' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Avocados': { carbon_intensity: 1.3, category: 'Vegetables' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Eggplants': { carbon_intensity: 1.35, category: 'Vegetables' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Peas': { carbon_intensity: 0.38, category: 'Vegetables' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   // fruits
-  'Fruit': 1.1, // http://www.greeneatz.com/foods-carbon-footprint.html
-  'Zucchini': 0.21, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Cucumbers': 0.23, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Pumpkins': 0.25, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Melons': 0.25, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Lemons': 0.26, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Limes': 0.26, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Guavas': 0.28, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Apples': 0.29, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Pears': 0.31, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Quinces': 0.31, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Dates': 0.32, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Watermelon': 0.32, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Orange': 0.33, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Kiwi': 0.36, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Grapes': 0.37, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Cherries': 0.39, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Apricot': 0.43, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Peaches': 0.43, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Nectarines': 0.43, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Figs': 0.43, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Mandarin': 0.45, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Pineapples': 0.5, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Grapefruit': 0.51, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Pomelo': 0.51, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Tangerines': 0.51, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Strawberries': 0.58, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Bananas': 0.72, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Raspberries': 0.84, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Currants': 0.84, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Gooseberries': 0.84, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Cranberries': 0.92, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Blueberries': 0.92, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Avocados': 1.3, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Eggplants': 1.35, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  // staples
-  'Rice': 2.55, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Nuts': 2.3, // http://www.greeneatz.com/foods-carbon-footprint.html
-  'Pasta': 1.2, // From https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
-  'Rye bread': 0.93, // From http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
-  'White bread': 1.054, // From http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
-  'Morning cereals': 0.864, // From http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
-  'Oats': 0.38, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Green beans': 0.31, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Peas': 0.38, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Butter beans': 0.39, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Chestnuts': 0.43, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Corn': 0.47, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Soybean': 0.49, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Wheat': 0.52, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Rye': 0.38, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Barley': 0.43, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Chick peas': 0.77, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Peanuts': 0.83, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Sesame seeds': 0.88, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Hazelnuts': 0.97, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Lentils': 1.03, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Quinoa': 1.15, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Sunflower seed': 1.41, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Cashew nut': 1.44, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Walnuts': 1.51, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Pistachios': 1.53, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Almonds': 1.54, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Fruit': { carbon_intensity: 1.1, category: 'Fruits' }, // http://www.greeneatz.com/foods-carbon-footprint.html
+  'Melons': { carbon_intensity: 0.25, category: 'Fruits' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Lemons': { carbon_intensity: 0.26, category: 'Fruits' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Limes': { carbon_intensity: 0.26, category: 'Fruits' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Guavas': { carbon_intensity: 0.28, category: 'Fruits' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Apples': { carbon_intensity: 0.29, category: 'Fruits' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Pears': { carbon_intensity: 0.31, category: 'Fruits' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Quinces': { carbon_intensity: 0.31, category: 'Fruits' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Dates': { carbon_intensity: 0.32, category: 'Fruits' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Watermelon': { carbon_intensity: 0.32, category: 'Fruits' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Orange': { carbon_intensity: 0.33, category: 'Fruits' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Kiwi': { carbon_intensity: 0.36, category: 'Fruits' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Grapes': { carbon_intensity: 0.37, category: 'Fruits' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Cherries': { carbon_intensity: 0.39, category: 'Fruits' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Apricot': { carbon_intensity: 0.43, category: 'Fruits' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Peaches': { carbon_intensity: 0.43, category: 'Fruits' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Nectarines': { carbon_intensity: 0.43, category: 'Fruits' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Figs': { carbon_intensity: 0.43, category: 'Fruits' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Mandarin': { carbon_intensity: 0.45, category: 'Fruits' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Pineapples': { carbon_intensity: 0.5, category: 'Fruits' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Grapefruit': { carbon_intensity: 0.51, category: 'Fruits' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Pomelo': { carbon_intensity: 0.51, category: 'Fruits' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Tangerines': { carbon_intensity: 0.51, category: 'Fruits' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Strawberries': { carbon_intensity: 0.58, category: 'Fruits' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Bananas': { carbon_intensity: 0.72, category: 'Fruits' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Raspberries': { carbon_intensity: 0.84, category: 'Fruits' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Currants': { carbon_intensity: 0.84, category: 'Fruits' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Gooseberries': { carbon_intensity: 0.84, category: 'Fruits' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Cranberries': { carbon_intensity: 0.92, category: 'Fruits' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Blueberries': { carbon_intensity: 0.92, category: 'Fruits' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  // grains
+  'Rice': { carbon_intensity: 2.55, category: 'Grains' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Pasta': { carbon_intensity: 1.2, category: 'Grains' }, // From https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
+  'Rye bread': { carbon_intensity: 0.93, category: 'Grains' }, // From http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
+  'White bread': { carbon_intensity: 1.054, category: 'Grains' }, // From http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
+  'Morning cereals': { carbon_intensity: 0.864, category: 'Grains' }, // From http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
+  'Oats': { carbon_intensity: 0.38, category: 'Grains' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Green beans': { carbon_intensity: 0.31, category: 'Grains' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Butter beans': { carbon_intensity: 0.39, category: 'Grains' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Chestnuts': { carbon_intensity: 0.43, category: 'Grains' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Corn': { carbon_intensity: 0.47, category: 'Grains' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Soybean': { carbon_intensity: 0.49, category: 'Grains' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Wheat': { carbon_intensity: 0.52, category: 'Grains' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Rye': { carbon_intensity: 0.38, category: 'Grains' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Barley': { carbon_intensity: 0.43, category: 'Grains' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Chick peas': { carbon_intensity: 0.77, category: 'Grains' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Sesame seeds': { carbon_intensity: 0.88, category: 'Grains' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Lentils': { carbon_intensity: 1.03, category: 'Grains' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Quinoa': { carbon_intensity: 1.15, category: 'Grains' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Sunflower seed': { carbon_intensity: 1.41, category: 'Grains' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  // nuts
+  'Nuts': { carbon_intensity: 2.3, category: 'Nuts' }, // http://www.greeneatz.com/foods-carbon-footprint.html
+  'Peanuts': { carbon_intensity: 0.83, category: 'Nuts' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Hazelnuts': { carbon_intensity: 0.97, category: 'Nuts' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Cashew nut': { carbon_intensity: 1.44, category: 'Nuts' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Walnuts': { carbon_intensity: 1.51, category: 'Nuts' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Pistachios': { carbon_intensity: 1.53, category: 'Nuts' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Almonds': { carbon_intensity: 1.54, category: 'Nuts' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   // beverages
-  'Almond milk': 0.42, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Coconut milk': 0.42, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Soy milk': 0.75, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Beer': 1.123, // http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
-  'Wine': 2.344, // http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
-  'Spirits': 3.144, // http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
-  'Juice': 0.93, // http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
-  'Coffee': 0.33, // http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
-  'Tea': 0.184, // http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
-  'Soft drink': 1.035, // http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
-  'Water (bottled)': 0.215, // http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
-  'Water (tap)': 0.001, // http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf  
+  'Almond milk': { carbon_intensity: 0.42, category: 'Beverages' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Coconut milk': { carbon_intensity: 0.42, category: 'Beverages' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Soy milk': { carbon_intensity: 0.75, category: 'Beverages' }, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Beer': { carbon_intensity: 1.123, category: 'Beverages' }, // http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
+  'Wine': { carbon_intensity: 2.344, category: 'Beverages' }, // http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
+  'Spirits': { carbon_intensity: 3.144, category: 'Beverages' }, // http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
+  'Juice': { carbon_intensity: 0.93, category: 'Beverages' }, // http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
+  'Coffee': { carbon_intensity: 0.33, category: 'Beverages' }, // http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
+  'Tea': { carbon_intensity: 0.184, category: 'Beverages' }, // http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
+  'Soft drink': { carbon_intensity: 1.035, category: 'Beverages' }, // http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
+  'Water (bottled)': { carbon_intensity: 0.215, category: 'Beverages' }, // http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
+  'Water (tap)': { carbon_intensity: 0.001, category: 'Beverages' }, // http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf  
 };
-export const INGREDIENTS = Object.keys(CARBON_INTENSITY);
+export const INGREDIENTS = Object.keys(INGREDIENT_LIST);
+
+const allIngredientCategories = [];
+Object.keys(INGREDIENT_LIST).forEach((ingredient) => {
+  allIngredientCategories.push(INGREDIENT_LIST[ingredient].category);
+});
+export const INGREDIENT_CATEGORIES = [...new Set(allIngredientCategories)];
 
 /*
 Carbon intensity of ingredient (kgCO2 per kg).
 */
 export function carbonIntensityOfIngredient(ingredient) {
-  if (!CARBON_INTENSITY[ingredient]) {
+  if (!INGREDIENT_LIST[ingredient]) {
     throw Error(`Unknown ingredient: ${ingredient}`);
   }
-  return CARBON_INTENSITY[ingredient];
+  return INGREDIENT_LIST[ingredient].carbon_intensity;
 }
 
 /*
