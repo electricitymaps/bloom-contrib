@@ -101,7 +101,7 @@ async function collect(state, logger) {
   // Fetch from last update. If not available, then fetch data from the last 90 days.
   const lastCollect = state.lastCollect
     ? moment(state.lastCollect)
-    : moment().subtract(1, 'months');
+    : moment().subtract(3, 'months');
 
   const points = await getMeteringPoints(token, ean, external_id, lastCollect);
 

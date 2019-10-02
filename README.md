@@ -40,6 +40,7 @@ Here is the list of current 3rd party integrations:
 - ⚡ Sense (contributor:[snarfed](https://github.com/snarfed))
 - ⚡ Linky (contributor:[bokub](https://github.com/bokub))
 - ⚡ Barry
+- ⚡ Ørsted
 - 🚗 Renault Zoé
 - 🚗 Tesla Cockpit
 
