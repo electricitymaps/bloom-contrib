@@ -40,7 +40,7 @@ async function logIn(username, password) {
     });
 
   if (!res.ok) {
-    throw new AuthenticationError(`Error while logging in. ${res.body}`);
+    throw new HTTPError(res.text, res.status);
   }
   return {};
 }
@@ -57,13 +57,11 @@ async function getPastBookings() {
     });
 
   if (!pastBookings.ok) {
-    const text = await pastBookings.text();
-    throw new HTTPError(text, pastBookings.status);
+    throw new HTTPError(pastBookings.text, pastBookings.status);
   }
 
   return { 
-    pastBookings: pastBookings.body.pastBookings, 
-    // totalCount: pastBookings.body.length,
+    pastBookings: pastBookings.body.pastBookings,
   };
 }
 
@@ -92,7 +90,9 @@ async function getAllFlights(booking) {
             pnr: res.body.pnr,
           });
         }, ((res) => {
-          throw new HTTPError(`Error while fetching flights. ${res.body}`);
+          if (!res.ok) {
+            throw new HTTPError(res.text, res.status);
+          }
         })
       );
   }));
@@ -150,7 +150,6 @@ async function collect(state) {
   await logIn(state.username, state.password);
   const {
     pastBookings,
-    // totalCount,
   } = await getPastBookings();
 
   let fetchIndex = state.lastTotalCount || 0;
