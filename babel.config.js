@@ -8,7 +8,7 @@ module.exports = {
       'regenerator': true,
     }],
     ['wildcard', {
-      'exts': ['js', 'es6', 'es', 'jsx', 'javascript', 'png'],
+      'exts': ['js', 'es6', 'es', 'jsx', 'javascript', 'png','jpg'],
       'useCamelCase': true,
     }],
   ],
