@@ -7,7 +7,7 @@ The [Tomorrow](https://www.tmrow.com) app automatically calculates your carbon f
 
 The app is private-by-design: data will stay on device, unless the user explicitly gives consent. This code is maintained by [Tomorrow](https://www.tmrow.com).
 
-Feel free to watch [the presentation](https://www.youtube.com/watch?v=keOPXD-ojWY) our Founder Olivier gave to the CopenhagenJS meetup, explaining what a JavaScript developer can do to combat climate change. If you have any question, want early access to the app or just want to hang out with people fighting climate change with code, join [our Slack community](slack.tmrow.com).
+Feel free to watch [the presentation](https://www.youtube.com/watch?v=keOPXD-ojWY) our Founder Olivier gave to the CopenhagenJS meetup, explaining what a JavaScript developer can do to combat climate change. If you have any question, want early access to the app or just want to hang out with people fighting climate change with code, join [our Slack community](https://slack.tmrow.com).
 
 ## Structure of this repository
 
@@ -26,7 +26,7 @@ You can help by:
 - Giving us ideas, feedback and reporting bugs
 
 ### Integrating purchases and activities
-[We wrote a little article about what we believe makes a great integration](https://tmrow.slite.com/api/s/note/8LLSWazeBZZyS4BEQiLTnJ/What-makes-a-great-integration-for-Tomorrow). 
+[We wrote a little article about what we believe makes a great integration](https://tmrow.slite.com/api/s/note/8LLSWazeBZZyS4BEQiLTnJ/What-makes-a-great-integration-for-Tomorrow).
 However, that shouldn't stop you from doing an integration which is interesting and useful to you! Our only requirement is that it can be quantified in greenhouse gas emissions.
 
 Integrations can rely on an API or even on scrapers if necessary.
