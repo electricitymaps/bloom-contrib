@@ -1,4 +1,3 @@
-import merge from 'lodash/merge';
 import { AuthenticationError, HTTPError } from '../utils/errors';
 import objectToURLParams from './objectToURLParams';
 import { getCallbackUrl } from '../utils/oauth';
@@ -60,12 +59,9 @@ export default class {
       client_id: this.clientId,
       redirect_uri: getCallbackUrl(),
       response_type: 'code',
-    });
-    
-    const scopeParam = { scope: this.scope };
-    const URLParams = merge(requestURLParams, scopeParam);
+    }) + (this.scope || '');
 
-    const authorizationCodeRequestUrl = `${this.authorizeUrl}?${URLParams}`;
+    const authorizationCodeRequestUrl = `${this.authorizeUrl}?${requestURLParams}`;
     const authorizationResponseQuery = await openUrlAndWaitForCallback(
       authorizationCodeRequestUrl,
       getCallbackUrl()
