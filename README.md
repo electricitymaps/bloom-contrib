@@ -36,6 +36,7 @@ Here is the list of current 3rd party integrations:
 - ✈️ Tripit (tracks most airlines!)
 - 🚗 Uber (contributor:[willtonkin](https://github.com/willtonkin))
 - ✈️ Ryanair (contributor:[lauvrenn](https://github.com/lauvrenn))
+- ✈️ Wizzair (contributor:[lauvrenn](https://github.com/lauvrenn))
 - 🚂 Rejsekort
 - ⚡ Sense (contributor:[snarfed](https://github.com/snarfed))
 - ⚡ Linky (contributor:[bokub](https://github.com/bokub))
