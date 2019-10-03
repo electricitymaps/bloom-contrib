@@ -55,6 +55,7 @@ export default class {
 
   async authorize(openUrlAndWaitForCallback) {
     // Step 1 - user authorizes app
+    // "Automatic's" API doesn't accept the function's URL-encoded colons, hence scope attached separately
     const requestURLParams = objectToURLParams({
       client_id: this.clientId,
       redirect_uri: getCallbackUrl(),
