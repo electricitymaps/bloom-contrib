@@ -119,7 +119,15 @@ async function getActivities(pastBookings, customerId, token) {
 
 async function collect(state) {
   const { username, password } = state;
-  const { token, customerId } = await logIn(username, password);
+
+  // WHY: compatibility with previous versions' states to avoid users having to reconnect
+  let token = state.token;
+  let customerId = state.customerId;
+
+  if (token === undefined || customerId === undefined) {
+    ({ token, customerId } = await logIn(username, password));
+  }
+  
   const pastBookings = await getPastBookings(customerId, token);
   const activities = await getActivities(pastBookings, customerId, token);
 
