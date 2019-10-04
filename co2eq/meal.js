@@ -12,22 +12,26 @@ export const MEAL_WEIGHT = 400; // grams
 
 const MEALS_PER_DAY = 3;
 const CARBON_INTENSITY = { // kgCO2eq / kg
-// From http://www.greeneatz.com/foods-carbon-footprint.html
+// From http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf page 23
   'Lamb': 39.2,
   'Beef': 27.0,
   'Cheese': 13.5,
   'Pork': 12.1,
+  'Farmed Salmon': 11.9,
   'Turkey': 10.9,
   'Chicken': 6.9,
-  'Tuna': 6.1,
+  'Canned Tuna': 6.1,
   'Eggs': 4.8,
   'Potatoes': 2.9,
   'Rice': 2.7,
+  'Peanut Butter': 2.3,
   'Nuts': 2.3,
-  'Beans/tofu': 2.0,
-  'Vegetables': 2.0,
-  'Milk': 1.9,
-  'Fruit': 1.1,
+  'Yogurt': 2.2,
+  'Dry beans': 2.0,
+  'Tofu': 2.0,
+  'Broccoli': 2.0,
+  'Milk (2%)': 1.9,
+  'Tomatoes': 1.1,
   'Lentils': 0.9,
   // From https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
   'Pasta': 1.2,
