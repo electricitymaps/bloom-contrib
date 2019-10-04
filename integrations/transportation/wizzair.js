@@ -40,7 +40,8 @@ async function logIn(username, password) {
     });
 
   if (!res.ok) {
-    throw new HTTPError(res.text, res.status);
+    const text = await res.text();
+    throw new HTTPError(text, res.status);
   }
   return {};
 }
@@ -57,7 +58,8 @@ async function getPastBookings() {
     });
 
   if (!pastBookings.ok) {
-    throw new HTTPError(pastBookings.text, pastBookings.status);
+    const text = await pastBookings.text();
+    throw new HTTPError(text, pastBookings.status);
   }
 
   return { 
@@ -89,9 +91,10 @@ async function getAllFlights(booking) {
             flight: res.body.returnFlight || false,
             pnr: res.body.pnr,
           });
-        }, ((res) => {
+        }, (async (res) => {
           if (!res.ok) {
-            throw new HTTPError(res.text, res.status);
+            const text = await res.text();
+            throw new HTTPError(text, res.status);
           }
         })
       );
