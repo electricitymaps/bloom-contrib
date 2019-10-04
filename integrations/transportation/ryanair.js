@@ -19,7 +19,8 @@ async function logIn(username, password) {
     });
 
   if (!res.ok) {
-    throw new HTTPError(res.text, res.status);
+    const text = await res.text();
+    throw new HTTPError(text, res.status);
   }
 
   return {
@@ -87,7 +88,8 @@ async function getPastBookings(customerId, token) {
     .set('X-Auth-Token', token);
 
   if (!pastBookings.ok) {
-    throw new HTTPError(pastBookings.text, pastBookings.status);
+    const text = await pastBookings.text();
+    throw new HTTPError(text, pastBookings.status);
   }
   return pastBookings.body.bookings.filter(entry => entry.status === 'Confirmed');
 }
