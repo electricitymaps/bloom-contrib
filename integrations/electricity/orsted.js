@@ -129,7 +129,6 @@ const config = {
   label: 'Ørsted',
   country: 'DK',
   isPrivate: true,
-  isExperimental: true,
   type: ACTIVITY_TYPE_ELECTRICITY,
   signupLink: 'https://privat.orsted.dk/el/',
   contributors: ['FelixDQ'],
