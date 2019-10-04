@@ -16,7 +16,7 @@ const manager = new OAuth2Manager({
   baseUrl: 'https://api.automatic.com',
   clientId: env.AUTOMATIC_CLIENT_ID,
   clientSecret: env.AUTOMATIC_CLIENT_SECRET,
-  scope: '&scope=scope:public%20scope:user:profile%20scope:location%20scope:vehicle:profile%20scope:vehicle:events%20scope:trip%20scope:behavior',
+  scope: 'scope=scope:public%20scope:user:profile%20scope:location%20scope:vehicle:profile%20scope:vehicle:events%20scope:trip%20scope:behavior',
 });
 
 async function connect(requestLogin, requestWebView) {
@@ -81,10 +81,8 @@ async function fetchOffsetActivities(start, end, logger) {
     nextURL = data._metadata.next;
     counter += API_FETCH_LIMIT;
   }
-  
-  const allResults = await Promise.all(trips);
 
-  return allResults;
+  return trips;
 }
 
 async function collect(state, logger) {

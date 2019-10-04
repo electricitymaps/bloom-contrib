@@ -60,7 +60,7 @@ export default class {
       client_id: this.clientId,
       redirect_uri: getCallbackUrl(),
       response_type: 'code',
-    }) + (this.scope || '');
+    }) + (this.scope ? `&${this.scope}` : '');
 
     const authorizationCodeRequestUrl = `${this.authorizeUrl}?${requestURLParams}`;
     const authorizationResponseQuery = await openUrlAndWaitForCallback(
