@@ -34,14 +34,17 @@ Integrations can rely on an API or even on scrapers if necessary.
 #### Suggesting an integration
 Here is the list of current 3rd party integrations:
 - ✈️ Tripit (tracks most airlines!)
-- 🚗 Uber (contributor:[willtonkin](https://github.com/willtonkin))
 - ✈️ Ryanair (contributor:[lauvrenn](https://github.com/lauvrenn))
+- ✈️ Wizzair (contributor:[lauvrenn](https://github.com/lauvrenn))
 - 🚂 Rejsekort
 - ⚡ Sense (contributor:[snarfed](https://github.com/snarfed))
 - ⚡ Linky (contributor:[bokub](https://github.com/bokub))
 - ⚡ Barry
+- ⚡ Ørsted
 - 🚗 Renault Zoé
 - 🚗 Tesla Cockpit
+- 🚗 Uber (contributor:[willtonkin](https://github.com/willtonkin))
+- 🚗 Automatic (contributor:[lauvrenn](https://github.com/lauvrenn))
 
 You can [suggest a new integration here](https://github.com/tmrowco/tmrowapp-contrib/issues/new).
 

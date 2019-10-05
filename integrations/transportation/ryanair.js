@@ -1,7 +1,7 @@
 import moment from 'moment';
 import request from 'superagent';
 import { ACTIVITY_TYPE_TRANSPORTATION, TRANSPORTATION_MODE_PLANE } from '../../definitions';
-import { HTTPError, AuthenticationError } from '../utils/errors';
+import { HTTPError, ValidationError } from '../utils/errors';
 
 const agent = request.agent();
 const BASE_URL = 'https://api.ryanair.com/userprofile/rest/api/v1/';
@@ -19,7 +19,8 @@ async function logIn(username, password) {
     });
 
   if (!res.ok) {
-    throw new HTTPError(res.text, res.status);
+    const text = await res.text();
+    throw new HTTPError(text, res.status);
   }
 
   return {
@@ -28,7 +29,7 @@ async function logIn(username, password) {
   };
 }
 
-async function connect(requestLogin, requestWebView) {
+async function connect(requestLogin) {
   // Here we can request credentials etc..
 
   // Here we can use two functions to invoke screens
@@ -36,10 +37,15 @@ async function connect(requestLogin, requestWebView) {
   const { username, password } = await requestLogin();
 
   if (!(password || '').length) {
-    throw new AuthenticationError('Password cannot be empty');
+    throw new ValidationError('Password cannot be empty');
   }
 
-  return logIn(username, password);
+  await logIn(username, password);
+
+  return {
+    username,
+    password,
+  };
 }
 
 function disconnect() {
@@ -49,7 +55,7 @@ function disconnect() {
 
 async function getAllFlights(bookings, customerId, token) {
   const allFlights = [];
- 
+
   await Promise.all(bookings.map(async (entry) => {
     const res = await agent
       .put(`${PROFILE_URL}${customerId}/bookings/booking`)
@@ -82,7 +88,8 @@ async function getPastBookings(customerId, token) {
     .set('X-Auth-Token', token);
 
   if (!pastBookings.ok) {
-    throw new HTTPError(pastBookings.text, pastBookings.status);
+    const text = await pastBookings.text();
+    throw new HTTPError(text, pastBookings.status);
   }
   return pastBookings.body.bookings.filter(entry => entry.status === 'Confirmed');
 }
@@ -94,7 +101,8 @@ async function getActivities(pastBookings, customerId, token) {
   // WHY: there can be multiple bookings for the same flight (e.g. for different passengers)
   // HOW: filters flights with the same flight number
   const uniqueFlights = Array.from(new Set(allFlights.map(a => a.flightInfo.FlightNumber)))
-    .map(mappedFlightNumber => allFlights.find(a => a.flightInfo.FlightNumber === mappedFlightNumber));
+    .map(mappedFlightNumber => allFlights
+      .find(a => a.flightInfo.FlightNumber === mappedFlightNumber));
 
   const activities = Object.values(uniqueFlights)
     .map(k => ({
@@ -112,7 +120,16 @@ async function getActivities(pastBookings, customerId, token) {
 }
 
 async function collect(state) {
-  const { token, customerId } = state;
+  const { username, password } = state;
+
+  // WHY: compatibility with previous versions' states to avoid users having to reconnect
+  let token = state.token;
+  let customerId = state.customerId;
+
+  if (token === undefined || customerId === undefined) {
+    ({ token, customerId } = await logIn(username, password));
+  }
+  
   const pastBookings = await getPastBookings(customerId, token);
   const activities = await getActivities(pastBookings, customerId, token);
 
