@@ -10,6 +10,7 @@ export default class {
     baseUrl,
     clientId,
     clientSecret,
+    scope,
   }) {
     this.accessTokenUrl = accessTokenUrl;
     this.apiUrl = apiUrl;
@@ -18,6 +19,7 @@ export default class {
     this.clientId = clientId;
     this.clientSecret = clientSecret;
     this.state = {};
+    this.scope = scope;
   }
 
   async _authorizeWithRefreshToken() {
@@ -53,11 +55,13 @@ export default class {
 
   async authorize(openUrlAndWaitForCallback) {
     // Step 1 - user authorizes app
+    // "Automatic's" API doesn't accept the function's URL-encoded colons, hence scope attached separately
     const requestURLParams = objectToURLParams({
       client_id: this.clientId,
       redirect_uri: getCallbackUrl(),
       response_type: 'code',
-    });
+    }) + (this.scope ? `&${this.scope}` : '');
+
     const authorizationCodeRequestUrl = `${this.authorizeUrl}?${requestURLParams}`;
     const authorizationResponseQuery = await openUrlAndWaitForCallback(
       authorizationCodeRequestUrl,
