@@ -7,7 +7,7 @@ The [Tomorrow](https://www.tmrow.com) app automatically calculates your carbon f
 
 The app is private-by-design: data will stay on device, unless the user explicitly gives consent. This code is maintained by [Tomorrow](https://www.tmrow.com).
 
-Feel free to watch [the presentation](https://www.youtube.com/watch?v=keOPXD-ojWY) our Founder Olivier gave to the CopenhagenJS meetup, explaining what a JavaScript developer can do to combat climate change. If you have any question, want early access to the app or just want to hang out with people fighting climate change with code, join [our Slack community](https://slack.tmrow.com).
+Feel free to watch [the presentation](https://www.youtube.com/watch?v=keOPXD-ojWY) our Founder Olivier gave to the CopenhagenJS meetup, explaining what a JavaScript developer can do to combat climate change. If you have any questions, want early access to the app or just want to hang out with people fighting climate change with code, join [our Slack community](https://slack.tmrow.com).
 
 ## Structure of this repository
 
@@ -21,7 +21,7 @@ Feel free to watch [the presentation](https://www.youtube.com/watch?v=keOPXD-ojW
 ## How can I help?
 You can help by:
 
-- Helping us find, add and improve integrations to 3rd party services
+- Helping us find, add and improve integrations with 3rd party services
 - Helping us find, add and improve our Life Cycle Assesment / Carbon footprint data
 - Giving us ideas, feedback and reporting bugs
 
@@ -34,14 +34,17 @@ Integrations can rely on an API or even on scrapers if necessary.
 #### Suggesting an integration
 Here is the list of current 3rd party integrations:
 - ✈️ Tripit (tracks most airlines!)
-- 🚗 Uber (contributor:[willtonkin](https://github.com/willtonkin))
 - ✈️ Ryanair (contributor:[lauvrenn](https://github.com/lauvrenn))
+- ✈️ Wizzair (contributor:[lauvrenn](https://github.com/lauvrenn))
 - 🚂 Rejsekort
 - ⚡ Sense (contributor:[snarfed](https://github.com/snarfed))
 - ⚡ Linky (contributor:[bokub](https://github.com/bokub))
 - ⚡ Barry
+- ⚡ Ørsted
 - 🚗 Renault Zoé
 - 🚗 Tesla Cockpit
+- 🚗 Uber (contributor:[willtonkin](https://github.com/willtonkin))
+- 🚗 Automatic (contributor:[lauvrenn](https://github.com/lauvrenn))
 
 You can [suggest a new integration here](https://github.com/tmrowco/tmrowapp-contrib/issues/new).
 

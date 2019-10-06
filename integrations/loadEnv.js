@@ -1,3 +1,1 @@
-import env from './env.json';
-
-export default env;
+export { env as default } from './env.json';
