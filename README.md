@@ -112,6 +112,21 @@ Activities require a certain formatting:
 }
 ```
 
+##### Transaction activity formatting
+```javascript
+{
+  id, // a string that uniquely represents this activity
+  datetime, // a javascript Date object that represents the start of the activity
+  label, // a string that represents the transaction
+  merchantDisplayName, // (optional) a string that represents the merchant where the purchase was made
+  purchaseCategory, // a string that represents the category of the purchase. Categories can be found here: https://github.com/tmrowco/tmrowapp-contrib/blob/master/definitions.js
+  costAmount, // a floating point that represents the amount of the purchase
+  costCurrency, // a string that represents the currency in which the currency was made
+  bankDisplayName, // (required for integrations with banks) a string that represents the banks' name
+  bankIdentifier, // (required for integrations with banks) a string that uniquely represents the bank.
+}  
+```
+
 ### Adding or updating Life Cycle Assessment / Carbon Footprint of purchases and activities
 
 Our current models and Life Cycle assessments are accessible [here](https://github.com/tmrowco/tmrowapp-contrib/tree/master/co2eq). If you know better sources, please contribute with your knowledge.
@@ -119,3 +134,4 @@ Our current models and Life Cycle assessments are accessible [here](https://gith
 ### Giving ideas, features requests or bugs
 
 Please [add an issue here](https://github.com/tmrowco/tmrowapp-contrib/issues/new) or directly in the app.
+
