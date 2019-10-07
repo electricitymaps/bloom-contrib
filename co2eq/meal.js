@@ -1,10 +1,7 @@
 import {
   MEAL_TYPE_VEGAN,
   MEAL_TYPE_VEGETARIAN,
-  MEAL_TYPE_FISH,
-  MEAL_TYPE_LOW_MEAT,
-  MEAL_TYPE_MED_MEAT,
-  MEAL_TYPE_HIGH_MEAT,  
+  MEAL_TYPE_MEAT_OR_FISH,
 } from '../definitions';
 
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
@@ -174,23 +171,14 @@ export function carbonIntensityOfIngredient(ingredient) {
 Carbon intensity of meals (kgCO2 per meal).
 */
 function carbonIntensityOfMealType(mealType) {
-  // Source: https://link.springer.com/article/10.1007/s10584-014-1169-1
+  // Source: https://www.nature.com/articles/s41598-017-06466-8
   switch (mealType) {
     case MEAL_TYPE_VEGAN:
-      return 2890 / MEALS_PER_DAY / 1000.0;
+      return 2336.1 / MEALS_PER_DAY / 1000.0;
     case MEAL_TYPE_VEGETARIAN:
-      return 3810 / MEALS_PER_DAY / 1000.0;
-    case MEAL_TYPE_FISH:
-      return 3910 / MEALS_PER_DAY / 1000.0;
-    case MEAL_TYPE_LOW_MEAT: 
-      // <50g/day
-      return 4670 / MEALS_PER_DAY / 1000.0; 
-    case MEAL_TYPE_MED_MEAT: 
-      // 50–99g/day
-      return 5630 / MEALS_PER_DAY / 1000.0;
-    case MEAL_TYPE_HIGH_MEAT: 
-      // ≥100g/day
-      return 7190 / MEALS_PER_DAY / 1000.0;      
+      return 2598.3 / MEALS_PER_DAY / 1000.0;
+    case MEAL_TYPE_MEAT_OR_FISH:
+      return 3959.3 / MEALS_PER_DAY / 1000.0;    
     default:
       throw Error(`Unknown meal type: ${mealType}`);
   }
