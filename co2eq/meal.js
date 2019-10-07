@@ -28,6 +28,8 @@ const CARBON_INTENSITY = { // kgCO2eq / kg
   'Flatfish': 6.2, // From https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
   'Herring': 1.16, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Prawns/shrimp': 7.8, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Shrimp (Fresh)': 3, // https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
+  'Shrimp (Frozen)': 10.5, // https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
   'Clams': 0.1, // From https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
   'Lobster': 27.8, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Mussels': 9.51, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
@@ -122,6 +124,7 @@ const CARBON_INTENSITY = { // kgCO2eq / kg
   'Morning cereals': 0.864, // From http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
   'Oats': 0.38, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Green beans': 0.31, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Beans/tofu': 2.0, // From http://www.greeneatz.com/foods-carbon-footprint.html
   'Peas': 0.38, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Butter beans': 0.39, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Chestnuts': 0.43, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
