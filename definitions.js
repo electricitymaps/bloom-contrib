@@ -1,4 +1,4 @@
-// Declare all types
+// Declare all typefbrg
 // The value should not changed as it is stored in the database
 // The variable name can however be changed
 export const ACTIVITY_TYPE_ELECTRICITY = 'ACTIVITY_TYPE_ELECTRICITY';
