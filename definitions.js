@@ -20,11 +20,7 @@ export const TRANSPORTATION_MODE_ESCOOTER = 'escooter';
 /* Meals */
 export const MEAL_TYPE_VEGAN = 'MEAL_TYPE_VEGAN';
 export const MEAL_TYPE_VEGETARIAN = 'MEAL_TYPE_VEGETARIAN';
-export const MEAL_TYPE_FISH = 'MEAL_TYPE_FISH';
-export const MEAL_TYPE_LOW_MEAT = 'MEAL_TYPE_LOW_MEAT';
-export const MEAL_TYPE_MED_MEAT = 'MEAL_TYPE_MED_MEAT';
-export const MEAL_TYPE_HIGH_MEAT = 'MEAL_TYPE_HIGH_MEAT';
-
+export const MEAL_TYPE_MEAT_OR_FISH = 'MEAL_TYPE_MEAT_OR_FISH';
 
 /* Purchases */
 // Food and beverages
