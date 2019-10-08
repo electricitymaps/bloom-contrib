@@ -95,6 +95,7 @@ export function carbonEmissions(activity) {
   return carbonIntensity(activity.transportationMode) * distanceKilometers;
 }
 
+//make model and year must be input correctly how they are in the 
 export function modelEmisionsPerMile(make, year, model, miles) {
 
   const ID_URL = `https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year=${year}&make=${make}&model=${model}`;
@@ -102,6 +103,8 @@ export function modelEmisionsPerMile(make, year, model, miles) {
   const res = await fetch(ID_URL, {
     method: 'GET'
   });
+
+  //insert a res !ok error check here. 
 
   const id = res.getElementsByTagName("value")[0].childNodes[0].nodeValue;
 
@@ -130,7 +133,7 @@ export function modelEmisionsPerMile(make, year, model, miles) {
   }
   else {
     if(!id){
-      throw new Error(`Couldn't find your vehicle, your make = ${make} model=${model} or year = ${year} may not be in the system, or may be formatted differently than how they were input`);
+      throw new Error(`Couldn't find your vehicle, your make = ${make} model= ${model} or year = ${year} may not be in the system, or may be formatted differently than how they were input`);
     }
 }
 }
