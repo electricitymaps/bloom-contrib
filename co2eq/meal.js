@@ -65,7 +65,7 @@ const CARBON_INTENSITY = { // kgCO2eq / kg
   'Butter': 9.25, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   // vegetables
   'Potatoes': 0.18, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Vegetables': 2.0, // http://www.greeneatz.com/foods-carbon-footprint.html note this is incorrect, should be Broccoli
+  'Vegetables': 1.32, // https://orbit.dtu.dk/ws/files/110722384/Climate_friendly_dietary_guidelines.pdf
   'Broccoli': 2.0, // http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf page 23
   'Onion': 0.17, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Celery': 0.18, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
@@ -83,8 +83,7 @@ const CARBON_INTENSITY = { // kgCO2eq / kg
   'Olives': 0.63, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Peppers': 0.66, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   // fruits
-  'Fruit': 1.1, // http://www.greeneatz.com/foods-carbon-footprint.html note this is incorrect, should be Tomatoes
-  'Tomatoes': 1.1, // http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf page 23
+  'Fruit': 0.52, // https://orbit.dtu.dk/ws/files/110722384/Climate_friendly_dietary_guidelines.pdf
   'Zucchini': 0.21, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Cucumbers': 0.23, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Pumpkins': 0.25, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
