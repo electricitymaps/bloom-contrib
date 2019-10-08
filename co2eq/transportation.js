@@ -94,3 +94,43 @@ export function carbonEmissions(activity) {
   }
   return carbonIntensity(activity.transportationMode) * distanceKilometers;
 }
+
+export function modelEmisionsPerMile(make, year, model, miles) {
+
+  const ID_URL = `https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year=${year}&make=${make}&model=${model}`;
+  
+  const res = await fetch(ID_URL, {
+    method: 'GET'
+  });
+
+  const id = res.getElementsByTagName("value")[0].childNodes[0].nodeValue;
+
+  const CO2_URL = `https://www.fueleconomy.gov/ws/rest/vehicle/${id}`
+
+  const co2Res = await fetch(CO2_URL, {
+    method: 'GET'
+  });
+
+  const co2 = co2Res.getElementsByTagName("co2")[0].childNodes[0].nodeValue;
+  const co2A = co2Res.getElementsByTagName("co2A")[0].childNodes[0].nodeValue;
+  const co2TailpipeAGpm = co2Res.getElementsByTagName("co2TailpipeAGpm")[0].childNodes[0].nodeValue;
+  const co2TailpipeGpm = co2Res.getElementsByTagName("co2TailpipeGpm")[0].childNodes[0].nodeValue;
+
+  if (co2TailpipeGpm > 0) {
+    return co2TailpipeGpm * miles / 1000;
+  }
+  else if (co2 > 0) {
+    return co2 * miles / 1000; 
+  }
+  else if (co2TailpipeAGpm > 0) {
+    return co2TailpipeAGpm * miles / 1000;
+  }
+  else if (co2A > 0) {
+    return co2A * miles / 1000; 
+  }
+  else {
+    if(!id){
+      throw new Error(`Couldn't find your vehicle, your make = ${make} model=${model} or year = ${year} may not be in the system, or may be formatted differently than how they were input`);
+    }
+}
+}
