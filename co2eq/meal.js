@@ -24,6 +24,7 @@ const CARBON_INTENSITY = { // kgCO2eq / kg
   'Buffalo': 60.43, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   // seafood
   'Tuna': 2.15, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Canned Tuna': 6.1, // http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf page 23
   'Cod': 3.51, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Flatfish': 6.2, // From https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
   'Herring': 1.16, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
@@ -39,6 +40,7 @@ const CARBON_INTENSITY = { // kgCO2eq / kg
   'Sea bass': 3.27, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Haddock': 3.41, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Salmon': 3.47, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Farmed Salmon': 11.9, // http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf page 23
   'Fish (all species)': 3.49, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Whiting': 2.66, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Eel': 3.88, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
@@ -63,7 +65,8 @@ const CARBON_INTENSITY = { // kgCO2eq / kg
   'Butter': 9.25, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   // vegetables
   'Potatoes': 0.18, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Vegetables': 2.0, // http://www.greeneatz.com/foods-carbon-footprint.html
+  'Vegetables': 1.32, // https://orbit.dtu.dk/ws/files/110722384/Climate_friendly_dietary_guidelines.pdf
+  'Broccoli': 2.0, // http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf page 23
   'Onion': 0.17, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Celery': 0.18, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Carrots': 0.2, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
@@ -80,7 +83,7 @@ const CARBON_INTENSITY = { // kgCO2eq / kg
   'Olives': 0.63, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Peppers': 0.66, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   // fruits
-  'Fruit': 1.1, // http://www.greeneatz.com/foods-carbon-footprint.html
+  'Fruit': 0.52, // https://orbit.dtu.dk/ws/files/110722384/Climate_friendly_dietary_guidelines.pdf
   'Zucchini': 0.21, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Cucumbers': 0.23, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Pumpkins': 0.25, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
@@ -117,7 +120,7 @@ const CARBON_INTENSITY = { // kgCO2eq / kg
   'Eggplants': 1.35, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   // staples
   'Rice': 2.55, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Nuts': 2.3, // http://www.greeneatz.com/foods-carbon-footprint.html
+  'Nuts': 2.3, // http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf page 23
   'Pasta': 1.2, // From https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
   'Rye bread': 0.93, // From http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
   'White bread': 1.054, // From http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
@@ -125,6 +128,8 @@ const CARBON_INTENSITY = { // kgCO2eq / kg
   'Oats': 0.38, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Green beans': 0.31, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Beans/tofu': 2.0, // From http://www.greeneatz.com/foods-carbon-footprint.html
+  'Dry beans': 2.0, // http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf page 23
+  'Tofu': 2.0, // http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf page 23
   'Peas': 0.38, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Butter beans': 0.39, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Chestnuts': 0.43, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
@@ -135,6 +140,7 @@ const CARBON_INTENSITY = { // kgCO2eq / kg
   'Barley': 0.43, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Chick peas': 0.77, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Peanuts': 0.83, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Peanut Butter': 2.3, // http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf page 23
   'Sesame seeds': 0.88, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Hazelnuts': 0.97, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Lentils': 1.03, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
