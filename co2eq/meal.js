@@ -40,7 +40,7 @@ const CARBON_INTENSITY = { // kgCO2eq / kg
   'Sea bass': 3.27, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Haddock': 3.41, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Salmon': 3.47, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Farmed Salmon': 11.9, http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf page 23
+  'Farmed Salmon': 11.9, // http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf page 23
   'Fish (all species)': 3.49, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Whiting': 2.66, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Eel': 3.88, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
@@ -60,13 +60,12 @@ const CARBON_INTENSITY = { // kgCO2eq / kg
   // dairy
   'Cheese': 8.55, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Milk': 1.29, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Milk (2%)': 1.9, // http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf page 23
   'Cream': 5.64, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Milk Yogurt': 1.31, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
-  'Yogurt': 2.2, // http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf page 23
   'Butter': 9.25, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   // vegetables
   'Potatoes': 0.18, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Vegetables': 2.0, // http://www.greeneatz.com/foods-carbon-footprint.html note this is incorrect, should be Broccoli
   'Broccoli': 2.0, // http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf page 23
   'Onion': 0.17, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Celery': 0.18, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
@@ -84,6 +83,7 @@ const CARBON_INTENSITY = { // kgCO2eq / kg
   'Olives': 0.63, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Peppers': 0.66, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   // fruits
+  'Fruit': 1.1, // http://www.greeneatz.com/foods-carbon-footprint.html note this is incorrect, should be Tomatoes
   'Tomatoes': 1.1, // http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf page 23
   'Zucchini': 0.21, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Cucumbers': 0.23, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
@@ -128,6 +128,7 @@ const CARBON_INTENSITY = { // kgCO2eq / kg
   'Morning cereals': 0.864, // From http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
   'Oats': 0.38, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
   'Green beans': 0.31, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
+  'Beans/tofu': 2.0, // From http://www.greeneatz.com/foods-carbon-footprint.html
   'Dry beans': 2.0, // http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf page 23
   'Tofu': 2.0, // http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf page 23
   'Peas': 0.38, // https://www.sciencedirect.com/science/article/pii/S0959652616303584
