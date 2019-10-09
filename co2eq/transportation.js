@@ -95,14 +95,23 @@ export function carbonEmissions(activity) {
   return carbonIntensity(activity.transportationMode) * distanceKilometers;
 }
 
+export function getModelsByMake(make, year) {
+  const MODELS_URL = `https://www.fueleconomy.gov/ws/rest/vehicle/menu/model?year=${year}&make=${make}`;
+
+  const res = await fetch(MODELS_URL, {method: 'GET'});
+
+  
+  //check if resok  before continuing.
+  const models = res.getElementsByTagName("model"); //check how to get multiple peices of data from a XML or CSV
+
+}
+
 //make model and year must be input correctly how they are in the 
 export function idFromMakeModelYear(make, year, model) {
 
   const ID_URL = `https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year=${year}&make=${make}&model=${model}`;
   
-  const res = await fetch(ID_URL, {
-    method: 'GET'
-  });
+  const res = await fetch(ID_URL, {method: 'GET'});
 
   //insert a res !ok error check here. 
   //This may be res.body or something like that.  Need to verify these fields
@@ -119,9 +128,9 @@ export function getCo2WithId(id, miles) {
 
   const CO2_URL = `https://www.fueleconomy.gov/ws/rest/vehicle/${id}`
 
-  const co2Res = await fetch(CO2_URL, {
-    method: 'GET'
-  });
+  const co2Res = await fetch(CO2_URL, {method: 'GET'});
+
+  //Check if res is ok before continuing
 
   const co2 = co2Res.getElementsByTagName("co2")[0].childNodes[0].nodeValue;
   const co2A = co2Res.getElementsByTagName("co2A")[0].childNodes[0].nodeValue;
