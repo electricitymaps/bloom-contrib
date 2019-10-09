@@ -96,7 +96,7 @@ export function carbonEmissions(activity) {
 }
 
 //make model and year must be input correctly how they are in the 
-export function modelEmisionsPerMile(make, year, model, miles) {
+export function idFromMakeModelYear(make, year, model) {
 
   const ID_URL = `https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year=${year}&make=${make}&model=${model}`;
   
@@ -105,8 +105,17 @@ export function modelEmisionsPerMile(make, year, model, miles) {
   });
 
   //insert a res !ok error check here. 
-
+  //This may be res.body or something like that.  Need to verify these fields
   const id = res.getElementsByTagName("value")[0].childNodes[0].nodeValue;
+  if(id){
+    return id
+  }
+  else {
+    throw new Error (`Couldn't find your vehicle, your make = ${make} model= ${model} or year = ${year} may not be in the system, or may be formatted differently than how they were input`)
+  }
+}
+
+export function getCo2WithId(id, miles) {
 
   const CO2_URL = `https://www.fueleconomy.gov/ws/rest/vehicle/${id}`
 
@@ -132,8 +141,6 @@ export function modelEmisionsPerMile(make, year, model, miles) {
     return co2A * miles / 1000; 
   }
   else {
-    if(!id){
-      throw new Error(`Couldn't find your vehicle, your make = ${make} model= ${model} or year = ${year} may not be in the system, or may be formatted differently than how they were input`);
-    }
+    throw new Error(`Couldn't find information on your vehicle by id, your id = ${id}`);
 }
 }
