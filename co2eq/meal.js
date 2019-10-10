@@ -35,10 +35,10 @@ export function carbonIntensityOfIngredient(ingredient) {
   if (!entry) {
     throw new Error(`Unknown ingredient: ${ingredient}`);
   }
-  if (!entry.intensity) {
+  if (!entry.intensityKilograms) {
     throw new Error(`Missing carbon intensity for ingredient: ${ingredient}`);
   }
-  return entry.intensity;
+  return entry.intensityKilograms;
 }
 
 /*

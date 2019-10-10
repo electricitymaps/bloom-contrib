@@ -83,78 +83,29 @@ export function getDescendants(entry, filter = (_ => true), includeRoot = false)
 
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'purchase';
-export const modelVersion = 2; // **** TODO: Model version must be taken from yml???
-// *** TODO: If meal depends on footprints.yml, then model version must follow!
+export const modelVersion = 2;
 
 /*
   Carbon intensity of category (kg of CO2 per euro spent)
 */
 export function carbonIntensity(activity) {
   // Source: http://www.balticproject.org/en/calculator-page
-  switch (activity.purchaseCategory) {
-    case PURCHASE_CATEGORY_FOOD_SUPERMARKET:
-      return 49.02 / 1000;
-    case PURCHASE_CATEGORY_FOOD_BAKERY:
-      return 63.34 / 1000;
-    case PURCHASE_CATEGORY_STORE_DEPARTMENT:
-      return 42.93 / 1000;
-    case PURCHASE_CATEGORY_STORE_CLOTHING:
-      return 29.6 / 1000;
-    case PURCHASE_CATEGORY_STORE_HARDWARE:
-      return 35.66 / 1000;
-    case PURCHASE_CATEGORY_STORE_PET:
-      return 63.34 / 1000;
-    case PURCHASE_CATEGORY_STORE_ELECTRONIC:
-      return 25.22 / 1000;
-    case PURCHASE_CATEGORY_STORE_BOOKS:
-      return 26.98 / 1000;
-    case PURCHASE_CATEGORY_STORE_GARDEN:
-      return 36.29 / 1000;
-    case PURCHASE_CATEGORY_STORE_FLORIST:
-      return 46.96 / 1000;
-    case PURCHASE_CATEGORY_STORE_BARBER_BEAUTY:
-      return 23.0 / 1000;
-    case PURCHASE_CATEGORY_STORE_HOUSE_FURNISHING:
-      return 69.49 / 1000;
-    case PURCHASE_CATEGORY_STORE_EQUIPMENT_FURNITURE:
-      return 36.23 / 1000;
-    case PURCHASE_CATEGORY_STORE_HOUSEHOLD_APPLIANCE:
-      return 36.15 / 1000;
-    case PURCHASE_CATEGORY_HEALTHCARE_PHARMARCY:
-      return 43.87 / 1000;
-    case PURCHASE_CATEGORY_HEALTHCARE_DOCTOR:
-      return 56.75 / 1000;
-    case PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARKING:
-      return 195.71 / 1000;
-    case PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARTS:
-      return 84.18 / 1000;
-    case PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_SERVICE:
-      return 42.41 / 1000;
-    case PURCHASE_CATEGORY_ENTERTAINMENT_CIGAR_STORES:
-      return 46.27 / 1000;
-    case PURCHASE_CATEGORY_ENTERTAINMENT_AMUSEMENT_PARKS:
-      return 103.14 / 1000;
-    case PURCHASE_CATEGORY_ENTERTAINMENT_MOVIE_THEATER:
-      return 27.38 / 1000;
-    case PURCHASE_CATEGORY_ENTERTAINMENT_HOTEL:
-      return 434.79 / 1000;
-    case PURCHASE_CATEGORY_ENTERTAINMENT_BAR_NIGHTCLUB:
-      return 81.05 / 1000;
-    case PURCHASE_CATEGORY_ENTERTAINMENT_GAMBLING:
-      return 380.66 / 1000;
-    case PURCHASE_CATEGORY_ENTERTAINMENT_CRUISE_LINES:
-      return 434.79 / 1000;
-    case PURCHASE_CATEGORY_ENTERTAINMENT_LIQUOR_STORE:
-      return 80.61 / 1000;
-    default:
-      throw new Error(`Unknown purchase category: ${activity.purchaseCategory}`);
+  const { purchaseType } = activity;
+  const entry = getEntryByKey(purchaseType);
+  if (!entry) {
+    throw new Error(`Unknown purchaseType: ${purchaseType}`);
   }
+  if (!entry.intensityKilograms) {
+    throw new Error(`Missing carbon intensity for purchaseType: ${purchaseType}`);
+  }
+  return entry.intensityKilograms;
 }
 
 /*
   Carbon emissions of an activity (in kgCO2eq)
 */
 export function carbonEmissions(activity) {
+  // TODO: throw error if we're multiplying incompatible units
   return (
     (carbonIntensity(activity) * convertToEuro(activity.costAmount, activity.costCurrency))
     / (activity.participants || 1)
