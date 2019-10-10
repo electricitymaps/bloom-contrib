@@ -34,7 +34,7 @@ import footprints from './footprints.yml';
 const ENTRY_BY_KEY = {};
 
 // Traverse and index tree
-function indexNodeChildren(branch, i = 0) {
+function indexNodeChildren(branch, i = 1) {
   Object.entries(branch['_children'] || []).forEach(([k, v]) => {
     if (ENTRY_BY_KEY[k]) {
       throw new Error(`Error while indexing footprint tree: There's already an entry for ${k}`);
@@ -43,13 +43,16 @@ function indexNodeChildren(branch, i = 0) {
     // Also make sure we add additional props
     v.key = k;
     v.level = i;
-    v.ancestorKey = branch.key;
+    v.parentKey = branch.key;
     // Traverse further
     indexNodeChildren(v, i + 1);
   });
 }
 indexNodeChildren(footprints);
 
+export function getRootEntry() {
+  return footprints;
+}
 export function getEntryByKey(key) {
   return ENTRY_BY_KEY[key];
 }
@@ -60,15 +63,15 @@ export function getEntryByPath(path) {
   }
   return entry;
 }
-export function getDescendants(entry, includeRoot = false) {
+export function getDescendants(entry, filter = (_ => true), includeRoot = false) {
   if (!entry) { throw new Error('Invalid `entry`'); }
   let descendants = includeRoot
     ? { [entry.key]: entry }
     : {};
-  Object.values(entry['_children'] || []).forEach((child) => {
+  Object.values(entry['_children'] || []).filter(filter).forEach((child) => {
     descendants = {
       ...descendants,
-      ...getDescendants(child, true),
+      ...getDescendants(child, filter, true),
     };
   });
   return descendants;

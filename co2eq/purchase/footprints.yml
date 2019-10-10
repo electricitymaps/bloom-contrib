@@ -1,5 +1,27 @@
 _children:
 
+  Fuel:
+    intensity: 1.186
+    unit: EUR
+    source: http://www.balticproject.org/en/calculator-page
+    icon: 'gas-pump'
+    oldKeys:
+      - PURCHASE_CATEGORY_TRANSPORTATION_FUEL
+
+    _children:
+
+      Natural gas:
+        intensity: 0 # TODO: UPDATE!
+        unit: L
+        source: ...
+        icon: burn
+
+      Oil:
+        intensity: 0 # TODO: Update
+        unit: L
+        source: ...
+        icon: 'oil-can'
+
   Food:
 
     _children:
