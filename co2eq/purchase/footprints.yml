@@ -1000,9 +1000,9 @@ _children:
             source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             icon: glass
 
-Electronics:
+  Electronics:
     _children:
-      #Phones
+      # Phones
       Apple, iPhone 11 Pro Max:
         intensityKilograms: 86
         unit: item
