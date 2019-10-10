@@ -284,17 +284,17 @@ _children:
             intensityKilograms: 3.09  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Rabbit:
             intensityKilograms: 4.7  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Buffalo:
             intensityKilograms: 60.43  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
 
       Fruits:
         intensityKilograms: 0.52   # gCO2e / unit
@@ -306,162 +306,162 @@ _children:
             intensityKilograms: 0.21  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Cucumbers:
             intensityKilograms: 0.23  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Pumpkins:
             intensityKilograms: 0.25  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Melons:
             intensityKilograms: 0.25  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Lemons:
             intensityKilograms: 0.26  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Limes:
             intensityKilograms: 0.26  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Guavas:
             intensityKilograms: 0.28  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Apples:
             intensityKilograms: 0.29  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Pears:
             intensityKilograms: 0.31  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Quinces:
             intensityKilograms: 0.31  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Dates:
             intensityKilograms: 0.32  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Watermelon:
             intensityKilograms: 0.32  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Orange:
             intensityKilograms: 0.33  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Kiwi:
             intensityKilograms: 0.36  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Grapes:
             intensityKilograms: 0.37  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Cherries:
             intensityKilograms: 0.39  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Apricot:
             intensityKilograms: 0.43  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Peaches:
             intensityKilograms: 0.43  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Nectarines:
             intensityKilograms: 0.43  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Figs:
             intensityKilograms: 0.43  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Mandarin:
             intensityKilograms: 0.45  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Pineapples:
             intensityKilograms: 0.5  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Grapefruit:
             intensityKilograms: 0.51  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Pomelo:
             intensityKilograms: 0.51  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Tangerines:
             intensityKilograms: 0.51  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Strawberries:
             intensityKilograms: 0.58  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Bananas:
             intensityKilograms: 0.72  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Raspberries:
             intensityKilograms: 0.84  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Currants:
             intensityKilograms: 0.84  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Gooseberries:
             intensityKilograms: 0.84  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Cranberries:
             intensityKilograms: 0.92  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Blueberries:
             intensityKilograms: 0.92  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
       Seafood:
         intensityKilograms: 3.49  # gCO2e / unit
         unit: g
@@ -497,32 +497,32 @@ _children:
             intensityKilograms: 7.8  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Shrimp (Fresh):
             intensityKilograms: 3  # gCO2e / unit
             unit: g
             source: https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
-            icon: 
+            icon:
           Shrimp (Frozen):
             intensityKilograms: 10.5  # gCO2e / unit
             unit: g
             source: https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
-            icon: 
+            icon:
           Clams:
             intensityKilograms: 0.1  # gCO2e / unit
             unit: g
             source: From https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
-            icon: 
+            icon:
           Lobster:
             intensityKilograms: 27.8  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Mussels:
             intensityKilograms: 9.51  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Pollock:
             intensityKilograms: 1.61  # gCO2e / unit
             unit: g
@@ -597,7 +597,7 @@ _children:
             intensityKilograms: 7.13  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Brill:
             intensityKilograms: 8.41  # gCO2e / unit
             unit: g
@@ -642,7 +642,7 @@ _children:
         intensityKilograms:
         unit: g
         source:
-        icon: 
+        icon:
         _children:
           Cheese:
             intensityKilograms: 8.55  # gCO2e / unit
@@ -658,17 +658,17 @@ _children:
             intensityKilograms: 5.64  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Milk Yogurt:
             intensityKilograms: 1.31  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Butter:
             intensityKilograms: 9.25  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
       Vegetables:
         intensityKilograms: 1.32 gCO2e / unit
         unit: g
@@ -679,102 +679,102 @@ _children:
             intensityKilograms: 0.18  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Broccoli:
             intensityKilograms: 2.0  # gCO2e / unit
             unit: g
             source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
-            icon: 
+            icon:
           Onion:
             intensityKilograms: 0.17  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Celery:
             intensityKilograms: 0.18  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Carrots:
             intensityKilograms: 0.2  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Beetroot:
             intensityKilograms: 0.24  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Mushrooms:
             intensityKilograms: 0.27  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Rutabage:
             intensityKilograms: 0.29  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Fennel:
             intensityKilograms: 0.48  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Artichokes:
             intensityKilograms: 0.48  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Spinach:
             intensityKilograms: 0.54  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Garlic:
             intensityKilograms: 0.57  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Aspargus:
             intensityKilograms: 0.83  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Ginger:
             intensityKilograms: 0.88  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Tomatoes:
             intensityKilograms: 0.45  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Olives:
             intensityKilograms: 0.63  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Peppers:
             intensityKilograms: 0.66  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Avocados:
             intensityKilograms: 1.3  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Eggplants:
             intensityKilograms: 1.35  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
       Grains:
         intensityKilograms:
         unit: g
         source:
-        icon: 
+        icon:
         _children:
           Rice:
             intensityKilograms: 2.55  # gCO2e / unit
@@ -800,17 +800,17 @@ _children:
             intensityKilograms: 0.864  # gCO2e / unit
             unit: g
             source: From http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
-            icon: 
+            icon:
           Oats:
             intensityKilograms: 0.38  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Green beans:
             intensityKilograms: 0.31  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Beans/tofu:
             intensityKilograms: 2.0  # gCO2e / unit
             unit: g
@@ -820,72 +820,72 @@ _children:
             intensityKilograms: 2.0  # gCO2e / unit
             unit: g
             source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
-            icon: 
+            icon:
           Tofu:
             intensityKilograms: 2.0  # gCO2e / unit
             unit: g
             source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
-            icon: 
+            icon:
           Peas:
             intensityKilograms: 0.38  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Butter beans:
             intensityKilograms: 0.39  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Corn:
             intensityKilograms: 0.47  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Soybean:
             intensityKilograms: 0.49  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Wheat:
             intensityKilograms: 0.52  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Rye:
             intensityKilograms: 0.38  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Barley:
             intensityKilograms: 0.43  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Chick peas:
             intensityKilograms: 0.77  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Sesame seeds:
             intensityKilograms: 0.88  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Lentils:
             intensityKilograms: 1.03  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Quinoa:
             intensityKilograms: 1.15  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Sunflower seed:
             intensityKilograms: 1.41  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
 
       Nuts:
         intensityKilograms: 2.3  # gCO2e / unit
@@ -897,47 +897,47 @@ _children:
             intensityKilograms: 0.83  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Peanut Butter:
             intensityKilograms: 2.3  # gCO2e / unit
             unit: g
             source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
-            icon: 
+            icon:
           Cashew nut:
             intensityKilograms: 1.44  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Walnuts:
             intensityKilograms: 1.51  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Pistachios:
             intensityKilograms: 1.53  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Almonds:
             intensityKilograms: 1.54  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Hazelnuts:
             intensityKilograms: 0.97  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Chestnuts:
             intensityKilograms: 0.43  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
       Beverages:
         intensityKilograms:
         unit: g
         source:
-        icon: 
+        icon:
         _children:
           Almond milk:
             intensityKilograms: 0.42  # gCO2e / unit
@@ -958,7 +958,7 @@ _children:
             intensityKilograms: 1.123  # gCO2e / unit
             unit: g
             source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
-            icon: 
+            icon:
           Wine:
             intensityKilograms: 2.344  # gCO2e / unit
             unit: g
@@ -1039,7 +1039,7 @@ Electronics:
         usage: 17%
         source: https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_8_Plus_PER_sept2017.pdf
         icon: mobile
-      # Tablets    
+      # Tablets
       Apple, iPad Pro (12.9-inch) (3rd generation):
         intensityKilograms: 136
         unit: item
@@ -1070,7 +1070,7 @@ Electronics:
         usage: 15%
         source: https://www.apple.com/lae/environment/pdf/products/ipad/iPadmini_PER_Mar2019.pdf
         icon: tablet
-      # Watches          
+      # Watches
       Apple, Apple Watch Series 5 (GPS + Cellular):
         intensityKilograms: 40
         unit: item
@@ -1089,7 +1089,7 @@ Electronics:
         usage: 20%
         source: https://www.apple.com/lae/environment/pdf/products/watch/Apple_Watch_Series3_GPS_PER_sept2018.pdf
         icon: watch-fitness
-      # Laptop computers        
+      # Laptop computers
       Apple, MacBook Pro 15-inch:
         intensityKilograms: 334
         unit: item
@@ -1108,7 +1108,7 @@ Electronics:
         usage: 6%
         source: https://www.apple.com/lae/environment/pdf/products/notebooks/13-inch_MacBookAir_w_Retina_PER_June2019.pdf
         icon: laptop
-      # Desktop computers 
+      # Desktop computers
       Apple, iMac 27-inch:
         intensityKilograms: 993
         unit: item
@@ -1145,14 +1145,14 @@ Electronics:
         usage: 3%
         source: https://www.apple.com/lae/environment/pdf/products/desktops/Macmini_PER_oct2018.pdf
         icon: desktop
-      # Speakers     
+      # Speakers
       Apple, Homepod:
         intensityKilograms: 146
         unit: item
         usage: 41%
         source: https://www.apple.com/lae/environment/pdf/products/homepod/HomePod_PER_feb2018.pdf
         icon: speakers
-      # Set top boxes           
+      # Set top boxes
       Apple, Apple TV 4K:
         intensityKilograms: 58
         unit: item
@@ -1165,7 +1165,7 @@ Electronics:
         usage: 30%
         source: https://www.apple.com/lae/environment/pdf/products/appletv/Apple_TV_PER_sept2017.pdf
         icon: router
-      # Music players   
+      # Music players
       Apple, iPod touch:
         intensityKilograms: 32
         unit: item
