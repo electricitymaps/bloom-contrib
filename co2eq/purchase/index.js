@@ -15,7 +15,6 @@ import {
   PURCHASE_CATEGORY_STORE_HOUSEHOLD_APPLIANCE,
   PURCHASE_CATEGORY_HEALTHCARE_PHARMARCY,
   PURCHASE_CATEGORY_HEALTHCARE_DOCTOR,
-  PURCHASE_CATEGORY_TRANSPORTATION_FUEL,
   PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARKING,
   PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARTS,
   PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_SERVICE,
@@ -32,6 +31,7 @@ import { convertToEuro } from '../../integrations/utils/currency/currency';
 import footprints from './footprints.yml';
 
 const ENTRY_BY_KEY = {};
+export const purchaseIcon = {};
 
 // Traverse and index tree
 function indexNodeChildren(branch, i = 1) {
@@ -40,6 +40,7 @@ function indexNodeChildren(branch, i = 1) {
       throw new Error(`Error while indexing footprint tree: There's already an entry for ${k}`);
     }
     ENTRY_BY_KEY[k] = v;
+    purchaseIcon[k] = v.icon;
     // Also make sure we add additional props
     v.key = k;
     v.level = i;
@@ -64,6 +65,8 @@ export function getEntryByPath(path) {
   return entry;
 }
 export function getDescendants(entry, filter = (_ => true), includeRoot = false) {
+  // Note: `getDescendants` is very close to `indexNodeChildren`
+  // Note2: if a node gets filtered out, its children won't be visited
   if (!entry) { throw new Error('Invalid `entry`'); }
   let descendants = includeRoot
     ? { [entry.key]: entry }
@@ -121,8 +124,6 @@ export function carbonIntensity(activity) {
       return 43.87 / 1000;
     case PURCHASE_CATEGORY_HEALTHCARE_DOCTOR:
       return 56.75 / 1000;
-    case PURCHASE_CATEGORY_TRANSPORTATION_FUEL:
-      return 1186 / 1000;
     case PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARKING:
       return 195.71 / 1000;
     case PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARTS:

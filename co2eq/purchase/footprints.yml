@@ -6,6 +6,7 @@ _children:
     source: http://www.balticproject.org/en/calculator-page
     icon: 'gas-pump'
     oldKeys:
+      # TODO: Create migration function
       - PURCHASE_CATEGORY_TRANSPORTATION_FUEL
 
     _children:
