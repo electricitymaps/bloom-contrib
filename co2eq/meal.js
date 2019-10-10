@@ -4,6 +4,8 @@ import {
   MEAL_TYPE_MEAT_OR_FISH,
 } from '../definitions';
 
+import footprints from './purchase/footprints.yml';
+
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'meal';
 export const modelVersion = 3;
@@ -166,11 +168,15 @@ const CARBON_INTENSITY = { // kgCO2eq / kg
 };
 export const INGREDIENTS = Object.keys(CARBON_INTENSITY);
 
+// Flatten ingredient tree
+// ...
+
 /*
 Carbon intensity of ingredient (kgCO2 per kg).
 */
 export function carbonIntensityOfIngredient(ingredient) {
-  if (!CARBON_INTENSITY[ingredient]) {
+  const entry = footprints.Food['_children'][ingredient];
+  if (!entry) {
     throw Error(`Unknown ingredient: ${ingredient}`);
   }
   return CARBON_INTENSITY[ingredient];

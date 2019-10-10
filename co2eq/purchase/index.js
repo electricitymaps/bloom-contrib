@@ -33,8 +33,8 @@ import {
   TRANSPORTATION_MODE_TRAIN,
   TRANSPORTATION_MODE_PLANE,
   ACTIVITY_TYPE_PURCHASE,
-} from '../definitions';
-import { convertToEuro } from '../integrations/utils/currency/currency';
+} from '../../definitions';
+import { convertToEuro } from '../../integrations/utils/currency/currency';
 
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'purchase';
