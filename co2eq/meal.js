@@ -167,12 +167,17 @@ const CARBON_INTENSITY = { // kgCO2eq / kg
 };
 
 const foodBranch = getEntryByPath(['Food']); // **** TODO: use a constant for the Food category??
-export const INGREDIENTS = getDescendants(foodBranch);
-export const INGREDIENT_KEYS = Object.keys(INGREDIENTS);
-// `undefined` represents the "other" category
+const ingredients = getDescendants(foodBranch);
+export const INGREDIENT_KEYS = Object.keys(ingredients);
 export const INGREDIENT_CATEGORIES = [
   ...new Set(Object.keys(foodBranch['_children'])),
 ];
+export const ingredientCategory = {};
+export const ingredientIcon = {};
+Object.entries(ingredients).forEach(([k, v]) => {
+  ingredientCategory[k] = v.parentKey;
+  ingredientIcon[k] = v.icon;
+});
 
 /*
 Carbon intensity of ingredient (kgCO2 per kg).
@@ -209,11 +214,12 @@ function carbonIntensityOfMealType(mealType) {
 Carbon emissions of an activity (in kgCO2eq)
 */
 export function carbonEmissions(activity) {
-  const { ingredients, mealType } = activity;
+  const { mealType } = activity;
+  const mealIngredients = activity.ingredients;
 
-  if (ingredients && Object.keys(ingredients).length > 0) {
-    return ingredients
-      .map(k => carbonIntensityOfIngredient(k) * (MEAL_WEIGHT / 1000.0 / ingredients.length))
+  if (mealIngredients && Object.keys(mealIngredients).length > 0) {
+    return mealIngredients
+      .map(k => carbonIntensityOfIngredient(k) * (MEAL_WEIGHT / 1000.0 / mealIngredients.length))
       .reduce((a, b) => a + b, 0);
   }
 
