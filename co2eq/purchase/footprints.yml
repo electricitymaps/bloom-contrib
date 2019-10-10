@@ -65,7 +65,7 @@ _children:
         icon: paw
         oldKeys:
           - PURCHASE_CATEGORY_STORE_PET
-      Electronics:
+      Electronic store:
         intensityKilograms: 0.02522
         unit: EUR
         source: http://www.balticproject.org/en/calculator-page
