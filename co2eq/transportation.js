@@ -95,27 +95,54 @@ export function carbonEmissions(activity) {
   return carbonIntensity(activity.transportationMode) * distanceKilometers;
 }
 
-export function getModelsByMake(make, year) {
+//This function returns an array of models given a make and a year of vehicle.  
+//This can be used to ensure that a valid model is selected for the function to get the vehicle id.
+export async function getModelsByMake(make, year) {
   const MODELS_URL = `https://www.fueleconomy.gov/ws/rest/vehicle/menu/model?year=${year}&make=${make}`;
 
   const res = await fetch(MODELS_URL, {method: 'GET'});
 
-  
   //check if resok  before continuing.
-  const models = res.getElementsByTagName("model"); //check how to get multiple peices of data from a XML or CSV
 
+  const xml = await res.text();
+  
+  let models;
+
+  parseString(xml, function(error, result){
+    if(error){
+      console.log(error);
+      return;
+    }
+    models = result.menuItems.menuItem.map(model => model.text[0]);
+    return result;
+  });
+
+  return models;
 }
 
-//make model and year must be input correctly how they are in the 
-export function idFromMakeModelYear(make, year, model) {
+//Given a valid make model and year return a vehicle id
+//This id is used to get the emmissions information.
+export async function idFromMakeModelYear(make, year, model) {
 
   const ID_URL = `https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year=${year}&make=${make}&model=${model}`;
   
   const res = await fetch(ID_URL, {method: 'GET'});
 
   //insert a res !ok error check here. 
-  //This may be res.body or something like that.  Need to verify these fields
-  const id = res.getElementsByTagName("value")[0].childNodes[0].nodeValue;
+
+  const xml = await res.text();
+  
+  let id;
+
+  parseString(xml, function(error, result){
+    if(error){
+      console.log(error);
+      return;
+    }
+    id = result.menuItems.menuItem[0].value[0];
+    return result;
+  });
+
   if(id){
     return id
   }
@@ -124,18 +151,31 @@ export function idFromMakeModelYear(make, year, model) {
   }
 }
 
-export function getCo2WithId(id, miles) {
+async function getCo2WithId(id, miles) {
 
   const CO2_URL = `https://www.fueleconomy.gov/ws/rest/vehicle/${id}`
 
   const co2Res = await fetch(CO2_URL, {method: 'GET'});
 
-  //Check if res is ok before continuing
+  const xml = await co2Res.text();
 
-  const co2 = co2Res.getElementsByTagName("co2")[0].childNodes[0].nodeValue;
-  const co2A = co2Res.getElementsByTagName("co2A")[0].childNodes[0].nodeValue;
-  const co2TailpipeAGpm = co2Res.getElementsByTagName("co2TailpipeAGpm")[0].childNodes[0].nodeValue;
-  const co2TailpipeGpm = co2Res.getElementsByTagName("co2TailpipeGpm")[0].childNodes[0].nodeValue;
+  let vehicleInfo;
+  
+  parseString(xml, function(error, result){
+    if(error){
+      console.log(error);
+      return;
+    }
+    vehicleInfo = result;
+    return result;
+  });
+
+  const co2 = parseFloat(vehicleInfo.vehicle.co2[0]);
+  const co2A = parseFloat(vehicleInfo.vehicle.co2A[0]);
+  const co2TailpipeAGpm = parseFloat(vehicleInfo.vehicle.co2TailpipeAGpm[0]);
+  const co2TailpipeGpm = parseFloat(vehicleInfo.vehicle.co2TailpipeGpm[0]);
+
+  console.log(co2, co2A, co2TailpipeAGpm, co2TailpipeGpm);
 
   if (co2TailpipeGpm > 0) {
     return co2TailpipeGpm * miles / 1000;
@@ -153,3 +193,4 @@ export function getCo2WithId(id, miles) {
     throw new Error(`Couldn't find information on your vehicle by id, your id = ${id}`);
 }
 }
+
