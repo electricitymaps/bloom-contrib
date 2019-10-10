@@ -1,3 +1,5 @@
+# yamllint disable rule:empty-lines rule:line-length
+---
 _children:
 
   Fuel:
@@ -12,773 +14,773 @@ _children:
     _children:
 
       Natural gas:
-        intensity: 0 # TODO: UPDATE!
+        intensity: 0  # TODO: UPDATE!
         unit: L
         source: ...
         icon: burn
 
       Oil:
-        intensity: 0 # TODO: Update
+        intensity: 0  # TODO: Update
         unit: L
         source: ...
         icon: 'oil-can'
 
   Food:
-    
+
     _children:
 
       Meat:
-        intensity: #1.1 gCO2e / unit
+        intensity:
         unit: g
         source: http://www.greeneatz.com/foods-carbon-footprint.html
         icon: lemon
         _children:
           Lamb:
-            intensity: 25.58 # gCO2e / unit
+            intensity: 25.58  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: sheep
           Beef:
-            intensity: 26.61 # gCO2e / unit
+            intensity: 26.61  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: steak
           Pork:
-            intensity: 5.74 # gCO2e / unit
+            intensity: 5.74  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: pig 
+            icon: pig
           Turkey:
-            intensity: 7.17 # gCO2e / unit
+            intensity: 7.17  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: turkey
           Chicken:
-            intensity: 3.65 # gCO2e / unit
+            intensity: 3.65  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: drumstick
           Eggs:
-            intensity: 3.46 # gCO2e / unit
-            unit : g
+            intensity: 3.46  # gCO2e / unit
+            unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: egg
           Duck:
-            intensity: 3.09 # gCO2e / unit
-            unit : g
+            intensity: 3.09  # gCO2e / unit
+            unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon:
           Rabbit:
-            intensity: 4.7 # gCO2e / unit
-            unit : g
+            intensity: 4.7  # gCO2e / unit
+            unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon:
           Buffalo:
-            intensity: 60.43 # gCO2e / unit
-            unit : g
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584     
+            intensity: 60.43  # gCO2e / unit
+            unit: g
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon:
-          
+
       Fruits:
-        intensity: 0.52  # gCO2e / unit
+        intensity: 0.52   # gCO2e / unit
         unit: g
         source: http://www.greeneatz.com/foods-carbon-footprint.html
         icon: lemon
         _children:
           Zucchini:
-            intensity: 0.21 # gCO2e / unit
+            intensity: 0.21  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Cucumbers:
-            intensity: 0.23 # gCO2e / unit
+            intensity: 0.23  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Pumpkins:
-            intensity: 0.25 # gCO2e / unit
+            intensity: 0.25  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Melons:
-            intensity: 0.25 # gCO2e / unit
+            intensity: 0.25  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Lemons:
-            intensity: 0.26 # gCO2e / unit
+            intensity: 0.26  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Limes:
-            intensity: 0.26 # gCO2e / unit
+            intensity: 0.26  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Guavas:
-            intensity: 0.28 # gCO2e / unit
+            intensity: 0.28  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Apples:
-            intensity: 0.29 # gCO2e / unit
+            intensity: 0.29  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Pears:
-            intensity: 0.31 # gCO2e / unit
+            intensity: 0.31  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Quinces:
-            intensity: 0.31 # gCO2e / unit
+            intensity: 0.31  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Dates:
-            intensity: 0.32 # gCO2e / unit
+            intensity: 0.32  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Watermelon:
-            intensity: 0.32 # gCO2e / unit
+            intensity: 0.32  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Orange:
-            intensity: 0.33 # gCO2e / unit
+            intensity: 0.33  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Kiwi:
-            intensity: 0.36 # gCO2e / unit
+            intensity: 0.36  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Grapes:
-            intensity: 0.37 # gCO2e / unit
+            intensity: 0.37  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Cherries:
-            intensity: 0.39 # gCO2e / unit
+            intensity: 0.39  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Apricot:
-            intensity: 0.43 # gCO2e / unit
+            intensity: 0.43  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Peaches:
-            intensity: 0.43 # gCO2e / unit
+            intensity: 0.43  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Nectarines:
-            intensity: 0.43 # gCO2e / unit
+            intensity: 0.43  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Figs:
-            intensity: 0.43 # gCO2e / unit
+            intensity: 0.43  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Mandarin:
-            intensity: 0.45 # gCO2e / unit
+            intensity: 0.45  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Pineapples:
-            intensity: 0.5 # gCO2e / unit
+            intensity: 0.5  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Grapefruit:
-            intensity: 0.51 # gCO2e / unit
+            intensity: 0.51  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Pomelo:
-            intensity: 0.51 # gCO2e / unit
+            intensity: 0.51  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Tangerines:
-            intensity: 0.51 # gCO2e / unit
+            intensity: 0.51  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Strawberries:
-            intensity: 0.58 # gCO2e / unit
+            intensity: 0.58  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Bananas:
-            intensity: 0.72 # gCO2e / unit
+            intensity: 0.72  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Raspberries:
-            intensity: 0.84 # gCO2e / unit
+            intensity: 0.84  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Currants:
-            intensity: 0.84 # gCO2e / unit
+            intensity: 0.84  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Gooseberries:
-            intensity: 0.84 # gCO2e / unit
+            intensity: 0.84  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Cranberries:
-            intensity: 0.92 # gCO2e / unit
+            intensity: 0.92  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Blueberries:
-            intensity: 0.92 # gCO2e / unit
+            intensity: 0.92  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
       Seafood:
-        intensity:  3.49 # gCO2e / unit
+        intensity: 3.49  # gCO2e / unit
         unit: g
         source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
         icon: fish
-        _children: 
+        _children:
           Tuna:
-            intensity: 2.15 # gCO2e / unit
+            intensity: 2.15  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Canned Tuna:
-            intensity: 6.1 # gCO2e / unit
+            intensity: 6.1  # gCO2e / unit
             unit: g
-            source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf 
+            source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
             icon: fish
           Cod:
-            intensity: 3.51 # gCO2e / unit
+            intensity: 3.51  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: fish 
+            icon: fish
           Flatfish:
-            intensity: 6.2 # gCO2e / unit
+            intensity: 6.2  # gCO2e / unit
             unit: g
             source: From https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
             icon: fish
           Herring:
-            intensity: 1.16 # gCO2e / unit
+            intensity: 1.16  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Prawns/shrimp:
-            intensity: 7.8 # gCO2e / unit
+            intensity: 7.8  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Shrimp (Fresh):
-            intensity: 3 # gCO2e / unit
+            intensity: 3  # gCO2e / unit
             unit: g
             source: https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
-            icon: 
+            icon:
           Shrimp (Frozen):
-            intensity: 10.5 # gCO2e / unit
+            intensity: 10.5  # gCO2e / unit
             unit: g
             source: https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
-            icon: 
+            icon:
           Clams:
-            intensity: 0.1 # gCO2e / unit
+            intensity: 0.1  # gCO2e / unit
             unit: g
             source: From https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
-            icon: 
+            icon:
           Lobster:
-            intensity: 27.8 # gCO2e / unit
+            intensity: 27.8  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon:
           Mussels:
-            intensity: 9.51 # gCO2e / unit
+            intensity: 9.51  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon:
           Pollock:
-            intensity: 1.61 # gCO2e / unit
+            intensity: 1.61  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Carp:
-            intensity: 1.76 # gCO2e / unit
+            intensity: 1.76  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Mackerel:
-            intensity: 1.8 # gCO2e / unit
+            intensity: 1.8  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Sea bass:
-            intensity: 3.27 # gCO2e / unit
+            intensity: 3.27  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Haddock:
-            intensity: 3.41 # gCO2e / unit
+            intensity: 3.41  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Salmon:
-            intensity: 3.47 # gCO2e / unit
+            intensity: 3.47  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Farmed Salmon:
-            intensity: 11.9 # gCO2e / unit
+            intensity: 11.9  # gCO2e / unit
             unit: g
-            source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf 
+            source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
             icon: fish
           Fish (all species):
-            intensity: 3.49 # gCO2e / unit
+            intensity: 3.49  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Whiting:
-            intensity: 2.66 # gCO2e / unit
+            intensity: 2.66  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Eel:
-            intensity: 3.88 # gCO2e / unit
+            intensity: 3.88  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Common Ling:
-            intensity: 6.45 # gCO2e / unit
+            intensity: 6.45  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Trout:
-            intensity: 4.2 # gCO2e / unit
+            intensity: 4.2  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Pomfret:
-            intensity: 6.63 # gCO2e / unit
+            intensity: 6.63  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Rock fish:
-            intensity: 6.94 # gCO2e / unit
+            intensity: 6.94  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Octopus/squid/cuttlefish:
-            intensity: 7.13 # gCO2e / unit
+            intensity: 7.13  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Brill:
-            intensity: 8.41 # gCO2e / unit
+            intensity: 8.41  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Hake:
-            intensity: 9.77 # gCO2e / unit
+            intensity: 9.77  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Porbeagle:
-            intensity: 11.44 # gCO2e / unit
+            intensity: 11.44  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Anglerfish:
-            intensity: 12.29 # gCO2e / unit
+            intensity: 12.29  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Swordfish:
-            intensity: 12.84 # gCO2e / unit
+            intensity: 12.84  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Megrim:
-            intensity: 14.15 # gCO2e / unit
+            intensity: 14.15  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Turbot:
-            intensity: 14.51 # gCO2e / unit
+            intensity: 14.51  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Sole:
-            intensity: 20.86 # gCO2e / unit
+            intensity: 20.86  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:  fish
+            icon: fish
       Dairy:
-        intensity:  #1.1 gCO2e / unit
+        intensity:
         unit: g
-        source: 
+        source:
         icon:
         _children:
           Cheese:
-            intensity: 8.55 # gCO2e / unit
+            intensity: 8.55  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: cheese-swiss
           Milk:
-            intensity: 1.29 # gCO2e / unit
+            intensity: 1.29  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: glass
           Cream:
-            intensity: 5.64 # gCO2e / unit
+            intensity: 5.64  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Milk Yogurt:
-            intensity: 1.31 # gCO2e / unit
+            intensity: 1.31  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Butter:
-            intensity: 9.25 # gCO2e / unit
+            intensity: 9.25  # gCO2e / unit
             unit: g
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584 
-            icon:    
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+            icon:
       Vegetables:
-        intensity:  1.32 gCO2e / unit
+        intensity: 1.32 gCO2e / unit
         unit: g
         source: https://orbit.dtu.dk/ws/files/110722384/Climate_friendly_dietary_guidelines.pdf
         icon: carrot
-        _children: 
+        _children:
           Potatoes:
-            intensity: 0.18 # gCO2e / unit
+            intensity: 0.18  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Broccoli:
-            intensity: 2.0 # gCO2e / unit
+            intensity: 2.0  # gCO2e / unit
             unit: g
-            source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf 
-            icon: 
+            source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
+            icon:
           Onion:
-            intensity: 0.17 # gCO2e / unit
+            intensity: 0.17  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Celery:
-            intensity: 0.18 # gCO2e / unit
+            intensity: 0.18  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Carrots:
-            intensity: 0.2 # gCO2e / unit
+            intensity: 0.2  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Beetroot:
-            intensity: 0.24 # gCO2e / unit
+            intensity: 0.24  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Mushrooms:
-            intensity: 0.27 # gCO2e / unit
+            intensity: 0.27  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Rutabage:
-            intensity: 0.29 # gCO2e / unit
+            intensity: 0.29  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Fennel:
-            intensity: 0.48 # gCO2e / unit
+            intensity: 0.48  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Artichokes:
-            intensity: 0.48 # gCO2e / unit
+            intensity: 0.48  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Spinach:
-            intensity: 0.54 # gCO2e / unit
+            intensity: 0.54  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Garlic:
-            intensity: 0.57 # gCO2e / unit
+            intensity: 0.57  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Aspargus:
-            intensity: 0.83 # gCO2e / unit
+            intensity: 0.83  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Ginger:
-            intensity: 0.88 # gCO2e / unit
+            intensity: 0.88  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Tomatoes:
-            intensity: 0.45 # gCO2e / unit
+            intensity: 0.45  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Olives:
-            intensity: 0.63 # gCO2e / unit
+            intensity: 0.63  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Peppers:
-            intensity: 0.66 # gCO2e / unit
+            intensity: 0.66  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:  
+            icon:
           Avocados:
-            intensity: 1.3 # gCO2e / unit
+            intensity: 1.3  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Eggplants:
-            intensity: 1.35 # gCO2e / unit
+            intensity: 1.35  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:      
+            icon:
       Grains:
-        intensity:  #1.1 gCO2e / unit
+        intensity:
         unit: g
-        source: 
-        icon:  
+        source:
+        icon:
         _children:
           Rice:
-            intensity: 2.55 # gCO2e / unit
+            intensity: 2.55  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: soup
           Pasta:
-            intensity: 1.2 # gCO2e / unit
+            intensity: 1.2  # gCO2e / unit
             unit: g
             source: From https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
             icon: wheat
           Rye bread:
-            intensity: 0.93 # gCO2e / unit
+            intensity: 0.93  # gCO2e / unit
             unit: g
             source: From http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             icon: bread-loaf
           White bread:
-            intensity: 1.054 # gCO2e / unit
+            intensity: 1.054  # gCO2e / unit
             unit: g
             source: From http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             icon: bread-loaf
           Morning cereals:
-            intensity: 0.864 # gCO2e / unit
+            intensity: 0.864  # gCO2e / unit
             unit: g
             source: From http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
-            icon: 
+            icon:
           Oats:
-            intensity: 0.38 # gCO2e / unit
+            intensity: 0.38  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Green beans:
-            intensity: 0.31 # gCO2e / unit
+            intensity: 0.31  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Beans/tofu:
-            intensity: 2.0 # gCO2e / unit
+            intensity: 2.0  # gCO2e / unit
             unit: g
             source: From http://www.greeneatz.com/foods-carbon-footprint.html
-            icon: burrito+
+            icon: burrito
           Dry beans:
-            intensity: 2.0 # gCO2e / unit
+            intensity: 2.0  # gCO2e / unit
             unit: g
-            source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf 
-            icon: 
+            source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
+            icon:
           Tofu:
-            intensity: 2.0 # gCO2e / unit
+            intensity: 2.0  # gCO2e / unit
             unit: g
-            source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf 
-            icon: 
+            source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
+            icon:
           Peas:
-            intensity: 0.38 # gCO2e / unit
+            intensity: 0.38  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Butter beans:
-            intensity: 0.39 # gCO2e / unit
+            intensity: 0.39  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Corn:
-            intensity: 0.47 # gCO2e / unit
+            intensity: 0.47  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Soybean:
-            intensity: 0.49 # gCO2e / unit
+            intensity: 0.49  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Wheat:
-            intensity: 0.52 # gCO2e / unit
+            intensity: 0.52  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Rye:
-            intensity: 0.38 # gCO2e / unit
+            intensity: 0.38  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Barley:
-            intensity: 0.43 # gCO2e / unit
+            intensity: 0.43  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Chick peas:
-            intensity: 0.77 # gCO2e / unit
+            intensity: 0.77  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:    
+            icon:
           Sesame seeds:
-            intensity: 0.88 # gCO2e / unit
+            intensity: 0.88  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Lentils:
-            intensity: 1.03 # gCO2e / unit
+            intensity: 1.03  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Quinoa:
-            intensity: 1.15 # gCO2e / unit
+            intensity: 1.15  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Sunflower seed:
-            intensity: 1.41 # gCO2e / unit
+            intensity: 1.41  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
-          
+            icon:
+
       Nuts:
-        intensity:  2.3 # gCO2e / unit
+        intensity: 2.3  # gCO2e / unit
         unit: g
-        source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf 
+        source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
         icon: acorn
-        _children:   
+        _children:
           Peanuts:
-            intensity: 0.83 # gCO2e / unit
+            intensity: 0.83  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Peanut Butter:
-            intensity: 2.3 # gCO2e / unit
+            intensity: 2.3  # gCO2e / unit
             unit: g
-            source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf 
-            icon:   
+            source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
+            icon:
           Cashew nut:
-            intensity: 1.44 # gCO2e / unit
+            intensity: 1.44  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Walnuts:
-            intensity: 1.51 # gCO2e / unit
+            intensity: 1.51  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Pistachios:
-            intensity: 1.53 # gCO2e / unit
+            intensity: 1.53  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Almonds:
-            intensity: 1.54 # gCO2e / unit
+            intensity: 1.54  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon: 
+            icon:
           Hazelnuts:
-            intensity: 0.97 # gCO2e / unit
+            intensity: 0.97  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:  
+            icon:
           Chestnuts:
-            intensity: 0.43 # gCO2e / unit
+            intensity: 0.43  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:                  
+            icon:
       Beverages:
-        intensity:  #1.1 gCO2e / unit
+        intensity:
         unit: g
-        source: 
+        source:
         icon:
         _children:
           Almond milk:
-            intensity: 0.42 # gCO2e / unit
+            intensity: 0.42  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: glass
           Coconut milk:
-            intensity: 0.42 # gCO2e / unit
+            intensity: 0.42  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: glass
           Soy milk:
-            intensity: 0.75 # gCO2e / unit
+            intensity: 0.75  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: glass
           Beer:
-            intensity: 1.123 # gCO2e / unit
+            intensity: 1.123  # gCO2e / unit
             unit: g
             source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
-            icon: 
+            icon:
           Wine:
-            intensity: 2.344 # gCO2e / unit
+            intensity: 2.344  # gCO2e / unit
             unit: g
             source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             icon: wine-glass-alt
           Spirits:
-            intensity: 3.144 # gCO2e / unit
+            intensity: 3.144  # gCO2e / unit
             unit: g
             source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             icon: glass-whiskey-rocks
           Juice:
-            intensity: 0.93 # gCO2e / unit
+            intensity: 0.93  # gCO2e / unit
             unit: g
             source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             icon: glass
           Coffee:
-            intensity: 0.33 # gCO2e / unit
+            intensity: 0.33  # gCO2e / unit
             unit: g
             source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             icon: coffee
           Tea:
-            intensity: 0.184 # gCO2e / unit
+            intensity: 0.184  # gCO2e / unit
             unit: g
             source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             icon: coffee
           Soft drink:
-            intensity: 1.035 # gCO2e / unit
+            intensity: 1.035  # gCO2e / unit
             unit: g
             source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             icon: glass
           Water (bottled):
-            intensity: 0.215 # gCO2e / unit
+            intensity: 0.215  # gCO2e / unit
             unit: g
             source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             icon: glass
           Water (tap):
-            intensity: 0.001 # gCO2e / unit
+            intensity: 0.001  # gCO2e / unit
             unit: g
-            source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf 
-            icon: glass      
+            source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
+            icon: glass
