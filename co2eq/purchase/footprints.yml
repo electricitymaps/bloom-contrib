@@ -4,10 +4,11 @@ _children:
 
   Fuel:
     intensity: 1.186
+    intensity: 
     unit: EUR
     source: http://www.balticproject.org/en/calculator-page
-    icon: 'gas-pump'
-    oldKeys:
+    icon: gas-pump
+    oldKeys: 
       # TODO: Create migration function
       - PURCHASE_CATEGORY_TRANSPORTATION_FUEL
 
@@ -23,7 +24,210 @@ _children:
         intensity: 0  # TODO: Update
         unit: L
         source: ...
-        icon: 'oil-can'
+        icon: oil-can
+  
+  Stores:
+    
+    _children:
+      
+      Department Store:
+        intensity: 49.02
+        unit: EUR
+        source: http://www.balticproject.org/en/calculator-page
+        icon: credit-card
+        oldKeys:
+        - PURCHASE_CATEGORY_STORE_DEPARTMENT
+      Clothing:
+        intensity: 29.6
+        unit: EUR
+        source: http://www.balticproject.org/en/calculator-page
+        icon: tshirt
+        oldKeys:
+        - PURCHASE_CATEGORY_STORE_CLOTHING
+      Hardware Store:
+        intensity: 35.66
+        unit: EUR
+        source: http://www.balticproject.org/en/calculator-page
+        icon: tools
+        oldKeys:
+        - PURCHASE_CATEGORY_STORE_HARDWARE
+      Pet shop:
+        intensity: 63.34
+        unit: EUR
+        source: http://www.balticproject.org/en/calculator-page
+        icon: paw
+        oldKeys:
+        - PURCHASE_CATEGORY_STORE_PET
+      Electronic sales:
+        intensity: 25.22
+        unit: EUR
+        source: http://www.balticproject.org/en/calculator-page
+        icon: laptop
+        oldKeys:
+        - PURCHASE_CATEGORY_STORE_ELECTRONIC    
+      Book store:
+        intensity: 26.98
+        unit: EUR
+        source: http://www.balticproject.org/en/calculator-page
+        icon: books
+        oldKeys:
+        - PURCHASE_CATEGORY_STORE_BOOKS
+      Lawn and garden:
+        intensity: 36.29
+        unit: EUR
+        source: http://www.balticproject.org/en/calculator-page
+        icon: seedling
+        oldKeys:
+        - PURCHASE_CATEGORY_STORE_GARDEN
+      Florist:
+        intensity: 46.96
+        unit: EUR
+        source: http://www.balticproject.org/en/calculator-page
+        icon: flower-tulip
+        oldKeys:
+        - PURCHASE_CATEGORY_STORE_FLORIST
+      Barber or beauty shop:
+        intensity: 23.0
+        unit: EUR
+        source: http://www.balticproject.org/en/calculator-page
+        icon: cut
+        oldKeys:
+        - PURCHASE_CATEGORY_STORE_BARBER_BEAUTY
+      House furnishing:
+        intensity: 69.49
+        unit: EUR
+        source: http://www.balticproject.org/en/calculator-page
+        icon: couch
+        oldKeys:
+        - PURCHASE_CATEGORY_STORE_HOUSE_FURNISHING
+      Equipment furniture:
+        intensity: 36.23
+        unit: EUR
+        source: http://www.balticproject.org/en/calculator-page
+        icon: credit-card
+        oldKeys:
+        - PURCHASE_CATEGORY_STORE_EQUIPMENT_FURNITURE
+      Household Appliance:
+        intensity: 36.15
+        unit: EUR
+        source: http://www.balticproject.org/en/calculator-page
+        icon: blender
+        oldKeys:
+        - PURCHASE_CATEGORY_STORE_HOUSEHOLD_APPLIANCE
+#  Food & Beverages:
+#    _children:
+      Grocery Store:
+        intensity: 49.02
+        unit: EUR
+        source: http://www.balticproject.org/en/calculator-page
+        icon: shopping-cart
+        oldKeys:
+        - PURCHASE_CATEGORY_FOOD_SUPERMARKET
+      Bakery:
+        intensity: 63.34
+        unit: EUR
+        source: http://www.balticproject.org/en/calculator-page
+        icon: bread-loaf 
+        oldKeys:
+        - PURCHASE_CATEGORY_FOOD_BAKERY          
+#  Healthcare:
+#            _children:
+      Drug Stores Pharmacy:
+        intensity: 43.87
+        unit: EUR
+        source: http://www.balticproject.org/en/calculator-page
+        icon: pills
+        oldKeys:
+        - PURCHASE_CATEGORY_HEALTHCARE_PHARMARCY
+      Doctor:
+        intensity: 56.75
+        unit: EUR
+        source: http://www.balticproject.org/en/calculator-page
+        icon: user-md
+        oldKeys:
+        - PURCHASE_CATEGORY_HEALTHCARE_DOCTOR
+#  Transportation:
+#    _children:
+      Parking lots:
+        intensity: 195.71
+        unit: EUR
+        source: http://www.balticproject.org/en/calculator-page
+        icon: parking
+        oldKeys:
+        - PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARKING
+      Automotive parts accessories:
+        intensity: 84.18 
+        unit: EUR
+        source: http://www.balticproject.org/en/calculator-page
+        icon: credit-card
+        oldKeys:
+        - PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARTS
+      Automotive services shop:
+        intensity: 42.41
+        unit: EUR
+        source: http://www.balticproject.org/en/calculator-page
+        icon: credit-card
+        oldKeys:
+        - PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_SERVICE
+#  Entertainment:
+#    _children: 
+      Cigar store or stand:
+        intensity: 46.27
+        unit: EUR
+        source: http://www.balticproject.org/en/calculator-page
+        icon: smoking
+        oldKeys:
+        - PURCHASE_CATEGORY_ENTERTAINMENT_CIGAR_STORES    
+      Amusement parks:
+        intensity: 103.14
+        unit: EUR
+        source: http://www.balticproject.org/en/calculator-page
+        icon: credit-card
+        oldKeys:
+        - PURCHASE_CATEGORY_ENTERTAINMENT_AMUSEMENT_PARKS    
+      Cinema:
+        intensity: 27.38
+        unit: EUR
+        source: http://www.balticproject.org/en/calculator-page
+        icon: film
+        oldKeys:
+        - PURCHASE_CATEGORY_ENTERTAINMENT_MOVIE_THEATER    
+      Hotel:
+        intensity: 434.79
+        unit: EUR
+        source: http://www.balticproject.org/en/calculator-page
+        icon: credit-card
+        oldKeys:
+        - PURCHASE_CATEGORY_ENTERTAINMENT_HOTEL    
+      Bar or nightclub:
+        intensity: 81.05
+        unit: EUR
+        source: http://www.balticproject.org/en/calculator-page
+        icon: glass-cheers
+        oldKeys:
+        - PURCHASE_CATEGORY_ENTERTAINMENT_BAR_NIGHTCLUB    
+      Gambling transaction:
+        intensity: 380.66
+        unit: EUR
+        source: http://www.balticproject.org/en/calculator-page
+        icon: dice
+        oldKeys:
+        - PURCHASE_CATEGORY_ENTERTAINMENT_GAMBLING   
+      Cruise line:
+        intensity: 434.79
+        unit: EUR
+        source: http://www.balticproject.org/en/calculator-page
+        icon: ship
+        oldKeys:
+        - PURCHASE_CATEGORY_ENTERTAINMENT_CRUISE_LINES 
+      Package stores liquor:
+        intensity: 80.61
+        unit: EUR
+        source: http://www.balticproject.org/en/calculator-page
+        icon: wine-bottle
+        oldKeys:
+        - PURCHASE_CATEGORY_ENTERTAINMENT_LIQUOR_STORE    
+        
 
   Food:
 
