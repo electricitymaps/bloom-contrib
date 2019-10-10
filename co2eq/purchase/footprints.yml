@@ -3,7 +3,7 @@
 _children:
 
   Fuel:
-    intensity: 1.186
+    intensityKilograms: 1.186
     unit: EUR
     source: http://www.balticproject.org/en/calculator-page
     icon: gas-pump
@@ -13,22 +13,22 @@ _children:
     _children:
 
       Natural gas:
-        intensity: 1.88
+        intensityKilograms: 1.88
         unit: L
         source: http://www.bilans-ges.ademe.fr/static/documents/[Base%20Carbone]%20Documentation%20g%C3%A9n%C3%A9rale%20v11.0.pdf
         icon: burn
       Heating Oil:
-        intensity: 3.26
+        intensityKilograms: 3.26
         unit: L
         source: http://www.bilans-ges.ademe.fr/static/documents/[Base%20Carbone]%20Documentation%20g%C3%A9n%C3%A9rale%20v11.0.pdf
         icon: oil-can
       Gasoline:
-        intensity: 2.8
+        intensityKilograms: 2.8
         unit: L
         source: http://www.bilans-ges.ademe.fr/static/documents/[Base%20Carbone]%20Documentation%20g%C3%A9n%C3%A9rale%20v11.0.pdf
         icon: oil-can
       Diesel:
-        intensity: 3.17
+        intensityKilograms: 3.17
         unit: L
         source: http://www.bilans-ges.ademe.fr/static/documents/[Base%20Carbone]%20Documentation%20g%C3%A9n%C3%A9rale%20v11.0.pdf
         icon: oil-can
@@ -38,98 +38,98 @@ _children:
     _children:
 
       Department store:
-        intensity: 49.02
+        intensityKilograms: 0.04902
         unit: EUR
         source: http://www.balticproject.org/en/calculator-page
         icon: credit-card
         oldKeys:
           - PURCHASE_CATEGORY_STORE_DEPARTMENT
       Clothing:
-        intensity: 29.6
+        intensityKilograms: 0.0296
         unit: EUR
         source: http://www.balticproject.org/en/calculator-page
         icon: tshirt
         oldKeys:
           - PURCHASE_CATEGORY_STORE_CLOTHING
       Hardware:
-        intensity: 35.66
+        intensityKilograms: 0.03566
         unit: EUR
         source: http://www.balticproject.org/en/calculator-page
         icon: tools
         oldKeys:
           - PURCHASE_CATEGORY_STORE_HARDWARE
       Pet shop:
-        intensity: 63.34
+        intensityKilograms: 0.06334
         unit: EUR
         source: http://www.balticproject.org/en/calculator-page
         icon: paw
         oldKeys:
           - PURCHASE_CATEGORY_STORE_PET
       Electronics:
-        intensity: 25.22
+        intensityKilograms: 0.02522
         unit: EUR
         source: http://www.balticproject.org/en/calculator-page
         icon: laptop
         oldKeys:
           - PURCHASE_CATEGORY_STORE_ELECTRONIC
       Bookshop:
-        intensity: 26.98
+        intensityKilograms: 0.02698
         unit: EUR
         source: http://www.balticproject.org/en/calculator-page
         icon: books
         oldKeys:
           - PURCHASE_CATEGORY_STORE_BOOKS
       Lawn and garden store:
-        intensity: 36.29
+        intensityKilograms: 0.03629
         unit: EUR
         source: http://www.balticproject.org/en/calculator-page
         icon: seedling
         oldKeys:
           - PURCHASE_CATEGORY_STORE_GARDEN
       Florist:
-        intensity: 46.96
+        intensityKilograms: 0.04696
         unit: EUR
         source: http://www.balticproject.org/en/calculator-page
         icon: flower-tulip
         oldKeys:
           - PURCHASE_CATEGORY_STORE_FLORIST
       Barber or beauty shop:
-        intensity: 23.0
+        intensityKilograms: 0.0230
         unit: EUR
         source: http://www.balticproject.org/en/calculator-page
         icon: cut
         oldKeys:
           - PURCHASE_CATEGORY_STORE_BARBER_BEAUTY
       Home interior:
-        intensity: 69.49
+        intensityKilograms: 0.06949
         unit: EUR
         source: http://www.balticproject.org/en/calculator-page
         icon: couch
         oldKeys:
           - PURCHASE_CATEGORY_STORE_HOUSE_FURNISHING
       Equipment furniture:
-        intensity: 36.23
+        intensityKilograms: 0.03623
         unit: EUR
         source: http://www.balticproject.org/en/calculator-page
         icon: credit-card
         oldKeys:
           - PURCHASE_CATEGORY_STORE_EQUIPMENT_FURNITURE
       Household appliances:
-        intensity: 36.15
+        intensityKilograms: 0.03615
         unit: EUR
         source: http://www.balticproject.org/en/calculator-page
         icon: blender
         oldKeys:
           - PURCHASE_CATEGORY_STORE_HOUSEHOLD_APPLIANCE
       Grocery store:
-        intensity: 49.02
+        intensityKilograms: 0.04902
         unit: EUR
         source: http://www.balticproject.org/en/calculator-page
         icon: shopping-cart
         oldKeys:
           - PURCHASE_CATEGORY_FOOD_SUPERMARKET
       Bakery:
-        intensity: 63.34
+        intensityKilograms: 0.06334
         unit: EUR
         source: http://www.balticproject.org/en/calculator-page
         icon: bread-loaf
@@ -140,14 +140,14 @@ _children:
   Healthcare:
     _children:
       Drug store or pharmacy:
-        intensity: 43.87
+        intensityKilograms: 0.04387
         unit: EUR
         source: http://www.balticproject.org/en/calculator-page
         icon: pills
         oldKeys:
           - PURCHASE_CATEGORY_HEALTHCARE_PHARMARCY
       Doctor:
-        intensity: 56.75
+        intensityKilograms: 0.05675
         unit: EUR
         source: http://www.balticproject.org/en/calculator-page
         icon: user-md
@@ -158,21 +158,21 @@ _children:
   Car parts and services:
     _children:
       Parking lot:
-        intensity: 195.71
+        intensityKilograms: 0.19571
         unit: EUR
         source: http://www.balticproject.org/en/calculator-page
         icon: parking
         oldKeys:
           - PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARKING
       Automotive parts or accessories:
-        intensity: 84.18
+        intensityKilograms: 0.08418
         unit: EUR
         source: http://www.balticproject.org/en/calculator-page
         icon: credit-card
         oldKeys:
           - PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARTS
       Automotive services:
-        intensity: 42.41
+        intensityKilograms: 0.04241
         unit: EUR
         source: http://www.balticproject.org/en/calculator-page
         icon: credit-card
@@ -183,56 +183,56 @@ _children:
   Entertainment:
     _children:
       Tobacco store:
-        intensity: 46.27
+        intensityKilograms: 0.04627
         unit: EUR
         source: http://www.balticproject.org/en/calculator-page
         icon: smoking
         oldKeys:
           - PURCHASE_CATEGORY_ENTERTAINMENT_CIGAR_STORES
       Amusement park:
-        intensity: 103.14
+        intensityKilograms: 0.10314
         unit: EUR
         source: http://www.balticproject.org/en/calculator-page
         icon: credit-card
         oldKeys:
           - PURCHASE_CATEGORY_ENTERTAINMENT_AMUSEMENT_PARKS
       Cinema:
-        intensity: 27.38
+        intensityKilograms: 0.02738
         unit: EUR
         source: http://www.balticproject.org/en/calculator-page
         icon: film
         oldKeys:
           - PURCHASE_CATEGORY_ENTERTAINMENT_MOVIE_THEATER
       Hotel:
-        intensity: 434.79
+        intensityKilograms: 0.43479
         unit: EUR
         source: http://www.balticproject.org/en/calculator-page
         icon: credit-card
         oldKeys:
           - PURCHASE_CATEGORY_ENTERTAINMENT_HOTEL
       Bar or nightclub:
-        intensity: 81.05
+        intensityKilograms: 0.08105
         unit: EUR
         source: http://www.balticproject.org/en/calculator-page
         icon: glass-cheers
         oldKeys:
           - PURCHASE_CATEGORY_ENTERTAINMENT_BAR_NIGHTCLUB
       Gambling:
-        intensity: 380.66
+        intensityKilograms: 0.38066
         unit: EUR
         source: http://www.balticproject.org/en/calculator-page
         icon: dice
         oldKeys:
           - PURCHASE_CATEGORY_ENTERTAINMENT_GAMBLING
       Cruise:
-        intensity: 434.79
+        intensityKilograms: 0.43479
         unit: EUR
         source: http://www.balticproject.org/en/calculator-page
         icon: ship
         oldKeys:
           - PURCHASE_CATEGORY_ENTERTAINMENT_CRUISE_LINES
       Liquor store:
-        intensity: 80.61
+        intensityKilograms: 0.8061
         unit: EUR
         source: http://www.balticproject.org/en/calculator-page
         icon: wine-bottle
@@ -245,757 +245,949 @@ _children:
     _children:
 
       Meat:
-        intensity:
+        intensityKilograms:
         unit: g
         source: http://www.greeneatz.com/foods-carbon-footprint.html
         icon: lemon
         _children:
           Lamb:
-            intensity: 25.58  # gCO2e / unit
+            intensityKilograms: 25.58  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: sheep
           Beef:
-            intensity: 26.61  # gCO2e / unit
+            intensityKilograms: 26.61  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: steak
           Pork:
-            intensity: 5.74  # gCO2e / unit
+            intensityKilograms: 5.74  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: pig
           Turkey:
-            intensity: 7.17  # gCO2e / unit
+            intensityKilograms: 7.17  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: turkey
           Chicken:
-            intensity: 3.65  # gCO2e / unit
+            intensityKilograms: 3.65  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: drumstick
           Eggs:
-            intensity: 3.46  # gCO2e / unit
+            intensityKilograms: 3.46  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: egg
           Duck:
-            intensity: 3.09  # gCO2e / unit
+            intensityKilograms: 3.09  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Rabbit:
-            intensity: 4.7  # gCO2e / unit
+            intensityKilograms: 4.7  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Buffalo:
-            intensity: 60.43  # gCO2e / unit
+            intensityKilograms: 60.43  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
 
       Fruits:
-        intensity: 0.52   # gCO2e / unit
+        intensityKilograms: 0.52   # gCO2e / unit
         unit: g
         source: http://www.greeneatz.com/foods-carbon-footprint.html
         icon: lemon
         _children:
           Zucchini:
-            intensity: 0.21  # gCO2e / unit
+            intensityKilograms: 0.21  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Cucumbers:
-            intensity: 0.23  # gCO2e / unit
+            intensityKilograms: 0.23  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Pumpkins:
-            intensity: 0.25  # gCO2e / unit
+            intensityKilograms: 0.25  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Melons:
-            intensity: 0.25  # gCO2e / unit
+            intensityKilograms: 0.25  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Lemons:
-            intensity: 0.26  # gCO2e / unit
+            intensityKilograms: 0.26  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Limes:
-            intensity: 0.26  # gCO2e / unit
+            intensityKilograms: 0.26  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Guavas:
-            intensity: 0.28  # gCO2e / unit
+            intensityKilograms: 0.28  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Apples:
-            intensity: 0.29  # gCO2e / unit
+            intensityKilograms: 0.29  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Pears:
-            intensity: 0.31  # gCO2e / unit
+            intensityKilograms: 0.31  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Quinces:
-            intensity: 0.31  # gCO2e / unit
+            intensityKilograms: 0.31  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Dates:
-            intensity: 0.32  # gCO2e / unit
+            intensityKilograms: 0.32  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Watermelon:
-            intensity: 0.32  # gCO2e / unit
+            intensityKilograms: 0.32  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Orange:
-            intensity: 0.33  # gCO2e / unit
+            intensityKilograms: 0.33  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Kiwi:
-            intensity: 0.36  # gCO2e / unit
+            intensityKilograms: 0.36  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Grapes:
-            intensity: 0.37  # gCO2e / unit
+            intensityKilograms: 0.37  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Cherries:
-            intensity: 0.39  # gCO2e / unit
+            intensityKilograms: 0.39  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Apricot:
-            intensity: 0.43  # gCO2e / unit
+            intensityKilograms: 0.43  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Peaches:
-            intensity: 0.43  # gCO2e / unit
+            intensityKilograms: 0.43  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Nectarines:
-            intensity: 0.43  # gCO2e / unit
+            intensityKilograms: 0.43  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Figs:
-            intensity: 0.43  # gCO2e / unit
+            intensityKilograms: 0.43  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Mandarin:
-            intensity: 0.45  # gCO2e / unit
+            intensityKilograms: 0.45  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Pineapples:
-            intensity: 0.5  # gCO2e / unit
+            intensityKilograms: 0.5  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Grapefruit:
-            intensity: 0.51  # gCO2e / unit
+            intensityKilograms: 0.51  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Pomelo:
-            intensity: 0.51  # gCO2e / unit
+            intensityKilograms: 0.51  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Tangerines:
-            intensity: 0.51  # gCO2e / unit
+            intensityKilograms: 0.51  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Strawberries:
-            intensity: 0.58  # gCO2e / unit
+            intensityKilograms: 0.58  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Bananas:
-            intensity: 0.72  # gCO2e / unit
+            intensityKilograms: 0.72  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Raspberries:
-            intensity: 0.84  # gCO2e / unit
+            intensityKilograms: 0.84  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Currants:
-            intensity: 0.84  # gCO2e / unit
+            intensityKilograms: 0.84  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Gooseberries:
-            intensity: 0.84  # gCO2e / unit
+            intensityKilograms: 0.84  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Cranberries:
-            intensity: 0.92  # gCO2e / unit
+            intensityKilograms: 0.92  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Blueberries:
-            intensity: 0.92  # gCO2e / unit
+            intensityKilograms: 0.92  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
       Seafood:
-        intensity: 3.49  # gCO2e / unit
+        intensityKilograms: 3.49  # gCO2e / unit
         unit: g
         source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
         icon: fish
         _children:
           Tuna:
-            intensity: 2.15  # gCO2e / unit
+            intensityKilograms: 2.15  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Canned Tuna:
-            intensity: 6.1  # gCO2e / unit
+            intensityKilograms: 6.1  # gCO2e / unit
             unit: g
             source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
             icon: fish
           Cod:
-            intensity: 3.51  # gCO2e / unit
+            intensityKilograms: 3.51  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Flatfish:
-            intensity: 6.2  # gCO2e / unit
+            intensityKilograms: 6.2  # gCO2e / unit
             unit: g
             source: From https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
             icon: fish
           Herring:
-            intensity: 1.16  # gCO2e / unit
+            intensityKilograms: 1.16  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Prawns/shrimp:
-            intensity: 7.8  # gCO2e / unit
+            intensityKilograms: 7.8  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Shrimp (Fresh):
-            intensity: 3  # gCO2e / unit
+            intensityKilograms: 3  # gCO2e / unit
             unit: g
             source: https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
-            icon:
+            icon: 
           Shrimp (Frozen):
-            intensity: 10.5  # gCO2e / unit
+            intensityKilograms: 10.5  # gCO2e / unit
             unit: g
             source: https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
-            icon:
+            icon: 
           Clams:
-            intensity: 0.1  # gCO2e / unit
+            intensityKilograms: 0.1  # gCO2e / unit
             unit: g
             source: From https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
-            icon:
+            icon: 
           Lobster:
-            intensity: 27.8  # gCO2e / unit
+            intensityKilograms: 27.8  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Mussels:
-            intensity: 9.51  # gCO2e / unit
+            intensityKilograms: 9.51  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Pollock:
-            intensity: 1.61  # gCO2e / unit
+            intensityKilograms: 1.61  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Carp:
-            intensity: 1.76  # gCO2e / unit
+            intensityKilograms: 1.76  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Mackerel:
-            intensity: 1.8  # gCO2e / unit
+            intensityKilograms: 1.8  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Sea bass:
-            intensity: 3.27  # gCO2e / unit
+            intensityKilograms: 3.27  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Haddock:
-            intensity: 3.41  # gCO2e / unit
+            intensityKilograms: 3.41  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Salmon:
-            intensity: 3.47  # gCO2e / unit
+            intensityKilograms: 3.47  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Farmed Salmon:
-            intensity: 11.9  # gCO2e / unit
+            intensityKilograms: 11.9  # gCO2e / unit
             unit: g
             source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
             icon: fish
           Fish (all species):
-            intensity: 3.49  # gCO2e / unit
+            intensityKilograms: 3.49  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Whiting:
-            intensity: 2.66  # gCO2e / unit
+            intensityKilograms: 2.66  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Eel:
-            intensity: 3.88  # gCO2e / unit
+            intensityKilograms: 3.88  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Common Ling:
-            intensity: 6.45  # gCO2e / unit
+            intensityKilograms: 6.45  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Trout:
-            intensity: 4.2  # gCO2e / unit
+            intensityKilograms: 4.2  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Pomfret:
-            intensity: 6.63  # gCO2e / unit
+            intensityKilograms: 6.63  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Rock fish:
-            intensity: 6.94  # gCO2e / unit
+            intensityKilograms: 6.94  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Octopus/squid/cuttlefish:
-            intensity: 7.13  # gCO2e / unit
+            intensityKilograms: 7.13  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Brill:
-            intensity: 8.41  # gCO2e / unit
+            intensityKilograms: 8.41  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Hake:
-            intensity: 9.77  # gCO2e / unit
+            intensityKilograms: 9.77  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Porbeagle:
-            intensity: 11.44  # gCO2e / unit
+            intensityKilograms: 11.44  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Anglerfish:
-            intensity: 12.29  # gCO2e / unit
+            intensityKilograms: 12.29  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Swordfish:
-            intensity: 12.84  # gCO2e / unit
+            intensityKilograms: 12.84  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Megrim:
-            intensity: 14.15  # gCO2e / unit
+            intensityKilograms: 14.15  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Turbot:
-            intensity: 14.51  # gCO2e / unit
+            intensityKilograms: 14.51  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
           Sole:
-            intensity: 20.86  # gCO2e / unit
+            intensityKilograms: 20.86  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: fish
       Dairy:
-        intensity:
+        intensityKilograms:
         unit: g
         source:
-        icon:
+        icon: 
         _children:
           Cheese:
-            intensity: 8.55  # gCO2e / unit
+            intensityKilograms: 8.55  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: cheese-swiss
           Milk:
-            intensity: 1.29  # gCO2e / unit
+            intensityKilograms: 1.29  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: glass
           Cream:
-            intensity: 5.64  # gCO2e / unit
+            intensityKilograms: 5.64  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Milk Yogurt:
-            intensity: 1.31  # gCO2e / unit
+            intensityKilograms: 1.31  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Butter:
-            intensity: 9.25  # gCO2e / unit
+            intensityKilograms: 9.25  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
       Vegetables:
-        intensity: 1.32 gCO2e / unit
+        intensityKilograms: 1.32 gCO2e / unit
         unit: g
         source: https://orbit.dtu.dk/ws/files/110722384/Climate_friendly_dietary_guidelines.pdf
         icon: carrot
         _children:
           Potatoes:
-            intensity: 0.18  # gCO2e / unit
+            intensityKilograms: 0.18  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Broccoli:
-            intensity: 2.0  # gCO2e / unit
+            intensityKilograms: 2.0  # gCO2e / unit
             unit: g
             source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
-            icon:
+            icon: 
           Onion:
-            intensity: 0.17  # gCO2e / unit
+            intensityKilograms: 0.17  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Celery:
-            intensity: 0.18  # gCO2e / unit
+            intensityKilograms: 0.18  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Carrots:
-            intensity: 0.2  # gCO2e / unit
+            intensityKilograms: 0.2  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Beetroot:
-            intensity: 0.24  # gCO2e / unit
+            intensityKilograms: 0.24  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Mushrooms:
-            intensity: 0.27  # gCO2e / unit
+            intensityKilograms: 0.27  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Rutabage:
-            intensity: 0.29  # gCO2e / unit
+            intensityKilograms: 0.29  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Fennel:
-            intensity: 0.48  # gCO2e / unit
+            intensityKilograms: 0.48  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Artichokes:
-            intensity: 0.48  # gCO2e / unit
+            intensityKilograms: 0.48  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Spinach:
-            intensity: 0.54  # gCO2e / unit
+            intensityKilograms: 0.54  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Garlic:
-            intensity: 0.57  # gCO2e / unit
+            intensityKilograms: 0.57  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Aspargus:
-            intensity: 0.83  # gCO2e / unit
+            intensityKilograms: 0.83  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Ginger:
-            intensity: 0.88  # gCO2e / unit
+            intensityKilograms: 0.88  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Tomatoes:
-            intensity: 0.45  # gCO2e / unit
+            intensityKilograms: 0.45  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Olives:
-            intensity: 0.63  # gCO2e / unit
+            intensityKilograms: 0.63  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Peppers:
-            intensity: 0.66  # gCO2e / unit
+            intensityKilograms: 0.66  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Avocados:
-            intensity: 1.3  # gCO2e / unit
+            intensityKilograms: 1.3  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Eggplants:
-            intensity: 1.35  # gCO2e / unit
+            intensityKilograms: 1.35  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
       Grains:
-        intensity:
+        intensityKilograms:
         unit: g
         source:
-        icon:
+        icon: 
         _children:
           Rice:
-            intensity: 2.55  # gCO2e / unit
+            intensityKilograms: 2.55  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: soup
           Pasta:
-            intensity: 1.2  # gCO2e / unit
+            intensityKilograms: 1.2  # gCO2e / unit
             unit: g
             source: From https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
             icon: wheat
           Rye bread:
-            intensity: 0.93  # gCO2e / unit
+            intensityKilograms: 0.93  # gCO2e / unit
             unit: g
             source: From http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             icon: bread-loaf
           White bread:
-            intensity: 1.054  # gCO2e / unit
+            intensityKilograms: 1.054  # gCO2e / unit
             unit: g
             source: From http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             icon: bread-loaf
           Morning cereals:
-            intensity: 0.864  # gCO2e / unit
+            intensityKilograms: 0.864  # gCO2e / unit
             unit: g
             source: From http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
-            icon:
+            icon: 
           Oats:
-            intensity: 0.38  # gCO2e / unit
+            intensityKilograms: 0.38  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Green beans:
-            intensity: 0.31  # gCO2e / unit
+            intensityKilograms: 0.31  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Beans/tofu:
-            intensity: 2.0  # gCO2e / unit
+            intensityKilograms: 2.0  # gCO2e / unit
             unit: g
             source: From http://www.greeneatz.com/foods-carbon-footprint.html
             icon: burrito
           Dry beans:
-            intensity: 2.0  # gCO2e / unit
+            intensityKilograms: 2.0  # gCO2e / unit
             unit: g
             source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
-            icon:
+            icon: 
           Tofu:
-            intensity: 2.0  # gCO2e / unit
+            intensityKilograms: 2.0  # gCO2e / unit
             unit: g
             source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
-            icon:
+            icon: 
           Peas:
-            intensity: 0.38  # gCO2e / unit
+            intensityKilograms: 0.38  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Butter beans:
-            intensity: 0.39  # gCO2e / unit
+            intensityKilograms: 0.39  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Corn:
-            intensity: 0.47  # gCO2e / unit
+            intensityKilograms: 0.47  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Soybean:
-            intensity: 0.49  # gCO2e / unit
+            intensityKilograms: 0.49  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Wheat:
-            intensity: 0.52  # gCO2e / unit
+            intensityKilograms: 0.52  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Rye:
-            intensity: 0.38  # gCO2e / unit
+            intensityKilograms: 0.38  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Barley:
-            intensity: 0.43  # gCO2e / unit
+            intensityKilograms: 0.43  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Chick peas:
-            intensity: 0.77  # gCO2e / unit
+            intensityKilograms: 0.77  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Sesame seeds:
-            intensity: 0.88  # gCO2e / unit
+            intensityKilograms: 0.88  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Lentils:
-            intensity: 1.03  # gCO2e / unit
+            intensityKilograms: 1.03  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Quinoa:
-            intensity: 1.15  # gCO2e / unit
+            intensityKilograms: 1.15  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Sunflower seed:
-            intensity: 1.41  # gCO2e / unit
+            intensityKilograms: 1.41  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
 
       Nuts:
-        intensity: 2.3  # gCO2e / unit
+        intensityKilograms: 2.3  # gCO2e / unit
         unit: g
         source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
         icon: acorn
         _children:
           Peanuts:
-            intensity: 0.83  # gCO2e / unit
+            intensityKilograms: 0.83  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Peanut Butter:
-            intensity: 2.3  # gCO2e / unit
+            intensityKilograms: 2.3  # gCO2e / unit
             unit: g
             source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
-            icon:
+            icon: 
           Cashew nut:
-            intensity: 1.44  # gCO2e / unit
+            intensityKilograms: 1.44  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Walnuts:
-            intensity: 1.51  # gCO2e / unit
+            intensityKilograms: 1.51  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Pistachios:
-            intensity: 1.53  # gCO2e / unit
+            intensityKilograms: 1.53  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Almonds:
-            intensity: 1.54  # gCO2e / unit
+            intensityKilograms: 1.54  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Hazelnuts:
-            intensity: 0.97  # gCO2e / unit
+            intensityKilograms: 0.97  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
           Chestnuts:
-            intensity: 0.43  # gCO2e / unit
+            intensityKilograms: 0.43  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            icon:
+            icon: 
       Beverages:
-        intensity:
+        intensityKilograms:
         unit: g
         source:
-        icon:
+        icon: 
         _children:
           Almond milk:
-            intensity: 0.42  # gCO2e / unit
+            intensityKilograms: 0.42  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: glass
           Coconut milk:
-            intensity: 0.42  # gCO2e / unit
+            intensityKilograms: 0.42  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: glass
           Soy milk:
-            intensity: 0.75  # gCO2e / unit
+            intensityKilograms: 0.75  # gCO2e / unit
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: glass
           Beer:
-            intensity: 1.123  # gCO2e / unit
+            intensityKilograms: 1.123  # gCO2e / unit
             unit: g
             source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
-            icon:
+            icon: 
           Wine:
-            intensity: 2.344  # gCO2e / unit
+            intensityKilograms: 2.344  # gCO2e / unit
             unit: g
             source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             icon: wine-glass-alt
           Spirits:
-            intensity: 3.144  # gCO2e / unit
+            intensityKilograms: 3.144  # gCO2e / unit
             unit: g
             source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             icon: glass-whiskey-rocks
           Juice:
-            intensity: 0.93  # gCO2e / unit
+            intensityKilograms: 0.93  # gCO2e / unit
             unit: g
             source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             icon: glass
           Coffee:
-            intensity: 0.33  # gCO2e / unit
+            intensityKilograms: 0.33  # gCO2e / unit
             unit: g
             source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             icon: coffee
           Tea:
-            intensity: 0.184  # gCO2e / unit
+            intensityKilograms: 0.184  # gCO2e / unit
             unit: g
             source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             icon: coffee
           Soft drink:
-            intensity: 1.035  # gCO2e / unit
+            intensityKilograms: 1.035  # gCO2e / unit
             unit: g
             source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             icon: glass
           Water (bottled):
-            intensity: 0.215  # gCO2e / unit
+            intensityKilograms: 0.215  # gCO2e / unit
             unit: g
             source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             icon: glass
           Water (tap):
-            intensity: 0.001  # gCO2e / unit
+            intensityKilograms: 0.001  # gCO2e / unit
             unit: g
             source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             icon: glass
+
+Electronics:
+    _children:
+      #Phones
+      Apple, iPhone 11 Pro Max:
+        intensityKilograms: 86
+        unit: item
+        usage: 18%
+        source: https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_11_Pro_Max_PER_sept2019.pdf
+        icon: mobile
+      Apple, iPhone 11 Pro:
+        intensityKilograms: 80
+        unit: item
+        usage: 13%
+        source: https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_11_Pro_PER_sept2019.pdf
+        icon: mobile
+      Apple, iPhone 11:
+        intensityKilograms: 72
+        unit: item
+        usage: 17%
+        source: https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_11_PER_sept2019.pdf
+        icon: mobile
+      Apple, iPhone XR:
+        intensityKilograms: 62
+        unit: item
+        usage: 19%
+        source: https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_XR_PER_sept2018.pdf
+        icon: mobile
+      Apple, iPhone 8:
+        intensityKilograms: 57
+        unit: item
+        usage: 16%
+        source: https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_8_PER_sept2017.pdf
+        icon: mobile
+      Apple, iPhone 8 Plus:
+        intensityKilograms: 68
+        unit: item
+        usage: 17%
+        source: https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_8_Plus_PER_sept2017.pdf
+        icon: mobile
+      # Tablets    
+      Apple, iPad Pro (12.9-inch) (3rd generation):
+        intensityKilograms: 136
+        unit: item
+        usage: 6%
+        source: https://www.apple.com/lae/environment/pdf/products/ipad/iPadPro_12.9-inch_PER_oct2018.pdf
+        icon: tablet
+      Apple, iPad Pro (11-inch):
+        intensityKilograms: 113
+        unit: item
+        usage: 5%
+        source: https://www.apple.com/lae/environment/pdf/products/ipad/iPadPro_11-inch_PER_oct2018.pdf
+        icon: tablet
+      Apple, iPad (7th generation):
+        intensityKilograms: 87
+        unit: item
+        usage: 14%
+        source: https://www.apple.com/lae/environment/pdf/products/ipad/iPad_PER_sept2019.pdf
+        icon: tablet
+      Apple, iPad Air (3rd generation):
+        intensityKilograms: 86
+        unit: item
+        usage: 13%
+        source: https://www.apple.com/lae/environment/pdf/products/ipad/iPadAir_PER_Mar2019.pdf
+        icon: tablet
+      Apple, iPad mini (5th generation):
+        intensityKilograms: 70
+        unit: item
+        usage: 15%
+        source: https://www.apple.com/lae/environment/pdf/products/ipad/iPadmini_PER_Mar2019.pdf
+        icon: tablet
+      # Watches          
+      Apple, Apple Watch Series 5 (GPS + Cellular):
+        intensityKilograms: 40
+        unit: item
+        usage: 13%
+        source: https://www.apple.com/lae/environment/pdf/products/watch/Apple_Watch_Series5_PER_sept2019.pdf
+        icon: watch-fitness
+      Apple, Apple Watch Series 3 (GPS + Cellular):
+        intensityKilograms: 36
+        unit: item
+        usage: 15%
+        source: https://www.apple.com/lae/environment/pdf/products/watch/Apple_Watch_Series3_GPSCellular_PER_sept2018.pdf
+        icon: watch-fitness
+      Apple, Apple Watch Series 3 (GPS):
+        intensityKilograms: 28
+        unit: item
+        usage: 20%
+        source: https://www.apple.com/lae/environment/pdf/products/watch/Apple_Watch_Series3_GPS_PER_sept2018.pdf
+        icon: watch-fitness
+      # Laptop computers        
+      Apple, MacBook Pro 15-inch:
+        intensityKilograms: 334
+        unit: item
+        usage: 21%
+        source: https://www.apple.com/lae/environment/pdf/products/notebooks/15-inch_MacBookPro_PER_may2019.pdf
+        icon: laptop
+      Apple, MacBook Pro 13-inch:
+        intensityKilograms: 210
+        unit: item
+        usage: 6%
+        source: https://www.apple.com/lae/environment/pdf/products/notebooks/13-inch_MacBookPro_PER_June2019.pdf
+        icon: laptop
+      Apple, MacBook Air 13-inch:
+        intensityKilograms: 176
+        unit: item
+        usage: 6%
+        source: https://www.apple.com/lae/environment/pdf/products/notebooks/13-inch_MacBookAir_w_Retina_PER_June2019.pdf
+        icon: laptop
+      # Desktop computers 
+      Apple, iMac 27-inch:
+        intensityKilograms: 993
+        unit: item
+        usage: 55%
+        source: https://www.apple.com/lae/environment/pdf/products/desktops/27-inch_iMac_with_Retina5KDisplay_PER_Mar2019.pdf
+        icon: desktop
+      Apple, iMac 21.5-inch with Retina 4k:
+        intensityKilograms: 588
+        unit: item
+        usage: 51%
+        source: https://www.apple.com/lae/environment/pdf/products/desktops/21.5-inch_iMac_with_Retina4KDisplay_PER_Mar2019.pdf
+        icon: desktop
+      Apple, iMac 21.5-inch:
+        intensityKilograms: 494
+        unit: item
+        usage: 54%
+        source: https://www.apple.com/lae/environment/pdf/products/desktops/21.5-inch_iMac_PER_June2017.pdf
+        icon: desktop
+      Apple, iMac Pro:
+        intensityKilograms: 1468
+        unit: item
+        usage: 54%
+        source: https://www.apple.com/lae/environment/pdf/products/desktops/iMac_Pro_PER_dec2017.pdf
+        icon: desktop
+      Apple, Mac Pro:
+        intensityKilograms: 1000
+        unit: item
+        usage: 50%
+        source: https://www.apple.com/lae/environment/pdf/products/desktops/MacPro_PER_June2017.pdf
+        icon: desktop
+      Apple, Mac mini:
+        intensityKilograms: 226
+        unit: item
+        usage: 3%
+        source: https://www.apple.com/lae/environment/pdf/products/desktops/Macmini_PER_oct2018.pdf
+        icon: desktop
+      # Speakers     
+      Apple, Homepod:
+        intensityKilograms: 146
+        unit: item
+        usage: 41%
+        source: https://www.apple.com/lae/environment/pdf/products/homepod/HomePod_PER_feb2018.pdf
+        icon: speakers
+      # Set top boxes           
+      Apple, Apple TV 4K:
+        intensityKilograms: 58
+        unit: item
+        usage: 29%
+        source: https://www.apple.com/lae/environment/pdf/products/appletv/Apple_TV_4K_PER_sept2017.pdf
+        icon: router
+      Apple, Apple TV:
+        intensityKilograms: 65
+        unit: item
+        usage: 30%
+        source: https://www.apple.com/lae/environment/pdf/products/appletv/Apple_TV_PER_sept2017.pdf
+        icon: router
+      # Music players   
+      Apple, iPod touch:
+        intensityKilograms: 32
+        unit: item
+        usage: 6%
+        source: https://www.apple.com/lae/environment/pdf/products/ipod/iPodtouch_PER_may2019.pdf
+        icon: mp3-player
+      # Internet routers
+      Apple, AirPort Extreme:
+        intensityKilograms: 250
+        unit: item
+        usage: 76%
+        source: https://www.apple.com/lae/environment/pdf/products/airport/AirPortExtreme_PER_june2013.pdf
+        icon: router
+      Apple, AirPort Time Capsule:
+        intensityKilograms: 310
+        unit: item
+        usage: 70%
+        source: https://www.apple.com/lae/environment/pdf/products/airport/AirPortTimeCapsule_PER_june2013.pdf
+        icon: router
+      Apple, AirPort Express:
+        intensityKilograms: 95
+        unit: item
+        usage: 60%
+        source: https://www.apple.com/lae/environment/pdf/products/airport/AirPortExpress_PER_june2012.pdf
+        icon: router
