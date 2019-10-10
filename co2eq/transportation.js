@@ -1,3 +1,5 @@
+const parseString = require('xml2js').parseString;
+
 import {
   TRANSPORTATION_MODE_PLANE,
   TRANSPORTATION_MODE_CAR,
@@ -160,7 +162,7 @@ async function getCo2WithId(id, miles) {
   const xml = await co2Res.text();
 
   let vehicleInfo;
-  
+
   parseString(xml, function(error, result){
     if(error){
       console.log(error);

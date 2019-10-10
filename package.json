@@ -13,6 +13,7 @@
     "superagent": "^4.1.0",
     "uuid": "^3.3.2",
     "whatwg-url": "^7.0.0",
+    "xml2js": "^0.4.22",
     "xmldom": "^0.1.27"
   },
   "devDependencies": {
