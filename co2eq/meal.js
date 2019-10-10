@@ -2,6 +2,7 @@ import {
   MEAL_TYPE_VEGAN,
   MEAL_TYPE_VEGETARIAN,
   MEAL_TYPE_MEAT_OR_FISH,
+  PURCHASE_CATEGORY_FOOD,
 } from '../definitions';
 import { getEntryByKey, getDescendants, getEntryByPath } from './purchase';
 
@@ -13,7 +14,7 @@ export const MEAL_WEIGHT = 400; // grams
 
 const MEALS_PER_DAY = 3;
 
-const foodBranch = getEntryByPath(['Food']); // **** TODO: use a constant for the Food category??
+const foodBranch = getEntryByPath([PURCHASE_CATEGORY_FOOD]);
 const ingredients = getDescendants(foodBranch);
 export const INGREDIENT_KEYS = Object.keys(ingredients);
 export const INGREDIENT_CATEGORIES = [
