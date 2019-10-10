@@ -669,6 +669,26 @@ _children:
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon:
+          Ice cream (Vanilla regular):
+            intensityKilograms: 3.75  # gCO2e / unit
+            unit: g
+            source: From Fig. 2b https://www.sciencedirect.com/science/article/pii/S0959652618332633
+            icon:
+          Ice cream (Vanilla premium):
+            intensityKilograms: 3.94  # gCO2e / unit
+            unit: g
+            source: From Fig. 2b https://www.sciencedirect.com/science/article/pii/S0959652618332633
+            icon:
+          Ice cream (Chocolate regular):
+            intensityKilograms: 3.66  # gCO2e / unit
+            unit: g
+            source: From Fig. 2b https://www.sciencedirect.com/science/article/pii/S0959652618332633
+            icon:
+          Ice cream (Chocolate premium):
+            intensityKilograms: 3.91  # gCO2e / unit
+            unit: g
+            source: From Fig. 2b https://www.sciencedirect.com/science/article/pii/S0959652618332633
+            icon:
       Vegetables:
         intensityKilograms: 1.32 gCO2e / unit
         unit: g
