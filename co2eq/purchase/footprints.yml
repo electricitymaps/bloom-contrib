@@ -13,25 +13,25 @@ _children:
     _children:
 
       Natural gas:
-        intensity: 1.88  
+        intensity: 1.88
         unit: L
         source: http://www.bilans-ges.ademe.fr/static/documents/[Base%20Carbone]%20Documentation%20g%C3%A9n%C3%A9rale%20v11.0.pdf
         icon: burn
       Heating Oil:
-        intensity: 3.26 
+        intensity: 3.26
         unit: L
         source: http://www.bilans-ges.ademe.fr/static/documents/[Base%20Carbone]%20Documentation%20g%C3%A9n%C3%A9rale%20v11.0.pdf
         icon: oil-can
       Gasoline:
-        intensity: 2.8 
+        intensity: 2.8
         unit: L
         source: http://www.bilans-ges.ademe.fr/static/documents/[Base%20Carbone]%20Documentation%20g%C3%A9n%C3%A9rale%20v11.0.pdf
-        icon: oil-can  
+        icon: oil-can
       Diesel:
-        intensity: 3.17 
+        intensity: 3.17
         unit: L
         source: http://www.bilans-ges.ademe.fr/static/documents/[Base%20Carbone]%20Documentation%20g%C3%A9n%C3%A9rale%20v11.0.pdf
-        icon: oil-can   
+        icon: oil-can
 
   Stores:
 
