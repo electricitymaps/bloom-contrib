@@ -1,182 +1,184 @@
-Food:
+_children:
 
-  _children:
+  Food:
 
-    Fruits:
-      intensity: 1.1 # gCO2e / unit
-      unit: g
-      source: http://www.greeneatz.com/foods-carbon-footprint.html
-      icon: lemon
+    _children:
 
-      _children:
+      Fruits:
+        intensity: 1.1 # gCO2e / unit
+        unit: g
+        source: http://www.greeneatz.com/foods-carbon-footprint.html
+        icon: lemon
 
-        Zucchini:
-          intensity: 0.21 # gCO2e / unit
-          unit: g
-          source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+        _children:
 
-        Cucumbers:
-          intensity: 0.23 # gCO2e / unit
-          unit: g
-          source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+          Zucchini:
+            intensity: 0.21 # gCO2e / unit
+            unit: g
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
 
-        Pumpkins:
-          intensity: 0.25 # gCO2e / unit
-          unit: g
-          source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+          Cucumbers:
+            intensity: 0.23 # gCO2e / unit
+            unit: g
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
 
-        Melons:
-          intensity: 0.25 # gCO2e / unit
-          unit: g
-          source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-          icon: lemon
+          Pumpkins:
+            intensity: 0.25 # gCO2e / unit
+            unit: g
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
 
-        Lemons:
-          intensity: 0.26 # gCO2e / unit
-          unit: g
-          source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+          Melons:
+            intensity: 0.25 # gCO2e / unit
+            unit: g
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
 
-        Limes:
-          intensity: 0.26 # gCO2e / unit
-          unit: g
-          source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+          Lemons:
+            intensity: 0.26 # gCO2e / unit
+            unit: g
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+            icon: lemon
 
-        Guavas:
-          intensity: 0.28 # gCO2e / unit
-          unit: g
-          source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+          Limes:
+            intensity: 0.26 # gCO2e / unit
+            unit: g
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
 
-        Apples:
-          intensity: 0.29 # gCO2e / unit
-          unit: g
-          source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+          Guavas:
+            intensity: 0.28 # gCO2e / unit
+            unit: g
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
 
-        Pears:
-          intensity: 0.31 # gCO2e / unit
-          unit: g
-          source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+          Apples:
+            intensity: 0.29 # gCO2e / unit
+            unit: g
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
 
-        Quinces:
-          intensity: 0.31 # gCO2e / unit
-          unit: g
-          source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+          Pears:
+            intensity: 0.31 # gCO2e / unit
+            unit: g
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
 
-        Dates:
-          intensity: 0.32 # gCO2e / unit
-          unit: g
-          source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+          Quinces:
+            intensity: 0.31 # gCO2e / unit
+            unit: g
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
 
-        Watermelon:
-          intensity: 0.32 # gCO2e / unit
-          unit: g
-          source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+          Dates:
+            intensity: 0.32 # gCO2e / unit
+            unit: g
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
 
-        Orange:
-          intensity: 0.33 # gCO2e / unit
-          unit: g
-          source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+          Watermelon:
+            intensity: 0.32 # gCO2e / unit
+            unit: g
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
 
-        Kiwi:
-          intensity: 0.36 # gCO2e / unit
-          unit: g
-          source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+          Orange:
+            intensity: 0.33 # gCO2e / unit
+            unit: g
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
 
-        Grapes:
-          intensity: 0.37 # gCO2e / unit
-          unit: g
-          source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+          Kiwi:
+            intensity: 0.36 # gCO2e / unit
+            unit: g
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
 
-        Cherries:
-          intensity: 0.39 # gCO2e / unit
-          unit: g
-          source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+          Grapes:
+            intensity: 0.37 # gCO2e / unit
+            unit: g
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
 
-        Apricot:
-          intensity: 0.43 # gCO2e / unit
-          unit: g
-          source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+          Cherries:
+            intensity: 0.39 # gCO2e / unit
+            unit: g
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
 
-        Peaches:
-          intensity: 0.43 # gCO2e / unit
-          unit: g
-          source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+          Apricot:
+            intensity: 0.43 # gCO2e / unit
+            unit: g
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
 
-        Nectarines:
-          intensity: 0.43 # gCO2e / unit
-          unit: g
-          source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+          Peaches:
+            intensity: 0.43 # gCO2e / unit
+            unit: g
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
 
-        Figs:
-          intensity: 0.43 # gCO2e / unit
-          unit: g
-          source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+          Nectarines:
+            intensity: 0.43 # gCO2e / unit
+            unit: g
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
 
-        Mandarin:
-          intensity: 0.45 # gCO2e / unit
-          unit: g
-          source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+          Figs:
+            intensity: 0.43 # gCO2e / unit
+            unit: g
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
 
-        Pineapples:
-          intensity: 0.5 # gCO2e / unit
-          unit: g
-          source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+          Mandarin:
+            intensity: 0.45 # gCO2e / unit
+            unit: g
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
 
-        Grapefruit:
-          intensity: 0.51 # gCO2e / unit
-          unit: g
-          source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+          Pineapples:
+            intensity: 0.5 # gCO2e / unit
+            unit: g
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
 
-        Pomelo:
-          intensity: 0.51 # gCO2e / unit
-          unit: g
-          source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+          Grapefruit:
+            intensity: 0.51 # gCO2e / unit
+            unit: g
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
 
-        Tangerines:
-          intensity: 0.51 # gCO2e / unit
-          unit: g
-          source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+          Pomelo:
+            intensity: 0.51 # gCO2e / unit
+            unit: g
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
 
-        Strawberries:
-          intensity: 0.58 # gCO2e / unit
-          unit: g
-          source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+          Tangerines:
+            intensity: 0.51 # gCO2e / unit
+            unit: g
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
 
-        Bananas:
-          intensity: 0.72 # gCO2e / unit
-          unit: g
-          source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+          Strawberries:
+            intensity: 0.58 # gCO2e / unit
+            unit: g
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
 
-        Raspberries:
-          intensity: 0.84 # gCO2e / unit
-          unit: g
-          source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+          Bananas:
+            intensity: 0.72 # gCO2e / unit
+            unit: g
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
 
-        Currants:
-          intensity: 0.84 # gCO2e / unit
-          unit: g
-          source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+          Raspberries:
+            intensity: 0.84 # gCO2e / unit
+            unit: g
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
 
-        Gooseberries:
-          intensity: 0.84 # gCO2e / unit
-          unit: g
-          source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+          Currants:
+            intensity: 0.84 # gCO2e / unit
+            unit: g
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
 
-        Cranberries:
-          intensity: 0.92 # gCO2e / unit
-          unit: g
-          source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+          Gooseberries:
+            intensity: 0.84 # gCO2e / unit
+            unit: g
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
 
-        Blueberries:
-          intensity: 0.92 # gCO2e / unit
-          unit: g
-          source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+          Cranberries:
+            intensity: 0.92 # gCO2e / unit
+            unit: g
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
 
-        Avocados:
-          intensity: 1.3 # gCO2e / unit
-          unit: g
-          source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+          Blueberries:
+            intensity: 0.92 # gCO2e / unit
+            unit: g
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
 
-        Eggplants:
-          intensity: 1.35 # gCO2e / unit
-          unit: g
-          source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+          Avocados:
+            intensity: 1.3 # gCO2e / unit
+            unit: g
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+
+          Eggplants:
+            intensity: 1.35 # gCO2e / unit
+            unit: g
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584

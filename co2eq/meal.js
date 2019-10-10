@@ -3,8 +3,7 @@ import {
   MEAL_TYPE_VEGETARIAN,
   MEAL_TYPE_MEAT_OR_FISH,
 } from '../definitions';
-
-import footprints from './purchase/footprints.yml';
+import { getEntryByKey, getDescendants, getEntryByPath } from './purchase';
 
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'meal';
@@ -166,20 +165,27 @@ const CARBON_INTENSITY = { // kgCO2eq / kg
   'Water (bottled)': 0.215, // http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
   'Water (tap)': 0.001, // http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf  
 };
-export const INGREDIENTS = Object.keys(CARBON_INTENSITY);
 
-// Flatten ingredient tree
-// ...
+const foodBranch = getEntryByPath(['Food']); // **** TODO: use a constant for the Food category??
+export const INGREDIENTS = getDescendants(foodBranch);
+export const INGREDIENT_KEYS = Object.keys(INGREDIENTS);
+// `undefined` represents the "other" category
+export const INGREDIENT_CATEGORIES = [
+  ...new Set(Object.keys(foodBranch['_children'])),
+];
 
 /*
 Carbon intensity of ingredient (kgCO2 per kg).
 */
 export function carbonIntensityOfIngredient(ingredient) {
-  const entry = footprints.Food['_children'][ingredient];
+  const entry = getEntryByKey(ingredient);
   if (!entry) {
-    throw Error(`Unknown ingredient: ${ingredient}`);
+    throw new Error(`Unknown ingredient: ${ingredient}`);
   }
-  return CARBON_INTENSITY[ingredient];
+  if (!entry.intensity) {
+    throw new Error(`Missing carbon intensity for ingredient: ${ingredient}`);
+  }
+  return entry.intensity;
 }
 
 /*
@@ -193,9 +199,9 @@ function carbonIntensityOfMealType(mealType) {
     case MEAL_TYPE_VEGETARIAN:
       return 2598.3 / MEALS_PER_DAY / 1000.0;
     case MEAL_TYPE_MEAT_OR_FISH:
-      return 3959.3 / MEALS_PER_DAY / 1000.0;    
+      return 3959.3 / MEALS_PER_DAY / 1000.0;
     default:
-      throw Error(`Unknown meal type: ${mealType}`);
+      throw new Error(`Unknown meal type: ${mealType}`);
   }
 }
 
