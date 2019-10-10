@@ -11,7 +11,7 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - run: pip install yamllint && yamllint co2eq/**/*.yml
+      - run: pip install --user yamllint && yamllint co2eq/**/*.yml
 
   build:
     docker:
