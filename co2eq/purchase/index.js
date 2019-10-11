@@ -1,31 +1,10 @@
 import {
-  PURCHASE_CATEGORY_FOOD_SUPERMARKET,
-  PURCHASE_CATEGORY_FOOD_BAKERY,
-  PURCHASE_CATEGORY_STORE_DEPARTMENT,
-  PURCHASE_CATEGORY_STORE_CLOTHING,
-  PURCHASE_CATEGORY_STORE_HARDWARE,
-  PURCHASE_CATEGORY_STORE_PET,
-  PURCHASE_CATEGORY_STORE_ELECTRONIC,
-  PURCHASE_CATEGORY_STORE_BOOKS,
-  PURCHASE_CATEGORY_STORE_GARDEN,
-  PURCHASE_CATEGORY_STORE_FLORIST,
-  PURCHASE_CATEGORY_STORE_BARBER_BEAUTY,
-  PURCHASE_CATEGORY_STORE_HOUSE_FURNISHING,
-  PURCHASE_CATEGORY_STORE_EQUIPMENT_FURNITURE,
-  PURCHASE_CATEGORY_STORE_HOUSEHOLD_APPLIANCE,
-  PURCHASE_CATEGORY_HEALTHCARE_PHARMARCY,
-  PURCHASE_CATEGORY_HEALTHCARE_DOCTOR,
-  PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARKING,
-  PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARTS,
-  PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_SERVICE,
-  PURCHASE_CATEGORY_ENTERTAINMENT_CIGAR_STORES,
-  PURCHASE_CATEGORY_ENTERTAINMENT_AMUSEMENT_PARKS,
-  PURCHASE_CATEGORY_ENTERTAINMENT_MOVIE_THEATER,
-  PURCHASE_CATEGORY_ENTERTAINMENT_HOTEL,
-  PURCHASE_CATEGORY_ENTERTAINMENT_BAR_NIGHTCLUB,
-  PURCHASE_CATEGORY_ENTERTAINMENT_GAMBLING,
-  PURCHASE_CATEGORY_ENTERTAINMENT_CRUISE_LINES,
-  PURCHASE_CATEGORY_ENTERTAINMENT_LIQUOR_STORE,
+  ACTIVITY_TYPE_MEAL,
+  ACTIVITY_TYPE_TRANSPORTATION,
+  ACTIVITY_TYPE_PURCHASE,
+  TRANSPORTATION_MODE_CAR,
+  TRANSPORTATION_MODE_TRAIN,
+  TRANSPORTATION_MODE_PLANE,
 } from '../../definitions';
 import { convertToEuro } from '../../integrations/utils/currency/currency';
 import footprints from './footprints.yml';
@@ -90,15 +69,38 @@ export const modelVersion = 2;
 */
 export function carbonIntensity(activity) {
   // Source: http://www.balticproject.org/en/calculator-page
-  const { purchaseType } = activity;
-  const entry = getEntryByKey(purchaseType);
-  if (!entry) {
-    throw new Error(`Unknown purchaseType: ${purchaseType}`);
+  switch (activity.activityType) {
+    case ACTIVITY_TYPE_MEAL:
+      return 79.64 / 1000; // Restaurant bill
+    case ACTIVITY_TYPE_TRANSPORTATION:
+      switch (activity.transportationMode) {
+        case TRANSPORTATION_MODE_CAR:
+          return 1186 / 1000; // Taxi bill
+        case TRANSPORTATION_MODE_TRAIN:
+          return 335.63 / 1000;
+        case TRANSPORTATION_MODE_PLANE:
+          return 1121.52 / 1000;
+        default:
+          throw new Error(
+            `Couldn't calculate purchase carbonIntensity for transporation activity with mode ${activity.transportationMode}`
+          );
+      }
+    case ACTIVITY_TYPE_PURCHASE: {
+      const { purchaseType } = activity;
+      const entry = getEntryByKey(purchaseType);
+      if (!entry) {
+        throw new Error(`Unknown purchaseType: ${purchaseType}`);
+      }
+      if (!entry.intensityKilograms) {
+        throw new Error(`Missing carbon intensity for purchaseType: ${purchaseType}`);
+      }
+      return entry.intensityKilograms;
+    }
+    default:
+      throw new Error(
+        `Couldn't calculate purchase carbonIntensity for activityType: ${activity.activityType}`
+      );
   }
-  if (!entry.intensityKilograms) {
-    throw new Error(`Missing carbon intensity for purchaseType: ${purchaseType}`);
-  }
-  return entry.intensityKilograms;
 }
 
 /*

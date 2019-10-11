@@ -1,4 +1,8 @@
 # yamllint disable rule:empty-lines rule:line-length
+#
+# /!\ Remember to update the version of the associated
+# carbon model when changing this file.
+#
 ---
 _children:
 
@@ -100,7 +104,7 @@ _children:
         icon: cut
         oldKeys:
           - PURCHASE_CATEGORY_STORE_BARBER_BEAUTY
-      Home interior:
+      House furnishing:
         intensityKilograms: 0.06949
         unit: EUR
         source: http://www.balticproject.org/en/calculator-page
