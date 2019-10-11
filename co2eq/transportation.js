@@ -109,59 +109,8 @@ export function carbonEmissions(activity) {
   return carbonIntensity(activity.transportationMode) * distanceKilometers;
 }
 
-// This function returns an array of models given a make and a year of vehicle.
-// This can be used to ensure that a valid model is selected for the function to get the vehicle id.
-export async function getModelsByMake(make, year) {
-  const MODELS_URL = `https://www.fueleconomy.gov/ws/rest/vehicle/menu/model?year=${year}&make=${make}`;
-
-  const res = await fetch(MODELS_URL, { method: 'GET' });
-
-
-  const xml = await res.text();
-
-  let models;
-
-  parseString(xml, function(error, result) {
-    if (error) {
-      console.log(error);
-      return;
-    }
-    models = result.menuItems.menuItem.map(model => model.text[0]);
-    return result;
-  });
-
-  return models;
-}
-
-// Given a valid make model and year return a vehicle id
-// This id is used to get the emmissions information.
-export async function idFromMakeModelYear(make, year, model) {
-  const ID_URL = `https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year=${year}&make=${make}&model=${model}`;
-
-  const res = await fetch(ID_URL, { method: 'GET' });
-
-  // insert a res !ok error check here.
-
-  const xml = await res.text();
-
-  let id;
-
-  parseString(xml, function(error, result) {
-    if (error) {
-      console.log(error);
-      return;
-    }
-    id = result.menuItems.menuItem[0].value[0];
-    return result;
-  });
-
-  if (id) {
-    return id;
-  }
-  throw new Error(`Couldn't find your vehicle, your make = ${make} model= ${model} or year = ${year} may not be in the system, or may be formatted differently than how they were input`);
-}
-
-
+// This function gives the kg of co2 given the vehicle id and miles.
+// It will be used in a later function that gets the vehicle id.
 async function getCo2WithId (id, miles) {
   const CO2_URL = `https://www.fueleconomy.gov/ws/rest/vehicle/${id}`;
 
@@ -195,4 +144,57 @@ async function getCo2WithId (id, miles) {
     return (co2A * miles) / 1000;
   }
   throw new Error(`Couldn't find information on your vehicle by id, your id = ${id}`);
+}
+
+// This function returns an array of models given a make and a year of vehicle.
+// This can be used to ensure that a valid model is selected for the function to get the vehicle id.
+export async function getModelsByMake(make, year) {
+  const MODELS_URL = `https://www.fueleconomy.gov/ws/rest/vehicle/menu/model?year=${year}&make=${make}`;
+
+  const res = await fetch(MODELS_URL, { method: 'GET' });
+
+
+  const xml = await res.text();
+
+  let models;
+
+  parseString(xml, function(error, result) {
+    if (error) {
+      console.log(error);
+      return;
+    }
+    models = result.menuItems.menuItem.map(model => model.text[0]);
+    return result;
+  });
+
+  return models;
+}
+
+// Given a valid make model and year return a vehicle id
+// This id is used to get the emmissions information.
+export async function getCo2ForVehicle(make, year, model, miles) {
+  const ID_URL = `https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year=${year}&make=${make}&model=${model}`;
+
+  const res = await fetch(ID_URL, { method: 'GET' });
+
+  // insert a res !ok error check here.
+
+  const xml = await res.text();
+
+  let id;
+
+  parseString(xml, function(error, result) {
+    if (error) {
+      console.log(error);
+      return;
+    }
+    id = result.menuItems.menuItem[0].value[0];
+    return result;
+  });
+
+  if (id) {
+    const co2 = await getCo2WithId(id, miles);
+    return co2;
+  }
+  throw new Error(`Couldn't find your vehicle, your make = ${make} model= ${model} or year = ${year} may not be in the system, or may be formatted differently than how they were input`);
 }
