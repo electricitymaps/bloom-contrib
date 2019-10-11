@@ -944,62 +944,62 @@ _children:
         icon:
         _children:
           Almond milk:
-            intensityKilograms: 0.42  # gCO2e / unit
+            intensityKilograms: 0.00042  # kgCO2e / unit:
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: glass
           Coconut milk:
-            intensityKilograms: 0.42  # gCO2e / unit
+            intensityKilograms: 0.00042  # kgCO2e / unit:
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: glass
           Soy milk:
-            intensityKilograms: 0.75  # gCO2e / unit
+            intensityKilograms: 0.00075  # kgCO2e / unit:
             unit: g
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             icon: glass
           Beer:
-            intensityKilograms: 1.123  # gCO2e / unit
+            intensityKilograms: 0.001123  # kgCO2e / unit:
             unit: g
             source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             icon:
           Wine:
-            intensityKilograms: 2.344  # gCO2e / unit
+            intensityKilograms: 0.002344  # kgCO2e / unit:
             unit: g
             source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             icon: wine-glass-alt
           Spirits:
-            intensityKilograms: 3.144  # gCO2e / unit
+            intensityKilograms: 0.003144  # kgCO2e / unit:
             unit: g
             source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             icon: glass-whiskey-rocks
           Juice:
-            intensityKilograms: 0.93  # gCO2e / unit
+            intensityKilograms: 0.00093  # kgCO2e / unit:
             unit: g
             source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             icon: glass
           Coffee:
-            intensityKilograms: 0.33  # gCO2e / unit
+            intensityKilograms: 0.00033  # kgCO2e / unit:
             unit: g
             source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             icon: coffee
           Tea:
-            intensityKilograms: 0.184  # gCO2e / unit
+            intensityKilograms: 0.000184  # kgCO2e / unit:
             unit: g
             source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             icon: coffee
           Soft drink:
-            intensityKilograms: 1.035  # gCO2e / unit
+            intensityKilograms: 0.001035  # kgCO2e / unit:
             unit: g
             source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             icon: glass
           Water (bottled):
-            intensityKilograms: 0.215  # gCO2e / unit
+            intensityKilograms: 0.000215  # kgCO2e / unit:
             unit: g
             source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             icon: glass
           Water (tap):
-            intensityKilograms: 0.001  # gCO2e / unit
+            intensityKilograms: 0.000001  # kgCO2e / unit:
             unit: g
             source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             icon: glass
