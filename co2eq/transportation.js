@@ -1,5 +1,3 @@
-const parseString = require('xml2js').parseString;
-
 import {
   TRANSPORTATION_MODE_PLANE,
   TRANSPORTATION_MODE_CAR,
@@ -12,6 +10,8 @@ import {
 } from '../definitions';
 
 import flightEmissions from './flights';
+
+const parseString = require('xml2js').parseString;
 
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'transportation';
@@ -32,8 +32,10 @@ function carbonIntensity(mode) {
       return 20 / 1000.0;
     case TRANSPORTATION_MODE_PUBLIC_TRANSPORT:
       // Average of train and bus
-      return (0.5 * carbonIntensity(TRANSPORTATION_MODE_TRAIN)
-        + 0.5 * carbonIntensity(TRANSPORTATION_MODE_BUS));
+      return (
+        0.5 * carbonIntensity(TRANSPORTATION_MODE_TRAIN) +
+        0.5 * carbonIntensity(TRANSPORTATION_MODE_BUS)
+      );
     case TRANSPORTATION_MODE_FERRY:
       // See https://en.wikipedia.org/wiki/Carbon_footprint
       return 0.12;
@@ -42,7 +44,7 @@ function carbonIntensity(mode) {
       return 5 / 1000.0;
     case TRANSPORTATION_MODE_ESCOOTER:
       // https://iopscience.iop.org/article/10.1088/1748-9326/ab2da8
-      return 202 / 1000.0;  
+      return 202 / 1000.0;
     default:
       throw Error(`Unknown transportation mode: ${mode}`);
   }
@@ -58,14 +60,16 @@ export function durationToDistance(durationHours, mode) {
       return durationHours * 80.0;
     case TRANSPORTATION_MODE_PUBLIC_TRANSPORT:
       // Average of train and bus
-      return (0.5 * durationToDistance(durationHours, TRANSPORTATION_MODE_TRAIN)
-        + 0.5 * durationToDistance(durationHours, TRANSPORTATION_MODE_BUS));
+      return (
+        0.5 * durationToDistance(durationHours, TRANSPORTATION_MODE_TRAIN) +
+        0.5 * durationToDistance(durationHours, TRANSPORTATION_MODE_BUS)
+      );
     case TRANSPORTATION_MODE_FERRY:
       return durationHours * 30; // ~16 knots
     case TRANSPORTATION_MODE_BIKE:
       return durationHours * 10;
     case TRANSPORTATION_MODE_ESCOOTER:
-      return durationHours * 10;  
+      return durationHours * 10;
     default:
       throw Error(`Unknown transportation mode: ${mode}`);
   }
@@ -84,34 +88,41 @@ export function carbonEmissions(activity) {
   if (!distanceKilometers) {
     // fallback on duration if available
     if ((activity.durationHours || 0) > 0) {
-      distanceKilometers = durationToDistance(activity.durationHours, activity.transportationMode);
+      distanceKilometers = durationToDistance(
+        activity.durationHours,
+        activity.transportationMode
+      );
     } else {
-      throw new Error(`Couldn't calculate carbonEmissions for activity because distanceKilometers = ${distanceKilometers} and durationHours = ${activity.durationHours}`);
+      throw new Error(
+        `Couldn't calculate carbonEmissions for activity because distanceKilometers = ${distanceKilometers} and durationHours = ${activity.durationHours}`
+      );
     }
   }
 
   // Take into account the passenger count if this is a car
   if (activity.transportationMode === TRANSPORTATION_MODE_CAR) {
-    return carbonIntensity(activity.transportationMode) * distanceKilometers / (activity.participants || 1);
+    return (
+      (carbonIntensity(activity.transportationMode) * distanceKilometers) /
+      (activity.participants || 1)
+    );
   }
   return carbonIntensity(activity.transportationMode) * distanceKilometers;
 }
 
-//This function returns an array of models given a make and a year of vehicle.  
-//This can be used to ensure that a valid model is selected for the function to get the vehicle id.
+// This function returns an array of models given a make and a year of vehicle.
+// This can be used to ensure that a valid model is selected for the function to get the vehicle id.
 export async function getModelsByMake(make, year) {
   const MODELS_URL = `https://www.fueleconomy.gov/ws/rest/vehicle/menu/model?year=${year}&make=${make}`;
 
-  const res = await fetch(MODELS_URL, {method: 'GET'});
+  const res = await fetch(MODELS_URL, { method: 'GET' });
 
-  //check if resok  before continuing.
 
   const xml = await res.text();
-  
+
   let models;
 
-  parseString(xml, function(error, result){
-    if(error){
+  parseString(xml, function(error, result) {
+    if (error) {
       console.log(error);
       return;
     }
@@ -122,22 +133,21 @@ export async function getModelsByMake(make, year) {
   return models;
 }
 
-//Given a valid make model and year return a vehicle id
-//This id is used to get the emmissions information.
+// Given a valid make model and year return a vehicle id
+// This id is used to get the emmissions information.
 export async function idFromMakeModelYear(make, year, model) {
-
   const ID_URL = `https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year=${year}&make=${make}&model=${model}`;
-  
-  const res = await fetch(ID_URL, {method: 'GET'});
 
-  //insert a res !ok error check here. 
+  const res = await fetch(ID_URL, { method: 'GET' });
+
+  // insert a res !ok error check here.
 
   const xml = await res.text();
-  
+
   let id;
 
-  parseString(xml, function(error, result){
-    if(error){
+  parseString(xml, function(error, result) {
+    if (error) {
       console.log(error);
       return;
     }
@@ -145,26 +155,24 @@ export async function idFromMakeModelYear(make, year, model) {
     return result;
   });
 
-  if(id){
-    return id
+  if (id) {
+    return id;
   }
-  else {
-    throw new Error (`Couldn't find your vehicle, your make = ${make} model= ${model} or year = ${year} may not be in the system, or may be formatted differently than how they were input`)
-  }
+  throw new Error(`Couldn't find your vehicle, your make = ${make} model= ${model} or year = ${year} may not be in the system, or may be formatted differently than how they were input`);
 }
 
-async function getCo2WithId(id, miles) {
 
-  const CO2_URL = `https://www.fueleconomy.gov/ws/rest/vehicle/${id}`
+async function getCo2WithId (id, miles) {
+  const CO2_URL = `https://www.fueleconomy.gov/ws/rest/vehicle/${id}`;
 
-  const co2Res = await fetch(CO2_URL, {method: 'GET'});
+  const co2Res = await fetch(CO2_URL, { method: 'GET' });
 
   const xml = await co2Res.text();
 
   let vehicleInfo;
 
-  parseString(xml, function(error, result){
-    if(error){
+  parseString(xml, function(error, result) {
+    if (error) {
       console.log(error);
       return;
     }
@@ -177,22 +185,14 @@ async function getCo2WithId(id, miles) {
   const co2TailpipeAGpm = parseFloat(vehicleInfo.vehicle.co2TailpipeAGpm[0]);
   const co2TailpipeGpm = parseFloat(vehicleInfo.vehicle.co2TailpipeGpm[0]);
 
-  console.log(co2, co2A, co2TailpipeAGpm, co2TailpipeGpm);
-
   if (co2TailpipeGpm > 0) {
-    return co2TailpipeGpm * miles / 1000;
+    return (co2TailpipeGpm * miles) / 1000;
+  } if (co2 > 0) {
+    return (co2 * miles) / 1000;
+  } if (co2TailpipeAGpm > 0) {
+    return (co2TailpipeAGpm * miles) / 1000;
+  } if (co2A > 0) {
+    return (co2A * miles) / 1000;
   }
-  else if (co2 > 0) {
-    return co2 * miles / 1000; 
-  }
-  else if (co2TailpipeAGpm > 0) {
-    return co2TailpipeAGpm * miles / 1000;
-  }
-  else if (co2A > 0) {
-    return co2A * miles / 1000; 
-  }
-  else {
-    throw new Error(`Couldn't find information on your vehicle by id, your id = ${id}`);
+  throw new Error(`Couldn't find information on your vehicle by id, your id = ${id}`);
 }
-}
-
