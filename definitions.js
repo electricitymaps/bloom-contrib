@@ -1,6 +1,14 @@
 // Declare all types
 // The value should not changed as it is stored in the database
 // The variable name can however be changed
+
+/* Units */
+export const UNIT_LITER = 'L';
+export const UNIT_KILOGRAMS = 'kg';
+export const UNIT_MONETARY_EUR = 'EUR';
+export const UNIT_ITEM = 'item';
+
+/* Activity Types */
 export const ACTIVITY_TYPE_ELECTRICITY = 'ACTIVITY_TYPE_ELECTRICITY';
 export const ACTIVITY_TYPE_ELECTRIC_VEHICLE_CHARGING = 'ACTIVITY_TYPE_ELECTRIC_VEHICLE_CHARGING';
 export const ACTIVITY_TYPE_TRANSPORTATION = 'ACTIVITY_TYPE_TRANSPORTATION';
