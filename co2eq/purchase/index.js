@@ -5,6 +5,10 @@ import {
   TRANSPORTATION_MODE_CAR,
   TRANSPORTATION_MODE_TRAIN,
   TRANSPORTATION_MODE_PLANE,
+  UNIT_MONETARY_EUR,
+  UNIT_ITEM,
+  UNIT_KILOGRAMS,
+  UNIT_LITER,
 } from '../../definitions';
 import { convertToEuro } from '../../integrations/utils/currency/currency';
 import footprints from './footprints.yml';
@@ -64,27 +68,57 @@ export function getDescendants(entry, filter = (_ => true), includeRoot = false)
 export const modelName = 'purchase';
 export const modelVersion = 2;
 
+function correctWithParticipants(footprint, participants) {
+  return footprint / (participants || 1);
+}
+function extractEur(activity) {
+  return (activity.costAmount && activity.costCurrency)
+    ? convertToEuro(activity.costAmount, activity.costCurrency)
+    : null;
+}
+function extractUnitAndAmount(activity) {
+  const eurAmount = extractEur(activity);
+  if (eurAmount != null) {
+    return { unit: UNIT_MONETARY_EUR, amount: eurAmount };
+  }
+  if (activity.volumeLiters != null) {
+    return { unit: UNIT_LITER, amount: activity.volumeLiters };
+  }
+  return { unit: UNIT_ITEM, amount: 1 };
+}
+
 /*
-  Carbon intensity of category (kg of CO2 per euro spent)
+  Carbon emissions of an activity (in kgCO2eq)
 */
-export function carbonIntensity(activity) {
-  // Source: http://www.balticproject.org/en/calculator-page
+export function carbonEmissions(activity) {
+  let footprint;
+  const eurAmount = extractEur(activity);
+
   switch (activity.activityType) {
     case ACTIVITY_TYPE_MEAL:
-      return 79.64 / 1000; // Restaurant bill
+      // Source: http://www.balticproject.org/en/calculator-page
+      footprint = eurAmount * 79.64 / 1000; // Restaurant bill
+      break;
+
     case ACTIVITY_TYPE_TRANSPORTATION:
+      // Source: http://www.balticproject.org/en/calculator-page
       switch (activity.transportationMode) {
         case TRANSPORTATION_MODE_CAR:
-          return 1186 / 1000; // Taxi bill
+          footprint = eurAmount * 1186 / 1000; // Taxi bill
+          break;
         case TRANSPORTATION_MODE_TRAIN:
-          return 335.63 / 1000;
+          footprint = eurAmount * 335.63 / 1000;
+          break;
         case TRANSPORTATION_MODE_PLANE:
-          return 1121.52 / 1000;
+          footprint = eurAmount * 1121.52 / 1000;
+          break;
         default:
           throw new Error(
             `Couldn't calculate purchase carbonIntensity for transporation activity with mode ${activity.transportationMode}`
           );
       }
+      break;
+
     case ACTIVITY_TYPE_PURCHASE: {
       const { purchaseType } = activity;
       const entry = getEntryByKey(purchaseType);
@@ -94,22 +128,24 @@ export function carbonIntensity(activity) {
       if (!entry.intensityKilograms) {
         throw new Error(`Missing carbon intensity for purchaseType: ${purchaseType}`);
       }
-      return entry.intensityKilograms;
+
+      const { unit, amount } = extractUnitAndAmount(activity);
+      if (unit == null || amount == null || !Number.isFinite(amount)) {
+        throw new Error(`Invalid unit ${unit} or amount ${amount}`);
+      }
+
+      if (entry.unit !== unit) {
+        throw new Error(`Invalid unit ${unit} given for purchaseType ${purchaseType}. Expected ${entry.unit}`);
+      }
+      footprint = entry.intensityKilograms * amount;
+      break;
     }
+
     default:
       throw new Error(
         `Couldn't calculate purchase carbonIntensity for activityType: ${activity.activityType}`
       );
   }
-}
 
-/*
-  Carbon emissions of an activity (in kgCO2eq)
-*/
-export function carbonEmissions(activity) {
-  // TODO: throw error if we're multiplying incompatible units
-  return (
-    (carbonIntensity(activity) * convertToEuro(activity.costAmount, activity.costCurrency))
-    / (activity.participants || 1)
-  );
+  return correctWithParticipants(footprint, activity.participants);
 }

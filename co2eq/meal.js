@@ -38,6 +38,9 @@ export function carbonIntensityOfIngredient(ingredient) {
   if (!entry.intensityKilograms) {
     throw new Error(`Missing carbon intensity for ingredient: ${ingredient}`);
   }
+  if (entry.unit !== 'kg') {
+    throw new Error(`Unexpected footprint unit ${entry.unit}. Expected 'kg'`);
+  }
   return entry.intensityKilograms;
 }
 
