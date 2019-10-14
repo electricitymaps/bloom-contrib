@@ -363,6 +363,26 @@ _children:
             intensityKilograms: 1.31
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+          Ice cream (Vanilla regular):
+            icon: null
+            intensityKilograms: 0.00375
+            unit: kg
+            source: 'https://www.sciencedirect.com/science/article/pii/S0959652618332633'
+          Ice cream (Vanilla premium):
+            icon: null
+            intensityKilograms: 0.00394
+            unit: kg
+            source: 'https://www.sciencedirect.com/science/article/pii/S0959652618332633'
+          Ice cream (Chocolate regular):
+            icon: null
+            intensityKilograms: 0.00366
+            unit: kg
+            source: 'https://www.sciencedirect.com/science/article/pii/S0959652618332633'
+          Ice cream (Chocolate premium):
+            icon: null
+            intensityKilograms: 0.00391
+            unit: kg
+            source: 'https://www.sciencedirect.com/science/article/pii/S0959652618332633'
         icon: null
         intensityKilograms: null
         source: null
