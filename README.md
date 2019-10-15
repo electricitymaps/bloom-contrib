@@ -132,6 +132,9 @@ Activities require a certain formatting:
 
 Our current models and Life Cycle assessments are accessible [here](https://github.com/tmrowco/tmrowapp-contrib/tree/master/co2eq). If you know better sources, please contribute with your knowledge.
 
+If you want to add individual items or ingredients, this is done [here](https://github.com/tmrowco/tmrowapp-contrib/blob/master/co2eq/purchase/footprints.yml). Ideally, the studies used should be as global as possible and it's even better if they're systemic reviews (multiple studies in one!).
+
+
 ### Giving ideas, features requests or bugs
 
 Please [add an issue here](https://github.com/tmrowco/tmrowapp-contrib/issues/new) or directly in the app.
