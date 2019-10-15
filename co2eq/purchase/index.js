@@ -13,6 +13,13 @@ import {
 import { convertToEuro } from '../../integrations/utils/currency/currency';
 import footprints from './footprints.yml';
 
+export const explanation = {
+  text: null,
+  links: [
+    { label: 'Tomorrow footprint database', href: 'https://github.com/tmrowco/tmrowapp-contrib/blob/master/co2eq/purchase/footprints.yml' },
+  ],
+};
+
 const ENTRY_BY_KEY = {};
 export const purchaseIcon = {};
 
