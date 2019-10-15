@@ -1040,7 +1040,7 @@ _children:
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
         icon: carrot
-        intensityKilograms: 1.32 
+        intensityKilograms: 1.32
         source: 'https://orbit.dtu.dk/ws/files/110722384/Climate_friendly_dietary_guidelines.pdf'
         unit: kg
   Fuel:
