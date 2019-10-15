@@ -76,7 +76,7 @@ const NAG_CATEGORY = {
   'Mini-markets & Delicacies': { purchaseType: PURCHASE_CATEGORY_FOOD_SUPERMARKET, activityType: ACTIVITY_TYPE_PURCHASE },
   Pharmacy: { purchaseType: PURCHASE_CATEGORY_HEALTHCARE_PHARMARCY, activityType: ACTIVITY_TYPE_PURCHASE },
   'Flights & Hotels': null,
-  'Car Rental': null,
+  'Car Rental': { transportationMode: TRANSPORTATION_MODE_CAR, activityType: ACTIVITY_TYPE_TRANSPORTATION },
   'Vacation Home & Camping': { purchaseType: PURCHASE_CATEGORY_STORE_DEPARTMENT, activityType: ACTIVITY_TYPE_PURCHASE },
   Household: null,
   'Vacation Activities': { purchaseType: PURCHASE_CATEGORY_ENTERTAINMENT_AMUSEMENT_PARKS, activityType: ACTIVITY_TYPE_PURCHASE },
