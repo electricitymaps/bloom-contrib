@@ -274,62 +274,62 @@ _children:
         _children:
           Almond milk:
             icon: glass
-            intensityKilograms: 0.00042
+            intensityKilograms: 0.42
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
           Beer:
             icon: null
-            intensityKilograms: 0.001123
+            intensityKilograms: 1.123
             source: 'http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf'
             unit: kg
           Coconut milk:
             icon: glass
-            intensityKilograms: 0.00042
+            intensityKilograms: 0.42
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
           Coffee:
             icon: coffee
-            intensityKilograms: 0.00033
+            intensityKilograms: 0.33
             source: 'http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf'
             unit: kg
           Juice:
             icon: glass
-            intensityKilograms: 0.00093
+            intensityKilograms: 0.93
             source: 'http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf'
             unit: kg
           Soft drink:
             icon: glass
-            intensityKilograms: 0.001035
+            intensityKilograms: 1.035
             source: 'http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf'
             unit: kg
           Soy milk:
             icon: glass
-            intensityKilograms: 0.00075
+            intensityKilograms: 0.75
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
           Spirits:
             icon: glass-whiskey-rocks
-            intensityKilograms: 0.003144
+            intensityKilograms: 3.144
             source: 'http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf'
             unit: kg
           Tea:
             icon: coffee
-            intensityKilograms: 0.000184
+            intensityKilograms: 0.184
             source: 'http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf'
             unit: kg
           Water (bottled):
             icon: glass
-            intensityKilograms: 0.000215
+            intensityKilograms: 0.215
             source: 'http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf'
             unit: kg
           Water (tap):
             icon: glass
-            intensityKilograms: 0.000001
+            intensityKilograms: 0.001
             source: 'http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf'
             unit: kg
           Wine:
             icon: wine-glass-alt
-            intensityKilograms: 0.002344
+            intensityKilograms: 2.344
             source: 'http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf'
             unit: kg
         icon: null
@@ -365,22 +365,22 @@ _children:
             unit: kg
           Ice cream (Vanilla regular):
             icon: null
-            intensityKilograms: 0.00375
+            intensityKilograms: 3.75
             unit: kg
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652618332633'
           Ice cream (Vanilla premium):
             icon: null
-            intensityKilograms: 0.00394
+            intensityKilograms: 3.94
             unit: kg
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652618332633'
           Ice cream (Chocolate regular):
             icon: null
-            intensityKilograms: 0.00366
+            intensityKilograms: 3.66
             unit: kg
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652618332633'
           Ice cream (Chocolate premium):
             icon: null
-            intensityKilograms: 0.00391
+            intensityKilograms: 3.91
             unit: kg
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652618332633'
         icon: null
@@ -1040,7 +1040,7 @@ _children:
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
         icon: carrot
-        intensityKilograms: 1.32 gCO2e / unit
+        intensityKilograms: 1.32 
         source: 'https://orbit.dtu.dk/ws/files/110722384/Climate_friendly_dietary_guidelines.pdf'
         unit: kg
   Fuel:
