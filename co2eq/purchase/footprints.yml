@@ -277,10 +277,6 @@ _children:
             intensityKilograms: 0.42
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
-            conversions:
-              glass:
-                kilograms: 0.25
-                incrementStepSize: 1
           Beer:
             icon: null
             intensityKilograms: 1.123
@@ -398,6 +394,11 @@ _children:
             intensityKilograms: 0.29
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversions:
+              apple:
+                kilograms: 0.112
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Apricot:
             icon: null
             intensityKilograms: 0.43
