@@ -409,11 +409,36 @@ _children:
             intensityKilograms: 0.72
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversions:
+              banana:
+                kilograms: 0.1
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Blueberries:
             icon: null
             intensityKilograms: 0.92
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+          Blackberries:
+            icon: null
+            intensityKilograms:
+            source: ''
+            unit: kg
+            conversions:
+              blackBerry:
+                kilograms: 0.076
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          Blackcurrant:
+            icon: null
+            intensityKilograms: 0.29
+            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            unit: kg
+            conversions:
+              blackCurrants:
+                kilograms: 0.04
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Cherries:
             icon: null
             intensityKilograms: 0.39
@@ -454,11 +479,21 @@ _children:
             intensityKilograms: 0.51
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversions:
+              grapeFruit:
+                kilograms: 0.116
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Grapes:
             icon: null
             intensityKilograms: 0.37
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversions:
+              grape:
+                kilograms: 0.07
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Guavas:
             icon: null
             intensityKilograms: 0.28
@@ -469,6 +504,11 @@ _children:
             intensityKilograms: 0.36
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversions:
+              kiwi:
+                kilograms: 0.06
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Lemons:
             icon: null
             intensityKilograms: 0.26
@@ -489,6 +529,11 @@ _children:
             intensityKilograms: 0.25
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversions:
+              melon:
+                kilograms: 0.151
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Nectarines:
             icon: null
             intensityKilograms: 0.43
@@ -499,26 +544,66 @@ _children:
             intensityKilograms: 0.33
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversions:
+              orange:
+                kilograms: 0.16
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Peaches:
             icon: null
             intensityKilograms: 0.43
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversions:
+              peach:
+                kilograms: 0.12
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Pears:
             icon: null
             intensityKilograms: 0.31
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversions:
+              pear:
+                kilograms: 0.16
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Pineapples:
             icon: null
             intensityKilograms: 0.5
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversions:
+              pineApple:
+                kilograms: 0.08
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          Plum:
+            icon: null
+            intensityKilograms:
+            source: ''
+            unit: kg
+            conversions:
+              plum:
+                kilograms: 0.092
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Pomelo:
             icon: null
             intensityKilograms: 0.51
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+          Prunes:
+            icon: null
+            intensityKilograms:
+            source: ''
+            unit: kg
+            conversions:
+              prune:
+                kilograms: 0.024
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Pumpkins:
             icon: null
             intensityKilograms: 0.25
@@ -534,11 +619,31 @@ _children:
             intensityKilograms: 0.84
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversions:
+              raspBerry:
+                kilograms: 0.114
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          Rhubarb:
+            icon: null
+            intensityKilograms:
+            source: ''
+            unit: kg
+            conversions:
+              rhubarb:
+                kilograms: 0.09
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Strawberries:
             icon: null
             intensityKilograms: 0.58
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversions:
+              strawBerry:
+                kilograms: 0.096
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Tangerines:
             icon: null
             intensityKilograms: 0.51
@@ -554,10 +659,11 @@ _children:
             intensityKilograms: 0.21
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
-        icon: lemon
-        intensityKilograms: 0.52
-        source: 'http://www.greeneatz.com/foods-carbon-footprint.html'
-        unit: kg
+          Lemon:
+            icon: lemon
+            intensityKilograms: 0.52
+            source: 'http://www.greeneatz.com/foods-carbon-footprint.html'
+            unit: kg
       Grains:
         _children:
           Barley:
@@ -974,16 +1080,76 @@ _children:
             intensityKilograms: 2
             source: 'http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf'
             unit: kg
+            conversions:
+              brocoli:
+                kilograms: 0.054
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          Brussels Sprouts:
+            icon: null
+            intensityKilograms:
+            source: ''
+            unit: kg
+            conversions:
+              brusselsSprout:
+                kilograms: 0.056
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Carrots:
             icon: null
             intensityKilograms: 0.2
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversions:
+              carrot:
+                kilograms: 0.061
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          Cabbage:
+            icon: null
+            intensityKilograms: 0.45
+            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            unit: kg
+            conversions:
+              cabbage:
+                kilograms: 0.09
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          Cauliflowers:
+            icon: null
+            intensityKilograms: 0.45
+            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            unit: kg
+            conversions:
+              cauliFlower:
+                kilograms: 0.06
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Celery:
             icon: null
             intensityKilograms: 0.18
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+          Courgette:
+            icon: null
+            intensityKilograms:
+            source: ''
+            unit: kg
+            conversions:
+              tomato:
+                kilograms: 0.06
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          Cucumbers:
+            icon: null
+            intensityKilograms:
+            source: ''
+            unit: kg
+            conversions:
+              cucumber:
+                kilograms: 0.024
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Eggplants:
             icon: null
             intensityKilograms: 1.35
@@ -1004,11 +1170,36 @@ _children:
             intensityKilograms: 0.88
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+          Leek:
+            icon: null
+            intensityKilograms: 0.45
+            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            unit: kg
+            conversions:
+              leek:
+                kilograms: 0.067
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          Lettuce:
+            icon: null
+            intensityKilograms:
+            source: ''
+            unit: kg
+            conversions:
+              lettuce:
+                kilograms: 0.024
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Mushrooms:
             icon: null
             intensityKilograms: 0.27
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversions:
+              mushroom:
+                kilograms: 0.04
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Olives:
             icon: null
             intensityKilograms: 0.63
@@ -1019,11 +1210,41 @@ _children:
             intensityKilograms: 0.17
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversions:
+              onion:
+                kilograms: 0.046
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          Parsnip:
+            icon: null
+            intensityKilograms:
+            source: ''
+            unit: kg
+            conversions:
+              parsnip:
+                kilograms: 0.042
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Peppers:
             icon: null
             intensityKilograms: 0.66
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversions:
+              pepper:
+                kilograms: 0.02
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          Peas:
+            icon: null
+            intensityKilograms:
+            source: ''
+            unit: kg
+            conversions:
+              pea:
+                kilograms: 0.045
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Potatoes:
             icon: null
             intensityKilograms: 0.18
@@ -1034,20 +1255,36 @@ _children:
             intensityKilograms: 0.29
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversions:
+              rutabaga:
+                kilograms: 0.047
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Spinach:
             icon: null
             intensityKilograms: 0.54
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversions:
+              spinach:
+                kilograms: 0.097
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Tomatoes:
             icon: null
             intensityKilograms: 0.45
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
-        icon: carrot
-        intensityKilograms: 1.32
-        source: 'https://orbit.dtu.dk/ws/files/110722384/Climate_friendly_dietary_guidelines.pdf'
-        unit: kg
+            conversions:
+              tomato:
+                kilograms: 0.085
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          Carrots:
+            icon: carrot
+            intensityKilograms: 1.32
+            source: 'https://orbit.dtu.dk/ws/files/110722384/Climate_friendly_dietary_guidelines.pdf'
+            unit: kg
   Fuel:
     _children:
       Diesel:
