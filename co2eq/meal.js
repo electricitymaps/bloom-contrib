@@ -13,7 +13,7 @@ export const modelName = 'meal';
 export const modelVersion = 4;
 export const explanation = {
   // TODO(olc): Write a description for mealType as well.
-  text: `Calculations assume a meal portion of ${MEAL_WEIGHT}g consisting of equal shares of each ingredient. They take into consideration emissions across the whole lifecycle.`,
+  text: 'The calculations take into consideration emissions across the whole lifecycle.',
   links: [
     { label: 'Environmental impact of omnivorous, ovo-lacto-vegetarian, and vegan diet', href: 'https://www.nature.com/articles/s41598-017-06466-8' },
     { label: 'Tomorrow footprint database', href: 'https://github.com/tmrowco/tmrowapp-contrib/blob/master/co2eq/purchase/footprints.yml' },
