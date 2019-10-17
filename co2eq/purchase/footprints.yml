@@ -277,6 +277,10 @@ _children:
             intensityKilograms: 0.42
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversions:
+              glass:
+                kilograms: 0.25
+                incrementStepSize: 1
           Beer:
             icon: null
             intensityKilograms: 1.123

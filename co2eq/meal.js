@@ -29,9 +29,18 @@ export const INGREDIENT_CATEGORIES = [
 ];
 export const ingredientCategory = {};
 export const ingredientIcon = {};
+
+export const ingredientConversions = {}; // All conversions
+export const ingredientConversionUnit = {}; // Only the first conversion
+export const ingredientConversionKilograms = {}; // Only the first conversion
+export const ingredientConversionStepsize = {}; // Only the first conversion
 Object.entries(ingredients).forEach(([k, v]) => {
   ingredientCategory[k] = v.parentKey;
   ingredientIcon[k] = v.icon;
+  ingredientConversions[k] = v.conversions || { grams: { kilograms: 0.001, incrementStepSize: 50 } };
+  ingredientConversionUnit[k] = v.conversions ? Object.keys(v.conversions)[0] : 'gram';
+  ingredientConversionKilograms[k] = v.conversions ? v.conversions[Object.keys(v.conversions)[0]].kilograms : 0.001;
+  ingredientConversionStepsize[k] = v.conversions ? v.conversions[Object.keys(v.conversions)[0]].incrementStepSize : 50;
 });
 
 /*
@@ -77,7 +86,7 @@ export function carbonEmissions(activity) {
 
   if (mealIngredients && Object.keys(mealIngredients).length > 0) {
     return mealIngredients
-      .map(k => carbonIntensityOfIngredient(k) * (MEAL_WEIGHT / 1000.0 / mealIngredients.length))
+      .map(k => carbonIntensityOfIngredient(k.name) * k.kilograms)
       .reduce((a, b) => a + b, 0);
   }
 
