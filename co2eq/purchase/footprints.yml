@@ -659,10 +659,10 @@ _children:
             intensityKilograms: 0.21
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
-          icon: lemon
-          intensityKilograms: 0.52
-          source: 'http://www.greeneatz.com/foods-carbon-footprint.html'
-          unit: kg
+        icon: lemon
+        intensityKilograms: 0.52
+        source: 'http://www.greeneatz.com/foods-carbon-footprint.html'
+        unit: kg
       Grains:
         _children:
           Barley:
@@ -1279,10 +1279,10 @@ _children:
                 kilograms: 0.085
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-          icon: carrot
-          intensityKilograms: 1.32
-          source: 'https://orbit.dtu.dk/ws/files/110722384/Climate_friendly_dietary_guidelines.pdf'
-          unit: kg
+        icon: carrot
+        intensityKilograms: 1.32
+        source: 'https://orbit.dtu.dk/ws/files/110722384/Climate_friendly_dietary_guidelines.pdf'
+        unit: kg
   Fuel:
     _children:
       Diesel:
