@@ -6,15 +6,14 @@ import {
 } from '../definitions';
 import { getEntryByKey, getDescendants, getEntryByPath } from './purchase';
 
-const MEAL_WEIGHT = 400; // grams
 const MEALS_PER_DAY = 3;
 
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'meal';
-export const modelVersion = 3;
+export const modelVersion = 4;
 export const explanation = {
   // TODO(olc): Write a description for mealType as well.
-  text: `Calculations assume a meal portion of ${MEAL_WEIGHT}g consisting of equal shares of each ingredient. They take into consideration emissions across the whole lifecycle.`,
+  text: 'The calculations take into consideration emissions across the whole lifecycle.',
   links: [
     { label: 'Environmental impact of omnivorous, ovo-lacto-vegetarian, and vegan diet', href: 'https://www.nature.com/articles/s41598-017-06466-8' },
     { label: 'Tomorrow footprint database', href: 'https://github.com/tmrowco/tmrowapp-contrib/blob/master/co2eq/purchase/footprints.yml' },
@@ -29,9 +28,18 @@ export const INGREDIENT_CATEGORIES = [
 ];
 export const ingredientCategory = {};
 export const ingredientIcon = {};
+
+export const ingredientConversions = {}; // All conversions
+export const ingredientConversionUnit = {}; // Only the first conversion
+export const ingredientConversionKilograms = {}; // Only the first conversion
+export const ingredientConversionStepsize = {}; // Only the first conversion
 Object.entries(ingredients).forEach(([k, v]) => {
   ingredientCategory[k] = v.parentKey;
   ingredientIcon[k] = v.icon;
+  ingredientConversions[k] = v.conversions || { grams: { kilograms: 0.001, incrementStepSize: 50 } };
+  ingredientConversionUnit[k] = v.conversions ? Object.keys(v.conversions)[0] : 'gram';
+  ingredientConversionKilograms[k] = v.conversions ? v.conversions[Object.keys(v.conversions)[0]].kilograms : 0.001;
+  ingredientConversionStepsize[k] = v.conversions ? v.conversions[Object.keys(v.conversions)[0]].incrementStepSize : 50;
 });
 
 /*
@@ -77,7 +85,7 @@ export function carbonEmissions(activity) {
 
   if (mealIngredients && Object.keys(mealIngredients).length > 0) {
     return mealIngredients
-      .map(k => carbonIntensityOfIngredient(k) * (MEAL_WEIGHT / 1000.0 / mealIngredients.length))
+      .map(k => carbonIntensityOfIngredient(k.name) * k.kilograms)
       .reduce((a, b) => a + b, 0);
   }
 
