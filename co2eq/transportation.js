@@ -13,7 +13,7 @@ import flightEmissions from './flights';
 
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'transportation';
-export const modelVersion = 8;
+export const modelVersion = '8';
 export const explanation = {
   text: 'Calculations only takes into direct emissions from burning fuel.',
   links: [
