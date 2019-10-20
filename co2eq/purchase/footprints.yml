@@ -280,7 +280,7 @@ _children:
             conversions:
               glass:
                 kilograms: 0.225
-                incrementStepSize: 1           
+                incrementStepSize: 1
           Beer:
             icon: null
             intensityKilograms: 1.123
@@ -316,7 +316,7 @@ _children:
             conversions:
               glass:
                 kilograms: 0.225
-                incrementStepSize: 1         
+                incrementStepSize: 1
           Soft drink:
             icon: glass
             intensityKilograms: 1.035
@@ -436,7 +436,7 @@ _children:
             conversions:
               scoop:
                 kilograms: 0.068
-                incrementStepSize: 1            
+                incrementStepSize: 1
           Ice cream (Chocolate regular):
             icon: null
             intensityKilograms: 3.66
@@ -445,7 +445,7 @@ _children:
             conversions:
               scoop:
                 kilograms: 0.068
-                incrementStepSize: 1            
+                incrementStepSize: 1
           Ice cream (Chocolate premium):
             icon: null
             intensityKilograms: 3.91
@@ -454,7 +454,7 @@ _children:
             conversions:
               scoop:
                 kilograms: 0.068
-                incrementStepSize: 1            
+                incrementStepSize: 1
         icon: null
         intensityKilograms: null
         source: null
@@ -782,6 +782,11 @@ _children:
             intensityKilograms: 0.38
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversions:
+              portion:
+                kilograms: 0.045
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Quinoa:
             icon: null
             intensityKilograms: 1.15
@@ -1186,16 +1191,17 @@ _children:
             intensityKilograms: 0.18
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
-          # Courgette:
-          #   icon: null
-          #   intensityKilograms:
-          #   source: ''
-          #   unit: kg
-          #   conversions:
-          #     tomato:
-          #       kilograms: 0.06
-          #       incrementStepSize: 1
-          #       source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          Courgette:
+           # remember to update Zucchini as well
+            icon: null
+            intensityKilograms: 0.21
+            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            unit: kg
+            conversions:
+              portion:
+                kilograms: 0.06
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Cucumbers:
             icon: null
             intensityKilograms: 0.23
@@ -1291,16 +1297,6 @@ _children:
                 kilograms: 0.02
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-          # Peas Serving:
-          #   icon: null
-          #   intensityKilograms:
-          #   source: ''
-          #   unit: kg
-          #   conversions:
-          #     peaServing:
-          #       kilograms: 0.045
-          #       incrementStepSize: 1
-          #       source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Potatoes:
             icon: null
             intensityKilograms: 0.18
@@ -1310,7 +1306,7 @@ _children:
             icon: null
             intensityKilograms: 0.25
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
-            unit: kg  
+            unit: kg
           Rutabage:
             icon: null
             intensityKilograms: 0.29
@@ -1342,10 +1338,16 @@ _children:
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Zucchini:
+          # remember to update Courgette as well
             icon: null
             intensityKilograms: 0.21
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
-            unit: kg     
+            unit: kg
+            conversions:
+               portion:
+                 kilograms: 0.06
+                 incrementStepSize: 1
+                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf            
         icon: carrot
         intensityKilograms: 1.32
         source: 'https://orbit.dtu.dk/ws/files/110722384/Climate_friendly_dietary_guidelines.pdf'
