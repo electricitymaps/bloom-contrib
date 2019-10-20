@@ -277,61 +277,109 @@ _children:
             intensityKilograms: 0.42
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversions:
+              glass:
+                kilograms: 0.225
+                incrementStepSize: 1           
           Beer:
             icon: null
             intensityKilograms: 1.123
             source: 'http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf'
             unit: kg
+            conversions:
+              glass:
+                kilograms: 0.285
+                incrementStepSize: 1
           Coconut milk:
             icon: glass
             intensityKilograms: 0.42
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversions:
+              glass:
+                kilograms: 0.225
+                incrementStepSize: 1
           Coffee:
             icon: coffee
             intensityKilograms: 0.33
             source: 'http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf'
             unit: kg
+            conversions:
+              cup:
+                kilograms: 0.15
+                incrementStepSize: 1
           Juice:
             icon: glass
             intensityKilograms: 0.93
             source: 'http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf'
             unit: kg
+            conversions:
+              glass:
+                kilograms: 0.225
+                incrementStepSize: 1         
           Soft drink:
             icon: glass
             intensityKilograms: 1.035
             source: 'http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf'
             unit: kg
+            conversions:
+              glass:
+                kilograms: 0.225
+                incrementStepSize: 1
           Soy milk:
             icon: glass
             intensityKilograms: 0.75
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversions:
+              glass:
+                kilograms: 0.225
+                incrementStepSize: 1
           Spirits:
             icon: glass-whiskey-rocks
             intensityKilograms: 3.144
             source: 'http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf'
             unit: kg
+            conversions:
+              glass:
+                kilograms: 0.035
+                incrementStepSize: 1
           Tea:
             icon: coffee
             intensityKilograms: 0.184
             source: 'http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf'
             unit: kg
+            conversions:
+              cup:
+                kilograms: 0.150
+                incrementStepSize: 1
           Water (bottled):
             icon: glass
             intensityKilograms: 0.215
             source: 'http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf'
             unit: kg
+            conversions:
+              glass:
+                kilograms: 0.225
+                incrementStepSize: 1
           Water (tap):
             icon: glass
             intensityKilograms: 0.001
             source: 'http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf'
             unit: kg
+            conversions:
+              glass:
+                kilograms: 0.225
+                incrementStepSize: 1
           Wine:
             icon: wine-glass-alt
             intensityKilograms: 2.344
             source: 'http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf'
             unit: kg
+            conversions:
+              glass:
+                kilograms: 0.150
+                incrementStepSize: 1
         icon: null
         intensityKilograms: null
         source: null
@@ -358,31 +406,55 @@ _children:
             intensityKilograms: 1.29
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversions:
+              glass:
+                kilograms: 0.225
+                incrementStepSize: 1
           Milk Yogurt:
             icon: null
             intensityKilograms: 1.31
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversions:
+              100 g:
+                kilograms: 0.1
+                incrementStepSize: 1
           Ice cream (Vanilla regular):
             icon: null
             intensityKilograms: 3.75
             unit: kg
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652618332633'
+            conversions:
+              scoop:
+                kilograms: 0.068
+                incrementStepSize: 1
           Ice cream (Vanilla premium):
             icon: null
             intensityKilograms: 3.94
             unit: kg
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652618332633'
+            conversions:
+              scoop:
+                kilograms: 0.068
+                incrementStepSize: 1            
           Ice cream (Chocolate regular):
             icon: null
             intensityKilograms: 3.66
             unit: kg
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652618332633'
+            conversions:
+              scoop:
+                kilograms: 0.068
+                incrementStepSize: 1            
           Ice cream (Chocolate premium):
             icon: null
             intensityKilograms: 3.91
             unit: kg
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652618332633'
+            conversions:
+              scoop:
+                kilograms: 0.068
+                incrementStepSize: 1            
         icon: null
         intensityKilograms: null
         source: null
@@ -429,13 +501,13 @@ _children:
           #       kilograms: 0.076
           #       incrementStepSize: 1
           #       source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-          Blackcurrant Serving:
+          Blackcurrant:
             icon: null
             intensityKilograms: 0.29
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
             conversions:
-              blackCurrantServing:
+              portion:
                 kilograms: 0.04
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
@@ -447,11 +519,6 @@ _children:
           Cranberries:
             icon: null
             intensityKilograms: 0.92
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
-            unit: kg
-          Cucumbers:
-            icon: null
-            intensityKilograms: 0.23
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
           Currants:
@@ -480,17 +547,17 @@ _children:
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
             conversions:
-              grapeFruit:
+              portion:
                 kilograms: 0.116
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-          Grape Serving:
+          Grapes:
             icon: null
             intensityKilograms: 0.37
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
             conversions:
-              grapeServing:
+              portion:
                 kilograms: 0.07
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
@@ -530,7 +597,7 @@ _children:
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
             conversions:
-              melon:
+              portion:
                 kilograms: 0.151
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
@@ -575,7 +642,7 @@ _children:
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
             conversions:
-              pineApple:
+              portion:
                 kilograms: 0.08
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
@@ -604,11 +671,6 @@ _children:
           #       kilograms: 0.024
           #       incrementStepSize: 1
           #       source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-          Pumpkins:
-            icon: null
-            intensityKilograms: 0.25
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
-            unit: kg
           Quinces:
             icon: null
             intensityKilograms: 0.31
@@ -620,7 +682,7 @@ _children:
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
             conversions:
-              raspBerry:
+              portion:
                 kilograms: 0.114
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
@@ -634,13 +696,13 @@ _children:
           #       kilograms: 0.09
           #       incrementStepSize: 1
           #       source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-          Strawberries Serving:
+          Strawberries:
             icon: null
             intensityKilograms: 0.58
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
             conversions:
-              strawBerryServing:
+              portion:
                 kilograms: 0.096
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
@@ -652,11 +714,6 @@ _children:
           Watermelon:
             icon: null
             intensityKilograms: 0.32
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
-            unit: kg
-          Zucchini:
-            icon: null
-            intensityKilograms: 0.21
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
         icon: lemon
@@ -1080,7 +1137,7 @@ _children:
             source: 'http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf'
             unit: kg
             conversions:
-              brocoli:
+              broccoli:
                 kilograms: 0.054
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
@@ -1110,7 +1167,7 @@ _children:
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
             conversions:
-              cabbage:
+              portion:
                 kilograms: 0.09
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
@@ -1120,7 +1177,7 @@ _children:
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
             conversions:
-              cauliFlower:
+              portion:
                 kilograms: 0.06
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
@@ -1139,16 +1196,16 @@ _children:
           #       kilograms: 0.06
           #       incrementStepSize: 1
           #       source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-          # Cucumbers:
-          #   icon: null
-          #   intensityKilograms:
-          #   source: ''
-          #   unit: kg
-          #   conversions:
-          #     cucumber:
-          #       kilograms: 0.024
-          #       incrementStepSize: 1
-          #       source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          Cucumbers:
+            icon: null
+            intensityKilograms: 0.23
+            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            unit: kg
+            conversions:
+              portion:
+                kilograms: 0.024
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Eggplants:
             icon: null
             intensityKilograms: 1.35
@@ -1175,7 +1232,7 @@ _children:
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
             conversions:
-              leek:
+              portion:
                 kilograms: 0.067
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
@@ -1189,13 +1246,13 @@ _children:
           #       kilograms: 0.024
           #       incrementStepSize: 1
           #       source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-          Mushrooms Serving:
+          Mushrooms:
             icon: null
             intensityKilograms: 0.27
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
             conversions:
-              mushroomServing:
+              portion:
                 kilograms: 0.04
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
@@ -1210,7 +1267,7 @@ _children:
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
             conversions:
-              onion:
+              portion:
                 kilograms: 0.046
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
@@ -1224,13 +1281,13 @@ _children:
           #       kilograms: 0.042
           #       incrementStepSize: 1
           #       source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-          Peppers Serving:
+          Peppers:
             icon: null
             intensityKilograms: 0.66
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
             conversions:
-              pepperServing:
+              portion:
                 kilograms: 0.02
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
@@ -1249,13 +1306,18 @@ _children:
             intensityKilograms: 0.18
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+          Pumpkins:
+            icon: null
+            intensityKilograms: 0.25
+            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            unit: kg  
           Rutabage:
             icon: null
             intensityKilograms: 0.29
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
             conversions:
-              rutabaga:
+              portion:
                 kilograms: 0.047
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
@@ -1265,7 +1327,7 @@ _children:
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
             conversions:
-              spinach:
+              portion:
                 kilograms: 0.097
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
@@ -1279,6 +1341,11 @@ _children:
                 kilograms: 0.085
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          Zucchini:
+            icon: null
+            intensityKilograms: 0.21
+            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            unit: kg     
         icon: carrot
         intensityKilograms: 1.32
         source: 'https://orbit.dtu.dk/ws/files/110722384/Climate_friendly_dietary_guidelines.pdf'
