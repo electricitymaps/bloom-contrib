@@ -415,10 +415,6 @@ _children:
             intensityKilograms: 1.31
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
-            conversions:
-              100 g:
-                kilograms: 0.1
-                incrementStepSize: 1
           Ice cream (Vanilla regular):
             icon: null
             intensityKilograms: 3.75
