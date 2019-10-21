@@ -718,6 +718,8 @@ _children:
             unit: kg
         icon: lemon
         intensityKilograms: 0.52
+        oldKeys:
+          - Fruit
         source: 'http://www.greeneatz.com/foods-carbon-footprint.html'
         unit: kg
       Grains:
