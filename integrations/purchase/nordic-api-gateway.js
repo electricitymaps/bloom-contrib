@@ -345,6 +345,7 @@ const config = {
   country: 'DK',
   type: ACTIVITY_TYPE_PURCHASE,
   isPrivate: true,
+  isDebugOnly: true,
   description: 'collects bank statements',
 };
 
