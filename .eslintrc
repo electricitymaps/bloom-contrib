@@ -13,6 +13,7 @@
     "brace-style": "warn",
     "class-methods-use-this": "warn",
     "dot-notation": "warn",
+    "implicit-arrow-linebreak": "off",
     "import/prefer-default-export": "ignore",
     "max-len": "warn",
     "no-await-in-loop": "warn",
