@@ -1,0 +1,144 @@
+# yamllint disable rule:empty-lines rule:line-length
+#
+# /!\ Remember to update the version of the associated
+# carbon model when changing this file.
+#
+---
+_children:
+  Car:
+    _children:
+      Fossil fuel car:
+        icon: fuel-can
+        intensityGramPerKilometer: 257
+        source: 'https://static.ducky.eco/calculator_documentation.pdf' #Ecoinvent Avg european car
+        unit: gCO2eq/km
+        manufacturing: 16.7%
+        conversions:
+          time:
+            hour: 80
+            incrementStepSize: 1
+            source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+      Electric car:
+        icon: fuel-can
+        intensityGramPerKilometer: 81
+        source: 'https://static.ducky.eco/calculator_documentation.pdf' #Ecoinvent Avg european car
+        unit: gCO2eq/km
+        conversions:
+          time:
+            hour: 80
+            incrementStepSize: 1
+            source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+      Hybrid car:
+        icon: fuel-can
+        intensityGramPerKilometer: 180
+        source: 'https://static.ducky.eco/calculator_documentation.pdf' #Ecoinvent Avg european car
+        unit: gCO2eq/km
+        conversions:
+          time:
+            hour: 80
+            incrementStepSize: 1
+            source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+  Public transportation:
+    _children:
+      Local train:
+        icon: fuel-can
+        intensityGramPerKilometer: 42
+        source: 'https://static.ducky.eco/calculator_documentation.pdf' #Ecoinvent Avg european car
+        unit: gCO2eq/km
+        conversions:
+          time:
+            hour: 80
+            incrementStepSize: 1
+            source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+      High-speed train:
+        icon: fuel-can
+        intensityGramPerKilometer: 42
+        source: 'https://static.ducky.eco/calculator_documentation.pdf' #Ecoinvent Avg european car
+        unit: gCO2eq/km
+        conversions:
+          time:
+            hour: 80
+            incrementStepSize: 1
+            source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+      Subway:
+        icon: fuel-can
+        intensityGramPerKilometer: 42
+        source: 'https://static.ducky.eco/calculator_documentation.pdf' #Ecoinvent Avg european car
+        unit: gCO2eq/km
+        conversions:
+          time:
+            hour: 80
+            incrementStepSize: 1
+            source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf      
+      Local bus:
+        icon: fuel-can
+        intensityGramPerKilometer: 42
+        source: 'https://static.ducky.eco/calculator_documentation.pdf' #Ecoinvent Avg european car
+        unit: gCO2eq/km
+        conversions:
+          time:
+            hour: 80
+            incrementStepSize: 1
+            source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf      
+      Long-distance bus:
+        icon: fuel-can
+        intensityGramPerKilometer: 42
+        source: 'https://static.ducky.eco/calculator_documentation.pdf' #Ecoinvent Avg european car
+        unit: gCO2eq/km
+        conversions:
+          time:
+            hour: 80
+            incrementStepSize: 1
+            source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf      
+  Motorcycle:
+    con: fuel-can
+    intensityGramPerKilometer: 42
+    source: 'https://static.ducky.eco/calculator_documentation.pdf' #Ecoinvent Avg european car
+    unit: gCO2eq/km
+    conversions:
+      time:
+        hour: 80
+        incrementStepSize: 1
+        source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+  E-scooter:
+    con: fuel-can
+    intensityGramPerKilometer: 42
+    source: 'https://static.ducky.eco/calculator_documentation.pdf' #Ecoinvent Avg european car
+    unit: gCO2eq/km
+    conversions:
+      time:
+        hour: 80
+        incrementStepSize: 1
+        source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+  Ferry:
+    con: fuel-can
+    intensityGramPerKilometer: 42
+    source: 'https://static.ducky.eco/calculator_documentation.pdf' #Ecoinvent Avg european car
+    unit: gCO2eq/km
+    conversions:
+      time:
+        hour: 80
+        incrementStepSize: 1
+        source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+  Plane:
+    _children:
+      Economy class:
+        icon: fuel-can
+        intensityGramPerKilometer: 42
+        source: 'https://static.ducky.eco/calculator_documentation.pdf' #Ecoinvent Avg european car
+        unit: gCO2eq/km
+        conversions:
+          time:
+            hour: 80
+            incrementStepSize: 1
+            source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+      Business class:
+        icon: fuel-can
+        intensityGramPerKilometer: 42
+        source: 'https://static.ducky.eco/calculator_documentation.pdf' #Ecoinvent Avg european car
+        unit: gCO2eq/km
+        conversions:
+          time:
+            hour: 80
+            incrementStepSize: 1
+            source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf        
