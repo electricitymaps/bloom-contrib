@@ -210,6 +210,84 @@ _children:
         source: 'https://www.apple.com/lae/environment/pdf/products/ipod/iPodtouch_PER_may2019.pdf'
         unit: item
         usage: 6%
+      'Precision 3510':
+        icon: laptop
+        intensityKilograms: 331
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-3510.pdf'
+        unit: item
+        usage: 23%
+      'Precision 3520':
+        icon: laptop
+        intensityKilograms: 304
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-3520.pdf'
+        unit: item
+        usage: 16.2%
+      'Precision 3530':
+        icon: laptop
+        intensityKilograms: 335
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-3530.pdf'
+        unit: item
+        usage: 17.4%
+      'Precision 5520':
+        icon: laptop
+        intensityKilograms: 368
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-5520.pdf'
+        unit: item
+        usage: 25.7%
+      'Precision 5530':
+        icon: laptop
+        intensityKilograms: 340
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-5530.pdf'
+        unit: item
+        usage: 16%
+      'Precision 5530 2-in-1':
+        icon: laptop
+        intensityKilograms: 330
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-5530-2.pdf'
+        unit: item
+        usage: 13.8%
+      'Precision 7520':
+        icon: laptop
+        intensityKilograms: 399
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-7520.pdf'
+        unit: item
+        usage: 28%
+      'Precision 7720':
+        icon: laptop
+        intensityKilograms: 416
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-7720.pdf'
+        unit: item
+        usage: 23.1%
+      'XPS 9360':
+        icon: laptop
+        intensityKilograms: 286
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-xps-9360.pdf'
+        unit: item
+        usage: 20%
+      'XPS 9365':
+        icon: laptop
+        intensityKilograms: 287
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-xps-9365.pdf'
+        unit: item
+        usage: 16.8%
+      'XPS 9370':
+        icon: laptop
+        intensityKilograms: 297
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-xps-9370.pdf'
+        unit: item
+        usage: 12.4%
+      'XPS 9560':
+        icon: laptop
+        intensityKilograms: 337
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-xps-9560.pdf'
+        unit: item
+        usage: 21.3%
+      'XPS 9570':
+        icon: laptop
+        intensityKilograms: 324
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-xps-15-9570.pdf'
+        unit: item
+        usage: 17.9%
   Entertainment:
     _children:
       Amusement park:
