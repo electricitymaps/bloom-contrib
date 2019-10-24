@@ -1330,11 +1330,6 @@ _children:
             intensityKilograms: 3.46
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
-          Kangaroo:
-            icon: null
-            intensityKilograms: 4.10
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
-            unit: kg
           Lamb:
             icon: sheep
             intensityKilograms: 25.58
@@ -1442,11 +1437,6 @@ _children:
             intensityKilograms: 6.45
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
-          Diamond fish:
-            icon: fish
-            intensityKilograms: 8.33
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
-            unit: kg
           Eel:
             icon: fish
             intensityKilograms: 3.88
@@ -1507,11 +1497,6 @@ _children:
             intensityKilograms: 7.13
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
-          Pilchard:
-            icon: fish
-            intensityKilograms: 1.10
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
-            unit: kg
           Pollock:
             icon: fish
             intensityKilograms: 1.61
@@ -1545,11 +1530,6 @@ _children:
           Sea bass:
             icon: fish
             intensityKilograms: 3.27
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
-            unit: kg
-          Shark mako:
-            icon: fish
-            intensityKilograms: 11.50
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
           Shrimp (Fresh):
@@ -1724,16 +1704,16 @@ _children:
                 kilograms: 0.067
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-          Lettuce:
-            icon: null
-            intensityKilograms: 3.70
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
-            unit: kg
-            conversions:
-              lettuce:
-                kilograms: 0.024
-                incrementStepSize: 1
-                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          # Lettuce:
+          #   icon: null
+          #   intensityKilograms: 
+          #   source: ''
+          #   unit: kg
+          #   conversions:
+          #     lettuce:
+          #       kilograms: 0.024
+          #       incrementStepSize: 1
+          #       source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Mushrooms:
             icon: null
             intensityKilograms: 0.27
