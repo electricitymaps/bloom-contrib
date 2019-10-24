@@ -253,7 +253,7 @@ _children:
         source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5290-2.pdf'
         unit: item
         usage: 14.3%
-        hidden: true
+        hidden: false
       'Latitude 5450':
         icon: laptop
         intensityKilograms: 247
@@ -274,7 +274,7 @@ _children:
         source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5490.pdf'
         unit: item
         usage: 17.6%
-        hidden: true
+        hidden: false
       'Latitude 5491':
         icon: laptop
         intensityKilograms: 254
@@ -379,7 +379,7 @@ _children:
         source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-7390-2.pdf'
         unit: item
         usage: 12.4%
-        hidden: true
+        hidden: false
       'Latitude 7480':
         icon: laptop
         intensityKilograms: 249
@@ -1724,16 +1724,16 @@ _children:
                 kilograms: 0.067
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-          # Lettuce:
-          #   icon: null
-          #   intensityKilograms: 3.70
-          #   source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
-          #   unit: kg
-          #   conversions:
-          #     lettuce:
-          #       kilograms: 0.024
-          #       incrementStepSize: 1
-          #       source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          Lettuce:
+            icon: null
+            intensityKilograms: 3.70
+            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            unit: kg
+            conversions:
+              lettuce:
+                kilograms: 0.024
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Mushrooms:
             icon: null
             intensityKilograms: 0.27
