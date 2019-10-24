@@ -135,13 +135,6 @@ _children:
         unit: item
         usage: 12.9%
         hidden: true
-      'Latitude 3190':
-        icon: laptop
-        intensityKilograms: 258
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3190.pdf'
-        unit: item
-        usage: 18.5%
-        hidden: true
       'Latitude 3380':
         icon: laptop
         intensityKilograms: 252
