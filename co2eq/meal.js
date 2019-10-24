@@ -4,13 +4,18 @@ import {
   MEAL_TYPE_MEAT_OR_FISH,
   PURCHASE_CATEGORY_FOOD,
 } from '../definitions';
-import { getEntryByKey, getDescendants, getEntryByPath } from './purchase';
+import {
+  getEntryByKey,
+  getDescendants,
+  getEntryByPath,
+  getChecksumOfFootprints,
+} from './purchase';
 
 const MEALS_PER_DAY = 3;
 
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'meal';
-export const modelVersion = 4;
+export const modelVersion = `5_${getChecksumOfFootprints()}`; // This model relies on footprints.yaml
 export const explanation = {
   // TODO(olc): Write a description for mealType as well.
   text: 'The calculations take into consideration emissions across the whole lifecycle.',

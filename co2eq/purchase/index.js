@@ -1,3 +1,4 @@
+import md5 from 'tiny-hashes/md5';
 import {
   ACTIVITY_TYPE_MEAL,
   ACTIVITY_TYPE_TRANSPORTATION,
@@ -7,7 +8,6 @@ import {
   TRANSPORTATION_MODE_PLANE,
   UNIT_MONETARY_EUR,
   UNIT_ITEM,
-  UNIT_KILOGRAMS,
   UNIT_LITER,
 } from '../../definitions';
 import { convertToEuro } from '../../integrations/utils/currency/currency';
@@ -54,6 +54,11 @@ export function getEntryByPath(path) {
   }
   return entry;
 }
+
+export function getChecksumOfFootprints() {
+  return md5(JSON.stringify(footprints));
+}
+
 export function getDescendants(entry, filter = (_ => true), includeRoot = false) {
   // Note: `getDescendants` is very close to `indexNodeChildren`
   // Note2: if a node gets filtered out, its children won't be visited
@@ -73,7 +78,7 @@ export function getDescendants(entry, filter = (_ => true), includeRoot = false)
 
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'purchase';
-export const modelVersion = 2;
+export const modelVersion = `3_${getChecksumOfFootprints()}`; // This model relies on footprints.yaml
 
 function correctWithParticipants(footprint, participants) {
   return footprint / (participants || 1);

@@ -11,6 +11,7 @@
     "moment": "^2.23.0",
     "oauth-1.0a": "^2.2.5",
     "superagent": "^4.1.0",
+    "tiny-hashes": "^1.0.1",
     "uuid": "^3.3.2",
     "whatwg-url": "^7.0.0",
     "xmldom": "^0.1.27"
