@@ -583,41 +583,55 @@ _children:
         unit: item
         usage: 6%
         hidden: false
+      'OptiPlex 7760 All-in-One':
+        icon: desktop
+        intensityKilograms: 720
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-optiplex-7760.pdf'
+        unit: item
+        usage: 35%
+        hidden: false
+      'Dell OptiPlex XE3 Tower':
+        icon: desktop
+        intensityKilograms: 509
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-optiplex-XE3-tower.pdf'
+        unit: item
+        usage: 50.8%
+        hidden: false
       'Precision 3510':
         icon: laptop
         intensityKilograms: 331
         source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-3510.pdf'
         unit: item
         usage: 23%
-        hidden: false
+        hidden: true
       'Precision 3520':
         icon: laptop
         intensityKilograms: 304
         source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-3520.pdf'
         unit: item
         usage: 16.2%
-        hidden: false
+        hidden: true
       'Precision 3530':
         icon: laptop
         intensityKilograms: 335
         source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-3530.pdf'
         unit: item
         usage: 17.4%
-        hidden: false
+        hidden: true
       'Precision 5520':
         icon: laptop
         intensityKilograms: 368
         source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-5520.pdf'
         unit: item
         usage: 25.7%
-        hidden: false
+        hidden: true
       'Precision 5530':
         icon: laptop
         intensityKilograms: 340
         source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-5530.pdf'
         unit: item
         usage: 16%
-        hidden: false
+        hidden: true
       'Precision 5530 2-in-1':
         icon: laptop
         intensityKilograms: 330
@@ -638,6 +652,13 @@ _children:
         source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-7720.pdf'
         unit: item
         usage: 23.1%
+        hidden: false
+      'Precision 7920':
+        icon: desktop
+        intensityKilograms: 2496
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-7920.pdf'
+        unit: item
+        usage: 74.8%
         hidden: false
       'XPS 9360':
         icon: laptop
