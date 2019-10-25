@@ -35,6 +35,7 @@ export const MEAL_TYPE_MEAT_OR_FISH = 'MEAL_TYPE_MEAT_OR_FISH';
 export const PURCHASE_CATEGORY_FOOD = 'Food';
 export const PURCHASE_CATEGORY_FOOD_SUPERMARKET = 'Grocery store';
 export const PURCHASE_CATEGORY_FOOD_BAKERY = 'Bakery';
+export const PURCHASE_CATEGORY_ELECTRONICS = 'Electronics';
 
 // Stores
 export const PURCHASE_CATEGORY_STORE_DEPARTMENT = 'Department store';
