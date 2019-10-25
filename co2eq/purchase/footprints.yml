@@ -30,6 +30,37 @@ _children:
         unit: EUR
   Electronics:
     _children:
+      'Average smartphone':
+        icon: mobile
+        intensityKilograms: 32
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 20%
+        _children:
+          'Feature phone':
+            icon: mobile
+            intensityKilograms: 16
+            source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+            unit: item
+            usage: 20%
+          'Smartphone (<4.5in screen)':
+            icon: mobile
+            intensityKilograms: 27
+            source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+            unit: item
+            usage: 20%
+          'Smartphone (5in screen)':
+            icon: mobile
+            intensityKilograms: 32
+            source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+            unit: item
+            usage: 20%
+          'Smartphone (>5.5in screen)':
+            icon: mobile
+            intensityKilograms: 38
+            source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+            unit: item
+            usage: 20%
       'AirPort Express':
         icon: network-wired  # router only available in Font Awesome 5.11.0
         intensityKilograms: 95
