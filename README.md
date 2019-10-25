@@ -54,7 +54,8 @@ If you don't have an idea on your own or prefer to debug an integration, you can
 
 To make it easy for anyone to help out, a development playground is available:
 
-From the `playground` folder, run `yarn` to install dependencies, then run `yarn serve` to start the playground and point your browser to [localhost:3000](http://localhost:3000) to get started.
+First, run `yarn` to install dependencies at the root of the repository.
+Next from the `playground` folder, run `yarn` to install dependencies, then run `yarn serve` to start the playground and point your browser to [localhost:3000](http://localhost:3000) to get started.
 
 #### How to make an integration work
 An integration gathers activities from a 3rd party datasource.
@@ -130,6 +131,9 @@ Activities require a certain formatting:
 ### Adding or updating Life Cycle Assessment / Carbon Footprint of purchases and activities
 
 Our current models and Life Cycle assessments are accessible [here](https://github.com/tmrowco/tmrowapp-contrib/tree/master/co2eq). If you know better sources, please contribute with your knowledge.
+
+If you want to add individual items or ingredients, this is done [here](https://github.com/tmrowco/tmrowapp-contrib/blob/master/co2eq/purchase/footprints.yml). Ideally, the studies used should be as global as possible and it's even better if they're systemic reviews (multiple studies in one!).
+
 
 ### Giving ideas, features requests or bugs
 

@@ -13,7 +13,16 @@ import flightEmissions from './flights';
 
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'transportation';
-export const modelVersion = 8;
+export const modelVersion = '8';
+export const explanation = {
+  text: 'Calculations only takes into direct emissions from burning fuel.',
+  links: [
+    // TODO(olc): Link is dead
+    { label: 'IPCC', href: 'https://www.ipcc.ch/ipccreports/sres/aviation/125.htm#tab85' },
+    { label: 'The environmental impacts of shared dockless electric scooters', href: 'https://iopscience.iop.org/article/10.1088/1748-9326/ab2da8' },
+    { label: 'The myclimate Flight Emission Calculator', href: 'https://www.myclimate.org/fileadmin/user_upload/myclimate_-_home/01_Information/01_About_myclimate/09_Calculation_principles/Documents/myclimate-flight-calculator-documentation_EN.pdf' },
+  ],
+};
 
 /*
 Carbon intensity of transportation (kgCO2 per passenger and per km)
@@ -40,7 +49,7 @@ function carbonIntensity(mode) {
       return 5 / 1000.0;
     case TRANSPORTATION_MODE_ESCOOTER:
       // https://iopscience.iop.org/article/10.1088/1748-9326/ab2da8
-      return 202 / 1000.0;  
+      return 202 / 1000.0;
     default:
       throw Error(`Unknown transportation mode: ${mode}`);
   }
@@ -63,7 +72,7 @@ export function durationToDistance(durationHours, mode) {
     case TRANSPORTATION_MODE_BIKE:
       return durationHours * 10;
     case TRANSPORTATION_MODE_ESCOOTER:
-      return durationHours * 10;  
+      return durationHours * 10;
     default:
       throw Error(`Unknown transportation mode: ${mode}`);
   }

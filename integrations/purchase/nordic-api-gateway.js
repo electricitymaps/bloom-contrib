@@ -43,8 +43,8 @@ const agent = request.agent();
 agent.set('X-Client-Id', env.NAG_CLIENT_ID).set('X-Client-Secret', env.NAG_CLIENT_SECRET).set('Accept-Language', 'en');
 
 const NAG_CATEGORY = {
-  Supermarket: { purchaseCategory: PURCHASE_CATEGORY_FOOD_SUPERMARKET, activityType: ACTIVITY_TYPE_PURCHASE },
-  'Remodeling & Repair': { purchaseCategory: PURCHASE_CATEGORY_STORE_DEPARTMENT, activityType: ACTIVITY_TYPE_PURCHASE },
+  Supermarket: { purchaseType: PURCHASE_CATEGORY_FOOD_SUPERMARKET, activityType: ACTIVITY_TYPE_PURCHASE },
+  'Remodeling & Repair': { purchaseType: PURCHASE_CATEGORY_STORE_DEPARTMENT, activityType: ACTIVITY_TYPE_PURCHASE },
   'Food & Drinks': { activityType: ACTIVITY_TYPE_MEAL },
   Transfer: null,
   'Shared Expense': null,
@@ -65,21 +65,21 @@ const NAG_CATEGORY = {
   'Home Security': null,
   'Vacation Home Expenses': null,
   'Auto loan etc.': null,
-  Fuel: { purchaseCategory: PURCHASE_CATEGORY_TRANSPORTATION_FUEL, activityType: ACTIVITY_TYPE_PURCHASE },
+  Fuel: { purchaseType: PURCHASE_CATEGORY_TRANSPORTATION_FUEL, activityType: ACTIVITY_TYPE_PURCHASE },
   'Auto Insurance & Assistance': null,
   'Road Tax & Green Tax': null,
   'Public Transport': { transportationMode: TRANSPORTATION_MODE_TRAIN, activityType: ACTIVITY_TYPE_TRANSPORTATION },
   Taxi: { transportationMode: TRANSPORTATION_MODE_CAR, activityType: ACTIVITY_TYPE_TRANSPORTATION },
-  Parking: { purchaseCategory: PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARKING, activityType: ACTIVITY_TYPE_PURCHASE },
-  'Auto & Transport': { purchaseCategory: PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARTS, activityType: ACTIVITY_TYPE_PURCHASE },
-  'Garage & Auto Parts': { purchaseCategory: PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARTS, activityType: ACTIVITY_TYPE_PURCHASE },
-  'Mini-markets & Delicacies': { purchaseCategory: PURCHASE_CATEGORY_FOOD_SUPERMARKET, activityType: ACTIVITY_TYPE_PURCHASE },
-  Pharmacy: { purchaseCategory: PURCHASE_CATEGORY_HEALTHCARE_PHARMARCY, activityType: ACTIVITY_TYPE_PURCHASE },
+  Parking: { purchaseType: PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARKING, activityType: ACTIVITY_TYPE_PURCHASE },
+  'Auto & Transport': { purchaseType: PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARTS, activityType: ACTIVITY_TYPE_PURCHASE },
+  'Garage & Auto Parts': { purchaseType: PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARTS, activityType: ACTIVITY_TYPE_PURCHASE },
+  'Mini-markets & Delicacies': { purchaseType: PURCHASE_CATEGORY_FOOD_SUPERMARKET, activityType: ACTIVITY_TYPE_PURCHASE },
+  Pharmacy: { purchaseType: PURCHASE_CATEGORY_HEALTHCARE_PHARMARCY, activityType: ACTIVITY_TYPE_PURCHASE },
   'Flights & Hotels': null,
-  'Car Rental': null,
-  'Vacation Home & Camping': { purchaseCategory: PURCHASE_CATEGORY_STORE_DEPARTMENT, activityType: ACTIVITY_TYPE_PURCHASE },
+  'Car Rental': { transportationMode: TRANSPORTATION_MODE_CAR, activityType: ACTIVITY_TYPE_TRANSPORTATION },
+  'Vacation Home & Camping': { purchaseType: PURCHASE_CATEGORY_STORE_DEPARTMENT, activityType: ACTIVITY_TYPE_PURCHASE },
   Household: null,
-  'Vacation Activities': { purchaseCategory: PURCHASE_CATEGORY_ENTERTAINMENT_AMUSEMENT_PARKS, activityType: ACTIVITY_TYPE_PURCHASE },
+  'Vacation Activities': { purchaseType: PURCHASE_CATEGORY_ENTERTAINMENT_AMUSEMENT_PARKS, activityType: ACTIVITY_TYPE_PURCHASE },
   'Travel Insurance': null,
   'Child Care & Tuition': null,
   'Union & Unemployment Insurance': null,
@@ -87,14 +87,14 @@ const NAG_CATEGORY = {
   'Pension & Savings': null,
   Salary: null,
   'Public fee': null,
-  'Garden & Plants': { purchaseCategory: PURCHASE_CATEGORY_STORE_GARDEN, activityType: ACTIVITY_TYPE_PURCHASE },
+  'Garden & Plants': { purchaseType: PURCHASE_CATEGORY_STORE_GARDEN, activityType: ACTIVITY_TYPE_PURCHASE },
   'Advisors & Services': null,
-  'Meal Plan': { purchaseCategory: PURCHASE_CATEGORY_FOOD_SUPERMARKET, activityType: ACTIVITY_TYPE_PURCHASE },
+  'Meal Plan': { purchaseType: PURCHASE_CATEGORY_FOOD_SUPERMARKET, activityType: ACTIVITY_TYPE_PURCHASE },
   Memberships: null,
   'Housing Benefit': null,
   'Debt & Interest': null,
   Education: null,
-  'Tobacco & Alcohol': { purchaseCategory: PURCHASE_CATEGORY_ENTERTAINMENT_LIQUOR_STORE, activityType: ACTIVITY_TYPE_PURCHASE },
+  'Tobacco & Alcohol': { purchaseType: PURCHASE_CATEGORY_ENTERTAINMENT_LIQUOR_STORE, activityType: ACTIVITY_TYPE_PURCHASE },
   'Other Housing Expenses': null,
   'Online Services & Software': null,
   'Stock Trading': null,
@@ -113,21 +113,21 @@ const NAG_CATEGORY = {
   'Other Private Consumption': null,
   Leisure: null,
   'Gifts & Charity': null,
-  Pets: { purchaseCategory: PURCHASE_CATEGORY_STORE_PET, activityType: ACTIVITY_TYPE_PURCHASE },
-  Baby: { purchaseCategory: PURCHASE_CATEGORY_STORE_DEPARTMENT, activityType: ACTIVITY_TYPE_PURCHASE },
+  Pets: { purchaseType: PURCHASE_CATEGORY_STORE_PET, activityType: ACTIVITY_TYPE_PURCHASE },
+  Baby: { purchaseType: PURCHASE_CATEGORY_STORE_DEPARTMENT, activityType: ACTIVITY_TYPE_PURCHASE },
   Betting: null,
-  'Cinema, Concerts & Entertainment': { purchaseCategory: PURCHASE_CATEGORY_ENTERTAINMENT_MOVIE_THEATER, activityType: ACTIVITY_TYPE_PURCHASE },
-  'Movies, Music & Books': { purchaseCategory: PURCHASE_CATEGORY_STORE_BOOKS, activityType: ACTIVITY_TYPE_PURCHASE },
-  'Hairdresser & Personal Care': { purchaseCategory: PURCHASE_CATEGORY_STORE_BARBER_BEAUTY, activityType: ACTIVITY_TYPE_PURCHASE },
-  'Hobby & Sports Equipment': { purchaseCategory: PURCHASE_CATEGORY_STORE_DEPARTMENT, activityType: ACTIVITY_TYPE_PURCHASE },
-  'Games & Toys': { purchaseCategory: PURCHASE_CATEGORY_STORE_DEPARTMENT, activityType: ACTIVITY_TYPE_PURCHASE },
-  'Electronics & Computer': { purchaseCategory: PURCHASE_CATEGORY_STORE_ELECTRONIC, activityType: ACTIVITY_TYPE_PURCHASE },
-  'Furniture & Interior': { purchaseCategory: PURCHASE_CATEGORY_STORE_HOUSE_FURNISHING, activityType: ACTIVITY_TYPE_PURCHASE },
-  'Clothing & Accessories': { purchaseCategory: PURCHASE_CATEGORY_STORE_CLOTHING, activityType: ACTIVITY_TYPE_PURCHASE },
+  'Cinema, Concerts & Entertainment': { purchaseType: PURCHASE_CATEGORY_ENTERTAINMENT_MOVIE_THEATER, activityType: ACTIVITY_TYPE_PURCHASE },
+  'Movies, Music & Books': { purchaseType: PURCHASE_CATEGORY_STORE_BOOKS, activityType: ACTIVITY_TYPE_PURCHASE },
+  'Hairdresser & Personal Care': { purchaseType: PURCHASE_CATEGORY_STORE_BARBER_BEAUTY, activityType: ACTIVITY_TYPE_PURCHASE },
+  'Hobby & Sports Equipment': { purchaseType: PURCHASE_CATEGORY_STORE_DEPARTMENT, activityType: ACTIVITY_TYPE_PURCHASE },
+  'Games & Toys': { purchaseType: PURCHASE_CATEGORY_STORE_DEPARTMENT, activityType: ACTIVITY_TYPE_PURCHASE },
+  'Electronics & Computer': { purchaseType: PURCHASE_CATEGORY_STORE_ELECTRONIC, activityType: ACTIVITY_TYPE_PURCHASE },
+  'Furniture & Interior': { purchaseType: PURCHASE_CATEGORY_STORE_HOUSE_FURNISHING, activityType: ACTIVITY_TYPE_PURCHASE },
+  'Clothing & Accessories': { purchaseType: PURCHASE_CATEGORY_STORE_CLOTHING, activityType: ACTIVITY_TYPE_PURCHASE },
   'Fast Food & Takeaway': { activityType: ACTIVITY_TYPE_MEAL },
   'Glasses & Contacts': null,
-  'Medical Specialists': { purchaseCategory: PURCHASE_CATEGORY_HEALTHCARE_DOCTOR, activityType: ACTIVITY_TYPE_PURCHASE },
-  'Housekeeping & Gardening': { purchaseCategory: PURCHASE_CATEGORY_STORE_GARDEN, activityType: ACTIVITY_TYPE_PURCHASE },
+  'Medical Specialists': { purchaseType: PURCHASE_CATEGORY_HEALTHCARE_DOCTOR, activityType: ACTIVITY_TYPE_PURCHASE },
+  'Housekeeping & Gardening': { purchaseType: PURCHASE_CATEGORY_STORE_GARDEN, activityType: ACTIVITY_TYPE_PURCHASE },
   Travel: null,
   'Phone & Internet': null,
   'TV license & Cable': null,
@@ -144,7 +144,6 @@ const NAG_CATEGORY = {
   'Basic Expenses': null,
   'Student Loan': null,
   Tuition: null,
-  
 };
 
 function parseCategory(category, categoryList) {
@@ -154,12 +153,12 @@ function parseCategory(category, categoryList) {
     if (!nagCategory) throw new Error(`Couldn't find category matching id '${category.id}'`);
     const nagName = nagCategory.category.name.en;
 
-    const purchaseCategory = NAG_CATEGORY[nagName];
-    if (purchaseCategory === undefined) {
+    const purchaseType = NAG_CATEGORY[nagName];
+    if (purchaseType === undefined) {
       throw new Error(`Unknown nordic-api-gateway category '${nagName}'`);
     }
 
-    return purchaseCategory;
+    return purchaseType;
   }
 
   return null;
@@ -203,7 +202,7 @@ async function parseTransactions(transactions, accountDisplayName, bankDisplayNa
         accountDisplayName,
         bankDisplayName,
         bankIdentifier,
-        purchaseCategory: category.purchaseCategory,
+        purchaseType: category.purchaseType,
         costAmount: -transactions[i].amount.value,
         costCurrency: transactions[i].amount.currency,
       });
@@ -346,6 +345,7 @@ const config = {
   country: 'DK',
   type: ACTIVITY_TYPE_PURCHASE,
   isPrivate: true,
+  isDebugOnly: true,
   description: 'collects bank statements',
 };
 
