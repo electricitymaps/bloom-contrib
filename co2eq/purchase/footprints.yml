@@ -28,6 +28,67 @@ _children:
           - PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARKING
         source: 'http://www.balticproject.org/en/calculator-page'
         unit: EUR
+  Mobile phone:
+    icon: mobile
+    intensityKilograms: 32
+    source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+    unit: item
+    usage: 20%
+    _children:
+      'Feature phone':
+        icon: mobile
+        intensityKilograms: 16
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 20%
+      'iPhone 11':
+        deviceId: 'iPhone12,1'  # https://gist.github.com/adamawolf/3048717
+        icon: mobile
+        intensityKilograms: 72
+        source: 'https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_11_PER_sept2019.pdf'
+        unit: item
+        usage: 17%
+      'iPhone 11 Pro':
+        deviceId: 'iPhone12,3'  # https://gist.github.com/adamawolf/3048717
+        icon: mobile
+        intensityKilograms: 80
+        source: 'https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_11_Pro_PER_sept2019.pdf'
+        unit: item
+        usage: 13%
+      'iPhone 11 Pro Max':
+        deviceId: 'iPhone12,5'  # https://gist.github.com/adamawolf/3048717
+        icon: mobile
+        intensityKilograms: 86
+        source: 'https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_11_Pro_Max_PER_sept2019.pdf'
+        unit: item
+        usage: 18%
+      'iPhone 8':
+        deviceId: 'iPhone10,1'  # https://gist.github.com/adamawolf/3048717
+        icon: mobile
+        intensityKilograms: 57
+        source: 'https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_8_PER_sept2017.pdf'
+        unit: item
+        usage: 16%
+      'iPhone 8 Plus':
+        deviceId: 'iPhone10,2'  # https://gist.github.com/adamawolf/3048717
+        icon: mobile
+        intensityKilograms: 68
+        source: 'https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_8_Plus_PER_sept2017.pdf'
+        unit: item
+        usage: 17%
+      'iPhone XR':
+        deviceId: 'iPhone11,8'  # https://gist.github.com/adamawolf/3048717
+        icon: mobile
+        intensityKilograms: 62
+        source: 'https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_XR_PER_sept2018.pdf'
+        unit: item
+        usage: 19%
+      'iPhone SE':
+        deviceId: 'iPhone8,4'  # https://gist.github.com/adamawolf/3048717
+        icon: mobile
+        intensityKilograms: 45
+        source: 'https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_SE_PER_sept2017.pdf'
+        unit: 'item'
   Electronics:
     _children:
       'AirPort Express':
@@ -168,54 +229,6 @@ _children:
         source: 'https://www.apple.com/lae/environment/pdf/products/ipad/iPadmini_PER_Mar2019.pdf'
         unit: item
         usage: 15%
-      'iPhone 11':
-        deviceId: 'iPhone12,1'  # https://gist.github.com/adamawolf/3048717
-        icon: mobile
-        intensityKilograms: 72
-        source: 'https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_11_PER_sept2019.pdf'
-        unit: item
-        usage: 17%
-      'iPhone 11 Pro':
-        deviceId: 'iPhone12,3'  # https://gist.github.com/adamawolf/3048717
-        icon: mobile
-        intensityKilograms: 80
-        source: 'https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_11_Pro_PER_sept2019.pdf'
-        unit: item
-        usage: 13%
-      'iPhone 11 Pro Max':
-        deviceId: 'iPhone12,5'  # https://gist.github.com/adamawolf/3048717
-        icon: mobile
-        intensityKilograms: 86
-        source: 'https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_11_Pro_Max_PER_sept2019.pdf'
-        unit: item
-        usage: 18%
-      'iPhone 8':
-        deviceId: 'iPhone10,1'  # https://gist.github.com/adamawolf/3048717
-        icon: mobile
-        intensityKilograms: 57
-        source: 'https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_8_PER_sept2017.pdf'
-        unit: item
-        usage: 16%
-      'iPhone 8 Plus':
-        deviceId: 'iPhone10,2'  # https://gist.github.com/adamawolf/3048717
-        icon: mobile
-        intensityKilograms: 68
-        source: 'https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_8_Plus_PER_sept2017.pdf'
-        unit: item
-        usage: 17%
-      'iPhone XR':
-        deviceId: 'iPhone11,8'  # https://gist.github.com/adamawolf/3048717
-        icon: mobile
-        intensityKilograms: 62
-        source: 'https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_XR_PER_sept2018.pdf'
-        unit: item
-        usage: 19%
-      'iPhone SE':
-        deviceId: 'iPhone8,4'  # https://gist.github.com/adamawolf/3048717
-        icon: mobile
-        intensityKilograms: 45
-        source: 'https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_SE_PER_sept2017.pdf'
-        unit: 'item'
       'iPod touch':
         icon: mobile  # 'mp3-player' only available on FontAwesome 5.11.0
         intensityKilograms: 32
