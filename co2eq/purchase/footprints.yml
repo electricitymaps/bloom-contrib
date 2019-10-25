@@ -28,7 +28,7 @@ _children:
           - PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARKING
         source: 'http://www.balticproject.org/en/calculator-page'
         unit: EUR
-  Mobile phones:
+  Mobile phone:
     icon: mobile
     intensityKilograms: 32
     source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
