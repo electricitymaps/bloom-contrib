@@ -6,25 +6,25 @@ const LOGIN_PATH = 'https://account.tfl.gov.uk/api/login';
 const BASE_PATH = 'https://mobileapi.tfl.gov.uk'; // For fetching data
 
 
-async function generateActivities(travelDays) {
+function generateActivities(travelDays) {
   const activities = [];
   travelDays.forEach((day) => {
     day.Journeys.forEach((journey) => {
-      console.log(journey);
-      activities.push({
-        id: '', // a string that uniquely represents this activity
-        datetime: journey.StartTime, // a javascript Date object that represents the start of the activity
-        durationHours: journey.EndTime && moment(journey.EndTime).diff(moment(journey.StartTime)) / (60 * 60 * 1000), // a floating point that represents the duration of the activity in decimal hours
-        distanceKilometers: '', // a floating point that represents the amount of kilometers traveled
-        activityType: ACTIVITY_TYPE_TRANSPORTATION,
-        transportationMode: TRANSPORTATION_MODE_PUBLIC_TRANSPORT, // a variable (from definitions.js) that represents the transportation mode
-        carrier: 'Transport For London', // (optional) a string that represents the transportation company
-        departureStation: journey.TransactionType === 'Bus' ? 'Bus' : journey.StartLocation, // (for other travel types) a string that represents the original starting point
-        destinationStation: journey.TransactionType === 'Bus' ? 'Bus' : journey.EndLocation, // (for other travel types) a string that represents the final destination
-      });
+      if (journey.Charge <= 0) { // ignore topups
+        activities.push({
+          id: journey.StartTime, // a string that uniquely represents this activity
+          datetime: journey.StartTime, // a javascript Date object that represents the start of the activity
+          durationHours: journey.EndTime && moment(journey.EndTime).diff(moment(journey.StartTime)) / (60 * 60 * 1000), // a floating point that represents the duration of the activity in decimal hours
+          distanceKilometers: '', // a floating point that represents the amount of kilometers traveled
+          activityType: ACTIVITY_TYPE_TRANSPORTATION,
+          transportationMode: TRANSPORTATION_MODE_PUBLIC_TRANSPORT, // a variable (from definitions.js) that represents the transportation mode
+          carrier: 'Transport For London', // (optional) a string that represents the transportation company
+          departureStation: journey.TransactionType === 'Bus' ? 'Bus' : journey.StartLocation, // (for other travel types) a string that represents the original starting point
+          destinationStation: journey.TransactionType === 'Bus' ? 'Bus' : journey.EndLocation, // (for other travel types) a string that represents the final destination
+        });
+      }
     });
   });
-  console.log(activities);
   return activities;
 }
 
@@ -54,7 +54,7 @@ async function connect(requestLogin) {
 
   if (!loginResponse.SecurityToken) throw new HTTPError('Login failed');
 
-  console.log(loginResponse);
+  // console.log(loginResponse);
 
   const apiTokenResponse = await fetch(`${BASE_PATH}/APITokens`, {
     method: 'get',
@@ -68,7 +68,7 @@ async function connect(requestLogin) {
       throw new HTTPError(e);
     });
 
-  console.log(apiTokenResponse);
+  // console.log(apiTokenResponse);
 
   return {
     securityToken: loginResponse.SecurityToken,
@@ -78,8 +78,6 @@ async function connect(requestLogin) {
 }
 
 async function collect(state) {
-  console.log(state);
-
   // Get access token using the refresh token
   const refreshTokenResponse = await fetch(`${BASE_PATH}/APITokens/RefreshToken`, {
     method: 'get',
@@ -93,7 +91,7 @@ async function collect(state) {
       throw new HTTPError(e);
     });
 
-  console.log(refreshTokenResponse);
+  // console.log(refreshTokenResponse);
 
   const newState = {
     accessToken: refreshTokenResponse.access_token,
@@ -111,7 +109,7 @@ async function collect(state) {
       throw new HTTPError(e);
     });
 
-  console.log(oysterCardResponse, newState);
+  // console.log(oysterCardResponse, newState);
 
 
   const oysterCards = oysterCardResponse.OysterCards;
@@ -145,8 +143,10 @@ async function collect(state) {
         throw new HTTPError(e);
       });
     const activities = generateActivities([...journeysResponse2.TravelDays, ...journeysResponse1.TravelDays]);
+    // console.log({ activities, state: newState });
     return { activities, state: newState };
   }
+
   return { activities: [], state: newState };
 }
 
