@@ -119,8 +119,8 @@ async function collect(state) {
   newState.oysterCardNumbers = oysterCards.map(oc => oc.OysterCardNumber);
 
   if (newState.oysterCardNumbers && newState.oysterCardNumbers.length > 0) {
-    // Get data for the first oyster card
-    const journeysResponse = await fetch(`${BASE_PATH}/Cards/Oyster/Journeys?startDate=${moment().subtract(10, 'days').format(moment.HTML5_FMT.DATE)}&endDate=${moment().subtract(4, 'days').format(moment.HTML5_FMT.DATE)}`, {
+    // Get data for the first oyster card for last week
+    const journeysResponse1 = await fetch(`${BASE_PATH}/Cards/Oyster/Journeys?startDate=${moment().subtract(6, 'days').format(moment.HTML5_FMT.DATE)}&endDate=${moment().format(moment.HTML5_FMT.DATE)}`, {
       method: 'get',
       headers: {
         'x-zumo-auth': newState.accessToken,
@@ -131,11 +131,23 @@ async function collect(state) {
       .catch((e) => {
         throw new HTTPError(e);
       });
-    console.log(journeysResponse);
-    const activities = generateActivities(journeysResponse.TravelDays);
-    // return { activities, state: newState };
+    // Get data for the first oyster card for week before last
+
+    const journeysResponse2 = await fetch(`${BASE_PATH}/Cards/Oyster/Journeys?startDate=${moment().subtract(13, 'days').format(moment.HTML5_FMT.DATE)}&endDate=${moment().subtract(7, 'days').format(moment.HTML5_FMT.DATE)}`, {
+      method: 'get',
+      headers: {
+        'x-zumo-auth': newState.accessToken,
+        oystercardnumber: newState.oysterCardNumbers[0],
+      },
+    })
+      .then(response => response.json())
+      .catch((e) => {
+        throw new HTTPError(e);
+      });
+    const activities = generateActivities([...journeysResponse2.TravelDays, ...journeysResponse1.TravelDays]);
+    return { activities, state: newState };
   }
-  // return { activities: [], state: newState };
+  return { activities: [], state: newState };
 }
 
 async function disconnect() {
