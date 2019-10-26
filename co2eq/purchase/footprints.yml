@@ -89,6 +89,88 @@ _children:
         intensityKilograms: 45
         source: 'https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_SE_PER_sept2017.pdf'
         unit: 'item'
+  Furniture:
+    _children:
+      'Chair (wood)':
+        icon: chair
+        intensityKilograms: 25.2
+        source: ''https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Chair (plastic)':
+        icon: chair
+        intensityKilograms: 28
+        source: ''https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Chair (wood and fabric)':
+        icon: chair
+        intensityKilograms: 12
+        source: ''https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Table (wood)':
+        icon: chair
+        intensityKilograms: 130
+        source: ''https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Table (average)':
+        icon: chair
+        intensityKilograms: 96
+        source: ''https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Cabinet':
+        icon: chair
+        intensityKilograms: 858
+        source: ''https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Sofa (fabric)':
+        icon: couch
+        intensityKilograms: 180
+        source: ''https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Sofa (leather)':
+        icon: couch
+        intensityKilograms: 200
+        source: ''https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Pullout sofa':
+        icon: couch
+        intensityKilograms: 204
+        source: ''https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Box spring':
+        icon: bed
+        intensityKilograms: 110
+        source: ''https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Slatted bed base':
+        icon: bed
+        intensityKilograms: 69
+        source: ''https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Bed frame':
+        icon: bed
+        intensityKilograms: 147
+        source: ''https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Spring mattress':
+        icon: bed
+        intensityKilograms: 219
+        source: ''https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: 'item'
+      'Garden furniture (wood)':
+        icon: chair
+        intensityKilograms: 103
+        source: ''https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: 'item'
+      'Garden furniture (metal)':
+        icon: chair
+        intensityKilograms: 224
+        source: ''https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: 'item'
+      'Garden furniture (plastic)':
+        icon: chair
+        intensityKilograms: 215
+        source: ''https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: 'item'
   Electronics:
     _children:
       'AirPort Express':
