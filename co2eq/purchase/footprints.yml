@@ -28,6 +28,153 @@ _children:
           - PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARKING
         source: 'http://www.balticproject.org/en/calculator-page'
         unit: EUR
+  Clothing, shoes and sports equipments:
+    _children:
+      'Shirt (viscose)':
+        icon: tshirt
+        intensityKilograms: 12
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 25%
+      'Shirt (cotton)':
+        icon: tshirt
+        intensityKilograms: 13
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 23.1%
+      'Jeans':
+        icon: tshirt
+        intensityKilograms: 25
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 20%
+      'T-shirt (cotton)':
+        icon: tshirt
+        intensityKilograms: 7
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 42.9%
+      'T-shirt (polyester)':
+        icon: tshirt
+        intensityKilograms: 6
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 16.7%
+      'Polo shirt':
+        icon: tshirt
+        intensityKilograms: 10
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 30%
+      'Sweater (acrylic)':
+        icon: tshirt
+        intensityKilograms: 28
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 17.9%
+      'Fleece (recycled polyester)':
+        icon: tshirt
+        intensityKilograms: 26
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 23.1%
+      'Sweater (cotton)':
+        icon: tshirt
+        intensityKilograms: 31
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 25.8%
+      'Pullover (wool)':
+        icon: tshirt
+        intensityKilograms: 56
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 12.5%
+      'Pullover (recycled cotton)':
+        icon: tshirt
+        intensityKilograms: 12
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 41.7%
+      'Jacket (average)':
+        icon: tshirt
+        intensityKilograms: 89
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 13.5%
+      'Jacket (weatherproof)':
+        icon: tshirt
+        intensityKilograms: 39
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 7.7%
+      'Jacket (faux leather)':
+        icon: tshirt
+        intensityKilograms: 25
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 20%
+      'Dress (polyester)':
+        icon: tshirt
+        intensityKilograms: 56
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 19.6%
+      'Dress (cotton)':
+        icon: tshirt
+        intensityKilograms: 56
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 23.2%
+      'Dress (viscose)':
+        icon: tshirt
+        intensityKilograms: 51
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 25.5%
+      'Shoes (leather)':
+        icon: boot
+        intensityKilograms: 15
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 46.7%
+      'Shoes (fabric)':
+        icon: boot
+        intensityKilograms: 19
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 31.6%
+      'Shoes (sports)':
+        icon: boot
+        intensityKilograms: 20
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 30%
+      'Backpack (trekking)':
+        icon: backpack
+        intensityKilograms: 6.3
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Backpack (school)':
+        icon: backpack
+        intensityKilograms: 9.8
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Tennis racket':
+        icon: racquet
+        intensityKilograms: 23
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Football':
+        icon: futbol
+        intensityKilograms: 5.1
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Basketball':
+        icon: basketball-ball
+        intensityKilograms: 5.9
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
   Mobile phone:
     icon: mobile
     intensityKilograms: 32
