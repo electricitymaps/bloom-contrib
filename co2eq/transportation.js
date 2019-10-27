@@ -13,7 +13,7 @@ import flightEmissions from './flights';
 
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'transportation';
-export const modelVersion = 8;
+export const modelVersion = '9';
 export const explanation = {
   text: 'Calculations only takes into direct emissions from burning fuel.',
   links: [
@@ -32,24 +32,27 @@ function carbonIntensity(mode) {
   // https://www.ipcc.ch/ipccreports/sres/aviation/125.htm#tab85
   switch (mode) {
     case TRANSPORTATION_MODE_BUS:
-      return 15 / 1000.0;
+      return 103 / 1000.0;
+      // https://static.ducky.eco/calculator_documentation.pdf, Ecoinvent 3 Regular bus, production = 9g
     case TRANSPORTATION_MODE_CAR:
-      return 50 / 1000.0;
+      return 257 / 1000.0;
+      // https://static.ducky.eco/calculator_documentation.pdf, Ecoinvent Avg european car, production = 43g
     case TRANSPORTATION_MODE_TRAIN:
-      return 20 / 1000.0;
+      return 42 / 1000.0;
+      // https://static.ducky.eco/calculator_documentation.pdf, Andersen 2007
     case TRANSPORTATION_MODE_PUBLIC_TRANSPORT:
       // Average of train and bus
       return (0.5 * carbonIntensity(TRANSPORTATION_MODE_TRAIN)
         + 0.5 * carbonIntensity(TRANSPORTATION_MODE_BUS));
     case TRANSPORTATION_MODE_FERRY:
       // See https://en.wikipedia.org/wiki/Carbon_footprint
-      return 0.12;
+      return 120 / 1000.0;
     case TRANSPORTATION_MODE_BIKE:
       // https://ecf.com/files/wp-content/uploads/ECF_BROCHURE_EN_planche.pdf
       return 5 / 1000.0;
     case TRANSPORTATION_MODE_ESCOOTER:
       // https://iopscience.iop.org/article/10.1088/1748-9326/ab2da8
-      return 202 / 1000.0;
+      return 125.517 / 1000.0;
     default:
       throw Error(`Unknown transportation mode: ${mode}`);
   }
@@ -58,11 +61,14 @@ function carbonIntensity(mode) {
 export function durationToDistance(durationHours, mode) {
   switch (mode) {
     case TRANSPORTATION_MODE_BUS:
-      return durationHours * 50.0;
+      return durationHours * 30.0;
+      // assumes mostly city-rides
     case TRANSPORTATION_MODE_CAR:
-      return durationHours * 80.0;
+      return durationHours * 45.0;
+      // https://setis.ec.europa.eu/system/files/Driving_and_parking_patterns_of_European_car_drivers-a_mobility_survey.pdf
     case TRANSPORTATION_MODE_TRAIN:
-      return durationHours * 80.0;
+      return durationHours * 45.0;
+      // assumes mostly suburban trips
     case TRANSPORTATION_MODE_PUBLIC_TRANSPORT:
       // Average of train and bus
       return (0.5 * durationToDistance(durationHours, TRANSPORTATION_MODE_TRAIN)
@@ -70,9 +76,9 @@ export function durationToDistance(durationHours, mode) {
     case TRANSPORTATION_MODE_FERRY:
       return durationHours * 30; // ~16 knots
     case TRANSPORTATION_MODE_BIKE:
-      return durationHours * 10;
+      return durationHours * 15;
     case TRANSPORTATION_MODE_ESCOOTER:
-      return durationHours * 10;
+      return durationHours * 15;
     default:
       throw Error(`Unknown transportation mode: ${mode}`);
   }
