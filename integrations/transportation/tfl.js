@@ -15,7 +15,7 @@ function generateActivities(travelDays) {
           id: journey.StartTime, // a string that uniquely represents this activity
           datetime: journey.StartTime, // a javascript Date object that represents the start of the activity
           durationHours: journey.EndTime && moment(journey.EndTime).diff(moment(journey.StartTime)) / (60 * 60 * 1000), // a floating point that represents the duration of the activity in decimal hours
-          distanceKilometers: '', // a floating point that represents the amount of kilometers traveled
+          distanceKilometers: journey.TransactionType === 'Bus' ? 3.140 : null, // a floating point that represents the amount of kilometers traveled (https://www.whatdotheyknow.com/request/bus_passenger_journey_times)
           activityType: ACTIVITY_TYPE_TRANSPORTATION,
           transportationMode: TRANSPORTATION_MODE_PUBLIC_TRANSPORT, // a variable (from definitions.js) that represents the transportation mode
           carrier: 'Transport For London', // (optional) a string that represents the transportation company
