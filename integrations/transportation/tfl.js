@@ -77,6 +77,19 @@ async function connect(requestLogin) {
   };
 }
 
+async function getOneWeeksOysterData(accessToken, oysterCardNumber, startMoment, endMoment) {
+  return fetch(`${BASE_PATH}/Cards/Oyster/Journeys?startDate=${startMoment.format(moment.HTML5_FMT.DATE)}&endDate=${endMoment.format(moment.HTML5_FMT.DATE)}`, {
+    method: 'get',
+    headers: {
+      'x-zumo-auth': accessToken,
+      oystercardnumber: oysterCardNumber,
+    },
+  })
+    .catch((e) => {
+      throw new HTTPError(e);
+    });
+}
+
 async function collect(state) {
   // Get access token using the refresh token
   const refreshTokenResponse = await fetch(`${BASE_PATH}/APITokens/RefreshToken`, {
@@ -91,13 +104,13 @@ async function collect(state) {
       throw new HTTPError(e);
     });
 
-  // console.log(refreshTokenResponse);
-
+  // Always update state with new tokens
   const newState = {
     accessToken: refreshTokenResponse.access_token,
     refreshToken: refreshTokenResponse.refresh_token,
   };
 
+  // Update oyster cards
   const oysterCardResponse = await fetch(`${BASE_PATH}/Cards/Oyster`, {
     method: 'get',
     headers: {
@@ -109,41 +122,40 @@ async function collect(state) {
       throw new HTTPError(e);
     });
 
-  // console.log(oysterCardResponse, newState);
-
-
   const oysterCards = oysterCardResponse.OysterCards;
 
   newState.oysterCardNumbers = oysterCards.map(oc => oc.OysterCardNumber);
 
-  if (newState.oysterCardNumbers && newState.oysterCardNumbers.length > 0) {
-    // Get data for the first oyster card for last week
-    const journeysResponse1 = await fetch(`${BASE_PATH}/Cards/Oyster/Journeys?startDate=${moment().subtract(6, 'days').format(moment.HTML5_FMT.DATE)}&endDate=${moment().format(moment.HTML5_FMT.DATE)}`, {
-      method: 'get',
-      headers: {
-        'x-zumo-auth': newState.accessToken,
-        oystercardnumber: newState.oysterCardNumbers[0],
-      },
-    })
-      .then(response => response.json())
-      .catch((e) => {
-        throw new HTTPError(e);
-      });
-    // Get data for the first oyster card for week before last
+  const today = moment().startOf('day');
 
-    const journeysResponse2 = await fetch(`${BASE_PATH}/Cards/Oyster/Journeys?startDate=${moment().subtract(13, 'days').format(moment.HTML5_FMT.DATE)}&endDate=${moment().subtract(7, 'days').format(moment.HTML5_FMT.DATE)}`, {
-      method: 'get',
-      headers: {
-        'x-zumo-auth': newState.accessToken,
-        oystercardnumber: newState.oysterCardNumbers[0],
-      },
-    })
-      .then(response => response.json())
-      .catch((e) => {
-        throw new HTTPError(e);
-      });
-    const activities = generateActivities([...journeysResponse2.TravelDays, ...journeysResponse1.TravelDays]);
-    // console.log({ activities, state: newState });
+  let startDate = moment().subtract(56, 'days').startOf('day'); // Max data range is 56 days
+
+  if (newState.oysterCardNumbers && newState.oysterCardNumbers.length > 0) {
+    const travelDays = []; // Array of objects for each day travelled, with journeys inside them
+    // First, get most recent data (between startDate and today)
+    while (startDate < today) {
+      /* eslint-disable no-await-in-loop */
+      // Can only query 7 days at a time on this api:
+      const oneWeekEndDate = moment(startDate).add(6, 'days'); // 6 days as it is inclusive
+      const adjustedEndDate = oneWeekEndDate > today ? today : oneWeekEndDate; // Make sure query is no further than today
+      const apiResponse = await getOneWeeksOysterData(
+        newState.accessToken,
+        newState.oysterCardNumbers[0],
+        startDate,
+        adjustedEndDate
+      );
+      // Add one day to the end date to get the new start date
+      startDate = moment(adjustedEndDate).add(1, 'days');
+      if (apiResponse.ok) {
+        const json = await apiResponse.json();
+        Array.prototype.push.apply(travelDays, json.TravelDays);
+      }
+    }
+
+    const activities = generateActivities(travelDays);
+
+    newState.lastDataFetch = new Date();
+
     return { activities, state: newState };
   }
 
