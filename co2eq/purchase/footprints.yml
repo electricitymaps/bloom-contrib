@@ -96,7 +96,7 @@ _children:
         source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
         unit: item
         usage: 41.7%
-      'Jacket (average)':
+      'Jacket (generic)':
         icon: tshirt
         intensityKilograms: 89
         source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
