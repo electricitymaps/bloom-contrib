@@ -33,16 +33,18 @@ Integrations can rely on an API or even on scrapers if necessary.
 
 #### Suggesting an integration
 Here is the list of current 3rd party integrations:
+Official integrations:
 - ✈️ Tripit (tracks most airlines!)
+- ⚡ Barry
+- 🚗 Tesla Cockpit
+Community-supported integrations:
 - ✈️ Ryanair (contributor:[lauvrenn](https://github.com/lauvrenn))
 - ✈️ Wizzair (contributor:[lauvrenn](https://github.com/lauvrenn))
 - 🚂 Rejsekort
 - ⚡ Sense (contributor:[snarfed](https://github.com/snarfed))
 - ⚡ Linky (contributor:[bokub](https://github.com/bokub))
-- ⚡ Barry
-- ⚡ Ørsted
+- ⚡ Ørsted (contributor:[felixdq](https://github.com/felixdq))
 - 🚗 Renault Zoé
-- 🚗 Tesla Cockpit
 - 🚗 Uber (contributor:[willtonkin](https://github.com/willtonkin))
 - 🚗 Automatic (contributor:[lauvrenn](https://github.com/lauvrenn))
 

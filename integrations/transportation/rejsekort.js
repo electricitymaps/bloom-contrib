@@ -1,6 +1,7 @@
 import moment from 'moment';
 import request from 'superagent';
 import { DOMParser } from 'xmldom';
+import { ValidationError } from '../utils/errors';
 
 import { ACTIVITY_TYPE_TRANSPORTATION, TRANSPORTATION_MODE_PUBLIC_TRANSPORT } from '../../definitions';
 
@@ -74,11 +75,11 @@ async function logIn(username, password, logger) {
     } else if (!container) {
       // Note(olc): This happens every 2nd request on Android if the token length is not 92
       // As a result, we're not logged in.
-      throw Error('Unknown error');
+      throw new Error('Unknown error');
     } else {
       const errors = Array.from(container.getElementsByTagName('li'))
         .map(d => d.firstChild.textContent);
-      throw Error(errors.join(', '));
+      throw new ValidationError(errors.join(', '));
     }
   } else if (!res.text.match(/(is logged in|er logget in)/)) {
     // Log more info
