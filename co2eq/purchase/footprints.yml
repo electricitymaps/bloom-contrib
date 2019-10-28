@@ -28,6 +28,281 @@ _children:
           - PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARKING
         source: 'http://www.balticproject.org/en/calculator-page'
         unit: EUR
+  Appliances:
+    _children:
+      'Electric oven':
+        icon: dryer
+        intensityKilograms: 319
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 41.4%
+      'Gas oven':
+        icon: dryer
+        intensityKilograms: 846
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 84.4%
+      'Mini electric oven':
+        icon: dryer
+        intensityKilograms: 190
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 62.6%
+      'Microwave oven':
+        icon: dryer
+        intensityKilograms: 118
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 33.1%
+      'Dishwasher':
+        icon: dryer
+        intensityKilograms: 513
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 57.1%
+      'Mini dishwasher':
+        icon: dryer
+        intensityKilograms: 431
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 55.2%
+      'Top load laundry machine':
+        icon: dryer
+        intensityKilograms: 468
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 47%
+      'Front load laundry machine':
+        icon: dryer
+        intensityKilograms: 539
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 49%
+      'Heat pump dryer':
+        icon: dryer
+        intensityKilograms: 506
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 48.6%
+      'Dewatering dryer':
+        icon: dryer
+        intensityKilograms: 588
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 55.8%
+      'Evacuation dryer':
+        icon: dryer
+        intensityKilograms: 545
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 57.4%
+      'Refrigerator':
+        icon: dryer
+        intensityKilograms: 343
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 30.9%
+      'Integrated fridge freezer':
+        icon: dryer
+        intensityKilograms: 431
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 48.7%
+      'Mini Refrigerator':
+        icon: dryer
+        intensityKilograms: 159
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 56.6%
+      'Chest freezer':
+        icon: dryer
+        intensityKilograms: 492
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 50.6%
+      'Upright freezer':
+        icon: dryer
+        intensityKilograms: 587
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 43.4%
+      'Vacuum cleaner':
+        icon: dryer
+        intensityKilograms: 67
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 41.8%
+      'Bagless vacuum cleaner':
+        icon: dryer
+        intensityKilograms: 69
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 37.7%
+      'Stand mixer':
+        icon: dryer
+        intensityKilograms: 43
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 16.3%
+      'Bread machine':
+        icon: dryer
+        intensityKilograms: 96
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 17%
+      'Yogurt maker':
+        icon: dryer
+        intensityKilograms: 96
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 52.1%
+  Clothing, shoes and sports equipments:
+    _children:
+      'Shirt (viscose)':
+        icon: tshirt
+        intensityKilograms: 12
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 25%
+      'Shirt (cotton)':
+        icon: tshirt
+        intensityKilograms: 13
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 23.1%
+      'Jeans':
+        icon: tshirt
+        intensityKilograms: 25
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 20%
+      'T-shirt (cotton)':
+        icon: tshirt
+        intensityKilograms: 7
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 42.9%
+      'T-shirt (polyester)':
+        icon: tshirt
+        intensityKilograms: 6
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 16.7%
+      'Polo shirt':
+        icon: tshirt
+        intensityKilograms: 10
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 30%
+      'Sweater (acrylic)':
+        icon: tshirt
+        intensityKilograms: 28
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 17.9%
+      'Fleece (recycled polyester)':
+        icon: tshirt
+        intensityKilograms: 26
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 23.1%
+      'Sweater (cotton)':
+        icon: tshirt
+        intensityKilograms: 31
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 25.8%
+      'Pullover (wool)':
+        icon: tshirt
+        intensityKilograms: 56
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 12.5%
+      'Pullover (recycled cotton)':
+        icon: tshirt
+        intensityKilograms: 12
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 41.7%
+      'Jacket (generic)':
+        icon: tshirt
+        intensityKilograms: 89
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 13.5%
+      'Jacket (weatherproof)':
+        icon: tshirt
+        intensityKilograms: 39
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 7.7%
+      'Jacket (faux leather)':
+        icon: tshirt
+        intensityKilograms: 25
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 20%
+      'Dress (polyester)':
+        icon: tshirt
+        intensityKilograms: 56
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 19.6%
+      'Dress (cotton)':
+        icon: tshirt
+        intensityKilograms: 56
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 23.2%
+      'Dress (viscose)':
+        icon: tshirt
+        intensityKilograms: 51
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 25.5%
+      'Shoes (leather)':
+        icon: boot
+        intensityKilograms: 15
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 46.7%
+      'Shoes (fabric)':
+        icon: boot
+        intensityKilograms: 19
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 31.6%
+      'Shoes (sports)':
+        icon: boot
+        intensityKilograms: 20
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 30%
+      'Backpack (trekking)':
+        icon: backpack
+        intensityKilograms: 6.3
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Backpack (school)':
+        icon: backpack
+        intensityKilograms: 9.8
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Tennis racket':
+        icon: racquet
+        intensityKilograms: 23
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Football':
+        icon: futbol
+        intensityKilograms: 5.1
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Basketball':
+        icon: basketball-ball
+        intensityKilograms: 5.9
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
   Mobile phone:
     icon: mobile
     intensityKilograms: 32
@@ -89,6 +364,88 @@ _children:
         intensityKilograms: 45
         source: 'https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_SE_PER_sept2017.pdf'
         unit: 'item'
+  Furniture:
+    _children:
+      'Chair (wood)':
+        icon: chair
+        intensityKilograms: 25.2
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Chair (plastic)':
+        icon: chair
+        intensityKilograms: 28
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Chair (wood and fabric)':
+        icon: chair
+        intensityKilograms: 12
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Table (wood)':
+        icon: chair
+        intensityKilograms: 130
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Table (generic)':
+        icon: chair
+        intensityKilograms: 96
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Cabinet':
+        icon: chair
+        intensityKilograms: 858
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Sofa (fabric)':
+        icon: couch
+        intensityKilograms: 180
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Sofa (leather)':
+        icon: couch
+        intensityKilograms: 200
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Pullout sofa':
+        icon: couch
+        intensityKilograms: 204
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Box spring':
+        icon: bed
+        intensityKilograms: 110
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Slatted bed base':
+        icon: bed
+        intensityKilograms: 69
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Bed frame':
+        icon: bed
+        intensityKilograms: 147
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Spring mattress':
+        icon: bed
+        intensityKilograms: 219
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Garden furniture (wood)':
+        icon: chair
+        intensityKilograms: 103
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Garden furniture (metal)':
+        icon: chair
+        intensityKilograms: 224
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Garden furniture (plastic)':
+        icon: chair
+        intensityKilograms: 215
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
   Electronics:
     _children:
       'AirPort Express':
@@ -497,6 +854,16 @@ _children:
             intensityKilograms: 0.43
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversions:
+              portion:
+                kilograms: 0.025
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/de/kalorientabelle/aprikose-frisch.html'
+                default: true
+              apricot:
+                kilograms: 0.05
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/de/kalorientabelle/aprikose-frisch.html'
           Bananas:
             icon: null
             intensityKilograms: 0.72
@@ -512,6 +879,11 @@ _children:
             intensityKilograms: 0.92
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversions:
+              portion:
+                kilograms: 0.045
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/de/kalorientabelle/blaubeeren-frisch.html'
           Blackberry:
             icon: null
             intensityKilograms: 0.599
@@ -542,41 +914,116 @@ _children:
             intensityKilograms: 0.490
             source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
             unit: kg
+            conversions:
+              portion:
+                kilograms: 0.069
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/en/foods/cantaloupe-melon.html'
+                default: true
+              cantaloupe:
+                kilograms: 0.35
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/en/foods/cantaloupe-melon.html'
           Cherries:
             icon: null
             intensityKilograms: 0.39
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversions:
+              portion:
+                kilograms: 0.08
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/en/foods/cherries.html'
+                default: true
+              cherry:
+                kilograms: 0.008
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/en/foods/cherries.html'
           Cranberries:
             icon: null
             intensityKilograms: 0.92
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
-          Coconut: #meat
+            conversions:
+              portion:
+                kilograms: 0.03
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/de/kalorientabelle/preiselbeeren-frisch.html'
+                default: true
+              cranberry:
+                kilograms: 0.003
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/de/kalorientabelle/preiselbeeren-frisch.html'
+          Coconut: # this refers to the coconut meat of the study
             icon: null
             intensityKilograms: 1.521
             source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
             unit: kg
+            conversions:
+              portion:
+                kilograms: 0.08
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/en/foods/coconut-meat.html'
+                default: true
+              coconut:
+                kilograms: 0.397
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/en/foods/coconut-meat.html'
           Currants:
             icon: null
             intensityKilograms: 0.84
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversions:
+              portion:
+                kilograms: 0.03
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/de/kalorientabelle/johannisbeeren-schwarz-frisch.html'
+                default: true
+              currant:
+                kilograms: 0.003
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/de/kalorientabelle/johannisbeeren-schwarz-frisch.html'
           Dates:
             icon: null
             intensityKilograms: 0.32
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversion:
+              portion:
+                kilograms: 0.035
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/de/kalorientabelle/datteln.html'
+                default: true
+              date:
+                kilograms: 0.007
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/de/kalorientabelle/datteln.html'
           Figs:
             icon: null
             intensityKilograms: 0.43
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversion:
+              fig:
+                kilograms: 0.048
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/de/kalorientabelle/feigen-frisch.html'
           Gooseberries:
             icon: null
             intensityKilograms: 0.84
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversion:
+              portion:
+                kilograms: 0.04
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/de/kalorientabelle/datteln.html'
+                default: true
+              gooseberry:
+                kilograms: 0.004
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/de/kalorientabelle/stachelbeeren-frisch.html'
           Grapefruit:
             icon: null
             intensityKilograms: 0.51
@@ -602,6 +1049,11 @@ _children:
             intensityKilograms: 0.28
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversion:
+              guava:
+                kilograms: 0.055
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/en/foods/guava.html'
           Kiwi:
             icon: null
             intensityKilograms: 0.36
@@ -617,16 +1069,36 @@ _children:
             intensityKilograms: 0.320
             source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
             unit: kg
+            conversion:
+              portion:
+                kilograms: 0.095
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/de/kalorientabelle/datteln.html'
+                default: true
+              kumquat:
+                kilograms: 0.019
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/en/foods/kumquat.html'
           Lemons:
             icon: null
             intensityKilograms: 0.26
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversion:
+              lemon:
+                kilograms: 0.058
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/de/kalorientabelle/zitrone-ohne-schale-frisch.html'
           Limes:
             icon: null
             intensityKilograms: 0.26
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversion:
+              lime:
+                kilograms: 0.067
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/de/kalorientabelle/limette-limone-frisch.html'
           Lychee:
             icon: null
             intensityKilograms: 0.893
@@ -637,6 +1109,11 @@ _children:
             intensityKilograms: 0.45
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversion:
+              mandarin:
+                kilograms: 0.105
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/de/kalorientabelle/mandarine-frisch.html'            
           Mango:
             icon: null
             intensityKilograms: 0.639
@@ -657,6 +1134,11 @@ _children:
             intensityKilograms: 0.43
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversion:
+              nectarine:
+                kilograms: 0.125
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/de/kalorientabelle/nektarine-frisch.html'
           Orange:
             icon: null
             intensityKilograms: 0.33
@@ -727,6 +1209,16 @@ _children:
             intensityKilograms: 0.51
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversion:
+              portion:
+                kilograms: 0.06
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/de/kalorientabelle/pomelo-frisch.html'
+                default: true
+              pomelo:
+                kilograms: 0.120
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/de/kalorientabelle/pomelo-frisch.html'
           Prunes:
             icon: null
             intensityKilograms: 0.273
@@ -742,6 +1234,11 @@ _children:
             intensityKilograms: 0.31
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversion:
+              quince:
+                kilograms: 0.092
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/de/kalorientabelle/quitte-frisch.html'
           Raspberries:
             icon: null
             intensityKilograms: 0.84
@@ -777,11 +1274,26 @@ _children:
             intensityKilograms: 0.51
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversion:
+              tangerine:
+                kilograms: 0.105
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/de/kalorientabelle/mandarine-frisch.html'
           Watermelon:
             icon: null
             intensityKilograms: 0.32
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversion:
+              portion:
+                kilograms: 0.150
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/de/kalorientabelle/wassermelone-frisch.html'
+                default: true
+              watermelon:
+                kilograms: 2.5
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/de/kalorientabelle/wassermelone-frisch.html'
         icon: lemon
         intensityKilograms: 0.52
         oldKeys:
@@ -982,7 +1494,7 @@ _children:
             intensityKilograms: 0.97
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
-          Peanut Butter:
+          Peanut butter:
             icon: null
             intensityKilograms: 2.3
             source: 'http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf'
@@ -1236,13 +1748,13 @@ _children:
                 kilograms: 0.054
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-          Brussels Sprouts:
+          Brussels sprouts:
             icon: null
             intensityKilograms: 0.490
             source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
             unit: kg
             conversions:
-              Portion:
+              portion:
                 kilograms: 0.056
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
