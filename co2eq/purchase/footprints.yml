@@ -111,7 +111,7 @@ _children:
         intensityKilograms: 130
         source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
         unit: item
-      'Table (average)':
+      'Table (generic)':
         icon: chair
         intensityKilograms: 96
         source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
