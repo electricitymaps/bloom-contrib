@@ -1,6 +1,6 @@
 import moment from 'moment';
 import { ACTIVITY_TYPE_TRANSPORTATION, TRANSPORTATION_MODE_PUBLIC_TRANSPORT } from '../../definitions';
-import { HTTPError, ValidationError } from '../utils/errors'; // For fetching data
+import { HTTPError, ValidationError, AuthenticationError } from '../utils/errors'; // For fetching data
 import env from '../loadEnv';
 
 const LOGIN_PATH = 'https://account.tfl.gov.uk/api/login';
@@ -52,9 +52,7 @@ async function connect(requestLogin) {
       throw new HTTPError(e);
     });
 
-  if (!loginResponse.SecurityToken) throw new HTTPError('Login failed');
-
-  // console.log(loginResponse);
+  if (!loginResponse.SecurityToken) throw new AuthenticationError('Login failed');
 
   const apiTokenResponse = await fetch(`${BASE_PATH}/APITokens`, {
     method: 'get',
@@ -67,8 +65,6 @@ async function connect(requestLogin) {
     .catch((e) => {
       throw new HTTPError(e);
     });
-
-  // console.log(apiTokenResponse);
 
   return {
     securityToken: loginResponse.SecurityToken,
