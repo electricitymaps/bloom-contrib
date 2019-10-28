@@ -497,6 +497,11 @@ _children:
             intensityKilograms: 0.43
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversions:
+              apricot:
+                kilograms: 0.035
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/en/foods/apricot.html'
           Bananas:
             icon: null
             intensityKilograms: 0.72
@@ -512,6 +517,11 @@ _children:
             intensityKilograms: 0.92
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversions:
+              portion:
+                kilograms: 0.045
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/de/kalorientabelle/blaubeeren-frisch.html'
           Blackberry:
             icon: null
             intensityKilograms: 0.599
@@ -542,41 +552,81 @@ _children:
             intensityKilograms: 0.490
             source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
             unit: kg
+            conversions:
+              cantaloupe:
+                kilograms: 0.35
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/en/foods/cantaloupe-melon.html'
           Cherries:
             icon: null
             intensityKilograms: 0.39
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversions:
+              cherry:
+                kilograms: 0.008
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/en/foods/cherries.html'
           Cranberries:
             icon: null
             intensityKilograms: 0.92
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversions:
+              cranberry:
+                kilograms: 0.003
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/de/kalorientabelle/preiselbeeren-frisch.html'
           Coconut: # this refers to the coconut meat of the study
             icon: null
             intensityKilograms: 1.521
             source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
             unit: kg
+            conversions:
+              coconut:
+                kilograms: 0.397
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/en/foods/coconut-meat.html'
           Currants:
             icon: null
             intensityKilograms: 0.84
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversions:
+              currant:
+                kilograms: 0.003
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/de/kalorientabelle/johannisbeeren-schwarz-frisch.html'
           Dates:
             icon: null
             intensityKilograms: 0.32
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversion:
+              date:
+                kilograms: 0.007
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/de/kalorientabelle/datteln.html'
           Figs:
             icon: null
             intensityKilograms: 0.43
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversion:
+              fig:
+                kilograms: 0.048
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/de/kalorientabelle/feigen-frisch.html'
           Gooseberries:
             icon: null
             intensityKilograms: 0.84
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversion:
+              gooseberry:
+                kilograms: 0.004
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/de/kalorientabelle/stachelbeeren-frisch.html'
           Grapefruit:
             icon: null
             intensityKilograms: 0.51
@@ -602,6 +652,11 @@ _children:
             intensityKilograms: 0.28
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversion:
+              guava:
+                kilograms: 0.055
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/en/foods/guava.html'
           Kiwi:
             icon: null
             intensityKilograms: 0.36
@@ -617,21 +672,41 @@ _children:
             intensityKilograms: 0.320
             source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
             unit: kg
+            conversion:
+              kumquat:
+                kilograms: 0.019
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/en/foods/kumquat.html'
           Lemons:
             icon: null
             intensityKilograms: 0.26
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversion:
+              lemon:
+                kilograms: 0.058
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/de/kalorientabelle/zitrone-ohne-schale-frisch.html'
           Limes:
             icon: null
             intensityKilograms: 0.26
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversion:
+              lime:
+                kilograms: 0.067
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/de/kalorientabelle/limette-limone-frisch.html'
           Mandarin:
             icon: null
             intensityKilograms: 0.45
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversion:
+              mandarin:
+                kilograms: 0.105
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/de/kalorientabelle/mandarine-frisch.html'
           Melons:
             icon: null
             intensityKilograms: 0.25
@@ -647,6 +722,11 @@ _children:
             intensityKilograms: 0.43
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversion:
+              nectarine:
+                kilograms: 0.125
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/de/kalorientabelle/nektarine-frisch.html'
           Orange:
             icon: null
             intensityKilograms: 0.33
@@ -702,6 +782,11 @@ _children:
             intensityKilograms: 0.51
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversion:
+              pomelo:
+                kilograms: 0.120
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/de/kalorientabelle/pomelo-frisch.html'
           Prunes:
             icon: null
             intensityKilograms: 0.273
@@ -717,6 +802,11 @@ _children:
             intensityKilograms: 0.31
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversion:
+              quince:
+                kilograms: 0.092
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/de/kalorientabelle/quitte-frisch.html'
           Raspberries:
             icon: null
             intensityKilograms: 0.84
@@ -752,11 +842,21 @@ _children:
             intensityKilograms: 0.51
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversion:
+              tangerin:
+                kilograms: 0.105
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/de/kalorientabelle/mandarine-frisch.html'
           Watermelon:
             icon: null
             intensityKilograms: 0.32
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversion:
+              waternelon:
+                kilograms: 2.5
+                incrementStepSize: 1
+                source: 'https://www.yazio.com/de/kalorientabelle/wassermelone-frisch.html'
         icon: lemon
         intensityKilograms: 0.52
         oldKeys:
