@@ -217,6 +217,88 @@ _children:
         intensityKilograms: 45
         source: 'https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_SE_PER_sept2017.pdf'
         unit: 'item'
+  Furniture:
+    _children:
+      'Chair (wood)':
+        icon: chair
+        intensityKilograms: 25.2
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Chair (plastic)':
+        icon: chair
+        intensityKilograms: 28
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Chair (wood and fabric)':
+        icon: chair
+        intensityKilograms: 12
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Table (wood)':
+        icon: chair
+        intensityKilograms: 130
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Table (generic)':
+        icon: chair
+        intensityKilograms: 96
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Cabinet':
+        icon: chair
+        intensityKilograms: 858
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Sofa (fabric)':
+        icon: couch
+        intensityKilograms: 180
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Sofa (leather)':
+        icon: couch
+        intensityKilograms: 200
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Pullout sofa':
+        icon: couch
+        intensityKilograms: 204
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Box spring':
+        icon: bed
+        intensityKilograms: 110
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Slatted bed base':
+        icon: bed
+        intensityKilograms: 69
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Bed frame':
+        icon: bed
+        intensityKilograms: 147
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Spring mattress':
+        icon: bed
+        intensityKilograms: 219
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Garden furniture (wood)':
+        icon: chair
+        intensityKilograms: 103
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Garden furniture (metal)':
+        icon: chair
+        intensityKilograms: 224
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Garden furniture (plastic)':
+        icon: chair
+        intensityKilograms: 215
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
   Electronics:
     _children:
       'AirPort Express':
@@ -640,16 +722,16 @@ _children:
             intensityKilograms: 0.92
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
-          # Blackberries Serving:
-          #   icon: null
-          #   intensityKilograms:
-          #   source: ''
-          #   unit: kg
-          #   conversions:
-          #     blackBerryServing:
-          #       kilograms: 0.076
-          #       incrementStepSize: 1
-          #       source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          Blackberry:
+            icon: null
+            intensityKilograms: 0.599
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
+            conversions:
+              portion:
+                kilograms: 0.076
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Blackcurrant:
             icon: null
             intensityKilograms: 0.29
@@ -660,6 +742,16 @@ _children:
                 kilograms: 0.04
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          Boysenberry:
+            icon: null
+            intensityKilograms: 0.599
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
+          Cantaloupe:
+            icon: null
+            intensityKilograms: 0.490
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
           Cherries:
             icon: null
             intensityKilograms: 0.39
@@ -669,6 +761,11 @@ _children:
             icon: null
             intensityKilograms: 0.92
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            unit: kg
+          Coconut: # this refers to the coconut meat of the study
+            icon: null
+            intensityKilograms: 1.521
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
             unit: kg
           Currants:
             icon: null
@@ -725,6 +822,11 @@ _children:
                 kilograms: 0.06
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          Kumquat:
+            icon: null
+            intensityKilograms: 0.320
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
           Lemons:
             icon: null
             intensityKilograms: 0.26
@@ -795,31 +897,31 @@ _children:
                 kilograms: 0.08
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-          # Plum:
-          #   icon: null
-          #   intensityKilograms:
-          #   source: ''
-          #   unit: kg
-          #   conversions:
-          #     plum:
-          #       kilograms: 0.092
-          #       incrementStepSize: 1
-          #       source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          Plum:
+            icon: null
+            intensityKilograms: 0.576
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
+            conversions:
+              plum:
+                kilograms: 0.092
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Pomelo:
             icon: null
             intensityKilograms: 0.51
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
-          # Prunes:
-          #   icon: null
-          #   intensityKilograms:
-          #   source: ''
-          #   unit: kg
-          #   conversions:
-          #     prune:
-          #       kilograms: 0.024
-          #       incrementStepSize: 1
-          #       source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          Prunes:
+            icon: null
+            intensityKilograms: 0.273
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
+            conversions:
+              prune:
+                kilograms: 0.024
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Quinces:
             icon: null
             intensityKilograms: 0.31
@@ -835,16 +937,16 @@ _children:
                 kilograms: 0.114
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-          # Rhubarb:
-          #   icon: null
-          #   intensityKilograms:
-          #   source: ''
-          #   unit: kg
-          #   conversions:
-          #     rhubarb:
-          #       kilograms: 0.09
-          #       incrementStepSize: 1
-          #       source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          Rhubarb:
+            icon: null
+            intensityKilograms: 1.528
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
+            conversions:
+              portion:
+                kilograms: 0.09
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Strawberries:
             icon: null
             intensityKilograms: 0.58
@@ -1297,16 +1399,16 @@ _children:
                 kilograms: 0.054
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-          # Brussels Sprouts Serving:
-          #   icon: null
-          #   intensityKilograms:
-          #   source: ''
-          #   unit: kg
-          #   conversions:
-          #     brusselsSproutServing:
-          #       kilograms: 0.056
-          #       incrementStepSize: 1
-          #       source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          Brussels sprouts:
+            icon: null
+            intensityKilograms: 0.490
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
+            conversions:
+              portion:
+                kilograms: 0.056
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Carrots:
             icon: null
             intensityKilograms: 0.2
@@ -1342,6 +1444,11 @@ _children:
             intensityKilograms: 0.18
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+          Chive:
+            icon: null
+            intensityKilograms: 0.221
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
           Courgette:
            # remember to update Zucchini as well
             icon: null
@@ -1363,6 +1470,11 @@ _children:
                 kilograms: 0.024
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          Endive:
+            icon: null
+            intensityKilograms: 0.065
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
           Eggplants:
             icon: null
             intensityKilograms: 1.35
@@ -1383,6 +1495,11 @@ _children:
             intensityKilograms: 0.88
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+          Kale:
+            icon: null
+            intensityKilograms: 0.193
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
           Leek:
             icon: null
             intensityKilograms: 0.45
@@ -1393,16 +1510,16 @@ _children:
                 kilograms: 0.067
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-          # Lettuce:
-          #   icon: null
-          #   intensityKilograms:
-          #   source: ''
-          #   unit: kg
-          #   conversions:
-          #     lettuce:
-          #       kilograms: 0.024
-          #       incrementStepSize: 1
-          #       source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          Lettuce:
+            icon: null
+            intensityKilograms: 0.220
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
+            conversions:
+              portion:
+                kilograms: 0.024
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Mushrooms:
             icon: null
             intensityKilograms: 0.27
@@ -1428,16 +1545,16 @@ _children:
                 kilograms: 0.046
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-          # Parsnip Serving:
-          #   icon: null
-          #   intensityKilograms:
-          #   source: ''
-          #   unit: kg
-          #   conversions:
-          #     parsnipServing:
-          #       kilograms: 0.042
-          #       incrementStepSize: 1
-          #       source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          Parsnip:
+            icon: null
+            intensityKilograms: 0.243
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
+            conversions:
+              portion:
+                kilograms: 0.042
+                incrementStepSize: 1
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Peppers:
             icon: null
             intensityKilograms: 0.66
@@ -1468,6 +1585,11 @@ _children:
                 kilograms: 0.047
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          Shallot:
+            icon: null
+            intensityKilograms: 0.275
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
           Spinach:
             icon: null
             intensityKilograms: 0.54
@@ -1478,6 +1600,11 @@ _children:
                 kilograms: 0.097
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          Sweet potatoes:
+            icon: null
+            intensityKilograms: 0.302
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
           Tomatoes:
             icon: null
             intensityKilograms: 0.45
