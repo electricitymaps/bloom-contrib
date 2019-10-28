@@ -30,7 +30,7 @@ _children:
         unit: EUR
   Appliances:
     _children:
-      'Electric Oven':
+      'Electric oven':
         icon: dryer
         intensityKilograms: 319
         source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
