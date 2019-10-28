@@ -845,7 +845,7 @@ _children:
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
             conversions:
-              apple:
+              item:
                 kilograms: 0.112
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
@@ -860,7 +860,7 @@ _children:
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/de/kalorientabelle/aprikose-frisch.html'
                 default: true
-              apricot:
+              item:
                 kilograms: 0.05
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/de/kalorientabelle/aprikose-frisch.html'
@@ -870,7 +870,7 @@ _children:
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
             conversions:
-              banana:
+              item:
                 kilograms: 0.1
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
@@ -920,7 +920,7 @@ _children:
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/en/foods/cantaloupe-melon.html'
                 default: true
-              cantaloupe:
+              item:
                 kilograms: 0.35
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/en/foods/cantaloupe-melon.html'
@@ -935,7 +935,7 @@ _children:
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/en/foods/cherries.html'
                 default: true
-              cherry:
+              item:
                 kilograms: 0.008
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/en/foods/cherries.html'
@@ -950,7 +950,7 @@ _children:
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/de/kalorientabelle/preiselbeeren-frisch.html'
                 default: true
-              cranberry:
+              item:
                 kilograms: 0.003
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/de/kalorientabelle/preiselbeeren-frisch.html'
@@ -965,7 +965,7 @@ _children:
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/en/foods/coconut-meat.html'
                 default: true
-              coconut:
+              item:
                 kilograms: 0.397
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/en/foods/coconut-meat.html'
@@ -995,7 +995,7 @@ _children:
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/de/kalorientabelle/datteln.html'
                 default: true
-              date:
+              item:
                 kilograms: 0.007
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/de/kalorientabelle/datteln.html'
@@ -1005,7 +1005,7 @@ _children:
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
             conversion:
-              fig:
+              item:
                 kilograms: 0.048
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/de/kalorientabelle/feigen-frisch.html'
@@ -1020,7 +1020,7 @@ _children:
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/de/kalorientabelle/datteln.html'
                 default: true
-              gooseberry:
+              item:
                 kilograms: 0.004
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/de/kalorientabelle/stachelbeeren-frisch.html'
@@ -1050,7 +1050,7 @@ _children:
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
             conversion:
-              guava:
+              item:
                 kilograms: 0.055
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/en/foods/guava.html'
@@ -1060,7 +1060,7 @@ _children:
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
             conversions:
-              kiwi:
+              item:
                 kilograms: 0.06
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
@@ -1075,7 +1075,7 @@ _children:
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/de/kalorientabelle/datteln.html'
                 default: true
-              kumquat:
+              item:
                 kilograms: 0.019
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/en/foods/kumquat.html'
@@ -1085,7 +1085,7 @@ _children:
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
             conversion:
-              lemon:
+              item:
                 kilograms: 0.058
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/de/kalorientabelle/zitrone-ohne-schale-frisch.html'
@@ -1095,7 +1095,7 @@ _children:
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
             conversion:
-              lime:
+              item:
                 kilograms: 0.067
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/de/kalorientabelle/limette-limone-frisch.html'
@@ -1110,7 +1110,7 @@ _children:
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/en/foods/lychee.html'
                 default: true
-              lychee:
+              item:
                 kilograms: 0.0096
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/en/foods/lychee.html'
@@ -1120,7 +1120,7 @@ _children:
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
             conversion:
-              mandarin:
+              item:
                 kilograms: 0.105
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/de/kalorientabelle/mandarine-frisch.html'
@@ -1135,7 +1135,7 @@ _children:
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/en/foods/mango.html'
                 default: true
-              mango:
+              item:
                 kilograms: 0.336
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/en/foods/mango.html'
@@ -1155,7 +1155,7 @@ _children:
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
             conversion:
-              nectarine:
+              item:
                 kilograms: 0.125
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/de/kalorientabelle/nektarine-frisch.html'
@@ -1165,7 +1165,7 @@ _children:
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
             conversions:
-              orange:
+              item:
                 kilograms: 0.16
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
@@ -1180,7 +1180,7 @@ _children:
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/en/foods/papaya.html'
                 default: true
-              papaya:
+              item:
                 kilograms: 0.500
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/en/foods/papaya.html'
@@ -1190,7 +1190,7 @@ _children:
             source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
             unit: kg
             conversion:
-              passion fruit:
+              item:
                 kilograms: 0.0018
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/en/foods/passion-fruit.html'
@@ -1200,7 +1200,7 @@ _children:
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
             conversions:
-              peach:
+              item:
                 kilograms: 0.12
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
@@ -1210,7 +1210,7 @@ _children:
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
             conversions:
-              pear:
+              item:
                 kilograms: 0.16
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
@@ -1230,7 +1230,7 @@ _children:
             source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
             unit: kg
             conversions:
-              plum:
+              item:
                 kilograms: 0.092
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
@@ -1260,7 +1260,7 @@ _children:
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/de/kalorientabelle/pomelo-frisch.html'
                 default: true
-              pomelo:
+              item:
                 kilograms: 0.120
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/de/kalorientabelle/pomelo-frisch.html'
@@ -1270,7 +1270,7 @@ _children:
             source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
             unit: kg
             conversions:
-              prune:
+              item:
                 kilograms: 0.024
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
@@ -1280,7 +1280,7 @@ _children:
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
             conversion:
-              quince:
+              item:
                 kilograms: 0.092
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/de/kalorientabelle/quitte-frisch.html'
@@ -1320,7 +1320,7 @@ _children:
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
             conversion:
-              tangerine:
+              item:
                 kilograms: 0.105
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/de/kalorientabelle/mandarine-frisch.html'
@@ -1335,7 +1335,7 @@ _children:
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/de/kalorientabelle/wassermelone-frisch.html'
                 default: true
-              watermelon:
+              item:
                 kilograms: 2.5
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/de/kalorientabelle/wassermelone-frisch.html'
@@ -1494,7 +1494,7 @@ _children:
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
             conversions:
-              egg:
+              item:
                 kilograms: 0.057
                 incrementStepSize: 1
                 source: 'https://web.extension.illinois.edu/eggs/res16-egg.html'
@@ -1790,7 +1790,7 @@ _children:
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
             conversions:
-              avocado:
+              item:
                 kilograms: 0.270
                 incrementStepSize: 1
                 source: https://www.yazio.com/en/foods/avocado.html
@@ -1805,7 +1805,7 @@ _children:
             source: 'http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf'
             unit: kg
             conversions:
-              broccoli:
+              portion:
                 kilograms: 0.054
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
@@ -1825,7 +1825,7 @@ _children:
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
             conversions:
-              carrot:
+              item:
                 kilograms: 0.061
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
