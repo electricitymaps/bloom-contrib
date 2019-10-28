@@ -1469,7 +1469,7 @@ _children:
             intensityKilograms: 0.97
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
-          Peanut Butter:
+          Peanut butter:
             icon: null
             intensityKilograms: 2.3
             source: 'http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf'
