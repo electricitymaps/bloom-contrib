@@ -1,10 +1,10 @@
 import moment from 'moment';
 import { ACTIVITY_TYPE_TRANSPORTATION, TRANSPORTATION_MODE_PUBLIC_TRANSPORT } from '../../definitions';
-import { HTTPError, ValidationError } from '../utils/errors';
+import { HTTPError, ValidationError } from '../utils/errors'; // For fetching data
+import env from '../loadEnv';
 
 const LOGIN_PATH = 'https://account.tfl.gov.uk/api/login';
-const BASE_PATH = 'https://mobileapi.tfl.gov.uk'; // For fetching data
-
+const BASE_PATH = 'https://mobileapi.tfl.gov.uk';
 
 function generateActivities(travelDays) {
   const activities = [];
@@ -15,7 +15,7 @@ function generateActivities(travelDays) {
           id: journey.StartTime, // a string that uniquely represents this activity
           datetime: journey.StartTime, // a javascript Date object that represents the start of the activity
           durationHours: journey.EndTime && moment(journey.EndTime).diff(moment(journey.StartTime)) / (60 * 60 * 1000), // a floating point that represents the duration of the activity in decimal hours
-          distanceKilometers: journey.TransactionType === 'Bus' ? 3.140 : null, // a floating point that represents the amount of kilometers traveled (https://www.whatdotheyknow.com/request/bus_passenger_journey_times)
+          distanceKilometers: null, // a floating point that represents the amount of kilometers traveled (https://www.whatdotheyknow.com/request/bus_passenger_journey_times)
           activityType: ACTIVITY_TYPE_TRANSPORTATION,
           transportationMode: TRANSPORTATION_MODE_PUBLIC_TRANSPORT, // a variable (from definitions.js) that represents the transportation mode
           carrier: 'Transport For London', // (optional) a string that represents the transportation company
@@ -37,7 +37,7 @@ async function connect(requestLogin) {
   const postBody = {
     username,
     password,
-    AppId: '9C9C6B6C-A025-493E-8F39-3A6D57C7ACAB', // TODO what do we do with this?
+    AppId: env.TFL_APP_ID,
   };
 
   const loginResponse = await fetch(LOGIN_PATH, {
