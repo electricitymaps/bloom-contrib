@@ -954,7 +954,7 @@ _children:
                 kilograms: 0.003
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/de/kalorientabelle/preiselbeeren-frisch.html'
-          Coconut: # this refers to the coconut meat of the study
+          Coconut:  # this refers to the coconut meat of the study
             icon: null
             intensityKilograms: 1.521
             source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
@@ -1099,6 +1099,11 @@ _children:
                 kilograms: 0.067
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/de/kalorientabelle/limette-limone-frisch.html'
+          Lychee:
+            icon: null
+            intensityKilograms: 0.893
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
           Mandarin:
             icon: null
             intensityKilograms: 0.45
@@ -1109,6 +1114,11 @@ _children:
                 kilograms: 0.105
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/de/kalorientabelle/mandarine-frisch.html'
+          Mango:
+            icon: null
+            intensityKilograms: 0.639
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
           Melons:
             icon: null
             intensityKilograms: 0.25
@@ -1139,6 +1149,16 @@ _children:
                 kilograms: 0.16
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          Papaya:
+            icon: null
+            intensityKilograms: 0.216
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
+          Passion fruit:
+            icon: null
+            intensityKilograms: 1.663
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
           Peaches:
             icon: null
             intensityKilograms: 0.43
@@ -1179,6 +1199,11 @@ _children:
                 kilograms: 0.092
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          Pomegranate:
+            icon: null
+            intensityKilograms: 0.462
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
           Pomelo:
             icon: null
             intensityKilograms: 0.51
@@ -1493,6 +1518,28 @@ _children:
         intensityKilograms: 2.3
         source: 'http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf'
         unit: kg
+      Sweets:
+        _children:
+          Honey:
+            icon: null
+            intensityKilograms: 2.440
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
+          Maple syrup:
+            icon: null
+            intensityKilograms: 6.754
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
+          Sugar (sugarcane):
+            icon: null
+            intensityKilograms: 0.700
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
+          Sugar (beet):
+            icon: null
+            intensityKilograms: 0.391
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
       Seafood:
         _children:
           Anglerfish:
@@ -1752,7 +1799,7 @@ _children:
             source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
             unit: kg
           Courgette:
-           # remember to update Zucchini as well
+            # remember to update Zucchini as well
             icon: null
             intensityKilograms: 0.21
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
@@ -1918,7 +1965,7 @@ _children:
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Zucchini:
-          # remember to update Courgette as well
+            # remember to update Courgette as well
             icon: null
             intensityKilograms: 0.21
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
