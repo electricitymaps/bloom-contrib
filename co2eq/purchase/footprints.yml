@@ -28,6 +28,281 @@ _children:
           - PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARKING
         source: 'http://www.balticproject.org/en/calculator-page'
         unit: EUR
+  Appliances:
+    _children:
+      'Electric oven':
+        icon: dryer
+        intensityKilograms: 319
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 41.4%
+      'Gas oven':
+        icon: dryer
+        intensityKilograms: 846
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 84.4%
+      'Mini electric oven':
+        icon: dryer
+        intensityKilograms: 190
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 62.6%
+      'Microwave oven':
+        icon: dryer
+        intensityKilograms: 118
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 33.1%
+      'Dishwasher':
+        icon: dryer
+        intensityKilograms: 513
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 57.1%
+      'Mini dishwasher':
+        icon: dryer
+        intensityKilograms: 431
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 55.2%
+      'Top load laundry machine':
+        icon: dryer
+        intensityKilograms: 468
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 47%
+      'Front load laundry machine':
+        icon: dryer
+        intensityKilograms: 539
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 49%
+      'Heat pump dryer':
+        icon: dryer
+        intensityKilograms: 506
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 48.6%
+      'Dewatering dryer':
+        icon: dryer
+        intensityKilograms: 588
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 55.8%
+      'Evacuation dryer':
+        icon: dryer
+        intensityKilograms: 545
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 57.4%
+      'Refrigerator':
+        icon: dryer
+        intensityKilograms: 343
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 30.9%
+      'Integrated fridge freezer':
+        icon: dryer
+        intensityKilograms: 431
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 48.7%
+      'Mini Refrigerator':
+        icon: dryer
+        intensityKilograms: 159
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 56.6%
+      'Chest freezer':
+        icon: dryer
+        intensityKilograms: 492
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 50.6%
+      'Upright freezer':
+        icon: dryer
+        intensityKilograms: 587
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 43.4%
+      'Vacuum cleaner':
+        icon: dryer
+        intensityKilograms: 67
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 41.8%
+      'Bagless vacuum cleaner':
+        icon: dryer
+        intensityKilograms: 69
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 37.7%
+      'Stand mixer':
+        icon: dryer
+        intensityKilograms: 43
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 16.3%
+      'Bread machine':
+        icon: dryer
+        intensityKilograms: 96
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 17%
+      'Yogurt maker':
+        icon: dryer
+        intensityKilograms: 96
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 52.1%
+  Clothing, shoes and sports equipments:
+    _children:
+      'Shirt (viscose)':
+        icon: tshirt
+        intensityKilograms: 12
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 25%
+      'Shirt (cotton)':
+        icon: tshirt
+        intensityKilograms: 13
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 23.1%
+      'Jeans':
+        icon: tshirt
+        intensityKilograms: 25
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 20%
+      'T-shirt (cotton)':
+        icon: tshirt
+        intensityKilograms: 7
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 42.9%
+      'T-shirt (polyester)':
+        icon: tshirt
+        intensityKilograms: 6
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 16.7%
+      'Polo shirt':
+        icon: tshirt
+        intensityKilograms: 10
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 30%
+      'Sweater (acrylic)':
+        icon: tshirt
+        intensityKilograms: 28
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 17.9%
+      'Fleece (recycled polyester)':
+        icon: tshirt
+        intensityKilograms: 26
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 23.1%
+      'Sweater (cotton)':
+        icon: tshirt
+        intensityKilograms: 31
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 25.8%
+      'Pullover (wool)':
+        icon: tshirt
+        intensityKilograms: 56
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 12.5%
+      'Pullover (recycled cotton)':
+        icon: tshirt
+        intensityKilograms: 12
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 41.7%
+      'Jacket (generic)':
+        icon: tshirt
+        intensityKilograms: 89
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 13.5%
+      'Jacket (weatherproof)':
+        icon: tshirt
+        intensityKilograms: 39
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 7.7%
+      'Jacket (faux leather)':
+        icon: tshirt
+        intensityKilograms: 25
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 20%
+      'Dress (polyester)':
+        icon: tshirt
+        intensityKilograms: 56
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 19.6%
+      'Dress (cotton)':
+        icon: tshirt
+        intensityKilograms: 56
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 23.2%
+      'Dress (viscose)':
+        icon: tshirt
+        intensityKilograms: 51
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 25.5%
+      'Shoes (leather)':
+        icon: boot
+        intensityKilograms: 15
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 46.7%
+      'Shoes (fabric)':
+        icon: boot
+        intensityKilograms: 19
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 31.6%
+      'Shoes (sports)':
+        icon: boot
+        intensityKilograms: 20
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+        usage: 30%
+      'Backpack (trekking)':
+        icon: backpack
+        intensityKilograms: 6.3
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Backpack (school)':
+        icon: backpack
+        intensityKilograms: 9.8
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Tennis racket':
+        icon: racquet
+        intensityKilograms: 23
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Football':
+        icon: futbol
+        intensityKilograms: 5.1
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Basketball':
+        icon: basketball-ball
+        intensityKilograms: 5.9
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
   Mobile phone:
     icon: mobile
     intensityKilograms: 32
@@ -89,6 +364,88 @@ _children:
         intensityKilograms: 45
         source: 'https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_SE_PER_sept2017.pdf'
         unit: 'item'
+  Furniture:
+    _children:
+      'Chair (wood)':
+        icon: chair
+        intensityKilograms: 25.2
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Chair (plastic)':
+        icon: chair
+        intensityKilograms: 28
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Chair (wood and fabric)':
+        icon: chair
+        intensityKilograms: 12
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Table (wood)':
+        icon: chair
+        intensityKilograms: 130
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Table (generic)':
+        icon: chair
+        intensityKilograms: 96
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Cabinet':
+        icon: chair
+        intensityKilograms: 858
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Sofa (fabric)':
+        icon: couch
+        intensityKilograms: 180
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Sofa (leather)':
+        icon: couch
+        intensityKilograms: 200
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Pullout sofa':
+        icon: couch
+        intensityKilograms: 204
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Box spring':
+        icon: bed
+        intensityKilograms: 110
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Slatted bed base':
+        icon: bed
+        intensityKilograms: 69
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Bed frame':
+        icon: bed
+        intensityKilograms: 147
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Spring mattress':
+        icon: bed
+        intensityKilograms: 219
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Garden furniture (wood)':
+        icon: chair
+        intensityKilograms: 103
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Garden furniture (metal)':
+        icon: chair
+        intensityKilograms: 224
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
+      'Garden furniture (plastic)':
+        icon: chair
+        intensityKilograms: 215
+        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        unit: item
   Electronics:
     _children:
       'AirPort Express':
