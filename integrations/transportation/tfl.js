@@ -70,10 +70,12 @@ async function connect(requestLogin) {
     securityToken: loginResponse.SecurityToken,
     refreshToken: apiTokenResponse.refresh_token,
     accessToken: apiTokenResponse.access_token,
+    tokenExpiresAt: apiTokenResponse.expires_in * 1000 + Date.now(),
   };
 }
 
-async function getOneWeeksOysterData(accessToken, oysterCardNumber, startMoment, endMoment) {
+async function getOysterData(accessToken, oysterCardNumber, startMoment, endMoment) {
+  // Max 7 days data fetch allowed
   return fetch(`${BASE_PATH}/Cards/Oyster/Journeys?startDate=${startMoment.format(moment.HTML5_FMT.DATE)}&endDate=${endMoment.format(moment.HTML5_FMT.DATE)}`, {
     method: 'get',
     headers: {
@@ -87,24 +89,28 @@ async function getOneWeeksOysterData(accessToken, oysterCardNumber, startMoment,
 }
 
 async function collect(state) {
-  // Get access token using the refresh token
-  const refreshTokenResponse = await fetch(`${BASE_PATH}/APITokens/RefreshToken`, {
-    method: 'get',
-    headers: {
-      refresh_token: state.refreshToken,
-      access_token: state.accessToken,
-    },
-  })
-    .then(response => response.json())
-    .catch((e) => {
-      throw new HTTPError(e);
-    });
-
-  // Always update state with new tokens
   const newState = {
-    accessToken: refreshTokenResponse.access_token,
-    refreshToken: refreshTokenResponse.refresh_token,
+    ...state,
   };
+
+  if (newState.tokenExpiresAt < Date.now()) {
+    // Get access token using the refresh token
+    const refreshTokenResponse = await fetch(`${BASE_PATH}/APITokens/RefreshToken`, {
+      method: 'get',
+      headers: {
+        refresh_token: state.refreshToken,
+        access_token: state.accessToken,
+      },
+    })
+      .then(response => response.json())
+      .catch((e) => {
+        throw new HTTPError(e);
+      });
+
+    // Update state with new tokens
+    newState.accessToken = refreshTokenResponse.access_token;
+    newState.refreshToke = refreshTokenResponse.refresh_token;
+  }
 
   // Update oyster cards
   const oysterCardResponse = await fetch(`${BASE_PATH}/Cards/Oyster`, {
@@ -123,34 +129,38 @@ async function collect(state) {
   newState.oysterCardNumbers = oysterCards.map(oc => oc.OysterCardNumber);
 
   const today = moment().startOf('day');
-
-  let startDate = moment().subtract(56, 'days').startOf('day'); // Max data range is 56 days
+  let startDate = state.lastUpdate ? moment(state.lastUpdate).startOf('day') : moment().subtract(56, 'days').startOf('day'); // Max data range is 56 days
 
   if (newState.oysterCardNumbers && newState.oysterCardNumbers.length > 0) {
-    const travelDays = []; // Array of objects for each day travelled, with journeys inside them
     // First, get most recent data (between startDate and today)
+    const apiPromises = [];
     while (startDate < today) {
       /* eslint-disable no-await-in-loop */
       // Can only query 7 days at a time on this api:
       const oneWeekEndDate = moment(startDate).add(6, 'days'); // 6 days as it is inclusive
       const adjustedEndDate = oneWeekEndDate > today ? today : oneWeekEndDate; // Make sure query is no further than today
-      const apiResponse = await getOneWeeksOysterData(
-        newState.accessToken,
-        newState.oysterCardNumbers[0],
-        startDate,
-        adjustedEndDate
+      apiPromises.push(
+        getOysterData(
+          newState.accessToken,
+          newState.oysterCardNumbers[0],
+          startDate,
+          adjustedEndDate
+        )
+          .then(response => response.json())
       );
       // Add one day to the end date to get the new start date
       startDate = moment(adjustedEndDate).add(1, 'days');
-      if (apiResponse.ok) {
-        const json = await apiResponse.json();
-        Array.prototype.push.apply(travelDays, json.TravelDays);
-      }
     }
 
-    const activities = generateActivities(travelDays);
-
-    newState.lastDataFetch = new Date();
+    let activities = [];
+    try {
+      const apiResponses = await Promise.all(apiPromises);
+      const allTravelDays = apiResponses.reduce((accumulator, json) => (json && json.TravelDays.length > 0 ? [...accumulator, ...json.TravelDays] : accumulator), []);
+      activities = generateActivities(allTravelDays);
+      newState.lastUpdate = new Date(); // Set the last update so we don't have to fetch all the data on the next collect()
+    } catch (e) {
+      throw new HTTPError(e);
+    }
 
     return { activities, state: newState };
   }
