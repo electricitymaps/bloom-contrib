@@ -57,7 +57,7 @@ async function getUser(username, password) {
   if (!(password || '').length) {
     throw Error('Password cannot be empty');
   }
-  return request(username, password, 'co.getbarry.megatron.controller.UserController.get', [username]);
+  return request(username, password, 'co.getbarry.megatron.controller.UserController.get', []);
 }
 async function getMeteringPointAssociated(username, password, customerId) {
   return request(username, password, 'co.getbarry.megatron.controller.MeteringPointAssociationController.findByCustomerId', [customerId]);
