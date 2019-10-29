@@ -65,8 +65,8 @@ async function getMeteringPointAssociated(username, password, customerId) {
 async function getRegion(username, password, meteringPointId) {
   return request(username, password, 'co.getbarry.megatron.controller.PriceController.getRegion', [meteringPointId]);
 }
-async function getHourlyConsumption(username, password, meteringPointId, fromISO, toISO) {
-  return request(username, password, 'co.getbarry.megatron.controller.ConsumptionController.getHourlyConsumption', [[meteringPointId], fromISO, toISO]);
+async function getHourlyConsumption(username, password, customerId, meteringPointId, fromISO, toISO) {
+  return request(username, password, 'co.getbarry.megatron.controller.ConsumptionController.getHourlyConsumption', [customerId, [meteringPointId], fromISO, toISO]);
 }
 
 async function connect(requestLogin, requestWebView) {
@@ -93,6 +93,7 @@ async function connect(requestLogin, requestWebView) {
     password,
     meteringPointId,
     priceRegion,
+    customerId,
   };
 }
 
@@ -107,11 +108,15 @@ async function collect(state, { logWarning }) {
     username, password, meteringPointId, priceRegion,
   } = state;
 
+  // Try to see if customerId was present in state
+  // (in older version it wasn't)
+  const customerId = state.customerId || (await getUser(username, password)).customerId;
+
   const startDate = state.lastFullyCollectedDay || moment().subtract(1, 'month').toISOString();
   const endDate = moment().toISOString();
 
   const response = await getHourlyConsumption(
-    username, password, meteringPointId,
+    username, password, customerId, meteringPointId,
     startDate, endDate,
   );
 
@@ -153,7 +158,7 @@ async function collect(state, { logWarning }) {
 
   return {
     activities: activities.filter(d => d.durationHours === 24),
-    state: { ...state, lastFullyCollectedDay },
+    state: { ...state, customerId, lastFullyCollectedDay },
   };
 }
 
