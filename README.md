@@ -59,7 +59,7 @@ To make it easy for anyone to help out, a development playground is available:
 First, run `yarn` to install dependencies at the root of the repository.
 Next from the `playground` folder, run `yarn` to install dependencies, then run `yarn serve` to start the playground and point your browser to [localhost:3000](http://localhost:3000) to get started.
 
-#### How to make an integration work
+#### How to make an integration work? 
 An integration gathers activities from a 3rd party datasource.
 To this end, 3 async methods need to be exported:
 
