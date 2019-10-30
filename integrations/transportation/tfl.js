@@ -172,8 +172,20 @@ async function disconnect() {
   return {};
 }
 
+const config = {
+  label: 'Transport for London',
+  country: 'UK',
+  type: ACTIVITY_TYPE_TRANSPORTATION,
+  description: 'collects trips from your travel card',
+  isPrivate: true,
+  signupLink: null,
+  contributors: ['liamgarrison'],
+  // minRefreshInterval: 60
+};
+
 export default {
   connect,
   collect,
   disconnect,
+  config,
 };
