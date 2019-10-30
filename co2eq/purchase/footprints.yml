@@ -641,6 +641,7 @@ _children:
         intensityKilograms: 0.8061
         oldKeys:
           - PURCHASE_CATEGORY_ENTERTAINMENT_LIQUOR_STORE
+          - 'Liquor Store'
         source: 'http://www.balticproject.org/en/calculator-page'
         unit: EUR
       Tobacco store:
