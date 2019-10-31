@@ -1378,6 +1378,11 @@ _children:
             intensityKilograms: 2
             source: 'http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf'
             unit: kg
+            conversion:
+              portion:
+                kilograms: .1
+                incrementStepSize: 1
+                source: 'https://my.clevelandclinic.org/health/articles/9436-controlling-portion-sizes'
           Green beans:
             icon: null
             intensityKilograms: 0.31
@@ -1418,11 +1423,21 @@ _children:
             intensityKilograms: 1.15
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversions:
+              portion:
+                kilogram: .093
+                incrementStepSize: 1
+                source: 'https://my.clevelandclinic.org/health/articles/9436-controlling-portion-sizes'
           Rice:
             icon: soup
             intensityKilograms: 2.55
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversions:
+              portion:
+                kilogram: .1
+                incrementStepSize: 1
+                source: 'https://my.clevelandclinic.org/health/articles/9436-controlling-portion-sizes'
           Rye:
             icon: null
             intensityKilograms: 0.38
@@ -1474,11 +1489,21 @@ _children:
             intensityKilograms: 26.61
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversion: 
+              portion:
+                kilograms: .085
+                incrementStepSize: 1
+                source: 'https://my.clevelandclinic.org/health/articles/9436-controlling-portion-sizes'
           Buffalo:
             icon: null
             intensityKilograms: 60.43
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+            conversion:
+              portion:
+                kilograms: .085
+                incrementStepSize: 1
+                source: i'https://my.clevelandclinic.org/health/articles/9436-controlling-portion-sizes'
           Chicken:
             icon: drumstick
             intensityKilograms: 3.65
