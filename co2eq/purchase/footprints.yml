@@ -1425,7 +1425,7 @@ _children:
             unit: kg
             conversions:
               portion:
-                kilogram: .093
+                kilograms: .093
                 incrementStepSize: 1
                 source: 'https://my.clevelandclinic.org/health/articles/9436-controlling-portion-sizes'
           Rice:
@@ -1435,7 +1435,7 @@ _children:
             unit: kg
             conversions:
               portion:
-                kilogram: .1
+                kilograms: .1
                 incrementStepSize: 1
                 source: 'https://my.clevelandclinic.org/health/articles/9436-controlling-portion-sizes'
           Rye:
