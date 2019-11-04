@@ -940,6 +940,11 @@ _children:
                 kilograms: 0.008
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/en/foods/cherries.html'
+          Cinnamon:
+            icon: null
+            intensityKilograms: 1.87
+            source: 'http://assets.wwf.org.uk/downloads/how_low_report_1.pdf'
+            unit: kg
           Cranberries:
             icon: null
             intensityKilograms: 0.92
@@ -1045,6 +1050,11 @@ _children:
                 kilograms: 0.07
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          Grapes (raisins):
+            icon: null
+            intensityKilograms: 0.684
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
           Guavas:
             icon: null
             intensityKilograms: 0.28
@@ -1325,6 +1335,11 @@ _children:
                 kilograms: 0.105
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/de/kalorientabelle/mandarine-frisch.html'
+          Vanilla:
+            icon: null
+            intensityKilograms: 13.71
+            source: 'http://assets.wwf.org.uk/downloads/how_low_report_1.pdf'
+            unit: kg
           Watermelon:
             icon: null
             intensityKilograms: 0.32
@@ -1438,6 +1453,11 @@ _children:
             intensityKilograms: 0.88
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+          Sesame (oil):
+            icon: null
+            intensityKilograms: 2.334
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
           Soybean:
             icon: null
             intensityKilograms: 0.49
@@ -1457,6 +1477,11 @@ _children:
             icon: null
             intensityKilograms: 0.52
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            unit: kg
+          Wheat (flour):
+            icon: null
+            intensityKilograms: 0.358
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
             unit: kg
           White bread:
             icon: bread-loaf
@@ -1524,6 +1549,18 @@ _children:
         intensityKilograms: null
         source: 'http://www.greeneatz.com/foods-carbon-footprint.html'
         unit: kg
+      Miscellaneous:
+        _children:
+          Baking soda:
+            icon: null
+            intensityKilograms: 0.0261
+            source: 'https://epdturkey.org/wp-content/uploads/eti_soda_iso_14025.pdf'
+            unit: kg
+          Salt:
+            icon: null
+            intensityKilograms: 0.2
+            source: 'https://www.winnipeg.ca/finance/findata/matmgt/documents/2012/682-2012/682-2012_Appendix_H-WSTP_South_End_Plant_Process_Selection_Report/Appendix%207.pdf'
+            unit: kg
       Nuts:
         _children:
           Almonds:
@@ -1546,6 +1583,16 @@ _children:
             intensityKilograms: 0.97
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+         Macadamia nuts:
+            icon: null
+            intensityKilograms: 2.057
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
+          Pecan nuts:
+            icon: null
+            intensityKilograms: 2.057
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
           Peanut butter:
             icon: null
             intensityKilograms: 2.3
@@ -1555,6 +1602,11 @@ _children:
             icon: null
             intensityKilograms: 0.83
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            unit: kg
+          Pine nuts:
+            icon: null
+            intensityKilograms: 2.057
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
             unit: kg
           Pistachios:
             icon: null
@@ -1572,6 +1624,16 @@ _children:
         unit: kg
       Sweets:
         _children:
+          Chocolate:
+            icon: null
+            intensityKilograms: 11.250
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
+          Cocoa powder:
+            icon: null
+            intensityKilograms: 33.647
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
           Honey:
             icon: null
             intensityKilograms: 2.440
@@ -1795,6 +1857,16 @@ _children:
                 kilograms: 0.270
                 incrementStepSize: 1
                 source: https://www.yazio.com/en/foods/avocado.html
+          Basil (dried):
+            icon: null
+            intensityKilograms: 2.495
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
+          Basil (fresh):
+            icon: null
+            intensityKilograms: 0.221
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
           Beetroot:
             icon: null
             intensityKilograms: 0.24
@@ -1853,6 +1925,11 @@ _children:
           Celery:
             icon: null
             intensityKilograms: 0.18
+            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            unit: kg
+          Cilantro:
+            icon: null
+            intensityKilograms: 0.261
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
           Chive:
@@ -1941,10 +2018,20 @@ _children:
                 kilograms: 0.04
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          Nutmeg:
+            icon: null
+            intensityKilograms: 4.82
+            source: 'http://assets.wwf.org.uk/downloads/how_low_report_1.pdf'
+            unit: kg
           Olives:
             icon: null
             intensityKilograms: 0.63
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            unit: kg
+          Olive (oil):
+            icon: null
+            intensityKilograms: 3.206
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
             unit: kg
           Onion:
             icon: null
@@ -1956,6 +2043,11 @@ _children:
                 kilograms: 0.046
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          Parsley:
+            icon: null
+            intensityKilograms: 0.232
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
           Parsnip:
             icon: null
             intensityKilograms: 0.243
@@ -2026,6 +2118,11 @@ _children:
                 kilograms: 0.085
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          Turmeric:
+            icon: null
+            intensityKilograms: 0.213
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
           Zucchini:
             # remember to update Courgette as well
             icon: null
