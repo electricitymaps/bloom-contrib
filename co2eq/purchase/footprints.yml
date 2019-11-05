@@ -774,6 +774,11 @@ _children:
             intensityKilograms: 9.25
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+          Cheddar:
+            icon: cheese-swiss
+            intensityKilograms: 13.02
+            source: 'https://www.researchgate.net/publication/309672245_Protein_versus_global_warming_potential_-_a_meta---analysis_of_the_global_warming_potential_and_protein_ratios_for_human_food'
+            unit: kg
           Cheese:
             icon: cheese-swiss
             intensityKilograms: 8.55
@@ -834,6 +839,16 @@ _children:
               scoop:
                 kilograms: 0.068
                 incrementStepSize: 1
+          Mozzarella:
+            icon: cheese-swiss
+            intensityKilograms: 7.5
+            source: 'https://www.researchgate.net/publication/309672245_Protein_versus_global_warming_potential_-_a_meta---analysis_of_the_global_warming_potential_and_protein_ratios_for_human_food'
+            unit: kg
+          Parmesan:
+            icon: cheese-swiss
+            intensityKilograms: 8.79
+            source: 'https://www.researchgate.net/publication/309672245_Protein_versus_global_warming_potential_-_a_meta---analysis_of_the_global_warming_potential_and_protein_ratios_for_human_food'
+            unit: kg
         icon: null
         intensityKilograms: null
         source: null
@@ -1525,6 +1540,11 @@ _children:
                 incrementStepSize: 1
                 source: 'https://web.extension.illinois.edu/eggs/res16-egg.html'
                 default: true
+          Ham:
+            icon: pig
+            intensityKilograms: 4.453
+            source: 'https://link.springer.com/article/10.1007/s11367-018-1460-x#MOESM1'
+            unit: kg
           Lamb:
             icon: sheep
             intensityKilograms: 25.58
@@ -1551,6 +1571,11 @@ _children:
         unit: kg
       Miscellaneous:
         _children:
+          Yeast:
+            icon: null
+            intensityKilograms: 0.96
+            source: 'https://link.springer.com/article/10.1007/s11367-018-1460-x#MOESM1'
+            unit: kg
           Baking soda:
             icon: null
             intensityKilograms: 0.0261
@@ -1558,8 +1583,8 @@ _children:
             unit: kg
           Salt:
             icon: null
-            intensityKilograms: 0.2
-            source: 'https://www.winnipeg.ca/finance/findata/matmgt/documents/2012/682-2012/682-2012_Appendix_H-WSTP_South_End_Plant_Process_Selection_Report/Appendix%207.pdf'
+            intensityKilograms: 0.3
+            source: 'https://link.springer.com/article/10.1007/s11367-018-1460-x#MOESM1'
             unit: kg
       Nuts:
         _children:
@@ -2118,10 +2143,25 @@ _children:
                 kilograms: 0.085
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          Tomatoe ketchup:
+            icon: null
+            intensityKilograms: 0.747
+            source: 'https://link.springer.com/article/10.1007/s11367-018-1460-x#MOESM1'
+            unit: kg
           Turmeric:
             icon: null
             intensityKilograms: 0.213
             source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
+          Vegetable oil:
+            icon: null
+            intensityKilograms: 3.740
+            source: 'https://link.springer.com/article/10.1007/s11367-018-1460-x#MOESM1'
+            unit: kg
+          Vinegar:
+            icon: null
+            intensityKilograms: 1.327
+            source: 'https://link.springer.com/article/10.1007/s11367-018-1460-x#MOESM1'
             unit: kg
           Zucchini:
             # remember to update Courgette as well
