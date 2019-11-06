@@ -24,6 +24,7 @@ export const TRANSPORTATION_MODE_PUBLIC_TRANSPORT = 'public_transport';
 export const TRANSPORTATION_MODE_TRAIN = 'train';
 export const TRANSPORTATION_MODE_FERRY = 'ferry';
 export const TRANSPORTATION_MODE_ESCOOTER = 'escooter';
+export const TRANSPORTATION_MODE_MOTORBIKE = 'motorbike';
 
 /* Meals */
 export const MEAL_TYPE_VEGAN = 'MEAL_TYPE_VEGAN';
