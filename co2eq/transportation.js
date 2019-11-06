@@ -111,7 +111,7 @@ export function carbonEmissions(activity) {
   }
 
   // Take into account the passenger count if this is a car or motorbike
-  if (activity.transportationMode === TRANSPORTATION_MODE_CAR || activity.transportationMode === TRANSPORTATION_MODE_MOTORBIKE)) {
+  if (activity.transportationMode === TRANSPORTATION_MODE_CAR || activity.transportationMode === TRANSPORTATION_MODE_MOTORBIKE) {
     return carbonIntensity(activity.transportationMode) * distanceKilometers / (activity.participants || 1);
   }
   return carbonIntensity(activity.transportationMode) * distanceKilometers;
