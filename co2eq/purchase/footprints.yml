@@ -31,127 +31,127 @@ _children:
   Appliances:
     _children:
       'Electric oven':
-        icon: dryer
+        icon: blender
         intensityKilograms: 319
         source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
         unit: item
         usage: 41.4%
       'Gas oven':
-        icon: dryer
+        icon: blender
         intensityKilograms: 846
         source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
         unit: item
         usage: 84.4%
       'Mini electric oven':
-        icon: dryer
+        icon: blender
         intensityKilograms: 190
         source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
         unit: item
         usage: 62.6%
       'Microwave oven':
-        icon: dryer
+        icon: blender
         intensityKilograms: 118
         source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
         unit: item
         usage: 33.1%
       'Dishwasher':
-        icon: dryer
+        icon: blender
         intensityKilograms: 513
         source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
         unit: item
         usage: 57.1%
       'Mini dishwasher':
-        icon: dryer
+        icon: blender
         intensityKilograms: 431
         source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
         unit: item
         usage: 55.2%
       'Top load laundry machine':
-        icon: dryer
+        icon: blender
         intensityKilograms: 468
         source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
         unit: item
         usage: 47%
       'Front load laundry machine':
-        icon: dryer
+        icon: blender
         intensityKilograms: 539
         source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
         unit: item
         usage: 49%
       'Heat pump dryer':
-        icon: dryer
+        icon: blender
         intensityKilograms: 506
         source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
         unit: item
         usage: 48.6%
       'Dewatering dryer':
-        icon: dryer
+        icon: blender
         intensityKilograms: 588
         source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
         unit: item
         usage: 55.8%
       'Evacuation dryer':
-        icon: dryer
+        icon: blender
         intensityKilograms: 545
         source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
         unit: item
         usage: 57.4%
       'Refrigerator':
-        icon: dryer
+        icon: blender
         intensityKilograms: 343
         source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
         unit: item
         usage: 30.9%
       'Integrated fridge freezer':
-        icon: dryer
+        icon: blender
         intensityKilograms: 431
         source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
         unit: item
         usage: 48.7%
       'Mini Refrigerator':
-        icon: dryer
+        icon: blender
         intensityKilograms: 159
         source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
         unit: item
         usage: 56.6%
       'Chest freezer':
-        icon: dryer
+        icon: blender
         intensityKilograms: 492
         source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
         unit: item
         usage: 50.6%
       'Upright freezer':
-        icon: dryer
+        icon: blender
         intensityKilograms: 587
         source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
         unit: item
         usage: 43.4%
       'Vacuum cleaner':
-        icon: dryer
+        icon: blender
         intensityKilograms: 67
         source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
         unit: item
         usage: 41.8%
       'Bagless vacuum cleaner':
-        icon: dryer
+        icon: blender
         intensityKilograms: 69
         source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
         unit: item
         usage: 37.7%
       'Stand mixer':
-        icon: dryer
+        icon: blender
         intensityKilograms: 43
         source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
         unit: item
         usage: 16.3%
       'Bread machine':
-        icon: dryer
+        icon: blender
         intensityKilograms: 96
         source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
         unit: item
         usage: 17%
       'Yogurt maker':
-        icon: dryer
+        icon: blender
         intensityKilograms: 96
         source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
         unit: item
