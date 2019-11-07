@@ -1,8 +1,8 @@
 import {
-  HOTEL_TYPE_ZERO_TO_TWO_STARS,
-  HOTEL_TYPE_THREE_STARS,
-  HOTEL_TYPE_FOUR_STARS,
-  HOTEL_TYPE_FIVE_STARS,
+  HOTEL_CLASS_ZERO_TO_TWO_STARS,
+  HOTEL_CLASS_THREE_STARS,
+  HOTEL_CLASS_FOUR_STARS,
+  HOTEL_CLASS_FIVE_STARS,
 } from '../definitions';
 
 export const modelName = 'lodging';
@@ -19,16 +19,16 @@ The carbon intensity is per night stayed
 */
 function carbonIntensity(hotelClass) {
   switch (hotelClass) {
-    case HOTEL_TYPE_ZERO_TO_TWO_STARS:
+    case HOTEL_CLASS_ZERO_TO_TWO_STARS:
       return 11.6;
       // https://shop.southpolecarbon.com/uploads/assets/en/_Overnight%20Stays.pdf
-    case HOTEL_TYPE_THREE_STARS:
+    case HOTEL_CLASS_THREE_STARS:
       return 14.3;
       // https://shop.southpolecarbon.com/uploads/assets/en/_Overnight%20Stays.pdf
-    case HOTEL_TYPE_FOUR_STARS:
+    case HOTEL_CLASS_FOUR_STARS:
       // https://shop.southpolecarbon.com/uploads/assets/en/_Overnight%20Stays.pdf
       return 18.5;
-    case HOTEL_TYPE_FIVE_STARS:
+    case HOTEL_CLASS_FIVE_STARS:
       return 33.1;
       // https://shop.southpolecarbon.com/uploads/assets/en/_Overnight%20Stays.pdf
     default:

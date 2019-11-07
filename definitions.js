@@ -14,6 +14,7 @@ export const ACTIVITY_TYPE_ELECTRIC_VEHICLE_CHARGING = 'ACTIVITY_TYPE_ELECTRIC_V
 export const ACTIVITY_TYPE_TRANSPORTATION = 'ACTIVITY_TYPE_TRANSPORTATION';
 export const ACTIVITY_TYPE_MEAL = 'ACTIVITY_TYPE_MEAL';
 export const ACTIVITY_TYPE_PURCHASE = 'ACTIVITY_TYPE_PURCHASE';
+export const ACTIVITY_TYPE_LODGING = 'ACTIVITY_TYPE_LODGING';
 
 /* Transportation */
 export const TRANSPORTATION_MODE_PLANE = 'plane';
@@ -73,7 +74,7 @@ export const PURCHASE_CATEGORY_ENTERTAINMENT_CRUISE_LINES = 'Cruise';
 export const PURCHASE_CATEGORY_ENTERTAINMENT_LIQUOR_STORE = 'Liquor store';
 
 // Hotel  stay
-export const HOTEL_TYPE_ZERO_TO_TWO_STARS = 'Zero to two stars hotel';
-export const HOTEL_TYPE_THREE_STARS = 'Three stars hotel';
-export const HOTEL_TYPE_FOUR_STARS = 'Four stars hotel';
-export const HOTEL_TYPE_FIVE_STARS = 'Five stars hotel';
+export const HOTEL_CLASS_ZERO_TO_TWO_STARS = 'Zero to two stars hotel';
+export const HOTEL_CLASS_THREE_STARS = 'Three stars hotel';
+export const HOTEL_CLASS_FOUR_STARS = 'Four stars hotel';
+export const HOTEL_CLASS_FIVE_STARS = 'Five stars hotel';
