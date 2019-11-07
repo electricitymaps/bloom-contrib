@@ -101,6 +101,21 @@ Activities require a certain formatting:
   destinationStation, // (for other travel types) a string that represents the final destination
 }
 ```
+
+##### Lodging activity formatting
+```javascript
+{
+  id, // a string that uniquely represents this activity
+  datetime, // a javascript Date object that represents the start of the activity
+  durationHours, // a floating point that represents the duration of the activity in decimal hours
+  activityType: ACTIVITY_TYPE_LODGING,
+  hotelClass, // a variable (from definitions.js) that represents the class of the hotel
+  hotelName, // (optional) a string that represents the name of the hotel
+  locationLon, // (optional) the longitude of the location of the hotel
+  locationLat, // (optional) the latitude of the location of the hotel
+}
+```
+
 ##### Electricity consumption activity formatting
 ```javascript
 {
@@ -110,8 +125,8 @@ Activities require a certain formatting:
   activityType: ACTIVITY_TYPE_ELECTRICITY,
   energyWattHours, // a float that represents the total energy used
   hourlyEnergyWattHours, // (optional) an array of 24 floats that represent the hourly metering values
-  locationLon, // the location of the electricity consumption
-  locationLat, // the location of the electricity consumption
+  locationLon, // (optional) the longitude of the location of the hotel
+  locationLat, // (optional) the latitude of the location of the hotel
 }
 ```
 
@@ -127,7 +142,7 @@ Activities require a certain formatting:
   costCurrency, // a string that represents the currency in which the currency was made
   bankDisplayName, // (required for integrations with banks) a string that represents the banks' name
   bankIdentifier, // (required for integrations with banks) a string that uniquely represents the bank.
-}  
+}
 ```
 
 ### Adding or updating Life Cycle Assessment / Carbon Footprint of purchases and activities
