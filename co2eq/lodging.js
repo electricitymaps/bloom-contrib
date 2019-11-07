@@ -27,9 +27,9 @@ function carbonIntensity(hotelClass) {
       // https://shop.southpolecarbon.com/uploads/assets/en/_Overnight%20Stays.pdf
     case HOTEL_TYPE_FOUR_STARS:
       // https://shop.southpolecarbon.com/uploads/assets/en/_Overnight%20Stays.pdf
-      return 18.5 / 1000.0;
+      return 18.5;
     case HOTEL_TYPE_FIVE_STARS:
-      return 33.1 / 1000.0;
+      return 33.1;
       // https://shop.southpolecarbon.com/uploads/assets/en/_Overnight%20Stays.pdf
     default:
       throw new Error(`Unknown hotel class: ${hotelClass}`);
