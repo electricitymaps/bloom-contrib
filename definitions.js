@@ -74,7 +74,7 @@ export const PURCHASE_CATEGORY_ENTERTAINMENT_CRUISE_LINES = 'Cruise';
 export const PURCHASE_CATEGORY_ENTERTAINMENT_LIQUOR_STORE = 'Liquor store';
 
 // Hotel  stay
-export const HOTEL_CLASS_ZERO_TO_TWO_STARS = 'zero to two stars hotel';
-export const HOTEL_CLASS_THREE_STARS = 'three stars hotel';
-export const HOTEL_CLASS_FOUR_STARS = 'four stars hotel';
-export const HOTEL_CLASS_FIVE_STARS = 'five stars hotel';
+export const HOTEL_CLASS_ZERO_TO_TWO_STARS = 'HOTEL_CLASS_ZERO_TO_TWO_STARS';
+export const HOTEL_CLASS_THREE_STARS = 'HOTEL_CLASS_THREE_STARS';
+export const HOTEL_CLASS_FOUR_STARS = 'HOTEL_CLASS_FOUR_STARS';
+export const HOTEL_CLASS_FIVE_STARS = 'HOTEL_CLASS_FIVE_STARS';
