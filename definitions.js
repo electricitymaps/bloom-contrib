@@ -71,3 +71,9 @@ export const PURCHASE_CATEGORY_ENTERTAINMENT_BAR_NIGHTCLUB = 'Bar or nightclub';
 export const PURCHASE_CATEGORY_ENTERTAINMENT_GAMBLING = 'Gambling';
 export const PURCHASE_CATEGORY_ENTERTAINMENT_CRUISE_LINES = 'Cruise';
 export const PURCHASE_CATEGORY_ENTERTAINMENT_LIQUOR_STORE = 'Liquor store';
+
+// Hotel  stay
+export const HOTEL_TYPE_ZERO_TO_TWO_STARS = 'Zero to two stars hotel';
+export const HOTEL_TYPE_THREE_STARS = 'Three stars hotel';
+export const HOTEL_TYPE_FOUR_STARS = 'Four stars hotel';
+export const HOTEL_TYPE_FIVE_STARS = 'Five stars hotel';
