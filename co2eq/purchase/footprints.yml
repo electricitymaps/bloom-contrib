@@ -1624,7 +1624,7 @@ _children:
             source: 'http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf'
             unit: kg
             oldKeys:
-            - Peanut Butter
+              - Peanut Butter
           Peanuts:
             icon: null
             intensityKilograms: 0.83
