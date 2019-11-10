@@ -2,68 +2,66 @@ import {
   MEAL_TYPE_VEGAN,
   MEAL_TYPE_VEGETARIAN,
   MEAL_TYPE_MEAT_OR_FISH,
+  PURCHASE_CATEGORY_FOOD,
 } from '../definitions';
+import {
+  getEntryByKey,
+  getDescendants,
+  getEntryByPath,
+  getChecksumOfFootprints,
+} from './purchase';
+
+const MEALS_PER_DAY = 3;
 
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'meal';
-export const modelVersion = 2;
-
-export const MEAL_WEIGHT = 400; // grams
-
-const MEALS_PER_DAY = 3;
-const CARBON_INTENSITY = { // kgCO2eq / kg
-// From http://www.greeneatz.com/foods-carbon-footprint.html
-  'Lamb': 39.2,
-  'Beef': 27.0,
-  'Cheese': 13.5,
-  'Pork': 12.1,
-  'Turkey': 10.9,
-  'Chicken': 6.9,
-  'Tuna': 6.1,
-  'Eggs': 4.8,
-  'Potatoes': 2.9,
-  'Rice': 2.7,
-  'Nuts': 2.3,
-  'Beans/tofu': 2.0,
-  'Vegetables': 2.0,
-  'Milk': 1.9,
-  'Fruit': 1.1,
-  'Lentils': 0.9,
-  // From https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
-  'Pasta': 1.2,
-  'Cod': 2.4,
-  'Flatfish': 6.2,
-  'Herring': 1.3,
-  'Shrimp (Fresh)': 3,
-  'Shrimp (Frozen)': 10.5,
-  'Clams': 0.1,
-  'Lobster': 20.2,
-  // From http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
-  'Beer': 1.123,
-  'Wine': 2.344,
-  'Spirits': 3.144,
-  'Juice': 0.93,
-  'Coffee': 0.33,
-  'Tea': 0.184,
-  'Soft drink': 1.035,
-  'Water (bottled)': 0.215,
-  'Water (tap)': 0.001,
-  'Rye bread': 0.93,
-  'White bread': 1.054,
-  'Milk Yogurt': 1.372,
-  'Morning cereals': 0.864,
-
+export const modelVersion = `5_${getChecksumOfFootprints()}`; // This model relies on footprints.yaml
+export const explanation = {
+  // TODO(olc): Write a description for mealType as well.
+  text: 'The calculations take into consideration emissions across the whole lifecycle.',
+  links: [
+    { label: 'Environmental impact of omnivorous, ovo-lacto-vegetarian, and vegan diet', href: 'https://www.nature.com/articles/s41598-017-06466-8' },
+    { label: 'Tomorrow footprint database', href: 'https://github.com/tmrowco/tmrowapp-contrib/blob/master/co2eq/purchase/footprints.yml' },
+  ],
 };
-export const INGREDIENTS = Object.keys(CARBON_INTENSITY);
+
+const foodBranch = getEntryByPath([PURCHASE_CATEGORY_FOOD]);
+const ingredients = getDescendants(foodBranch);
+export const INGREDIENT_KEYS = Object.keys(ingredients);
+export const INGREDIENT_CATEGORIES = [
+  ...new Set(Object.keys(foodBranch['_children'])),
+];
+export const ingredientCategory = {};
+export const ingredientIcon = {};
+
+export const ingredientConversions = {}; // All conversions
+export const ingredientConversionUnit = {}; // Only the first conversion
+export const ingredientConversionKilograms = {}; // Only the first conversion
+export const ingredientConversionStepsize = {}; // Only the first conversion
+Object.entries(ingredients).forEach(([k, v]) => {
+  ingredientCategory[k] = v.parentKey;
+  ingredientIcon[k] = v.icon;
+  ingredientConversions[k] = v.conversions || { grams: { kilograms: 0.001, incrementStepSize: 50 } };
+  ingredientConversionUnit[k] = v.conversions ? Object.keys(v.conversions)[0] : 'gram';
+  ingredientConversionKilograms[k] = v.conversions ? v.conversions[Object.keys(v.conversions)[0]].kilograms : 0.001;
+  ingredientConversionStepsize[k] = v.conversions ? v.conversions[Object.keys(v.conversions)[0]].incrementStepSize : 50;
+});
 
 /*
 Carbon intensity of ingredient (kgCO2 per kg).
 */
 export function carbonIntensityOfIngredient(ingredient) {
-  if (!CARBON_INTENSITY[ingredient]) {
-    throw Error(`Unknown ingredient: ${ingredient}`);
+  const entry = getEntryByKey(ingredient);
+  if (!entry) {
+    throw new Error(`Unknown ingredient: ${ingredient}`);
   }
-  return CARBON_INTENSITY[ingredient];
+  if (!entry.intensityKilograms) {
+    throw new Error(`Missing carbon intensity for ingredient: ${ingredient}`);
+  }
+  if (entry.unit !== 'kg') {
+    throw new Error(`Unexpected footprint unit ${entry.unit}. Expected 'kg'`);
+  }
+  return entry.intensityKilograms;
 }
 
 /*
@@ -79,7 +77,7 @@ function carbonIntensityOfMealType(mealType) {
     case MEAL_TYPE_MEAT_OR_FISH:
       return 3959.3 / MEALS_PER_DAY / 1000.0;
     default:
-      throw Error(`Unknown meal type: ${mealType}`);
+      throw new Error(`Unknown meal type: ${mealType}`);
   }
 }
 
@@ -87,11 +85,12 @@ function carbonIntensityOfMealType(mealType) {
 Carbon emissions of an activity (in kgCO2eq)
 */
 export function carbonEmissions(activity) {
-  const { ingredients, mealType } = activity;
+  const { mealType } = activity;
+  const mealIngredients = activity.ingredients;
 
-  if (ingredients && Object.keys(ingredients).length > 0) {
-    return ingredients
-      .map(k => carbonIntensityOfIngredient(k) * (MEAL_WEIGHT / 1000.0 / ingredients.length))
+  if (mealIngredients && Object.keys(mealIngredients).length > 0) {
+    return mealIngredients
+      .map(k => carbonIntensityOfIngredient(k.name) * k.kilograms)
       .reduce((a, b) => a + b, 0);
   }
 

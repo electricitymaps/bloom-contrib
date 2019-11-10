@@ -83,14 +83,14 @@ async function collect(state, logger, utils) {
 
   const data = await fetchVehicleCharges(token, vehicleId);
   const activities = data.map((d) => {
-    if (d.ChargeEndDate === '') {
+    if (d.ChargeEndDateISO === '') {
       // Skip that element
-      logger.logWarning('Skipping item as it has no ChargeEndDate');
+      logger.logWarning('Skipping item as it has no ChargeEndDateISO');
       return null;
     }
 
-    const startMoment = moment(`${d.ChargeStartDate} ${timezone}`, 'YYYY-MM-DD HH:mm Z');
-    const endMoment = moment(`${d.ChargeEndDate} ${timezone}`, 'YYYY-MM-DD HH:mm Z');
+    const startMoment = moment(`${d.ChargeStartDateISO} ${timezone}`, 'YYYY-MM-DDTHH:mm:ss Z');
+    const endMoment = moment(`${d.ChargeEndDateISO} ${timezone}`, 'YYYY-MM-DDTHH:mm:ss Z');
     let efficiency = parseFloat(d.Efficiency.replace(',', '.').replace(' %', '')) / 100.0;
 
     if (efficiency <= 0.8 || efficiency > 1) {
@@ -105,11 +105,11 @@ async function collect(state, logger, utils) {
     }
 
     if (!startMoment.isValid()) {
-      throw new Error(`Invalid startDate ${d.ChargeStartDate}`);
+      throw new Error(`Invalid startDate ${d.ChargeStartDateISO}`);
     }
 
     if (!endMoment.isValid()) {
-      throw new Error(`Invalid endDate ${d.ChargeEndDate}`);
+      throw new Error(`Invalid endDate ${d.ChargeEndDateISO}`);
     }
 
     const [locationLat, locationLon] = [
@@ -122,7 +122,7 @@ async function collect(state, logger, utils) {
     }
 
     return {
-      id: `teslacockpit${startMoment.toISOString()}`,
+      id: `teslacockpit${d.ChargeID}`,
       activityType: ACTIVITY_TYPE_ELECTRIC_VEHICLE_CHARGING,
       datetime: startMoment.toDate(),
       durationHours: endMoment.diff(startMoment, 'minutes') / 60.0,
