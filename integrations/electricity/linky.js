@@ -1,17 +1,14 @@
 import moment from 'moment';
 import request from 'superagent';
 import groupBy from 'lodash/groupBy';
+import mapValues from 'lodash/mapValues';
 
 import { ACTIVITY_TYPE_ELECTRICITY } from '../../definitions';
-import { AuthenticationError, HTTPError } from '../utils/errors';
+import { AuthenticationError, HTTPError, ValidationError } from '../utils/errors';
 
 const GRANULARITY = {
   day: 'urlCdcJour',
   hour: 'urlCdcHeure',
-};
-const DURATION_HOURS = {
-  day: 24,
-  hour: 1,
 };
 const STEP_GRANULARITY = {
   day: 1,
@@ -40,19 +37,34 @@ function getResponseURL(res) {
   return null;
 }
 
-async function logIn(username, password) {
+// TODO(olc): MERGE WITH INTERNAL UTILS LIB
+function groupByReduce(arr, groupByAccessor, reduceAccessor) {
+  return mapValues(
+    groupBy(arr, groupByAccessor),
+    reduceAccessor,
+  );
+}
+
+function arrayGroupByReduce(arr, groupByAccessor, reduceAccessor) {
+  return Object.values(groupByReduce(arr, groupByAccessor, reduceAccessor));
+}
+
+async function logIn(username, password, logger) {
+  if (!username || !password) {
+    throw new ValidationError('Missing username or password');
+  }
   const res = await agent
     .post('https://espace-client-connexion.enedis.fr/auth/UI/Login')
     .type('form')
+    .set('Referer', 'https://espace-client-connexion.enedis.fr/auth/UI/Login')
     .send({
       IDToken1: username,
       IDToken2: password,
-      // <--- adding this redirect seems to allow us to check that the login
-      // works, else it might just redirect to an empty page..
-      // goto: 'aHR0cHM6Ly9lc3BhY2UtY2xpZW50LXBhcnRpY3VsaWVycy5lbmVkaXMuZnIvZ3JvdXAvZXNwYWNlLXBhcnRpY3VsaWVycy9hY2N1ZWls', // base64 of http://espace-client-particuliers.enedis.fr:80/group/espace-particuliers/accueil'
-      // gotoOnFail: '',
-      SunQueryParamsString: 'cmVhbG09cGFydGljdWxpZXJz',
-      encoded: true,
+      'Login.Submit': 'accéder+à+mon+compte',
+      goto: 'aHR0cHM6Ly9lc3BhY2UtY2xpZW50LXBhcnRpY3VsaWVycy5lbmVkaXMuZnIvZ3JvdXAvZXNwYWNlLXBhcnRpY3VsaWVycy9hY2N1ZWls', // base64 of https://espace-client-particuliers.enedis.fr/group/espace-particuliers/accueil'
+      gotoOnFail: '',
+      SunQueryParamsString: 'cmVhbG09cGFydGljdWxpZXJz', // base64 of realm=particuliers
+      encoded: 'true',
       gx_charset: 'UTF-8',
     });
 
@@ -66,9 +78,7 @@ async function logIn(username, password) {
   if (responseURL.includes('Login')) {
     // highly suspicious that we are redirected to the Login page.
     // we should probably be redirected somewhere else
-    console.warn('loginResponseURL', responseURL);
-  } else {
-    console.warn('loginResponseURL', responseURL);
+    logger.logwarning(`Response URL ${responseURL} unexpectedly contained 'Login'`);
   }
   if (responseURL.includes('messages')) {
     throw new AuthenticationError('Invalid credentials');
@@ -76,16 +86,24 @@ async function logIn(username, password) {
   // if (res.text.includes('Votre session a expiré')) {
   //   throw new AuthenticationError('Session expired');
   // }
+
+  // Try to load homepage
+  const res2 = await agent
+    .get('https://espace-client-connexion.enedis.fr/group/espace-particuliers/accueil');
+  if (!res2.ok) {
+    console.error(res2);
+    throw new HTTPError('Error while loading homepage', res.status);
+  }
 }
 
 
-async function connect(requestLogin, requestWebView) {
+async function connect(requestLogin, requestWebView, logger) {
   // Here we can request credentials etc..
 
   // Here we can use two functions to invoke screens
   // requestLogin() or requestWebView()
   const { username, password } = await requestLogin();
-  await logIn(username, password);
+  await logIn(username, password, logger);
 
   // Set state to be persisted
   return {
@@ -101,12 +119,12 @@ function disconnect() {
 }
 
 
-async function collect(state, { logWarning }) {
+async function collect(state, logger) {
   const { username, password } = state;
   // LogIn to set Cookies
-  await logIn(username, password);
+  await logIn(username, password, logger);
 
-  // For now we're gathering daily data
+  // For now we're gathering hourly data
   const frequency = 'hour';
 
   // By default, go back 1 month
@@ -140,17 +158,18 @@ async function collect(state, { logWarning }) {
     .send(payload);
 
   const responseURL = getResponseURL(res);
+
   // Check if the response URL is a redirect to the login page
-  if (responseURL.includes('Login')) {
+  if (responseURL && responseURL.includes('Login')) {
     throw new Error('We\'re supposed to be logged in at this stage');
   }
 
   const json = JSON.parse(res.text);
   if (json.etat.valeur === 'erreur') {
-    throw new Error('Error while fetching data.');
+    throw new Error(`Error while fetching data. More info: ${JSON.stringify(json)}`);
   }
   if (json.etat.valeur === 'nonActive') {
-    throw new Error('No available data for the selected period');
+    throw new Error(`No available data for the selected period. More info: ${JSON.stringify(json)}`);
   }
 
   const { data, periode } = json.graphe;
@@ -183,26 +202,35 @@ async function collect(state, { logWarning }) {
 
   const activities = Object.entries(groupBy(
     data.map((d, i) => Object.assign(d, {
-      date: moment(startMoment)
-        .add(i * STEP_GRANULARITY[frequency], frequency)
-        .startOf('day')
-        .toISOString(),
+      dateMoment: moment(startMoment)
+        .add(i * STEP_GRANULARITY[frequency], frequency),
     })),
-    d => d.date
+    d => moment(d.dateMoment).startOf('day').toISOString()
   ))
-    .map(([k, values]) => ({
-      id: `linky${k}`,
-      datetime: moment(k).toDate(),
-      activityType: ACTIVITY_TYPE_ELECTRICITY,
-      energyWattHours: values
-        .map(parseValue) // kWh -> Wh
-        .reduce((a, b) => a + b, 0),
-      durationHours: values.length,
-      hourlyEnergyWattHours: values.map(parseValue),
-    }));
+    // Now that values are grouped by day,
+    // make sure to aggregate properly
+    .map(([k, values]) => {
+      // `values` might contain half hourly data
+      // so it needs to be aggregated by `frequency`
+      const processedValues = arrayGroupByReduce(
+        values,
+        d => moment(d.dateMoment).startOf(frequency).toISOString(),
+        arr => arr.map(parseValue).reduce((a, b) => a + b, 0),
+      );
+
+      return {
+        id: `linky${k}`,
+        datetime: moment(k).toDate(),
+        activityType: ACTIVITY_TYPE_ELECTRICITY,
+        energyWattHours: processedValues
+          .reduce((a, b) => a + b, 0),
+        durationHours: processedValues.length,
+        hourlyEnergyWattHours: processedValues,
+      };
+    });
   activities
     .filter(d => d.durationHours !== 24)
-    .forEach(d => logWarning(`Ignoring activity from ${d.datetime.toISOString()} with ${d.durationHours} hours instead of 24`));
+    .forEach(d => logger.logWarning(`Ignoring activity from ${d.datetime.toISOString()} with ${d.durationHours} hours instead of 24`));
 
   // Subtract one day to make sure we always have a full day
   const lastFullyCollectedDay = endMoment.subtract(1, 'day').format('DD/MM/YYYY');
