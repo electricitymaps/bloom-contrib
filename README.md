@@ -47,6 +47,7 @@ Community-supported integrations:
 - 🚗 Renault Zoé
 - 🚗 Uber (contributor:[willtonkin](https://github.com/willtonkin))
 - 🚗 Automatic (contributor:[lauvrenn](https://github.com/lauvrenn))
+- 🚗 MinVolkswagen (contributor:[folkev0gn](https://github.com/folkev0gn))
 
 You can [suggest a new integration here](https://github.com/tmrowco/tmrowapp-contrib/issues/new).
 
