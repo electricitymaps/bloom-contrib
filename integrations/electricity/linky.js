@@ -118,20 +118,7 @@ function disconnect() {
   return {};
 }
 
-
-async function collect(state, logger) {
-  const { username, password } = state;
-  // LogIn to set Cookies
-  await logIn(username, password, logger);
-
-  // For now we're gathering hourly data
-  const frequency = 'hour';
-
-  // By default, go back 1 month
-  // (we can't go back further using a single API call)
-  const startDate = state.lastFullyCollectedDay || moment().subtract(1, 'month').format('DD/MM/YYYY');
-  const endDate = moment().format('DD/MM/YYYY');
-
+async function fetchActivities(frequency, startDate, endDate, logger) {
   const query = {
     p_p_col_pos: 1,
     p_p_lifecycle: 2,
@@ -169,6 +156,9 @@ async function collect(state, logger) {
     throw new Error(`Error while fetching data. More info: ${JSON.stringify(json)}`);
   }
   if (json.etat.valeur === 'nonActive') {
+    if (frequency === 'hour') {
+      return fetchActivities('day', startDate, endDate, logger);
+    }
     throw new Error(`No available data for the selected period. More info: ${JSON.stringify(json)}`);
   }
 
@@ -227,10 +217,32 @@ async function collect(state, logger) {
         durationHours: processedValues.length,
         hourlyEnergyWattHours: processedValues,
       };
+    })
+    .filter((d) => {
+      if (d.durationHours !== 24) {
+        return true;
+      }
+      logger.logWarning(`Ignoring activity from ${d.datetime.toISOString()} with ${d.durationHours} hours instead of 24`);
+      return false;
     });
-  activities
-    .filter(d => d.durationHours !== 24)
-    .forEach(d => logger.logWarning(`Ignoring activity from ${d.datetime.toISOString()} with ${d.durationHours} hours instead of 24`));
+
+  return { activities, endMoment };
+}
+
+async function collect(state, logger) {
+  const { username, password } = state;
+  // LogIn to set Cookies
+  await logIn(username, password, logger);
+
+  // For now we're gathering hourly data
+  const frequency = 'hour';
+
+  // By default, go back 1 month
+  // (we can't go back further using a single API call)
+  const startDate = state.lastFullyCollectedDay || moment().subtract(1, 'month').format('DD/MM/YYYY');
+  const endDate = moment().format('DD/MM/YYYY');
+
+  const { activities, endMoment } = await fetchActivities(frequency, startDate, endDate, logger);
 
   // Subtract one day to make sure we always have a full day
   const lastFullyCollectedDay = endMoment.subtract(1, 'day').format('DD/MM/YYYY');
