@@ -9,6 +9,11 @@ The app is private-by-design: data will stay on device, unless the user explicit
 
 Feel free to watch [the presentation](https://www.youtube.com/watch?v=keOPXD-ojWY) our Founder Olivier gave to the CopenhagenJS meetup, explaining what a JavaScript developer can do to combat climate change. If you have any questions, want early access to the app or just want to hang out with people fighting climate change with code, join [our Slack community](https://slack.tmrow.com).
 
+## Tomorrow is hiring!
+The company behind the Tomorrow app builds tech to empower organisations and individuals to understand and reduce their carbon footprint.
+
+We're hiring great people to join our team in Copenhagen. Head over to [our jobs page](https://www.tmrow.com/jobs) if you want to help out!
+
 ## Structure of this repository
 
 - `./co2eq`: carbon models
