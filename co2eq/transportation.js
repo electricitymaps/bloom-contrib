@@ -1,6 +1,8 @@
 import {
   TRANSPORTATION_MODE_PLANE,
-  TRANSPORTATION_MODE_CAR,
+  TRANSPORTATION_MODE_CAR_FOSSIL_FUELED,
+  TRANSPORTATION_MODE_CAR_ELECTRIC,
+  TRANSPORTATION_MODE_CAR_HYBRID,
   TRANSPORTATION_MODE_BUS,
   TRANSPORTATION_MODE_TRAIN,
   TRANSPORTATION_MODE_PUBLIC_TRANSPORT,
@@ -34,10 +36,16 @@ function carbonIntensity(mode) {
   switch (mode) {
     case TRANSPORTATION_MODE_BUS:
       return 103 / 1000.0;
-      // https://static.ducky.eco/calculator_documentation.pdf, Ecoinvent 3 Regular bus, includes production = 9g
-    case TRANSPORTATION_MODE_CAR:
+      // https://static.ducky.eco/calculator_documentation.pdf, Ecoinvent 3 Regular bus, production = 9g
+    case TRANSPORTATION_MODE_CAR_FOSSIL_FUELED:
       return 257 / 1000.0;
-      // https://static.ducky.eco/calculator_documentation.pdf, Ecoinvent Avg european car, production = 43g    
+      // https://static.ducky.eco/calculator_documentation.pdf, Ecoinvent Avg european car, production = 43g
+    case TRANSPORTATION_MODE_CAR_ELECTRIC:
+      return 81 / 1000.0;
+      // https://static.ducky.eco/calculator_documentation.pdf, Ecoinvent 3 Nordic electricity mix, includes production
+    case TRANSPORTATION_MODE_CAR_HYBRID:
+      return 180 / 1000.0;
+      // https://static.ducky.eco/calculator_documentation.pdf, Samaras 2008 Low Carbon Scenario, includes production
     case TRANSPORTATION_MODE_MOTORBIKE: 
       // https://static.ducky.eco/calculator_documentation.pdf, Ecoinvent Scooter, production = 14g
       return 108 / 1000.0;        
@@ -67,9 +75,15 @@ export function durationToDistance(durationHours, mode) {
     case TRANSPORTATION_MODE_BUS:
       return durationHours * 30.0;
       // assumes mostly city-rides
-    case TRANSPORTATION_MODE_CAR:
+    case TRANSPORTATION_MODE_CAR_FOSSIL_FUELED:
       return durationHours * 45.0;
       // https://setis.ec.europa.eu/system/files/Driving_and_parking_patterns_of_European_car_drivers-a_mobility_survey.pdf
+    case TRANSPORTATION_MODE_CAR_ELECTRIC:
+      return durationHours * 45.0;
+      // assumes same speed as fossil fueled car
+    case TRANSPORTATION_MODE_CAR_HYBRID:
+      return durationHours * 45.0;
+      // assumes same speed as fossil fueled car
     case TRANSPORTATION_MODE_MOTORBIKE:
       return durationHours * 45.0;
       // assumes same speed as car
