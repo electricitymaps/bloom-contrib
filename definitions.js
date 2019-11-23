@@ -19,9 +19,7 @@ export const ACTIVITY_TYPE_LODGING = 'ACTIVITY_TYPE_LODGING';
 /* Transportation */
 export const TRANSPORTATION_MODE_PLANE = 'plane';
 export const TRANSPORTATION_MODE_BIKE = 'bike';
-export const TRANSPORTATION_MODE_CAR_FOSSIL_FUELED = 'fossil_fueled_car';
-export const TRANSPORTATION_MODE_CAR_ELECTRIC = 'electric_car';
-export const TRANSPORTATION_MODE_CAR_HYBRID = 'hybrid_car';
+export const TRANSPORTATION_MODE_CAR = 'car';
 export const TRANSPORTATION_MODE_BUS = 'bus';
 export const TRANSPORTATION_MODE_PUBLIC_TRANSPORT = 'public_transport';
 export const TRANSPORTATION_MODE_TRAIN = 'train';
