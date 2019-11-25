@@ -514,6 +514,12 @@ _children:
         source: 'https://www.apple.com/lae/environment/pdf/products/desktops/Macmini_PER_oct2018.pdf'
         unit: item
         usage: 3%
+      'MacBook 12-inch':
+        icon: laptop
+        intensityKilograms: 233
+        source: 'https://www.apple.com/environment/pdf/products/notebooks/12inch_MacBook_PER_June2019.pdf'
+        unit: item
+        usage: 12%
       'MacBook Air 13-inch':
         icon: laptop
         intensityKilograms: 176
@@ -532,6 +538,12 @@ _children:
         source: 'https://www.apple.com/lae/environment/pdf/products/notebooks/15-inch_MacBookPro_PER_may2019.pdf'
         unit: item
         usage: 21%
+      'MacBook Pro 16-inch':
+        icon: laptop
+        intensityKilograms: 394
+        source: 'https://www.apple.com/environment/pdf/products/notebooks/16-inch_MacBookPro_PER_Nov2019.pdf'
+        unit: item
+        usage: 19%
       'iMac 21.5-inch':
         icon: desktop
         intensityKilograms: 494
