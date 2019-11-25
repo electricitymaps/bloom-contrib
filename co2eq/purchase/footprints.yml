@@ -592,6 +592,138 @@ _children:
         source: 'https://www.apple.com/lae/environment/pdf/products/ipod/iPodtouch_PER_may2019.pdf'
         unit: item
         usage: 6%
+      'Lenovo Thinkpad 25':
+        icon: laptop
+        intensityKilograms: 390
+        source: 'https://github.com/rarecoil/laptop-co2e'
+        unit: item
+        usage: 28%
+      'Lenovo Thinkpad 11e 5th Gen':
+        icon: laptop
+        intensityKilograms: 326
+        source: 'https://www.lenovo.com/us/en/social_responsibility/PCF-ThinkPad-11e-Yoga-11e-5th.pdf'
+        unit: item
+        usage: 20%
+      'Lenovo Thinkpad A275':
+        icon: laptop
+        intensityKilograms: 511
+        source: 'https://github.com/rarecoil/laptop-co2e'
+        unit: item
+        usage: 31%
+      'Lenovo Thinkpad A285':
+        icon: laptop
+        intensityKilograms: 352
+        source: 'https://github.com/rarecoil/laptop-co2e'
+        unit: item
+        usage: 36%
+      'Lenovo Thinkpad A485':
+        icon: laptop
+        intensityKilograms: 419
+        source: 'https://github.com/rarecoil/laptop-co2e'
+        unit: item
+        usage: 35%
+      'Lenovo Thinkpad L380':
+        icon: laptop
+        intensityKilograms: 406
+        source: 'https://www.lenovo.com/us/en/social_responsibility/PCF-ThinkPad-L380-S2-Yoga-3rd.pdf'
+        unit: item
+        usage: 19%
+      'Lenovo Thinkpad L480':
+        icon: laptop
+        intensityKilograms: 455
+        source: 'https://www.lenovo.com/us/en/social_responsibility/PCF-ThinkPad-L480.pdf'
+        unit: item
+        usage: 30%
+      'Lenovo Thinkpad L490':
+        icon: laptop
+        intensityKilograms: 499
+        source: 'https://www.lenovo.com/us/en/pdf/social_responsibility/PCF_ThinkPad_L490.pdf'
+        unit: item
+        usage: 21%
+      'Lenovo Thinkpad P1':
+        icon: laptop
+        intensityKilograms: 477
+        source: 'https://www.lenovo.com/us/en/social_responsibility/PCF_ThinkPad_P1_X1_Extreme.pdf'
+        unit: item
+        usage: 16%
+      'Lenovo Thinkpad P52':
+        icon: laptop
+        intensityKilograms: 693
+        source: 'https://github.com/rarecoil/laptop-co2e'
+        unit: item
+        usage: 22%
+      'Lenovo Thinkpad P72':
+        icon: laptop
+        intensityKilograms: 610
+        source: 'https://www.lenovo.com/us/en/social_responsibility/PCF_ThinkPad_P72.pdf'
+        unit: item
+        usage: 23%
+      'Lenovo Thinkpad P73':
+        icon: laptop
+        intensityKilograms: 611
+        source: 'https://www.lenovo.com/us/en/pdf/social_responsibility/PCF_ThinkPad_P73.pdf'
+        unit: item
+        usage: 34%
+      'Lenovo Thinkpad X1 Carbon 4th Gen':
+        icon: laptop
+        intensityKilograms: 457
+        source: 'https://github.com/rarecoil/laptop-co2e'
+        unit: item
+        usage: 19%
+      'Lenovo Thinkpad X1 Carbon 5th Gen':
+        icon: laptop
+        intensityKilograms: 369
+        source: 'https://github.com/rarecoil/laptop-co2e'
+        unit: item
+        usage: 17%
+      'Lenovo Thinkpad X1 Carbon 6th Gen':
+        icon: laptop
+        intensityKilograms: 333
+        source: 'https://www.lenovo.com/us/en/social_responsibility/PCF-ThinkPad-X1-Carbon-6th.pdf'
+        unit: item
+        usage: 16%
+      'Lenovo Thinkpad X1 Carbon 7th Gen':
+        icon: laptop
+        intensityKilograms: 461
+        source: 'https://www.lenovo.com/us/en/pdf/social_responsibility/PCF_ThinkPad_X1_Carbon_X1_Carbon_LTE_7th.pdf'
+        unit: item
+        usage: 13%
+      'Lenovo Thinkpad X250':
+        icon: laptop
+        intensityKilograms: 338
+        source: 'https://github.com/rarecoil/laptop-co2e'
+        unit: item
+        usage: 24%
+      'Lenovo Thinkpad X260':
+        icon: laptop
+        intensityKilograms: 489
+        source: 'https://github.com/rarecoil/laptop-co2e'
+        unit: item
+        usage: 18%
+      'Lenovo Thinkpad X270':
+        icon: laptop
+        intensityKilograms: 852
+        source: 'https://github.com/rarecoil/laptop-co2e'
+        unit: item
+        usage: 10%
+      'Lenovo Thinkpad X280':
+        icon: laptop
+        intensityKilograms: 334
+        source: 'https://www.lenovo.com/us/en/social_responsibility/PCF-ThinkPad-X280.pdf'
+        unit: item
+        usage: 23%
+      'Lenovo Thinkpad X380 Yoga':
+        icon: laptop
+        intensityKilograms: 339
+        source: 'https://www.lenovo.com/us/en/social_responsibility/PCF-ThinkPad-S1-Yoga-4th-X380-Yoga.pdf'
+        unit: item
+        usage: 21%
+      'Lenovo Thinkpad X390':
+        icon: laptop
+        intensityKilograms: 290
+        source: 'https://static.lenovo.com/ww/docs/regulatory/PCF_ThinkPad_X390.pdf'
+        unit: item
+        usage: 15%
   Entertainment:
     _children:
       Amusement park:
