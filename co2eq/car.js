@@ -18,21 +18,21 @@ const GENERIC_CATEGORIES = {
     type: 'diesel',
     activityType: ACTIVITY_TYPE_TRANSPORTATION,
     transportationMode: TRANSPORTATION_MODE_CAR,
-    inputLevel: INPUT_NON_DETAILED
+    inputLevel: INPUT_NON_DETAILED,
   },
   'small_petrol': {
     size: 'small',
     type: 'petrol',
     activityType: ACTIVITY_TYPE_TRANSPORTATION,
     transportationMode: TRANSPORTATION_MODE_CAR,
-    inputLevel: INPUT_NON_DETAILED
+    inputLevel: INPUT_NON_DETAILED,
   },
   'small_hybrid': {
     size: 'small',
     type: 'hybrid',
     activityType: ACTIVITY_TYPE_TRANSPORTATION,
     transportationMode: TRANSPORTATION_MODE_CAR,
-    inputLevel: INPUT_NON_DETAILED
+    inputLevel: INPUT_NON_DETAILED,
   },
   'small_cng': null,
   'small_lpg': null,
@@ -41,70 +41,70 @@ const GENERIC_CATEGORIES = {
     type: 'diesel',
     activityType: ACTIVITY_TYPE_TRANSPORTATION,
     transportationMode: TRANSPORTATION_MODE_CAR,
-    inputLevel: INPUT_NON_DETAILED
+    inputLevel: INPUT_NON_DETAILED,
   },
   'medium_petrol': {
     size: 'medium',
     type: 'petrol',
     activityType: ACTIVITY_TYPE_TRANSPORTATION,
     transportationMode: TRANSPORTATION_MODE_CAR,
-    inputLevel: INPUT_NON_DETAILED
+    inputLevel: INPUT_NON_DETAILED,
   },
   'medium_hybrid': {
     size: 'medium',
-    type: 'hybrid'
+    type: 'hybrid',
     activityType: ACTIVITY_TYPE_TRANSPORTATION,
     transportationMode: TRANSPORTATION_MODE_CAR,
-    inputLevel: INPUT_NON_DETAILED
+    inputLevel: INPUT_NON_DETAILED,
   },
   'medium_cng': {
     size: 'medium',
     type: 'cng',
     activityType: ACTIVITY_TYPE_TRANSPORTATION,
     transportationMode: TRANSPORTATION_MODE_CAR,
-    inputLevel: INPUT_NON_DETAILED
+    inputLevel: INPUT_NON_DETAILED,
   },
   'medium_lpg': {
     size: 'medium',
     type: 'lpg',
     activityType: ACTIVITY_TYPE_TRANSPORTATION,
     transportationMode: TRANSPORTATION_MODE_CAR,
-    inputLevel: INPUT_NON_DETAILED
+    inputLevel: INPUT_NON_DETAILED,
   },
   'large_diesel': {
     size: 'large',
     type: 'diesel',
     activityType: ACTIVITY_TYPE_TRANSPORTATION,
     transportationMode: TRANSPORTATION_MODE_CAR,
-    inputLevel: INPUT_NON_DETAILED
+    inputLevel: INPUT_NON_DETAILED,
   },
   'large_petrol': {
     size: 'large',
     type: 'petrol',
     activityType: ACTIVITY_TYPE_TRANSPORTATION,
     transportationMode: TRANSPORTATION_MODE_CAR,
-    inputLevel: INPUT_NON_DETAILED
+    inputLevel: INPUT_NON_DETAILED,
   },
   'large_hybrid': {
     size: 'large',
     type: 'hybrid',
     activityType: ACTIVITY_TYPE_TRANSPORTATION,
     transportationMode: TRANSPORTATION_MODE_CAR,
-    inputLevel: INPUT_NON_DETAILED
+    inputLevel: INPUT_NON_DETAILED,
   },
   'large_cng': {
     size: 'large',
     type: 'cng',
     activityType: ACTIVITY_TYPE_TRANSPORTATION,
     transportationMode: TRANSPORTATION_MODE_CAR,
-    inputLevel: INPUT_NON_DETAILED
+    inputLevel: INPUT_NON_DETAILED,
   },
   'large_lpg': {
     size: 'large',
     type: 'lpg',
     activityType: ACTIVITY_TYPE_TRANSPORTATION,
     transportationMode: TRANSPORTATION_MODE_CAR,
-    inputLevel: INPUT_NON_DETAILED
+    inputLevel: INPUT_NON_DETAILED,
   },
 };
 
