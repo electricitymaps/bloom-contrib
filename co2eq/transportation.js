@@ -95,29 +95,29 @@ export function durationToDistance(durationHours, mode) {
 Carbon emissions of an activity (in kgCO2eq)
 */
 export function carbonEmissions(activity) {
-    // Plane-specific model
-    if (activity.transportationMode === TRANSPORTATION_MODE_PLANE) {
-        return flightEmissions(activity);
-    }
+  // Plane-specific model
+  if (activity.transportationMode === TRANSPORTATION_MODE_PLANE) {
+    return flightEmissions(activity);
+  }
 
-    let distanceKilometers = activity.distanceKilometers;
-    if (!distanceKilometers) {
-        // fallback on duration if available
-        if ((activity.durationHours || 0) > 0) {
-            distanceKilometers = durationToDistance(activity.durationHours, activity.transportationMode);
-        } else {
-            throw new Error(`Couldn't calculate carbonEmissions for activity because distanceKilometers = ${distanceKilometers} and durationHours = ${activity.durationHours}`);
-        }
+  let distanceKilometers = activity.distanceKilometers;
+  if (!distanceKilometers) {
+    // fallback on duration if available
+    if ((activity.durationHours || 0) > 0) {
+      distanceKilometers = durationToDistance(activity.durationHours, activity.transportationMode);
+    } else {
+      throw new Error(`Couldn't calculate carbonEmissions for activity because distanceKilometers = ${distanceKilometers} and durationHours = ${activity.durationHours}`);
     }
+  }
 
-    // Take into account the passenger count if this is a car or motorbike
-    if (activity.transportationMode === TRANSPORTATION_MODE_CAR || activity.transportationMode === TRANSPORTATION_MODE_MOTORBIKE) {
-        // Take into account if the input for the car was detailed (with brand and model)
-        if (activity.inputLevel === INPUT_NON_DETAILED) {
-            // activity
-            return carbonIntensityNonDetailed(activity.size, activity.type) * distanceKilometers / (activity.participants || 1);
-        }
-        return carbonIntensity(activity.transportationMode) * distanceKilometers / (activity.participants || 1);
+  // Take into account the passenger count if this is a car or motorbike
+  if (activity.transportationMode === TRANSPORTATION_MODE_CAR || activity.transportationMode === TRANSPORTATION_MODE_MOTORBIKE) {
+    // Take into account if the input for the car was detailed (with brand and model)
+    if (activity.inputLevel === INPUT_NON_DETAILED) {
+      // activity
+      return carbonIntensityNonDetailed(activity.size, activity.type) * distanceKilometers / (activity.participants || 1);
     }
-    return carbonIntensity(activity.transportationMode) * distanceKilometers;
+    return carbonIntensity(activity.transportationMode) * distanceKilometers / (activity.participants || 1);
+  }
+  return carbonIntensity(activity.transportationMode) * distanceKilometers;
 }
