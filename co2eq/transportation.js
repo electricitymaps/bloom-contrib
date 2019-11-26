@@ -11,6 +11,7 @@ import {
 } from '../definitions';
 
 import flightEmissions from './flights';
+import {carbonIntensityNonDetailed, INPUT_NON_DETAILED} from "./car";
 
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'transportation';
