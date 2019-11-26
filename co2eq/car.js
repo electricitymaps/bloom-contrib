@@ -110,62 +110,62 @@ const GENERIC_CATEGORIES = {
 
 // calculates carbon intensity for cars by size and type
 export function carbonIntensityNonDetailed(size, type) {
-  let category = size + '_' + type;
+  const category = `${size}_${type}`;
   switch (category) {
-  case 'small_diesel':
-    return 0.14024;
-    // Cars (by size) from 'Conversion factors 2019: full set (for advanced users)'
-    // https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
-  case 'small_petrol':
-    return 0.15301;
-    // Cars (by size) from 'Conversion factors 2019: full set (for advanced users)'
-    // https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
-  case 'small_hybrid':
-    return 0.10409;
-    // Cars (by size) from 'Conversion factors 2019: full set (for advanced users)'
-    // https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
-  case 'medium_diesel':
-    return 0.16877;
-    // Cars (by size) from 'Conversion factors 2019: full set (for advanced users)'
-    // https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
-  case 'medium_petrol':
-    return 0.19158;
-    // Cars (by size) from 'Conversion factors 2019: full set (for advanced users)'
-    // https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
-  case 'medium_hybrid':
-    return 0.10764;
-    // Cars (by size) from 'Conversion factors 2019: full set (for advanced users)'
-    // https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
-  case 'medium_cng':
-    return 0.15972;
-    // Cars (by size) from 'Conversion factors 2019: full set (for advanced users)'
-    // https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
-  case 'medium_lpg':
-    return 0.18016;
-    // Cars (by size) from 'Conversion factors 2019: full set (for advanced users)'
-    // https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
-  case 'large_diesel':
-    return 0.20763;
-    // Cars (by size) from 'Conversion factors 2019: full set (for advanced users)'
-    // https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
-  case 'large_petrol':
-    return 0.28225;
-    // Cars (by size) from 'Conversion factors 2019: full set (for advanced users)'
-    // https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
-  case 'large_hybrid':
-    return 0.13022;
-    // Cars (by size) from 'Conversion factors 2019: full set (for advanced users)'
-    // https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
-  case 'large_cng':
-    return 0.23531;
-    // Cars (by size) from 'Conversion factors 2019: full set (for advanced users)'
-    // https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
-  case 'large_lpg':
-    return 0.26541;
-    // Cars (by size) from 'Conversion factors 2019: full set (for advanced users)'
-    // https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
-  default:
-    throw Error (`Unknown car size and type: ${category}`);
+    case `small_diesel`:
+      return 0.14024;
+      // Cars (by size) from 'Conversion factors 2019: full set (for advanced users)'
+      // https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
+    case `small_petrol`:
+      return 0.15301;
+      // Cars (by size) from 'Conversion factors 2019: full set (for advanced users)'
+      // https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
+    case `small_hybrid`:
+      return 0.10409;
+      // Cars (by size) from 'Conversion factors 2019: full set (for advanced users)'
+      // https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
+    case `medium_diesel`:
+      return 0.16877;
+      // Cars (by size) from 'Conversion factors 2019: full set (for advanced users)'
+      // https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
+    case `medium_petrol`:
+      return 0.19158;
+      // Cars (by size) from 'Conversion factors 2019: full set (for advanced users)'
+      // https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
+    case `medium_hybrid`:
+      return 0.10764;
+      // Cars (by size) from 'Conversion factors 2019: full set (for advanced users)'
+      // https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
+    case `medium_cng`:
+      return 0.15972;
+      // Cars (by size) from 'Conversion factors 2019: full set (for advanced users)'
+      // https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
+    case `medium_lpg`:
+      return 0.18016;
+      // Cars (by size) from 'Conversion factors 2019: full set (for advanced users)'
+      // https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
+    case `large_diesel`:
+      return 0.20763;
+      // Cars (by size) from 'Conversion factors 2019: full set (for advanced users)'
+      // https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
+    case `large_petrol`:
+      return 0.28225;
+      // Cars (by size) from 'Conversion factors 2019: full set (for advanced users)'
+      // https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
+    case `large_hybrid`:
+      return 0.13022;
+      // Cars (by size) from 'Conversion factors 2019: full set (for advanced users)'
+      // https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
+    case `large_cng`:
+      return 0.23531;
+      // Cars (by size) from 'Conversion factors 2019: full set (for advanced users)'
+      // https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
+    case `large_lpg`:
+      return 0.26541;
+      // Cars (by size) from 'Conversion factors 2019: full set (for advanced users)'
+      // https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
+    default:
+      throw new Error (`Unknown car size and type: ${category}`);
   }
 }
 
