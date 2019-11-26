@@ -156,7 +156,7 @@ export function carbonIntensityNonDetailed(size, type) {
       return 0.13022;
       // Cars (by size) from 'Conversion factors 2019: full set (for advanced users)'
       // https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
-    case `large_cng`:
+    case 'large_cng':
       return 0.23531;
       // Cars (by size) from 'Conversion factors 2019: full set (for advanced users)'
       // https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
