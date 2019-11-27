@@ -7,15 +7,16 @@ import {
   TRANSPORTATION_MODE_FERRY,
   TRANSPORTATION_MODE_BIKE,
   TRANSPORTATION_MODE_ESCOOTER,
+  TRANSPORTATION_MODE_MOTORBIKE,
 } from '../definitions';
 
 import flightEmissions from './flights';
 
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'transportation';
-export const modelVersion = '9';
+export const modelVersion = '10';
 export const explanation = {
-  text: 'Calculations only takes into direct emissions from burning fuel.',
+  text: 'Calculations take into account direct emissions from burning fuel and manufacturing of vehicle.',
   links: [
     // TODO(olc): Link is dead
     { label: 'IPCC', href: 'https://www.ipcc.ch/ipccreports/sres/aviation/125.htm#tab85' },
@@ -33,10 +34,13 @@ function carbonIntensity(mode) {
   switch (mode) {
     case TRANSPORTATION_MODE_BUS:
       return 103 / 1000.0;
-      // https://static.ducky.eco/calculator_documentation.pdf, Ecoinvent 3 Regular bus, production = 9g
+      // https://static.ducky.eco/calculator_documentation.pdf, Ecoinvent 3 Regular bus, includes production = 9g
     case TRANSPORTATION_MODE_CAR:
       return 257 / 1000.0;
-      // https://static.ducky.eco/calculator_documentation.pdf, Ecoinvent Avg european car, production = 43g
+      // https://static.ducky.eco/calculator_documentation.pdf, Ecoinvent Avg european car, production = 43g    
+    case TRANSPORTATION_MODE_MOTORBIKE: 
+      // https://static.ducky.eco/calculator_documentation.pdf, Ecoinvent Scooter, production = 14g
+      return 108 / 1000.0;        
     case TRANSPORTATION_MODE_TRAIN:
       return 42 / 1000.0;
       // https://static.ducky.eco/calculator_documentation.pdf, Andersen 2007
@@ -66,6 +70,9 @@ export function durationToDistance(durationHours, mode) {
     case TRANSPORTATION_MODE_CAR:
       return durationHours * 45.0;
       // https://setis.ec.europa.eu/system/files/Driving_and_parking_patterns_of_European_car_drivers-a_mobility_survey.pdf
+    case TRANSPORTATION_MODE_MOTORBIKE:
+      return durationHours * 45.0;
+      // assumes same speed as car
     case TRANSPORTATION_MODE_TRAIN:
       return durationHours * 45.0;
       // assumes mostly suburban trips
@@ -103,8 +110,8 @@ export function carbonEmissions(activity) {
     }
   }
 
-  // Take into account the passenger count if this is a car
-  if (activity.transportationMode === TRANSPORTATION_MODE_CAR) {
+  // Take into account the passenger count if this is a car or motorbike
+  if (activity.transportationMode === TRANSPORTATION_MODE_CAR || activity.transportationMode === TRANSPORTATION_MODE_MOTORBIKE) {
     return carbonIntensity(activity.transportationMode) * distanceKilometers / (activity.participants || 1);
   }
   return carbonIntensity(activity.transportationMode) * distanceKilometers;

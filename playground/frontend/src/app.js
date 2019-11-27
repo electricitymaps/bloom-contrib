@@ -37,7 +37,7 @@ class App extends React.Component {
     if (!socket.connected) { return; }
     if (!selectedIntegration) { return; }
 
-    console.log(`Running ${selectedIntegration.value}..`);
+    console.log(`Running ${selectedIntegration}..`);
     socket.emit('run', {
       sourceIdentifier: selectedIntegration,
       username,
