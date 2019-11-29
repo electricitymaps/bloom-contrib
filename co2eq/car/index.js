@@ -25,12 +25,14 @@ export function carbonIntensityGeneric(size, engineType, brand) {
   }
   if (size === null && engineType === null) {
     return cars['average'].carbonIntensity;
-  } else if (size === null) {
+  }
+  if (size === null && engineType != null) {
     if (!cars[engineType]) {
       throw new Error(`Unknown engine type ${engineType}`);
     }
     return cars[engineType].carbonIntensity;
-  } else if (engineType === null) {
+  }
+  if (size != null && engineType === null) {
     if (!cars[size]) {
       throw new Error(`Unknown size ${size}`);
     }
