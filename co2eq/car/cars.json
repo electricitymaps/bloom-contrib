@@ -1,0 +1,136 @@
+{
+  "unknown": {
+    "size": null,
+    "engineType": null,
+    "brand": null,
+    "carbonIntensity": 0.1771
+  },
+  "small": {
+    "size": "small",
+    "engineType": null,
+    "brand": null,
+    "carbonIntensity": 0.14958
+  },
+  "medium": {
+    "size": "medium",
+    "engineType": null,
+    "brand": null,
+    "carbonIntensity": 0.18071
+  },
+  "large": {
+    "size": "large",
+    "engineType": null,
+    "brand": null,
+    "carbonIntensity": 0.22857
+  },
+  "diesel": {
+    "size": null,
+    "engineType": "diesel",
+    "brand": null,
+    "carbonIntensity": 0.17336
+  },
+  "petrol": {
+    "size": null,
+    "engineType": "petrol",
+    "brand": null,
+    "carbonIntensity": 0.18084
+  },
+  "hybrid": {
+    "size": null,
+    "engineType": "hybrid",
+    "brand": null,
+    "carbonIntensity": 0.11473
+  },
+  "cng": {
+    "size": null,
+    "engineType": "cng",
+    "brand": null,
+    "carbonIntensity": 0.17803
+  },
+  "lpg": {
+    "size": null,
+    "engineType": "lpg",
+    "brand": null,
+    "carbonIntensity": 0.19901
+  },
+  "small_diesel": {
+    "size": "small",
+    "engineType": "diesel",
+    "brand": null,
+    "carbonIntensity": 0.14208
+  },
+  "small_petrol": {
+    "size": "small",
+    "engineType": "petrol",
+    "brand": null,
+    "carbonIntensity": 0.15371
+  },
+  "small_hybrid": {
+    "size": "small",
+    "engineType": "hybrid",
+    "brand": null,
+    "carbonIntensity": 0.1052
+  },
+  "small_cng": null,
+  "small_lpg": null,
+  "medium_diesel": {
+    "size": "medium",
+    "engineType": "diesel",
+    "brand": null,
+    "carbonIntensity": 0.17061
+  },
+  "medium_petrol": {
+    "size": "medium",
+    "engineType": "petrol",
+    "brand": null,
+    "carbonIntensity": 0.19228
+  },
+  "medium_hybrid": {
+    "size": "medium",
+    "engineType": "hybrid",
+    "brand": null,
+    "carbonIntensity": 0.10895
+  },
+  "medium_cng": {
+    "size": "medium",
+    "engineType": "cng",
+    "brand": null,
+    "carbonIntensity": 0.16176
+  },
+  "medium_lpg": {
+    "size": "medium",
+    "engineType": "lpg",
+    "brand": null,
+    "carbonIntensity": 0.18066
+  },
+  "large_diesel": {
+    "size": "large",
+    "engineType": "diesel",
+    "brand": null,
+    "carbonIntensity": 0.20947
+  },
+  "large_petrol": {
+    "size": "large",
+    "engineType": "petrol",
+    "brand": null,
+    "carbonIntensity": 0.28295
+  },
+  "large_hybrid": {
+    "size": "large",
+    "engineType": "hybrid",
+    "brand": null,
+    "carbonIntensity": 0.13177
+  },
+  "large_cng": {
+    "size": "large",
+    "engineType": "cng",
+    "brand": null,
+    "carbonIntensity": 0.23735
+  },
+  "large_lpg": {
+    "size": "large",
+    "engineType": "lpg",
+    "brand": null,
+    "carbonIntensity": 0.26591
+  }
+}
