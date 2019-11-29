@@ -35,11 +35,10 @@ export function carbonIntensityGeneric(size, engineType, brand) {
       throw new Error(`Unknown size ${size}`);
     }
     return cars[size].carbonIntensity;
-  } else {
-    const category = `${size}_${engineType}`;
-    if (!cars[category]) {
-      throw new Error(`Unknown size and type ${size}_${engineType}`);
-    }
-    return cars[category].carbonIntensity;
   }
+  const category = `${size}_${engineType}`;
+  if (!cars[category]) {
+    throw new Error(`Unknown size and type ${size}_${engineType}`);
+  }
+  return cars[category].carbonIntensity;
 }
