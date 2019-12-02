@@ -78,7 +78,7 @@ async function logIn(username, password, logger) {
   if (responseURL.includes('Login')) {
     // highly suspicious that we are redirected to the Login page.
     // we should probably be redirected somewhere else
-    logger.logwarning(`Response URL ${responseURL} unexpectedly contained 'Login'`);
+    logger.logWarning(`Response URL ${responseURL} unexpectedly contained 'Login'`);
   }
   if (responseURL.includes('messages')) {
     throw new AuthenticationError('Invalid credentials');
@@ -247,7 +247,7 @@ async function collect(state, logger) {
   // Subtract one day to make sure we always have a full day
   const lastFullyCollectedDay = endMoment.subtract(1, 'day').format('DD/MM/YYYY');
 
-  return { activities, state: { lastFullyCollectedDay } };
+  return { activities, state: { ...state, lastFullyCollectedDay } };
 }
 
 
