@@ -20,10 +20,9 @@ export function carbonIntensityByBrand(brand) {
 
 // look up carbon intensity for cars by size and type
 export function carbonIntensity(size, engineType, brand) {
-  const entry = cars.footprints.find(d => d.size === size && d.engineType === engineType && d.brand === brand)
+  const entry = cars.footprints.find(d => d.size === size && d.engineType === engineType && d.brand === brand);
   if (!entry) {
     throw new Error(`Unknown size and type ${size}_${engineType}`);
   }
   return entry.carbonIntensity;
 }
-
