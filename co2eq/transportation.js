@@ -11,7 +11,6 @@ import {
 } from '../definitions';
 
 import flightEmissions from './flights';
-import { carbonIntensityGeneric } from './car';
 
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'transportation';
@@ -113,7 +112,6 @@ export function carbonEmissions(activity) {
 
   // Take into account the passenger count if this is a car or motorbike
   if (activity.transportationMode === TRANSPORTATION_MODE_CAR || activity.transportationMode === TRANSPORTATION_MODE_MOTORBIKE) {
-    // Take into account if the input for the car was detailed (with brand and model)
     return carbonIntensity(activity.transportationMode) * distanceKilometers / (activity.participants || 1);
   }
   return carbonIntensity(activity.transportationMode) * distanceKilometers;
