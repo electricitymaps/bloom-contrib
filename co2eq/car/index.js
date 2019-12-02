@@ -19,28 +19,11 @@ export function carbonIntensityByBrand(brand) {
 }
 
 // look up carbon intensity for cars by size and type
-export function carbonIntensityGeneric(size, engineType, brand) {
-  if (brand != null) {
-    return carbonIntensityByBrand(brand);
-  }
-  if (size === null && engineType === null) {
-    return cars['average'].carbonIntensity;
-  }
-  if (size === null && engineType != null) {
-    if (!cars[engineType]) {
-      throw new Error(`Unknown engine type ${engineType}`);
-    }
-    return cars[engineType].carbonIntensity;
-  }
-  if (size != null && engineType === null) {
-    if (!cars[size]) {
-      throw new Error(`Unknown size ${size}`);
-    }
-    return cars[size].carbonIntensity;
-  }
-  const category = `${size}_${engineType}`;
-  if (!cars[category]) {
+export function carbonIntensity(size, engineType, brand) {
+  const entry = cars.footprints.find(d => d.size === size && d.engineType === engineType && d.brand === brand)
+  if (!entry) {
     throw new Error(`Unknown size and type ${size}_${engineType}`);
   }
-  return cars[category].carbonIntensity;
+  return entry.carbonIntensity;
 }
+
