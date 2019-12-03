@@ -219,7 +219,7 @@ async function fetchActivities(frequency, startDate, endDate, logger) {
       };
     })
     .filter((d) => {
-      if (d.durationHours !== 24) {
+      if (d.durationHours === 24) {
         return true;
       }
       logger.logWarning(`Ignoring activity from ${d.datetime.toISOString()} with ${d.durationHours} hours instead of 24`);
