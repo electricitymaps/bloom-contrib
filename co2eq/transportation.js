@@ -27,8 +27,14 @@ export const explanation = {
 
 export const modelCanRunVersion = 1;
 export function modelCanRun(activity) {
-  const { transportationMode, distanceKilometers, durationHours } = activity;
-  if (transportationMode && (distanceKilometers || durationHours)) {
+  const {
+    transportationMode,
+    distanceKilometers,
+    durationHours,
+    departureAirportCode,
+    destinationAirportCode,
+  } = activity;
+  if (transportationMode && (distanceKilometers || durationHours || (departureAirportCode && destinationAirportCode))) {
     return true;
   }
 
