@@ -14,6 +14,15 @@ export const explanation = {
   ],
 };
 
+export const modelCanRunVersion = 1;
+export function modelCanRun(activity) {
+  const { hotelClass, durationHours } = activity;
+  if (hotelClass && durationHours) {
+    return true;
+  }
+
+  return false;
+}
 /*
 The carbon intensity is per night stayed
 */

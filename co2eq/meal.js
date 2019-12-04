@@ -25,6 +25,16 @@ export const explanation = {
   ],
 };
 
+export const modelCanRunVersion = 1;
+export function modelCanRun(activity) {
+  const { mealType, ingredients } = activity;
+  if (mealType || (ingredients && Object.keys(ingredients).length > 0)) {
+    return true;
+  }
+
+  return false;
+}
+
 const foodBranch = getEntryByPath([PURCHASE_CATEGORY_FOOD]);
 const ingredients = getDescendants(foodBranch);
 export const INGREDIENT_KEYS = Object.keys(ingredients);

@@ -79,7 +79,30 @@ export function getDescendants(entry, filter = (_ => true), includeRoot = false)
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'purchase';
 export const modelVersion = `3_${getChecksumOfFootprints()}`; // This model relies on footprints.yaml
+export const modelCanRunVersion = 1;
+export function modelCanRun(activity) {
+  const {
+    costAmount, costCurrency, activityType, transportationMode, purchaseType,
+  } = activity;
+  if (costAmount && costCurrency) {
+    if (activityType === ACTIVITY_TYPE_MEAL) return true;
+    if (activityType === ACTIVITY_TYPE_TRANSPORTATION) {
+      switch (transportationMode) {
+        case TRANSPORTATION_MODE_CAR:
+        case TRANSPORTATION_MODE_TRAIN:
+        case TRANSPORTATION_MODE_PLANE:
+          return true;
+        default:
+          return false;
+      }
+    }
+    if (activityType === ACTIVITY_TYPE_PURCHASE && purchaseType) {
+      return true;
+    }
+  }
 
+  return false;
+}
 function correctWithParticipants(footprint, participants) {
   return footprint / (participants || 1);
 }
