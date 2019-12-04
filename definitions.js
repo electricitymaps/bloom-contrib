@@ -65,15 +65,15 @@ export const PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_SERVICE = 'Automotive s
 
 // Car
 // Size (values are used in co2eq/car/cars.json)
-export const EUROCARSEGMENT_A = 'A';  // corresponds to size "Mini" in https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
-export const EUROCARSEGMENT_B = 'B';  // corresponds to size "Supermini" in https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
-export const EUROCARSEGMENT_C = 'C';  // corresponds to size "Lower medium" in https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
-export const EUROCARSEGMENT_D = 'D';  // corresponds to size "Upper medium" in https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
-export const EUROCARSEGMENT_E = 'E';  // corresponds to size "Executive" in https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
-export const EUROCARSEGMENT_F = 'F';  // corresponds to size "Luxury" in https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
-export const EUROCARSEGMENT_S = 'S';  // corresponds to size "Sports" in https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
-export const EUROCARSEGMENT_J = 'J';  // corresponds to size "Dual purpose 4X4" in https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
-export const EUROCARSEGMENT_M = 'M';  // corresponds to size "MPV" in https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
+export const EUROCARSEGMENT_A = 'A'; // corresponds to size "Mini" in https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
+export const EUROCARSEGMENT_B = 'B'; // corresponds to size "Supermini" in https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
+export const EUROCARSEGMENT_C = 'C'; // corresponds to size "Lower medium" in https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
+export const EUROCARSEGMENT_D = 'D'; // corresponds to size "Upper medium" in https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
+export const EUROCARSEGMENT_E = 'E'; // corresponds to size "Executive" in https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
+export const EUROCARSEGMENT_F = 'F'; // corresponds to size "Luxury" in https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
+export const EUROCARSEGMENT_S = 'S'; // corresponds to size "Sports" in https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
+export const EUROCARSEGMENT_J = 'J'; // corresponds to size "Dual purpose 4X4" in https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
+export const EUROCARSEGMENT_M = 'M'; // corresponds to size "MPV" in https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
 // Engine type (values are used in co2eq/car/cars.json)
 export const ENGINETYPE_DIESEL = 'diesel';
 export const ENGINETYPE_PETROL = 'petrol';
