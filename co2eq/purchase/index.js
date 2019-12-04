@@ -88,15 +88,20 @@ function extractEur(activity) {
     ? convertToEuro(activity.costAmount, activity.costCurrency)
     : null;
 }
-function extractUnitAndAmount(activity) {
+function extractComptabileUnitAndAmount(activity, entry) {
   const eurAmount = extractEur(activity);
-  if (eurAmount != null) {
-    return { unit: UNIT_MONETARY_EUR, amount: eurAmount };
-  }
-  if (activity.volumeLiters != null) {
+  // TODO(olc): Also look at potential available conversions
+  const availableEntryUnit = entry.unit;
+  if (availableEntryUnit === UNIT_LITER && activity.volumeLiters != null) {
     return { unit: UNIT_LITER, amount: activity.volumeLiters };
   }
-  return { unit: UNIT_ITEM, amount: 1 };
+  if (availableEntryUnit === UNIT_MONETARY_EUR && eurAmount != null) {
+    return { unit: UNIT_MONETARY_EUR, amount: eurAmount };
+  }
+  if (availableEntryUnit === UNIT_ITEM) {
+    return { unit: UNIT_ITEM, amount: 1 };
+  }
+  throw new Error(`Activity ${JSON.stringify(activity)} is not compatible with unit ${entry.unit}.`);
 }
 
 /*
@@ -141,9 +146,9 @@ export function carbonEmissions(activity) {
         throw new Error(`Missing carbon intensity for purchaseType: ${purchaseType}`);
       }
 
-      const { unit, amount } = extractUnitAndAmount(activity);
+      const { unit, amount } = extractComptabileUnitAndAmount(activity, entry);
       if (unit == null || amount == null || !Number.isFinite(amount)) {
-        throw new Error(`Invalid unit ${unit} or amount ${amount}`);
+        throw new Error(`Invalid unit ${unit} or amount ${amount} for purchaseType ${purchaseType}. Expected ${entry.unit}`);
       }
 
       if (entry.unit !== unit) {
