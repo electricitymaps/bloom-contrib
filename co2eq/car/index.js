@@ -10,9 +10,7 @@ export const explanation = {};
 
 export const modelCanRunVersion = 1;
 export function modelCanRun(activity) {
-  const {
-    activityType, transportationMode, euroCarSegment, engineType, brand,
-  } = activity;
+  const { activityType, transportationMode } = activity;
   if (activityType === ACTIVITY_TYPE_TRANSPORTATION && transportationMode === TRANSPORTATION_MODE_CAR) {
     return true;
   }
