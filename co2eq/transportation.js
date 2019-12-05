@@ -25,6 +25,22 @@ export const explanation = {
   ],
 };
 
+export const modelCanRunVersion = 1;
+export function modelCanRun(activity) {
+  const {
+    transportationMode,
+    distanceKilometers,
+    durationHours,
+    departureAirportCode,
+    destinationAirportCode,
+  } = activity;
+  if (transportationMode && (distanceKilometers || durationHours || (departureAirportCode && destinationAirportCode))) {
+    return true;
+  }
+
+  return false;
+}
+
 /*
 Carbon intensity of transportation (kgCO2 per passenger and per km)
 */
