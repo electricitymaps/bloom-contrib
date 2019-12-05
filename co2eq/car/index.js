@@ -10,11 +10,13 @@ export const explanation = {};
 
 export const modelCanRunVersion = 1;
 export function modelCanRun(activity) {
-  const { transportationMode, euroCarSegment, engineType, brand } = activity;
-  if (transportationMode != TRANSPORTATION_MODE_CAR) {
-    return false;
+  const {
+    transportationMode, euroCarSegment, engineType, brand,
+  } = activity;
+  if (transportationMode === TRANSPORTATION_MODE_CAR) {
+    return true;
   }
-  return true;
+  return false;
 }
 
 // look up carbonIntensity by brand name
