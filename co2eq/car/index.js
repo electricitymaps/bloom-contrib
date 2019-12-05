@@ -1,6 +1,22 @@
 import {
   ACTIVITY_TYPE_TRANSPORTATION,
   TRANSPORTATION_MODE_CAR,
+  EUROCARSEGMENT_A,
+  EUROCARSEGMENT_B,
+  EUROCARSEGMENT_C,
+  EUROCARSEGMENT_D,
+  EUROCARSEGMENT_E,
+  EUROCARSEGMENT_F,
+  EUROCARSEGMENT_S,
+  EUROCARSEGMENT_J,
+  EUROCARSEGMENT_M,
+  ENGINETYPE_DIESEL,
+  ENGINETYPE_PETROL,
+  ENGINETYPE_PLUGIN_HYBRID_ELECTRIC,
+  ENGINETYPE_BATTERY_ELECTRIC,
+  ENGINETYPE_HYBRID,
+  ENGINETYPE_LPG,
+  ENGINETYPE_CNG
 } from '../../definitions';
 import cars from './cars.json';
 
@@ -10,11 +26,11 @@ export const explanation = {};
 
 export const modelCanRunVersion = 1;
 export function modelCanRun(activity) {
-  const {euroCarSegment, engineType, brand} = activity;
-  if (brand) {
-    return carbonIntensityByBrand(brand);
+  const {transportationMode, euroCarSegment, engineType, brand} = activity;
+  if (transportationMode != TRANSPORTATION_MODE_CAR) {
+    return false;
   }
-  return carbonIntensity(euroCarSegment, engineType, brand);
+  return true;
 }
 
 // look up carbonIntensity by brand name
