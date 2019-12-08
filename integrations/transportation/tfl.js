@@ -124,9 +124,28 @@ async function collect(state) {
       throw new HTTPError(e);
     });
 
-  const oysterCards = oysterCardResponse.OysterCards;
+  // Update contactless cards
+  const contactlessCardResponse = await fetch(`${BASE_PATH}/Contactless/Cards`, {
+    method: 'get',
+    headers: {
+      'x-zumo-auth': newState.accessToken,
+    },
+  })
+    .then(response => response.json())
+    .catch((e) => {
+      throw new HTTPError(e);
+    });
 
-  newState.oysterCardNumbers = oysterCards.map(oc => oc.OysterCardNumber);
+  const oysterCards = oysterCardResponse.OysterCards;
+  const contactlessCards = contactlessCardResponse;
+
+  newState.oysterCardNumbers = oysterCards && oysterCards.length > 0
+    ? oysterCards.map(oc => oc.OysterCardNumber)
+    : [];
+
+  newState.contactlessCardIds = contactlessCards && contactlessCards.length > 0
+    ? contactlessCards.map(cc => cc.Id)
+    : [];
 
   const today = moment().startOf('day');
   let startDate = state.lastUpdate ? moment(state.lastUpdate).startOf('day') : moment().subtract(56, 'days').startOf('day'); // Max data range is 56 days
