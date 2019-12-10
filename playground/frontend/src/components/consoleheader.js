@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 import {
   Grid,
@@ -6,20 +6,20 @@ import {
   Checkbox,
   FormControlLabel,
   IconButton,
-  Tooltip
-} from "@material-ui/core";
-import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
-import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
+  Tooltip,
+} from '@material-ui/core';
+import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
+import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 
 // Same as defined here in TS type: https://github.com/samdenty/console-feed#log-methods
 const consoleMethods = new Set([
-  "log",
-  "warn",
-  "error",
-  "info",
-  "debug",
-  "command",
-  "result"
+  'log',
+  'warn',
+  'error',
+  'info',
+  'debug',
+  'command',
+  'result',
 ]);
 
 export default function ConsoleHeader({
@@ -28,9 +28,9 @@ export default function ConsoleHeader({
   filters,
   updateFilters,
   direction,
-  updateDirection
+  updateDirection,
 }) {
-  const handleFilterChange = event => {
+  const handleFilterChange = (event) => {
     event.persist();
     const value = event && event.currentTarget && event.currentTarget.value;
 
@@ -40,8 +40,7 @@ export default function ConsoleHeader({
     updateFilters(updatedFilters);
   };
 
-  const oppositeDirection =
-    direction === "descending" ? "ascending" : "descending";
+  const oppositeDirection = direction === 'descending' ? 'ascending' : 'descending';
 
   const filterButton = (
     <Tooltip
@@ -52,11 +51,11 @@ export default function ConsoleHeader({
         aria-label={`sort-${oppositeDirection}`}
         onClick={() =>
           updateDirection(
-            direction === "descending" ? "ascending" : "descending"
+            direction === 'descending' ? 'ascending' : 'descending'
           )
         }
       >
-        {direction === "descending" ? (
+        {direction === 'descending' ? (
           <ArrowDownwardIcon />
         ) : (
           <ArrowUpwardIcon />
@@ -85,12 +84,13 @@ export default function ConsoleHeader({
         {[...consoleMethods].map(m => (
           <FormControlLabel
             key={m}
-            control={
+            control={(
               <Checkbox
                 value={m}
                 checked={filters.includes(m)}
                 onChange={handleFilterChange}
               />
+              )
             }
             label={m}
             labelPlacement="bottom"
