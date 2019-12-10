@@ -1997,6 +1997,11 @@ _children:
                 kilograms: 0.024
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          Dill:
+            icon: null
+            intensityKilograms: 0.221
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg                    
           Endive:
             icon: null
             intensityKilograms: 0.065
@@ -2017,11 +2022,22 @@ _children:
             intensityKilograms: 0.57
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+          Green onion:
+           # remember to update Scallion as well
+            icon: null
+            intensityKilograms: 0.085
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg            
           Ginger:
             icon: null
             intensityKilograms: 0.88
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+          Horseradish:
+            icon: null
+            intensityKilograms: 0.88
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg  
           Kale:
             icon: null
             intensityKilograms: 0.193
@@ -2127,6 +2143,12 @@ _children:
                 kilograms: 0.047
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          Scallion:
+           # remember to update Green Onion as well
+            icon: null
+            intensityKilograms: 0.085
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg                   
           Shallot:
             icon: null
             intensityKilograms: 0.275
