@@ -6,6 +6,18 @@ import env from '../loadEnv';
 const LOGIN_PATH = 'https://account.tfl.gov.uk/api/login';
 const BASE_PATH = 'https://mobileapi.tfl.gov.uk';
 
+async function request(url, opts) {
+  try {
+    const response = await fetch(url, opts);
+    if (!response.ok) {
+      throw new Error(response);
+    }
+    return await response.json();
+  } catch (err) {
+    throw new HTTPError(err);
+  }
+}
+
 function generateOysterActivities(travelDays) {
   const activities = [];
   travelDays.forEach((day) => {
@@ -26,20 +38,6 @@ function generateOysterActivities(travelDays) {
     });
   });
   return activities;
-}
-
-async function fetchOysterData(accessToken, oysterCardNumber, startMoment, endMoment) {
-  // Max 7 days data fetch allowed
-  return fetch(`${BASE_PATH}/Cards/Oyster/Journeys?startDate=${startMoment.format(moment.HTML5_FMT.DATE)}&endDate=${endMoment.format(moment.HTML5_FMT.DATE)}`, {
-    method: 'get',
-    headers: {
-      'x-zumo-auth': accessToken,
-      oystercardnumber: oysterCardNumber,
-    },
-  })
-    .catch((e) => {
-      throw new HTTPError(e);
-    });
 }
 
 async function fetchOysterCardTravelDays(newState) {
@@ -63,24 +61,20 @@ async function fetchOysterCardTravelDays(newState) {
         : moment(fetchStart).add(6, 'days'); // Make sure query is no further than today
 
       apiPromises.push(
-        fetchOysterData(
-          accessToken,
-          oysterCardNumber,
-          fetchStart,
-          fetchEnd
-        )
-          .then(response => response.json())
+        request(`${BASE_PATH}/Cards/Oyster/Journeys?startDate=${fetchStart.format(moment.HTML5_FMT.DATE)}&endDate=${fetchEnd.format(moment.HTML5_FMT.DATE)}`, {
+          method: 'get',
+          headers: {
+            'x-zumo-auth': accessToken,
+            oystercardnumber: oysterCardNumber,
+          },
+        })
       );
       // Add one day to the end date to get the new start date
       fetchStart = moment(fetchEnd).add(1, 'days');
     }
   });
-  try {
-    const apiResponses = await Promise.all(apiPromises);
-    return apiResponses.reduce((accumulator, json) => (json && json.TravelDays.length > 0 ? [...accumulator, ...json.TravelDays] : accumulator), []);
-  } catch (err) {
-    throw new HTTPError(err);
-  }
+  const apiResponses = await Promise.all(apiPromises);
+  return apiResponses.reduce((accumulator, json) => (json && json.TravelDays.length > 0 ? [...accumulator, ...json.TravelDays] : accumulator), []);
 }
 
 function generateContactlessActivities(travelDays) {
@@ -103,23 +97,6 @@ function generateContactlessActivities(travelDays) {
   return activities;
 }
 
-async function fetchContactlessData(accessToken, contactlessCardId, startMoment, endMoment) {
-  const url = `${BASE_PATH}/contactless/statements/journeys`;
-  const opts = {
-    method: 'get',
-    headers: {
-      'x-zumo-auth': accessToken,
-      'contactless-card-id': contactlessCardId,
-      'from-date': startMoment.format(moment.HTML5_FMT.DATE),
-      'to-date': endMoment.format(moment.HTML5_FMT.DATE),
-    },
-  };
-  return fetch(url, opts)
-    .catch((e) => {
-      throw new HTTPError(e);
-    });
-}
-
 async function fetchContactlessCardTravelDays(newState) {
   const { contactlessCardIds, accessToken } = newState;
   const today = moment().startOf('day');
@@ -140,25 +117,22 @@ async function fetchContactlessCardTravelDays(newState) {
         : moment(fetchStart).add(30, 'days'); // Make sure query is no further than today
 
       apiPromises.push(
-        fetchContactlessData(
-          accessToken,
-          contactlessCardId,
-          fetchStart,
-          fetchEnd
-        )
-          .then(response => response.json())
+        request(`${BASE_PATH}/contactless/statements/journeys`, {
+          method: 'get',
+          headers: {
+            'x-zumo-auth': accessToken,
+            'contactless-card-id': contactlessCardId,
+            'from-date': fetchStart.format(moment.HTML5_FMT.DATE),
+            'to-date': fetchEnd.format(moment.HTML5_FMT.DATE),
+          },
+        })
       );
       // Add one day to the end date to get the new fetch start
       fetchStart = moment(fetchEnd).add(1, 'days');
     }
   });
-  try {
-    const apiResponses = await Promise.all(apiPromises);
-
-    return apiResponses.reduce((accumulator, json) => (json && json.Days.length > 0 ? [...accumulator, ...json.Days] : accumulator), []);
-  } catch (err) {
-    throw new HTTPError(err);
-  }
+  const apiResponses = await Promise.all(apiPromises);
+  return apiResponses.reduce((accumulator, json) => (json && json.Days.length > 0 ? [...accumulator, ...json.Days] : accumulator), []);
 }
 
 async function connect(requestLogin) {
@@ -173,31 +147,23 @@ async function connect(requestLogin) {
     AppId: env.TFL_APP_ID,
   };
 
-  const loginResponse = await fetch(LOGIN_PATH, {
+  const loginResponse = await request(LOGIN_PATH, {
     method: 'post',
     headers: {
       'Content-type': 'application/json',
     },
     body: JSON.stringify(postBody),
-  })
-    .then(response => response.json())
-    .catch((e) => {
-      throw new HTTPError(e);
-    });
+  });
 
   if (!loginResponse.SecurityToken) throw new AuthenticationError('Login failed');
 
-  const apiTokenResponse = await fetch(`${BASE_PATH}/APITokens`, {
+  const apiTokenResponse = await request(`${BASE_PATH}/APITokens`, {
     method: 'get',
     headers: {
       code: loginResponse.SecurityToken,
       grant_type: 'authorization_code',
     },
-  })
-    .then(response => response.json())
-    .catch((e) => {
-      throw new HTTPError(e);
-    });
+  });
 
   return {
     securityToken: loginResponse.SecurityToken,
@@ -207,24 +173,20 @@ async function connect(requestLogin) {
   };
 }
 
-async function collect(state) {
+async function collect(state, logger) {
   const newState = {
     ...state,
   };
 
   if (newState.tokenExpiresAt < Date.now()) {
     // Get access token using the refresh token
-    const refreshTokenResponse = await fetch(`${BASE_PATH}/APITokens/RefreshToken`, {
+    const refreshTokenResponse = await request(`${BASE_PATH}/APITokens/RefreshToken`, {
       method: 'get',
       headers: {
         refresh_token: state.refreshToken,
         access_token: state.accessToken,
       },
-    })
-      .then(response => response.json())
-      .catch((e) => {
-        throw new HTTPError(e);
-      });
+    });
 
     // Update state with new tokens
     newState.accessToken = refreshTokenResponse.access_token;
@@ -232,28 +194,20 @@ async function collect(state) {
   }
 
   // Update oyster cards
-  const oysterCardResponse = await fetch(`${BASE_PATH}/Cards/Oyster`, {
+  const oysterCardResponse = await request(`${BASE_PATH}/Cards/Oyster`, {
     method: 'get',
     headers: {
       'x-zumo-auth': newState.accessToken,
     },
-  })
-    .then(response => response.json())
-    .catch((e) => {
-      throw new HTTPError(e);
-    });
+  });
 
   // Update contactless cards
-  const contactlessCardResponse = await fetch(`${BASE_PATH}/Contactless/Cards`, {
+  const contactlessCardResponse = await request(`${BASE_PATH}/Contactless/Cards`, {
     method: 'get',
     headers: {
       'x-zumo-auth': newState.accessToken,
     },
-  })
-    .then(response => response.json())
-    .catch((e) => {
-      throw new HTTPError(e);
-    });
+  });
 
   const oysterCards = oysterCardResponse.OysterCards;
   const contactlessCards = contactlessCardResponse;
@@ -266,9 +220,12 @@ async function collect(state) {
     ? contactlessCards.map(cc => cc.Id)
     : [];
 
+  logger.logDebug(`${newState.oysterCardNumbers.length} oyster cards found`);
+  logger.logDebug(`${newState.contactlessCardIds.length} contactless cards found`);
 
   const oysterCardTravelDays = await fetchOysterCardTravelDays(newState);
   const contactlessCardTravelDays = await fetchContactlessCardTravelDays(newState);
+
   const activities = [
     ...generateOysterActivities(oysterCardTravelDays),
     ...generateContactlessActivities(contactlessCardTravelDays),
