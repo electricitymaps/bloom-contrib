@@ -12,6 +12,7 @@ import {
 import RunIcon from '@material-ui/icons/DoubleArrow';
 
 import ResultsTable from './components/resultstable';
+import Console from './components/console';
 
 const deSerializeError = obj => Object.assign(new Error(), { stack: undefined }, obj);
 
@@ -170,6 +171,9 @@ class App extends React.Component {
             </Grid>
             <Grid item xs={9}>
               <ResultsTable data={results} />
+            </Grid>
+            <Grid item xs={12}>
+              <Console />
             </Grid>
           </Grid>
         </div>

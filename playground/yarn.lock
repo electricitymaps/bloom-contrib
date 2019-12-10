@@ -1571,7 +1571,9 @@ contrib@../:
     moment "^2.23.0"
     oauth-1.0a "^2.2.5"
     superagent "^4.1.0"
+    tiny-hashes "^1.0.1"
     uuid "^3.3.2"
+    whatwg-url "^7.0.0"
     xmldom "^0.1.27"
 
 convert-css-length@^2.0.1:
@@ -4730,6 +4732,11 @@ timers-browserify@^2.0.4:
   resolved "https://registry.yarnpkg.com/timers-browserify/-/timers-browserify-2.0.11.tgz#800b1f3eee272e5bc53ee465a04d0e804c31211f"
   dependencies:
     setimmediate "^1.0.4"
+
+tiny-hashes@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/tiny-hashes/-/tiny-hashes-1.0.1.tgz#ddbe9060312ddb4efe0a174bb3a27e1331c425a1"
+  integrity sha512-knIN5zj4fl7kW4EBU5sLP20DWUvi/rVouvJezV0UAym2DkQaqm365Nyc8F3QEiOvunNDMxR8UhcXd1d5g+Wg1g==
 
 tiny-warning@^1.0.2:
   version "1.0.3"
