@@ -10,6 +10,7 @@ import {
 } from '@material-ui/core';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
+import ClearIcon from '@material-ui/icons/Clear';
 
 // Same as defined here in TS type: https://github.com/samdenty/console-feed#log-methods
 const consoleMethods = new Set([
@@ -29,6 +30,7 @@ export default function ConsoleHeader({
   updateFilters,
   direction,
   updateDirection,
+  onClearConsole
 }) {
   const handleFilterChange = (event) => {
     event.persist();
@@ -60,6 +62,20 @@ export default function ConsoleHeader({
         ) : (
           <ArrowUpwardIcon />
         )}
+      </IconButton>
+    </Tooltip>
+  );
+
+  const clearButton = (
+    <Tooltip
+      title="Clear console output"
+      aria-label="clear-console-output"
+    >
+      <IconButton
+        aria-label={`sort-${oppositeDirection}`}
+        onClick={onClearConsole}
+      >
+        <ClearIcon />
       </IconButton>
     </Tooltip>
   );
@@ -96,6 +112,7 @@ export default function ConsoleHeader({
             labelPlacement="bottom"
           />
         ))}
+        {clearButton}
       </Grid>
     </>
   );

@@ -17,12 +17,16 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+/**
+ * Sets up a hook to capture all console method calls
+ * Don't use console.log calls within this component (and its children), since it will trigger an infinite loop!
+ */
 export default function Console() {
   const classes = useStyles();
 
   const [logs, setLogs] = useState([]);
   const [searchValue, setSearchValue] = useState();
-  // See the values for console methods defined in consoleHeader.js
+  // See the constants for console methods defined in consoleHeader.js. If leaving empty, it will display all log entries
   const [filters, setFilters] = useState(['error']);
   const [direction, setDirection] = useState('descending');
 
@@ -35,7 +39,9 @@ export default function Console() {
     return () => window && Unhook(window.console);
   }, []);
 
-  if (!logs.length) return null;
+  function handleClearConsole() {
+    setLogs([]);
+  }
 
   return (
     <Paper className={classes.wrapper}>
@@ -48,11 +54,12 @@ export default function Console() {
             updateFilters={setFilters}
             direction={direction}
             updateDirection={setDirection}
+            onClearConsole={handleClearConsole}
           />
         </Grid>
         <Grid item style={{ backgroundColor: 'grey', margin: '0px' }} xs={12}>
           <ConsoleLib
-            logs={direction === 'descending' ? [...logs.reverse()] : logs}
+            logs={direction === 'descending' ? [...logs.reverse()] : [...logs]}
             variant="light" // TODO(df): If the whole playground would accept a theme, would be nice if this could be current viewers theme dependent.
             searchKeywords={searchValue}
             filter={filters}
