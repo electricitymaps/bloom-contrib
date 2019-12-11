@@ -214,8 +214,12 @@ async function fetchActivities(frequency, startDate, endDate, logger) {
         activityType: ACTIVITY_TYPE_ELECTRICITY,
         energyWattHours: processedValues
           .reduce((a, b) => a + b, 0),
-        durationHours: processedValues.length,
-        hourlyEnergyWattHours: processedValues,
+        durationHours: frequency === 'hour'
+          ? processedValues.length
+          : 24,
+        hourlyEnergyWattHours: frequency === 'hour'
+          ? processedValues
+          : undefined,
       };
     })
     .filter((d) => {
