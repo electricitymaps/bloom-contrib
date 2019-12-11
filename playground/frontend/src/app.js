@@ -173,7 +173,7 @@ class App extends React.Component {
               <ResultsTable data={results} />
             </Grid>
             <Grid item xs={12}>
-              <Console />
+              <Console key={selectedIntegration} />
             </Grid>
           </Grid>
         </div>
