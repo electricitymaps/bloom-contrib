@@ -28,6 +28,7 @@ class App extends React.Component {
       username: null,
       password: null,
       results: [],
+      logs: [],
     };
   }
 
@@ -71,6 +72,9 @@ class App extends React.Component {
             console.log(log.obj);
         }
       });
+      this.setState(prevState => ({
+        logs: [...prevState.logs, ...logs],
+      }));
       console.log('############### END EXECUTION LOGS ###############');
     });
     socket.on('runResults', (results) => {
@@ -101,6 +105,13 @@ class App extends React.Component {
   handleChange = (event) => {
     this.setState({
       selectedIntegration: event.target.value,
+      logs: [],
+    });
+  }
+
+  handleClearLogs = () => {
+    this.setState({
+      logs: [],
     });
   }
 
@@ -110,6 +121,7 @@ class App extends React.Component {
       integrations,
       selectedIntegration,
       results,
+      logs,
     } = this.state;
     return (
       <div className="App">
@@ -173,7 +185,7 @@ class App extends React.Component {
               <ResultsTable data={results} />
             </Grid>
             <Grid item xs={12}>
-              <Console key={selectedIntegration} />
+              <Console logs={logs} onClearLogs={this.handleClearLogs} />
             </Grid>
           </Grid>
         </div>

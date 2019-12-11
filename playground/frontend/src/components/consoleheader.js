@@ -12,15 +12,12 @@ import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import ClearIcon from '@material-ui/icons/Clear';
 
-// Same as defined here in TS type: https://github.com/samdenty/console-feed#log-methods
-const consoleMethods = new Set([
-  'log',
-  'warn',
+
+// As defined here: https://github.com/tmrowco/tmrowapp-contrib/blob/master/playground/server/index.js#L77-L81
+export const logLevels = new Set([
   'error',
-  'info',
+  'warn',
   'debug',
-  'command',
-  'result',
 ]);
 
 export default function ConsoleHeader({
@@ -95,7 +92,7 @@ export default function ConsoleHeader({
         </form>
       </Grid>
       <Grid item container xs={12} sm={6} justify="flex-end">
-        {[...consoleMethods].map(m => (
+        {[...logLevels].map(m => (
           <FormControlLabel
             key={m}
             control={(

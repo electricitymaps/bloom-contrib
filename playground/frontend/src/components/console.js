@@ -1,14 +1,34 @@
 import React, { 
   useState, 
-  useEffect,
 } from 'react';
 import { 
-  Hook, Unhook, Console as ConsoleLib, Decode,
+  Console as ConsoleLib,
 } from 'console-feed';
 
 import { Grid, Paper, makeStyles } from '@material-ui/core';
 
 import ConsoleHeader from './consoleheader';
+
+/**
+ * Maps log levels to console API methods
+ * @param {*} logLevel 
+ */
+function mapLevelToMethods(logLevel) {
+  switch (logLevel) {
+    case 'debug':
+      return 'log';
+    default:
+      return logLevel;
+  }
+}
+
+/**
+ * Converts server side logs (as defined: https://github.com/tmrowco/tmrowapp-contrib/blob/master/playground/server/index.js#L71-L76) to internal console feed format
+ * @param {*} logs 
+ */
+function transformToConsoleFeedFormat(logs) {
+  return logs.map(l => ({ method: mapLevelToMethods(l.level), data: [l.obj] }));
+}
 
 const useStyles = makeStyles(theme => ({
   wrapper: {},
@@ -17,34 +37,20 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-/**
- * Sets up a hook to capture all console method calls
- * Don't use console.log calls within this component (and its children), since it will trigger an infinite loop!
- */
-export default function Console() {
+export default function Console({ logs, onClearLogs }) {
   const classes = useStyles();
 
-  const [logs, setLogs] = useState([]);
   const [searchValue, setSearchValue] = useState();
   // See the constants for console methods defined in consoleHeader.js. If leaving empty, it will display all log entries
   const [filters, setFilters] = useState(['error']);
   const [direction, setDirection] = useState('descending');
 
-  useEffect(() => {
-    // eslint-disable-next-line arrow-parens
-    Hook(window.console, log => {
-      setLogs(oldLogs => (direction === 'descending' ? [Decode(log), ...oldLogs] : [...oldLogs, Decode(log)]));
-    });
-
-    return () => window && Unhook(window.console);
-  }, [direction]);
-
   function handleClearConsole() {
-    setLogs([]);
+    onClearLogs();
   }
 
+
   function handleDirectionChange() {
-    setLogs(oldLogs => [...oldLogs].reverse());
     setDirection(oldDirection => (oldDirection === 'descending' ? 'ascending' : 'descending'));
   }
 
@@ -64,10 +70,10 @@ export default function Console() {
         </Grid>
         <Grid item style={{ backgroundColor: 'grey', margin: '0px' }} xs={12}>
           <ConsoleLib
-            logs={logs}
+            logs={direction === 'descending' ? transformToConsoleFeedFormat(logs).reverse() : transformToConsoleFeedFormat(logs)}
             variant="light" // TODO(df): If the whole playground would accept a theme, would be nice if this could be current viewers theme dependent.
             searchKeywords={searchValue}
-            filter={filters}
+            filter={filters.map(f => mapLevelToMethods(f))}
           />
         </Grid>
       </Grid>
