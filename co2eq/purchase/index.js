@@ -96,9 +96,9 @@ export function modelCanRun(activity) {
           return false;
       }
     }
-    if (activityType === ACTIVITY_TYPE_PURCHASE && purchaseType) {
-      return true;
-    }
+  }
+  if (activityType === ACTIVITY_TYPE_PURCHASE && purchaseType) {
+    return true;
   }
 
   return false;
