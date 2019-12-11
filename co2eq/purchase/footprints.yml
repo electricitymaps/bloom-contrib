@@ -2027,7 +2027,7 @@ _children:
             icon: null
             intensityKilograms: 0.085
             source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
-            unit: kg            
+            unit: kg
           Ginger:
             icon: null
             intensityKilograms: 0.88
@@ -2037,7 +2037,7 @@ _children:
             icon: null
             intensityKilograms: 0.88
             source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
-            unit: kg  
+            unit: kg
           Kale:
             icon: null
             intensityKilograms: 0.193
@@ -2148,7 +2148,7 @@ _children:
             icon: null
             intensityKilograms: 0.085
             source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
-            unit: kg                   
+            unit: kg
           Shallot:
             icon: null
             intensityKilograms: 0.275
