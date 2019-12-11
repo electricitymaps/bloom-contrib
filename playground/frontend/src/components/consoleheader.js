@@ -52,9 +52,7 @@ export default function ConsoleHeader({
       <IconButton
         aria-label={`sort-${oppositeDirection}`}
         onClick={() =>
-          updateDirection(
-            direction === 'descending' ? 'ascending' : 'descending'
-          )
+          updateDirection()
         }
       >
         {direction === 'descending' ? (

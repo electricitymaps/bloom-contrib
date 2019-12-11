@@ -33,14 +33,19 @@ export default function Console() {
   useEffect(() => {
     // eslint-disable-next-line arrow-parens
     Hook(window.console, log => {
-      setLogs(oldLogs => [...oldLogs, Decode(log)]);
+      setLogs(oldLogs => (direction === 'descending' ? [Decode(log), ...oldLogs] : [...oldLogs, Decode(log)]));
     });
 
     return () => window && Unhook(window.console);
-  }, []);
+  }, [direction]);
 
   function handleClearConsole() {
     setLogs([]);
+  }
+
+  function handleDirectionChange() {
+    setLogs(oldLogs => [...oldLogs].reverse());
+    setDirection(oldDirection => (oldDirection === 'descending' ? 'ascending' : 'descending'));
   }
 
   return (
@@ -53,13 +58,13 @@ export default function Console() {
             filters={filters}
             updateFilters={setFilters}
             direction={direction}
-            updateDirection={setDirection}
+            updateDirection={handleDirectionChange}
             onClearConsole={handleClearConsole}
           />
         </Grid>
         <Grid item style={{ backgroundColor: 'grey', margin: '0px' }} xs={12}>
           <ConsoleLib
-            logs={direction === 'descending' ? [...logs.reverse()] : [...logs]}
+            logs={logs}
             variant="light" // TODO(df): If the whole playground would accept a theme, would be nice if this could be current viewers theme dependent.
             searchKeywords={searchValue}
             filter={filters}
