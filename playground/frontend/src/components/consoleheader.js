@@ -30,7 +30,7 @@ export default function ConsoleHeader({
   updateFilters,
   direction,
   updateDirection,
-  onClearConsole
+  onClearConsole,
 }) {
   const handleFilterChange = (event) => {
     event.persist();
