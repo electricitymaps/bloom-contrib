@@ -2001,7 +2001,7 @@ _children:
             icon: null
             intensityKilograms: 0.221
             source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
-            unit: kg                    
+            unit: kg
           Endive:
             icon: null
             intensityKilograms: 0.065
