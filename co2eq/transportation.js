@@ -18,8 +18,10 @@ export const modelVersion = '10';
 export const explanation = {
   text: 'Calculations take into account direct emissions from burning fuel and manufacturing of vehicle.',
   links: [
-    // TODO(olc): Link is dead
-    { label: 'IPCC', href: 'https://www.ipcc.ch/ipccreports/sres/aviation/125.htm#tab85' },
+    { label: 'Ducky Climate calculator - documentation', href: 'https://static.ducky.eco/calculator_documentation.pdf' },
+    { label: 'Quantifying CO2 savings of cycling - European Cyclists’ Federation', href: 'https://ecf.com/files/wp-content/uploads/ECF_BROCHURE_EN_planche.pdf.pdf' },
+    { label: 'Greenhouse gas reporting: conversion factors 2019 - DEFRA', href: 'https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019' },
+    { label: 'The myclimate Flight Emission Calculator - myclimate.org', href: 'https://www.myclimate.org/fileadmin/user_upload/myclimate_-_home/01_Information/01_About_myclimate/09_Calculation_principles/Documents/myclimate-flight-calculator-documentation_EN.pdf' },
     { label: 'The environmental impacts of shared dockless electric scooters', href: 'https://iopscience.iop.org/article/10.1088/1748-9326/ab2da8' },
     { label: 'The myclimate Flight Emission Calculator', href: 'https://www.myclimate.org/fileadmin/user_upload/myclimate_-_home/01_Information/01_About_myclimate/09_Calculation_principles/Documents/myclimate-flight-calculator-documentation_EN.pdf' },
   ],
@@ -45,8 +47,6 @@ export function modelCanRun(activity) {
 Carbon intensity of transportation (kgCO2 per passenger and per km)
 */
 function carbonIntensity(mode) {
-  // We use a very crude version of
-  // https://www.ipcc.ch/ipccreports/sres/aviation/125.htm#tab85
   switch (mode) {
     case TRANSPORTATION_MODE_BUS:
       return 103 / 1000.0;
