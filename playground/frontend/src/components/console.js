@@ -42,8 +42,8 @@ export default function Console({ logs, onClearLogs }) {
 
   const [searchValue, setSearchValue] = useState();
   // See the constants for console methods defined in consoleHeader.js. If leaving empty, it will display all log entries
-  const [filters, setFilters] = useState(['error']);
-  const [direction, setDirection] = useState('descending');
+  const [filters, setFilters] = useState([]);
+  const [direction, setDirection] = useState('ascending');
 
   function handleClearConsole() {
     onClearLogs();
