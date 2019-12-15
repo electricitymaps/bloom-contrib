@@ -1,48 +1,14 @@
 import { get } from 'lodash';
 
 import { ACTIVITY_TYPE_TRANSPORTATION } from '../../definitions';
-import { HTTPError, ValidationError, AuthenticationError } from '../utils/errors';
+import { ValidationError, AuthenticationError } from '../utils/errors';
+import parseCookies from '../authentication';
+import request from '../utils/request';
 
 const LOGIN_PATH = 'https://www.thetrainline.com/login-service/api/login';
 const PAST_BOOKINGS_PATH = 'https://www.thetrainline.com/my-account/api/bookings/past';
 
-function parseCookies(response) {
-  const raw = response.headers.raw()['set-cookie'];
-  return raw.map((entry) => {
-    const parts = entry.split(';');
-    const cookiePart = parts[0];
-    return cookiePart;
-  }).join(';');
-}
-
-async function request(url, opts = {}) {
-  if (opts.data) {
-    opts.body = JSON.stringify(opts.data);
-  }
-  try {
-    const response = await fetch(url, {
-      headers: {
-        'Content-type': 'application/json',
-      },
-      ...opts,
-    });
-    if (!response.ok) {
-      throw new Error(response.statusText);
-    }
-    response.data = await response.json();
-    return response;
-  } catch (err) {
-    throw new HTTPError(err.message);
-  }
-}
-
-async function connect(requestLogin, requestWebView, logger) {
-  const { username, password } = await requestLogin();
-
-  if (!(password || '').length) {
-    throw new ValidationError('Password cannot be empty');
-  }
-
+async function login(username, password) {
   const loginResponse = await request(LOGIN_PATH, {
     method: 'post',
     data: {
@@ -50,12 +16,21 @@ async function connect(requestLogin, requestWebView, logger) {
       password,
     },
   });
-
   // Check if authenticated=true on the response body
   if (!loginResponse.data.authenticated) throw new AuthenticationError('Login failed');
 
-  // Save session cookies for use later
-  const cookies = parseCookies(loginResponse);
+  // Save session cookies for authentication in subsequent requests
+  return parseCookies(loginResponse);
+}
+
+
+async function connect(requestLogin, requestWebView, logger) {
+  const { username, password } = await requestLogin();
+
+  if (!(password || '').length) {
+    throw new ValidationError('Password cannot be empty');
+  }
+  const cookies = await login(username, password);
 
   logger.logDebug('Successfully logged into trainline');
 
@@ -71,11 +46,29 @@ async function disconnect() {
 }
 
 async function collect(state) {
-  const pastBookingsRes = await request(PAST_BOOKINGS_PATH, {
-    headers: {
-      cookie: state.cookies,
-    },
-  });
+  const newState = {
+    ...state,
+  };
+
+  let pastBookingsRes;
+
+  try {
+    pastBookingsRes = await request(PAST_BOOKINGS_PATH, {
+      headers: {
+        cookie: newState.cookies,
+      },
+    });
+  } catch (err) {
+    // Sometimes cookies will have expired, so try again
+    const { username, password } = newState;
+    newState.cookies = await login(username, password);
+
+    pastBookingsRes = await request(PAST_BOOKINGS_PATH, {
+      headers: {
+        cookie: newState.cookies, // Updated cookies
+      },
+    });
+  }
 
   const tripResults = get(pastBookingsRes, 'data.pastBookings.results', []);
 
@@ -117,7 +110,7 @@ async function collect(state) {
   });
   return {
     activities,
-    newState: state,
+    newState,
   };
 }
 
