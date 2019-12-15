@@ -1,12 +1,28 @@
 import { get } from 'lodash';
 
-import { ACTIVITY_TYPE_TRANSPORTATION } from '../../definitions';
+import {
+  ACTIVITY_TYPE_TRANSPORTATION,
+  TRANSPORTATION_MODE_TRAIN,
+  TRANSPORTATION_MODE_BUS,
+  TRANSPORTATION_MODE_PUBLIC_TRANSPORT,
+} from '../../definitions';
 import { ValidationError, AuthenticationError } from '../utils/errors';
-import parseCookies from '../authentication';
+import parseCookies from '../authentication/parseCookies';
 import request from '../utils/request';
 
 const LOGIN_PATH = 'https://www.thetrainline.com/login-service/api/login';
 const PAST_BOOKINGS_PATH = 'https://www.thetrainline.com/my-account/api/bookings/past';
+
+function matchTransportMode(modeFromTrainline) {
+  switch (modeFromTrainline) {
+    case 'train':
+      return TRANSPORTATION_MODE_TRAIN;
+    case 'bus':
+      return TRANSPORTATION_MODE_BUS;
+    default:
+      return TRANSPORTATION_MODE_PUBLIC_TRANSPORT;
+  }
+}
 
 async function login(username, password) {
   const loginResponse = await request(LOGIN_PATH, {
@@ -82,7 +98,7 @@ async function collect(state) {
         datetime: outwardDate, // a javascript Date object that represents the start of the activity
         durationHours: get(trip, 'booking.outward.duration') / 60, // a floating point that represents the duration of the activity in decimal hours
         activityType: ACTIVITY_TYPE_TRANSPORTATION,
-        transportationMode: get(trip, 'booking.outward.legs[0].transportMode'), // a variable (from definitions.js) that represents the transportation mode
+        transportationMode: matchTransportMode(get(trip, 'booking.outward.legs[0].transportMode')), // a variable (from definitions.js) that represents the transportation mode
         departureStation: get(trip, 'booking.outward.origin.name'), // (for other travel types) a string that represents the original starting point
         destinationStation: get(trip, 'booking.outward.destination.name'), // (for other travel types) a string that represents the final destination
       });
@@ -102,7 +118,7 @@ async function collect(state) {
         datetime: inwardDate, // a javascript Date object that represents the start of the activity
         durationHours: inwardDuration, // a floating point that represents the duration of the activity in decimal hours
         activityType: ACTIVITY_TYPE_TRANSPORTATION,
-        transportationMode: inwardTransportationMode, // a variable (from definitions.js) that represents the transportation mode
+        transportationMode: matchTransportMode(inwardTransportationMode), // a variable (from definitions.js) that represents the transportation mode
         departureStation: get(trip, 'booking.inward.origin.name'), // (for other travel types) a string that represents the original starting point
         destinationStation: get(trip, 'booking.inward.destination.name'), // (for other travel types) a string that represents the final destination
       });
