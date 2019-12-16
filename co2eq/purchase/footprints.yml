@@ -514,6 +514,12 @@ _children:
         source: 'https://www.apple.com/lae/environment/pdf/products/desktops/Macmini_PER_oct2018.pdf'
         unit: item
         usage: 3%
+      'MacBook 12-inch':
+        icon: laptop
+        intensityKilograms: 233
+        source: 'https://www.apple.com/environment/pdf/products/notebooks/12inch_MacBook_PER_June2019.pdf'
+        unit: item
+        usage: 12%
       'MacBook Air 13-inch':
         icon: laptop
         intensityKilograms: 176
@@ -532,6 +538,12 @@ _children:
         source: 'https://www.apple.com/lae/environment/pdf/products/notebooks/15-inch_MacBookPro_PER_may2019.pdf'
         unit: item
         usage: 21%
+      'MacBook Pro 16-inch':
+        icon: laptop
+        intensityKilograms: 394
+        source: 'https://www.apple.com/environment/pdf/products/notebooks/16-inch_MacBookPro_PER_Nov2019.pdf'
+        unit: item
+        usage: 19%
       'iMac 21.5-inch':
         icon: desktop
         intensityKilograms: 494
@@ -1623,6 +1635,8 @@ _children:
             intensityKilograms: 2.3
             source: 'http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf'
             unit: kg
+            oldKeys:
+              - Peanut Butter
           Peanuts:
             icon: null
             intensityKilograms: 0.83
@@ -1983,6 +1997,11 @@ _children:
                 kilograms: 0.024
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          Dill:
+            icon: null
+            intensityKilograms: 0.221
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
           Endive:
             icon: null
             intensityKilograms: 0.065
@@ -2003,10 +2022,21 @@ _children:
             intensityKilograms: 0.57
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+          Green onion:
+           # remember to update Scallion as well
+            icon: null
+            intensityKilograms: 0.085
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
           Ginger:
             icon: null
             intensityKilograms: 0.88
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            unit: kg
+          Horseradish:
+            icon: null
+            intensityKilograms: 0.88
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
             unit: kg
           Kale:
             icon: null
@@ -2113,6 +2143,12 @@ _children:
                 kilograms: 0.047
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          Scallion:
+           # remember to update Green Onion as well
+            icon: null
+            intensityKilograms: 0.085
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
           Shallot:
             icon: null
             intensityKilograms: 0.275
