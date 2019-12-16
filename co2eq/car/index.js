@@ -43,7 +43,7 @@ function carbonIntensity(euroCarSegment, engineType, brand) {
 Carbon emissions of an activity (in kgCO2eq)
 */
 export function carbonEmissions(activity) {
-  let distanceKilometers = activity.distanceKilometers;
+  let { distanceKilometers } = activity;
   if (!distanceKilometers) {
     // fallback on duration if available
     if ((activity.durationHours || 0) > 0) {
@@ -54,5 +54,5 @@ export function carbonEmissions(activity) {
     }
   }
 
-  return carbonIntensity(activity.size, activity.engineType, activity.brand) * distanceKilometers / (activity.participants || 1);
+  return carbonIntensity(activity.euroCarSegment, activity.engineType, activity.brand) * distanceKilometers / (activity.participants || 1);
 }
