@@ -2243,13 +2243,14 @@ _children:
         intensityKilograms: 0.00026409
         source: https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
         unit: L
-        conversions:
-          kWh:
-            intensityKilograms: 0.02657
-            incrementStepSize: 1
-            source: https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
         oldKeys:
           - Natural Gas
+        conversions:
+          kWh:
+            liter: 100.6096406528
+            incrementStepSize: 1
+            source: https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
+
     icon: gas-pump
     intensityKilograms: 1.186
     oldKeys:
