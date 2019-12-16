@@ -2195,12 +2195,21 @@ _children:
         intensityKilograms: 3.26
         source: 'http://www.bilans-ges.ademe.fr/static/documents/[Base%20Carbone]%20Documentation%20g%C3%A9n%C3%A9rale%20v11.0.pdf'
         unit: L
-      Natural gas:
+      LPG:
         icon: burn
-        intensityKilograms: 0.26409
+        intensityKilograms: 1.88
+        source: 'http://www.bilans-ges.ademe.fr/static/documents/[Base%20Carbone]%20Documentation%20g%C3%A9n%C3%A9rale%20v11.0.pdf'
+        unit: L
+      Natural Gas:
+        icon: burn
+        intensityKilograms: 0.00026409
         source: https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
-        unit: m3
+        unit: L
         conversions:
+          m3:
+            intensityKilograms: 0.26409
+            incrementStepSize: 1
+            source: https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
           kWh:
             intensityKilograms: 0.02657
             incrementStepSize: 1
