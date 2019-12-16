@@ -2231,6 +2231,8 @@ _children:
         intensityKilograms: 3.26
         source: 'http://www.bilans-ges.ademe.fr/static/documents/[Base%20Carbone]%20Documentation%20g%C3%A9n%C3%A9rale%20v11.0.pdf'
         unit: L
+        oldKeys:
+          - Heating Oil
       LPG:
         icon: burn
         intensityKilograms: 1.88
@@ -2242,6 +2244,8 @@ _children:
         source: https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
         unit: L
         conversions:
+        oldKeys:
+          - Natural Gas
         kWh:
             intensityKilograms: 0.02657
             incrementStepSize: 1
