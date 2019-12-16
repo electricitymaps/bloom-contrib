@@ -9,6 +9,11 @@ The app is private-by-design: data will stay on device, unless the user explicit
 
 Feel free to watch [the presentation](https://www.youtube.com/watch?v=keOPXD-ojWY) our Founder Olivier gave to the CopenhagenJS meetup, explaining what a JavaScript developer can do to combat climate change. If you have any questions, want early access to the app or just want to hang out with people fighting climate change with code, join [our Slack community](https://slack.tmrow.com).
 
+## Tomorrow is hiring!
+The company behind the Tomorrow app builds tech to empower organisations and individuals to understand and reduce their carbon footprint.
+
+We're hiring great people to join our team in Copenhagen. Head over to [our jobs page](https://www.tmrow.com/jobs) if you want to help out!
+
 ## Structure of this repository
 
 - `./co2eq`: carbon models
@@ -47,6 +52,7 @@ Community-supported integrations:
 - 🚗 Renault Zoé
 - 🚗 Uber (contributor:[willtonkin](https://github.com/willtonkin))
 - 🚗 Automatic (contributor:[lauvrenn](https://github.com/lauvrenn))
+- 🚗 MinVolkswagen (contributor:[folkev0gn](https://github.com/folkev0gn))
 
 You can [suggest a new integration here](https://github.com/tmrowco/tmrowapp-contrib/issues/new).
 
@@ -101,6 +107,21 @@ Activities require a certain formatting:
   destinationStation, // (for other travel types) a string that represents the final destination
 }
 ```
+
+##### Lodging activity formatting
+```javascript
+{
+  id, // a string that uniquely represents this activity
+  datetime, // a javascript Date object that represents the start of the activity
+  durationHours, // a floating point that represents the duration of the activity in decimal hours
+  activityType: ACTIVITY_TYPE_LODGING,
+  hotelClass, // a variable (from definitions.js) that represents the class of the hotel
+  hotelName, // (optional) a string that represents the name of the hotel
+  locationLon, // (optional) the longitude of the location of the hotel
+  locationLat, // (optional) the latitude of the location of the hotel
+}
+```
+
 ##### Electricity consumption activity formatting
 ```javascript
 {
@@ -110,8 +131,8 @@ Activities require a certain formatting:
   activityType: ACTIVITY_TYPE_ELECTRICITY,
   energyWattHours, // a float that represents the total energy used
   hourlyEnergyWattHours, // (optional) an array of 24 floats that represent the hourly metering values
-  locationLon, // the location of the electricity consumption
-  locationLat, // the location of the electricity consumption
+  locationLon, // (optional) the longitude of the location of the hotel
+  locationLat, // (optional) the latitude of the location of the hotel
 }
 ```
 
@@ -127,7 +148,7 @@ Activities require a certain formatting:
   costCurrency, // a string that represents the currency in which the currency was made
   bankDisplayName, // (required for integrations with banks) a string that represents the banks' name
   bankIdentifier, // (required for integrations with banks) a string that uniquely represents the bank.
-}  
+}
 ```
 
 ### Adding or updating Life Cycle Assessment / Carbon Footprint of purchases and activities
