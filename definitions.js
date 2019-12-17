@@ -63,6 +63,26 @@ export const PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARKING = 'Parking lot'
 export const PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARTS = 'Automotive parts or accessories';
 export const PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_SERVICE = 'Automotive services';
 
+// Car
+// Size (values are used in co2eq/car/cars.json)
+export const EUROCARSEGMENT_A = 'A'; // corresponds to size "Mini" in https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
+export const EUROCARSEGMENT_B = 'B'; // corresponds to size "Supermini" in https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
+export const EUROCARSEGMENT_C = 'C'; // corresponds to size "Lower medium" in https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
+export const EUROCARSEGMENT_D = 'D'; // corresponds to size "Upper medium" in https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
+export const EUROCARSEGMENT_E = 'E'; // corresponds to size "Executive" in https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
+export const EUROCARSEGMENT_F = 'F'; // corresponds to size "Luxury" in https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
+export const EUROCARSEGMENT_S = 'S'; // corresponds to size "Sports" in https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
+export const EUROCARSEGMENT_J = 'J'; // corresponds to size "Dual purpose 4X4" in https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
+export const EUROCARSEGMENT_M = 'M'; // corresponds to size "MPV" in https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
+// Engine type (values are used in co2eq/car/cars.json)
+export const ENGINETYPE_DIESEL = 'diesel';
+export const ENGINETYPE_PETROL = 'petrol';
+export const ENGINETYPE_PLUGIN_HYBRID_ELECTRIC = 'plugInHybridElectric';
+export const ENGINETYPE_BATTERY_ELECTRIC = 'batteryElectric';
+export const ENGINETYPE_HYBRID = 'hybrid';
+export const ENGINETYPE_LPG = 'lpg';
+export const ENGINETYPE_CNG = 'cng';
+
 // Entertainment
 export const PURCHASE_CATEGORY_ENTERTAINMENT_CIGAR_STORES = 'Tobacco store';
 export const PURCHASE_CATEGORY_ENTERTAINMENT_AMUSEMENT_PARKS = 'Amusement park';

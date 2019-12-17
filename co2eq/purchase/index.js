@@ -79,7 +79,30 @@ export function getDescendants(entry, filter = (_ => true), includeRoot = false)
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'purchase';
 export const modelVersion = `3_${getChecksumOfFootprints()}`; // This model relies on footprints.yaml
+export const modelCanRunVersion = 1;
+export function modelCanRun(activity) {
+  const {
+    costAmount, costCurrency, activityType, transportationMode, purchaseType,
+  } = activity;
+  if (costAmount && costCurrency) {
+    if (activityType === ACTIVITY_TYPE_MEAL) return true;
+    if (activityType === ACTIVITY_TYPE_TRANSPORTATION) {
+      switch (transportationMode) {
+        case TRANSPORTATION_MODE_CAR:
+        case TRANSPORTATION_MODE_TRAIN:
+        case TRANSPORTATION_MODE_PLANE:
+          return true;
+        default:
+          return false;
+      }
+    }
+  }
+  if (activityType === ACTIVITY_TYPE_PURCHASE && purchaseType) {
+    return true;
+  }
 
+  return false;
+}
 function correctWithParticipants(footprint, participants) {
   return footprint / (participants || 1);
 }
@@ -88,15 +111,20 @@ function extractEur(activity) {
     ? convertToEuro(activity.costAmount, activity.costCurrency)
     : null;
 }
-function extractUnitAndAmount(activity) {
+function extractComptabileUnitAndAmount(activity, entry) {
   const eurAmount = extractEur(activity);
-  if (eurAmount != null) {
-    return { unit: UNIT_MONETARY_EUR, amount: eurAmount };
-  }
-  if (activity.volumeLiters != null) {
+  // TODO(olc): Also look at potential available conversions
+  const availableEntryUnit = entry.unit;
+  if (availableEntryUnit === UNIT_LITER && activity.volumeLiters != null) {
     return { unit: UNIT_LITER, amount: activity.volumeLiters };
   }
-  return { unit: UNIT_ITEM, amount: 1 };
+  if (availableEntryUnit === UNIT_MONETARY_EUR && eurAmount != null) {
+    return { unit: UNIT_MONETARY_EUR, amount: eurAmount };
+  }
+  if (availableEntryUnit === UNIT_ITEM) {
+    return { unit: UNIT_ITEM, amount: 1 };
+  }
+  throw new Error(`Activity ${JSON.stringify(activity)} is not compatible with unit ${entry.unit}.`);
 }
 
 /*
@@ -141,9 +169,9 @@ export function carbonEmissions(activity) {
         throw new Error(`Missing carbon intensity for purchaseType: ${purchaseType}`);
       }
 
-      const { unit, amount } = extractUnitAndAmount(activity);
+      const { unit, amount } = extractComptabileUnitAndAmount(activity, entry);
       if (unit == null || amount == null || !Number.isFinite(amount)) {
-        throw new Error(`Invalid unit ${unit} or amount ${amount}`);
+        throw new Error(`Invalid unit ${unit} or amount ${amount} for purchaseType ${purchaseType}. Expected ${entry.unit}`);
       }
 
       if (entry.unit !== unit) {

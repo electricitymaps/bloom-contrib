@@ -78,7 +78,7 @@ async function logIn(username, password, logger) {
   if (responseURL.includes('Login')) {
     // highly suspicious that we are redirected to the Login page.
     // we should probably be redirected somewhere else
-    logger.logwarning(`Response URL ${responseURL} unexpectedly contained 'Login'`);
+    logger.logWarning(`Response URL ${responseURL} unexpectedly contained 'Login'`);
   }
   if (responseURL.includes('messages')) {
     throw new AuthenticationError('Invalid credentials');
@@ -214,12 +214,16 @@ async function fetchActivities(frequency, startDate, endDate, logger) {
         activityType: ACTIVITY_TYPE_ELECTRICITY,
         energyWattHours: processedValues
           .reduce((a, b) => a + b, 0),
-        durationHours: processedValues.length,
-        hourlyEnergyWattHours: processedValues,
+        durationHours: frequency === 'hour'
+          ? processedValues.length
+          : 24,
+        hourlyEnergyWattHours: frequency === 'hour'
+          ? processedValues
+          : undefined,
       };
     })
     .filter((d) => {
-      if (d.durationHours !== 24) {
+      if (d.durationHours === 24) {
         return true;
       }
       logger.logWarning(`Ignoring activity from ${d.datetime.toISOString()} with ${d.durationHours} hours instead of 24`);
@@ -247,7 +251,7 @@ async function collect(state, logger) {
   // Subtract one day to make sure we always have a full day
   const lastFullyCollectedDay = endMoment.subtract(1, 'day').format('DD/MM/YYYY');
 
-  return { activities, state: { lastFullyCollectedDay } };
+  return { activities, state: { ...state, lastFullyCollectedDay } };
 }
 
 
