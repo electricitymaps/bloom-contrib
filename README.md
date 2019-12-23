@@ -116,7 +116,7 @@ Activities require a certain formatting:
   durationHours, // a floating point that represents the duration of the activity in decimal hours
   activityType: ACTIVITY_TYPE_LODGING,
   hotelClass, // a variable (from definitions.js) that represents the class of the hotel
-  country, // a variable (from definitions.js) that represents the country of the hotel
+  countryCodeISO2, // the ISO2 country code that represents the country of the hotel
   hotelName, // (optional) a string that represents the name of the hotel
   locationLon, // (optional) the longitude of the location of the hotel
   locationLat, // (optional) the latitude of the location of the hotel
