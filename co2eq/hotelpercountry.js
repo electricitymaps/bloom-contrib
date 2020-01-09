@@ -9,14 +9,25 @@ export const explanation = {
   ],
 };
 
+export const modelCanRunVersion = 1;
+export function modelCanRun(activity) {
+  const { countryCodeISO2, durationHours } = activity;
+  if (countryCodeISO2 && durationHours) {
+    if(countries.countries[activity.countryCodeISO2.toUpperCase()]){
+      return true;
+    }
+  }
+  return false;
+}
+
 /*
 The carbon intensity is per night stayed for one room
 */
 function carbonIntensity(activity){
     //The data for all the countries can be found here: 
     //https://docs.google.com/spreadsheets/d/1f1j9EeVn9czOZBJKLXvgPwnmldakxuJ7/edit#gid=1584958883
-    if(!countries.countries[activity.countryCodeISO2.toUpperCase()]){
-        throw new Error(`Country code not referenced ${iata}`);
+    if(!countries.countries[activity.countryCodeISO2.toUpperCase()].hotelFtPrint){
+        throw new Error(`Country code referenced ${countryCodeISO2} doesn't have a hotel footprint value associated to it`);
         //Maybe add a default value here
     }
     else{
