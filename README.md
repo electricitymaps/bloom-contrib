@@ -9,6 +9,11 @@ The app is private-by-design: data will stay on device, unless the user explicit
 
 Feel free to watch [the presentation](https://www.youtube.com/watch?v=keOPXD-ojWY) our Founder Olivier gave to the CopenhagenJS meetup, explaining what a JavaScript developer can do to combat climate change. If you have any questions, want early access to the app or just want to hang out with people fighting climate change with code, join [our Slack community](https://slack.tmrow.com).
 
+## Tomorrow is hiring!
+The company behind the Tomorrow app builds tech to empower organisations and individuals to understand and reduce their carbon footprint.
+
+We're hiring great people to join our team in Copenhagen. Head over to [our jobs page](https://www.tmrow.com/jobs) if you want to help out!
+
 ## Structure of this repository
 
 - `./co2eq`: carbon models
@@ -33,18 +38,21 @@ Integrations can rely on an API or even on scrapers if necessary.
 
 #### Suggesting an integration
 Here is the list of current 3rd party integrations:
+Official integrations:
 - ✈️ Tripit (tracks most airlines!)
+- ⚡ Barry
+- 🚗 Tesla Cockpit
+Community-supported integrations:
 - ✈️ Ryanair (contributor:[lauvrenn](https://github.com/lauvrenn))
 - ✈️ Wizzair (contributor:[lauvrenn](https://github.com/lauvrenn))
 - 🚂 Rejsekort
 - ⚡ Sense (contributor:[snarfed](https://github.com/snarfed))
 - ⚡ Linky (contributor:[bokub](https://github.com/bokub))
-- ⚡ Barry
-- ⚡ Ørsted
+- ⚡ Ørsted (contributor:[felixdq](https://github.com/felixdq))
 - 🚗 Renault Zoé
-- 🚗 Tesla Cockpit
 - 🚗 Uber (contributor:[willtonkin](https://github.com/willtonkin))
 - 🚗 Automatic (contributor:[lauvrenn](https://github.com/lauvrenn))
+- 🚗 MinVolkswagen (contributor:[folkev0gn](https://github.com/folkev0gn))
 
 You can [suggest a new integration here](https://github.com/tmrowco/tmrowapp-contrib/issues/new).
 
@@ -54,7 +62,8 @@ If you don't have an idea on your own or prefer to debug an integration, you can
 
 To make it easy for anyone to help out, a development playground is available:
 
-From the `playground` folder, run `yarn` to install dependencies, then run `yarn serve` to start the playground and point your browser to [localhost:3000](http://localhost:3000) to get started.
+First, run `yarn` to install dependencies at the root of the repository.
+Next from the `playground` folder, run `yarn` to install dependencies, then run `yarn serve` to start the playground and point your browser to [localhost:3000](http://localhost:3000) to get started.
 
 #### How to make an integration work
 An integration gathers activities from a 3rd party datasource.
@@ -98,6 +107,21 @@ Activities require a certain formatting:
   destinationStation, // (for other travel types) a string that represents the final destination
 }
 ```
+
+##### Lodging activity formatting
+```javascript
+{
+  id, // a string that uniquely represents this activity
+  datetime, // a javascript Date object that represents the start of the activity
+  durationHours, // a floating point that represents the duration of the activity in decimal hours
+  activityType: ACTIVITY_TYPE_LODGING,
+  hotelClass, // a variable (from definitions.js) that represents the class of the hotel
+  hotelName, // (optional) a string that represents the name of the hotel
+  locationLon, // (optional) the longitude of the location of the hotel
+  locationLat, // (optional) the latitude of the location of the hotel
+}
+```
+
 ##### Electricity consumption activity formatting
 ```javascript
 {
@@ -107,8 +131,8 @@ Activities require a certain formatting:
   activityType: ACTIVITY_TYPE_ELECTRICITY,
   energyWattHours, // a float that represents the total energy used
   hourlyEnergyWattHours, // (optional) an array of 24 floats that represent the hourly metering values
-  locationLon, // the location of the electricity consumption
-  locationLat, // the location of the electricity consumption
+  locationLon, // (optional) the longitude of the location of the hotel
+  locationLat, // (optional) the latitude of the location of the hotel
 }
 ```
 
@@ -124,12 +148,15 @@ Activities require a certain formatting:
   costCurrency, // a string that represents the currency in which the currency was made
   bankDisplayName, // (required for integrations with banks) a string that represents the banks' name
   bankIdentifier, // (required for integrations with banks) a string that uniquely represents the bank.
-}  
+}
 ```
 
 ### Adding or updating Life Cycle Assessment / Carbon Footprint of purchases and activities
 
 Our current models and Life Cycle assessments are accessible [here](https://github.com/tmrowco/tmrowapp-contrib/tree/master/co2eq). If you know better sources, please contribute with your knowledge.
+
+If you want to add individual items or ingredients, this is done [here](https://github.com/tmrowco/tmrowapp-contrib/blob/master/co2eq/purchase/footprints.yml). Ideally, the studies used should be as global as possible and it's even better if they're systemic reviews (multiple studies in one!).
+
 
 ### Giving ideas, features requests or bugs
 

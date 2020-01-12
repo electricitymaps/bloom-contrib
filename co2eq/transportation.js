@@ -7,40 +7,72 @@ import {
   TRANSPORTATION_MODE_FERRY,
   TRANSPORTATION_MODE_BIKE,
   TRANSPORTATION_MODE_ESCOOTER,
+  TRANSPORTATION_MODE_MOTORBIKE,
 } from '../definitions';
 
 import flightEmissions from './flights';
 
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'transportation';
-export const modelVersion = 8;
+export const modelVersion = '10';
+export const explanation = {
+  text: 'Calculations take into account direct emissions from burning fuel and manufacturing of vehicle.',
+  links: [
+    { label: 'Ducky Climate calculator - documentation', href: 'https://static.ducky.eco/calculator_documentation.pdf' },
+    { label: 'Quantifying CO2 savings of cycling - European Cyclists’ Federation', href: 'https://ecf.com/files/wp-content/uploads/ECF_BROCHURE_EN_planche.pdf.pdf' },
+    { label: 'Greenhouse gas reporting: conversion factors 2019 - DEFRA', href: 'https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019' },
+    { label: 'The myclimate Flight Emission Calculator - myclimate.org', href: 'https://www.myclimate.org/fileadmin/user_upload/myclimate_-_home/01_Information/01_About_myclimate/09_Calculation_principles/Documents/myclimate-flight-calculator-documentation_EN.pdf' },
+    { label: 'The environmental impacts of shared dockless electric scooters', href: 'https://iopscience.iop.org/article/10.1088/1748-9326/ab2da8' },
+    { label: 'The myclimate Flight Emission Calculator', href: 'https://www.myclimate.org/fileadmin/user_upload/myclimate_-_home/01_Information/01_About_myclimate/09_Calculation_principles/Documents/myclimate-flight-calculator-documentation_EN.pdf' },
+  ],
+};
+
+export const modelCanRunVersion = 1;
+export function modelCanRun(activity) {
+  const {
+    transportationMode,
+    distanceKilometers,
+    durationHours,
+    departureAirportCode,
+    destinationAirportCode,
+  } = activity;
+  if (transportationMode && (distanceKilometers || durationHours || (departureAirportCode && destinationAirportCode))) {
+    return true;
+  }
+
+  return false;
+}
 
 /*
 Carbon intensity of transportation (kgCO2 per passenger and per km)
 */
 function carbonIntensity(mode) {
-  // We use a very crude version of
-  // https://www.ipcc.ch/ipccreports/sres/aviation/125.htm#tab85
   switch (mode) {
     case TRANSPORTATION_MODE_BUS:
-      return 15 / 1000.0;
+      return 103 / 1000.0;
+      // https://static.ducky.eco/calculator_documentation.pdf, Ecoinvent 3 Regular bus, includes production = 9g
     case TRANSPORTATION_MODE_CAR:
-      return 50 / 1000.0;
+      return 257 / 1000.0;
+      // https://static.ducky.eco/calculator_documentation.pdf, Ecoinvent Avg european car, production = 43g    
+    case TRANSPORTATION_MODE_MOTORBIKE: 
+      // https://static.ducky.eco/calculator_documentation.pdf, Ecoinvent Scooter, production = 14g
+      return 108 / 1000.0;        
     case TRANSPORTATION_MODE_TRAIN:
-      return 20 / 1000.0;
+      return 42 / 1000.0;
+      // https://static.ducky.eco/calculator_documentation.pdf, Andersen 2007
     case TRANSPORTATION_MODE_PUBLIC_TRANSPORT:
       // Average of train and bus
       return (0.5 * carbonIntensity(TRANSPORTATION_MODE_TRAIN)
         + 0.5 * carbonIntensity(TRANSPORTATION_MODE_BUS));
     case TRANSPORTATION_MODE_FERRY:
       // See https://en.wikipedia.org/wiki/Carbon_footprint
-      return 0.12;
+      return 120 / 1000.0;
     case TRANSPORTATION_MODE_BIKE:
       // https://ecf.com/files/wp-content/uploads/ECF_BROCHURE_EN_planche.pdf
       return 5 / 1000.0;
     case TRANSPORTATION_MODE_ESCOOTER:
       // https://iopscience.iop.org/article/10.1088/1748-9326/ab2da8
-      return 202 / 1000.0;  
+      return 125.517 / 1000.0;
     default:
       throw Error(`Unknown transportation mode: ${mode}`);
   }
@@ -49,11 +81,17 @@ function carbonIntensity(mode) {
 export function durationToDistance(durationHours, mode) {
   switch (mode) {
     case TRANSPORTATION_MODE_BUS:
-      return durationHours * 50.0;
+      return durationHours * 30.0;
+      // assumes mostly city-rides
     case TRANSPORTATION_MODE_CAR:
-      return durationHours * 80.0;
+      return durationHours * 45.0;
+      // https://setis.ec.europa.eu/system/files/Driving_and_parking_patterns_of_European_car_drivers-a_mobility_survey.pdf
+    case TRANSPORTATION_MODE_MOTORBIKE:
+      return durationHours * 45.0;
+      // assumes same speed as car
     case TRANSPORTATION_MODE_TRAIN:
-      return durationHours * 80.0;
+      return durationHours * 45.0;
+      // assumes mostly suburban trips
     case TRANSPORTATION_MODE_PUBLIC_TRANSPORT:
       // Average of train and bus
       return (0.5 * durationToDistance(durationHours, TRANSPORTATION_MODE_TRAIN)
@@ -61,9 +99,9 @@ export function durationToDistance(durationHours, mode) {
     case TRANSPORTATION_MODE_FERRY:
       return durationHours * 30; // ~16 knots
     case TRANSPORTATION_MODE_BIKE:
-      return durationHours * 10;
+      return durationHours * 15;
     case TRANSPORTATION_MODE_ESCOOTER:
-      return durationHours * 10;  
+      return durationHours * 15;
     default:
       throw Error(`Unknown transportation mode: ${mode}`);
   }
@@ -88,8 +126,8 @@ export function carbonEmissions(activity) {
     }
   }
 
-  // Take into account the passenger count if this is a car
-  if (activity.transportationMode === TRANSPORTATION_MODE_CAR) {
+  // Take into account the passenger count if this is a car or motorbike
+  if (activity.transportationMode === TRANSPORTATION_MODE_CAR || activity.transportationMode === TRANSPORTATION_MODE_MOTORBIKE) {
     return carbonIntensity(activity.transportationMode) * distanceKilometers / (activity.participants || 1);
   }
   return carbonIntensity(activity.transportationMode) * distanceKilometers;
