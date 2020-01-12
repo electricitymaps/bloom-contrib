@@ -18,7 +18,7 @@ async function logIn(username, password) {
       username,
     });
 
-  if (!res.ok) {
+  if (!res.ok || !res.body.token || !res.body.customerId) {
     const text = await res.text();
     throw new HTTPError(text, res.status);
   }
@@ -129,7 +129,7 @@ async function collect(state) {
   if (token === undefined || customerId === undefined) {
     ({ token, customerId } = await logIn(username, password));
   }
-  
+
   const pastBookings = await getPastBookings(customerId, token);
   const activities = await getActivities(pastBookings, customerId, token);
 
