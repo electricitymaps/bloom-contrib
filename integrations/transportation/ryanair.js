@@ -24,7 +24,7 @@ async function logIn(username, password) {
       username,
     });
 
-  if (!res.ok) {
+  if (!res.ok || !res.body.token || !res.body.customerId) {
     const text = await res.text();
     throw new HTTPError(text, res.status);
   }
