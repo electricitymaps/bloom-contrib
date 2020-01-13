@@ -1,10 +1,16 @@
 import moment from 'moment';
 import request from 'superagent';
-import { ACTIVITY_TYPE_TRANSPORTATION, TRANSPORTATION_MODE_PLANE } from '../../definitions';
-import { HTTPError, ValidationError } from '../utils/errors';
+import {
+  ACTIVITY_TYPE_TRANSPORTATION,
+  TRANSPORTATION_MODE_PLANE,
+} from '../../definitions';
+import {
+  HTTPError,
+  ValidationError,
+} from '../utils/errors';
 
 const agent = request.agent();
-const BASE_URL = 'https://api.ryanair.com/userprofile/rest/api/v1/';
+const BASE_URL = 'https://api.ryanair.com/usrprof/rest/api/v1/';
 const LOGIN_URL = `${BASE_URL}login`;
 const PROFILE_URL = `${BASE_URL}secure/users/`;
 // user info available at `${PROFILE_URL}${customerId}/profile/full/`
@@ -34,7 +40,10 @@ async function connect(requestLogin) {
 
   // Here we can use two functions to invoke screens
   // requestLogin() or requestWebView()
-  const { username, password } = await requestLogin();
+  const {
+    username,
+    password,
+  } = await requestLogin();
 
   if (!(password || '').length) {
     throw new ValidationError('Password cannot be empty');
@@ -87,7 +96,7 @@ async function getPastBookings(customerId, token) {
     .set('Accept', 'application/json')
     .set('X-Auth-Token', token);
 
-  if (!pastBookings.ok) {
+  if (!pastBookings.ok || !pastBookings.body.bookings) {
     const text = await pastBookings.text();
     throw new HTTPError(text, pastBookings.status);
   }
@@ -120,20 +129,29 @@ async function getActivities(pastBookings, customerId, token) {
 }
 
 async function collect(state) {
-  const { username, password } = state;
+  const {
+    username,
+    password,
+  } = state;
 
   // WHY: compatibility with previous versions' states to avoid users having to reconnect
-  let token = state.token;
-  let customerId = state.customerId;
+  let { token } = state;
+  let { customerId } = state;
 
   if (token === undefined || customerId === undefined) {
-    ({ token, customerId } = await logIn(username, password));
+    ({
+      token,
+      customerId,
+    } = await logIn(username, password));
   }
 
   const pastBookings = await getPastBookings(customerId, token);
   const activities = await getActivities(pastBookings, customerId, token);
 
-  return { activities, state };
+  return {
+    activities,
+    state,
+  };
 }
 
 const config = {
