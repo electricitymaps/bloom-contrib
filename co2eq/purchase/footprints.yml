@@ -2250,12 +2250,10 @@ _children:
             liter: 100.6096406528
             incrementStepSize: 1
             source: https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
-                  conversions:
           cubic metre:
             liter: 1000
             incrementStepSize: 1
-            source: https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019  
-
+            source: https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
     icon: gas-pump
     intensityKilograms: 1.186
     oldKeys:
