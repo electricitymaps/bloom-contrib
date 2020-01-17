@@ -27,11 +27,11 @@ function carbonIntensity(activity) {
   // The data for all the countries can be found here: 
   // https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
   // Source for the division of the "Caribbean region" in ISO2 country codes: (2020, January 9). Carribean. Retrieved from https://en.wikipedia.org/wiki/Caribbean
-  if (!countries.countries[activity.countryCodeISO2.toUpperCase()].hotelFtPrint) {
+  if (!countries.countries[activity.countryCodeISO2.toUpperCase()].HotelFootprintKilogramsPerHotelNight) {
     // There is no data for that specific area, so the median of all the values given in the above document is returned
     return 40.3;
   }
-  return countries.countries[activity.countryCodeISO2.toUpperCase()].hotelFtPrint;
+  return countries.countries[activity.countryCodeISO2.toUpperCase()].HotelFootprintKilogramsPerHotelNight;
 }
 
 /*

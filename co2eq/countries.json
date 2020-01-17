@@ -1,839 +1,416 @@
 {
     "countries":{
-        "AF":{
-            "name":"Afghanistan"
-        },
-        "AX":{
-            "name":"Aland Islands"
-        },
-        "AL":{
-            "name":"Albania"
-        },
-        "DZ":{
-            "name":"Algeria"
-        },
-        "AS":{
-            "name":"American Samoa"
-        },
-        "AD":{
-            "name":"Andorra"
-        },
-        "AO":{
-            "name":"Angola"
-        },
+        "AF":{},
+        "AX":{},
+        "AL":{},
+        "DZ":{},
+        "AS":{},
+        "AD":{},
+        "AO":{},
         "AI":{
-            "name":"Anguilla",
-            "hotelFtPrint":64.6
+            "HotelFootprintKilogramsPerHotelNight":64.6
         },
-        "AQ":{
-            "name":"Antarctica"
-        },
+        "AQ":{},
         "AG":{
-            "name":"Antigua and Barbuda",
-            "hotelFtPrint":64.6
+            "HotelFootprintKilogramsPerHotelNight":64.6
         },
         "AR":{
-            "name":"Argentina",
-            "hotelFtPrint":52.8
+            "HotelFootprintKilogramsPerHotelNight":52.8
         },
-        "AM":{
-            "name":"Armenia"
-        },
+        "AM":{},
         "AW":{
-            "name":"Aruba",
-            "hotelFtPrint":64.6
+            "HotelFootprintKilogramsPerHotelNight":64.6
         },
         "AU":{
-            "name":"Australia",
-            "hotelFtPrint":44.9
+            "HotelFootprintKilogramsPerHotelNight":44.9
         },
         "AT":{
-            "name":"Austria",
-            "hotelFtPrint":18.3
+            "HotelFootprintKilogramsPerHotelNight":18.3
         },
-        "AZ":{
-            "name":"Azerbaijan"
-        },
+        "AZ":{},
         "BS":{
-            "name":"Bahamas",
-            "hotelFtPrint":64.6
+            "HotelFootprintKilogramsPerHotelNight":64.6
         },
-        "BH":{
-            "name":"Bahrain"
-        },
-        "BD":{
-            "name":"Bangladesh"
-        },
+        "BH":{},
+        "BD":{},
         "BB":{
-            "name":"Barbados",
-            "hotelFtPrint":64.6
+            "HotelFootprintKilogramsPerHotelNight":64.6
         },
-        "BY":{
-            "name":"Belarus"
-        },
+        "BY":{},
         "BE":{
-            "name":"Belgium",
-            "hotelFtPrint":18.3
+            "HotelFootprintKilogramsPerHotelNight":18.3
         },
-        "BZ":{
-            "name":"Belize"
-        },
-        "BJ":{
-            "name":"Benin"
-        },
-        "BM":{
-            "name":"Bermuda"
-        },
-        "BT":{
-            "name":"Bhutan"
-        },
-        "BO":{
-            "name":"Bolivia"
-        },
+        "BZ":{},
+        "BJ":{},
+        "BM":{},
+        "BT":{},
+        "BO":{},
         "BQ":{
-            "name":"Bonaire, Sint Eustatius and Saba",
-            "hotelFtPrint":64.6
+            "HotelFootprintKilogramsPerHotelNight":64.6
         },
-        "BA":{
-            "name":"Bosnia and Herzegovina"
-        },
-        "BW":{
-            "name":"Botswana"
-        },
-        "BV":{
-            "name":"Bouvet Island"
-        },
+        "BA":{},
+        "BW":{},
+        "BV":{},
         "BR":{
-            "name":"Brazil",
-            "hotelFtPrint":14.9
+            "HotelFootprintKilogramsPerHotelNight":14.9
         },
-        "IO":{
-            "name":"British Indian Ocean Territory"
-        },
-        "BN":{
-            "name":"Brunei Darussalam"
-        },
-        "BG":{
-            "name":"Bulgaria"
-        },
-        "BF":{
-            "name":"Burkina Faso"
-        },
-        "BI":{
-            "name":"Burundi"
-        },
-        "CV":{
-            "name":"Cabo Verde"
-        },
-        "KH":{
-            "name":"Cambodia"
-        },
-        "CM":{
-            "name":"Cameroon"
-        },
+        "IO":{},
+        "BN":{},
+        "BG":{},
+        "BF":{},
+        "BI":{},
+        "CV":{},
+        "KH":{},
+        "CM":{},
         "CA":{
-            "name":"Canada",
-            "hotelFtPrint":15.5
+            "HotelFootprintKilogramsPerHotelNight":15.5
         },
         "KY":{
-            "name":"Cayman Islands",
-            "hotelFtPrint":64.6
+            "HotelFootprintKilogramsPerHotelNight":64.6
         },
-        "CF":{
-            "name":"Central African Republic"
-        },
-        "TD":{
-            "name":"Chad"
-        },
+        "CF":{},
+        "TD":{},
         "CL":{
-            "name":"Chile",
-            "hotelFtPrint":40.4
+            "HotelFootprintKilogramsPerHotelNight":40.4
         },
         "CN":{
-            "name":"China",
-            "hotelFtPrint":63.8
+            "HotelFootprintKilogramsPerHotelNight":63.8
         },
-        "CX":{
-            "name":"Christmas Island"
-        },
-        "CC":{
-            "name":"Cocos Islands"
-        },
+        "CX":{},
+        "CC":{},
         "CO":{
-            "name":"Colombia",
-            "hotelFtPrint":14.3
+            "HotelFootprintKilogramsPerHotelNight":14.3
         },
-        "KM":{
-            "name":"Comoros"
-        },
-        "CD":{
-            "name":"Democratic Republic of the Congo"
-        },
-        "CG":{
-            "name":"Congo"
-        },
-        "CK":{
-            "name":"Cook Islands"
-        },
+        "KM":{},
+        "CD":{},
+        "CG":{},
+        "CK":{},
         "CR":{
-            "name":"Costa Rica",
-            "hotelFtPrint":13.7
+            "HotelFootprintKilogramsPerHotelNight":13.7
         },
-        "HR":{
-            "name":"Croatia"
-        },
+        "HR":{},
         "CU":{
-            "name":"Cuba",
-            "hotelFtPrint":64.6
+            "HotelFootprintKilogramsPerHotelNight":64.6
         },
         "CW":{
-            "name":"Curaçao",
-            "hotelFtPrint":64.6
+            "HotelFootprintKilogramsPerHotelNight":64.6
         },
-        "CY":{
-            "name":"Cyprus"
-        },
+        "CY":{},
         "CZ":{
-            "name":"Czechia",
-            "hotelFtPrint":29.7
+            "HotelFootprintKilogramsPerHotelNight":29.7
         },
-        "CI":{
-            "name":"Côte d'Ivoire"
-        },
-        "DK":{
-            "name":"Denmark"
-        },
-        "DJ":{
-            "name":"Djibouti"
-        },
+        "CI":{},
+        "DK":{},
+        "DJ":{},
         "DM":{
-            "name":"Dominica",
-            "hotelFtPrint":64.6
+            "HotelFootprintKilogramsPerHotelNight":64.6
         },
         "DO":{
-            "name":"Dominican Republic",
-            "hotelFtPrint":64.6
+            "HotelFootprintKilogramsPerHotelNight":64.6
         },
-        "EC":{
-            "name":"Ecuador"
-        },
+        "EC":{},
         "EG":{
-            "name":"Egypt",
-            "hotelFtPrint":70.0
+            "HotelFootprintKilogramsPerHotelNight":70.0
         },
-        "SV":{
-            "name":"El Salvador"
-        },
-        "GQ":{
-            "name":"Equatorial Guinea"
-        },
-        "ER":{
-            "name":"Eritrea"
-        },
-        "EE":{
-            "name":"Estonia"
-        },
-        "SZ":{
-            "name":"Eswatini"
-        },
-        "ET":{
-            "name":"Ethiopia"
-        },
-        "FK":{
-            "name":"Falkland Islands"
-        },
-        "FO":{
-            "name":"Faroe Islands"
-        },
-        "FJ":{
-            "name":"Fiji"
-        },
-        "FI":{
-            "name":"Finland"
-        },
+        "SV":{},
+        "GQ":{},
+        "ER":{},
+        "EE":{},
+        "SZ":{},
+        "ET":{},
+        "FK":{},
+        "FO":{},
+        "FJ":{},
+        "FI":{},
         "FR":{
-            "name":"France",
-            "hotelFtPrint":7.6
+            "HotelFootprintKilogramsPerHotelNight":7.6
         },
-        "GF":{
-            "name":"French Guiana"
-        },
-        "PF":{
-            "name":"French Polynesia"
-        },
-        "TF":{
-            "name":"French Southern Territories"
-        },
-        "GA":{
-            "name":"Gabon"
-        },
-        "GM":{
-            "name":"Gambia"
-        },
-        "GE":{
-            "name":"Georgia"
-        },
+        "GF":{},
+        "PF":{},
+        "TF":{},
+        "GA":{},
+        "GM":{},
+        "GE":{},
         "DE":{
-            "name":"Germany",
-            "hotelFtPrint":20.8
+            "HotelFootprintKilogramsPerHotelNight":20.8
         },
-        "GH":{
-            "name":"Ghana"
-        },
-        "GI":{
-            "name":"Gibraltar"
-        },
+        "GH":{},
+        "GI":{},
         "GR":{
-            "name":"Greece",
-            "hotelFtPrint":46.9
+            "HotelFootprintKilogramsPerHotelNight":46.9
         },
-        "GL":{
-            "name":"Greenland"
-        },
+        "GL":{},
         "GD":{
-            "name":"Grenada",
-            "hotelFtPrint":64.6
+            "HotelFootprintKilogramsPerHotelNight":64.6
         },
         "GP":{
-            "name":"Guadeloupe",
-            "hotelFtPrint":64.6
+            "HotelFootprintKilogramsPerHotelNight":64.6
         },
-        "GU":{
-            "name":"Guam"
-        },
-        "GT":{
-            "name":"Guatemala"
-        },
-        "GG":{
-            "name":"Guernsey"
-        },
-        "GN":{
-            "name":"Guinea"
-        },
-        "GW":{
-            "name":"Guinea-Bissau"
-        },
-        "GY":{
-            "name":"Guyana"
-        },
+        "GU":{},
+        "GT":{},
+        "GG":{},
+        "GN":{},
+        "GW":{},
+        "GY":{},
         "HT":{
-            "name":"Haiti",
-            "hotelFtPrint":64.6
+            "HotelFootprintKilogramsPerHotelNight":64.6
         },
-        "HM":{
-            "name":"Heard Island and McDonald Islands"
-        },
+        "HM":{},
         "VA":{
-            "name":"Holy See",
-            "hotelFtPrint":22.9
+            "HotelFootprintKilogramsPerHotelNight":22.9
         },
-        "HN":{
-            "name":"Honduras"
-        },
+        "HN":{},
         "HK":{
-            "name":"Hong Kong",
-            "hotelFtPrint":77.0
+            "HotelFootprintKilogramsPerHotelNight":77.0
         },
-        "HU":{
-            "name":"Hungary"
-        },
-        "IS":{
-            "name":"Iceland"
-        },
+        "HU":{},
+        "IS":{},
         "IN":{
-            "name":"India",
-            "hotelFtPrint":86.9
+            "HotelFootprintKilogramsPerHotelNight":86.9
         },
         "ID":{
-            "name":"Indonesia",
-            "hotelFtPrint":64.7
+            "HotelFootprintKilogramsPerHotelNight":64.7
         },
-        "IR":{
-            "name":"Islamic Republic of Iran"
-        },
-        "IQ":{
-            "name":"Iraq"
-        },
+        "IR":{},
+        "IQ":{},
         "IE":{
-            "name":"Ireland",
-            "hotelFtPrint":30.4
+            "HotelFootprintKilogramsPerHotelNight":30.4
         },
         "IM":{
-            "name":"Isle of Man",
-            "hotelFtPrint":17.4
+            "HotelFootprintKilogramsPerHotelNight":17.4
         },
         "IL":{
-            "name":"Israel",
-            "hotelFtPrint":61.3
+            "HotelFootprintKilogramsPerHotelNight":61.3
         },
         "IT":{
-            "name":"Italy",
-            "hotelFtPrint":22.9
+            "HotelFootprintKilogramsPerHotelNight":22.9
         },
         "JM":{
-            "name":"Jamaica",
-            "hotelFtPrint":64.6
+            "HotelFootprintKilogramsPerHotelNight":64.6
         },
         "JP":{
-            "name":"Japan",
-            "hotelFtPrint":71.9
+            "HotelFootprintKilogramsPerHotelNight":71.9
         },
-        "JE":{
-            "name":"Jersey"
-        },
+        "JE":{},
         "JO":{
-            "name":"Jordan",
-            "hotelFtPrint":80.9
+            "HotelFootprintKilogramsPerHotelNight":80.9
         },
-        "KZ":{
-            "name":"Kazakhstan"
-        },
-        "KE":{
-            "name":"Kenya"
-        },
-        "KI":{
-            "name":"Kiribati"
-        },
-        "KP":{
-            "name":"Democratic People's Republic of Korea (North Korea)"
-        },
+        "KZ":{},
+        "KE":{},
+        "KI":{},
+        "KP":{},
         "KR":{
-            "name":"Republic of Korea (South Korea)",
-            "hotelFtPrint":64.5
+            "HotelFootprintKilogramsPerHotelNight":64.5
         },
-        "KW":{
-            "name":"Kuwait"
-        },
-        "KG":{
-            "name":"Kyrgyzstan"
-        },
-        "LA":{
-            "name":"Lao People's Democratic Republic"
-        },
-        "LV":{
-            "name":"Latvia"
-        },
-        "LB":{
-            "name":"Lebanon"
-        },
-        "LS":{
-            "name":"Lesotho"
-        },
-        "LR":{
-            "name":"Liberia"
-        },
-        "LY":{
-            "name":"Libya"
-        },
-        "LI":{
-            "name":"Liechtenstein"
-        },
-        "LT":{
-            "name":"Lithuania"
-        },
-        "LU":{
-            "name":"Luxembourg"
-        },
+        "KW":{},
+        "KG":{},
+        "LA":{},
+        "LV":{},
+        "LB":{},
+        "LS":{},
+        "LR":{},
+        "LY":{},
+        "LI":{},
+        "LT":{},
+        "LU":{},
         "MO":{
-            "name":"Macao",
-            "hotelFtPrint":63.8
+            "HotelFootprintKilogramsPerHotelNight":63.8
         },
-        "MG":{
-            "name":"Madagascar"
-        },
-        "MW":{
-            "name":"Malawi"
-        },
+        "MG":{},
+        "MW":{},
         "MY":{
-            "name":"Malaysia",
-            "hotelFtPrint":69.0
+            "HotelFootprintKilogramsPerHotelNight":69.0
         },
-        "MV":{
-            "name":"Maldives"
-        },
-        "ML":{
-            "name":"Mali"
-        },
-        "MT":{
-            "name":"Malta"
-        },
-        "MH":{
-            "name":"Marshall Islands"
-        },
+        "MV":{},
+        "ML":{},
+        "MT":{},
+        "MH":{},
         "MQ":{
-            "name":"Martinique",
-            "hotelFtPrint":64.6
+            "HotelFootprintKilogramsPerHotelNight":64.6
         },
-        "MR":{
-            "name":"Mauritania"
-        },
-        "MU":{
-            "name":"Mauritius"
-        },
-        "YT":{
-            "name":"Mayotte"
-        },
+        "MR":{},
+        "MU":{},
+        "YT":{},
         "MX":{
-            "name":"Mexico",
-            "hotelFtPrint":28.5
+            "HotelFootprintKilogramsPerHotelNight":28.5
         },
-        "FM":{
-            "name":"Federated States of Micronesia"
-        },
-        "MD":{
-            "name":"Republic of Moldova"
-        },
-        "MC":{
-            "name":"Monaco"
-        },
-        "MN":{
-            "name":"Mongolia"
-        },
-        "ME":{
-            "name":"Montenegro"
-        },
+        "FM":{},
+        "MD":{},
+        "MC":{},
+        "MN":{},
+        "ME":{},
         "MS":{
-            "name":"Montserrat",
-            "hotelFtPrint":64.6
+            "HotelFootprintKilogramsPerHotelNight":64.6
         },
-        "MA":{
-            "name":"Morocco"
-        },
-        "MZ":{
-            "name":"Mozambique"
-        },
-        "MM":{
-            "name":"Myanmar"
-        },
-        "NA":{
-            "name":"Namibia"
-        },
-        "NR":{
-            "name":"Nauru"
-        },
-        "NP":{
-            "name":"Nepal"
-        },
+        "MA":{},
+        "MZ":{},
+        "MM":{},
+        "NA":{},
+        "NR":{},
+        "NP":{},
         "NL":{
-            "name":"Netherlands",
-            "hotelFtPrint":25.0
+            "HotelFootprintKilogramsPerHotelNight":25.0
         },
-        "NC":{
-            "name":"New Caledonia"
-        },
+        "NC":{},
         "NZ":{
-            "name":"New Zealand",
-            "hotelFtPrint":12.9
+            "HotelFootprintKilogramsPerHotelNight":12.9
         },
-        "NI":{
-            "name":"Nicaragua"
-        },
-        "NE":{
-            "name":"Niger"
-        },
-        "NG":{
-            "name":"Nigeria"
-        },
-        "NU":{
-            "name":"Niue"
-        },
-        "NF":{
-            "name":"Norfolk Island"
-        },
-        "MP":{
-            "name":"Northern Mariana Islands"
-        },
-        "NO":{
-            "name":"Norway"
-        },
-        "OM":{
-            "name":"Oman"
-        },
-        "PK":{
-            "name":"Pakistan"
-        },
-        "PW":{
-            "name":"Palau"
-        },
-        "PS":{
-            "name":"State of Palestine"
-        },
+        "NI":{},
+        "NE":{},
+        "NG":{},
+        "NU":{},
+        "NF":{},
+        "MP":{},
+        "NO":{},
+        "OM":{},
+        "PK":{},
+        "PW":{},
+        "PS":{},
         "PA":{
-            "name":"Panama",
-            "hotelFtPrint":30.2
+            "HotelFootprintKilogramsPerHotelNight":30.2
         },
-        "PG":{
-            "name":"Papua New Guinea"
-        },
-        "PY":{
-            "name":"Paraguay"
-        },
-        "PE":{
-            "name":"Peru"
-        },
+        "PG":{},
+        "PY":{},
+        "PE":{},
         "PH":{
-            "name":"Philippines",
-            "hotelFtPrint":79.3
+            "HotelFootprintKilogramsPerHotelNight":79.3
         },
-        "PN":{
-            "name":"Pitcairn"
-        },
+        "PN":{},
         "PL":{
-            "name":"Poland",
-            "hotelFtPrint":39.9
+            "HotelFootprintKilogramsPerHotelNight":39.9
         },
         "PT":{
-            "name":"Portugal",
-            "hotelFtPrint":27.6
+            "HotelFootprintKilogramsPerHotelNight":27.6
         },
         "PR":{
-            "name":"Puerto Rico",
-            "hotelFtPrint":64.6
+            "HotelFootprintKilogramsPerHotelNight":64.6
         },
         "QA":{
-            "name":"Qatar",
-            "hotelFtPrint":119.3
+            "HotelFootprintKilogramsPerHotelNight":119.3
         },
-        "MK":{
-            "name":"Republic of North Macedonia"
-        },
-        "RO":{
-            "name":"Romania"
-        },
+        "MK":{},
+        "RO":{},
         "RU":{
-            "name":"Russian Federation",
-            "hotelFtPrint":46.1
+            "HotelFootprintKilogramsPerHotelNight":46.1
         },
-        "RW":{
-            "name":"Rwanda"
-        },
-        "RE":{
-            "name":"Réunion"
-        },
+        "RW":{},
+        "RE":{},
         "BL":{
-            "name":"Saint Barthélemy",
-            "hotelFtPrint":64.6
+            "HotelFootprintKilogramsPerHotelNight":64.6
         },
-        "SH":{
-            "name":"Saint Helena, Ascension and Tristan da Cunha"
-        },
+        "SH":{},
         "KN":{
-            "name":"Saint Kitts and Nevis",
-            "hotelFtPrint":64.6
+            "HotelFootprintKilogramsPerHotelNight":64.6
         },
         "LC":{
-            "name":"Saint Lucia",
-            "hotelFtPrint":64.6
+            "HotelFootprintKilogramsPerHotelNight":64.6
         },
         "MF":{
-            "name":"Saint Martin (French part)",
-            "hotelFtPrint":64.6
+            "HotelFootprintKilogramsPerHotelNight":64.6
         },
-        "PM":{
-            "name":"Saint Pierre and Miquelon"
-        },
+        "PM":{},
         "VC":{
-            "name":"Saint Vincent and the Grenadines",
-            "hotelFtPrint":64.6
+            "HotelFootprintKilogramsPerHotelNight":64.6
         },
-        "WS":{
-            "name":"Samoa"
-        },
-        "SM":{
-            "name":"San Marino"
-        },
-        "ST":{
-            "name":"Sao Tome and Principe"
-        },
+        "WS":{},
+        "SM":{},
+        "ST":{},
         "SA":{
-            "name":"Saudi Arabia",
-            "hotelFtPrint":142.2
+            "HotelFootprintKilogramsPerHotelNight":142.2
         },
-        "SN":{
-            "name":"Senegal"
-        },
-        "RS":{
-            "name":"Serbia"
-        },
-        "SC":{
-            "name":"Seychelles"
-        },
-        "SL":{
-            "name":"Sierra Leone"
-        },
+        "SN":{},
+        "RS":{},
+        "SC":{},
+        "SL":{},
         "SG":{
-            "name":"Singapore",
-            "hotelFtPrint":37.1
+            "HotelFootprintKilogramsPerHotelNight":37.1
         },
         "SX":{
-            "name":"Sint Maarten (Dutch part)",
-            "hotelFtPrint":64.6
+            "HotelFootprintKilogramsPerHotelNight":64.6
         },
-        "SK":{
-            "name":"Slovakia"
-        },
-        "SI":{
-            "name":"Slovenia"
-        },
-        "SB":{
-            "name":"Solomon Islands"
-        },
-        "SO":{
-            "name":"Somalia"
-        },
+        "SK":{},
+        "SI":{},
+        "SB":{},
+        "SO":{},
         "ZA":{
-            "name":"South Africa",
-            "hotelFtPrint":40.2
+            "HotelFootprintKilogramsPerHotelNight":40.2
         },
-        "GS":{
-            "name":"South Georgia and the South Sandwich Islands"
-        },
-        "SS":{
-            "name":"South Sudan"
-        },
+        "GS":{},
+        "SS":{},
         "ES":{
-            "name":"Spain",
-            "hotelFtPrint":18.7
+            "HotelFootprintKilogramsPerHotelNight":18.7
         },
-        "LK":{
-            "name":"Sri Lanka"
-        },
-        "SD":{
-            "name":"Sudan"
-        },
-        "SR":{
-            "name":"Suriname"
-        },
-        "SJ":{
-            "name":"Svalbard and Jan Mayen"
-        },
-        "SE":{
-            "name":"Sweden"
-        },
+        "LK":{},
+        "SD":{},
+        "SR":{},
+        "SJ":{},
+        "SE":{},
         "CH":{
-            "name":"Switzerland",
-            "hotelFtPrint":6.9
+            "HotelFootprintKilogramsPerHotelNight":6.9
         },
-        "SY":{
-            "name":"Syrian Arab Republic"
-        },
+        "SY":{},
         "TW":{
-            "name":"Taiwan (Province of China)",
-            "hotelFtPrint":71.1
+            "HotelFootprintKilogramsPerHotelNight":71.1
         },
-        "TJ":{
-            "name":"Tajikistan"
-        },
-        "TZ":{
-            "name":"United Republic of Tanzania"
-        },
+        "TJ":{},
+        "TZ":{},
         "TH":{
-            "name":"Thailand",
-            "hotelFtPrint":54.6
+            "HotelFootprintKilogramsPerHotelNight":54.6
         },
-        "TL":{
-            "name":"Timor-Leste"
-        },
-        "TG":{
-            "name":"Togo"
-        },
-        "TK":{
-            "name":"Tokelau"
-        },
-        "TO":{
-            "name":"Tonga"
-        },
+        "TL":{},
+        "TG":{},
+        "TK":{},
+        "TO":{},
         "TT":{
-            "name":"Trinidad and Tobago",
-            "hotelFtPrint":64.6
+            "HotelFootprintKilogramsPerHotelNight":64.6
         },
-        "TN":{
-            "name":"Tunisia"
-        },
+        "TN":{},
         "TR":{
-            "name":"Turkey",
-            "hotelFtPrint":51.8
+            "HotelFootprintKilogramsPerHotelNight":51.8
         },
-        "TM":{
-            "name":"Turkmenistan"
-        },
+        "TM":{},
         "TC":{
-            "name":"Turks and Caicos Islands",
-            "hotelFtPrint":64.6
+            "HotelFootprintKilogramsPerHotelNight":64.6
         },
-        "TV":{
-            "name":"Tuvalu"
-        },
-        "UG":{
-            "name":"Uganda"
-        },
-        "UA":{
-            "name":"Ukraine"
-        },
+        "TV":{},
+        "UG":{},
+        "UA":{},
         "AE":{
-            "name":"United Arab Emirates",
-            "hotelFtPrint":94.9
+            "HotelFootprintKilogramsPerHotelNight":94.9
         },
         "GB":{
-            "name":"United Kingdom of Great Britain and Northern Ireland ",
-            "hotelFtPrint":17.4,
+            "HotelFootprintKilogramsPerHotelNight":17.4,
             "areas":{
                 "UNITED_KINGDOM":{
-                    "name":"United-kingdom",
-                    "hotelFtPrint":17.4
+                    "HotelFootprintKilogramsPerHotelNight":17.4
                 },
                 "LONDON":{
-                    "name":"London",
-                    "hotelFtPrint":20.4
+                    "HotelFootprintKilogramsPerHotelNight":20.4
                 }
             }
         },
-        "UM":{
-            "name":"United States Minor Outlying Islands"
-        },
+        "UM":{},
         "US":{
-            "name":"United States of America",
-            "hotelFtPrint":21.4
+            "HotelFootprintKilogramsPerHotelNight":21.4
         },
-        "UY":{
-            "name":"Uruguay"
-        },
-        "UZ":{
-            "name":"Uzbekistan"
-        },
-        "VU":{
-            "name":"Vanuatu"
-        },
-        "VE":{
-            "name":"Bolivarian Republic of Venezuela"
-        },
+        "UY":{},
+        "UZ":{},
+        "VU":{},
+        "VE":{},
         "VN":{
-            "name":"Viet Nam",
-            "hotelFtPrint":55.1
+            "HotelFootprintKilogramsPerHotelNight":55.1
         },
         "VG":{
-            "name":"Virgin Islands (British)",
-            "hotelFtPrint":64.6
+            "HotelFootprintKilogramsPerHotelNight":64.6
         },
         "VI":{
-            "name":"Virgin Islands (U.S.)",
-            "hotelFtPrint":64.6
+            "HotelFootprintKilogramsPerHotelNight":64.6
         },
-        "WF":{
-            "name":"Wallis and Futuna"
-        },
-        "EH":{
-            "name":"Western Sahara"
-        },
-        "YE":{
-            "name":"Yemen"
-        },
-        "ZM":{
-            "name":"Zambia"
-        },
-        "ZW":{
-            "name":"Zimbabwe"
-        }
+        "WF":{},
+        "EH":{},
+        "YE":{},
+        "ZM":{},
+        "ZW":{}
     },
-    "expiryDateHotelFtPrint":"2020-07-31"
+    "expiryDateHotelFootprintKilogramsPerHotelNight":"2020-07-31"
 }
