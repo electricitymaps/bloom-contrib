@@ -8,37 +8,37 @@
         "AD":{},
         "AO":{},
         "AI":{
-            "HotelFootprintKilogramsPerHotelNight":64.6
+            "hotelFootprintKilogramsPerHotelNight":64.6
         },
         "AQ":{},
         "AG":{
-            "HotelFootprintKilogramsPerHotelNight":64.6
+            "hotelFootprintKilogramsPerHotelNight":64.6
         },
         "AR":{
-            "HotelFootprintKilogramsPerHotelNight":52.8
+            "hotelFootprintKilogramsPerHotelNight":52.8
         },
         "AM":{},
         "AW":{
-            "HotelFootprintKilogramsPerHotelNight":64.6
+            "hotelFootprintKilogramsPerHotelNight":64.6
         },
         "AU":{
-            "HotelFootprintKilogramsPerHotelNight":44.9
+            "hotelFootprintKilogramsPerHotelNight":44.9
         },
         "AT":{
-            "HotelFootprintKilogramsPerHotelNight":18.3
+            "hotelFootprintKilogramsPerHotelNight":18.3
         },
         "AZ":{},
         "BS":{
-            "HotelFootprintKilogramsPerHotelNight":64.6
+            "hotelFootprintKilogramsPerHotelNight":64.6
         },
         "BH":{},
         "BD":{},
         "BB":{
-            "HotelFootprintKilogramsPerHotelNight":64.6
+            "hotelFootprintKilogramsPerHotelNight":64.6
         },
         "BY":{},
         "BE":{
-            "HotelFootprintKilogramsPerHotelNight":18.3
+            "hotelFootprintKilogramsPerHotelNight":18.3
         },
         "BZ":{},
         "BJ":{},
@@ -46,13 +46,13 @@
         "BT":{},
         "BO":{},
         "BQ":{
-            "HotelFootprintKilogramsPerHotelNight":64.6
+            "hotelFootprintKilogramsPerHotelNight":64.6
         },
         "BA":{},
         "BW":{},
         "BV":{},
         "BR":{
-            "HotelFootprintKilogramsPerHotelNight":14.9
+            "hotelFootprintKilogramsPerHotelNight":14.9
         },
         "IO":{},
         "BN":{},
@@ -63,54 +63,54 @@
         "KH":{},
         "CM":{},
         "CA":{
-            "HotelFootprintKilogramsPerHotelNight":15.5
+            "hotelFootprintKilogramsPerHotelNight":15.5
         },
         "KY":{
-            "HotelFootprintKilogramsPerHotelNight":64.6
+            "hotelFootprintKilogramsPerHotelNight":64.6
         },
         "CF":{},
         "TD":{},
         "CL":{
-            "HotelFootprintKilogramsPerHotelNight":40.4
+            "hotelFootprintKilogramsPerHotelNight":40.4
         },
         "CN":{
-            "HotelFootprintKilogramsPerHotelNight":63.8
+            "hotelFootprintKilogramsPerHotelNight":63.8
         },
         "CX":{},
         "CC":{},
         "CO":{
-            "HotelFootprintKilogramsPerHotelNight":14.3
+            "hotelFootprintKilogramsPerHotelNight":14.3
         },
         "KM":{},
         "CD":{},
         "CG":{},
         "CK":{},
         "CR":{
-            "HotelFootprintKilogramsPerHotelNight":13.7
+            "hotelFootprintKilogramsPerHotelNight":13.7
         },
         "HR":{},
         "CU":{
-            "HotelFootprintKilogramsPerHotelNight":64.6
+            "hotelFootprintKilogramsPerHotelNight":64.6
         },
         "CW":{
-            "HotelFootprintKilogramsPerHotelNight":64.6
+            "hotelFootprintKilogramsPerHotelNight":64.6
         },
         "CY":{},
         "CZ":{
-            "HotelFootprintKilogramsPerHotelNight":29.7
+            "hotelFootprintKilogramsPerHotelNight":29.7
         },
         "CI":{},
         "DK":{},
         "DJ":{},
         "DM":{
-            "HotelFootprintKilogramsPerHotelNight":64.6
+            "hotelFootprintKilogramsPerHotelNight":64.6
         },
         "DO":{
-            "HotelFootprintKilogramsPerHotelNight":64.6
+            "hotelFootprintKilogramsPerHotelNight":64.6
         },
         "EC":{},
         "EG":{
-            "HotelFootprintKilogramsPerHotelNight":70.0
+            "hotelFootprintKilogramsPerHotelNight":70.0
         },
         "SV":{},
         "GQ":{},
@@ -123,7 +123,7 @@
         "FJ":{},
         "FI":{},
         "FR":{
-            "HotelFootprintKilogramsPerHotelNight":7.6
+            "hotelFootprintKilogramsPerHotelNight":7.6
         },
         "GF":{},
         "PF":{},
@@ -132,19 +132,19 @@
         "GM":{},
         "GE":{},
         "DE":{
-            "HotelFootprintKilogramsPerHotelNight":20.8
+            "hotelFootprintKilogramsPerHotelNight":20.8
         },
         "GH":{},
         "GI":{},
         "GR":{
-            "HotelFootprintKilogramsPerHotelNight":46.9
+            "hotelFootprintKilogramsPerHotelNight":46.9
         },
         "GL":{},
         "GD":{
-            "HotelFootprintKilogramsPerHotelNight":64.6
+            "hotelFootprintKilogramsPerHotelNight":64.6
         },
         "GP":{
-            "HotelFootprintKilogramsPerHotelNight":64.6
+            "hotelFootprintKilogramsPerHotelNight":64.6
         },
         "GU":{},
         "GT":{},
@@ -153,54 +153,54 @@
         "GW":{},
         "GY":{},
         "HT":{
-            "HotelFootprintKilogramsPerHotelNight":64.6
+            "hotelFootprintKilogramsPerHotelNight":64.6
         },
         "HM":{},
         "VA":{
-            "HotelFootprintKilogramsPerHotelNight":22.9
+            "hotelFootprintKilogramsPerHotelNight":22.9
         },
         "HN":{},
         "HK":{
-            "HotelFootprintKilogramsPerHotelNight":77.0
+            "hotelFootprintKilogramsPerHotelNight":77.0
         },
         "HU":{},
         "IS":{},
         "IN":{
-            "HotelFootprintKilogramsPerHotelNight":86.9
+            "hotelFootprintKilogramsPerHotelNight":86.9
         },
         "ID":{
-            "HotelFootprintKilogramsPerHotelNight":64.7
+            "hotelFootprintKilogramsPerHotelNight":64.7
         },
         "IR":{},
         "IQ":{},
         "IE":{
-            "HotelFootprintKilogramsPerHotelNight":30.4
+            "hotelFootprintKilogramsPerHotelNight":30.4
         },
         "IM":{
-            "HotelFootprintKilogramsPerHotelNight":17.4
+            "hotelFootprintKilogramsPerHotelNight":17.4
         },
         "IL":{
-            "HotelFootprintKilogramsPerHotelNight":61.3
+            "hotelFootprintKilogramsPerHotelNight":61.3
         },
         "IT":{
-            "HotelFootprintKilogramsPerHotelNight":22.9
+            "hotelFootprintKilogramsPerHotelNight":22.9
         },
         "JM":{
-            "HotelFootprintKilogramsPerHotelNight":64.6
+            "hotelFootprintKilogramsPerHotelNight":64.6
         },
         "JP":{
-            "HotelFootprintKilogramsPerHotelNight":71.9
+            "hotelFootprintKilogramsPerHotelNight":71.9
         },
         "JE":{},
         "JO":{
-            "HotelFootprintKilogramsPerHotelNight":80.9
+            "hotelFootprintKilogramsPerHotelNight":80.9
         },
         "KZ":{},
         "KE":{},
         "KI":{},
         "KP":{},
         "KR":{
-            "HotelFootprintKilogramsPerHotelNight":64.5
+            "hotelFootprintKilogramsPerHotelNight":64.5
         },
         "KW":{},
         "KG":{},
@@ -214,25 +214,25 @@
         "LT":{},
         "LU":{},
         "MO":{
-            "HotelFootprintKilogramsPerHotelNight":63.8
+            "hotelFootprintKilogramsPerHotelNight":63.8
         },
         "MG":{},
         "MW":{},
         "MY":{
-            "HotelFootprintKilogramsPerHotelNight":69.0
+            "hotelFootprintKilogramsPerHotelNight":69.0
         },
         "MV":{},
         "ML":{},
         "MT":{},
         "MH":{},
         "MQ":{
-            "HotelFootprintKilogramsPerHotelNight":64.6
+            "hotelFootprintKilogramsPerHotelNight":64.6
         },
         "MR":{},
         "MU":{},
         "YT":{},
         "MX":{
-            "HotelFootprintKilogramsPerHotelNight":28.5
+            "hotelFootprintKilogramsPerHotelNight":28.5
         },
         "FM":{},
         "MD":{},
@@ -240,7 +240,7 @@
         "MN":{},
         "ME":{},
         "MS":{
-            "HotelFootprintKilogramsPerHotelNight":64.6
+            "hotelFootprintKilogramsPerHotelNight":64.6
         },
         "MA":{},
         "MZ":{},
@@ -249,11 +249,11 @@
         "NR":{},
         "NP":{},
         "NL":{
-            "HotelFootprintKilogramsPerHotelNight":25.0
+            "hotelFootprintKilogramsPerHotelNight":25.0
         },
         "NC":{},
         "NZ":{
-            "HotelFootprintKilogramsPerHotelNight":12.9
+            "hotelFootprintKilogramsPerHotelNight":12.9
         },
         "NI":{},
         "NE":{},
@@ -267,78 +267,78 @@
         "PW":{},
         "PS":{},
         "PA":{
-            "HotelFootprintKilogramsPerHotelNight":30.2
+            "hotelFootprintKilogramsPerHotelNight":30.2
         },
         "PG":{},
         "PY":{},
         "PE":{},
         "PH":{
-            "HotelFootprintKilogramsPerHotelNight":79.3
+            "hotelFootprintKilogramsPerHotelNight":79.3
         },
         "PN":{},
         "PL":{
-            "HotelFootprintKilogramsPerHotelNight":39.9
+            "hotelFootprintKilogramsPerHotelNight":39.9
         },
         "PT":{
-            "HotelFootprintKilogramsPerHotelNight":27.6
+            "hotelFootprintKilogramsPerHotelNight":27.6
         },
         "PR":{
-            "HotelFootprintKilogramsPerHotelNight":64.6
+            "hotelFootprintKilogramsPerHotelNight":64.6
         },
         "QA":{
-            "HotelFootprintKilogramsPerHotelNight":119.3
+            "hotelFootprintKilogramsPerHotelNight":119.3
         },
         "MK":{},
         "RO":{},
         "RU":{
-            "HotelFootprintKilogramsPerHotelNight":46.1
+            "hotelFootprintKilogramsPerHotelNight":46.1
         },
         "RW":{},
         "RE":{},
         "BL":{
-            "HotelFootprintKilogramsPerHotelNight":64.6
+            "hotelFootprintKilogramsPerHotelNight":64.6
         },
         "SH":{},
         "KN":{
-            "HotelFootprintKilogramsPerHotelNight":64.6
+            "hotelFootprintKilogramsPerHotelNight":64.6
         },
         "LC":{
-            "HotelFootprintKilogramsPerHotelNight":64.6
+            "hotelFootprintKilogramsPerHotelNight":64.6
         },
         "MF":{
-            "HotelFootprintKilogramsPerHotelNight":64.6
+            "hotelFootprintKilogramsPerHotelNight":64.6
         },
         "PM":{},
         "VC":{
-            "HotelFootprintKilogramsPerHotelNight":64.6
+            "hotelFootprintKilogramsPerHotelNight":64.6
         },
         "WS":{},
         "SM":{},
         "ST":{},
         "SA":{
-            "HotelFootprintKilogramsPerHotelNight":142.2
+            "hotelFootprintKilogramsPerHotelNight":142.2
         },
         "SN":{},
         "RS":{},
         "SC":{},
         "SL":{},
         "SG":{
-            "HotelFootprintKilogramsPerHotelNight":37.1
+            "hotelFootprintKilogramsPerHotelNight":37.1
         },
         "SX":{
-            "HotelFootprintKilogramsPerHotelNight":64.6
+            "hotelFootprintKilogramsPerHotelNight":64.6
         },
         "SK":{},
         "SI":{},
         "SB":{},
         "SO":{},
         "ZA":{
-            "HotelFootprintKilogramsPerHotelNight":40.2
+            "hotelFootprintKilogramsPerHotelNight":40.2
         },
         "GS":{},
         "SS":{},
         "ES":{
-            "HotelFootprintKilogramsPerHotelNight":18.7
+            "hotelFootprintKilogramsPerHotelNight":18.7
         },
         "LK":{},
         "SD":{},
@@ -346,65 +346,65 @@
         "SJ":{},
         "SE":{},
         "CH":{
-            "HotelFootprintKilogramsPerHotelNight":6.9
+            "hotelFootprintKilogramsPerHotelNight":6.9
         },
         "SY":{},
         "TW":{
-            "HotelFootprintKilogramsPerHotelNight":71.1
+            "hotelFootprintKilogramsPerHotelNight":71.1
         },
         "TJ":{},
         "TZ":{},
         "TH":{
-            "HotelFootprintKilogramsPerHotelNight":54.6
+            "hotelFootprintKilogramsPerHotelNight":54.6
         },
         "TL":{},
         "TG":{},
         "TK":{},
         "TO":{},
         "TT":{
-            "HotelFootprintKilogramsPerHotelNight":64.6
+            "hotelFootprintKilogramsPerHotelNight":64.6
         },
         "TN":{},
         "TR":{
-            "HotelFootprintKilogramsPerHotelNight":51.8
+            "hotelFootprintKilogramsPerHotelNight":51.8
         },
         "TM":{},
         "TC":{
-            "HotelFootprintKilogramsPerHotelNight":64.6
+            "hotelFootprintKilogramsPerHotelNight":64.6
         },
         "TV":{},
         "UG":{},
         "UA":{},
         "AE":{
-            "HotelFootprintKilogramsPerHotelNight":94.9
+            "hotelFootprintKilogramsPerHotelNight":94.9
         },
         "GB":{
-            "HotelFootprintKilogramsPerHotelNight":17.4,
+            "hotelFootprintKilogramsPerHotelNight":17.4,
             "areas":{
                 "UNITED_KINGDOM":{
-                    "HotelFootprintKilogramsPerHotelNight":17.4
+                    "hotelFootprintKilogramsPerHotelNight":17.4
                 },
                 "LONDON":{
-                    "HotelFootprintKilogramsPerHotelNight":20.4
+                    "hotelFootprintKilogramsPerHotelNight":20.4
                 }
             }
         },
         "UM":{},
         "US":{
-            "HotelFootprintKilogramsPerHotelNight":21.4
+            "hotelFootprintKilogramsPerHotelNight":21.4
         },
         "UY":{},
         "UZ":{},
         "VU":{},
         "VE":{},
         "VN":{
-            "HotelFootprintKilogramsPerHotelNight":55.1
+            "hotelFootprintKilogramsPerHotelNight":55.1
         },
         "VG":{
-            "HotelFootprintKilogramsPerHotelNight":64.6
+            "hotelFootprintKilogramsPerHotelNight":64.6
         },
         "VI":{
-            "HotelFootprintKilogramsPerHotelNight":64.6
+            "hotelFootprintKilogramsPerHotelNight":64.6
         },
         "WF":{},
         "EH":{},
