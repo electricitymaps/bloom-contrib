@@ -39,6 +39,12 @@ async function login(username, password) {
   return parseCookies(loginResponse);
 }
 
+function calculateDurationFromLegs(legs) {
+  return []
+    .concat(legs)
+    .filter(leg => leg)
+    .reduce((out, leg) => out + leg.duration / 60 || 0, 0);
+}
 
 async function connect(requestLogin, requestWebView, logger) {
   const { username, password } = await requestLogin();
@@ -96,7 +102,7 @@ async function collect(state) {
       activities.push({
         id: `${tripId}-${get(trip, 'booking.outward.origin.id')}`, // a string that uniquely represents this activity
         datetime: outwardDate, // a javascript Date object that represents the start of the activity
-        durationHours: get(trip, 'booking.outward.duration') / 60, // a floating point that represents the duration of the activity in decimal hours
+        durationHours: calculateDurationFromLegs(get(trip, 'booking.outward.legs'), []), // a floating point that represents the duration of the activity in decimal hours
         activityType: ACTIVITY_TYPE_TRANSPORTATION,
         transportationMode: matchTransportMode(get(trip, 'booking.outward.legs[0].transportMode')), // a variable (from definitions.js) that represents the transportation mode
         departureStation: get(trip, 'booking.outward.origin.name'), // (for other travel types) a string that represents the original starting point
@@ -108,7 +114,8 @@ async function collect(state) {
       const inwardDate = get(trip, 'booking.inward.date') || get(trip, 'booking.outward.date');
 
       // sometimes inward journeys are open so don't have a fixed return date. Use the outward duration instead
-      const inwardDuration = (get(trip, 'booking.inward.duration') || get(trip, 'booking.outward.duration')) / 60;
+      const isOpenReturn = get(trip, 'booking.inward.openReturn');
+      const inwardDuration = calculateDurationFromLegs(isOpenReturn ? get(trip, 'booking.outward.legs') : get(trip, 'booking.inward.legs'));
 
       // sometimes inward journeys are open so don't have a fixed return date. Use the outward transport type instead
       const inwardTransportationMode = get(trip, 'booking.inward.legs[0].transportMode') || get(trip, 'booking.outward.legs[0].transportMode');
