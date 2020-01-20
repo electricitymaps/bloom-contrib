@@ -29,10 +29,30 @@ export function carbonIntensityByBrand(brand) {
 
 // look up carbon intensity for cars by Euro car segment and engine type,
 // input can be null
-export function carbonIntensity(euroCarSegment, engineType, brand) {
-  const entry = cars.footprints.find(d => d.euroCarSegment === euroCarSegment && d.engineType === engineType && d.brand === brand);
+function carbonIntensity(euroCarSegment, engineType, brand) {
+  // Using == instead of === because we want undefined to match with null in cars.json
+  // eslint-disable-next-line eqeqeq
+  const entry = cars.footprints.find(d => d.euroCarSegment == euroCarSegment && d.engineType == engineType && d.brand == brand);
   if (!entry) {
     throw new Error(`Unknown size, type, or brand ${euroCarSegment}_${engineType}_${brand}`);
   }
   return entry.carbonIntensity;
+}
+
+/*
+Carbon emissions of an activity (in kgCO2eq)
+*/
+export function carbonEmissions(activity) {
+  let { distanceKilometers } = activity;
+  if (!distanceKilometers) {
+    // fallback on duration if available
+    if ((activity.durationHours || 0) > 0) {
+      // https://setis.ec.europa.eu/system/files/Driving_and_parking_patterns_of_European_car_drivers-a_mobility_survey.pdf
+      distanceKilometers = activity.durationHours * 45.0;
+    } else {
+      throw new Error(`Couldn't calculate carbonEmissions for activity because distanceKilometers = ${distanceKilometers} and durationHours = ${activity.durationHours}`);
+    }
+  }
+
+  return carbonIntensity(activity.euroCarSegment, activity.engineType, activity.brand) * distanceKilometers / (activity.participants || 1);
 }
