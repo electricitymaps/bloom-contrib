@@ -143,7 +143,7 @@ const config = {
   type: ACTIVITY_TYPE_TRANSPORTATION,
   description: 'collects trips from your train and bus journeys',
   isPrivate: true,
-  signupLink: null,
+  signupLink: 'https://www.thetrainline.com/',
   contributors: ['liamgarrison'],
   // minRefreshInterval: 60
 };
