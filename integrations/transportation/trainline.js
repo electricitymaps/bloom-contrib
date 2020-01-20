@@ -13,13 +13,14 @@ import requestJSON from '../utils/requestJSON';
 const LOGIN_PATH = 'https://www.thetrainline.com/login-service/api/login';
 const PAST_BOOKINGS_PATH = 'https://www.thetrainline.com/my-account/api/bookings/past';
 
-function matchTransportMode(modeFromTrainline) {
+function matchTransportMode(modeFromTrainline, logger) {
   switch (modeFromTrainline) {
     case 'train':
       return TRANSPORTATION_MODE_TRAIN;
     case 'bus':
       return TRANSPORTATION_MODE_BUS;
     default:
+      logger.logWarning(`Couldn't find a matching transportation mode for mode ${modeFromTrainline}`);
       return TRANSPORTATION_MODE_PUBLIC_TRANSPORT;
   }
 }
@@ -68,7 +69,7 @@ async function disconnect() {
   return {};
 }
 
-async function collect(state) {
+async function collect(state, logger) {
   const newState = {
     ...state,
   };
@@ -109,7 +110,7 @@ async function collect(state) {
         datetime: outwardDate, // a javascript Date object that represents the start of the activity
         durationHours: calculateDurationFromLegs(get(trip, 'booking.outward.legs'), []), // a floating point that represents the duration of the activity in decimal hours
         activityType: ACTIVITY_TYPE_TRANSPORTATION,
-        transportationMode: matchTransportMode(get(trip, 'booking.outward.legs[0].transportMode')), // a variable (from definitions.js) that represents the transportation mode
+        transportationMode: matchTransportMode(get(trip, 'booking.outward.legs[0].transportMode'), logger), // a variable (from definitions.js) that represents the transportation mode
         departureStation: get(trip, 'booking.outward.origin.name'), // (for other travel types) a string that represents the original starting point
         destinationStation: get(trip, 'booking.outward.destination.name'), // (for other travel types) a string that represents the final destination
       });
@@ -130,7 +131,7 @@ async function collect(state) {
         datetime: inwardDate, // a javascript Date object that represents the start of the activity
         durationHours: inwardDuration, // a floating point that represents the duration of the activity in decimal hours
         activityType: ACTIVITY_TYPE_TRANSPORTATION,
-        transportationMode: matchTransportMode(inwardTransportationMode), // a variable (from definitions.js) that represents the transportation mode
+        transportationMode: matchTransportMode(inwardTransportationMode, logger), // a variable (from definitions.js) that represents the transportation mode
         departureStation: get(trip, 'booking.inward.origin.name'), // (for other travel types) a string that represents the original starting point
         destinationStation: get(trip, 'booking.inward.destination.name'), // (for other travel types) a string that represents the final destination
       });
