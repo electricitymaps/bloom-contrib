@@ -1,5 +1,5 @@
 import { get } from 'lodash';
-
+import { CookieJar, CookieAccessInfo } from 'cookiejar';
 import {
   ACTIVITY_TYPE_TRANSPORTATION,
   TRANSPORTATION_MODE_TRAIN,
@@ -7,7 +7,6 @@ import {
   TRANSPORTATION_MODE_PUBLIC_TRANSPORT,
 } from '../../definitions';
 import { ValidationError, AuthenticationError } from '../utils/errors';
-import parseCookies from '../authentication/parseCookies';
 import requestJSON from '../utils/requestJSON';
 
 const LOGIN_PATH = 'https://www.thetrainline.com/login-service/api/login';
@@ -38,7 +37,13 @@ async function login(username, password) {
   if (!loginResponse.data.authenticated) throw new AuthenticationError('Login failed');
 
   // Save session cookies for authentication in subsequent requests
-  return parseCookies(loginResponse);
+  const cookieJar = CookieJar();
+  cookieJar.setCookies(
+    loginResponse.headers.raw()['set-cookie'],
+    '.thetrainline.com',
+    '/'
+  );
+  return cookieJar;
 }
 
 function calculateDurationFromLegs(legs) {
@@ -54,14 +59,15 @@ async function connect(requestLogin, requestWebView, logger) {
   if (!(password || '').length) {
     throw new ValidationError('Password cannot be empty');
   }
-  const cookies = await login(username, password);
+
+  const cookieJar = await login(username, password);
 
   logger.logDebug('Successfully logged into trainline');
 
   return {
     username,
     password,
-    cookies,
+    cookieJar,
   };
 }
 
@@ -76,24 +82,30 @@ async function collect(state, logger) {
 
   let pastBookingsRes;
 
+  // Used to determine which cookies to send with the request
+  // (browser would take care of this automatically, but since in React Native, we have to handle it)
+  const cookieAccessInfo = CookieAccessInfo('.thetrainline.com', '/', true, false);
+
   try {
     pastBookingsRes = await requestJSON({
       url: PAST_BOOKINGS_PATH,
       method: 'GET',
       headers: {
-        cookie: newState.cookies,
+        cookie: newState.cookieJar.getCookies(cookieAccessInfo).toValueString(),
       },
     });
   } catch (err) {
     // Sometimes cookies will have expired, so try again
     const { username, password } = newState;
-    newState.cookies = await login(username, password);
+
+    // Update cookie jar with new cookies
+    newState.cookieJar = await login(username, password);
 
     pastBookingsRes = await requestJSON({
       url: PAST_BOOKINGS_PATH,
       method: 'GET',
       headers: {
-        cookie: newState.cookies, // updated cookies
+        cookie: newState.cookieJar.getCookies(cookieAccessInfo).toValueString(),
       },
     });
   }
