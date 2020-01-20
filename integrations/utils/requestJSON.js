@@ -3,21 +3,21 @@ import { HTTPError, NetworkConnectivityError } from './errors';
 /**
  *  A wrapper around fetch which handles errors and JSON nicely
  * @param {String} url    The url to fetch data from
- * @param {Object} opts   Fetch options, including data
+ * @param {Object} data   Object to convert to JSON and put in body
+ * @param {Object} headers  Fetch headers object
  * @return {Object}       response object
  */
-export default async function request(url, opts = {}) {
-  // opts.data is an object which is converted to JSON as the body of the request
-  if (opts.data) {
-    opts.body = JSON.stringify(opts.data);
-  }
-
+export default async function request({
+  url, method, data, headers,
+}) {
   try {
     const response = await fetch(url, {
       headers: {
         'Content-type': 'application/json',
+        ...headers,
       },
-      ...opts,
+      method: method || 'GET',
+      body: data ? JSON.stringify(data) : undefined,
     });
 
     if (!response.ok) {
@@ -29,7 +29,7 @@ export default async function request(url, opts = {}) {
   } catch (err) {
     if (err.name !== 'HTTPError') {
       // Usually connection issue when fetch throws an error.
-      throw new NetworkConnectivityError('Failed to fetch');
+      throw new NetworkConnectivityError(err.message);
     } else {
       // Rethrow errors from response.status !== 200
       throw err;

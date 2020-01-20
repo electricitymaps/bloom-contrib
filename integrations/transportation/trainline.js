@@ -8,7 +8,7 @@ import {
 } from '../../definitions';
 import { ValidationError, AuthenticationError } from '../utils/errors';
 import parseCookies from '../authentication/parseCookies';
-import request from '../utils/request';
+import requestJSON from '../utils/requestJSON';
 
 const LOGIN_PATH = 'https://www.thetrainline.com/login-service/api/login';
 const PAST_BOOKINGS_PATH = 'https://www.thetrainline.com/my-account/api/bookings/past';
@@ -25,12 +25,13 @@ function matchTransportMode(modeFromTrainline) {
 }
 
 async function login(username, password) {
-  const loginResponse = await request(LOGIN_PATH, {
-    method: 'post',
+  const loginResponse = await requestJSON({
+    url: LOGIN_PATH,
     data: {
       email: username,
       password,
     },
+    method: 'POST',
   });
   // Check if authenticated=true on the response body
   if (!loginResponse.data.authenticated) throw new AuthenticationError('Login failed');
@@ -75,7 +76,9 @@ async function collect(state) {
   let pastBookingsRes;
 
   try {
-    pastBookingsRes = await request(PAST_BOOKINGS_PATH, {
+    pastBookingsRes = await requestJSON({
+      url: PAST_BOOKINGS_PATH,
+      method: 'GET',
       headers: {
         cookie: newState.cookies,
       },
@@ -85,9 +88,11 @@ async function collect(state) {
     const { username, password } = newState;
     newState.cookies = await login(username, password);
 
-    pastBookingsRes = await request(PAST_BOOKINGS_PATH, {
+    pastBookingsRes = await requestJSON({
+      url: PAST_BOOKINGS_PATH,
+      method: 'GET',
       headers: {
-        cookie: newState.cookies, // Updated cookies
+        cookie: newState.cookies, // updated cookies
       },
     });
   }
