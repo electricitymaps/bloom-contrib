@@ -1,5 +1,5 @@
 import { get } from 'lodash';
-import { CookieJar, CookieAccessInfo } from 'cookiejar';
+import request from 'superagent';
 import {
   ACTIVITY_TYPE_TRANSPORTATION,
   TRANSPORTATION_MODE_TRAIN,
@@ -7,10 +7,12 @@ import {
   TRANSPORTATION_MODE_PUBLIC_TRANSPORT,
 } from '../../definitions';
 import { ValidationError, AuthenticationError } from '../utils/errors';
-import requestJSON from '../utils/requestJSON';
 
 const LOGIN_PATH = 'https://www.thetrainline.com/login-service/api/login';
 const PAST_BOOKINGS_PATH = 'https://www.thetrainline.com/my-account/api/bookings/past';
+
+// Create an agent that can hold cookies
+const agent = request.agent();
 
 function matchTransportMode(modeFromTrainline, logger) {
   switch (modeFromTrainline) {
@@ -25,25 +27,14 @@ function matchTransportMode(modeFromTrainline, logger) {
 }
 
 async function login(username, password) {
-  const loginResponse = await requestJSON({
-    url: LOGIN_PATH,
-    data: {
+  const loginResponse = await agent
+    .post(LOGIN_PATH)
+    .send({
       email: username,
       password,
-    },
-    method: 'POST',
-  });
+    });
   // Check if authenticated=true on the response body
-  if (!loginResponse.data.authenticated) throw new AuthenticationError('Login failed');
-
-  // Save session cookies for authentication in subsequent requests
-  const cookieJar = CookieJar();
-  cookieJar.setCookies(
-    loginResponse.headers.raw()['set-cookie'],
-    '.thetrainline.com',
-    '/'
-  );
-  return cookieJar;
+  if (!loginResponse.body.authenticated) throw new AuthenticationError('Login failed');
 }
 
 function calculateDurationFromLegs(legs) {
@@ -60,14 +51,13 @@ async function connect(requestLogin, requestWebView, logger) {
     throw new ValidationError('Password cannot be empty');
   }
 
-  const cookieJar = await login(username, password);
+  await login(username, password);
 
   logger.logDebug('Successfully logged into trainline');
 
   return {
     username,
     password,
-    cookieJar,
   };
 }
 
@@ -82,35 +72,20 @@ async function collect(state, logger) {
 
   let pastBookingsRes;
 
-  // Used to determine which cookies to send with the request
-  // (browser would take care of this automatically, but since in React Native, we have to handle it)
-  const cookieAccessInfo = CookieAccessInfo('.thetrainline.com', '/', true, false);
-
   try {
-    pastBookingsRes = await requestJSON({
-      url: PAST_BOOKINGS_PATH,
-      method: 'GET',
-      headers: {
-        cookie: newState.cookieJar.getCookies(cookieAccessInfo).toValueString(),
-      },
-    });
+    pastBookingsRes = await agent
+      .get(PAST_BOOKINGS_PATH);
   } catch (err) {
     // Sometimes cookies will have expired, so try again
     const { username, password } = newState;
 
-    // Update cookie jar with new cookies
-    newState.cookieJar = await login(username, password);
+    await login(username, password);
 
-    pastBookingsRes = await requestJSON({
-      url: PAST_BOOKINGS_PATH,
-      method: 'GET',
-      headers: {
-        cookie: newState.cookieJar.getCookies(cookieAccessInfo).toValueString(),
-      },
-    });
+    pastBookingsRes = await agent
+      .get(PAST_BOOKINGS_PATH);
   }
 
-  const tripResults = get(pastBookingsRes, 'data.pastBookings.results', []);
+  const tripResults = get(pastBookingsRes, 'body.pastBookings.results', []);
 
   const activities = [];
   tripResults.forEach((trip) => {

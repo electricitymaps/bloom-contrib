@@ -6,7 +6,6 @@
     "@material-ui/icons": "^4.4.3",
     "@material-ui/styles": "^4.4.3",
     "console-feed": "^2.8.10",
-    "cookiejar": "^2.1.2",
     "express": "^4.16.4",
     "node-fetch": "^2.6.0",
     "react": "^16.10.0",
