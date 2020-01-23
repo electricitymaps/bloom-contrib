@@ -105,6 +105,7 @@ Activities require a certain formatting:
   destinationAirportCode, // (for plane travel) a string that represents the final destination airport, IATA code
   departureStation, // (for other travel types) a string that represents the original starting point
   destinationStation, // (for other travel types) a string that represents the final destination
+  participants, // (optional) the number of passengers (for car and motorbike travels)
 }
 ```
 
