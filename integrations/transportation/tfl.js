@@ -10,11 +10,13 @@ async function request(url, opts) {
   try {
     const response = await fetch(url, opts);
     if (!response.ok) {
-      throw new Error(response);
+      // This will be caught by the catch block and recaught
+      throw new Error(response.statusText);
     }
     return await response.json();
   } catch (err) {
-    throw new HTTPError(err);
+    // Catch HTTP errors above as well as fetch errors
+    throw new HTTPError(err.message);
   }
 }
 
