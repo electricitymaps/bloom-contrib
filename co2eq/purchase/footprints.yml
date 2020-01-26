@@ -2431,7 +2431,7 @@ _children:
         kwh:
           intensityKilograms: 0.06 # kg co2e/kwh
           source: http://researchbriefings.files.parliament.uk/documents/POST-PN-0523/POST-PN-0523.pdf
-      Biomass boilers :
+      Biomass boilers:
         kwh:
           intensityKilograms: 0.1 # kg co2e/kwh
           source: http://researchbriefings.files.parliament.uk/documents/POST-PN-0523/POST-PN-0523.pdf
@@ -2568,7 +2568,7 @@ _children:
           SK:
             kwh:
               intensityKilograms: 0.375480331140096 # kg co2e/kwh
-              source: Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC). Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu            
+              source: Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC). Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu
   Stores:
     _children:
       Bakery:
