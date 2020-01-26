@@ -87,6 +87,21 @@ export const ENGINETYPE_HYBRID = 'hybrid';
 export const ENGINETYPE_LPG = 'lpg';
 export const ENGINETYPE_CNG = 'cng';
 
+// Heating source
+export const HEATING_SOURCE_COAL_BOILER = 'coalBoiler'
+export const HEATING_SOURCE_OIL_BOILER = 'oilBoiler'
+export const HEATING_SOURCE_GAS_BOILER = 'gasBoiler'
+export const HEATING_SOURCE_GAS_MICRO_COMBINED_HEAT_AND_POWER = 'gasMicroCombinedHeatAndPower'
+export const HEATING_SOURCE_GAS_ABSORPTION_HEAT_PUMP = 'gasAbsorptionHeatPump'
+export const HEATING_SOURCE_BIOSOURCED_GASES = 'biosourcedGases'
+export const HEATING_SOURCE_BIOMASS_BOILER = 'biomassBoiler'
+export const HEATING_SOURCE_GEOTHERMAL = 'geothermal'
+export const HEATING_SOURCE_SOLAR_THERMAL = 'solarThermal'
+export const HEATING_SOURCE_ELECTRIC_HEATER = 'electricHeater'
+export const HEATING_SOURCE_GROUND_SOURCE_HEAT_PUMP 'groundSourceHeatPump'
+export const HEATING_SOURCE_AIR_SOURCE_HEAT_PUMP = 'airSourceHeatPump'
+export const HEATING_SOURCE_DISTRICT_HEATING = 'districtHeating'
+
 // Entertainment
 export const PURCHASE_CATEGORY_ENTERTAINMENT_CIGAR_STORES = 'Tobacco store';
 export const PURCHASE_CATEGORY_ENTERTAINMENT_AMUSEMENT_PARKS = 'Amusement park';
