@@ -6,16 +6,12 @@ import env from '../loadEnv';
 const LOGIN_PATH = 'https://account.tfl.gov.uk/api/login';
 const BASE_PATH = 'https://mobileapi.tfl.gov.uk';
 
-async function request(url, opts) {
-  try {
-    const response = await fetch(url, opts);
-    if (!response.ok) {
-      throw new Error(response);
-    }
-    return await response.json();
-  } catch (err) {
-    throw new HTTPError(err);
+async function requestJSON(url, opts) {
+  const res = await fetch(url, opts);
+  if (!res.ok) {
+    throw new HTTPError(res.statusText, res.status);
   }
+  return res.json();
 }
 
 function generateOysterActivities(travelDays) {
@@ -61,7 +57,7 @@ async function fetchOysterCardTravelDays(newState) {
         : moment(fetchStart).add(6, 'days'); // Make sure query is no further than today
 
       apiPromises.push(
-        request(`${BASE_PATH}/Cards/Oyster/Journeys?startDate=${fetchStart.format(moment.HTML5_FMT.DATE)}&endDate=${fetchEnd.format(moment.HTML5_FMT.DATE)}`, {
+        requestJSON(`${BASE_PATH}/Cards/Oyster/Journeys?startDate=${fetchStart.format(moment.HTML5_FMT.DATE)}&endDate=${fetchEnd.format(moment.HTML5_FMT.DATE)}`, {
           method: 'get',
           headers: {
             'x-zumo-auth': accessToken,
@@ -117,7 +113,7 @@ async function fetchContactlessCardTravelDays(newState) {
         : moment(fetchStart).add(30, 'days'); // Make sure query is no further than today
 
       apiPromises.push(
-        request(`${BASE_PATH}/contactless/statements/journeys`, {
+        requestJSON(`${BASE_PATH}/contactless/statements/journeys`, {
           method: 'get',
           headers: {
             'x-zumo-auth': accessToken,
@@ -147,7 +143,7 @@ async function connect(requestLogin) {
     AppId: env.TFL_APP_ID,
   };
 
-  const loginResponse = await request(LOGIN_PATH, {
+  const loginResponse = await requestJSON(LOGIN_PATH, {
     method: 'post',
     headers: {
       'Content-type': 'application/json',
@@ -157,7 +153,7 @@ async function connect(requestLogin) {
 
   if (!loginResponse.SecurityToken) throw new AuthenticationError('Login failed');
 
-  const apiTokenResponse = await request(`${BASE_PATH}/APITokens`, {
+  const apiTokenResponse = await requestJSON(`${BASE_PATH}/APITokens`, {
     method: 'get',
     headers: {
       code: loginResponse.SecurityToken,
@@ -180,7 +176,7 @@ async function collect(state, logger) {
 
   if (newState.tokenExpiresAt < Date.now()) {
     // Get access token using the refresh token
-    const refreshTokenResponse = await request(`${BASE_PATH}/APITokens/RefreshToken`, {
+    const refreshTokenResponse = await requestJSON(`${BASE_PATH}/APITokens/RefreshToken`, {
       method: 'get',
       headers: {
         refresh_token: state.refreshToken,
@@ -194,7 +190,7 @@ async function collect(state, logger) {
   }
 
   // Update oyster cards
-  const oysterCardResponse = await request(`${BASE_PATH}/Cards/Oyster`, {
+  const oysterCardResponse = await requestJSON(`${BASE_PATH}/Cards/Oyster`, {
     method: 'get',
     headers: {
       'x-zumo-auth': newState.accessToken,
@@ -202,7 +198,7 @@ async function collect(state, logger) {
   });
 
   // Update contactless cards
-  const contactlessCardResponse = await request(`${BASE_PATH}/Contactless/Cards`, {
+  const contactlessCardResponse = await requestJSON(`${BASE_PATH}/Contactless/Cards`, {
     method: 'get',
     headers: {
       'x-zumo-auth': newState.accessToken,
