@@ -1,0 +1,331 @@
+_children:
+  AT:
+   heating:
+       kwh:
+         year:
+           m2: # kwh/year/m2
+             amount: 143.049
+             source: https://www.odyssee-mure.eu/publications/efficiency-by-sector/households/heating-consumption-per-m2.html
+   electricity: # cooling, lightning and electrical appliances
+     kwh:
+       year: # kwh/year
+         amount: 3023.8
+         source: https://www.eea.europa.eu/data-and-maps/indicators/progress-on-energy-efficiency-in-europe-3/assessment
+  BE:
+   electricity: # cooling, lightning and electrical appliances
+     kwh:
+       year: # kwh/year
+         amount: 2558.6
+         source: https://www.eea.europa.eu/data-and-maps/indicators/progress-on-energy-efficiency-in-europe-3/assessment
+  BG:
+   heating:
+       kwh:
+         year:
+           m2: # kwh/year/m2
+             amount: 75.3624
+             source: https://www.odyssee-mure.eu/publications/efficiency-by-sector/households/heating-consumption-per-m2.html
+   electricity: # cooling, lightning and electrical appliances
+     kwh:
+       year: # kwh/year
+         amount: 1977.1
+         source: https://www.eea.europa.eu/data-and-maps/indicators/progress-on-energy-efficiency-in-europe-3/assessment
+  CY:
+   electricity: # cooling, lightning and electrical appliances
+     kwh:
+       year: # kwh/year
+         amount: 3372.7
+         source: https://www.eea.europa.eu/data-and-maps/indicators/progress-on-energy-efficiency-in-europe-3/assessment
+  CZ:
+   heating:
+       kwh:
+         year:
+           m2: # kwh/year/m2
+             amount: 172.124
+             source: https://www.odyssee-mure.eu/publications/efficiency-by-sector/households/heating-consumption-per-m2.html
+   electricity: # cooling, lightning and electrical appliances
+     kwh:
+       year: # kwh/year
+         amount: 1395.6
+         source: https://www.eea.europa.eu/data-and-maps/indicators/progress-on-energy-efficiency-in-europe-3/assessment
+  DE:
+   heating:
+       kwh:
+         year:
+           m2: # kwh/year/m2
+             amount: 127.93
+             source: https://www.odyssee-mure.eu/publications/efficiency-by-sector/households/heating-consumption-per-m2.html
+   electricity: # cooling, lightning and electrical appliances
+     kwh:
+       year: # kwh/year
+         amount: 1977.1
+         source: https://www.eea.europa.eu/data-and-maps/indicators/progress-on-energy-efficiency-in-europe-3/assessment
+  DK:
+   heating:
+       kwh:
+         year:
+           m2: # kwh/year/m2
+             amount: 137.234
+             source: https://www.odyssee-mure.eu/publications/efficiency-by-sector/households/heating-consumption-per-m2.html
+   electricity: # cooling, lightning and electrical appliances
+     kwh:
+       year: # kwh/year
+         amount: 2791.2
+         source: https://www.eea.europa.eu/data-and-maps/indicators/progress-on-energy-efficiency-in-europe-3/assessment
+  EE:
+   heating:
+       kwh:
+         year:
+           m2: # kwh/year/m2
+             amount: 165.146
+             source: https://www.odyssee-mure.eu/publications/efficiency-by-sector/households/heating-consumption-per-m2.html
+   electricity: # cooling, lightning and electrical appliances
+     kwh:
+       year: # kwh/year
+         amount: 1046.7
+         source: https://www.eea.europa.eu/data-and-maps/indicators/progress-on-energy-efficiency-in-europe-3/assessment
+  ES:
+   heating:
+       kwh:
+         year:
+           m2: # kwh/year/m2
+             amount: 50.9394
+             source: https://www.odyssee-mure.eu/publications/efficiency-by-sector/households/heating-consumption-per-m2.html
+   electricity: # cooling, lightning and electrical appliances
+     kwh:
+       year: # kwh/year
+         amount: 2907.5
+         source: https://www.eea.europa.eu/data-and-maps/indicators/progress-on-energy-efficiency-in-europe-3/assessment
+  EU:
+   heating:
+       kwh:
+         year:
+           m2: # kwh/year/m2
+             amount:
+             source: https://www.odyssee-mure.eu/publications/efficiency-by-sector/households/heating-consumption-per-m2.html
+   electricity: # cooling, lightning and electrical appliances
+     kwh:
+       year: # kwh/year
+         amount: 2558.6
+         source: https://www.eea.europa.eu/data-and-maps/indicators/progress-on-energy-efficiency-in-europe-3/assessment
+  FI:
+   heating:
+       kwh:
+         year:
+           m2: # kwh/year/m2
+             amount: 151.19
+             source: https://www.odyssee-mure.eu/publications/efficiency-by-sector/households/heating-consumption-per-m2.html
+   electricity: # cooling, lightning and electrical appliances
+     kwh:
+       year: # kwh/year
+         amount: 3605.3
+         source: https://www.eea.europa.eu/data-and-maps/indicators/progress-on-energy-efficiency-in-europe-3/assessment
+  FR:
+   heating:
+       kwh:
+         year:
+           m2: # kwh/year/m2
+             amount: 123.278
+             source: https://www.odyssee-mure.eu/publications/efficiency-by-sector/households/heating-consumption-per-m2.html
+   electricity: # cooling, lightning and electrical appliances
+     kwh:
+       year: # kwh/year
+         amount: 2442.3
+         source: https://www.eea.europa.eu/data-and-maps/indicators/progress-on-energy-efficiency-in-europe-3/assessment
+  GR:
+   heating:
+       kwh:
+         year:
+           m2: # kwh/year/m2
+             amount: 93.3889
+             source: https://www.odyssee-mure.eu/publications/efficiency-by-sector/households/heating-consumption-per-m2.html
+   electricity: # cooling, lightning and electrical appliances
+     kwh:
+       year: # kwh/year
+         amount: 2558.6
+         source: https://www.eea.europa.eu/data-and-maps/indicators/progress-on-energy-efficiency-in-europe-3/assessment
+  HR:
+   heating:
+       kwh:
+         year:
+           m2: # kwh/year/m2
+             amount: 161.657
+             source: https://www.odyssee-mure.eu/publications/efficiency-by-sector/households/heating-consumption-per-m2.html
+   electricity: # cooling, lightning and electrical appliances
+     kwh:
+       year: # kwh/year
+         amount: 2558.6
+         source: https://www.eea.europa.eu/data-and-maps/indicators/progress-on-energy-efficiency-in-europe-3/assessment
+  HU:
+   heating:
+       kwh:
+         year:
+           m2: # kwh/year/m2
+             amount: 183.754
+             source: https://www.odyssee-mure.eu/publications/efficiency-by-sector/households/heating-consumption-per-m2.html
+   electricity: # cooling, lightning and electrical appliances
+     kwh:
+       year: # kwh/year
+         amount: 1744.5
+         source: https://www.eea.europa.eu/data-and-maps/indicators/progress-on-energy-efficiency-in-europe-3/assessment
+  IE:
+   heating:
+       kwh:
+         year:
+           m2: # kwh/year/m2
+             amount: 89.0858
+             source: https://www.odyssee-mure.eu/publications/efficiency-by-sector/households/heating-consumption-per-m2.html
+   electricity: # cooling, lightning and electrical appliances
+     kwh:
+       year: # kwh/year
+         amount: 2209.7
+         source: https://www.eea.europa.eu/data-and-maps/indicators/progress-on-energy-efficiency-in-europe-3/assessment
+  IT:
+   heating:
+       kwh:
+         year:
+           m2: # kwh/year/m2
+             amount: 117.463
+             source: https://www.odyssee-mure.eu/publications/efficiency-by-sector/households/heating-consumption-per-m2.html
+   electricity: # cooling, lightning and electrical appliances
+     kwh:
+       year: # kwh/year
+         amount: 2326
+         source: https://www.eea.europa.eu/data-and-maps/indicators/progress-on-energy-efficiency-in-europe-3/assessment
+  LT:
+   heating:
+       kwh:
+         year:
+           m2: # kwh/year/m2
+             amount: 143.049
+             source: https://www.odyssee-mure.eu/publications/efficiency-by-sector/households/heating-consumption-per-m2.html
+   electricity: # cooling, lightning and electrical appliances
+     kwh:
+       year: # kwh/year
+         amount: 1628.2
+         source: https://www.eea.europa.eu/data-and-maps/indicators/progress-on-energy-efficiency-in-europe-3/assessment"
+  LU:
+   heating:
+       kwh:
+         year:
+           m2: # kwh/year/m2
+             amount: 168.635
+             source: https://www.odyssee-mure.eu/publications/efficiency-by-sector/households/heating-consumption-per-m2.html
+   electricity: # cooling, lightning and electrical appliances
+     kwh:
+       year: # kwh/year
+         amount: 2791.2
+         source: https://www.eea.europa.eu/data-and-maps/indicators/progress-on-energy-efficiency-in-europe-3/assessment
+  LV:
+   heating:
+       kwh:
+         year:
+           m2: # kwh/year/m2
+             amount: 182.591
+             source: https://www.odyssee-mure.eu/publications/efficiency-by-sector/households/heating-consumption-per-m2.html
+   electricity: # cooling, lightning and electrical appliances
+     kwh:
+       year: # kwh/year
+         amount: 1279.3
+         source: https://www.eea.europa.eu/data-and-maps/indicators/progress-on-energy-efficiency-in-europe-3/assessment
+  MT:
+   heating:
+       kwh:
+         year:
+           m2: # kwh/year/m2
+             amount: 7.81536
+             source: https://www.odyssee-mure.eu/publications/efficiency-by-sector/households/heating-consumption-per-m2.html
+   electricity: # cooling, lightning and electrical appliances
+     kwh:
+       year: # kwh/year
+         amount: 2326
+         source: https://www.eea.europa.eu/data-and-maps/indicators/progress-on-energy-efficiency-in-europe-3/assessment
+  NL:
+   heating:
+       kwh:
+         year:
+           m2: # kwh/year/m2
+             amount: 90.4814
+             source: https://www.odyssee-mure.eu/publications/efficiency-by-sector/households/heating-consumption-per-m2.html
+   electricity: # cooling, lightning and electrical appliances
+     kwh:
+       year: # kwh/year
+         amount: 2674.9
+         source: https://www.eea.europa.eu/data-and-maps/indicators/progress-on-energy-efficiency-in-europe-3/assessment
+  PL:
+   heating:
+       kwh:
+         year:
+           m2: # kwh/year/m2
+             amount: 158.168
+             source: https://www.odyssee-mure.eu/publications/efficiency-by-sector/households/heating-consumption-per-m2.html
+   electricity: # cooling, lightning and electrical appliances
+     kwh:
+       year: # kwh/year
+         amount: 1511.9
+         source: https://www.eea.europa.eu/data-and-maps/indicators/progress-on-energy-efficiency-in-europe-3/assessment
+  PT:
+   heating:
+       kwh:
+         year:
+           m2: # kwh/year/m2
+             amount: 17.2124
+             source: https://www.odyssee-mure.eu/publications/efficiency-by-sector/households/heating-consumption-per-m2.html
+   electricity: # cooling, lightning and electrical appliances
+     kwh:
+       year: # kwh/year
+         amount: 1511.9
+         source: https://www.eea.europa.eu/data-and-maps/indicators/progress-on-energy-efficiency-in-europe-3/assessment
+  RO:
+   heating:
+       kwh:
+         year:
+           m2: # kwh/year/m2
+             amount: 266.327
+             source: https://www.odyssee-mure.eu/publications/efficiency-by-sector/households/heating-consumption-per-m2.html
+   electricity: # cooling, lightning and electrical appliances
+     kwh:
+       year: # kwh/year
+         amount: 1395.6
+         source: https://www.eea.europa.eu/data-and-maps/indicators/progress-on-energy-efficiency-in-europe-3/assessment
+  SE:
+   heating:
+       kwh:
+         year:
+           m2: # kwh/year/m2
+             amount: 112.5784
+             source: https://www.odyssee-mure.eu/publications/efficiency-by-sector/households/heating-consumption-per-m2.html
+   electricity: # cooling, lightning and electrical appliances
+     kwh:
+       year: # kwh/year
+         amount: 5349.8
+         source: https://www.eea.europa.eu/data-and-maps/indicators/progress-on-energy-efficiency-in-europe-3/assessment
+  SI:
+   electricity: # cooling, lightning and electrical appliances
+     kwh:
+       year: # kwh/year
+         amount: 1511.9
+         source: https://www.eea.europa.eu/data-and-maps/indicators/progress-on-energy-efficiency-in-europe-3/assessment"
+  SK:
+   heating:
+       kwh:
+         year:
+           m2: # kwh/year/m2
+             amount: 104.3211
+             source: https://www.odyssee-mure.eu/publications/efficiency-by-sector/households/heating-consumption-per-m2.html
+   electricity: # cooling, lightning and electrical appliances
+     kwh:
+       year: # kwh/year
+         amount: 2442.3
+         source: https://www.eea.europa.eu/data-and-maps/indicators/progress-on-energy-efficiency-in-europe-3/assessment
+  UK:
+   heating:
+       kwh:
+         year:
+           m2: # kwh/year/m2
+             amount: 166.309
+             source: https://www.odyssee-mure.eu/publications/efficiency-by-sector/households/heating-consumption-per-m2.html
+   electricity: # cooling, lightning and electrical appliances
+     kwh:
+       year: # kwh/year
+         amount: 2558.6
+         source: https://www.eea.europa.eu/data-and-maps/indicators/progress-on-energy-efficiency-in-europe-3/assessment
