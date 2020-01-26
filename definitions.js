@@ -98,7 +98,7 @@ export const HEATING_SOURCE_BIOMASS_BOILER = 'biomassBoiler'
 export const HEATING_SOURCE_GEOTHERMAL = 'geothermal'
 export const HEATING_SOURCE_SOLAR_THERMAL = 'solarThermal'
 export const HEATING_SOURCE_ELECTRIC_HEATER = 'electricHeater'
-export const HEATING_SOURCE_GROUND_SOURCE_HEAT_PUMP 'groundSourceHeatPump'
+export const HEATING_SOURCE_GROUND_SOURCE_HEAT_PUMP = 'groundSourceHeatPump'
 export const HEATING_SOURCE_AIR_SOURCE_HEAT_PUMP = 'airSourceHeatPump'
 export const HEATING_SOURCE_DISTRICT_HEATING = 'districtHeating'
 
