@@ -1,3 +1,5 @@
+import md5 from 'tiny-hashes/md5';
+
 import {
   HEATING_SOURCE_COAL_BOILER,
   HEATING_SOURCE_OIL_BOILER,
@@ -12,13 +14,10 @@ import {
   HEATING_SOURCE_GROUND_SOURCE_HEAT_PUMP,
   HEATING_SOURCE_AIR_SOURCE_HEAT_PUMP,
   HEATING_SOURCE_DISTRICT_HEATING,
-} from '../definitions';
+} from '../../definitions';
 import energyFootprints from './energyfootprints.yml';
 import energyPrices from './energyprices.yml';
 import energyUsage from './energyusage.yml';
-import md5 from 'tiny-hashes/md5';
-
-const MEALS_PER_DAY = 3;
 
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'energy';
@@ -64,16 +63,16 @@ export function carbonEmissions(activity) {
       // TODO: kWhPerYearPerM2
       // Get country-specific values
       const countryCarbonIntensity = energyFootprint.country[countryCodeISO2].intensityKilograms;
-      return energyWattHours / 1000.0 * countryEnergyFootprint;
-    } else {
-      // Use non-country specific estimator
-      if (!energyFootprint.intensityKilograms) {
-        throw new Error(`Unable to find a non-country-specific carbon intensity for heatingSource ${heatingSource}`);
-      }
-      return energyWattHours / 1000.0 * energyFootprint.intensityKilograms;
+      return energyWattHours / 1000.0 * countryCarbonIntensity;
     }
+    // Use non-country specific estimator
+    if (!energyFootprint.intensityKilograms) {
+      throw new Error(`Unable to find a non-country-specific carbon intensity for heatingSource ${heatingSource}`);
+    }
+    return energyWattHours / 1000.0 * energyFootprint.intensityKilograms;
+  }
 
-  } else if (countryCodeISO2
+  if (countryCodeISO2
     && countryCodeISO2
     && energyFootprint.country[countryCodeISO2]
     && energyFootprint.country[countryCodeISO2].kWhPerYear) {
@@ -83,5 +82,4 @@ export function carbonEmissions(activity) {
     // Try to estimate usage without having a country
     throw new Error('This isn\' implemented yet');
   }
-
 }
