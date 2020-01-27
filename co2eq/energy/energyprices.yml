@@ -1,4 +1,3 @@
-# yamllint disable rule:line-length
 electricity:
   country:
     BE:

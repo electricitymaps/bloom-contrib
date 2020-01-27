@@ -1,4 +1,3 @@
-# yamllint disable rule:line-length
 AT:
   heating: # for households
     kWhPerYearPerM2: 143.049
