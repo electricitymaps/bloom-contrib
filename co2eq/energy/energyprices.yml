@@ -1,4 +1,4 @@
-electricity:
+electricity: # household prices incl. tax & levies
   country:
     BE:
       kWhPrice: 0.1948
@@ -156,7 +156,7 @@ electricity:
       kWhPrice: 0.0686
       unit: EUR
       source: 'Eurostat, 2019'
-natural gas:
+natural gas: # household prices incl. tax & levies
   country:
     BE:
       kWhPrice: 0.0554
