@@ -65,6 +65,7 @@ const NAG_CATEGORY = {
   'Home Security': null,
   'Vacation Home Expenses': null,
   'Auto loan etc.': null,
+  'Auto Loan etc.': null,
   Fuel: { purchaseType: PURCHASE_CATEGORY_TRANSPORTATION_FUEL, activityType: ACTIVITY_TYPE_PURCHASE },
   'Auto Insurance & Assistance': null,
   'Road Tax & Green Tax': null,
