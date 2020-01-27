@@ -5,7 +5,7 @@ export const modelVersion = '1';
 export const explanation = {
   text: 'Calculations take into account the emissions of a stay depending of the country',
   links: [
-    { label: 'UK Government Conversion Factor', href: 'https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019' },
+    { label: 'DEFRA (2009)', href: 'https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019' },
   ],
 };
 
