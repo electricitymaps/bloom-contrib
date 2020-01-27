@@ -18,12 +18,11 @@ export const modelVersion = '10';
 export const explanation = {
   text: 'Calculations take into account direct emissions from burning fuel and manufacturing of vehicle.',
   links: [
-    { label: 'Ducky Climate calculator - documentation', href: 'https://static.ducky.eco/calculator_documentation.pdf' },
-    { label: 'Quantifying CO2 savings of cycling - European Cyclists’ Federation', href: 'https://ecf.com/files/wp-content/uploads/ECF_BROCHURE_EN_planche.pdf.pdf' },
-    { label: 'Greenhouse gas reporting: conversion factors 2019 - DEFRA', href: 'https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019' },
-    { label: 'The myclimate Flight Emission Calculator - myclimate.org', href: 'https://www.myclimate.org/fileadmin/user_upload/myclimate_-_home/01_Information/01_About_myclimate/09_Calculation_principles/Documents/myclimate-flight-calculator-documentation_EN.pdf' },
-    { label: 'The environmental impacts of shared dockless electric scooters', href: 'https://iopscience.iop.org/article/10.1088/1748-9326/ab2da8' },
-    { label: 'The myclimate Flight Emission Calculator', href: 'https://www.myclimate.org/fileadmin/user_upload/myclimate_-_home/01_Information/01_About_myclimate/09_Calculation_principles/Documents/myclimate-flight-calculator-documentation_EN.pdf' },
+    { label: 'Ducky (2019)', href: 'https://static.ducky.eco/calculator_documentation.pdf' },
+    { label: 'European Cyclists’ Federation (2011)', href: 'https://ecf.com/files/wp-content/uploads/ECF_BROCHURE_EN_planche.pdf' },
+    { label: 'UK GOV DEFRA (2019)', href: 'https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019' },
+    { label: 'myclimate (2019)', href: 'https://www.myclimate.org/fileadmin/user_upload/myclimate_-_home/01_Information/01_About_myclimate/09_Calculation_principles/Documents/myclimate-flight-calculator-documentation_EN.pdf' },
+    { label: 'IOP Science (2019)', href: 'https://iopscience.iop.org/article/10.1088/1748-9326/ab2da8' },
   ],
 };
 

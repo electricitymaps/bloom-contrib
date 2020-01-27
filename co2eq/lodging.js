@@ -10,7 +10,7 @@ export const modelVersion = '1';
 export const explanation = {
   text: 'Calculations take into account the energy usage of a stay',
   links: [
-    { label: 'South Pole', href: 'https://shop.southpolecarbon.com/uploads/assets/en/_Overnight%20Stays.pdf' },
+    { label: 'UK GOV DEFRA (2009)', href: 'https://shop.southpolecarbon.com/uploads/assets/en/_Overnight%20Stays.pdf' },
   ],
 };
 
