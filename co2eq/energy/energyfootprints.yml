@@ -1,192 +1,191 @@
-Heating:
-  _children:
-    Coal boiler:
-      kwh:
-        intensityKilograms: 0.63 # kg co2e/kwh
-        source: https://www.icax.co.uk/Decarbonising_Heating_2022.html
-    Oil boiler:
-      kwh:
-        intensityKilograms: 0.43 # kg co2e/kwh
-        source: http://researchbriefings.files.parliament.uk/documents/POST-PN-0523/POST-PN-0523.pdf
-    Gas boiler:
-      kwh:
-        intensityKilograms: 0.295 # kg co2e/kwh
-        source: http://researchbriefings.files.parliament.uk/documents/POST-PN-0523/POST-PN-0523.pdf
-    Gas micro combined heat and power:
-      kwh:
-        intensityKilograms: 0.26 # kg co2e/kwh
-        source: http://researchbriefings.files.parliament.uk/documents/POST-PN-0523/POST-PN-0523.pdf
-    Gas absorption heat pumps:
-      kwh:
-        intensityKilograms: 0.175 # kg co2e/kwh
-        source: http://researchbriefings.files.parliament.uk/documents/POST-PN-0523/POST-PN-0523.pdf
-    Biosourced gases:
-      kwh:
-        intensityKilograms: 0.06 # kg co2e/kwh
-        source: http://researchbriefings.files.parliament.uk/documents/POST-PN-0523/POST-PN-0523.pdf
-    Biomass boilers:
-      kwh:
-        intensityKilograms: 0.1 # kg co2e/kwh
-        source: http://researchbriefings.files.parliament.uk/documents/POST-PN-0523/POST-PN-0523.pdf
-    Geothermal:
-      kwh:
-        intensityKilograms: 0.01 # kg co2e/kwh
-        source: http://researchbriefings.files.parliament.uk/documents/POST-PN-0523/POST-PN-0523.pdf
-    Solar thermal:
-      kwh:
-        intensityKilograms: 0.0225 # kg co2e/kwh
-        source: http://researchbriefings.files.parliament.uk/documents/POST-PN-0523/POST-PN-0523.pdf
-    Electric heater:
-      kwh:
-        electricityCarbonIntensityMultiplier: 1
-        source: http://researchbriefings.files.parliament.uk/documents/POST-PN-0523/POST-PN-0523.pdf
-    Ground source heat pump:
-      kwh:
-        electricityCarbonIntensityMultiplier: 0.35
-        source: http://researchbriefings.files.parliament.uk/documents/POST-PN-0523/POST-PN-0523.pdf
-    Air source heat pump:
-      kwh:
-        electricityCarbonIntensityMultiplier: 0.46
-        source: http://researchbriefings.files.parliament.uk/documents/POST-PN-0523/POST-PN-0523.pdf
-    District heating:
-      country:
-        AT:
-          kwh:
-            intensityKilograms: 0.138613768592457 # kg co2e/kwh
-            source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
-            Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
-        BE:
-          kwh:
-            intensityKilograms: 0.153246230482934 # kg co2e/kwh
-            source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
-            Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
-        BG:
-          kwh:
-            intensityKilograms: 0.242628007169097 # kg co2e/kwh
-            source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
-            Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
-        CY:
-          kwh:
-            intensityKilograms: -0.00969682540749218 # kg co2e/kwh
-            source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
-            Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
-        CZ:
-          kwh:
-            intensityKilograms: 0.287764611249576 # kg co2e/kwh
-            source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
-            Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
-        DE:
-          kwh:
-            intensityKilograms: 0.188820002160917 # kg co2e/kwh
-            source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
-            Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
-        DK:
-          kwh:
-            intensityKilograms: 0.203981361123157 # kg co2e/kwh
-            source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
-            Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
-        EE:
-          kwh:
-            intensityKilograms: 0.163115712753168 # kg co2e/kwh
-            source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
-            Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
-        ES:
-          kwh:
-            intensityKilograms: 0 # kg co2e/kwh
-            source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
-            Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
-        FI:
-          kwh:
-            intensityKilograms: 0.185356469136768 # kg co2e/kwh
-            source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
-            Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
-        FR:
-          kwh:
-            intensityKilograms: 0.0827175916129129 # kg co2e/kwh
-            source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
-            Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
-        UK:
-          kwh:
-            intensityKilograms: 0.138031379296288 # kg co2e/kwh
-            source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
-            Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
-        GR:
-          kwh:
-            intensityKilograms: 0.315308456821223 # kg co2e/kwh
-            source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
-            Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
-        HR:
-          kwh:
-            intensityKilograms: 0.218491125208843 # kg co2e/kwh
-            source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
-            Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
-        HU:
-          kwh:
-            intensityKilograms: 0.181767842244441 # kg co2e/kwh
-            source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
-            Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
-        IE:
-          kwh:
-            intensityKilograms: 0 # kg co2e/kwh
-            source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
-            Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
-        IT:
-          kwh:
-            intensityKilograms: 0.200398663230602 # kg co2e/kwh
-            source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
-            Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
-        LT:
-          kwh:
-            intensityKilograms: 0.0966513330178206 # kg co2e/kwh
-            source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
-            Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
-        LU:
-          kwh:
-            intensityKilograms: 0.126744277506435 # kg co2e/kwh
-            source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
-            Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
-        LV:
-          kwh:
-            intensityKilograms: 0.104791562263033 # kg co2e/kwh
-            source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
-            Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
-        MT:
-          kwh:
-            intensityKilograms: 0.162345134012572 # kg co2e/kwh
-            source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
-            Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
-        NL:
-          kwh:
-            intensityKilograms: 0.157277165673387 # kg co2e/kwh
-            source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
-            Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
-        PL:
-          kwh:
-            intensityKilograms: 0.345769096000686 # kg co2e/kwh
-            source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
-            Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
-        PT:
-          kwh:
-            intensityKilograms: 0.272338841231362 # kg co2e/kwh
-            source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
-            Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
-        RO:
-          kwh:
-            intensityKilograms: 0.220377645786264 # kg co2e/kwh
-            source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
-            Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
-        SE:
-          kwh:
-            intensityKilograms: 0.0968585307202192 # kg co2e/kwh
-            source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
-            Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
-        SI:
-          kwh:
-            intensityKilograms: 0.269687224992362 # kg co2e/kwh
-            source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
-            Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
-        SK:
-          kwh:
-            intensityKilograms: 0.375480331140096 # kg co2e/kwh
-            source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
-            Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
+heating:
+  coal boiler:
+    kWh:
+      intensityKilograms: 0.63  # kg co2e/kWh
+      source: https://www.icax.co.uk/Decarbonising_Heating_2022.html
+  oil boiler:
+    kWh:
+      intensityKilograms: 0.43  # kg co2e/kWh
+      source: http://researchbriefings.files.parliament.uk/documents/POST-PN-0523/POST-PN-0523.pdf
+  gas boiler:
+    kWh:
+      intensityKilograms: 0.295  # kg co2e/kWh
+      source: http://researchbriefings.files.parliament.uk/documents/POST-PN-0523/POST-PN-0523.pdf
+  gas micro combined heat and power:
+    kWh:
+      intensityKilograms: 0.26  # kg co2e/kWh
+      source: http://researchbriefings.files.parliament.uk/documents/POST-PN-0523/POST-PN-0523.pdf
+  gas absorption heat pumps:
+    kWh:
+      intensityKilograms: 0.175  # kg co2e/kWh
+      source: http://researchbriefings.files.parliament.uk/documents/POST-PN-0523/POST-PN-0523.pdf
+  biosourced gases:
+    kWh:
+      intensityKilograms: 0.06  # kg co2e/kWh
+      source: http://researchbriefings.files.parliament.uk/documents/POST-PN-0523/POST-PN-0523.pdf
+  biomass boilers:
+    kWh:
+      intensityKilograms: 0.1  # kg co2e/kWh
+      source: http://researchbriefings.files.parliament.uk/documents/POST-PN-0523/POST-PN-0523.pdf
+  geothermal:
+    kWh:
+      intensityKilograms: 0.01  # kg co2e/kWh
+      source: http://researchbriefings.files.parliament.uk/documents/POST-PN-0523/POST-PN-0523.pdf
+  solar thermal:
+    kWh:
+      intensityKilograms: 0.0225  # kg co2e/kWh
+      source: http://researchbriefings.files.parliament.uk/documents/POST-PN-0523/POST-PN-0523.pdf
+  electric heater:
+    kWh:
+      electricityCarbonIntensityMultiplier: 1
+      source: http://researchbriefings.files.parliament.uk/documents/POST-PN-0523/POST-PN-0523.pdf
+  ground source heat pump:
+    kWh:
+      electricityCarbonIntensityMultiplier: 0.35
+      source: http://researchbriefings.files.parliament.uk/documents/POST-PN-0523/POST-PN-0523.pdf
+  air source heat pump:
+    kWh:
+      electricityCarbonIntensityMultiplier: 0.46
+      source: http://researchbriefings.files.parliament.uk/documents/POST-PN-0523/POST-PN-0523.pdf
+  district heating:
+    country:
+      AT:
+        kWh:
+          intensityKilograms: 0.138613768592457  # kg co2e/kWh
+          source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
+          Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
+      BE:
+        kWh:
+          intensityKilograms: 0.153246230482934  # kg co2e/kWh
+          source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
+          Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
+      BG:
+        kWh:
+          intensityKilograms: 0.242628007169097  # kg co2e/kWh
+          source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
+          Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
+      CY:
+        kWh:
+          intensityKilograms: -0.00969682540749218  # kg co2e/kWh
+          source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
+          Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
+      CZ:
+        kWh:
+          intensityKilograms: 0.287764611249576  # kg co2e/kWh
+          source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
+          Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
+      DE:
+        kWh:
+          intensityKilograms: 0.188820002160917  # kg co2e/kWh
+          source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
+          Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
+      DK:
+        kWh:
+          intensityKilograms: 0.203981361123157  # kg co2e/kWh
+          source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
+          Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
+      EE:
+        kWh:
+          intensityKilograms: 0.163115712753168  # kg co2e/kWh
+          source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
+          Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
+      ES:
+        kWh:
+          intensityKilograms: 0  # kg co2e/kWh
+          source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
+          Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
+      FI:
+        kWh:
+          intensityKilograms: 0.185356469136768  # kg co2e/kWh
+          source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
+          Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
+      FR:
+        kWh:
+          intensityKilograms: 0.0827175916129129  # kg co2e/kWh
+          source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
+          Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
+      UK:
+        kWh:
+          intensityKilograms: 0.138031379296288  # kg co2e/kWh
+          source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
+          Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
+      GR:
+        kWh:
+          intensityKilograms: 0.315308456821223  # kg co2e/kWh
+          source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
+          Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
+      HR:
+        kWh:
+          intensityKilograms: 0.218491125208843  # kg co2e/kWh
+          source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
+          Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
+      HU:
+        kWh:
+          intensityKilograms: 0.181767842244441  # kg co2e/kWh
+          source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
+          Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
+      IE:
+        kWh:
+          intensityKilograms: 0  # kg co2e/kWh
+          source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
+          Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
+      IT:
+        kWh:
+          intensityKilograms: 0.200398663230602  # kg co2e/kWh
+          source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
+          Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
+      LT:
+        kWh:
+          intensityKilograms: 0.0966513330178206  # kg co2e/kWh
+          source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
+          Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
+      LU:
+        kWh:
+          intensityKilograms: 0.126744277506435  # kg co2e/kWh
+          source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
+          Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
+      LV:
+        kWh:
+          intensityKilograms: 0.104791562263033  # kg co2e/kWh
+          source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
+          Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
+      MT:
+        kWh:
+          intensityKilograms: 0.162345134012572  # kg co2e/kWh
+          source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
+          Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
+      NL:
+        kWh:
+          intensityKilograms: 0.157277165673387  # kg co2e/kWh
+          source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
+          Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
+      PL:
+        kWh:
+          intensityKilograms: 0.345769096000686  # kg co2e/kWh
+          source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
+          Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
+      PT:
+        kWh:
+          intensityKilograms: 0.272338841231362  # kg co2e/kWh
+          source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
+          Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
+      RO:
+        kWh:
+          intensityKilograms: 0.220377645786264  # kg co2e/kWh
+          source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
+          Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
+      SE:
+        kWh:
+          intensityKilograms: 0.0968585307202192  # kg co2e/kWh
+          source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
+          Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
+      SI:
+        kWh:
+          intensityKilograms: 0.269687224992362  # kg co2e/kWh
+          source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
+          Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
+      SK:
+        kWh:
+          intensityKilograms: 0.375480331140096  # kg co2e/kWh
+          source: 'Lukas Kranzl, Michael Hartner, Andreas Müller, Gustav Resch, Sara Fritz, (TU Wien), Tobias Fleiter, Andrea Herbst, Matthias Rehfeldt, Pia Manz (Fraunhofer ISI), Alyona Zubaryeva (EURAC).
+          Reviewed by Jakob Rager (CREM). Hotmaps Project, D5.2 WP5 Report – Heating & Cooling outlook until 2050, EU 28, 2018 www.hotmaps-project.eu'
