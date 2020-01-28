@@ -35,18 +35,6 @@ heating:
     kWh:
       intensityKilograms: 0.0225  # kg co2e/kWh
       source: http://researchbriefings.files.parliament.uk/documents/POST-PN-0523/POST-PN-0523.pdf
-  HEATING_SOURCE_ELECTRIC_HEATER:
-    kWh:
-      electricityCarbonIntensityMultiplier: 1 # used as a factor to electricity carbon intensity of electricityMap
-      source: http://researchbriefings.files.parliament.uk/documents/POST-PN-0523/POST-PN-0523.pdf
-  HEATING_SOURCE_GROUND_SOURCE_HEAT_PUMP:
-    kWh:
-      electricityCarbonIntensityMultiplier: 0.35 # used as a factor to electricity carbon intensity of electricityMap
-      source: http://researchbriefings.files.parliament.uk/documents/POST-PN-0523/POST-PN-0523.pdf
-  HEATING_SOURCE_AIR_SOURCE_HEAT_PUMP:
-    kWh:
-      electricityCarbonIntensityMultiplier: 0.46  # used as a factor to electricity carbon intensity of electricityMap
-      source: http://researchbriefings.files.parliament.uk/documents/POST-PN-0523/POST-PN-0523.pdf
   HEATING_SOURCE_DISTRICT_HEATING:
     kWh:
       country:

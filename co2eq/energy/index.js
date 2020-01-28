@@ -16,8 +16,6 @@ import {
   HEATING_SOURCE_DISTRICT_HEATING,
 } from '../../definitions';
 import energyFootprints from './energyfootprints.yml';
-import energyPrices from './energyprices.yml';
-import energyUsage from './energyusage.yml';
 
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'energy';
@@ -30,8 +28,13 @@ export const explanation = {
 
 export const modelCanRunVersion = 1;
 export function modelCanRun(activity) {
-  const { heatingSource } = activity;
-  return heatingSource != null;
+  const { heatingSource, activityType } = activity;
+  // Leave the electric activities up to the electricity model
+  const isElectricActivity = ELECTRICITY_ACTIVITIES.includes(activityType);
+  if (!heatingSource || isElectricActivity) {
+    return false;
+  }
+  return true;
 }
 
 /*
@@ -47,13 +50,17 @@ export function carbonEmissions(activity) {
     energyWattHours,
   } = activity;
 
+  if (!heatingSource) {
+    throw new Error(`Missing heatingSource`);
+  }
+
   const energyFootprint = (energyFootprints[heatingSource] || {}).kWh;
   if (!energyFootprint) {
     throw new Error(`Unable to find a footprint for heatingSource ${heatingSource}`);
   }
 
-  // TODO: handle electricity somehow as `electricityCarbonIntensityMultiplier`
-  // is the only key present for electricity sources.
+  // TODO: double check with heating purchases that things are not counted twice
+  // !!!!!!!!!!!!!!!!
 
   if (energyWattHours) {
     if (energyFootprint.country
