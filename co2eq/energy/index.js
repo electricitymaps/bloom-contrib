@@ -10,8 +10,11 @@ export const modelName = 'energy';
 const ymlChecksum = md5([].map(JSON.stringify).reduce((a, b) => a + b, ''));
 export const modelVersion = `1_${ymlChecksum}`; // This model relies on footprints.yaml
 export const explanation = {
-  text: 'TODO: @martincollignon',
-  links: [],
+  text: 'Calculations take into account use of electricity and heating, based on fuel source',
+  links: [ { label: 'ICAX (2019)', href: 'https://www.icax.co.uk/Decarbonising_Heating_2022.html' },
+    { label: 'The Parliamentary Office of Science and Technology (2016)', href: 'http://researchbriefings.files.parliament.uk/documents/POST-PN-0523/POST-PN-0523.pdf' },
+    { label: 'Hotmaps Project (2018)', href: 'www.hotmaps-project.eu'},
+    ],
 };
 
 export const modelCanRunVersion = 1;
