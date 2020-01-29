@@ -7,7 +7,7 @@ import energyFootprints from './energyfootprints.yml';
 
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'energy';
-const ymlChecksum = md5([].map(JSON.stringify).reduce((a, b) => a + b, ''));
+const ymlChecksum = md5(JSON.stringify(energyFootprints));
 export const modelVersion = `1_${ymlChecksum}`; // This model relies on footprints.yaml
 export const explanation = {
   text: 'Calculations take into account use of electricity and heating, based on fuel source',
