@@ -47,7 +47,7 @@ function carbonEmissionsWithoutParticipants(activity) {
     throw new Error('Missing heatingSource');
   }
 
-  const energyFootprint = (energyFootprints[heatingSource] || {}).kWh;
+  const energyFootprint = (energyFootprints.heating[heatingSource] || {}).kWh;
   if (!energyFootprint) {
     throw new Error(`Unable to find a footprint for heatingSource ${heatingSource}`);
   }
