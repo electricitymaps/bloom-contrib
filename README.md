@@ -1,8 +1,8 @@
-# tmrowapp-contrib [![Slack Status](http://slack.tmrow.com/badge.svg)](http://slack.tmrow.com) [![CircleCI](https://circleci.com/gh/tmrowco/tmrowapp-contrib.svg?style=shield)](https://circleci.com/gh/tmrowco/tmrowapp-contrib)
+# northapp-contrib [![Slack Status](http://slack.tmrow.com/badge.svg)](http://slack.tmrow.com) [![CircleCI](https://circleci.com/gh/tmrowco/tmrowapp-contrib.svg?style=shield)](https://circleci.com/gh/tmrowco/tmrowapp-contrib)
 
-Welcome to the open-source repository of the Tomorrow app!👋
+Welcome to the open-source repository of the North app!👋
 
-## What is the Tomorrow app?
+## What is the North app?
 The [Tomorrow](https://www.tmrow.com) app automatically calculates your carbon footprint by connecting to other services and apps in your life and translating activities from these apps and activities to greenhouse gas emissions.
 
 The app is private-by-design: data will stay on device, unless the user explicitly gives consent. This code is maintained by [Tomorrow](https://www.tmrow.com).
