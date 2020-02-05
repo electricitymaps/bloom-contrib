@@ -25,7 +25,7 @@ export const explanation = {
   text: 'The calculations take into consideration emissions across the whole lifecycle.',
   links: [
     { label: 'Nature (2017)', href: 'https://www.nature.com/articles/s41598-017-06466-8' },
-    { label: 'Tomorrow footprint database', href: 'https://github.com/tmrowco/tmrowapp-contrib/blob/master/co2eq/purchase/footprints.yml' },
+    { label: 'Tomorrow footprint database', href: 'https://github.com/tmrowco/northapp-contrib/blob/master/co2eq/purchase/footprints.yml' },
   ],
 };
 
