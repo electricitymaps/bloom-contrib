@@ -1,4 +1,4 @@
-![Image description](https://www.tmrow.com/static/fb5f02489c57408075d578a32ff4cb3a/99f19/appblogheader.png)
+![Image description](https://north-app.com/appblogheader.png)
 
 # northapp-contrib [![Slack Status](http://slack.tmrow.com/badge.svg)](http://slack.tmrow.com) [![DroneCI](https://drone.tmrow.com/api/badges/tmrowco/tmrow/status.svg)](https://circleci.com/gh/tmrowco/northapp-contrib)
 
@@ -165,5 +165,5 @@ If you want to add individual items or ingredients, this is done [here](https://
 
 ### Giving ideas, features requests or bugs
 
-Please [add an issue here](https://github.com/tmrowco/tmrowapp-contrib/issues/new) or directly in the app.
+Please [add an issue here](https://github.com/tmrowco/northapp-contrib/issues/new) or directly in the app.
 

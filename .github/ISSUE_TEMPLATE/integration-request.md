@@ -1,6 +1,6 @@
 ---
 name: Integration request
-about: Suggest an integration to be added to the Tomorrow app
+about: Suggest an integration to be added to the North app
 title: 'Integration: [ADD THE NAME OF THE SERVICE REQUESTED HERE]'
 labels: ''
 assignees: ''
