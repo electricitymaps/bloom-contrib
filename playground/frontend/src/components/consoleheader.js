@@ -13,7 +13,7 @@ import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import ClearIcon from '@material-ui/icons/Clear';
 
 
-// As defined here: https://github.com/tmrowco/tmrowapp-contrib/blob/master/playground/server/index.js#L77-L81
+// As defined here: https://github.com/tmrowco/northapp-contrib/blob/master/playground/server/index.js#L77-L81
 export const logLevels = new Set([
   'error',
   'warn',

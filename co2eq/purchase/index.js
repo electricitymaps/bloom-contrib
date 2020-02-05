@@ -16,7 +16,7 @@ import footprints from './footprints.yml';
 export const explanation = {
   text: null,
   links: [
-    { label: 'Tomorrow footprint database', href: 'https://github.com/tmrowco/tmrowapp-contrib/blob/master/co2eq/purchase/footprints.yml' },
+    { label: 'Tomorrow footprint database', href: 'https://github.com/tmrowco/northapp-contrib/blob/master/co2eq/purchase/footprints.yml' },
   ],
 };
 
