@@ -165,5 +165,5 @@ If you want to add individual items or ingredients, this is done [here](https://
 
 ### Giving ideas, features requests or bugs
 
-Please [add an issue here](https://github.com/tmrowco/tmrowapp-contrib/issues/new) or directly in the app.
+Please [add an issue here](https://github.com/tmrowco/northapp-contrib/issues/new) or directly in the app.
 
