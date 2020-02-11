@@ -44,10 +44,13 @@ Official integrations:
 - ✈️ Tripit (tracks most airlines!)
 - ⚡ Barry
 - 🚗 Tesla Cockpit
+
 Community-supported integrations:
 - ✈️ Ryanair (contributor:[lauvrenn](https://github.com/lauvrenn))
 - ✈️ Wizzair (contributor:[lauvrenn](https://github.com/lauvrenn))
 - 🚂 Rejsekort
+- 🚂 Trainline (contributor:[liamgarrison](https://github.com/liamgarrison))
+- 🚂 Transport for London (contributor:[liamgarrison](https://github.com/liamgarrison))
 - ⚡ Sense (contributor:[snarfed](https://github.com/snarfed))
 - ⚡ Linky (contributor:[bokub](https://github.com/bokub))
 - ⚡ Ørsted (contributor:[felixdq](https://github.com/felixdq))
