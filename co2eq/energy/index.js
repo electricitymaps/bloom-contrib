@@ -14,7 +14,7 @@ export const explanation = {
   links: [
     { label: 'ICAX (2019)', href: 'https://www.icax.co.uk/Decarbonising_Heating_2022.html' },
     { label: 'The Parliamentary Office of Science and Technology (2016)', href: 'http://researchbriefings.files.parliament.uk/documents/POST-PN-0523/POST-PN-0523.pdf' },
-    { label: 'Hotmaps Project (2018)', href: 'www.hotmaps-project.eu' },
+    { label: 'Hotmaps Project (2018)', href: 'https://www.hotmaps-project.eu' },
   ],
 };
 
