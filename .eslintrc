@@ -1,5 +1,6 @@
 {
-  "extends": "airbnb",
+  "plugins": ["prettier"],
+  "extends": ["airbnb", "eslint-config-prettier"],
   "globals": { "__DEV__": true, "fetch": false, "window": false, "Buffer": false },
   "parser": "babel-eslint",
   "rules": {
@@ -14,7 +15,7 @@
     "class-methods-use-this": "warn",
     "dot-notation": "warn",
     "implicit-arrow-linebreak": "off",
-    "import/prefer-default-export": "ignore",
+    "import/prefer-default-export": "off",
     "max-len": "warn",
     "no-await-in-loop": "warn",
     "no-continue": "warn",
@@ -28,7 +29,8 @@
     "react/jsx-one-expression-per-line": "warn",
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
     "react/prop-types": "warn",
-    "react/sort-comp": "warn"
+    "react/sort-comp": "warn",
+    "prettier/prettier": "error"
   },
   "settings": {
     "import/resolver": {
