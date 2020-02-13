@@ -2,9 +2,22 @@ import moment from 'moment';
 import request from 'superagent';
 import groupBy from 'lodash/groupBy';
 import mapValues from 'lodash/mapValues';
+import env from '../loadEnv';
 
+import { OAuth2Manager } from '../authentication';
 import { ACTIVITY_TYPE_ELECTRICITY } from '../../definitions';
 import { AuthenticationError, HTTPError, ValidationError } from '../utils/errors';
+
+const manager = new OAuth2Manager({
+  accessTokenUrl: 'https://gw.hml.api.enedis.fr/v1/oauth2/token',
+  authorizeUrl: 'https://gw.hml.api.enedis.fr/group/espace-particuliers/consentement-linky/oauth2/authorize',
+  authorizeExtraParams: {
+    duration: 'P2Y',
+  },
+  baseUrl: 'https://gw.hml.api.enedis.fr',
+  clientId: env.LINKY_CLIENT_ID,
+  clientSecret: env.LINKY_CLIENT_SECRET,
+});
 
 const GRANULARITY = {
   day: 'urlCdcJour',
@@ -98,18 +111,10 @@ async function logIn(username, password, logger) {
 
 
 async function connect(requestLogin, requestWebView, logger) {
-  // Here we can request credentials etc..
-
-  // Here we can use two functions to invoke screens
-  // requestLogin() or requestWebView()
-  const { username, password } = await requestLogin();
-  await logIn(username, password, logger);
-
-  // Set state to be persisted
-  return {
-    username,
-    password,
-  };
+  const state = await manager.authorize(requestWebView);
+  console.log(state)
+  // state.extras.usage_point_id
+  return state;
 }
 
 

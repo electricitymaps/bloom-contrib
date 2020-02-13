@@ -11,6 +11,7 @@ export default class {
     clientId,
     clientSecret,
     scope,
+    authorizeExtraParams,
   }) {
     this.accessTokenUrl = accessTokenUrl;
     this.apiUrl = apiUrl;
@@ -20,6 +21,7 @@ export default class {
     this.clientSecret = clientSecret;
     this.state = {};
     this.scope = scope;
+    this.state.authorizeExtraParams = authorizeExtraParams;
   }
 
   async _authorizeWithRefreshToken() {
@@ -60,6 +62,7 @@ export default class {
       client_id: this.clientId,
       redirect_uri: getCallbackUrl(),
       response_type: 'code',
+      ...this.state.authorizeExtraParams,
     }) + (this.scope ? `&${this.scope}` : '');
 
     const authorizationCodeRequestUrl = `${this.authorizeUrl}?${requestURLParams}`;
@@ -68,7 +71,11 @@ export default class {
       getCallbackUrl()
     );
     // Redirect response from authorization dialog contains auth code
-    const { code: authorizationCode } = authorizationResponseQuery;
+    const {
+      code: authorizationCode,
+      ...extras
+    } = authorizationResponseQuery;
+    this.state.extras = extras;
 
     // Step 2 - Obtain an access token
     const formData = {
