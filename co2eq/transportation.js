@@ -103,7 +103,7 @@ export function durationToDistance(durationHours, mode) {
       return durationHours * 30; // ~16 knots
     case TRANSPORTATION_MODE_BIKE:
       return durationHours * 15;
-    case TRANSPORTATION_MODE_EBIKE
+    case TRANSPORTATION_MODE_EBIKE:
       return durationHours * 15;  
     case TRANSPORTATION_MODE_ESCOOTER:
       return durationHours * 15;
