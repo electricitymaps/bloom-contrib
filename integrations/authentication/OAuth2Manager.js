@@ -84,7 +84,6 @@ export default class {
       code: authorizationCode,
       grant_type: 'authorization_code',
       redirect_uri: getCallbackUrl(),
-      scope: 'history offline_access',
     };
 
     const response = await fetch(this.accessTokenUrl, {
@@ -100,7 +99,7 @@ export default class {
     }
 
     if (!response.ok) {
-      throw new HTTPError('unable to authenticate user with fresh auth code, suggest retrying', response.status);
+      throw new HTTPError(`Unable to authenticate user with fresh auth code, suggest retrying. API response: ${await res.text()}`, response.status);
     }
 
     const responseJson = await response.json();

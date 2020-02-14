@@ -148,7 +148,7 @@ class App extends React.Component {
                   displayEmpty
                   onChange={this.handleChange}
                 >
-                  {integrations.map(integration => (
+                  {integrations.sort().map(integration => (
                     <MenuItem key={integration} value={integration}>{integration}</MenuItem> 
                   ))}
                 </Select>

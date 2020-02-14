@@ -112,8 +112,6 @@ async function logIn(username, password, logger) {
 
 async function connect(requestLogin, requestWebView, logger) {
   const state = await manager.authorize(requestWebView);
-  console.log(state)
-  // state.extras.usage_point_id
   return state;
 }
 
@@ -123,7 +121,47 @@ function disconnect() {
   return {};
 }
 
-async function fetchActivities(frequency, startDate, endDate, logger) {
+async function fetchActivities(usagePointId, frequency, startDate, endDate, logger) {
+  let url;
+  if (frequency === 'hour') {
+    url = '/v3/metering_data/consumption_load_curve';
+  } else if (frequency === 'day') {
+    url = '/v3/metering_data/daily_consumption';
+  }
+  const res = await manager.fetch(
+    `${url}?usage_point_id=${usagePointId}&start=${startDate}&end=${endDate}`,
+    {},
+    logger
+  );
+
+  if (!res.ok) {
+    if (res.status === 403) {
+      console.log(res.headers.get('www-authenticate'))
+      throw new HTTPError(res.headers.get('www-authenticate'), res.status);
+    }
+    if (res.status === 404) {
+      // no data for this point
+      if (frequency === 'hour') {
+        // Try with 'day'
+        logger.logDebug('Couldn\'t access hourly data. Trying with daily..');
+        return fetchActivities(usagePointId, 'day', startDate, endDate, logger);
+      }
+    }
+    throw new HTTPError(await res.text(), res.status);
+  }
+
+  console.log(res);
+  return;
+
+
+/*
+
+
+
+
+
+
+
   const query = {
     p_p_col_pos: 1,
     p_p_lifecycle: 2,
@@ -192,7 +230,7 @@ async function fetchActivities(frequency, startDate, endDate, logger) {
     `valeur` is in kWh
     Negative `valeur` means data is unknown
   */
-
+/*
   const parseValue = d => (d.valeur >= 0 ? d.valeur * 1000 : 0);
 
   const activities = Object.entries(groupBy(
@@ -235,26 +273,29 @@ async function fetchActivities(frequency, startDate, endDate, logger) {
       return false;
     });
 
-  return { activities, endMoment };
+  return { activities, endMoment }*/;
 }
 
 async function collect(state, logger) {
-  const { username, password } = state;
-  // LogIn to set Cookies
-  await logIn(username, password, logger);
+  const { usage_point_id: usagePointId } = state.extras || {};
+
+  if (!usagePointId) {
+    throw new Error('No usagePointId available. You need to reconnect the integration.');
+  }
 
   // For now we're gathering hourly data
   const frequency = 'hour';
 
   // By default, go back 1 month
   // (we can't go back further using a single API call)
-  const startDate = state.lastFullyCollectedDay || moment().subtract(1, 'month').format('DD/MM/YYYY');
-  const endDate = moment().format('DD/MM/YYYY');
+  const startDate = (moment(state.lastFullyCollectedDay) || moment().subtract(1, 'month')).format('YYYY-MM-DD');
+  const endDate = moment().format('YYYY-MM-DD');
 
-  const { activities, endMoment } = await fetchActivities(frequency, startDate, endDate, logger);
+  const { activities, endMoment } = await fetchActivities(
+    usagePointId, frequency, startDate, endDate, logger);
 
   // Subtract one day to make sure we always have a full day
-  const lastFullyCollectedDay = endMoment.subtract(1, 'day').format('DD/MM/YYYY');
+  const lastFullyCollectedDay = endMoment.subtract(1, 'day').isoformat();
 
   return { activities, state: { ...state, lastFullyCollectedDay } };
 }
