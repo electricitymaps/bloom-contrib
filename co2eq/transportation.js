@@ -6,6 +6,7 @@ import {
   TRANSPORTATION_MODE_PUBLIC_TRANSPORT,
   TRANSPORTATION_MODE_FERRY,
   TRANSPORTATION_MODE_BIKE,
+  TRANSPORTATION_MODE_EBIKE,
   TRANSPORTATION_MODE_ESCOOTER,
   TRANSPORTATION_MODE_MOTORBIKE,
   TRANSPORTATION_MODE_FOOT,
@@ -15,7 +16,9 @@ import flightEmissions from './flights';
 
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'transportation';
+
 export const modelVersion = '12';
+
 export const explanation = {
   text: 'Calculations take into account direct emissions from burning fuel and manufacturing of vehicle, incl shoes for walking.',
   links: [
@@ -72,6 +75,9 @@ function carbonIntensity(mode) {
     case TRANSPORTATION_MODE_BIKE:
       // https://ecf.com/files/wp-content/uploads/ECF_BROCHURE_EN_planche.pdf
       return 5 / 1000.0;
+    case TRANSPORTATION_MODE_EBIKE:
+      // https://ecf.com/files/wp-content/uploads/ECF_BROCHURE_EN_planche.pdf
+      return 17 / 1000.0;  
     case TRANSPORTATION_MODE_ESCOOTER:
       // https://iopscience.iop.org/article/10.1088/1748-9326/ab2da8
       return 125.517 / 1000.0;
@@ -106,6 +112,8 @@ export function durationToDistance(durationHours, mode) {
       return durationHours * 30; // ~16 knots
     case TRANSPORTATION_MODE_BIKE:
       return durationHours * 15;
+    case TRANSPORTATION_MODE_EBIKE:
+      return durationHours * 15;  
     case TRANSPORTATION_MODE_ESCOOTER:
       return durationHours * 15;
     case TRANSPORTATION_MODE_FOOT:
