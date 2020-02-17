@@ -40,6 +40,7 @@ export const TRANSPORTATION_MODE_TRAIN = 'train';
 export const TRANSPORTATION_MODE_FERRY = 'ferry';
 export const TRANSPORTATION_MODE_ESCOOTER = 'escooter';
 export const TRANSPORTATION_MODE_MOTORBIKE = 'motorbike';
+export const TRANSPORTATION_MODE_FOOT = 'foot';
 
 /* Meals */
 export const MEAL_TYPE_VEGAN = 'MEAL_TYPE_VEGAN';
