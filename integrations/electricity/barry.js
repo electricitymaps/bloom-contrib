@@ -11,10 +11,9 @@ const REGION_TO_LOCATION = {
   DK1: {
     locationLat: 55.927443,
     locationLon: 9.248319,
-  },
-  DK2: {
-    locationLat: 55.582066,
-    locationLon: 11.920338,
+  }, DK2: {
+        locationLat: 55.582066,
+        locationLon: 11.920338,
   },
 };
 
