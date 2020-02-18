@@ -5,7 +5,7 @@ import groupBy from 'lodash/groupBy';
 import { ACTIVITY_TYPE_ELECTRICITY } from '../../definitions';
 import { AuthenticationError, HTTPError } from '../utils/errors';
 
-const btoa = (b) => Buffer.from(b).toString('base64');
+const btoa = b => Buffer.from(b).toString('base64');
 
 const REGION_TO_LOCATION = {
   DK1: {
@@ -156,7 +156,7 @@ async function collect(state, { logWarning }) {
   */
 
   const activities = Object.entries(
-    groupBy(response, (d) =>
+    groupBy(response, d =>
       moment(d.date)
         .startOf('day')
         .toISOString()
@@ -166,16 +166,16 @@ async function collect(state, { logWarning }) {
     datetime: moment(k).toDate(),
     activityType: ACTIVITY_TYPE_ELECTRICITY,
     energyWattHours: values
-      .map((x) => x.value * 1000.0) // kWh -> Wh
+      .map(x => x.value * 1000.0) // kWh -> Wh
       .reduce((a, b) => a + b, 0),
     durationHours: values.length,
-    hourlyEnergyWattHours: values.map((x) => x.value * 1000.0),
+    hourlyEnergyWattHours: values.map(x => x.value * 1000.0),
     locationLon,
     locationLat,
   }));
   activities
-    .filter((d) => d.durationHours !== 24)
-    .forEach((d) =>
+    .filter(d => d.durationHours !== 24)
+    .forEach(d =>
       logWarning(
         `Ignoring activity from ${d.datetime.toISOString()} with ${
           d.durationHours
@@ -193,7 +193,7 @@ async function collect(state, { logWarning }) {
     .toISOString();
 
   return {
-    activities: activities.filter((d) => d.durationHours === 24),
+    activities: activities.filter(d => d.durationHours === 24),
     state: { ...state, customerId, lastFullyCollectedDay },
   };
 }
