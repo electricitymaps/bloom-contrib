@@ -48,6 +48,7 @@
     }
   },
   "scripts": {
-    "lint": "eslint --quiet *.js co2eq integrations playground"
+    "lint": "eslint --quiet *.js co2eq integrations playground",
+    "lint-fix": "eslint --quiet --fix *.js co2eq integrations playground"
   }
 }
