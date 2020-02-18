@@ -4,7 +4,6 @@
 #
 version: 2
 jobs:
-
   lint_yml:
     docker:
       - image: circleci/python:3.7.4
@@ -37,8 +36,6 @@ jobs:
             - node_modules
             - playground/node_modules
           key: v1-dependencies-{{ checksum "yarn.lock" }}-{{ checksum "playground/yarn.lock" }}
-      # run linter
-      - run: yarn lint
 
 workflows:
   version: 2
