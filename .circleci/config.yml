@@ -4,10 +4,6 @@
 #
 version: 2
 jobs:
-
-
-
-
   lint_yml:
     docker:
       - image: circleci/python:3.7.4
@@ -34,7 +30,7 @@ jobs:
             - v1-dependencies-
       - run: touch integrations/env.json
       - run: yarn
-      - run: cd playground && yarn
+      #- run: cd playground && yarn
       - save_cache:
           paths:
             - node_modules
