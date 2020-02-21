@@ -33,7 +33,7 @@ function correctWithParticipants(footprint, participants) {
 Carbon emissions of an activity (in kgCO2eq)
 */
 function carbonEmissionsWithoutParticipants(activity) {
-  return (activity.durationHours * activity.energyWattHours / 1000.0 * worldCarbonIntensity) / 1000.0;
+  return (activity.energyWattHours / 1000.0 * worldCarbonIntensity) / 1000.0;
 }
 
 export function carbonEmissions(activity) {
