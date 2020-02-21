@@ -18,11 +18,10 @@ export const modelCanRunVersion = 1;
 export function modelCanRun(activity) {
   const {
     energyWattHours,
-    durationHours,
     activityType,
   } = activity;
   const isElectricActivity = ELECTRICITY_ACTIVITIES.includes(activityType);
-  return isElectricActivity && energyWattHours && durationHours;
+  return isElectricActivity && energyWattHours;
 }
 
 function correctWithParticipants(footprint, participants) {
