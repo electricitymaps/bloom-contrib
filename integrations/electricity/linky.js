@@ -1,12 +1,11 @@
 import moment from 'moment';
-import request from 'superagent';
 import groupBy from 'lodash/groupBy';
 import mapValues from 'lodash/mapValues';
 import env from '../loadEnv';
 
 import { OAuth2Manager } from '../authentication';
 import { ACTIVITY_TYPE_ELECTRICITY } from '../../definitions';
-import { AuthenticationError, HTTPError, ValidationError } from '../utils/errors';
+import { HTTPError } from '../utils/errors';
 
 const manager = new OAuth2Manager({
   accessTokenUrl: 'https://gw.hml.api.enedis.fr/v1/oauth2/token',
@@ -19,37 +18,6 @@ const manager = new OAuth2Manager({
   clientSecret: env.LINKY_CLIENT_SECRET,
 });
 
-const GRANULARITY = {
-  day: 'urlCdcJour',
-  hour: 'urlCdcHeure',
-};
-const STEP_GRANULARITY = {
-  day: 1,
-  hour: 0.5, // half-hourly data is given
-};
-const PPID = 'lincspartdisplaycdc_WAR_lincspartcdcportlet';
-
-// Create an agent that can hold cookies
-const agent = request.agent();
-
-/*
-  Doc: https://github.com/PhilBri/Node-Linky/blob/master/linky.js
-  Note we can't use the same implementation as RN `fetch` uses
-  XMLHttpRequest which always follows redirects, thus preventing
-  us from grabbing cookies. Else we would be able to set
-  .redirects(0) on `agent`.
-*/
-
-function getResponseURL(res) {
-  if (res.redirects) {
-    return (res.redirects || [])[0];
-  }
-  if (res.xhr) {
-    return res.xhr.responseURL;
-  }
-  return null;
-}
-
 // TODO(olc): MERGE WITH INTERNAL UTILS LIB
 function groupByReduce(arr, groupByAccessor, reduceAccessor) {
   return mapValues(
@@ -60,53 +28,6 @@ function groupByReduce(arr, groupByAccessor, reduceAccessor) {
 
 function arrayGroupByReduce(arr, groupByAccessor, reduceAccessor) {
   return Object.values(groupByReduce(arr, groupByAccessor, reduceAccessor));
-}
-
-async function logIn(username, password, logger) {
-  if (!username || !password) {
-    throw new ValidationError('Missing username or password');
-  }
-  const res = await agent
-    .post('https://espace-client-connexion.enedis.fr/auth/UI/Login')
-    .type('form')
-    .set('Referer', 'https://espace-client-connexion.enedis.fr/auth/UI/Login')
-    .send({
-      IDToken1: username,
-      IDToken2: password,
-      'Login.Submit': 'accéder+à+mon+compte',
-      goto: 'aHR0cHM6Ly9lc3BhY2UtY2xpZW50LXBhcnRpY3VsaWVycy5lbmVkaXMuZnIvZ3JvdXAvZXNwYWNlLXBhcnRpY3VsaWVycy9hY2N1ZWls', // base64 of https://espace-client-particuliers.enedis.fr/group/espace-particuliers/accueil'
-      gotoOnFail: '',
-      SunQueryParamsString: 'cmVhbG09cGFydGljdWxpZXJz', // base64 of realm=particuliers
-      encoded: 'true',
-      gx_charset: 'UTF-8',
-    });
-
-  if (!res.ok) {
-    console.error(res);
-    throw new HTTPError('Error while logging in.', res.status);
-  }
-  // Check if redirected to https://espace-client-connexion.enedis.fr/messages/{information,inexistant}.html
-  // which indicates a login error
-  const responseURL = getResponseURL(res);
-  if (responseURL.includes('Login')) {
-    // highly suspicious that we are redirected to the Login page.
-    // we should probably be redirected somewhere else
-    logger.logWarning(`Response URL ${responseURL} unexpectedly contained 'Login'`);
-  }
-  if (responseURL.includes('messages')) {
-    throw new AuthenticationError('Invalid credentials');
-  }
-  // if (res.text.includes('Votre session a expiré')) {
-  //   throw new AuthenticationError('Session expired');
-  // }
-
-  // Try to load homepage
-  const res2 = await agent
-    .get('https://espace-client-connexion.enedis.fr/group/espace-particuliers/accueil');
-  if (!res2.ok) {
-    console.error(res2);
-    throw new HTTPError('Error while loading homepage', res.status);
-  }
 }
 
 
@@ -128,6 +49,7 @@ async function fetchActivities(usagePointId, frequency, startDate, endDate, logg
   } else if (frequency === 'day') {
     url = '/v3/metering_data/daily_consumption';
   }
+  logger.logDebug(`Fetching at frequency=${frequency}, startDate=${startDate}, endDate=${endDate}`);
   const res = await manager.fetch(
     `${url}?usage_point_id=${usagePointId}&start=${startDate}&end=${endDate}`,
     {},
@@ -136,7 +58,6 @@ async function fetchActivities(usagePointId, frequency, startDate, endDate, logg
 
   if (!res.ok) {
     if (res.status === 403) {
-      console.log(res.headers.get('www-authenticate'))
       throw new HTTPError(res.headers.get('www-authenticate'), res.status);
     }
     if (res.status === 404) {
@@ -150,93 +71,35 @@ async function fetchActivities(usagePointId, frequency, startDate, endDate, logg
     throw new HTTPError(await res.text(), res.status);
   }
 
-  console.log(res);
-  return;
+  const json = (await res.json());
 
+  const data = json.usage_point
+    .find(d => d.meter_reading.usage_point_id === usagePointId)
+    .meter_reading;
+  const intervalLengthSeconds = data.reading_type.interval_length;
+  const unit = data.reading_type.unit;
+  logger.logDebug(data);
 
-/*
+  // TODO: This should be parsed in French timezone instead of local?
+  const startMoment = moment(data.start, 'YYYY-MM-DD');
+  const endMoment = moment(data.end, 'YYYY-MM-DD');
 
-
-
-
-
-
-
-  const query = {
-    p_p_col_pos: 1,
-    p_p_lifecycle: 2,
-    p_p_col_count: 2,
-    p_p_state: 'normal',
-    p_p_mode: 'view',
-    p_p_cacheability: 'cacheLevelPage',
-    p_p_col_id: 'column-1',
-    p_p_id: PPID,
-    p_p_resource_id: GRANULARITY[frequency],
+  const parseValue = (d) => {
+    if (d.value == null) return 0;
+    // Needs to return Wh
+    const v = parseFloat(d.value);
+    if (unit === 'Wh') return v;
+    if (unit === 'W') {
+      // this is an average over the interval length
+      return v * (intervalLengthSeconds / 3600);
+    }
+    throw Error(`Unexpected unit ${unit}`);
   };
 
-  const payload = {};
-  payload[`_${PPID}_dateDebut`] = startDate;
-  payload[`_${PPID}_dateFin`] = endDate;
-
-  const res = await agent
-    .post('https://espace-client-particuliers.enedis.fr/group/espace-particuliers/suivi-de-consommation')
-    .query(query)
-    .type('form')
-    // Those are required to avoid the client to cache responses
-    .set('Cache-Control', 'no-cache')
-    .set('If-None-Match', '*')
-    .send(payload);
-
-  const responseURL = getResponseURL(res);
-
-  // Check if the response URL is a redirect to the login page
-  if (responseURL && responseURL.includes('Login')) {
-    throw new Error('We\'re supposed to be logged in at this stage');
-  }
-
-  const json = JSON.parse(res.text);
-  if (json.etat.valeur === 'erreur') {
-    throw new Error(`Error while fetching data. More info: ${JSON.stringify(json)}`);
-  }
-  if (json.etat.valeur === 'nonActive') {
-    if (frequency === 'hour') {
-      return fetchActivities('day', startDate, endDate, logger);
-    }
-    throw new Error(`No available data for the selected period. More info: ${JSON.stringify(json)}`);
-  }
-
-  const { data, periode } = json.graphe;
-  const offset = json.graphe.decalage || 0;
-
-  if (!Array.isArray(data)) {
-    throw new Error(`Unexpected data: ${JSON.stringify(json)}`);
-  }
-
-  // TODO: Double check timezones?
-  const startMoment = moment(periode.dateDebut, 'DD/MM/YYYY');
-  const endMoment = moment(periode.dateFin, 'DD/MM/YYYY');
-
-  // Taken from https://github.com/bokub/linky/blob/master/index.js#L156-L183
-  data.splice(0, offset);
-  data.splice(-offset, offset);
-
-  /*
-    Schema:
-    data = [
-      {"ordre": 1066, "valeur": 2.206}
-      ...
-    ]
-    `ordre` is an index
-    `valeur` is in kWh
-    Negative `valeur` means data is unknown
-  */
-/*
-  const parseValue = d => (d.valeur >= 0 ? d.valeur * 1000 : 0);
-
   const activities = Object.entries(groupBy(
-    data.map((d, i) => Object.assign(d, {
+    data.interval_reading.map((d, i) => Object.assign({}, d, {
       dateMoment: moment(startMoment)
-        .add(i * STEP_GRANULARITY[frequency], frequency),
+        .add(i * intervalLengthSeconds, 'second'),
     })),
     d => moment(d.dateMoment).startOf('day').toISOString()
   ))
@@ -248,7 +111,9 @@ async function fetchActivities(usagePointId, frequency, startDate, endDate, logg
       const processedValues = arrayGroupByReduce(
         values,
         d => moment(d.dateMoment).startOf(frequency).toISOString(),
-        arr => arr.map(parseValue).reduce((a, b) => a + b, 0),
+        arr => arr
+          .map(parseValue)
+          .reduce((a, b) => a + b, 0),
       );
 
       return {
@@ -273,7 +138,7 @@ async function fetchActivities(usagePointId, frequency, startDate, endDate, logg
       return false;
     });
 
-  return { activities, endMoment }*/;
+  return { activities, endMoment };
 }
 
 async function collect(state, logger) {
@@ -283,19 +148,22 @@ async function collect(state, logger) {
     throw new Error('No usagePointId available. You need to reconnect the integration.');
   }
 
-  // For now we're gathering hourly data
+  // For now we're gathering hourly data (which will fall back to daily)
   const frequency = 'hour';
 
-  // By default, go back 1 month
+  // By default, go back 7 days
   // (we can't go back further using a single API call)
-  const startDate = (moment(state.lastFullyCollectedDay) || moment().subtract(1, 'month')).format('YYYY-MM-DD');
+  const startDate = (state.lastFullyCollectedDay
+    ? moment(state.lastFullyCollectedDay)
+    : moment().subtract(7, 'day')).format('YYYY-MM-DD');
   const endDate = moment().format('YYYY-MM-DD');
 
   const { activities, endMoment } = await fetchActivities(
-    usagePointId, frequency, startDate, endDate, logger);
+    usagePointId, frequency, startDate, endDate, logger
+  );
 
   // Subtract one day to make sure we always have a full day
-  const lastFullyCollectedDay = endMoment.subtract(1, 'day').isoformat();
+  const lastFullyCollectedDay = endMoment.subtract(1, 'day').toISOString();
 
   return { activities, state: { ...state, lastFullyCollectedDay } };
 }
