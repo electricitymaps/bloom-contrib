@@ -1,6 +1,7 @@
+// Source: https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
 {
   "footprints": [
-    {"euroCarSegment": null, "engineType": null, "brand": null, "carbonIntensity": 0.11473},
+    {"euroCarSegment": null, "engineType": null, "brand": null, "carbonIntensity": 0.1771}, // average of diesel and petrol engine
     {"euroCarSegment": "A", "engineType": null, "brand": null, "carbonIntensity": 0.13958},
     {"euroCarSegment": "B", "engineType": null, "brand": null, "carbonIntensity": 0.15241},
     {"euroCarSegment": "C", "engineType": null, "brand": null, "carbonIntensity": 0.16362},
@@ -12,7 +13,7 @@
     {"euroCarSegment": "M", "engineType": null, "brand": null, "carbonIntensity": 0.18610},
 
     {"euroCarSegment": null, "engineType": "diesel", "brand": null, "carbonIntensity": 0.17336},
-    {"euroCarSegment": "A", "engineType": "diesel", "carbonIntensity": 0.11009},
+    {"euroCarSegment": "A", "engineType": "diesel", "brand": null, "carbonIntensity": 0.11009},
     {"euroCarSegment": "B", "engineType": "diesel", "brand": null, "carbonIntensity": 0.13449},
     {"euroCarSegment": "C", "engineType": "diesel", "brand": null, "carbonIntensity": 0.14691},
     {"euroCarSegment": "D", "engineType": "diesel", "brand": null, "carbonIntensity": 0.16533},
@@ -23,7 +24,7 @@
     {"euroCarSegment": "M", "engineType": "diesel", "brand": null, "carbonIntensity": 0.18101},
 
     {"euroCarSegment": null, "engineType": "petrol", "brand": null, "carbonIntensity": 0.18084},
-    {"euroCarSegment": "A", "engineType": "petrol", "carbonIntensity": 0.13975},
+    {"euroCarSegment": "A", "engineType": "petrol", "brand": null, "carbonIntensity": 0.13975},
     {"euroCarSegment": "B", "engineType": "petrol", "brand": null, "carbonIntensity": 0.15538},
     {"euroCarSegment": "C", "engineType": "petrol", "brand": null, "carbonIntensity": 0.18008},
     {"euroCarSegment": "D", "engineType": "petrol", "brand": null, "carbonIntensity": 0.20792},
@@ -45,7 +46,7 @@
     {"euroCarSegment": "M", "engineType": "plugInHybridElectric", "brand": null, "carbonIntensity": 0.11473},
 
     {"euroCarSegment": null, "engineType": "batteryElectric", "brand": null, "carbonIntensity": 0.06020},
-    {"euroCarSegment": "A", "engineType": "batteryElectric", "carbonIntensity": 0.05235},
+    {"euroCarSegment": "A", "engineType": "batteryElectric", "brand": null, "carbonIntensity": 0.05235},
     {"euroCarSegment": "B", "engineType": "batteryElectric", "brand": null, "carbonIntensity": 0.04788},
     {"euroCarSegment": "C", "engineType": "batteryElectric", "brand": null, "carbonIntensity": 0.05772},
     {"euroCarSegment": "D", "engineType": "batteryElectric", "brand": null, "carbonIntensity": 0.04659},
@@ -56,7 +57,7 @@
     {"euroCarSegment": "M", "engineType": "batteryElectric", "brand": null, "carbonIntensity": 0.06404},
 
     {"euroCarSegment": null, "engineType": "hybrid", "brand": null, "carbonIntensity": 0.11473},
-    {"euroCarSegment": "A", "engineType": "hybrid", "carbonIntensity": 0.11473},
+    {"euroCarSegment": "A", "engineType": "hybrid", "brand": null, "carbonIntensity": 0.11473},
     {"euroCarSegment": "B", "engineType": "hybrid", "brand": null, "carbonIntensity": 0.11473},
     {"euroCarSegment": "C", "engineType": "hybrid", "brand": null, "carbonIntensity": 0.11473},
     {"euroCarSegment": "D", "engineType": "hybrid", "brand": null, "carbonIntensity": 0.11473},
@@ -67,7 +68,7 @@
     {"euroCarSegment": "M", "engineType": "hybrid", "brand": null, "carbonIntensity": 0.11473},
 
     {"euroCarSegment": null, "engineType": "lpg", "brand": null, "carbonIntensity": 0.19901},
-    {"euroCarSegment": "A", "engineType": "lpg", "carbonIntensity": 0.19901},
+    {"euroCarSegment": "A", "engineType": "lpg", "brand": null, "carbonIntensity": 0.19901},
     {"euroCarSegment": "B", "engineType": "lpg", "brand": null, "carbonIntensity": 0.19901},
     {"euroCarSegment": "C", "engineType": "lpg", "brand": null, "carbonIntensity": 0.19901},
     {"euroCarSegment": "D", "engineType": "lpg", "brand": null, "carbonIntensity": 0.19901},
@@ -78,7 +79,7 @@
     {"euroCarSegment": "M", "engineType": "lpg", "brand": null, "carbonIntensity": 0.19901},
 
     {"euroCarSegment": null, "engineType": "cng", "brand": null, "carbonIntensity": 0.17803},
-    {"euroCarSegment": "A", "engineType": "cng", "carbonIntensity": 0.17803},
+    {"euroCarSegment": "A", "engineType": "cng", "brand": null, "carbonIntensity": 0.17803},
     {"euroCarSegment": "B", "engineType": "cng", "brand": null, "carbonIntensity": 0.17803},
     {"euroCarSegment": "C", "engineType": "cng", "brand": null, "carbonIntensity": 0.17803},
     {"euroCarSegment": "D", "engineType": "cng", "brand": null, "carbonIntensity": 0.17803},
