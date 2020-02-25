@@ -17,7 +17,7 @@ import flightEmissions from './flights';
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'transportation';
 
-export const modelVersion = '12';
+export const modelVersion = '13';
 
 export const explanation = {
   text: 'Calculations take into account direct emissions from burning fuel and manufacturing of vehicle, incl shoes for walking.',
