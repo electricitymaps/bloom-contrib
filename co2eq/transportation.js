@@ -57,8 +57,8 @@ function carbonIntensity(mode) {
       return 103 / 1000.0;
       // https://static.ducky.eco/calculator_documentation.pdf, Ecoinvent 3 Regular bus, includes production = 9g
     case TRANSPORTATION_MODE_CAR:
-      return 257 / 1000.0;
-      // https://static.ducky.eco/calculator_documentation.pdf, Ecoinvent Avg european car, production = 43g    
+      return   0.1771;
+      // https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019, average of diesel and petrol
     case TRANSPORTATION_MODE_MOTORBIKE: 
       // https://static.ducky.eco/calculator_documentation.pdf, Ecoinvent Scooter, production = 14g
       return 108 / 1000.0;        
