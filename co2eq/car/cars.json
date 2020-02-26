@@ -1,7 +1,6 @@
-// Source: https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
 {
   "footprints": [
-    {"euroCarSegment": null, "engineType": null, "brand": null, "carbonIntensity": 0.1771}, // average of diesel and petrol engine
+    {"euroCarSegment": null, "engineType": null, "brand": null, "carbonIntensity": 0.1771},
     {"euroCarSegment": "A", "engineType": null, "brand": null, "carbonIntensity": 0.13958},
     {"euroCarSegment": "B", "engineType": null, "brand": null, "carbonIntensity": 0.15241},
     {"euroCarSegment": "C", "engineType": null, "brand": null, "carbonIntensity": 0.16362},
