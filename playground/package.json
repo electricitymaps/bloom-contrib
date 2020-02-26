@@ -3,7 +3,6 @@
   "dependencies": {
     "@babel/register": "^7.6.2",
     "@material-ui/core": "^4.4.3",
-    "@material-ui/icons": "^4.4.3",
     "@material-ui/styles": "^4.4.3",
     "console-feed": "^2.8.10",
     "express": "^4.16.4",
@@ -34,6 +33,7 @@
     "css-loader": "^3.2.0",
     "file-loader": "^4.2.0",
     "style-loader": "^1.0.0",
+    "svg-inline-loader": "^0.8.2",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.8.1"
   }
