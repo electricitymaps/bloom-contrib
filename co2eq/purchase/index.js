@@ -6,6 +6,7 @@ import {
   TRANSPORTATION_MODE_CAR,
   TRANSPORTATION_MODE_TRAIN,
   TRANSPORTATION_MODE_PLANE,
+  TRANSPORTATION_MODE_PUBLIC_TRANSPORT,
   UNIT_MONETARY_EUR,
   UNIT_ITEM,
   UNIT_LITER,
@@ -91,6 +92,7 @@ export function modelCanRun(activity) {
         case TRANSPORTATION_MODE_CAR:
         case TRANSPORTATION_MODE_TRAIN:
         case TRANSPORTATION_MODE_PLANE:
+        case TRANSPORTATION_MODE_PUBLIC_TRANSPORT:
           return true;
         default:
           return false;
@@ -147,6 +149,7 @@ export function carbonEmissions(activity) {
           footprint = eurAmount * 1186 / 1000; // Taxi bill
           break;
         case TRANSPORTATION_MODE_TRAIN:
+        case TRANSPORTATION_MODE_PUBLIC_TRANSPORT:
           footprint = eurAmount * 335.63 / 1000;
           break;
         case TRANSPORTATION_MODE_PLANE:
