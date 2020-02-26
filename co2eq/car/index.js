@@ -8,7 +8,7 @@ export const modelName = 'car';
 export const modelVersion = '1';
 export const explanation = {};
 
-export const modelCanRunVersion = 1;
+export const modelCanRunVersion = 2;
 export function modelCanRun(activity) {
   const { activityType, transportationMode } = activity;
   if (activityType === ACTIVITY_TYPE_TRANSPORTATION && transportationMode === TRANSPORTATION_MODE_CAR) {
