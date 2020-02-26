@@ -31,7 +31,7 @@ jobs:
             - v1-dependencies-
       - run: touch integrations/env.json
       - run: yarn
-      - run: cd playground && yarn --verbose
+      - run: cd playground && yarn
       - save_cache:
           paths:
             - node_modules
