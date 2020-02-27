@@ -8,9 +8,7 @@ import {
   IconButton,
   Tooltip,
 } from '@material-ui/core';
-import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
-import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
-import ClearIcon from '@material-ui/icons/Clear';
+import Icon from './icon';
 
 
 // As defined here: https://github.com/tmrowco/northapp-contrib/blob/master/playground/server/index.js#L77-L81
@@ -53,9 +51,9 @@ export default function ConsoleHeader({
         }
       >
         {direction === 'descending' ? (
-          <ArrowDownwardIcon />
+          <Icon type="arrow-down" />
         ) : (
-          <ArrowUpwardIcon />
+          <Icon type="arrow-up" />
         )}
       </IconButton>
     </Tooltip>
@@ -70,7 +68,7 @@ export default function ConsoleHeader({
         aria-label={`sort-${oppositeDirection}`}
         onClick={onClearConsole}
       >
-        <ClearIcon />
+        <Icon type="clear" />
       </IconButton>
     </Tooltip>
   );

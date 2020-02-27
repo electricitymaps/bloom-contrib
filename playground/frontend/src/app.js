@@ -9,10 +9,9 @@ import {
   TextField,
   Grid,
 } from '@material-ui/core';
-import RunIcon from '@material-ui/icons/DoubleArrow';
-
 import ResultsTable from './components/resultstable';
 import Console from './components/console';
+import Icon from './components/icon';
 
 const deSerializeError = obj => Object.assign(new Error(), { stack: undefined }, obj);
 
@@ -127,16 +126,23 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
           <h2>North App Playground</h2>
-          <p>status: <span id="connection-state">{connection}</span></p>
+          <p>
+            status:
+            {' '}
+            <span id="connection-state">{connection}</span>
+          </p>
         </header>
         <div className="main-content-container">
           <Grid container spacing={4}>
             <Grid item xs={3}>
               <h3>How to test an integration</h3>
               <p>
-                  1/ Select an integration<br />
-                  2/ Fill out username/password if needed<br />
-                  3/ Open Chrome console to see results (any change in any field will trigger a re-run)<br />
+                  1/ Select an integration
+                <br />
+                  2/ Fill out username/password if needed
+                <br />
+                  3/ Open Chrome console to see results (any change in any field will trigger a re-run)
+                <br />
               </p>
               <FormControl
                 style={{ width: '100%' }}
@@ -149,7 +155,7 @@ class App extends React.Component {
                   onChange={this.handleChange}
                 >
                   {integrations.sort().map(integration => (
-                    <MenuItem key={integration} value={integration}>{integration}</MenuItem> 
+                    <MenuItem key={integration} value={integration}>{integration}</MenuItem>
                   ))}
                 </Select>
                 <TextField
@@ -177,7 +183,8 @@ class App extends React.Component {
                   style={{ marginTop: '16px' }}
                 >
                   Run
-                  <RunIcon />
+                  {' '}
+                  <Icon type="double-arrow" />
                 </Button>
               </FormControl>
             </Grid>
