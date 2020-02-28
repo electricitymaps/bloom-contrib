@@ -20,10 +20,10 @@ module.exports = {
               [
                 '@babel/preset-env',
                 {
-                  'modules': 'false', // commonjs,amd,umd,systemjs,auto
-                  'useBuiltIns': 'usage',
-                  'targets': '> 0.25%, not dead',
-                  'corejs': 3,
+                  modules: 'false', // commonjs,amd,umd,systemjs,auto
+                  useBuiltIns: 'usage',
+                  targets: '> 0.25%, not dead',
+                  corejs: 3,
                 },
               ],
             ],
@@ -35,9 +35,13 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
+        test: /\.(png|jpg|gif)$/,
         loader: 'file-loader',
-        options: { name: '/static/[name].[ext]' },
+        options: { name: 'static/[name].[ext]' },
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-inline-loader',
       },
     ],
   },
