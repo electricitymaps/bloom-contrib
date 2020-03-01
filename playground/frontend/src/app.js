@@ -15,7 +15,7 @@ import Icon from './components/icon';
 
 const deSerializeError = obj => Object.assign(new Error(), { stack: undefined }, obj);
 
-const socket = socketIOClient('http://localhost:3000');
+const socket = socketIOClient(`${window.location.origin}`);
 
 class App extends React.Component {
   constructor() {
