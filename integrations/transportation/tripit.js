@@ -5,10 +5,21 @@ import env from '../loadEnv';
 import { OAuthManager } from '../authentication';
 import {
   ACTIVITY_TYPE_TRANSPORTATION,
+  ACTIVITY_TYPE_PURCHASE,
   TRANSPORTATION_MODE_PLANE,
   TRANSPORTATION_MODE_TRAIN,
+  PURCHASE_CATEGORY_ENTERTAINMENT_HOTEL,
 } from '../../definitions';
 import { HTTPError } from '../utils/errors';
+
+const config = {
+  label: 'TripIt',
+  description: 'collects plane and train trips from your emails',
+  type: ACTIVITY_TYPE_TRANSPORTATION,
+  isPrivate: true,
+  // minRefreshInterval: 60
+  version: 1,
+};
 
 const manager = new OAuthManager({
   baseUrl: 'https://api.tripit.com',
@@ -148,7 +159,7 @@ async function fetchRail(modifiedSince, isPast = true, logger) {
   return { activities: flatten(activities), modifiedSince: data.timestamp };
 }
 
-/* async function fetchLodging(modifiedSince, isPast = true, logger) {
+async function fetchLodging(modifiedSince, isPast = true, logger) {
   const url = modifiedSince
     ? `/v1/list/object/type/lodging/past/${isPast}/format/json/modified_since/${modifiedSince}`
     : `/v1/list/object/type/lodging/past/${isPast}/format/json`;
@@ -172,87 +183,41 @@ async function fetchRail(modifiedSince, isPast = true, logger) {
   if (!Array.isArray(objects)) {
     objects = [objects];
   }
-*/
-/*
-Address:
-  address: "Værkmestergade 2, Aarhus, 8000, DK"
-  city: "Aarhus"
-  country: "DK"
-  latitude: "56.150338"
-  longitude: "10.209409"
-  zip: "8000"
-  __proto__: Object
-  EndDateTime:
-  date: "2019-08-19"
-  time: "12:00:00"
-  timezone: "Europe/Copenhagen"
-  utc_offset: "+02:00"
-  __proto__: Object
-  Guest:
-  first_name: "Martin"
-  frequent_traveler_supplier: "Comwell Aarhus"
-  last_name: "Collignon"
-  __proto__: Object
-  StartDateTime:
-  date: "2019-08-18"
-  time: "15:00:00"
-  timezone: "Europe/Copenhagen"
-  utc_offset: "+02:00"
-  __proto__: Object
-  booking_site_conf_num: "8077470562193"
-  booking_site_name: "Hotels.com"
-  booking_site_phone: "1 866 372 4937"
-  booking_site_url: "http://www.hotels.com/"
-  display_name: "Comwell Aarhus"
-  id: "1078626361"
-  is_client_traveler: "true"
-  is_display_name_auto_generated: "true"
-  is_purchased: "true"
-  is_tripit_booking: "false"
-  last_modified: "1568495673"
-  number_guests: "1"
-  number_rooms: "1"
-  relative_url: "/reservation/show/id/1078626361"
-  restrictions: "Gratis afbestilling indtil 18.08.2019 Hvis du ændrer eller afbestiller din reservation efter 16:00, 18.08.2019 (GMT+02:00), vil du blive opkrævet betaling for 1 overnatning (inklusive skat) Vi udsteder ikke tilbagebetaling ved manglende fremmøde eller tidlig udtjekning."
-  room_type: "Corner Room"
-  supplier_conf_num: "8077470562193"
-  supplier_name: "Comwell Aarhus"
-  supplier_phone: "+4586728000"
-  total_cost: "£154.07"
-  trip_id: "283707483"
-*/
 
-/*  const activities = objects;/*objects.map((d) => {
-    const segments = Array.isArray(d.Segment) ? d.Segment : [d.Segment];
-    // Iterate over all segments (legs) of this reservation
-    return segments.map((s) => {
-      try {
-        const [startDate, endDate] = [
-          parseDatetime(s.StartDateTime),
-          parseDatetime(s.EndDateTime),
-        ];
-        const durationHours = (endDate.getTime() - startDate.getTime()) / 1000.0 / 3600.0;
-        return {
-          id: s.id,
-          activityType: ACTIVITY_TYPE_TRANSPORTATION,
-          transportationMode: TRANSPORTATION_MODE_TRAIN,
-          datetime: startDate,
-          distanceKilometers: s.distance && parseInt(s.distance.replace(' km', '').replace(',', '.'), 10),
-          durationHours: durationHours <= 0 ? null : durationHours,
-          carrier: s['carrier_name'],
-          departureStation: s['start_station_name'],
-          destinationStation: s['end_station_name'],
-          bookingClass: s['service_class'],
-        };
-      } catch (e) {
-        logger.logWarning(`Skipping item having error: ${e}`);
+  const activities = objects.map((s) => {
+    try {
+      const [startDate, endDate] = [
+        parseDatetime(s.StartDateTime),
+        parseDatetime(s.EndDateTime),
+      ];
+      const durationHours = (endDate.getTime() - startDate.getTime()) / 1000.0 / 3600.0;
+      if (s['number_rooms'] != null && parseInt(s['number_rooms'], 10) !== 1) {
+        logger.logWarning(`Skipping item having multiple rooms: ${JSON.stringify(s)}`);
         return null;
       }
-    });
+      // TODO: We could also parse currency
+      // Data given: total_cost: "£154.07"
+      return {
+        id: s.id,
+        activityType: ACTIVITY_TYPE_PURCHASE,
+        purchaseType: PURCHASE_CATEGORY_ENTERTAINMENT_HOTEL,
+        countryCodeISO2: s['country'],
+        locationLon: s['longitude'],
+        locationLat: s['latitude'],
+        locationLabel: s['display_name'],
+        label: s['display_name'],
+        carrier: s['booking_site_name'],
+        datetime: startDate,
+        durationHours: durationHours <= 0 ? null : durationHours,
+        participants: s['number_guests'] ? parseInt(s['number_guests'], 10) : null,
+      };
+    } catch (e) {
+      logger.logWarning(`Skipping item having error: ${e}`);
+      return null;
+    }
   });
-  return { activities: flatten(activities), modifiedSince: data.timestamp };
+  return { activities, modifiedSince: data.timestamp };
 }
-*/
 
 async function connect(requestLogin, requestWebView) {
   const state = await manager.authorize(requestWebView);
@@ -268,17 +233,25 @@ async function collect(state = {}, logger) {
   API Documentation at http://tripit.github.io/api/doc/v1/index.html#method_list
   */
 
+  const oldVersion = state.version || 0;
+
   manager.setState(state);
 
   logger.logDebug(`Initiating collect() with lastModifiedSince=${state.lastModifiedSince}`);
+
+  // Logding was introduced in version 1
+  // so make sure we do a full fetch first time
+  const logdgingLastModifiedSince = oldVersion < 1
+    ? null
+    : state.lastModifiedSince;
 
   const allResults = await Promise.all([
     fetchAir(state.lastModifiedSince, true, logger), // past
     fetchAir(state.lastModifiedSince, false, logger), // future
     fetchRail(state.lastModifiedSince, true, logger), // past
     fetchRail(state.lastModifiedSince, false, logger), // future
-    /* fetchLodging(state.lastModifiedSince, true, logger), // past
-    fetchLodging(state.lastModifiedSince, false, logger), // future */
+    fetchLodging(logdgingLastModifiedSince, true, logger), // past
+    fetchLodging(logdgingLastModifiedSince, false, logger), // future
   ]);
 
   return {
@@ -286,17 +259,10 @@ async function collect(state = {}, logger) {
     state: {
       ...state,
       lastModifiedSince: Math.max(...allResults.map(d => d.modifiedSince)),
+      version: config.version,
     },
   };
 }
-
-const config = {
-  label: 'TripIt',
-  description: 'collects plane and train trips from your emails',
-  type: ACTIVITY_TYPE_TRANSPORTATION,
-  isPrivate: true,
-  // minRefreshInterval: 60
-};
 
 
 export default {
