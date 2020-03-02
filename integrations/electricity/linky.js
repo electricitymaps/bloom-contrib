@@ -43,12 +43,11 @@ function disconnect() {
 }
 
 async function fetchActivities(usagePointId, frequency, startDate, endDate, logger) {
-  let url;
-  if (frequency === 'hour') {
-    url = '/v3/metering_data/consumption_load_curve';
-  } else if (frequency === 'day') {
-    url = '/v3/metering_data/daily_consumption';
-  }
+  const endpoints = {
+    hour: 'consumption_load_curve',
+    day: 'daily_consumption',
+  };
+  const url = `/v3/metering_data/${endpoints[frequency]}`;
   logger.logDebug(`Fetching at frequency=${frequency}, startDate=${startDate}, endDate=${endDate}`);
   const res = await manager.fetch(
     `${url}?usage_point_id=${usagePointId}&start=${startDate}&end=${endDate}`,
