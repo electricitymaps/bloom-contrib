@@ -30,6 +30,13 @@ const manager = new OAuthManager({
   accessTokenUrl: 'https://api.tripit.com/oauth/access_token',
 });
 
+function convertNanToNull(number) {
+  if (typeof number === 'number' && !Number.isFinite(number)) {
+    return null;
+  }
+  return number;
+}
+
 function parseDatetime(tripItDatetime) {
   if (tripItDatetime.date && tripItDatetime.time && tripItDatetime.utc_offset) {
     return moment(`${tripItDatetime.date}T${tripItDatetime.time}${tripItDatetime.utc_offset}`).toDate();
@@ -74,7 +81,7 @@ async function fetchAir(modifiedSince, isPast = true, logger) {
           parseDatetime(s.StartDateTime),
           parseDatetime(s.EndDateTime),
         ];
-        if (s.stops && ['nonstop', 'NON STOP'].includes(s.stops)) {
+        if (s.stops && !['nonstop', 'NON STOP'].includes(s.stops)) {
           throw new Error(`Unexpected stops "${s.stops}". Expected "nonstop".`);
         }
         const durationHours = (parseDatetime(s.EndDateTime).getTime() - parseDatetime(s.StartDateTime).getTime()) / 1000.0 / 3600.0;
@@ -197,19 +204,22 @@ async function fetchLodging(modifiedSince, isPast = true, logger) {
       }
       // TODO: We could also parse currency
       // Data given: total_cost: "£154.07"
+      const locationLon = s['Address'] ? parseFloat(s['Address']['longitude']) : null;
+      const locationLat = s['Address'] ? parseFloat(s['Address']['latitude']) : null;
+      const participants = s['number_guests'] ? parseInt(s['number_guests'], 10) : null;
       return {
         id: s.id,
         activityType: ACTIVITY_TYPE_PURCHASE,
         purchaseType: PURCHASE_CATEGORY_ENTERTAINMENT_HOTEL,
-        countryCodeISO2: s['country'],
-        locationLon: s['longitude'],
-        locationLat: s['latitude'],
+        countryCodeISO2: s['Address'] ? s['Address']['country'] : null,
+        locationLon: convertNanToNull(locationLon),
+        locationLat: convertNanToNull(locationLat),
         locationLabel: s['display_name'],
         label: s['display_name'],
         carrier: s['booking_site_name'],
         datetime: startDate,
         durationHours: durationHours <= 0 ? null : durationHours,
-        participants: s['number_guests'] ? parseInt(s['number_guests'], 10) : null,
+        participants: convertNanToNull(participants),
       };
     } catch (e) {
       logger.logWarning(`Skipping item having error: ${e}`);
