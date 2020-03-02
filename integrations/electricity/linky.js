@@ -11,7 +11,7 @@ const manager = new OAuth2Manager({
   accessTokenUrl: 'https://gw.hml.api.enedis.fr/v1/oauth2/token',
   authorizeUrl: 'https://gw.hml.api.enedis.fr/group/espace-particuliers/consentement-linky/oauth2/authorize',
   authorizeExtraParams: {
-    duration: 'P2Y',
+    duration: 'P2Y', // ISO duration (https://en.wikipedia.org/wiki/ISO_8601#Durations)
   },
   baseUrl: 'https://gw.hml.api.enedis.fr',
   clientId: env.LINKY_CLIENT_ID,
