@@ -6,31 +6,52 @@ import {
   TRANSPORTATION_MODE_PUBLIC_TRANSPORT,
   TRANSPORTATION_MODE_FERRY,
   TRANSPORTATION_MODE_BIKE,
+  TRANSPORTATION_MODE_EBIKE,
   TRANSPORTATION_MODE_ESCOOTER,
   TRANSPORTATION_MODE_MOTORBIKE,
+  TRANSPORTATION_MODE_FOOT,
 } from '../definitions';
 
 import flightEmissions from './flights';
 
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'transportation';
-export const modelVersion = '10';
+
+export const modelVersion = '12';
+
 export const explanation = {
-  text: 'Calculations take into account direct emissions from burning fuel and manufacturing of vehicle.',
+  text: 'Calculations take into account direct emissions from burning fuel and manufacturing of vehicle, incl shoes for walking.',
   links: [
-    // TODO(olc): Link is dead
-    { label: 'IPCC', href: 'https://www.ipcc.ch/ipccreports/sres/aviation/125.htm#tab85' },
-    { label: 'The environmental impacts of shared dockless electric scooters', href: 'https://iopscience.iop.org/article/10.1088/1748-9326/ab2da8' },
-    { label: 'The myclimate Flight Emission Calculator', href: 'https://www.myclimate.org/fileadmin/user_upload/myclimate_-_home/01_Information/01_About_myclimate/09_Calculation_principles/Documents/myclimate-flight-calculator-documentation_EN.pdf' },
+    { label: 'Ducky (2019)', href: 'https://static.ducky.eco/calculator_documentation.pdf' },
+    { label: 'European Cyclists’ Federation (2011)', href: 'https://ecf.com/files/wp-content/uploads/ECF_BROCHURE_EN_planche.pdf' },
+    { label: 'UK GOV DEFRA (2019)', href: 'https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019' },
+    { label: 'myclimate (2019)', href: 'https://www.myclimate.org/fileadmin/user_upload/myclimate_-_home/01_Information/01_About_myclimate/09_Calculation_principles/Documents/myclimate-flight-calculator-documentation_EN.pdf' },
+    { label: 'IOP Science (2019)', href: 'https://iopscience.iop.org/article/10.1088/1748-9326/ab2da8' },
+    { label: 'ADEME (2018)', href: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf' },
+    
   ],
 };
+
+export const modelCanRunVersion = 1;
+export function modelCanRun(activity) {
+  const {
+    transportationMode,
+    distanceKilometers,
+    durationHours,
+    departureAirportCode,
+    destinationAirportCode,
+  } = activity;
+  if (transportationMode && (distanceKilometers || durationHours || (departureAirportCode && destinationAirportCode))) {
+    return true;
+  }
+
+  return false;
+}
 
 /*
 Carbon intensity of transportation (kgCO2 per passenger and per km)
 */
 function carbonIntensity(mode) {
-  // We use a very crude version of
-  // https://www.ipcc.ch/ipccreports/sres/aviation/125.htm#tab85
   switch (mode) {
     case TRANSPORTATION_MODE_BUS:
       return 103 / 1000.0;
@@ -54,9 +75,16 @@ function carbonIntensity(mode) {
     case TRANSPORTATION_MODE_BIKE:
       // https://ecf.com/files/wp-content/uploads/ECF_BROCHURE_EN_planche.pdf
       return 5 / 1000.0;
+    case TRANSPORTATION_MODE_EBIKE:
+      // https://ecf.com/files/wp-content/uploads/ECF_BROCHURE_EN_planche.pdf
+      return 17 / 1000.0;  
     case TRANSPORTATION_MODE_ESCOOTER:
       // https://iopscience.iop.org/article/10.1088/1748-9326/ab2da8
       return 125.517 / 1000.0;
+    case TRANSPORTATION_MODE_FOOT:
+      // https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
+      // Using the average footprint of shoes (18kg CO2eq/pair) and using a life expectancy of a shoe of 500km
+      return 36 / 1000.0;  
     default:
       throw Error(`Unknown transportation mode: ${mode}`);
   }
@@ -84,8 +112,12 @@ export function durationToDistance(durationHours, mode) {
       return durationHours * 30; // ~16 knots
     case TRANSPORTATION_MODE_BIKE:
       return durationHours * 15;
+    case TRANSPORTATION_MODE_EBIKE:
+      return durationHours * 15;  
     case TRANSPORTATION_MODE_ESCOOTER:
       return durationHours * 15;
+    case TRANSPORTATION_MODE_FOOT:
+      return durationHours * 5;  
     default:
       throw Error(`Unknown transportation mode: ${mode}`);
   }

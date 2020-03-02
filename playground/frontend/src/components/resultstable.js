@@ -12,9 +12,7 @@ export default function ResultsTable(results) {
       width: '100%',
       overflowX: 'auto',
       minHeight: '200px',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
+      textAlign: 'center',
     }}
     >
       {

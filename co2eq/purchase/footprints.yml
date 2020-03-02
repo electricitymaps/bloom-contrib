@@ -502,6 +502,294 @@ _children:
         source: 'https://www.apple.com/lae/environment/pdf/products/homepod/HomePod_PER_feb2018.pdf'
         unit: item
         usage: 41%
+      'Latitude 3150':
+        icon: laptop
+        intensityKilograms: 216
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3150.pdf'
+        unit: item
+        usage: 17.6%
+      'Latitude 3160':
+        icon: laptop
+        intensityKilograms: 244
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3160.pdf'
+        unit: item
+        usage: 27.6%
+      'Latitude 3180':
+        icon: laptop
+        intensityKilograms: 243
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3180.pdf'
+        unit: item
+        usage: 10.4%
+      'Latitude 3189':
+        icon: laptop
+        intensityKilograms: 257
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3189.pdf'
+        unit: item
+        usage: 12.1%
+      'Latitude 3190':
+        icon: laptop
+        intensityKilograms: 226
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3190.pdf'
+        unit: item
+        usage: 11.5%
+      'Latitude 3190 2-in-1':
+        icon: laptop
+        intensityKilograms: 230
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3190-2.pdf'
+        unit: item
+        usage: 12.9%
+      'Latitude 3380':
+        icon: laptop
+        intensityKilograms: 252
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3380.pdf'
+        unit: item
+        usage: 18.9%
+      'Latitude 3460':
+        icon: laptop
+        intensityKilograms: 279
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3460.pdf'
+        unit: item
+        usage: 15.1%
+      'Latitude 3470':
+        icon: laptop
+        intensityKilograms: 286
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3470.pdf'
+        unit: item
+        usage: 14.7%
+      'Latitude 3480':
+        icon: laptop
+        intensityKilograms: 324
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3480.pdf'
+        unit: item
+        usage: 24.1%
+      'Latitude 3490':
+        icon: laptop
+        intensityKilograms: 243
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3490.pdf'
+        unit: item
+        usage: 18.5%
+      'Latitude 3550':
+        icon: laptop
+        intensityKilograms: 263
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3550.pdf'
+        unit: item
+        usage: 11.8%
+      'Latitude 3560':
+        icon: laptop
+        intensityKilograms: 298
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3560.pdf'
+        unit: item
+        usage: 14.5%
+      'Latitude 3570':
+        icon: laptop
+        intensityKilograms: 302
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3570.pdf'
+        unit: item
+        usage: 14.6%
+      'Latitude 3580':
+        icon: laptop
+        intensityKilograms: 311
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3580.pdf'
+        unit: item
+        usage: 24.8%
+      'Latitude 3590':
+        icon: laptop
+        intensityKilograms: 254
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3590.pdf'
+        unit: item
+        usage: 17.8%
+      'Latitude 5250':
+        icon: laptop
+        intensityKilograms: 235
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5250.pdf'
+        unit: item
+        usage: 17.2%
+      'Latitude 5280':
+        icon: laptop
+        intensityKilograms: 225
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5280.pdf'
+        unit: item
+        usage: 16.8%
+      'Latitude 5285 2-in-1':
+        icon: laptop
+        intensityKilograms: 258
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5285.pdf'
+        unit: item
+        usage: 20%
+      'Latitude 5289 2-in-1':
+        icon: laptop
+        intensityKilograms: 259
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5289.pdf'
+        unit: item
+        usage: 16.7%
+      'Latitude 5290':
+        icon: laptop
+        intensityKilograms: 218
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5290.pdf'
+        unit: item
+        usage: 20%
+      'Latitude 5290 2-in-1':
+        icon: laptop
+        intensityKilograms: 268
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5290-2.pdf'
+        unit: item
+        usage: 14.3%
+      'Latitude 5450':
+        icon: laptop
+        intensityKilograms: 247
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5450.pdf'
+        unit: item
+        usage: 16.1%
+      'Latitude 5480':
+        icon: laptop
+        intensityKilograms: 250
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5480.pdf'
+        unit: item
+        usage: 17.5%
+      'Latitude 5490':
+        icon: laptop
+        intensityKilograms: 251
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5490.pdf'
+        unit: item
+        usage: 17.6%
+      'Latitude 5491':
+        icon: laptop
+        intensityKilograms: 254
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5491.pdf'
+        unit: item
+        usage: 14.9%
+      'Latitude 5495':
+        icon: laptop
+        intensityKilograms: 255
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5495.pdf'
+        unit: item
+        usage: 20.5%
+      'Latitude 5550':
+        icon: laptop
+        intensityKilograms: 259
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5550.pdf'
+        unit: item
+        usage: 13.4%
+      'Latitude 5580':
+        icon: laptop
+        intensityKilograms: 299
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5580.pdf'
+        unit: item
+        usage: 17.4%
+      'Latitude 5590':
+        icon: laptop
+        intensityKilograms: 271
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5590.pdf'
+        unit: item
+        usage: 22.2%
+      'Latitude 5591':
+        icon: laptop
+        intensityKilograms: 305
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5591.pdf'
+        unit: item
+        usage: 16.2%
+      'Latitude 7280':
+        icon: laptop
+        intensityKilograms: 222
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-7280.pdf'
+        unit: item
+        usage: 15.4%
+      'Latitude 7285':
+        icon: laptop
+        intensityKilograms: 282
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-7285.pdf'
+        unit: item
+        usage: 12.8%
+      'Latitude 7290':
+        icon: laptop
+        intensityKilograms: 209
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-7290.pdf'
+        unit: item
+        usage: 14.1%
+      'Latitude 7350':
+        icon: laptop
+        intensityKilograms: 297
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-7350.pdf'
+        unit: item
+        usage: 5.3%
+      'Latitude 7370':
+        icon: laptop
+        intensityKilograms: 288
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-7370.pdf'
+        unit: item
+        usage: 15.1%
+      'Latitude 7380':
+        icon: laptop
+        intensityKilograms: 259
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-7380.pdf'
+        unit: item
+        usage: 17.9%
+      'Latitude 7389':
+        icon: laptop
+        intensityKilograms: 289
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-7389.pdf'
+        unit: item
+        usage: 16.6%
+      'Latitude 7390':
+        icon: laptop
+        intensityKilograms: 222
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-7390.pdf'
+        unit: item
+        usage: 12.1%
+      'Latitude 7390 2-in-1':
+        icon: laptop
+        intensityKilograms: 332
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-7390-2.pdf'
+        unit: item
+        usage: 12.4%
+      'Latitude 7480':
+        icon: laptop
+        intensityKilograms: 249
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-7480.pdf'
+        unit: item
+        usage: 17.4%
+      'Latitude 7490':
+        icon: laptop
+        intensityKilograms: 241
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-7490.pdf'
+        unit: item
+        usage: 12.6%
+      'Latitude E5270':
+        icon: laptop
+        intensityKilograms: 240
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-e5270.pdf'
+        unit: item
+        usage: 18.1%
+      'Latitude E5570':
+        icon: laptop
+        intensityKilograms: 240
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-e5570.pdf'
+        unit: item
+        usage: 17.4%
+      'Latitude E7250':
+        icon: laptop
+        intensityKilograms: 223
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-e7250.pdf'
+        unit: item
+        usage: 13.7%
+      'Latitude E7270':
+        icon: laptop
+        intensityKilograms: 249
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-e7270.pdf'
+        unit: item
+        usage: 19.8%
+      'Latitude E7450':
+        icon: laptop
+        intensityKilograms: 238
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-e7450.pdf'
+        unit: item
+        usage: 15.3%
+      'Latitude E7470':
+        icon: laptop
+        intensityKilograms: 261
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-e7470.pdf'
+        unit: item
+        usage: 19%
       'Mac Pro':
         icon: desktop
         intensityKilograms: 1000
@@ -514,6 +802,12 @@ _children:
         source: 'https://www.apple.com/lae/environment/pdf/products/desktops/Macmini_PER_oct2018.pdf'
         unit: item
         usage: 3%
+      'MacBook 12-inch':
+        icon: laptop
+        intensityKilograms: 233
+        source: 'https://www.apple.com/environment/pdf/products/notebooks/12inch_MacBook_PER_June2019.pdf'
+        unit: item
+        usage: 12%
       'MacBook Air 13-inch':
         icon: laptop
         intensityKilograms: 176
@@ -532,6 +826,12 @@ _children:
         source: 'https://www.apple.com/lae/environment/pdf/products/notebooks/15-inch_MacBookPro_PER_may2019.pdf'
         unit: item
         usage: 21%
+      'MacBook Pro 16-inch':
+        icon: laptop
+        intensityKilograms: 394
+        source: 'https://www.apple.com/environment/pdf/products/notebooks/16-inch_MacBookPro_PER_Nov2019.pdf'
+        unit: item
+        usage: 19%
       'iMac 21.5-inch':
         icon: desktop
         intensityKilograms: 494
@@ -592,6 +892,234 @@ _children:
         source: 'https://www.apple.com/lae/environment/pdf/products/ipod/iPodtouch_PER_may2019.pdf'
         unit: item
         usage: 6%
+      'OptiPlex 7760 All-in-One':
+        icon: desktop
+        intensityKilograms: 720
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-optiplex-7760.pdf'
+        unit: item
+        usage: 35%
+      'Dell OptiPlex XE3 Tower':
+        icon: desktop
+        intensityKilograms: 509
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-optiplex-XE3-tower.pdf'
+        unit: item
+        usage: 50.8%
+      'Precision 3510':
+        icon: laptop
+        intensityKilograms: 331
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-3510.pdf'
+        unit: item
+        usage: 23%
+      'Precision 3520':
+        icon: laptop
+        intensityKilograms: 304
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-3520.pdf'
+        unit: item
+        usage: 16.2%
+      'Precision 3530':
+        icon: laptop
+        intensityKilograms: 335
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-3530.pdf'
+        unit: item
+        usage: 17.4%
+      'Precision 5520':
+        icon: laptop
+        intensityKilograms: 368
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-5520.pdf'
+        unit: item
+        usage: 25.7%
+      'Precision 5530':
+        icon: laptop
+        intensityKilograms: 340
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-5530.pdf'
+        unit: item
+        usage: 16%
+      'Precision 5530 2-in-1':
+        icon: laptop
+        intensityKilograms: 330
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-5530-2.pdf'
+        unit: item
+        usage: 13.8%
+      'Precision 7520':
+        icon: laptop
+        intensityKilograms: 399
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-7520.pdf'
+        unit: item
+        usage: 28%
+      'Precision 7720':
+        icon: laptop
+        intensityKilograms: 416
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-7720.pdf'
+        unit: item
+        usage: 23.1%
+      'Precision 7920':
+        icon: desktop
+        intensityKilograms: 2496
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-7920.pdf'
+        unit: item
+        usage: 74.8%
+      'XPS 9360':
+        icon: laptop
+        intensityKilograms: 286
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-xps-9360.pdf'
+        unit: item
+        usage: 20%
+      'XPS 9365':
+        icon: laptop
+        intensityKilograms: 287
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-xps-9365.pdf'
+        unit: item
+        usage: 16.8%
+      'XPS 9370':
+        icon: laptop
+        intensityKilograms: 297
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-xps-9370.pdf'
+        unit: item
+        usage: 12.4%
+      'XPS 9560':
+        icon: laptop
+        intensityKilograms: 337
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-xps-9560.pdf'
+        unit: item
+        usage: 21.3%
+      'XPS 9570':
+        icon: laptop
+        intensityKilograms: 324
+        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-xps-15-9570.pdf'
+        unit: item
+        usage: 17.9%
+      'Lenovo Thinkpad 25':
+        icon: laptop
+        intensityKilograms: 390
+        source: 'https://github.com/rarecoil/laptop-co2e'
+        unit: item
+        usage: 28%
+      'Lenovo Thinkpad 11e 5th Gen':
+        icon: laptop
+        intensityKilograms: 326
+        source: 'https://www.lenovo.com/us/en/social_responsibility/PCF-ThinkPad-11e-Yoga-11e-5th.pdf'
+        unit: item
+        usage: 20%
+      'Lenovo Thinkpad A275':
+        icon: laptop
+        intensityKilograms: 511
+        source: 'https://github.com/rarecoil/laptop-co2e'
+        unit: item
+        usage: 31%
+      'Lenovo Thinkpad A285':
+        icon: laptop
+        intensityKilograms: 352
+        source: 'https://github.com/rarecoil/laptop-co2e'
+        unit: item
+        usage: 36%
+      'Lenovo Thinkpad A485':
+        icon: laptop
+        intensityKilograms: 419
+        source: 'https://github.com/rarecoil/laptop-co2e'
+        unit: item
+        usage: 35%
+      'Lenovo Thinkpad L380':
+        icon: laptop
+        intensityKilograms: 406
+        source: 'https://www.lenovo.com/us/en/social_responsibility/PCF-ThinkPad-L380-S2-Yoga-3rd.pdf'
+        unit: item
+        usage: 19%
+      'Lenovo Thinkpad L480':
+        icon: laptop
+        intensityKilograms: 455
+        source: 'https://www.lenovo.com/us/en/social_responsibility/PCF-ThinkPad-L480.pdf'
+        unit: item
+        usage: 30%
+      'Lenovo Thinkpad L490':
+        icon: laptop
+        intensityKilograms: 499
+        source: 'https://www.lenovo.com/us/en/pdf/social_responsibility/PCF_ThinkPad_L490.pdf'
+        unit: item
+        usage: 21%
+      'Lenovo Thinkpad P1':
+        icon: laptop
+        intensityKilograms: 477
+        source: 'https://www.lenovo.com/us/en/social_responsibility/PCF_ThinkPad_P1_X1_Extreme.pdf'
+        unit: item
+        usage: 16%
+      'Lenovo Thinkpad P52':
+        icon: laptop
+        intensityKilograms: 693
+        source: 'https://github.com/rarecoil/laptop-co2e'
+        unit: item
+        usage: 22%
+      'Lenovo Thinkpad P72':
+        icon: laptop
+        intensityKilograms: 610
+        source: 'https://www.lenovo.com/us/en/social_responsibility/PCF_ThinkPad_P72.pdf'
+        unit: item
+        usage: 23%
+      'Lenovo Thinkpad P73':
+        icon: laptop
+        intensityKilograms: 611
+        source: 'https://www.lenovo.com/us/en/pdf/social_responsibility/PCF_ThinkPad_P73.pdf'
+        unit: item
+        usage: 34%
+      'Lenovo Thinkpad X1 Carbon 4th Gen':
+        icon: laptop
+        intensityKilograms: 457
+        source: 'https://github.com/rarecoil/laptop-co2e'
+        unit: item
+        usage: 19%
+      'Lenovo Thinkpad X1 Carbon 5th Gen':
+        icon: laptop
+        intensityKilograms: 369
+        source: 'https://github.com/rarecoil/laptop-co2e'
+        unit: item
+        usage: 17%
+      'Lenovo Thinkpad X1 Carbon 6th Gen':
+        icon: laptop
+        intensityKilograms: 333
+        source: 'https://www.lenovo.com/us/en/social_responsibility/PCF-ThinkPad-X1-Carbon-6th.pdf'
+        unit: item
+        usage: 16%
+      'Lenovo Thinkpad X1 Carbon 7th Gen':
+        icon: laptop
+        intensityKilograms: 461
+        source: 'https://www.lenovo.com/us/en/pdf/social_responsibility/PCF_ThinkPad_X1_Carbon_X1_Carbon_LTE_7th.pdf'
+        unit: item
+        usage: 13%
+      'Lenovo Thinkpad X250':
+        icon: laptop
+        intensityKilograms: 338
+        source: 'https://github.com/rarecoil/laptop-co2e'
+        unit: item
+        usage: 24%
+      'Lenovo Thinkpad X260':
+        icon: laptop
+        intensityKilograms: 489
+        source: 'https://github.com/rarecoil/laptop-co2e'
+        unit: item
+        usage: 18%
+      'Lenovo Thinkpad X270':
+        icon: laptop
+        intensityKilograms: 852
+        source: 'https://github.com/rarecoil/laptop-co2e'
+        unit: item
+        usage: 10%
+      'Lenovo Thinkpad X280':
+        icon: laptop
+        intensityKilograms: 334
+        source: 'https://www.lenovo.com/us/en/social_responsibility/PCF-ThinkPad-X280.pdf'
+        unit: item
+        usage: 23%
+      'Lenovo Thinkpad X380 Yoga':
+        icon: laptop
+        intensityKilograms: 339
+        source: 'https://www.lenovo.com/us/en/social_responsibility/PCF-ThinkPad-S1-Yoga-4th-X380-Yoga.pdf'
+        unit: item
+        usage: 21%
+      'Lenovo Thinkpad X390':
+        icon: laptop
+        intensityKilograms: 290
+        source: 'https://static.lenovo.com/ww/docs/regulatory/PCF_ThinkPad_X390.pdf'
+        unit: item
+        usage: 15%
   Entertainment:
     _children:
       Amusement park:
@@ -1623,6 +2151,8 @@ _children:
             intensityKilograms: 2.3
             source: 'http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf'
             unit: kg
+            oldKeys:
+              - Peanut Butter
           Peanuts:
             icon: null
             intensityKilograms: 0.83
@@ -1983,6 +2513,11 @@ _children:
                 kilograms: 0.024
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          Dill:
+            icon: null
+            intensityKilograms: 0.221
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
           Endive:
             icon: null
             intensityKilograms: 0.065
@@ -2003,10 +2538,21 @@ _children:
             intensityKilograms: 0.57
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
+          Green onion:
+           # remember to update Scallion as well
+            icon: null
+            intensityKilograms: 0.085
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
           Ginger:
             icon: null
             intensityKilograms: 0.88
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            unit: kg
+          Horseradish:
+            icon: null
+            intensityKilograms: 0.88
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
             unit: kg
           Kale:
             icon: null
@@ -2113,6 +2659,12 @@ _children:
                 kilograms: 0.047
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+          Scallion:
+           # remember to update Green Onion as well
+            icon: null
+            intensityKilograms: 0.085
+            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            unit: kg
           Shallot:
             icon: null
             intensityKilograms: 0.275
@@ -2190,16 +2742,31 @@ _children:
         intensityKilograms: 2.8
         source: 'http://www.bilans-ges.ademe.fr/static/documents/[Base%20Carbone]%20Documentation%20g%C3%A9n%C3%A9rale%20v11.0.pdf'
         unit: L
-      Heating Oil:
+      Heating oil:
         icon: oil-can
         intensityKilograms: 3.26
         source: 'http://www.bilans-ges.ademe.fr/static/documents/[Base%20Carbone]%20Documentation%20g%C3%A9n%C3%A9rale%20v11.0.pdf'
         unit: L
-      Natural gas:
+        oldKeys:
+          - Heating Oil
+      LPG:
         icon: burn
         intensityKilograms: 1.88
         source: 'http://www.bilans-ges.ademe.fr/static/documents/[Base%20Carbone]%20Documentation%20g%C3%A9n%C3%A9rale%20v11.0.pdf'
         unit: L
+      Natural gas:
+        icon: burn
+        intensityKilograms: 0.00026409
+        source: https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
+        unit: L
+        oldKeys:
+          - Natural Gas
+        conversions:
+          kWh:
+            liter: 100.6096406528
+            incrementStepSize: 1
+            source: https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
+
     icon: gas-pump
     intensityKilograms: 1.186
     oldKeys:

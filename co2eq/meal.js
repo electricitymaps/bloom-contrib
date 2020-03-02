@@ -1,6 +1,10 @@
 import {
   MEAL_TYPE_VEGAN,
   MEAL_TYPE_VEGETARIAN,
+  MEAL_TYPE_PESCETARIAN,
+  MEAL_TYPE_MEAT_LOW,
+  MEAL_TYPE_MEAT_MEDIUM,
+  MEAL_TYPE_MEAT_HIGH,
   MEAL_TYPE_MEAT_OR_FISH,
   PURCHASE_CATEGORY_FOOD,
 } from '../definitions';
@@ -20,10 +24,20 @@ export const explanation = {
   // TODO(olc): Write a description for mealType as well.
   text: 'The calculations take into consideration emissions across the whole lifecycle.',
   links: [
-    { label: 'Environmental impact of omnivorous, ovo-lacto-vegetarian, and vegan diet', href: 'https://www.nature.com/articles/s41598-017-06466-8' },
-    { label: 'Tomorrow footprint database', href: 'https://github.com/tmrowco/tmrowapp-contrib/blob/master/co2eq/purchase/footprints.yml' },
+    { label: 'Nature (2017)', href: 'https://www.nature.com/articles/s41598-017-06466-8' },
+    { label: 'Tomorrow footprint database', href: 'https://github.com/tmrowco/northapp-contrib/blob/master/co2eq/purchase/footprints.yml' },
   ],
 };
+
+export const modelCanRunVersion = 1;
+export function modelCanRun(activity) {
+  const { mealType, ingredients } = activity;
+  if (mealType || (ingredients && Object.keys(ingredients).length > 0)) {
+    return true;
+  }
+
+  return false;
+}
 
 const foodBranch = getEntryByPath([PURCHASE_CATEGORY_FOOD]);
 const ingredients = getDescendants(foodBranch);
@@ -66,14 +80,25 @@ export function carbonIntensityOfIngredient(ingredient) {
 
 /*
 Carbon intensity of meals (kgCO2 per meal).
+// Source: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4372775/
+The values are age-and-sex-adjusted means per 2000 kcal.
 */
 function carbonIntensityOfMealType(mealType) {
-  // Source: https://www.nature.com/articles/s41598-017-06466-8
   switch (mealType) {
     case MEAL_TYPE_VEGAN:
-      return 2336.1 / MEALS_PER_DAY / 1000.0;
+      return 2890.0 / MEALS_PER_DAY / 1000.0;
     case MEAL_TYPE_VEGETARIAN:
-      return 2598.3 / MEALS_PER_DAY / 1000.0;
+      return 3810.0 / MEALS_PER_DAY / 1000.0;
+    case MEAL_TYPE_PESCETARIAN:
+      return 3910.0 / MEALS_PER_DAY / 1000.0;
+    case MEAL_TYPE_MEAT_LOW:
+      return 4770.0 / MEALS_PER_DAY / 1000.0;
+    case MEAL_TYPE_MEAT_MEDIUM:
+      return 5630.0 / MEALS_PER_DAY / 1000.0;
+    case MEAL_TYPE_MEAT_HIGH:
+      return 7190.0 / MEALS_PER_DAY / 1000.0;
+    // Source: https://www.nature.com/articles/s41598-017-06466-8
+    // should be removed as inconsistent with previous source.
     case MEAL_TYPE_MEAT_OR_FISH:
       return 3959.3 / MEALS_PER_DAY / 1000.0;
     default:

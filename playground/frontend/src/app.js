@@ -12,6 +12,7 @@ import {
 import RunIcon from '@material-ui/icons/DoubleArrow';
 
 import ResultsTable from './components/resultstable';
+import Console from './components/console';
 
 const deSerializeError = obj => Object.assign(new Error(), { stack: undefined }, obj);
 
@@ -27,6 +28,7 @@ class App extends React.Component {
       username: null,
       password: null,
       results: [],
+      logs: [],
     };
   }
 
@@ -37,7 +39,7 @@ class App extends React.Component {
     if (!socket.connected) { return; }
     if (!selectedIntegration) { return; }
 
-    console.log(`Running ${selectedIntegration.value}..`);
+    console.log(`Running ${selectedIntegration}..`);
     socket.emit('run', {
       sourceIdentifier: selectedIntegration,
       username,
@@ -70,6 +72,9 @@ class App extends React.Component {
             console.log(log.obj);
         }
       });
+      this.setState(prevState => ({
+        logs: [...prevState.logs, ...logs],
+      }));
       console.log('############### END EXECUTION LOGS ###############');
     });
     socket.on('runResults', (results) => {
@@ -100,6 +105,13 @@ class App extends React.Component {
   handleChange = (event) => {
     this.setState({
       selectedIntegration: event.target.value,
+      logs: [],
+    });
+  }
+
+  handleClearLogs = () => {
+    this.setState({
+      logs: [],
     });
   }
 
@@ -109,11 +121,12 @@ class App extends React.Component {
       integrations,
       selectedIntegration,
       results,
+      logs,
     } = this.state;
     return (
       <div className="App">
         <header className="App-header">
-          <h2>Tomorrow App Playground</h2>
+          <h2>North App Playground</h2>
           <p>status: <span id="connection-state">{connection}</span></p>
         </header>
         <div className="main-content-container">
@@ -170,6 +183,9 @@ class App extends React.Component {
             </Grid>
             <Grid item xs={9}>
               <ResultsTable data={results} />
+            </Grid>
+            <Grid item xs={12}>
+              <Console logs={logs} onClearLogs={this.handleClearLogs} />
             </Grid>
           </Grid>
         </div>
