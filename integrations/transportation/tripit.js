@@ -74,8 +74,8 @@ async function fetchAir(modifiedSince, isPast = true, logger) {
           parseDatetime(s.StartDateTime),
           parseDatetime(s.EndDateTime),
         ];
-        if (s.stops && s.stops !== 'nonstop') {
-          throw Error(`Unexpected stops "${s.stops}". Expected "nonstop".`);
+        if (s.stops && ['nonstop', 'NON STOP'].includes(s.stops)) {
+          throw new Error(`Unexpected stops "${s.stops}". Expected "nonstop".`);
         }
         const durationHours = (parseDatetime(s.EndDateTime).getTime() - parseDatetime(s.StartDateTime).getTime()) / 1000.0 / 3600.0;
         return {
