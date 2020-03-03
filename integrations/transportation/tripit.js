@@ -14,7 +14,7 @@ import { HTTPError } from '../utils/errors';
 
 const config = {
   label: 'TripIt',
-  description: 'collects plane and train trips from your emails',
+  description: 'collects plane, train and hotel activities from your emails',
   type: ACTIVITY_TYPE_TRANSPORTATION,
   isPrivate: true,
   // minRefreshInterval: 60
