@@ -29,23 +29,7 @@
     "eslint-plugin-import": "2.12.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.1",
-    "husky": "^4.2.3",
-    "lint-staged": "^10.0.7",
     "prettier": "^1.19.1"
-  },
-  "lint-staged": {
-    "*.{js,jsx}": [
-      "eslint --quiet --fix",
-      "prettier --write"
-    ],
-    "*.{json,md,scss,yaml,yml}": [
-      "prettier --write"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "scripts": {
     "lint": "eslint --quiet *.js co2eq integrations playground"
