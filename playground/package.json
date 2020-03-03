@@ -28,13 +28,11 @@
     "babel-loader": "^8.0.6",
     "babel-plugin-wildcard": "^5.0.0",
     "babel-watch": "^7.0.0",
-    "contrib": "../",
-    "core-js": "3",
     "css-loader": "^3.2.0",
     "file-loader": "^4.2.0",
     "style-loader": "^1.0.0",
     "svg-inline-loader": "^0.8.2",
-    "webpack-cli": "^3.3.9",
+    "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.8.1"
   }
 }
