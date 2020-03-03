@@ -1,5 +1,5 @@
 {
-  "extends": ["airbnb", "eslint-config-prettier"],
+  "extends": ["airbnb", "prettier", "prettier/react"],
   "globals": { "__DEV__": true, "fetch": false, "window": false, "Buffer": false },
   "parser": "babel-eslint",
   "rules": {
@@ -25,7 +25,6 @@
     "no-unused-vars": "warn",
     "prefer-destructuring": "warn",
     "quote-props": "warn",
-    "react/jsx-one-expression-per-line": "warn",
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
     "react/prop-types": "warn",
     "react/sort-comp": "warn"
