@@ -126,7 +126,7 @@ function extractComptabileUnitAndAmount(activity, entry) {
   if (availableEntryUnit === UNIT_ITEM) {
     return { unit: UNIT_ITEM, amount: 1 };
   }
-  throw new Error(`Activity ${JSON.stringify(activity)} is not compatible with unit ${entry.unit}.`);
+  throw new Error(`Activity has no compatible purchase unit.`);
 }
 
 /*
