@@ -1,6 +1,12 @@
 import { geoDistance } from 'd3-geo'; // todo - add d3-geo in package.json
 import airports from './airports.json';
 import { getActivityDurationHours } from '../utils';
+import loadfactors from './loadfactors.json'
+
+// Constants for JSON keys
+const ICAO_REGION_KEY = 'icao_region_code';
+const PASSENGER_LOAD_FACTORS_KEY = 'passenger_load_factors';
+const PASSENGER_FREIGHT_RATIO_KEY = 'passenger_to_freight_ratio';
 
 // Key constants used in the model
 // source: https://www.myclimate.org/fileadmin/user_upload/myclimate_-_home/01_Information/01_About_myclimate/09_Calculation_principles/Documents/myclimate-flight-calculator-documentation_EN.pdf
@@ -35,6 +41,13 @@ const averageNumberOfSeats = isShortHaul => (isShortHaul ? 153.51 : 280.21); //
 const a = isShortHaul => (isShortHaul ? 0 : 0.0001); // empiric fuel consumption parameter
 const b = isShortHaul => (isShortHaul ? 2.714 : 7.104); // empiric fuel consumption parameter
 const c = isShortHaul => (isShortHaul ? 1166.52 : 5044.93); // empiric fuel consumption parameter
+
+function airportIataCodeToRegion(iata) {
+  if (!airports[iata]) {
+    throw new Error(`Unknown airport code ${iata}`);
+  }
+  return airports[iata][ICAO_REGION_KEY]
+}
 
 function airportIataCodeToCoordinates(iata) {
   if (!airports[iata]) {
@@ -74,8 +87,10 @@ function distanceFromDuration(hour) {
   return averageSpeedFromDuration(hour) * hour;
 }
 
-function emissionsForShortOrLongHaul(distance, bookingClass, isShortHaul) {
-  return ((a(isShortHaul) * distance * distance) + (b(isShortHaul) * distance) + c(isShortHaul)) / (averageNumberOfSeats(isShortHaul) * passengerLoadFactor)
+function emissionsForShortOrLongHaul(distance, bookingClass, passengerLoadFactor, passengerToFreightRatio, isShortHaul) {
+
+  return ((a(isShortHaul) * distance * distance) + (b(isShortHaul) * distance) + c(isShortHaul))
+    / (averageNumberOfSeats(isShortHaul) * passengerLoadFactor)
     * passengerToFreightRatio(isShortHaul)
     * bookingClassWeightingFactor(bookingClass, isShortHaul)
     * ((fuelCo2Intensity * radiativeForcingMultiplier) + fuelPreProductionCo2Intensity)
@@ -83,23 +98,42 @@ function emissionsForShortOrLongHaul(distance, bookingClass, isShortHaul) {
     + airportinfrastructureFactor;
 }
 
-function emissionsBetweenShortAndLongHaul(distance, bookingClass) {
+function emissionsBetweenShortAndLongHaul(distance, bookingClass, passengerLoadFactor, passengerToFreightRatio) {
   // Formula for inbetween short and long haul is a linear interpolation between
   // both hauls
-  const eMin = emissionsForShortOrLongHaul(shortHaulDistanceThreshold, bookingClass, true);
-  const eMax = emissionsForShortOrLongHaul(longHaulDistanceThreshold, bookingClass, false);
+  const eMin = emissionsForShortOrLongHaul(
+    shortHaulDistanceThreshold, bookingClass, true, passengerLoadFactor, passengerToFreightRatio
+  );
+  const eMax = emissionsForShortOrLongHaul(
+    longHaulDistanceThreshold, bookingClass, false, passengerLoadFactor, passengerToFreightRatio
+  );
   // x is between 0 (short haul) and 1 (long haul)
   const x = (distance - shortHaulDistanceThreshold) / (longHaulDistanceThreshold - shortHaulDistanceThreshold);
   return ((1 - x) * eMin) + (x * eMax);
 }
 
-function emissionsFromDistanceAndClass(distance, bookingClass) {
+function emissionsFromDistanceAndClass(distance, bookingClass, passengerLoadFactor, passengerToFreightRatio) {
   if (distance < shortHaulDistanceThreshold || distance > longHaulDistanceThreshold) {
     // Flight is eigher short or long (but not in between)
     const isShortHaul = distance < shortHaulDistanceThreshold;
-    return emissionsForShortOrLongHaul(distance, bookingClass, isShortHaul);
+    return emissionsForShortOrLongHaul(distance, bookingClass, passengerLoadFactor, passengerToFreightRatio, isShortHaul);
   }
-  return emissionsBetweenShortAndLongHaul(distance, bookingClass);
+  return emissionsBetweenShortAndLongHaul(distance, bookingClass, passengerLoadFactor, passengerToFreightRatio);
+}
+
+function getLoadFactors(activity) {
+  if (activity.departureAirportCode && activity.destinationAirportCode) {
+    const departureAirportRegion = airportIataCodeToRegion(activity.departureAirportCode);
+    const destinationAirportRegion = airportIataCodeToRegion(activity.destinationAirportCode);
+    if (departureAirportRegion !== '' && destinationAirportRegion !== '') {
+      return [
+        loadfactors[departureAirportRegion][PASSENGER_LOAD_FACTORS_KEY][destinationAirportRegion] / 100,
+        // normal form of passenger to freight ratio is function of isshorthaul
+        isShortHaul => loadfactors[departureAirportRegion][PASSENGER_FREIGHT_RATIO_KEY][destinationAirportRegion] / 100
+      ];
+    }
+  }
+  return [passengerLoadFactor, passengerToFreightRatio];
 }
 
 export function activityDistance(activity) {
@@ -125,9 +159,10 @@ export function activityDistance(activity) {
 */
 export default function (activity) {
   const distance = activityDistance(activity);
+  const [passengerLoadFactor, passengerToFreightRatio]  = getLoadFactors(activity);
 
   if (!Number.isFinite(distance)) {
     throw new Error(`Incorrect distance obtained: ${distance}`);
   }
-  return emissionsFromDistanceAndClass(distance, activity.bookingClass);
+  return emissionsFromDistanceAndClass(distance, activity.bookingClass, passengerLoadFactor, passengerToFreightRatio);
 }
