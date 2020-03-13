@@ -3,7 +3,7 @@ import {
 } from '../../definitions';
 
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
-export const modelName = 'elecitricity-world-average';
+export const modelName = 'electricity-world-average';
 export const modelVersion = '1';
 export const explanation = {
   text: 'Calculations take into account the direct emissions associated with the generation of electricity worldwide.',
