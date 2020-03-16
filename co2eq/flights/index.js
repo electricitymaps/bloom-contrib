@@ -37,7 +37,7 @@ const bookingClassWeightingFactor = (bookingClass, isShortHaul) => {
 const passengerToFreightRatio = isShortHaul => (isShortHaul ? 0.93 : 0.74);
 // Passenger aircrafts often transport considerable amounts of freight and mail,
 // in particular in wide-body aircrafts on long-haul flights.
-const averageNumberOfSeats = isShortHaul => (isShortHaul ? 153.51 : 280.21); //
+const averageNumberOfSeats = isShortHaul => (isShortHaul ? 153.51 : 280.21);
 const a = isShortHaul => (isShortHaul ? 0 : 0.0001); // empiric fuel consumption parameter
 const b = isShortHaul => (isShortHaul ? 2.714 : 7.104); // empiric fuel consumption parameter
 const c = isShortHaul => (isShortHaul ? 1166.52 : 5044.93); // empiric fuel consumption parameter
@@ -112,7 +112,7 @@ function emissionsBetweenShortAndLongHaul(distance, bookingClass, passengerLoadF
   return ((1 - x) * eMin) + (x * eMax);
 }
 
-function emissionsFromDistanceAndClass(distance, bookingClass, passengerLoadFactor, passengerToFreightRatio) {
+function computeFootprint(distance, bookingClass, passengerLoadFactor, passengerToFreightRatio) {
   if (distance < shortHaulDistanceThreshold || distance > longHaulDistanceThreshold) {
     // Flight is eigher short or long (but not in between)
     const isShortHaul = distance < shortHaulDistanceThreshold;
@@ -125,11 +125,11 @@ function getLoadFactors(activity) {
   if (activity.departureAirportCode && activity.destinationAirportCode) {
     const departureAirportRegion = airportIataCodeToRegion(activity.departureAirportCode);
     const destinationAirportRegion = airportIataCodeToRegion(activity.destinationAirportCode);
-    if (departureAirportRegion !== '' && destinationAirportRegion !== '') {
+    if (departureAirportRegion  && destinationAirportRegion) {
       return [
         loadfactors[departureAirportRegion][PASSENGER_LOAD_FACTORS_KEY][destinationAirportRegion] / 100,
         // normal form of passenger to freight ratio is function of isshorthaul
-        isShortHaul => loadfactors[departureAirportRegion][PASSENGER_FREIGHT_RATIO_KEY][destinationAirportRegion] / 100
+        isShortHaul => loadfactors[departureAirportRegion][PASSENGER_FREIGHT_RATIO_KEY][destinationAirportRegion] / 100,
       ];
     }
   }
@@ -164,5 +164,5 @@ export default function (activity) {
   if (!Number.isFinite(distance)) {
     throw new Error(`Incorrect distance obtained: ${distance}`);
   }
-  return emissionsFromDistanceAndClass(distance, activity.bookingClass, passengerLoadFactor, passengerToFreightRatio);
+  return computeFootprint(distance, activity.bookingClass, passengerLoadFactor, passengerToFreightRatio);
 }
