@@ -5,6 +5,7 @@ import mapValues from 'lodash/mapValues';
 
 import { ACTIVITY_TYPE_ELECTRICITY } from '../../definitions';
 import { AuthenticationError, HTTPError, ValidationError } from '../utils/errors';
+import { getActivityDurationHours } from '../../co2eq/utils';
 
 const GRANULARITY = {
   day: 'urlCdcJour',
@@ -211,22 +212,21 @@ async function fetchActivities(frequency, startDate, endDate, logger) {
       return {
         id: `linky${k}`,
         datetime: moment(k).toDate(),
+        endDatetime: moment(k).add(frequency === 'hour' ? processedValues.length : 24).toDate(),
         activityType: ACTIVITY_TYPE_ELECTRICITY,
         energyWattHours: processedValues
           .reduce((a, b) => a + b, 0),
-        durationHours: frequency === 'hour'
-          ? processedValues.length
-          : 24,
         hourlyEnergyWattHours: frequency === 'hour'
           ? processedValues
           : undefined,
       };
     })
     .filter((d) => {
-      if (d.durationHours === 24) {
+      const durationHours = getActivityDurationHours(d);
+      if (durationHours === 24) {
         return true;
       }
-      logger.logWarning(`Ignoring activity from ${d.datetime.toISOString()} with ${d.durationHours} hours instead of 24`);
+      logger.logWarning(`Ignoring activity from ${d.datetime.toISOString()} with ${durationHours} hours instead of 24`);
       return false;
     });
 

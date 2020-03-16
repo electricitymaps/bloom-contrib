@@ -45,8 +45,8 @@ async function queryActivitiesFromOffset(offset, logger) {
     activityType: ACTIVITY_TYPE_TRANSPORTATION,
     carrier: 'Uber',
     datetime: new Date(d.start_time * 1000.0),
+    endDatetime: new Date(d.end_time * 1000.0),
     distanceKilometers: d.distance * MILES_TO_KM, // the origin in given in miles
-    durationHours: (new Date(d.end_time * 1000.0) - new Date(d.start_time * 1000.0)) / 1000.0 / 3600.0,
     transportationMode: TRANSPORTATION_MODE_CAR,
     locationLon: d.start_city.longitude,
     locationLat: d.start_city.latitude,

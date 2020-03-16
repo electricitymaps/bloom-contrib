@@ -4,6 +4,7 @@ import groupBy from 'lodash/groupBy';
 
 import { ACTIVITY_TYPE_ELECTRICITY } from '../../definitions';
 import { AuthenticationError, HTTPError } from '../utils/errors';
+import { getActivityDurationHours } from '../../co2eq/utils';
 
 const btoa = b => Buffer.from(b).toString('base64');
 
@@ -164,22 +165,23 @@ async function collect(state, { logWarning }) {
   ).map(([k, values]) => ({
     id: `barry${k}`,
     datetime: moment(k).toDate(),
+    endDatetime: moment(k)
+      .add(values.length, 'hours')
+      .toDate(),
     activityType: ACTIVITY_TYPE_ELECTRICITY,
     energyWattHours: values
       .map(x => x.value * 1000.0) // kWh -> Wh
       .reduce((a, b) => a + b, 0),
-    durationHours: values.length,
     hourlyEnergyWattHours: values.map(x => x.value * 1000.0),
     locationLon,
     locationLat,
   }));
   activities
-    .filter(d => d.durationHours !== 24)
+    .filter(d => getActivityDurationHours(d) !== 24)
     .forEach(d =>
       logWarning(
-        `Ignoring activity from ${d.datetime.toISOString()} with ${
-          d.durationHours
-        } hours instead of 24`
+        `Ignoring activity from ${d.datetime.toISOString()} 
+        to ${d.endDatetime.toISOString()} as not 24 hours`
       )
     );
 

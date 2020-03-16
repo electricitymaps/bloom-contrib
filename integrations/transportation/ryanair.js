@@ -117,7 +117,7 @@ async function getActivities(pastBookings, customerId, token) {
     .map(k => ({
       id: `ryanairB${k.bookingId}${k.flightInfo.FlightNumber}`,
       datetime: k.flightInfo.DepartLocal,
-      durationHours: moment(k.flightInfo.Arrive).diff(moment(k.flightInfo.Depart), 'minutes') / 60,
+      endDatetime: k.flightInfo.ArriveLocal, // TODO(df): UNTESTED! Does it exist?
       activityType: ACTIVITY_TYPE_TRANSPORTATION,
       transportationMode: TRANSPORTATION_MODE_PLANE,
       carrier: 'Ryanair',

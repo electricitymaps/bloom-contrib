@@ -50,7 +50,7 @@ async function _login(username, password) {
     const text = await res.text();
     throw new HTTPError(text, res.status);
   }
-  
+
   if (res.body.user.associated_vehicles.length > 1) {
     throw Error('More than one VIN number detected.');
   }
@@ -143,7 +143,6 @@ async function collect(state = {}, logger, utils) {
     if (d.type === 'END_NOTIFICATION' && prev.type === 'START_NOTIFICATION') {
       const start = moment(prev.date);
       const end = moment(d.date);
-      const duration = end.valueOf() - start.valueOf(); // in ms
       const energyDeltaWattHours = (d.charge_level - prev.charge_level) / 100.0 * BATTERY_SIZE;
       if (energyDeltaWattHours <= 0) {
         logger.logWarning(`Invalid energy delta measurement of ${energyDeltaWattHours}Wh obtained`);
@@ -152,7 +151,7 @@ async function collect(state = {}, logger, utils) {
           id: `renaultzoe${start.toISOString()}`,
           activityType: ACTIVITY_TYPE_ELECTRIC_VEHICLE_CHARGING,
           datetime: start.toDate(),
-          durationHours: duration / 1000.0 / 3600.0,
+          endDatetime : end.toDate() - start.toDate() <= 0 ? null : end.toDate(),
           energyWattHours: energyDeltaWattHours,
           locationLon,
           locationLat,
