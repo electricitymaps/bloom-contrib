@@ -40,23 +40,27 @@ async function fetchTripsFromURL(tripURL, logger) {
     throw new HTTPError(text, res.status);
   }
 
-  const data = await res.json(); 
+  const data = await res.json();
   return data;
 }
 
-const toActivities = tripArray => (tripArray || []).map(k => ({
-  id: k.id,
-  activityType: ACTIVITY_TYPE_TRANSPORTATION,
-  datetime: new Date(k.started_at),
-  vehicle: k.vehicle,
-  durationHours: (Math.round(k.duration_s) / 3600).toFixed(2),
-  distanceKilometers: k.distance_m / 1000,
-  transportationMode: TRANSPORTATION_MODE_CAR,
-  startLat: k.start_location.lat,
-  startLon: k.start_location.lon,
-  endLat: k.end_location.lat,
-  endLon: k.end_location.lon,
-}));
+const toActivities = tripArray => (tripArray || []).map(k => {
+    const datetime = new Date(k.started_at);
+    return {
+      id: k.id,
+      activityType: ACTIVITY_TYPE_TRANSPORTATION,
+      datetime,
+      vehicle: k.vehicle,
+      endDatetime: new Date(datetime.getTime() + k.duration_s * 1000),
+      distanceKilometers: k.distance_m / 1000,
+      transportationMode: TRANSPORTATION_MODE_CAR,
+      startLat: k.start_location.lat,
+      startLon: k.start_location.lon,
+      endLat: k.end_location.lat,
+      endLon: k.end_location.lon,
+    }
+  }
+);
 
 async function fetchOffsetActivities(start, end, logger) {
   const startDateString = start === null ? '' : `started_at_gte=${toUnixSeconds(start)}&`;

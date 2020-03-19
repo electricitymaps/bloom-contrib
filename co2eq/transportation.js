@@ -13,6 +13,7 @@ import {
 } from '../definitions';
 
 import flightEmissions from './flights';
+import { getActivityDurationHours } from './utils';
 
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'transportation';
@@ -28,7 +29,7 @@ export const explanation = {
     { label: 'myclimate (2019)', href: 'https://www.myclimate.org/fileadmin/user_upload/myclimate_-_home/01_Information/01_About_myclimate/09_Calculation_principles/Documents/myclimate-flight-calculator-documentation_EN.pdf' },
     { label: 'IOP Science (2019)', href: 'https://iopscience.iop.org/article/10.1088/1748-9326/ab2da8' },
     { label: 'ADEME (2018)', href: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf' },
-    
+
   ],
 };
 
@@ -37,11 +38,11 @@ export function modelCanRun(activity) {
   const {
     transportationMode,
     distanceKilometers,
-    durationHours,
+    endDatetime,
     departureAirportCode,
     destinationAirportCode,
   } = activity;
-  if (transportationMode && (distanceKilometers || durationHours || (departureAirportCode && destinationAirportCode))) {
+  if (transportationMode && (distanceKilometers || endDatetime || (departureAirportCode && destinationAirportCode))) {
     return true;
   }
 
@@ -59,9 +60,9 @@ function carbonIntensity(mode) {
     case TRANSPORTATION_MODE_CAR:
       return 0.1771;
       // https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019, average of diesel and petrol
-    case TRANSPORTATION_MODE_MOTORBIKE: 
+    case TRANSPORTATION_MODE_MOTORBIKE:
       // https://static.ducky.eco/calculator_documentation.pdf, Ecoinvent Scooter, production = 14g
-      return 108 / 1000.0;        
+      return 108 / 1000.0;
     case TRANSPORTATION_MODE_TRAIN:
       return 42 / 1000.0;
       // https://static.ducky.eco/calculator_documentation.pdf, Andersen 2007
@@ -77,14 +78,14 @@ function carbonIntensity(mode) {
       return 5 / 1000.0;
     case TRANSPORTATION_MODE_EBIKE:
       // https://ecf.com/files/wp-content/uploads/ECF_BROCHURE_EN_planche.pdf
-      return 17 / 1000.0;  
+      return 17 / 1000.0;
     case TRANSPORTATION_MODE_ESCOOTER:
       // https://iopscience.iop.org/article/10.1088/1748-9326/ab2da8
       return 125.517 / 1000.0;
     case TRANSPORTATION_MODE_FOOT:
       // https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
       // Using the average footprint of shoes (18kg CO2eq/pair) and using a life expectancy of a shoe of 500km
-      return 36 / 1000.0;  
+      return 36 / 1000.0;
     default:
       throw Error(`Unknown transportation mode: ${mode}`);
   }
@@ -113,11 +114,11 @@ export function durationToDistance(durationHours, mode) {
     case TRANSPORTATION_MODE_BIKE:
       return durationHours * 15;
     case TRANSPORTATION_MODE_EBIKE:
-      return durationHours * 15;  
+      return durationHours * 15;
     case TRANSPORTATION_MODE_ESCOOTER:
       return durationHours * 15;
     case TRANSPORTATION_MODE_FOOT:
-      return durationHours * 5;  
+      return durationHours * 5;
     default:
       throw Error(`Unknown transportation mode: ${mode}`);
   }
@@ -134,11 +135,12 @@ export function carbonEmissions(activity) {
 
   let distanceKilometers = activity.distanceKilometers;
   if (!distanceKilometers) {
+    const durationHours = getActivityDurationHours(activity);
     // fallback on duration if available
-    if ((activity.durationHours || 0) > 0) {
-      distanceKilometers = durationToDistance(activity.durationHours, activity.transportationMode);
+    if ((durationHours || 0) > 0) {
+      distanceKilometers = durationToDistance(durationHours, activity.transportationMode);
     } else {
-      throw new Error(`Couldn't calculate carbonEmissions for activity because distanceKilometers = ${distanceKilometers} and durationHours = ${activity.durationHours}`);
+      throw new Error(`Couldn't calculate carbonEmissions for activity because distanceKilometers = ${distanceKilometers} and datetime = ${activity.datetime} and endDatetime = ${activity.endDatetime}`);
     }
   }
 

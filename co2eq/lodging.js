@@ -4,6 +4,7 @@ import {
   HOTEL_CLASS_FOUR_STARS,
   HOTEL_CLASS_FIVE_STARS,
 } from '../definitions';
+import { getActivityDurationHours } from './utils';
 
 export const modelName = 'lodging';
 export const modelVersion = '1';
@@ -16,8 +17,8 @@ export const explanation = {
 
 export const modelCanRunVersion = 1;
 export function modelCanRun(activity) {
-  const { hotelClass, durationHours } = activity;
-  if (hotelClass && durationHours) {
+  const { hotelClass, endDatetime } = activity;
+  if (hotelClass && endDatetime) {
     return true;
   }
 
@@ -49,5 +50,6 @@ function carbonIntensity(hotelClass) {
 Carbon emissions of an activity (in kgCO2eq)
 */
 export function carbonEmissions(activity) {
-  return carbonIntensity(activity.hotelClass) * Math.ceil(activity.durationHours / 24);
+  const durationHours = getActivityDurationHours(activity);
+  return carbonIntensity(activity.hotelClass) * Math.ceil(durationHours / 24);
 }

@@ -95,7 +95,7 @@ async function collect(state, logger) {
       activities.push({
         id: `${tripId}-${get(trip, 'booking.outward.origin.id')}`, // a string that uniquely represents this activity
         datetime: outwardDate, // a javascript Date object that represents the start of the activity
-        durationHours: calculateDurationFromLegs(get(trip, 'booking.outward.legs'), []), // a floating point that represents the duration of the activity in decimal hours
+        endDatetime: new Date(calculateDurationFromLegs(get(trip, 'booking.outward.legs'), []) * 36e5),
         activityType: ACTIVITY_TYPE_TRANSPORTATION,
         transportationMode: matchTransportMode(get(trip, 'booking.outward.legs[0].transportMode'), logger), // a variable (from definitions.js) that represents the transportation mode
         departureStation: get(trip, 'booking.outward.origin.name'), // (for other travel types) a string that represents the original starting point
@@ -116,7 +116,7 @@ async function collect(state, logger) {
       activities.push({
         id: `${tripId}-${get(trip, 'booking.inward.origin.id')}`, // a string that uniquely represents this activity
         datetime: inwardDate, // a javascript Date object that represents the start of the activity
-        durationHours: inwardDuration, // a floating point that represents the duration of the activity in decimal hours
+        endDatetime: new Date(inwardDate.getTime() + inwardDuration * 36e5),
         activityType: ACTIVITY_TYPE_TRANSPORTATION,
         transportationMode: matchTransportMode(inwardTransportationMode, logger), // a variable (from definitions.js) that represents the transportation mode
         departureStation: get(trip, 'booking.inward.origin.name'), // (for other travel types) a string that represents the original starting point

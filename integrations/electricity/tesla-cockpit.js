@@ -125,7 +125,7 @@ async function collect(state, logger, utils) {
       id: `teslacockpit${d.ChargeID}`,
       activityType: ACTIVITY_TYPE_ELECTRIC_VEHICLE_CHARGING,
       datetime: startMoment.toDate(),
-      durationHours: endMoment.diff(startMoment, 'minutes') / 60.0,
+      endDatetime: endMoment.toDate(),
       energyWattHours,
       locationLat,
       locationLon,

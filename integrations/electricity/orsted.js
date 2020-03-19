@@ -111,11 +111,11 @@ async function collect(state, logger) {
   ).map(([k, values]) => ({
     id: `orsted${k}`,
     datetime: moment(k).toDate(),
+    endDatetime: moment(k).add(values.length, 'hour').toDate(),
     activityType: ACTIVITY_TYPE_ELECTRICITY,
     energyWattHours: values
       .map(x => x.kWh * 1000.0) // kWh -> Wh
       .reduce((a, b) => a + b, 0),
-    durationHours: values.length,
     hourlyEnergyWattHours: values.map(x => x.kWh * 1000.0),
     locationLon,
     locationLat,
