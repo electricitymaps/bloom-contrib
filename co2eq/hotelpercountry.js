@@ -1,4 +1,5 @@
 import countries from './countries.json';
+import { ACTIVITY_TYPE_PURCHASE, PURCHASE_CATEGORY_ENTERTAINMENT_HOTEL } from '../definitions';
 
 export const modelName = 'hotelpercountry';
 export const modelVersion = '1';
@@ -11,8 +12,17 @@ export const explanation = {
 
 export const modelCanRunVersion = 1;
 export function modelCanRun(activity) {
-  const { countryCodeISO2, durationHours } = activity;
-  if (countryCodeISO2 && durationHours) {
+  const {
+    countryCodeISO2,
+    durationHours,
+    activityType,
+    purchaseType,
+  } = activity;
+  if (activityType === ACTIVITY_TYPE_PURCHASE
+    && purchaseType === PURCHASE_CATEGORY_ENTERTAINMENT_HOTEL
+    && countryCodeISO2
+    && durationHours
+  ) {
     if (countries.countries[activity.countryCodeISO2.toUpperCase()]) {
       return true;
     }

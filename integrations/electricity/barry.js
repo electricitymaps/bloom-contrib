@@ -60,13 +60,32 @@ async function getUser(username, password) {
   return request(username, password, 'co.getbarry.megatron.controller.UserController.get', []);
 }
 async function getMeteringPointAssociated(username, password, customerId) {
-  return request(username, password, 'co.getbarry.megatron.controller.MeteringPointAssociationController.findByCustomerId', [customerId]);
+  return request(
+    username,
+    password,
+    'co.getbarry.megatron.controller.MeteringPointAssociationController.findByCustomerId',
+    [customerId]
+  );
 }
 async function getRegion(username, password, meteringPointId) {
-  return request(username, password, 'co.getbarry.megatron.controller.PriceController.getRegion', [meteringPointId]);
+  return request(username, password, 'co.getbarry.megatron.controller.PriceController.getRegion', [
+    meteringPointId,
+  ]);
 }
-async function getHourlyConsumption(username, password, customerId, meteringPointId, fromISO, toISO) {
-  return request(username, password, 'co.getbarry.megatron.controller.ConsumptionController.getHourlyConsumption', [customerId, [meteringPointId], fromISO, toISO]);
+async function getHourlyConsumption(
+  username,
+  password,
+  customerId,
+  meteringPointId,
+  fromISO,
+  toISO
+) {
+  return request(
+    username,
+    password,
+    'co.getbarry.megatron.controller.ConsumptionController.getHourlyConsumption',
+    [customerId, [meteringPointId], fromISO, toISO]
+  );
 }
 
 async function connect(requestLogin, requestWebView) {
@@ -97,27 +116,32 @@ async function connect(requestLogin, requestWebView) {
   };
 }
 
-
 function disconnect() {
   // Here we should do any cleanup (deleting tokens etc..)
   return {};
 }
 
 async function collect(state, { logWarning }) {
-  const {
-    username, password, meteringPointId, priceRegion,
-  } = state;
+  const { username, password, meteringPointId, priceRegion } = state;
 
   // Try to see if customerId was present in state
   // (in older version it wasn't)
   const customerId = state.customerId || (await getUser(username, password)).customerId;
 
-  const startDate = state.lastFullyCollectedDay || moment().subtract(1, 'month').toISOString();
+  const startDate =
+    state.lastFullyCollectedDay ||
+    moment()
+      .subtract(1, 'month')
+      .toISOString();
   const endDate = moment().toISOString();
 
   const response = await getHourlyConsumption(
-    username, password, customerId, meteringPointId,
-    startDate, endDate,
+    username,
+    password,
+    customerId,
+    meteringPointId,
+    startDate,
+    endDate
   );
 
   // Note: some entries contain more than 24 values.
@@ -131,22 +155,33 @@ async function collect(state, { logWarning }) {
     We should probably use local time to define days
   */
 
-  const activities = Object.entries(groupBy(response, d => moment(d.date).startOf('day').toISOString()))
-    .map(([k, values]) => ({
-      id: `barry${k}`,
-      datetime: moment(k).toDate(),
-      activityType: ACTIVITY_TYPE_ELECTRICITY,
-      energyWattHours: values
-        .map(x => x.value * 1000.0) // kWh -> Wh
-        .reduce((a, b) => a + b, 0),
-      durationHours: values.length,
-      hourlyEnergyWattHours: values.map(x => x.value * 1000.0),
-      locationLon,
-      locationLat,
-    }));
+  const activities = Object.entries(
+    groupBy(response, d =>
+      moment(d.date)
+        .startOf('day')
+        .toISOString()
+    )
+  ).map(([k, values]) => ({
+    id: `barry${k}`,
+    datetime: moment(k).toDate(),
+    activityType: ACTIVITY_TYPE_ELECTRICITY,
+    energyWattHours: values
+      .map(x => x.value * 1000.0) // kWh -> Wh
+      .reduce((a, b) => a + b, 0),
+    durationHours: values.length,
+    hourlyEnergyWattHours: values.map(x => x.value * 1000.0),
+    locationLon,
+    locationLat,
+  }));
   activities
     .filter(d => d.durationHours !== 24)
-    .forEach(d => logWarning(`Ignoring activity from ${d.datetime.toISOString()} with ${d.durationHours} hours instead of 24`));
+    .forEach(d =>
+      logWarning(
+        `Ignoring activity from ${d.datetime.toISOString()} with ${
+          d.durationHours
+        } hours instead of 24`
+      )
+    );
 
   if (!activities.length) {
     return { activities: [] };
@@ -154,7 +189,8 @@ async function collect(state, { logWarning }) {
 
   // Subtract one day to make sure we always have a full day
   const lastFullyCollectedDay = moment(activities[activities.length - 1].datetime)
-    .subtract(1, 'day').toISOString();
+    .subtract(1, 'day')
+    .toISOString();
 
   return {
     activities: activities.filter(d => d.durationHours === 24),
