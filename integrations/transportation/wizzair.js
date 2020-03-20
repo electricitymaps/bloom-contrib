@@ -62,7 +62,7 @@ async function getPastBookings() {
     throw new HTTPError(text, pastBookings.status);
   }
 
-  return { 
+  return {
     pastBookings: pastBookings.body.pastBookings,
   };
 }
@@ -114,7 +114,7 @@ async function getActivities(allUniqueFlights) {
     .map(k => ({
       id: k.id,
       datetime: k.flight.departureDate,
-      durationHours: moment.duration(k.flight.duration).asHours(),
+      endDatetime: moment(k.flight.departureDate).add(k.flight.duration).toDate(),
       activityType: ACTIVITY_TYPE_TRANSPORTATION,
       transportationMode: TRANSPORTATION_MODE_PLANE,
       carrier: 'Wizzair',
@@ -163,7 +163,7 @@ async function collect(state) {
   const activities = await getActivities(flights);
   fetchIndex += HISTORY_API_FETCH_LIMIT;
 
-  return { 
+  return {
     activities,
     state: {
       ...state,

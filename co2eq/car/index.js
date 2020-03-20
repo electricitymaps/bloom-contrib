@@ -3,6 +3,7 @@ import {
   TRANSPORTATION_MODE_CAR,
 } from '../../definitions';
 import cars from './cars.json';
+import { getActivityDurationHours } from '../utils';
 
 export const modelName = 'car';
 export const modelVersion = '1';
@@ -46,11 +47,12 @@ export function carbonEmissions(activity) {
   let { distanceKilometers } = activity;
   if (!distanceKilometers) {
     // fallback on duration if available
-    if ((activity.durationHours || 0) > 0) {
+    const durationHours = getActivityDurationHours(activity);
+    if ((durationHours || 0) > 0) {
       // https://setis.ec.europa.eu/system/files/Driving_and_parking_patterns_of_European_car_drivers-a_mobility_survey.pdf
-      distanceKilometers = activity.durationHours * 45.0;
+      distanceKilometers = durationHours * 45.0;
     } else {
-      throw new Error(`Couldn't calculate carbonEmissions for activity because distanceKilometers = ${distanceKilometers} and durationHours = ${activity.durationHours}`);
+      throw new Error(`Couldn't calculate carbonEmissions for activity because distanceKilometers = ${distanceKilometers} and datetime = ${activity.datetime} and endDatetime = ${activity.endDatetime}`);
     }
   }
 

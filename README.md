@@ -101,7 +101,7 @@ Activities require a certain formatting:
 {
   id, // a string that uniquely represents this activity
   datetime, // a javascript Date object that represents the start of the activity
-  durationHours, // a floating point that represents the duration of the activity in decimal hours
+  endDatetime, // a javascript Date object that represents the end of the activity. If the activity has no duration, set to "null"
   distanceKilometers, // a floating point that represents the amount of kilometers traveled
   activityType: ACTIVITY_TYPE_TRANSPORTATION,
   transportationMode, // a variable (from definitions.js) that represents the transportation mode
@@ -119,7 +119,7 @@ Activities require a certain formatting:
 {
   id, // a string that uniquely represents this activity
   datetime, // a javascript Date object that represents the start of the activity
-  durationHours, // a floating point that represents the duration of the activity in decimal hours
+  endDatetime, // a javascript Date object that represents the end of the activity. If the activity has no duration, set to "null"
   activityType: ACTIVITY_TYPE_LODGING,
   hotelClass, // a variable (from definitions.js) that represents the class of the hotel
   countryCodeISO2, // a string with the ISO2 country code that represents the country of the hotel
@@ -135,7 +135,7 @@ Activities require a certain formatting:
 {
   id, // a string that uniquely represents this activity
   datetime, // a javascript Date object that represents the start of the activity
-  durationHours, // an integer that represents the duration of the activity
+  endDatetime, // a javascript Date object that represents the end of the activity. If the activity has no duration, set to "null"
   activityType: ACTIVITY_TYPE_ELECTRICITY,
   energyWattHours, // a float that represents the total energy used
   hourlyEnergyWattHours, // (optional) an array of 24 floats that represent the hourly metering values

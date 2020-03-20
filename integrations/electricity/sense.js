@@ -13,7 +13,7 @@ async function request(method, call, token, params) {
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
   };
   if (token) {
-    req.headers['Authorization'] = `Bearer ${token}`;
+    req.headers.Authorization = `Bearer ${token}`;
   }
 
   const url = `https://api.sense.com/apiservice/api/v1/${call}?${new URLSearchParams(params).toString()}`;
@@ -81,9 +81,9 @@ async function collect(state, { logWarning }, { settings }) {
     activities: [{
       id: `sense-${monitor}-${start.toISOString()}`,
       datetime: start.toDate(),
+      endDatetime: whs.length ? start.add(whs.length, 'hour').toDate() : null,
       activityType: ACTIVITY_TYPE_ELECTRICITY,
       energyWattHours: whs.reduce((a, b) => a + b, 0),
-      durationHours: whs.length,
       hourlyEnergyWattHours: whs,
       locationLon,
       locationLat,

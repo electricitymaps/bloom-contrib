@@ -1,5 +1,6 @@
 import { geoDistance } from 'd3-geo'; // todo - add d3-geo in package.json
 import airports from './airports.json';
+import { getActivityDurationHours } from '../utils';
 
 // Key constants used in the model
 // source: https://www.myclimate.org/fileadmin/user_upload/myclimate_-_home/01_Information/01_About_myclimate/09_Calculation_principles/Documents/myclimate-flight-calculator-documentation_EN.pdf
@@ -27,10 +28,10 @@ const bookingClassWeightingFactor = (bookingClass, isShortHaul) => {
 };
 
 // long/short-haul dependent constants
-const passengerToFreightRatio = isShortHaul => (isShortHaul ? 0.93 : 0.74); 
+const passengerToFreightRatio = isShortHaul => (isShortHaul ? 0.93 : 0.74);
 // Passenger aircrafts often transport considerable amounts of freight and mail,
 // in particular in wide-body aircrafts on long-haul flights.
-const averageNumberOfSeats = isShortHaul => (isShortHaul ? 153.51 : 280.21); // 
+const averageNumberOfSeats = isShortHaul => (isShortHaul ? 153.51 : 280.21); //
 const a = isShortHaul => (isShortHaul ? 0 : 0.0001); // empiric fuel consumption parameter
 const b = isShortHaul => (isShortHaul ? 2.714 : 7.104); // empiric fuel consumption parameter
 const c = isShortHaul => (isShortHaul ? 1166.52 : 5044.93); // empiric fuel consumption parameter
@@ -112,10 +113,11 @@ export function activityDistance(activity) {
   }
   // If no airport code is available, and no distance is trusteable
   // therefore, compute distance based on duration
-  if (!activity.durationHours) {
-    throw new Error(`Invalid durationHours ${activity.durationHours}`);
+  const durationHours = getActivityDurationHours(activity);
+  if (!durationHours) {
+    throw new Error(`Invalid durationHours with datetime = ${activity.datetime} and endDatetime = ${activity.endDatetime}`);
   }
-  return distanceFromDuration(activity.durationHours);
+  return distanceFromDuration(durationHours);
 }
 
 /*

@@ -5,6 +5,7 @@ import env from '../loadEnv';
 
 import { OAuth2Manager } from '../authentication';
 import { ACTIVITY_TYPE_ELECTRICITY } from '../../definitions';
+import { getActivityDurationHours } from '../../co2eq/utils';
 import { HTTPError } from '../utils/errors';
 
 const manager = new OAuth2Manager({
@@ -118,22 +119,21 @@ async function fetchActivities(usagePointId, frequency, startDate, endDate, logg
       return {
         id: `linky${k}`,
         datetime: moment(k).toDate(),
+        endDatetime: moment(k).add(frequency === 'hour' ? processedValues.length : 24).toDate(),
         activityType: ACTIVITY_TYPE_ELECTRICITY,
         energyWattHours: processedValues
           .reduce((a, b) => a + b, 0),
-        durationHours: frequency === 'hour'
-          ? processedValues.length
-          : 24,
         hourlyEnergyWattHours: frequency === 'hour'
           ? processedValues
           : undefined,
       };
     })
     .filter((d) => {
-      if (d.durationHours === 24) {
+      const durationHours = getActivityDurationHours(d);
+      if (durationHours === 24) {
         return true;
       }
-      logger.logWarning(`Ignoring activity from ${d.datetime.toISOString()} with ${d.durationHours} hours instead of 24`);
+      logger.logWarning(`Ignoring activity from ${d.datetime.toISOString()} with ${durationHours} hours instead of 24`);
       return false;
     });
 
