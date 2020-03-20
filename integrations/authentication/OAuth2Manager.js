@@ -99,7 +99,7 @@ export default class {
     }
 
     if (!response.ok) {
-      throw new HTTPError(`Unable to authenticate user with fresh auth code, suggest retrying. API response: ${await res.text()}`, response.status);
+      throw new HTTPError(`Unable to authenticate user with fresh auth code, suggest retrying. API response: ${await response.text()}`, response.status);
     }
 
     const responseJson = await response.json();
