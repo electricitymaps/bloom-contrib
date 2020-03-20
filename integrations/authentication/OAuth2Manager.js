@@ -64,14 +64,15 @@ export default class {
   async authorize(openUrlAndWaitForCallback, logger=noOpLogger, omitRedirectUri=false) {
     // Step 1 - user authorizes app
     // "Automatic's" API doesn't accept the function's URL-encoded colons, hence scope attached separately
-    const requestURLParams = objectToURLParams({
+    const requestURLParamObj = {
       client_id: this.clientId,
       response_type: 'code',
       ...this.state.authorizeExtraParams,
-    }) + (this.scope ? `&${this.scope}` : '');
+    };
     if (!omitRedirectUri) {
-      requestURLParams.redirect_uri = getCallbackUrl();
+      requestURLParamObj.redirect_uri = getCallbackUrl();
     }
+    const requestURLParams = objectToURLParams(requestURLParamObj) + (this.scope ? `&${this.scope}` : '');
 
     const authorizationCodeRequestUrl = `${this.authorizeUrl}?${requestURLParams}`;
     const authorizationResponseQuery = await openUrlAndWaitForCallback(
