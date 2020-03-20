@@ -10,7 +10,7 @@ import { HTTPError } from '../utils/errors';
 
 const manager = new OAuth2Manager({
   accessTokenUrl: 'https://gw.prd.api.enedis.fr/v1/oauth2/token',
-  authorizeUrl: 'https://espace-client-particuliers.enedis.fr/group/espace-particuliers/consentement-linky/oauth2/authorize',
+  authorizeUrl: 'https://mon-compte-particulier.enedis.fr/dataconnect/v1/oauth2/authorize',
   authorizeExtraParams: {
     duration: 'P2Y', // ISO duration (https://en.wikipedia.org/wiki/ISO_8601#Durations)
   },
@@ -18,6 +18,8 @@ const manager = new OAuth2Manager({
   clientId: env.LINKY_CLIENT_ID,
   clientSecret: env.LINKY_CLIENT_SECRET,
 });
+// The Linky endpoint does not support receiving a custom redirect URI
+const omitRedirectUri = true;
 
 // TODO(olc): MERGE WITH INTERNAL UTILS LIB
 function groupByReduce(arr, groupByAccessor, reduceAccessor) {
@@ -33,7 +35,7 @@ function arrayGroupByReduce(arr, groupByAccessor, reduceAccessor) {
 
 
 async function connect(requestLogin, requestWebView, logger) {
-  const state = await manager.authorize(requestWebView);
+  const state = await manager.authorize(requestWebView, logger, omitRedirectUri);
   return state;
 }
 
@@ -48,7 +50,7 @@ async function fetchActivities(usagePointId, frequency, startDate, endDate, logg
     hour: 'consumption_load_curve',
     day: 'daily_consumption',
   };
-  const url = `/v3/metering_data/${endpoints[frequency]}`;
+  const url = `/v4/metering_data/${endpoints[frequency]}`;
   logger.logDebug(`Fetching at frequency=${frequency}, startDate=${startDate}, endDate=${endDate}`);
   const res = await manager.fetch(
     `${url}?usage_point_id=${usagePointId}&start=${startDate}&end=${endDate}`,
@@ -142,6 +144,7 @@ async function fetchActivities(usagePointId, frequency, startDate, endDate, logg
 
 async function collect(state, logger) {
   const { usage_point_id: usagePointId } = state.extras || {};
+  manager.setState(state);
 
   if (!usagePointId) {
     throw new Error('No usagePointId available. You need to reconnect the integration.');
