@@ -219,7 +219,7 @@ function parseTravels(allTravelsHTML, logger) {
       id: `rejsekort${travelList[a].number}`,
       datetime: endTime,
       // this currently only works for travels within the same date
-      endDatetime: new Date(endTime.getTime() + (endTime.getTime() - startTime().getTime())),
+      endDatetime: new Date(endTime.getTime() + (endTime.getTime() - startTime.getTime())),
       activityType: ACTIVITY_TYPE_TRANSPORTATION,
       transportationMode: TRANSPORTATION_MODE_PUBLIC_TRANSPORT,
       departureStation: travelList[a]['start-station'].replace('Line : ', ''),
