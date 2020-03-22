@@ -1,4 +1,9 @@
 import { geoDistance } from 'd3-geo'; // todo - add d3-geo in package.json
+import {
+  ACTIVITY_TYPE_TRANSPORTATION,
+  TRANSPORTATION_MODE_PLANE,
+} from '../../definitions';
+
 import airports from './airports.json';
 import { getActivityDurationHours } from '../utils';
 import loadfactors from './loadfactors.json'
@@ -7,6 +12,35 @@ import loadfactors from './loadfactors.json'
 const ICAO_REGION_KEY = 'icao_region_code';
 const PASSENGER_LOAD_FACTORS_KEY = 'passenger_load_factors';
 const PASSENGER_FREIGHT_RATIO_KEY = 'passenger_to_freight_ratio';
+
+
+export const modelName = 'flight';
+export const modelVersion = '0';
+export const explanation = {
+    text: 'TODO',
+    links: [
+      { label: 'My Climate (2019)', href: 'https://www.myclimate.org/fileadmin/user_upload/myclimate_-_home/01_Information/01_About_myclimate/09_Calculation_principles/Documents/myclimate-flight-calculator-documentation_EN.pdf'},
+    ],
+}
+
+export function modelCanRun(activity) {
+  const {
+    activityType,
+    transportationMode,
+    distanceKilometers,
+    durationHours,
+    departureAirportCode,
+    destinationAirportCode,
+  } = activity;
+  if ((activityType === ACTIVITY_TYPE_TRANSPORTATION)
+    && (transportationMode === TRANSPORTATION_MODE_PLANE)
+    && (distanceKilometers || durationHours || (departureAirportCode && destinationAirportCode))
+    ) {
+    return true;
+  }
+  return false;
+}
+
 
 // Key constants used in the model
 // source: https://www.myclimate.org/fileadmin/user_upload/myclimate_-_home/01_Information/01_About_myclimate/09_Calculation_principles/Documents/myclimate-flight-calculator-documentation_EN.pdf
@@ -154,10 +188,11 @@ export function activityDistance(activity) {
   return distanceFromDuration(durationHours);
 }
 
+
 /*
   Calculates emissions in kgCO2eq
 */
-export default function (activity) {
+export default function carbonEmissions(activity) {
   const distance = activityDistance(activity);
   const [passengerLoadFactor, passengerToFreightRatio]  = getLoadFactors(activity);
 

@@ -1,5 +1,4 @@
 import {
-  TRANSPORTATION_MODE_PLANE,
   TRANSPORTATION_MODE_CAR,
   TRANSPORTATION_MODE_BUS,
   TRANSPORTATION_MODE_TRAIN,
@@ -26,10 +25,8 @@ export const explanation = {
     { label: 'Ducky (2019)', href: 'https://static.ducky.eco/calculator_documentation.pdf' },
     { label: 'European Cyclists’ Federation (2011)', href: 'https://ecf.com/files/wp-content/uploads/ECF_BROCHURE_EN_planche.pdf' },
     { label: 'UK GOV DEFRA (2019)', href: 'https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019' },
-    { label: 'myclimate (2019)', href: 'https://www.myclimate.org/fileadmin/user_upload/myclimate_-_home/01_Information/01_About_myclimate/09_Calculation_principles/Documents/myclimate-flight-calculator-documentation_EN.pdf' },
     { label: 'IOP Science (2019)', href: 'https://iopscience.iop.org/article/10.1088/1748-9326/ab2da8' },
     { label: 'ADEME (2018)', href: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf' },
-
   ],
 };
 
@@ -42,7 +39,7 @@ export function modelCanRun(activity) {
     departureAirportCode,
     destinationAirportCode,
   } = activity;
-  if (transportationMode && (distanceKilometers || endDatetime || (departureAirportCode && destinationAirportCode))) {
+  if (transportationMode && (distanceKilometers || endDatetime)) {
     return true;
   }
 
@@ -128,10 +125,6 @@ export function durationToDistance(durationHours, mode) {
 Carbon emissions of an activity (in kgCO2eq)
 */
 export function carbonEmissions(activity) {
-  // Plane-specific model
-  if (activity.transportationMode === TRANSPORTATION_MODE_PLANE) {
-    return flightEmissions(activity);
-  }
 
   let distanceKilometers = activity.distanceKilometers;
   if (!distanceKilometers) {
