@@ -12,7 +12,7 @@ const PASSENGER_FREIGHT_RATIO_KEY = 'passenger_to_freight_ratio';
 // source: https://www.myclimate.org/fileadmin/user_upload/myclimate_-_home/01_Information/01_About_myclimate/09_Calculation_principles/Documents/myclimate-flight-calculator-documentation_EN.pdf
 const shortHaulDistanceThreshold = 1500; // km
 const longHaulDistanceThreshold = 2500; // km
-const passengerLoadFactor = 0.82; // i.e. 77% of seats occupied on average
+const defaultPassengerLoadFactor = 0.82; // i.e. 77% of seats occupied on average
 const fuelCo2Intensity = 3.150; // kgCO2 per kg jet Fuel
 const fuelPreProductionCo2Intensity = 0.54; // kgCO2eq per kg jet fuel
 const radiativeForcingMultiplier = 2; // accounts for non-CO2 effect in high altitude (uncertain parameter between 1.5 and 4)
@@ -34,7 +34,7 @@ const bookingClassWeightingFactor = (bookingClass, isShortHaul) => {
 };
 
 // long/short-haul dependent constants
-const passengerToFreightRatio = isShortHaul => (isShortHaul ? 0.93 : 0.74);
+const defaultPassengerToFreightRatio = isShortHaul => (isShortHaul ? 0.93 : 0.74);
 // Passenger aircrafts often transport considerable amounts of freight and mail,
 // in particular in wide-body aircrafts on long-haul flights.
 const averageNumberOfSeats = isShortHaul => (isShortHaul ? 153.51 : 280.21);
@@ -133,7 +133,7 @@ function getLoadFactors(activity) {
       ];
     }
   }
-  return [passengerLoadFactor, passengerToFreightRatio];
+  return [defaultPassengerLoadFactor, defaultPassengerToFreightRatio];
 }
 
 export function activityDistance(activity) {
