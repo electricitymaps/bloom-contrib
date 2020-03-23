@@ -15,14 +15,16 @@ const PASSENGER_FREIGHT_RATIO_KEY = 'passenger_to_freight_ratio';
 
 
 export const modelName = 'flight';
-export const modelVersion = '0';
+export const modelVersion = '1';
 export const explanation = {
-    text: 'TODO',
+    text: 'Calculations take into account direct emissions from burning fuel and manufacturing of vehicle. They are based on international statistics on passenger and cargo loads and aircraft type usage.',
     links: [
       { label: 'My Climate (2019)', href: 'https://www.myclimate.org/fileadmin/user_upload/myclimate_-_home/01_Information/01_About_myclimate/09_Calculation_principles/Documents/myclimate-flight-calculator-documentation_EN.pdf'},
+      { label: 'ICCT Report (2018)', href: 'https://theicct.org/sites/default/files/publications/ICCT_CO2-commercl-aviation-2018_20190918.pdf'},
     ],
 }
 
+export const modelCanRunVersion = 1;
 export function modelCanRun(activity) {
   const {
     activityType,

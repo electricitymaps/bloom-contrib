@@ -17,7 +17,7 @@ import { getActivityDurationHours } from './utils';
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'transportation';
 
-export const modelVersion = '13';
+export const modelVersion = '14';
 
 export const explanation = {
   text: 'Calculations take into account direct emissions from burning fuel and manufacturing of vehicle, incl shoes for walking.',
@@ -30,7 +30,7 @@ export const explanation = {
   ],
 };
 
-export const modelCanRunVersion = 1;
+export const modelCanRunVersion = 2;
 export function modelCanRun(activity) {
   const {
     transportationMode,
