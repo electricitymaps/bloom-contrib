@@ -1,4 +1,4 @@
-import moment from 'moment';
+import moment from 'moment-timezone';
 import groupBy from 'lodash/groupBy';
 import mapValues from 'lodash/mapValues';
 import env from '../loadEnv';
@@ -82,9 +82,9 @@ async function fetchActivities(usagePointId, frequency, startDate, endDate, logg
   const unit = data.reading_type.unit;
   logger.logDebug(data);
 
-  // TODO: This should be parsed in French timezone instead of local?
-  const startMoment = moment(data.start, 'YYYY-MM-DD');
-  const endMoment = moment(data.end, 'YYYY-MM-DD');
+  // Parse in French timezone instead of the phone's local timezone
+  const startMoment = moment.tz(data.start, 'YYYY-MM-DD', 'Europe/Paris');
+  const endMoment = moment.tz(data.end, 'YYYY-MM-DD', 'Europe/Paris');
 
   const parseValue = (d) => {
     if (d.value == null) return 0;
