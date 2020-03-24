@@ -13,7 +13,6 @@ const ICAO_REGION_KEY = 'icao_region_code';
 const PASSENGER_LOAD_FACTORS_KEY = 'passenger_load_factors';
 const PASSENGER_FREIGHT_RATIO_KEY = 'passenger_to_freight_ratio';
 
-
 export const modelName = 'flight';
 export const modelVersion = '1';
 export const explanation = {
@@ -43,7 +42,6 @@ export function modelCanRun(activity) {
   return false;
 }
 
-
 // Key constants used in the model
 // source: https://www.myclimate.org/fileadmin/user_upload/myclimate_-_home/01_Information/01_About_myclimate/09_Calculation_principles/Documents/myclimate-flight-calculator-documentation_EN.pdf
 const shortHaulDistanceThreshold = 1500; // km
@@ -55,7 +53,6 @@ const radiativeForcingMultiplier = 2; // accounts for non-CO2 effect in high alt
 const aircraftFactor = 0.00038; // accounts for aircrafts using produced, then maintained and at the end of their life disposed.
 const detourConstant = 95; // km
 const airportinfrastructureFactor = 11.68; // accounts for using the airport infrastructure
-
 
 const bookingClassWeightingFactor = (bookingClass, isShortHaul) => {
   // TODO(bl): use constants in sources to improve matching probability

@@ -11,7 +11,6 @@ import {
   TRANSPORTATION_MODE_FOOT,
 } from '../definitions';
 
-import flightEmissions from './flights';
 import { getActivityDurationHours } from './utils';
 
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
@@ -36,8 +35,6 @@ export function modelCanRun(activity) {
     transportationMode,
     distanceKilometers,
     endDatetime,
-    departureAirportCode,
-    destinationAirportCode,
   } = activity;
   if (transportationMode && (distanceKilometers || endDatetime)) {
     return true;
