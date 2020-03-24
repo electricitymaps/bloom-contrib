@@ -165,6 +165,49 @@ Our current models and Life Cycle assessments are accessible [here](https://gith
 
 If you want to add individual items or ingredients, this is done [here](https://github.com/tmrowco/northapp-contrib/blob/master/co2eq/purchase/footprints.yml). Ideally, the studies used should be as global as possible and it's even better if they're systemic reviews (multiple studies in one!).
 
+#### CO2 Model Structure
+
+Currently, CO2 models must expose the following variables:
+
+```javascript
+export const modelName = 'model name'; // Specify name of the model
+export const modelVersion = '0'; // Specify the current model version
+export const explanation = {
+  text: 'description of the model',
+  links: [
+    { label: 'Source Name (year)', href: 'link to source' }
+  ],
+}; // Description and sources of the model
+export const modelCanRunVersion = 0; // Specify the current version of the can run function
+
+export function modelCanRun(activity) {
+  const {
+    ...
+  } = activity; // Deconstruction of activity for relevant fields
+  if (fields are present) {
+    return true;
+  }
+  return false;
+} // Verifies that an activity trigger the model to compute CO2 footprint
+
+export function carbonEmissions(activity) {
+  // ...
+  return co2eqEmission
+  }
+} // Computes the CO2 footprint of the activity
+```
+
+#### CO2 Model Update
+
+After each update of a CO2 model, its version, controlled by variable
+
+```javascript
+export const modelVersion = '0';
+```
+
+must be incremented.
+
+
 
 ### Giving ideas, features requests or bugs
 
