@@ -190,7 +190,7 @@ export function activityDistance(activity) {
 /*
   Calculates emissions in kgCO2eq
 */
-export default function carbonEmissions(activity) {
+export function carbonEmissions(activity) {
   const distance = activityDistance(activity);
   const [passengerLoadFactor, passengerToFreightRatio]  = getLoadFactors(activity);
 
