@@ -29,13 +29,13 @@ export function modelCanRun(activity) {
     activityType,
     transportationMode,
     distanceKilometers,
-    durationHours,
+    endDatetime,
     departureAirportCode,
     destinationAirportCode,
   } = activity;
   if ((activityType === ACTIVITY_TYPE_TRANSPORTATION)
     && (transportationMode === TRANSPORTATION_MODE_PLANE)
-    && (distanceKilometers || durationHours || (departureAirportCode && destinationAirportCode))
+    && (distanceKilometers || endDatetime || (departureAirportCode && destinationAirportCode))
     ) {
     return true;
   }
@@ -186,7 +186,6 @@ export function activityDistance(activity) {
   }
   return distanceFromDuration(durationHours);
 }
-
 
 /*
   Calculates emissions in kgCO2eq
