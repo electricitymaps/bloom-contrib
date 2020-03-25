@@ -7,6 +7,7 @@ import {
   MEAL_TYPE_MEAT_HIGH,
   MEAL_TYPE_MEAT_OR_FISH,
   PURCHASE_CATEGORY_FOOD,
+  UNIT_KILOGRAMS,
 } from '../definitions';
 import {
   getEntryByKey,
@@ -31,8 +32,8 @@ export const explanation = {
 
 export const modelCanRunVersion = 1;
 export function modelCanRun(activity) {
-  const { mealType, ingredients } = activity;
-  if (mealType || (ingredients && Object.keys(ingredients).length > 0)) {
+  const { mealType, lineItems } = activity;
+  if (mealType || (lineItems && lineItems.length && lineItems.filter(l => l.unit === UNIT_KILOGRAMS).length)) {
     return true;
   }
 
@@ -43,7 +44,7 @@ const foodBranch = getEntryByPath([PURCHASE_CATEGORY_FOOD]);
 const ingredients = getDescendants(foodBranch);
 export const INGREDIENT_KEYS = Object.keys(ingredients);
 export const INGREDIENT_CATEGORIES = [
-  ...new Set(Object.keys(foodBranch['_children'])),
+  ...new Set(Object.keys(foodBranch._children)),
 ];
 export const ingredientCategory = {};
 export const ingredientIcon = {};
@@ -110,12 +111,12 @@ function carbonIntensityOfMealType(mealType) {
 Carbon emissions of an activity (in kgCO2eq)
 */
 export function carbonEmissions(activity) {
-  const { mealType } = activity;
-  const mealIngredients = activity.ingredients;
+  const { mealType, lineItems } = activity;
+  const mealIngredients = lineItems.filter(l => l.unit === UNIT_KILOGRAMS);
 
   if (mealIngredients && Object.keys(mealIngredients).length > 0) {
     return mealIngredients
-      .map(k => carbonIntensityOfIngredient(k.name) * k.kilograms)
+      .map(k => carbonIntensityOfIngredient(k.name) * k.value)
       .reduce((a, b) => a + b, 0);
   }
 
