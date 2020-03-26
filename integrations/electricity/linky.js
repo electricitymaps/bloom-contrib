@@ -75,12 +75,11 @@ async function fetchActivities(usagePointId, frequency, startDate, endDate, logg
 
   const json = (await res.json());
 
-  const data = json.usage_point
-    .find(d => d.meter_reading.usage_point_id === usagePointId)
-    .meter_reading;
-  const intervalLengthSeconds = data.reading_type.interval_length;
+  const data = json.meter_reading;
+  if (usagePointId !== data.usage_point_id) {
+    throw new Error(`Unexpected usage point id ${data.usage_point_id} received. Expected ${usagePointId}`);
+  }
   const unit = data.reading_type.unit;
-  logger.logDebug(data);
 
   // Parse in French timezone instead of the phone's local timezone
   const startMoment = moment.tz(data.start, 'YYYY-MM-DD', 'Europe/Paris');
@@ -93,15 +92,15 @@ async function fetchActivities(usagePointId, frequency, startDate, endDate, logg
     if (unit === 'Wh') return v;
     if (unit === 'W') {
       // this is an average over the interval length
+      const intervalLengthSeconds = moment.duration(d.interval_length).asSeconds();
       return v * (intervalLengthSeconds / 3600);
     }
-    throw Error(`Unexpected unit ${unit}`);
+    throw new Error(`Unexpected unit ${unit}`);
   };
 
   const activities = Object.entries(groupBy(
     data.interval_reading.map((d, i) => Object.assign({}, d, {
-      dateMoment: moment(startMoment)
-        .add(i * intervalLengthSeconds, 'second'),
+      dateMoment: moment.tz(d.date, 'Europe/Paris'),
     })),
     d => moment(d.dateMoment).startOf('day').toISOString()
   ))
@@ -121,7 +120,7 @@ async function fetchActivities(usagePointId, frequency, startDate, endDate, logg
       return {
         id: `linky${k}`,
         datetime: moment(k).toDate(),
-        endDatetime: moment(k).add(frequency === 'hour' ? processedValues.length : 24).toDate(),
+        endDatetime: moment(k).add(frequency === 'hour' ? processedValues.length : 24, 'hour').toDate(),
         activityType: ACTIVITY_TYPE_ELECTRICITY,
         energyWattHours: processedValues
           .reduce((a, b) => a + b, 0),
