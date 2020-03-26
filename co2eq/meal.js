@@ -112,7 +112,7 @@ Carbon emissions of an activity (in kgCO2eq)
 */
 export function carbonEmissions(activity) {
   const { mealType, lineItems } = activity;
-  const mealIngredients = lineItems.filter(l => l.unit === UNIT_KILOGRAMS);
+  const mealIngredients = lineItems && lineItems.filter(l => l.unit === UNIT_KILOGRAMS);
 
   if (mealIngredients && Object.keys(mealIngredients).length > 0) {
     return mealIngredients
