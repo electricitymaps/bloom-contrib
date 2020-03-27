@@ -73,7 +73,7 @@ async function fetchActivities(usagePointId, frequency, startDate, endDate, logg
     throw new HTTPError(await res.text(), res.status);
   }
 
-  const json = (await res.json());
+  const json = await res.json();
 
   const data = json.meter_reading;
   if (usagePointId !== data.usage_point_id) {
@@ -86,10 +86,10 @@ async function fetchActivities(usagePointId, frequency, startDate, endDate, logg
   const endMoment = moment.tz(data.end, 'YYYY-MM-DD', 'Europe/Paris');
 
   const parseValue = (d) => {
-    if (d.value == null) return 0;
+    if (d.value == null) { return 0; }
     // Needs to return Wh
     const v = parseFloat(d.value);
-    if (unit === 'Wh') return v;
+    if (unit === 'Wh') { return v; }
     if (unit === 'W') {
       // this is an average over the interval length
       const intervalLengthSeconds = moment.duration(d.interval_length).asSeconds();
