@@ -83,7 +83,7 @@ export const modelVersion = `3_${getChecksumOfFootprints()}`; // This model reli
 export const modelCanRunVersion = 1;
 export function modelCanRun(activity) {
   const {
-    costAmount, costCurrency, activityType, transportationMode, purchaseType, lineItems,
+    costAmount, costCurrency, activityType, transportationMode, lineItems,
   } = activity;
   if (costAmount && costCurrency) {
     if (activityType === ACTIVITY_TYPE_MEAL) return true;
@@ -98,9 +98,6 @@ export function modelCanRun(activity) {
           return false;
       }
     }
-  }
-  if (activityType === ACTIVITY_TYPE_PURCHASE && purchaseType) {
-    return true;
   }
   if (activityType === ACTIVITY_TYPE_PURCHASE && lineItems && lineItems.length) {
     return true;
@@ -145,7 +142,7 @@ function extractComptabileUnitAndAmount(lineItem, entry) {
  * @param {*} lineItem - Object of the the type { identifier: <string>, unit: <string>, value: <string>, costAmount: <float>, costCurrency: <string> }
  */
 export function carbonEmissionOfLineItem(lineItem) {
-  // The generic name property holds the purchaseType value, so rename to make clear..
+  // The generic identifier property holds the purchaseType value, so rename to make clear..
   const { identifier: purchaseType } = lineItem;
   const entry = getEntryByKey(purchaseType);
   if (!entry) {
