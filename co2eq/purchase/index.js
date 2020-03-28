@@ -142,11 +142,11 @@ function extractComptabileUnitAndAmount(lineItem, entry) {
 
 /**
  * Calculates the carbon emissions of a line item entry
- * @param {*} lineItem - Object of the the type { name: <string>, unit: <string>, value: <string>, costAmount: <float>, costCurrency: <string> }
+ * @param {*} lineItem - Object of the the type { identifier: <string>, unit: <string>, value: <string>, costAmount: <float>, costCurrency: <string> }
  */
 function carbonEmissionOfLineItem(lineItem) {
   // The generic name property holds the purchaseType value, so rename to make clear..
-  const { name: purchaseType } = lineItem;
+  const { identifier: purchaseType } = lineItem;
   const entry = getEntryByKey(purchaseType);
   if (!entry) {
     throw new Error(`Unknown purchaseType: ${purchaseType}`);
@@ -201,17 +201,14 @@ export function carbonEmissions(activity) {
       break;
 
     case ACTIVITY_TYPE_PURCHASE: {
-      const { costAmount, costCurrency, purchaseType, lineItems } = activity;
+      const { lineItems } = activity;
 
       // First check if lineItems contains and calculate total of all line items
       if (lineItems && lineItems.length) {
         // TODO(df): What to do on a single line error? Abort all? Skip item?
         footprint = lineItems.map(l => carbonEmissionOfLineItem(l)).reduce((a, b) => a + b, 0);
-      } else {
-        // Else take the purchaseType and other fields to calculate by passing a single line item
-        footprint = carbonEmissionOfLineItem({ name: purchaseType, unit: costCurrency || UNIT_ITEM, value: costAmount || 1 });
       }
-      if (!footprint) throw new Error(`Could not calculate carbonIntensity of purchase activity with purchaseType: ${purchaseType} and lineItems: ${JSON.stringify(lineItems)}`)
+      if (!footprint) throw new Error(`Could not calculate carbonIntensity of purchase activity with lineItems: ${JSON.stringify(lineItems)}`)
       break;
     }
 

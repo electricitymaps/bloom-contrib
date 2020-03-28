@@ -116,7 +116,7 @@ export function carbonEmissions(activity) {
 
   if (mealIngredients && Object.keys(mealIngredients).length > 0) {
     return mealIngredients
-      .map(k => carbonIntensityOfIngredient(k.name) * k.value)
+      .map(k => carbonIntensityOfIngredient(k.identifier) * k.value)
       .reduce((a, b) => a + b, 0);
   }
 
