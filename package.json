@@ -9,6 +9,7 @@
     "d3-geo": "^1.11.6",
     "lodash": "^4.17.11",
     "moment": "^2.23.0",
+    "moment-timezone": "^0.5.28",
     "oauth-1.0a": "^2.2.5",
     "superagent": "^4.1.0",
     "tiny-hashes": "^1.0.1",
