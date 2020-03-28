@@ -111,9 +111,9 @@ export function modelCanRun(activity) {
 function correctWithParticipants(footprint, participants) {
   return footprint / (participants || 1);
 }
-function extractEur(activity) {
-  return (activity.costAmount && activity.costCurrency)
-    ? convertToEuro(activity.costAmount, activity.costCurrency)
+function extractEur({ costAmount, costCurrency }) {
+  return (costAmount && costCurrency)
+    ? convertToEuro(costAmount, costCurrency)
     : null;
 }
 
@@ -124,7 +124,7 @@ function extractEur(activity) {
  */
 function extractComptabileUnitAndAmount(lineItem, entry) {
   const isMonetaryItem = getAvailableCurrencies().includes(lineItem.unit);
-  // TODO(df): Hacky, but pretend to pass an activity if monetary...
+  // Extract eurAmount if applicable
   const eurAmount = extractEur({ costCurrency: isMonetaryItem ? lineItem.unit : null, costAmount: isMonetaryItem ? lineItem.value : null });
   // TODO(olc): Also look at potential available conversions
   const availableEntryUnit = entry.unit;
@@ -144,7 +144,7 @@ function extractComptabileUnitAndAmount(lineItem, entry) {
  * Calculates the carbon emissions of a line item entry
  * @param {*} lineItem - Object of the the type { identifier: <string>, unit: <string>, value: <string>, costAmount: <float>, costCurrency: <string> }
  */
-function carbonEmissionOfLineItem(lineItem) {
+export function carbonEmissionOfLineItem(lineItem) {
   // The generic name property holds the purchaseType value, so rename to make clear..
   const { identifier: purchaseType } = lineItem;
   const entry = getEntryByKey(purchaseType);
@@ -155,7 +155,6 @@ function carbonEmissionOfLineItem(lineItem) {
     throw new Error(`Missing carbon intensity for purchaseType: ${purchaseType}`);
   }
 
-  // TODO(df): Hacky! Simulate an activity...
   const { unit, amount } = extractComptabileUnitAndAmount(lineItem, entry);
   if (unit == null || amount == null || !Number.isFinite(amount)) {
     throw new Error(`Invalid unit ${unit} or amount ${amount} for purchaseType ${purchaseType}. Expected ${entry.unit}`);
