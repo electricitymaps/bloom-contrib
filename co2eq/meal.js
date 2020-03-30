@@ -33,7 +33,9 @@ export const explanation = {
 export const modelCanRunVersion = 1;
 export function modelCanRun(activity) {
   const { mealType, lineItems } = activity;
-  if (mealType || (lineItems && lineItems.length && lineItems.filter(l => l.unit === UNIT_KILOGRAMS).length)) {
+  // Run if: a) Meal type OR b) ALL line items are of type "ingredient" (which should have kilograms as unit)
+  const ingredients = lineItems && lineItems.length && lineItems.filter(l => l.unit === UNIT_KILOGRAMS);
+  if (mealType || (ingredients && ingredients.length && ingredients.length === lineItems.length)) {
     return true;
   }
 
