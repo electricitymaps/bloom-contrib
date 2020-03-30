@@ -144,21 +144,21 @@ function extractComptabileUnitAndAmount(lineItem, entry) {
 export function carbonEmissionOfLineItem(lineItem) {
   // The generic identifier property holds the purchaseType value, so rename to make clear..
   const { identifier } = lineItem;
-  const entry = getEntryByKey(purchaseType);
+  const entry = getEntryByKey(identifier);
   if (!entry) {
     throw new Error(`Unknown purchaseType identifier: ${identifier}`);
   }
   if (!entry.intensityKilograms) {
-    throw new Error(`Missing carbon intensity for purchaseType: ${purchaseType}`);
+    throw new Error(`Missing carbon intensity for purchaseType: ${identifier}`);
   }
 
   const { unit, amount } = extractComptabileUnitAndAmount(lineItem, entry);
   if (unit == null || amount == null || !Number.isFinite(amount)) {
-    throw new Error(`Invalid unit ${unit} or amount ${amount} for purchaseType ${purchaseType}. Expected ${entry.unit}`);
+    throw new Error(`Invalid unit ${unit} or amount ${amount} for purchaseType ${identifier}. Expected ${entry.unit}`);
   }
 
   if (entry.unit !== unit) {
-    throw new Error(`Invalid unit ${unit} given for purchaseType ${purchaseType}. Expected ${entry.unit}`);
+    throw new Error(`Invalid unit ${unit} given for purchaseType ${identifier}. Expected ${entry.unit}`);
   }
   return entry.intensityKilograms * amount;
 }
