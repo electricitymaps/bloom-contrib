@@ -204,7 +204,6 @@ export function carbonEmissions(activity) {
         // TODO(df): What to do on a single line error? Abort all? Skip item?
         footprint = lineItems.map(l => carbonEmissionOfLineItem(l)).reduce((a, b) => a + b, 0);
       }
-      if (!footprint) throw new Error(`Could not calculate carbonIntensity of purchase activity with lineItems: ${JSON.stringify(lineItems)}`)
       break;
     }
 
