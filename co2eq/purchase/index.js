@@ -11,7 +11,7 @@ import {
   UNIT_ITEM,
   UNIT_LITER,
 } from '../../definitions';
-import { convertToEuro } from '../../integrations/utils/currency/currency';
+import { convertToEuro, getAvailableCurrencies } from '../../integrations/utils/currency/currency';
 import footprints from './footprints.yml';
 
 export const explanation = {
@@ -26,7 +26,7 @@ export const purchaseIcon = {};
 
 // Traverse and index tree
 function indexNodeChildren(branch, i = 1) {
-  Object.entries(branch['_children'] || []).forEach(([k, v]) => {
+  Object.entries(branch._children || []).forEach(([k, v]) => {
     if (ENTRY_BY_KEY[k]) {
       throw new Error(`Error while indexing footprint tree: There's already an entry for ${k}`);
     }
@@ -51,7 +51,7 @@ export function getEntryByKey(key) {
 export function getEntryByPath(path) {
   let entry = footprints; // root node
   for (let i = 0; i < path.length; i += 1) {
-    entry = (entry['_children'] || {})[path[i]];
+    entry = (entry._children || {})[path[i]];
   }
   return entry;
 }
@@ -67,7 +67,7 @@ export function getDescendants(entry, filter = (_ => true), includeRoot = false)
   let descendants = includeRoot
     ? { [entry.key]: entry }
     : {};
-  Object.values(entry['_children'] || []).filter(filter).forEach((child) => {
+  Object.values(entry._children || []).filter(filter).forEach((child) => {
     descendants = {
       ...descendants,
       ...getDescendants(child, filter, true),
@@ -83,7 +83,7 @@ export const modelVersion = `3_${getChecksumOfFootprints()}`; // This model reli
 export const modelCanRunVersion = 1;
 export function modelCanRun(activity) {
   const {
-    costAmount, costCurrency, activityType, transportationMode, purchaseType,
+    costAmount, costCurrency, activityType, transportationMode, lineItems,
   } = activity;
   if (costAmount && costCurrency) {
     if (activityType === ACTIVITY_TYPE_MEAL) return true;
@@ -99,7 +99,7 @@ export function modelCanRun(activity) {
       }
     }
   }
-  if (activityType === ACTIVITY_TYPE_PURCHASE && purchaseType) {
+  if (activityType === ACTIVITY_TYPE_PURCHASE && lineItems && lineItems.length) {
     return true;
   }
 
@@ -108,17 +108,25 @@ export function modelCanRun(activity) {
 function correctWithParticipants(footprint, participants) {
   return footprint / (participants || 1);
 }
-function extractEur(activity) {
-  return (activity.costAmount && activity.costCurrency)
-    ? convertToEuro(activity.costAmount, activity.costCurrency)
+function extractEur({ costAmount, costCurrency }) {
+  return (costAmount && costCurrency)
+    ? convertToEuro(costAmount, costCurrency)
     : null;
 }
-function extractComptabileUnitAndAmount(activity, entry) {
-  const eurAmount = extractEur(activity);
+
+/**
+ * Returns the compatible unit and amounts of a line item
+ * @param {*} lineItem - Object of the the type { name: <string>, unit: <string>, value: <string>, costAmount: <float>, costCurrency: <string> }
+ * @param {*} entry - A purchase entry
+ */
+function extractComptabileUnitAndAmount(lineItem, entry) {
+  const isMonetaryItem = getAvailableCurrencies().includes(lineItem.unit);
+  // Extract eurAmount if applicable
+  const eurAmount = extractEur({ costCurrency: isMonetaryItem ? lineItem.unit : null, costAmount: isMonetaryItem ? lineItem.value : null });
   // TODO(olc): Also look at potential available conversions
   const availableEntryUnit = entry.unit;
-  if (availableEntryUnit === UNIT_LITER && activity.volumeLiters != null) {
-    return { unit: UNIT_LITER, amount: activity.volumeLiters };
+  if (availableEntryUnit === UNIT_LITER && lineItem.unit === UNIT_LITER) {
+    return { unit: UNIT_LITER, amount: lineItem.value };
   }
   if (availableEntryUnit === UNIT_MONETARY_EUR && eurAmount != null) {
     return { unit: UNIT_MONETARY_EUR, amount: eurAmount };
@@ -126,7 +134,33 @@ function extractComptabileUnitAndAmount(activity, entry) {
   if (availableEntryUnit === UNIT_ITEM) {
     return { unit: UNIT_ITEM, amount: 1 };
   }
-  throw new Error(`Activity has no compatible purchase unit.`);
+  throw new Error(`Line item of activity has no compatible purchase unit.`);
+}
+
+/**
+ * Calculates the carbon emissions of a line item entry
+ * @param {*} lineItem - Object of the the type { identifier: <string>, unit: <string>, value: <string>, costAmount: <float>, costCurrency: <string> }
+ */
+export function carbonEmissionOfLineItem(lineItem) {
+  // The generic identifier property holds the purchaseType value, so rename to make clear..
+  const { identifier } = lineItem;
+  const entry = getEntryByKey(identifier);
+  if (!entry) {
+    throw new Error(`Unknown purchaseType identifier: ${identifier}`);
+  }
+  if (!entry.intensityKilograms) {
+    throw new Error(`Missing carbon intensity for purchaseType: ${identifier}`);
+  }
+
+  const { unit, amount } = extractComptabileUnitAndAmount(lineItem, entry);
+  if (unit == null || amount == null || !Number.isFinite(amount)) {
+    throw new Error(`Invalid unit ${unit} or amount ${amount} for purchaseType ${identifier}. Expected ${entry.unit}`);
+  }
+
+  if (entry.unit !== unit) {
+    throw new Error(`Invalid unit ${unit} given for purchaseType ${identifier}. Expected ${entry.unit}`);
+  }
+  return entry.intensityKilograms * amount;
 }
 
 /*
@@ -163,24 +197,13 @@ export function carbonEmissions(activity) {
       break;
 
     case ACTIVITY_TYPE_PURCHASE: {
-      const { purchaseType } = activity;
-      const entry = getEntryByKey(purchaseType);
-      if (!entry) {
-        throw new Error(`Unknown purchaseType: ${purchaseType}`);
-      }
-      if (!entry.intensityKilograms) {
-        throw new Error(`Missing carbon intensity for purchaseType: ${purchaseType}`);
-      }
+      const { lineItems } = activity;
 
-      const { unit, amount } = extractComptabileUnitAndAmount(activity, entry);
-      if (unit == null || amount == null || !Number.isFinite(amount)) {
-        throw new Error(`Invalid unit ${unit} or amount ${amount} for purchaseType ${purchaseType}. Expected ${entry.unit}`);
+      // First check if lineItems contains and calculate total of all line items
+      if (lineItems && lineItems.length) {
+        // TODO(df): What to do on a single line error? Abort all? Skip item?
+        footprint = lineItems.map(l => carbonEmissionOfLineItem(l)).reduce((a, b) => a + b, 0);
       }
-
-      if (entry.unit !== unit) {
-        throw new Error(`Invalid unit ${unit} given for purchaseType ${purchaseType}. Expected ${entry.unit}`);
-      }
-      footprint = entry.intensityKilograms * amount;
       break;
     }
 

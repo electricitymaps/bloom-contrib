@@ -17,10 +17,10 @@ export function modelCanRun(activity) {
     countryCodeISO2,
     endDatetime,
     activityType,
-    purchaseType,
+    lineItems,
   } = activity;
   if (activityType === ACTIVITY_TYPE_PURCHASE
-    && purchaseType === PURCHASE_CATEGORY_ENTERTAINMENT_HOTEL
+    && lineItems && lineItems.length && lineItems.some(l => l.identifier === PURCHASE_CATEGORY_ENTERTAINMENT_HOTEL)
     && countryCodeISO2
     && endDatetime
   ) {

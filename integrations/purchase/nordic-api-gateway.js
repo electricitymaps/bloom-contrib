@@ -194,6 +194,10 @@ async function parseTransactions(transactions, accountDisplayName, bankDisplayNa
     const category = parseCategory(transactions[i].category, categories);
 
     if (category && transactions[i].amount.value < 0) {
+      const costAmount = -transactions[i].amount.value;
+      const costCurrency = transactions[i].amount.currency;
+      const { purchaseType } = category;
+      const lineItems = purchaseType ? [{ identifier: purchaseType, costAmount, costCurrency }] : undefined;
       res.push({
         id: `nag_${transactions[i].id}`,
         activityType: category.activityType,
@@ -203,9 +207,9 @@ async function parseTransactions(transactions, accountDisplayName, bankDisplayNa
         accountDisplayName,
         bankDisplayName,
         bankIdentifier,
-        purchaseType: category.purchaseType,
-        costAmount: -transactions[i].amount.value,
-        costCurrency: transactions[i].amount.currency,
+        lineItems,
+        costAmount,
+        costCurrency,
       });
     }
   }

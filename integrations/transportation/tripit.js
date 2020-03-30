@@ -9,6 +9,7 @@ import {
   TRANSPORTATION_MODE_PLANE,
   TRANSPORTATION_MODE_TRAIN,
   PURCHASE_CATEGORY_ENTERTAINMENT_HOTEL,
+  UNIT_ITEM,
 } from '../../definitions';
 import { HTTPError } from '../utils/errors';
 
@@ -207,7 +208,7 @@ async function fetchLodging(modifiedSince, isPast = true, logger) {
       return {
         id: s.id,
         activityType: ACTIVITY_TYPE_PURCHASE,
-        purchaseType: PURCHASE_CATEGORY_ENTERTAINMENT_HOTEL,
+        lineItems: [{ identifier: PURCHASE_CATEGORY_ENTERTAINMENT_HOTEL, unit: UNIT_ITEM, value: 1 }],
         countryCodeISO2: s.Address ? s.Address.country : null,
         locationLon: convertNanToNull(locationLon),
         locationLat: convertNanToNull(locationLat),
