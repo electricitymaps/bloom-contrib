@@ -33,9 +33,7 @@ export const explanation = {
 export const modelCanRunVersion = 1;
 export function modelCanRun(activity) {
   const { mealType, lineItems } = activity;
-  // Run if: a) Meal type OR b) ALL line items are of type "ingredient" (which should have kilograms as unit)
-  const ingredients = lineItems && lineItems.length && lineItems.filter(l => l.unit === UNIT_KILOGRAMS);
-  if (mealType || (ingredients && ingredients.length && ingredients.length === lineItems.length)) {
+  if (mealType || (lineItems && lineItems.length)) {
     return true;
   }
 
@@ -114,10 +112,9 @@ Carbon emissions of an activity (in kgCO2eq)
 */
 export function carbonEmissions(activity) {
   const { mealType, lineItems } = activity;
-  const mealIngredients = lineItems && lineItems.filter(l => l.unit === UNIT_KILOGRAMS);
 
-  if (mealIngredients && Object.keys(mealIngredients).length > 0) {
-    return mealIngredients
+  if (lineItems && Object.keys(lineItems).length > 0) {
+    return lineItems
       .map(k => carbonIntensityOfIngredient(k.identifier) * k.value)
       .reduce((a, b) => a + b, 0);
   }
