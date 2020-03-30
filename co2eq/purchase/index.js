@@ -143,10 +143,10 @@ function extractComptabileUnitAndAmount(lineItem, entry) {
  */
 export function carbonEmissionOfLineItem(lineItem) {
   // The generic identifier property holds the purchaseType value, so rename to make clear..
-  const { identifier: purchaseType } = lineItem;
+  const { identifier } = lineItem;
   const entry = getEntryByKey(purchaseType);
   if (!entry) {
-    throw new Error(`Unknown purchaseType: ${purchaseType}`);
+    throw new Error(`Unknown purchaseType identifier: ${identifier}`);
   }
   if (!entry.intensityKilograms) {
     throw new Error(`Missing carbon intensity for purchaseType: ${purchaseType}`);
