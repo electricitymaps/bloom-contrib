@@ -31,6 +31,7 @@ jobs:
       - run: touch integrations/env.json
       - run: yarn
       - run: cd playground && yarn
+      - run: yarn test
       - save_cache:
           paths:
             - node_modules

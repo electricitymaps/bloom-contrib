@@ -7,6 +7,12 @@ export const UNIT_LITER = 'L';
 export const UNIT_KILOGRAMS = 'kg';
 export const UNIT_MONETARY_EUR = 'EUR';
 export const UNIT_ITEM = 'item';
+export const UNITS = [
+  UNIT_LITER,
+  UNIT_KILOGRAMS,
+  UNIT_MONETARY_EUR,
+  UNIT_ITEM,
+];
 
 /* Activity Types
 Each activity type is tied to a specific UI
