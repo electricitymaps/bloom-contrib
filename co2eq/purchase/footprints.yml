@@ -65,7 +65,7 @@ _children:
         source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
         coicopCode: 07.2.1
-        year: 2016
+        year: 2011
       Maintenance and repair of personal transport equipment (S):
         icon: credit-card
         intensityKilograms:
@@ -125,7 +125,7 @@ _children:
         source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
         coicopCode: 07.2.3
-        year: 2016
+        year: 2011
   Appliances:
     _children:
       Electric oven:
@@ -1280,7 +1280,7 @@ _children:
         source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
         coicopCode: '09.4'
-        year: 2016
+        year: 2011
       CULTURAL SERVICES:
         icon: film
         intensityKilograms: 0.02738
@@ -1348,7 +1348,7 @@ _children:
         source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
         coicopCode: '09.8'
-        year: 2016
+        year: 2011
       ACCOMMODATION SERVICES:
         icon: credit-card
         intensityKilograms:
@@ -1407,7 +1407,7 @@ _children:
         source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
         coicopCode: '11.2'
-        year: 2016
+        year: 2011
       ALCOHOLIC BEVERAGES:
         icon: wine-bottle
         intensityKilograms:
@@ -1467,7 +1467,7 @@ _children:
         source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
         coicopCode: '02.1'
-        year: 2016
+        year: 2011
       TOBACCO:
         icon: smoking
         intensityKilograms:
@@ -1526,7 +1526,7 @@ _children:
         source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
         coicopCode: '02.3'
-        year: 2016
+        year: 2011
   Food:
     _children:
       Beverages:
@@ -3138,7 +3138,7 @@ _children:
         source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
         coicopCode: '06.2'
-        year: 2016
+        year: 2011
       MEDICINES AND HEALTH PRODUCTS:
         icon: pills
         intensityKilograms:
@@ -3197,7 +3197,7 @@ _children:
         source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
         coicopCode: '06.1'
-        year: 2016
+        year: 2011
   Stores:
     _children:
       Cereals and cereal products (ND):
@@ -3258,7 +3258,7 @@ _children:
         source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
         coicopCode: 01.1.1
-        year: 2016
+        year: 2011
       PERSONAL CARE:
         icon: cut
         intensityKilograms:
@@ -3317,7 +3317,7 @@ _children:
         source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
         coicopCode: '13.1'
-        year: 2016
+        year: 2011
       NEWSPAPERS, BOOKS AND STATIONERY:
         icon: books
         intensityKilograms:
@@ -3376,7 +3376,7 @@ _children:
         source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
         coicopCode: '09.7'
-        year: 2016
+        year: 2011
       CLOTHING:
         icon: tshirt
         intensityKilograms:
@@ -3436,7 +3436,7 @@ _children:
         source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
         coicopCode: '03.1'
-        year: 2016
+        year: 2011
       Information and communication equipment:
         icon: laptop
         intensityKilograms:
@@ -3495,7 +3495,7 @@ _children:
         source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
         coicopCode: '08.1'
-        year: 2016
+        year: 2011
       Furniture, furnishings and loose carpets (D):
         icon: credit-card
         intensityKilograms:
@@ -3554,7 +3554,7 @@ _children:
         source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
         coicopCode: 05.1.1
-        year: 2016
+        year: 2011
       FOOD AND NON-ALCOHOLIC BEVERAGES:
         icon: shopping-cart
         intensityKilograms: 0.04902
@@ -3622,7 +3622,7 @@ _children:
         source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
         coicopCode: '05.5'
-        year: 2016
+        year: 2011
       Furnishings, loose carpets and rugs (D):
         icon: couch
         intensityKilograms:
@@ -3681,7 +3681,7 @@ _children:
         source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
         coicopCode: 05.1.1.4
-        year: 2016
+        year: 2011
       HOUSEHOLD APPLIANCES:
         icon: blender
         intensityKilograms:
@@ -3740,7 +3740,7 @@ _children:
         source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
         coicopCode: '05.3'
-        year: 2016
+        year: 2011
       GARDEN PRODUCTS AND PETS:
         icon: seedling
         intensityKilograms:
@@ -3801,7 +3801,7 @@ _children:
         source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
         coicopCode: '09.3'
-        year: 2016
+        year: 2011
   Fuels and lubricants for personal transport equipment (ND):
     _children:
       Diesel:
@@ -3896,4 +3896,4 @@ _children:
     source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
     unit: EUR
     coicopCode: 07.2.2
-    year: 2016
+    year: 2011

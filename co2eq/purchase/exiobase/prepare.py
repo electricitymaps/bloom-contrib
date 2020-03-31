@@ -82,7 +82,7 @@ for (coicop_code, values_by_country) in COICOP_FOOTPRINTS.items():
         print(f"WARNING: Could not find an entry with coicopCode {coicop_code} in footprints.yml")
         continue
     print(f"Found {coicop_code}. Updating..")
-    entry['year'] = 2016
+    entry['year'] = 2011
     entry['unit'] = 'EUR'
     entry['source'] = 'https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase'
     entry['intensityKilograms'] = values_by_country
