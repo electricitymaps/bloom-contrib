@@ -1,4 +1,6 @@
 import csv
+import ruamel.yaml
+yaml = ruamel.yaml.YAML()
 
 # Load concordance table in memory, indexed by coicop category
 CONCORDANCE_TABLE = {}
@@ -27,7 +29,7 @@ with open('COICOP_EU_ini.csv') as f:
 # Load emission factors in memory
 LIFECYCLE_EMISSIONS = {}
 COUNTRY_CODES = set()
-with open('scope.csv') as f:
+with open('io/scope.csv') as f:
     reader = csv.DictReader(f, delimiter=',')
     for row in reader:
         country_code = row['region']
@@ -37,6 +39,22 @@ with open('scope.csv') as f:
         sector = row['sector']
         intensity_kg_CO2e_per_M_EUR = row['Total lifecycle']
         LIFECYCLE_EMISSIONS[country_code][sector] = float(intensity_kg_CO2e_per_M_EUR) / 1e6
+
+
+with open('../footprints.yml') as f:
+    footprints = yaml.load(f)
+
+
+def find_entry_by_coicop(coicopCode, root=footprints):
+    # Traversal, and find first match
+    for (_, value) in root.get('_children', {}).items():
+        if coicopCode == value.get('coicopCode'):
+            # Found!
+            return value
+        ret = find_entry_by_coicop(coicopCode, root=value)
+        if ret:
+            return ret
+
 
 # Scalar product
 COICOP_FOOTPRINTS = {}
@@ -53,6 +71,23 @@ for (key, mapping) in CONCORDANCE_TABLE.items():
             weight * LIFECYCLE_EMISSIONS[country_code][exiobase_category]
             for (exiobase_category, weight) in mapping.items()
         ])
-        print(key, country_code, COICOP_FOOTPRINTS[key][country_code])
+        # print(key, country_code, COICOP_FOOTPRINTS[key][country_code])
 
-# TODO: Set year in footprints.yml
+
+# Set in footprints.yml
+for (coicop_code, values_by_country) in COICOP_FOOTPRINTS.items():
+    entry = find_entry_by_coicop(coicop_code)
+    if not entry:
+        #raise Exception(f"Could not find an entry with coicopCode {coicop_code} in footprints.yml")
+        print(f"WARNING: Could not find an entry with coicopCode {coicop_code} in footprints.yml")
+        continue
+    print(f"Found {coicop_code}. Updating..")
+    entry['year'] = 2016
+    entry['unit'] = 'EUR'
+    entry['source'] = 'https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase'
+    entry['intensityKilograms'] = values_by_country
+
+
+with open('../footprints.yml', 'wt') as f:
+    yaml.indent(offset=2)
+    yaml.dump(footprints, f)
