@@ -7,1178 +7,1176 @@
 _children:
   Car parts and services:
     _children:
-      Automotive parts or accessories:
+      Parts and accessories for personal transport equipment (SD):
         icon: credit-card
         intensityKilograms: 0.08418
         oldKeys:
           - PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARTS
-        source: 'http://www.balticproject.org/en/calculator-page'
+          - Automotive parts or accessories
+        source: http://www.balticproject.org/en/calculator-page
         unit: EUR
-      Automotive services:
+        coicopCode: 07.2.1
+      Maintenance and repair of personal transport equipment (S):
         icon: credit-card
         intensityKilograms: 0.04241
         oldKeys:
           - PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_SERVICE
-        source: 'http://www.balticproject.org/en/calculator-page'
+          - Automotive services
+          - Parking lot
+        source: http://www.balticproject.org/en/calculator-page
         unit: EUR
-      Parking lot:
-        icon: parking
-        intensityKilograms: 0.19571
-        oldKeys:
-          - PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARKING
-        source: 'http://www.balticproject.org/en/calculator-page'
-        unit: EUR
+        coicopCode: 07.2.3
   Appliances:
     _children:
-      'Electric oven':
+      Electric oven:
         icon: blender
         intensityKilograms: 319
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 41.4%
-      'Gas oven':
+      Gas oven:
         icon: blender
         intensityKilograms: 846
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 84.4%
-      'Mini electric oven':
+      Mini electric oven:
         icon: blender
         intensityKilograms: 190
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 62.6%
-      'Microwave oven':
+      Microwave oven:
         icon: blender
         intensityKilograms: 118
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 33.1%
-      'Dishwasher':
+      Dishwasher:
         icon: blender
         intensityKilograms: 513
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 57.1%
-      'Mini dishwasher':
+      Mini dishwasher:
         icon: blender
         intensityKilograms: 431
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 55.2%
-      'Top load laundry machine':
+      Top load laundry machine:
         icon: blender
         intensityKilograms: 468
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 47%
-      'Front load laundry machine':
+      Front load laundry machine:
         icon: blender
         intensityKilograms: 539
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 49%
-      'Heat pump dryer':
+      Heat pump dryer:
         icon: blender
         intensityKilograms: 506
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 48.6%
-      'Dewatering dryer':
+      Dewatering dryer:
         icon: blender
         intensityKilograms: 588
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 55.8%
-      'Evacuation dryer':
+      Evacuation dryer:
         icon: blender
         intensityKilograms: 545
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 57.4%
-      'Refrigerator':
+      Refrigerator:
         icon: blender
         intensityKilograms: 343
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 30.9%
-      'Integrated fridge freezer':
+      Integrated fridge freezer:
         icon: blender
         intensityKilograms: 431
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 48.7%
-      'Mini Refrigerator':
+      Mini Refrigerator:
         icon: blender
         intensityKilograms: 159
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 56.6%
-      'Chest freezer':
+      Chest freezer:
         icon: blender
         intensityKilograms: 492
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 50.6%
-      'Upright freezer':
+      Upright freezer:
         icon: blender
         intensityKilograms: 587
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 43.4%
-      'Vacuum cleaner':
+      Vacuum cleaner:
         icon: blender
         intensityKilograms: 67
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 41.8%
-      'Bagless vacuum cleaner':
+      Bagless vacuum cleaner:
         icon: blender
         intensityKilograms: 69
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 37.7%
-      'Stand mixer':
+      Stand mixer:
         icon: blender
         intensityKilograms: 43
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 16.3%
-      'Bread machine':
+      Bread machine:
         icon: blender
         intensityKilograms: 96
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 17%
-      'Yogurt maker':
+      Yogurt maker:
         icon: blender
         intensityKilograms: 96
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 52.1%
   Clothing, shoes and sports equipments:
     _children:
-      'Shirt (viscose)':
+      Shirt (viscose):
         icon: tshirt
         intensityKilograms: 12
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 25%
-      'Shirt (cotton)':
+      Shirt (cotton):
         icon: tshirt
         intensityKilograms: 13
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 23.1%
-      'Jeans':
+      Jeans:
         icon: tshirt
         intensityKilograms: 25
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 20%
-      'T-shirt (cotton)':
+      T-shirt (cotton):
         icon: tshirt
         intensityKilograms: 7
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 42.9%
-      'T-shirt (polyester)':
+      T-shirt (polyester):
         icon: tshirt
         intensityKilograms: 6
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 16.7%
-      'Polo shirt':
+      Polo shirt:
         icon: tshirt
         intensityKilograms: 10
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 30%
-      'Sweater (acrylic)':
+      Sweater (acrylic):
         icon: tshirt
         intensityKilograms: 28
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 17.9%
-      'Fleece (recycled polyester)':
+      Fleece (recycled polyester):
         icon: tshirt
         intensityKilograms: 26
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 23.1%
-      'Sweater (cotton)':
+      Sweater (cotton):
         icon: tshirt
         intensityKilograms: 31
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 25.8%
-      'Pullover (wool)':
+      Pullover (wool):
         icon: tshirt
         intensityKilograms: 56
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 12.5%
-      'Pullover (recycled cotton)':
+      Pullover (recycled cotton):
         icon: tshirt
         intensityKilograms: 12
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 41.7%
-      'Jacket (generic)':
+      Jacket (generic):
         icon: tshirt
         intensityKilograms: 89
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 13.5%
-      'Jacket (weatherproof)':
+      Jacket (weatherproof):
         icon: tshirt
         intensityKilograms: 39
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 7.7%
-      'Jacket (faux leather)':
+      Jacket (faux leather):
         icon: tshirt
         intensityKilograms: 25
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 20%
-      'Dress (polyester)':
+      Dress (polyester):
         icon: tshirt
         intensityKilograms: 56
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 19.6%
-      'Dress (cotton)':
+      Dress (cotton):
         icon: tshirt
         intensityKilograms: 56
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 23.2%
-      'Dress (viscose)':
+      Dress (viscose):
         icon: tshirt
         intensityKilograms: 51
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 25.5%
-      'Shoes (leather)':
+      Shoes (leather):
         icon: boot
         intensityKilograms: 15
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 46.7%
-      'Shoes (fabric)':
+      Shoes (fabric):
         icon: boot
         intensityKilograms: 19
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 31.6%
-      'Shoes (sports)':
+      Shoes (sports):
         icon: boot
         intensityKilograms: 20
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 30%
-      'Backpack (trekking)':
+      Backpack (trekking):
         icon: backpack
         intensityKilograms: 6.3
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
-      'Backpack (school)':
+      Backpack (school):
         icon: backpack
         intensityKilograms: 9.8
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
-      'Tennis racket':
+      Tennis racket:
         icon: racquet
         intensityKilograms: 23
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
-      'Football':
+      Football:
         icon: futbol
         intensityKilograms: 5.1
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
-      'Basketball':
+      Basketball:
         icon: basketball-ball
         intensityKilograms: 5.9
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
   Mobile phone:
     icon: mobile
     intensityKilograms: 32
-    source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+    source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
     unit: item
     usage: 20%
     _children:
-      'Feature phone':
+      Feature phone:
         icon: mobile
         intensityKilograms: 16
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
         usage: 20%
-      'iPhone 11':
-        deviceId: 'iPhone12,1'  # https://gist.github.com/adamawolf/3048717
+      iPhone 11:
+        deviceId: iPhone12,1    # https://gist.github.com/adamawolf/3048717
         icon: mobile
         intensityKilograms: 72
-        source: 'https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_11_PER_sept2019.pdf'
+        source: https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_11_PER_sept2019.pdf
         unit: item
         usage: 17%
-      'iPhone 11 Pro':
-        deviceId: 'iPhone12,3'  # https://gist.github.com/adamawolf/3048717
+      iPhone 11 Pro:
+        deviceId: iPhone12,3    # https://gist.github.com/adamawolf/3048717
         icon: mobile
         intensityKilograms: 80
-        source: 'https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_11_Pro_PER_sept2019.pdf'
+        source: https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_11_Pro_PER_sept2019.pdf
         unit: item
         usage: 13%
-      'iPhone 11 Pro Max':
-        deviceId: 'iPhone12,5'  # https://gist.github.com/adamawolf/3048717
+      iPhone 11 Pro Max:
+        deviceId: iPhone12,5    # https://gist.github.com/adamawolf/3048717
         icon: mobile
         intensityKilograms: 86
-        source: 'https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_11_Pro_Max_PER_sept2019.pdf'
+        source: https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_11_Pro_Max_PER_sept2019.pdf
         unit: item
         usage: 18%
-      'iPhone 8':
-        deviceId: 'iPhone10,1'  # https://gist.github.com/adamawolf/3048717
+      iPhone 8:
+        deviceId: iPhone10,1    # https://gist.github.com/adamawolf/3048717
         icon: mobile
         intensityKilograms: 57
-        source: 'https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_8_PER_sept2017.pdf'
+        source: https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_8_PER_sept2017.pdf
         unit: item
         usage: 16%
-      'iPhone 8 Plus':
-        deviceId: 'iPhone10,2'  # https://gist.github.com/adamawolf/3048717
+      iPhone 8 Plus:
+        deviceId: iPhone10,2    # https://gist.github.com/adamawolf/3048717
         icon: mobile
         intensityKilograms: 68
-        source: 'https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_8_Plus_PER_sept2017.pdf'
+        source: https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_8_Plus_PER_sept2017.pdf
         unit: item
         usage: 17%
-      'iPhone XR':
-        deviceId: 'iPhone11,8'  # https://gist.github.com/adamawolf/3048717
+      iPhone XR:
+        deviceId: iPhone11,8    # https://gist.github.com/adamawolf/3048717
         icon: mobile
         intensityKilograms: 62
-        source: 'https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_XR_PER_sept2018.pdf'
+        source: https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_XR_PER_sept2018.pdf
         unit: item
         usage: 19%
-      'iPhone SE':
-        deviceId: 'iPhone8,4'  # https://gist.github.com/adamawolf/3048717
+      iPhone SE:
+        deviceId: iPhone8,4    # https://gist.github.com/adamawolf/3048717
         icon: mobile
         intensityKilograms: 45
-        source: 'https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_SE_PER_sept2017.pdf'
-        unit: 'item'
+        source: https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_SE_PER_sept2017.pdf
+        unit: item
   Furniture:
     _children:
-      'Chair (wood)':
+      Chair (wood):
         icon: chair
         intensityKilograms: 25.2
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
-      'Chair (plastic)':
+      Chair (plastic):
         icon: chair
         intensityKilograms: 28
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
-      'Chair (wood and fabric)':
+      Chair (wood and fabric):
         icon: chair
         intensityKilograms: 12
         source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
         unit: item
-      'Table (wood)':
+      Table (wood):
         icon: chair
         intensityKilograms: 130
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
-      'Table (generic)':
+      Table (generic):
         icon: chair
         intensityKilograms: 96
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
-      'Cabinet':
+      Cabinet:
         icon: chair
         intensityKilograms: 858
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
-      'Sofa (fabric)':
+      Sofa (fabric):
         icon: couch
         intensityKilograms: 180
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
-      'Sofa (leather)':
+      Sofa (leather):
         icon: couch
         intensityKilograms: 200
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
-      'Pullout sofa':
+      Pullout sofa:
         icon: couch
         intensityKilograms: 204
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
-      'Box spring':
+      Box spring:
         icon: bed
         intensityKilograms: 110
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
-      'Slatted bed base':
+      Slatted bed base:
         icon: bed
         intensityKilograms: 69
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
-      'Bed frame':
+      Bed frame:
         icon: bed
         intensityKilograms: 147
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
-      'Spring mattress':
+      Spring mattress:
         icon: bed
         intensityKilograms: 219
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
-      'Garden furniture (wood)':
+      Garden furniture (wood):
         icon: chair
         intensityKilograms: 103
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
-      'Garden furniture (metal)':
+      Garden furniture (metal):
         icon: chair
         intensityKilograms: 224
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
-      'Garden furniture (plastic)':
+      Garden furniture (plastic):
         icon: chair
         intensityKilograms: 215
-        source: 'https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
+        source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
         unit: item
   Electronics:
     _children:
-      'AirPort Express':
+      AirPort Express:
         icon: network-wired  # router only available in Font Awesome 5.11.0
         intensityKilograms: 95
-        source: 'https://www.apple.com/lae/environment/pdf/products/airport/AirPortExpress_PER_june2012.pdf'
+        source: https://www.apple.com/lae/environment/pdf/products/airport/AirPortExpress_PER_june2012.pdf
         unit: item
         usage: 60%
-      'AirPort Extreme':
+      AirPort Extreme:
         icon: network-wired  # router only available in Font Awesome 5.11.0
         intensityKilograms: 250
-        source: 'https://www.apple.com/lae/environment/pdf/products/airport/AirPortExtreme_PER_june2013.pdf'
+        source: https://www.apple.com/lae/environment/pdf/products/airport/AirPortExtreme_PER_june2013.pdf
         unit: item
         usage: 76%
-      'AirPort Time Capsule':
+      AirPort Time Capsule:
         icon: network-wired  # router only available in Font Awesome 5.11.0
         intensityKilograms: 310
-        source: 'https://www.apple.com/lae/environment/pdf/products/airport/AirPortTimeCapsule_PER_june2013.pdf'
+        source: https://www.apple.com/lae/environment/pdf/products/airport/AirPortTimeCapsule_PER_june2013.pdf
         unit: item
         usage: 70%
-      'Apple TV':
+      Apple TV:
         icon: network-wired  # router only available in Font Awesome 5.11.0
         intensityKilograms: 65
-        source: 'https://www.apple.com/lae/environment/pdf/products/appletv/Apple_TV_PER_sept2017.pdf'
+        source: https://www.apple.com/lae/environment/pdf/products/appletv/Apple_TV_PER_sept2017.pdf
         unit: item
         usage: 30%
-      'Apple TV 4K':
+      Apple TV 4K:
         icon: network-wired  # router only available in Font Awesome 5.11.0
         intensityKilograms: 58
-        source: 'https://www.apple.com/lae/environment/pdf/products/appletv/Apple_TV_4K_PER_sept2017.pdf'
+        source: https://www.apple.com/lae/environment/pdf/products/appletv/Apple_TV_4K_PER_sept2017.pdf
         unit: item
         usage: 29%
-      'Apple Watch Series 3 (GPS + Cellular)':
+      Apple Watch Series 3 (GPS + Cellular):
         icon: watch-fitness
         intensityKilograms: 36
-        source: 'https://www.apple.com/lae/environment/pdf/products/watch/Apple_Watch_Series3_GPSCellular_PER_sept2018.pdf'
+        source: https://www.apple.com/lae/environment/pdf/products/watch/Apple_Watch_Series3_GPSCellular_PER_sept2018.pdf
         unit: item
         usage: 15%
-      'Apple Watch Series 3 (GPS)':
+      Apple Watch Series 3 (GPS):
         icon: watch-fitness
         intensityKilograms: 28
-        source: 'https://www.apple.com/lae/environment/pdf/products/watch/Apple_Watch_Series3_GPS_PER_sept2018.pdf'
+        source: https://www.apple.com/lae/environment/pdf/products/watch/Apple_Watch_Series3_GPS_PER_sept2018.pdf
         unit: item
         usage: 20%
-      'Apple Watch Series 5 (GPS + Cellular)':
+      Apple Watch Series 5 (GPS + Cellular):
         icon: watch-fitness
         intensityKilograms: 40
-        source: 'https://www.apple.com/lae/environment/pdf/products/watch/Apple_Watch_Series5_PER_sept2019.pdf'
+        source: https://www.apple.com/lae/environment/pdf/products/watch/Apple_Watch_Series5_PER_sept2019.pdf
         unit: item
         usage: 13%
-      'Homepod':
+      Homepod:
         icon: volume  # speaker is only available in Font Awesome 5.11.0
         intensityKilograms: 146
-        source: 'https://www.apple.com/lae/environment/pdf/products/homepod/HomePod_PER_feb2018.pdf'
+        source: https://www.apple.com/lae/environment/pdf/products/homepod/HomePod_PER_feb2018.pdf
         unit: item
         usage: 41%
-      'Latitude 3150':
+      Latitude 3150:
         icon: laptop
         intensityKilograms: 216
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3150.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3150.pdf
         unit: item
         usage: 17.6%
-      'Latitude 3160':
+      Latitude 3160:
         icon: laptop
         intensityKilograms: 244
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3160.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3160.pdf
         unit: item
         usage: 27.6%
-      'Latitude 3180':
+      Latitude 3180:
         icon: laptop
         intensityKilograms: 243
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3180.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3180.pdf
         unit: item
         usage: 10.4%
-      'Latitude 3189':
+      Latitude 3189:
         icon: laptop
         intensityKilograms: 257
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3189.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3189.pdf
         unit: item
         usage: 12.1%
-      'Latitude 3190':
+      Latitude 3190:
         icon: laptop
         intensityKilograms: 226
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3190.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3190.pdf
         unit: item
         usage: 11.5%
-      'Latitude 3190 2-in-1':
+      Latitude 3190 2-in-1:
         icon: laptop
         intensityKilograms: 230
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3190-2.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3190-2.pdf
         unit: item
         usage: 12.9%
-      'Latitude 3380':
+      Latitude 3380:
         icon: laptop
         intensityKilograms: 252
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3380.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3380.pdf
         unit: item
         usage: 18.9%
-      'Latitude 3460':
+      Latitude 3460:
         icon: laptop
         intensityKilograms: 279
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3460.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3460.pdf
         unit: item
         usage: 15.1%
-      'Latitude 3470':
+      Latitude 3470:
         icon: laptop
         intensityKilograms: 286
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3470.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3470.pdf
         unit: item
         usage: 14.7%
-      'Latitude 3480':
+      Latitude 3480:
         icon: laptop
         intensityKilograms: 324
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3480.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3480.pdf
         unit: item
         usage: 24.1%
-      'Latitude 3490':
+      Latitude 3490:
         icon: laptop
         intensityKilograms: 243
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3490.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3490.pdf
         unit: item
         usage: 18.5%
-      'Latitude 3550':
+      Latitude 3550:
         icon: laptop
         intensityKilograms: 263
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3550.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3550.pdf
         unit: item
         usage: 11.8%
-      'Latitude 3560':
+      Latitude 3560:
         icon: laptop
         intensityKilograms: 298
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3560.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3560.pdf
         unit: item
         usage: 14.5%
-      'Latitude 3570':
+      Latitude 3570:
         icon: laptop
         intensityKilograms: 302
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3570.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3570.pdf
         unit: item
         usage: 14.6%
-      'Latitude 3580':
+      Latitude 3580:
         icon: laptop
         intensityKilograms: 311
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3580.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3580.pdf
         unit: item
         usage: 24.8%
-      'Latitude 3590':
+      Latitude 3590:
         icon: laptop
         intensityKilograms: 254
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3590.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-3590.pdf
         unit: item
         usage: 17.8%
-      'Latitude 5250':
+      Latitude 5250:
         icon: laptop
         intensityKilograms: 235
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5250.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5250.pdf
         unit: item
         usage: 17.2%
-      'Latitude 5280':
+      Latitude 5280:
         icon: laptop
         intensityKilograms: 225
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5280.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5280.pdf
         unit: item
         usage: 16.8%
-      'Latitude 5285 2-in-1':
+      Latitude 5285 2-in-1:
         icon: laptop
         intensityKilograms: 258
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5285.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5285.pdf
         unit: item
         usage: 20%
-      'Latitude 5289 2-in-1':
+      Latitude 5289 2-in-1:
         icon: laptop
         intensityKilograms: 259
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5289.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5289.pdf
         unit: item
         usage: 16.7%
-      'Latitude 5290':
+      Latitude 5290:
         icon: laptop
         intensityKilograms: 218
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5290.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5290.pdf
         unit: item
         usage: 20%
-      'Latitude 5290 2-in-1':
+      Latitude 5290 2-in-1:
         icon: laptop
         intensityKilograms: 268
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5290-2.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5290-2.pdf
         unit: item
         usage: 14.3%
-      'Latitude 5450':
+      Latitude 5450:
         icon: laptop
         intensityKilograms: 247
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5450.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5450.pdf
         unit: item
         usage: 16.1%
-      'Latitude 5480':
+      Latitude 5480:
         icon: laptop
         intensityKilograms: 250
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5480.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5480.pdf
         unit: item
         usage: 17.5%
-      'Latitude 5490':
+      Latitude 5490:
         icon: laptop
         intensityKilograms: 251
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5490.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5490.pdf
         unit: item
         usage: 17.6%
-      'Latitude 5491':
+      Latitude 5491:
         icon: laptop
         intensityKilograms: 254
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5491.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5491.pdf
         unit: item
         usage: 14.9%
-      'Latitude 5495':
+      Latitude 5495:
         icon: laptop
         intensityKilograms: 255
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5495.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5495.pdf
         unit: item
         usage: 20.5%
-      'Latitude 5550':
+      Latitude 5550:
         icon: laptop
         intensityKilograms: 259
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5550.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5550.pdf
         unit: item
         usage: 13.4%
-      'Latitude 5580':
+      Latitude 5580:
         icon: laptop
         intensityKilograms: 299
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5580.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5580.pdf
         unit: item
         usage: 17.4%
-      'Latitude 5590':
+      Latitude 5590:
         icon: laptop
         intensityKilograms: 271
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5590.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5590.pdf
         unit: item
         usage: 22.2%
-      'Latitude 5591':
+      Latitude 5591:
         icon: laptop
         intensityKilograms: 305
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5591.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-5591.pdf
         unit: item
         usage: 16.2%
-      'Latitude 7280':
+      Latitude 7280:
         icon: laptop
         intensityKilograms: 222
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-7280.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-7280.pdf
         unit: item
         usage: 15.4%
-      'Latitude 7285':
+      Latitude 7285:
         icon: laptop
         intensityKilograms: 282
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-7285.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-7285.pdf
         unit: item
         usage: 12.8%
-      'Latitude 7290':
+      Latitude 7290:
         icon: laptop
         intensityKilograms: 209
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-7290.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-7290.pdf
         unit: item
         usage: 14.1%
-      'Latitude 7350':
+      Latitude 7350:
         icon: laptop
         intensityKilograms: 297
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-7350.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-7350.pdf
         unit: item
         usage: 5.3%
-      'Latitude 7370':
+      Latitude 7370:
         icon: laptop
         intensityKilograms: 288
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-7370.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-7370.pdf
         unit: item
         usage: 15.1%
-      'Latitude 7380':
+      Latitude 7380:
         icon: laptop
         intensityKilograms: 259
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-7380.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-7380.pdf
         unit: item
         usage: 17.9%
-      'Latitude 7389':
+      Latitude 7389:
         icon: laptop
         intensityKilograms: 289
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-7389.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-7389.pdf
         unit: item
         usage: 16.6%
-      'Latitude 7390':
+      Latitude 7390:
         icon: laptop
         intensityKilograms: 222
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-7390.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-7390.pdf
         unit: item
         usage: 12.1%
-      'Latitude 7390 2-in-1':
+      Latitude 7390 2-in-1:
         icon: laptop
         intensityKilograms: 332
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-7390-2.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-7390-2.pdf
         unit: item
         usage: 12.4%
-      'Latitude 7480':
+      Latitude 7480:
         icon: laptop
         intensityKilograms: 249
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-7480.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-7480.pdf
         unit: item
         usage: 17.4%
-      'Latitude 7490':
+      Latitude 7490:
         icon: laptop
         intensityKilograms: 241
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-7490.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-7490.pdf
         unit: item
         usage: 12.6%
-      'Latitude E5270':
+      Latitude E5270:
         icon: laptop
         intensityKilograms: 240
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-e5270.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-e5270.pdf
         unit: item
         usage: 18.1%
-      'Latitude E5570':
+      Latitude E5570:
         icon: laptop
         intensityKilograms: 240
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-e5570.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-e5570.pdf
         unit: item
         usage: 17.4%
-      'Latitude E7250':
+      Latitude E7250:
         icon: laptop
         intensityKilograms: 223
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-e7250.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-e7250.pdf
         unit: item
         usage: 13.7%
-      'Latitude E7270':
+      Latitude E7270:
         icon: laptop
         intensityKilograms: 249
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-e7270.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-e7270.pdf
         unit: item
         usage: 19.8%
-      'Latitude E7450':
+      Latitude E7450:
         icon: laptop
         intensityKilograms: 238
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-e7450.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-e7450.pdf
         unit: item
         usage: 15.3%
-      'Latitude E7470':
+      Latitude E7470:
         icon: laptop
         intensityKilograms: 261
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-e7470.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-latitude-e7470.pdf
         unit: item
         usage: 19%
-      'Mac Pro':
+      Mac Pro:
         icon: desktop
         intensityKilograms: 1000
-        source: 'https://www.apple.com/lae/environment/pdf/products/desktops/MacPro_PER_June2017.pdf'
+        source: https://www.apple.com/lae/environment/pdf/products/desktops/MacPro_PER_June2017.pdf
         unit: item
         usage: 50%
-      'Mac mini':
+      Mac mini:
         icon: desktop
         intensityKilograms: 226
-        source: 'https://www.apple.com/lae/environment/pdf/products/desktops/Macmini_PER_oct2018.pdf'
+        source: https://www.apple.com/lae/environment/pdf/products/desktops/Macmini_PER_oct2018.pdf
         unit: item
         usage: 3%
-      'MacBook 12-inch':
+      MacBook 12-inch:
         icon: laptop
         intensityKilograms: 233
-        source: 'https://www.apple.com/environment/pdf/products/notebooks/12inch_MacBook_PER_June2019.pdf'
+        source: https://www.apple.com/environment/pdf/products/notebooks/12inch_MacBook_PER_June2019.pdf
         unit: item
         usage: 12%
-      'MacBook Air 13-inch':
+      MacBook Air 13-inch:
         icon: laptop
         intensityKilograms: 176
-        source: 'https://www.apple.com/lae/environment/pdf/products/notebooks/13-inch_MacBookAir_w_Retina_PER_June2019.pdf'
+        source: https://www.apple.com/lae/environment/pdf/products/notebooks/13-inch_MacBookAir_w_Retina_PER_June2019.pdf
         unit: item
         usage: 6%
-      'MacBook Pro 13-inch':
+      MacBook Pro 13-inch:
         icon: laptop
         intensityKilograms: 210
-        source: 'https://www.apple.com/lae/environment/pdf/products/notebooks/13-inch_MacBookPro_PER_June2019.pdf'
+        source: https://www.apple.com/lae/environment/pdf/products/notebooks/13-inch_MacBookPro_PER_June2019.pdf
         unit: item
         usage: 6%
-      'MacBook Pro 15-inch':
+      MacBook Pro 15-inch:
         icon: laptop
         intensityKilograms: 334
-        source: 'https://www.apple.com/lae/environment/pdf/products/notebooks/15-inch_MacBookPro_PER_may2019.pdf'
+        source: https://www.apple.com/lae/environment/pdf/products/notebooks/15-inch_MacBookPro_PER_may2019.pdf
         unit: item
         usage: 21%
-      'MacBook Pro 16-inch':
+      MacBook Pro 16-inch:
         icon: laptop
         intensityKilograms: 394
-        source: 'https://www.apple.com/environment/pdf/products/notebooks/16-inch_MacBookPro_PER_Nov2019.pdf'
+        source: https://www.apple.com/environment/pdf/products/notebooks/16-inch_MacBookPro_PER_Nov2019.pdf
         unit: item
         usage: 19%
-      'iMac 21.5-inch':
+      iMac 21.5-inch:
         icon: desktop
         intensityKilograms: 494
-        source: 'https://www.apple.com/lae/environment/pdf/products/desktops/21.5-inch_iMac_PER_June2017.pdf'
+        source: https://www.apple.com/lae/environment/pdf/products/desktops/21.5-inch_iMac_PER_June2017.pdf
         unit: item
         usage: 54%
-      'iMac 21.5-inch with Retina 4k':
+      iMac 21.5-inch with Retina 4k:
         icon: desktop
         intensityKilograms: 588
-        source: 'https://www.apple.com/lae/environment/pdf/products/desktops/21.5-inch_iMac_with_Retina4KDisplay_PER_Mar2019.pdf'
+        source: https://www.apple.com/lae/environment/pdf/products/desktops/21.5-inch_iMac_with_Retina4KDisplay_PER_Mar2019.pdf
         unit: item
         usage: 51%
-      'iMac 27-inch':
+      iMac 27-inch:
         icon: desktop
         intensityKilograms: 993
-        source: 'https://www.apple.com/lae/environment/pdf/products/desktops/27-inch_iMac_with_Retina5KDisplay_PER_Mar2019.pdf'
+        source: https://www.apple.com/lae/environment/pdf/products/desktops/27-inch_iMac_with_Retina5KDisplay_PER_Mar2019.pdf
         unit: item
         usage: 55%
-      'iMac Pro':
+      iMac Pro:
         icon: desktop
         intensityKilograms: 1468
-        source: 'https://www.apple.com/lae/environment/pdf/products/desktops/iMac_Pro_PER_dec2017.pdf'
+        source: https://www.apple.com/lae/environment/pdf/products/desktops/iMac_Pro_PER_dec2017.pdf
         unit: item
         usage: 54%
-      'iPad (7th generation)':
+      iPad (7th generation):
         icon: tablet
         intensityKilograms: 87
-        source: 'https://www.apple.com/lae/environment/pdf/products/ipad/iPad_PER_sept2019.pdf'
+        source: https://www.apple.com/lae/environment/pdf/products/ipad/iPad_PER_sept2019.pdf
         unit: item
         usage: 14%
-      'iPad Air (3rd generation)':
+      iPad Air (3rd generation):
         icon: tablet
         intensityKilograms: 86
-        source: 'https://www.apple.com/lae/environment/pdf/products/ipad/iPadAir_PER_Mar2019.pdf'
+        source: https://www.apple.com/lae/environment/pdf/products/ipad/iPadAir_PER_Mar2019.pdf
         unit: item
         usage: 13%
-      'iPad Pro (11-inch)':
+      iPad Pro (11-inch):
         icon: tablet
         intensityKilograms: 113
-        source: 'https://www.apple.com/lae/environment/pdf/products/ipad/iPadPro_11-inch_PER_oct2018.pdf'
+        source: https://www.apple.com/lae/environment/pdf/products/ipad/iPadPro_11-inch_PER_oct2018.pdf
         unit: item
         usage: 5%
-      'iPad Pro (12.9-inch) (3rd generation)':
+      iPad Pro (12.9-inch) (3rd generation):
         icon: tablet
         intensityKilograms: 136
-        source: 'https://www.apple.com/lae/environment/pdf/products/ipad/iPadPro_12.9-inch_PER_oct2018.pdf'
+        source: https://www.apple.com/lae/environment/pdf/products/ipad/iPadPro_12.9-inch_PER_oct2018.pdf
         unit: item
         usage: 6%
-      'iPad mini (5th generation)':
+      iPad mini (5th generation):
         icon: tablet
         intensityKilograms: 70
-        source: 'https://www.apple.com/lae/environment/pdf/products/ipad/iPadmini_PER_Mar2019.pdf'
+        source: https://www.apple.com/lae/environment/pdf/products/ipad/iPadmini_PER_Mar2019.pdf
         unit: item
         usage: 15%
-      'iPod touch':
+      iPod touch:
         icon: mobile  # 'mp3-player' only available on FontAwesome 5.11.0
         intensityKilograms: 32
-        source: 'https://www.apple.com/lae/environment/pdf/products/ipod/iPodtouch_PER_may2019.pdf'
+        source: https://www.apple.com/lae/environment/pdf/products/ipod/iPodtouch_PER_may2019.pdf
         unit: item
         usage: 6%
-      'OptiPlex 7760 All-in-One':
+      OptiPlex 7760 All-in-One:
         icon: desktop
         intensityKilograms: 720
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-optiplex-7760.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-optiplex-7760.pdf
         unit: item
         usage: 35%
-      'Dell OptiPlex XE3 Tower':
+      Dell OptiPlex XE3 Tower:
         icon: desktop
         intensityKilograms: 509
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-optiplex-XE3-tower.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-optiplex-XE3-tower.pdf
         unit: item
         usage: 50.8%
-      'Precision 3510':
+      Precision 3510:
         icon: laptop
         intensityKilograms: 331
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-3510.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-3510.pdf
         unit: item
         usage: 23%
-      'Precision 3520':
+      Precision 3520:
         icon: laptop
         intensityKilograms: 304
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-3520.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-3520.pdf
         unit: item
         usage: 16.2%
-      'Precision 3530':
+      Precision 3530:
         icon: laptop
         intensityKilograms: 335
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-3530.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-3530.pdf
         unit: item
         usage: 17.4%
-      'Precision 5520':
+      Precision 5520:
         icon: laptop
         intensityKilograms: 368
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-5520.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-5520.pdf
         unit: item
         usage: 25.7%
-      'Precision 5530':
+      Precision 5530:
         icon: laptop
         intensityKilograms: 340
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-5530.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-5530.pdf
         unit: item
         usage: 16%
-      'Precision 5530 2-in-1':
+      Precision 5530 2-in-1:
         icon: laptop
         intensityKilograms: 330
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-5530-2.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-5530-2.pdf
         unit: item
         usage: 13.8%
-      'Precision 7520':
+      Precision 7520:
         icon: laptop
         intensityKilograms: 399
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-7520.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-7520.pdf
         unit: item
         usage: 28%
-      'Precision 7720':
+      Precision 7720:
         icon: laptop
         intensityKilograms: 416
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-7720.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-7720.pdf
         unit: item
         usage: 23.1%
-      'Precision 7920':
+      Precision 7920:
         icon: desktop
         intensityKilograms: 2496
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-7920.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-precision-7920.pdf
         unit: item
         usage: 74.8%
-      'XPS 9360':
+      XPS 9360:
         icon: laptop
         intensityKilograms: 286
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-xps-9360.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-xps-9360.pdf
         unit: item
         usage: 20%
-      'XPS 9365':
+      XPS 9365:
         icon: laptop
         intensityKilograms: 287
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-xps-9365.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-xps-9365.pdf
         unit: item
         usage: 16.8%
-      'XPS 9370':
+      XPS 9370:
         icon: laptop
         intensityKilograms: 297
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-xps-9370.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-xps-9370.pdf
         unit: item
         usage: 12.4%
-      'XPS 9560':
+      XPS 9560:
         icon: laptop
         intensityKilograms: 337
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-xps-9560.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-xps-9560.pdf
         unit: item
         usage: 21.3%
-      'XPS 9570':
+      XPS 9570:
         icon: laptop
         intensityKilograms: 324
-        source: 'https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-xps-15-9570.pdf'
+        source: https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-xps-15-9570.pdf
         unit: item
         usage: 17.9%
-      'Lenovo Thinkpad 25':
+      Lenovo Thinkpad 25:
         icon: laptop
         intensityKilograms: 390
-        source: 'https://github.com/rarecoil/laptop-co2e'
+        source: https://github.com/rarecoil/laptop-co2e
         unit: item
         usage: 28%
-      'Lenovo Thinkpad 11e 5th Gen':
+      Lenovo Thinkpad 11e 5th Gen:
         icon: laptop
         intensityKilograms: 326
-        source: 'https://www.lenovo.com/us/en/social_responsibility/PCF-ThinkPad-11e-Yoga-11e-5th.pdf'
+        source: https://www.lenovo.com/us/en/social_responsibility/PCF-ThinkPad-11e-Yoga-11e-5th.pdf
         unit: item
         usage: 20%
-      'Lenovo Thinkpad A275':
+      Lenovo Thinkpad A275:
         icon: laptop
         intensityKilograms: 511
-        source: 'https://github.com/rarecoil/laptop-co2e'
+        source: https://github.com/rarecoil/laptop-co2e
         unit: item
         usage: 31%
-      'Lenovo Thinkpad A285':
+      Lenovo Thinkpad A285:
         icon: laptop
         intensityKilograms: 352
-        source: 'https://github.com/rarecoil/laptop-co2e'
+        source: https://github.com/rarecoil/laptop-co2e
         unit: item
         usage: 36%
-      'Lenovo Thinkpad A485':
+      Lenovo Thinkpad A485:
         icon: laptop
         intensityKilograms: 419
-        source: 'https://github.com/rarecoil/laptop-co2e'
+        source: https://github.com/rarecoil/laptop-co2e
         unit: item
         usage: 35%
-      'Lenovo Thinkpad L380':
+      Lenovo Thinkpad L380:
         icon: laptop
         intensityKilograms: 406
-        source: 'https://www.lenovo.com/us/en/social_responsibility/PCF-ThinkPad-L380-S2-Yoga-3rd.pdf'
+        source: https://www.lenovo.com/us/en/social_responsibility/PCF-ThinkPad-L380-S2-Yoga-3rd.pdf
         unit: item
         usage: 19%
-      'Lenovo Thinkpad L480':
+      Lenovo Thinkpad L480:
         icon: laptop
         intensityKilograms: 455
-        source: 'https://www.lenovo.com/us/en/social_responsibility/PCF-ThinkPad-L480.pdf'
+        source: https://www.lenovo.com/us/en/social_responsibility/PCF-ThinkPad-L480.pdf
         unit: item
         usage: 30%
-      'Lenovo Thinkpad L490':
+      Lenovo Thinkpad L490:
         icon: laptop
         intensityKilograms: 499
-        source: 'https://www.lenovo.com/us/en/pdf/social_responsibility/PCF_ThinkPad_L490.pdf'
+        source: https://www.lenovo.com/us/en/pdf/social_responsibility/PCF_ThinkPad_L490.pdf
         unit: item
         usage: 21%
-      'Lenovo Thinkpad P1':
+      Lenovo Thinkpad P1:
         icon: laptop
         intensityKilograms: 477
-        source: 'https://www.lenovo.com/us/en/social_responsibility/PCF_ThinkPad_P1_X1_Extreme.pdf'
+        source: https://www.lenovo.com/us/en/social_responsibility/PCF_ThinkPad_P1_X1_Extreme.pdf
         unit: item
         usage: 16%
-      'Lenovo Thinkpad P52':
+      Lenovo Thinkpad P52:
         icon: laptop
         intensityKilograms: 693
-        source: 'https://github.com/rarecoil/laptop-co2e'
+        source: https://github.com/rarecoil/laptop-co2e
         unit: item
         usage: 22%
-      'Lenovo Thinkpad P72':
+      Lenovo Thinkpad P72:
         icon: laptop
         intensityKilograms: 610
-        source: 'https://www.lenovo.com/us/en/social_responsibility/PCF_ThinkPad_P72.pdf'
+        source: https://www.lenovo.com/us/en/social_responsibility/PCF_ThinkPad_P72.pdf
         unit: item
         usage: 23%
-      'Lenovo Thinkpad P73':
+      Lenovo Thinkpad P73:
         icon: laptop
         intensityKilograms: 611
-        source: 'https://www.lenovo.com/us/en/pdf/social_responsibility/PCF_ThinkPad_P73.pdf'
+        source: https://www.lenovo.com/us/en/pdf/social_responsibility/PCF_ThinkPad_P73.pdf
         unit: item
         usage: 34%
-      'Lenovo Thinkpad X1 Carbon 4th Gen':
+      Lenovo Thinkpad X1 Carbon 4th Gen:
         icon: laptop
         intensityKilograms: 457
-        source: 'https://github.com/rarecoil/laptop-co2e'
+        source: https://github.com/rarecoil/laptop-co2e
         unit: item
         usage: 19%
-      'Lenovo Thinkpad X1 Carbon 5th Gen':
+      Lenovo Thinkpad X1 Carbon 5th Gen:
         icon: laptop
         intensityKilograms: 369
-        source: 'https://github.com/rarecoil/laptop-co2e'
+        source: https://github.com/rarecoil/laptop-co2e
         unit: item
         usage: 17%
-      'Lenovo Thinkpad X1 Carbon 6th Gen':
+      Lenovo Thinkpad X1 Carbon 6th Gen:
         icon: laptop
         intensityKilograms: 333
-        source: 'https://www.lenovo.com/us/en/social_responsibility/PCF-ThinkPad-X1-Carbon-6th.pdf'
+        source: https://www.lenovo.com/us/en/social_responsibility/PCF-ThinkPad-X1-Carbon-6th.pdf
         unit: item
         usage: 16%
-      'Lenovo Thinkpad X1 Carbon 7th Gen':
+      Lenovo Thinkpad X1 Carbon 7th Gen:
         icon: laptop
         intensityKilograms: 461
-        source: 'https://www.lenovo.com/us/en/pdf/social_responsibility/PCF_ThinkPad_X1_Carbon_X1_Carbon_LTE_7th.pdf'
+        source: https://www.lenovo.com/us/en/pdf/social_responsibility/PCF_ThinkPad_X1_Carbon_X1_Carbon_LTE_7th.pdf
         unit: item
         usage: 13%
-      'Lenovo Thinkpad X250':
+      Lenovo Thinkpad X250:
         icon: laptop
         intensityKilograms: 338
-        source: 'https://github.com/rarecoil/laptop-co2e'
+        source: https://github.com/rarecoil/laptop-co2e
         unit: item
         usage: 24%
-      'Lenovo Thinkpad X260':
+      Lenovo Thinkpad X260:
         icon: laptop
         intensityKilograms: 489
-        source: 'https://github.com/rarecoil/laptop-co2e'
+        source: https://github.com/rarecoil/laptop-co2e
         unit: item
         usage: 18%
-      'Lenovo Thinkpad X270':
+      Lenovo Thinkpad X270:
         icon: laptop
         intensityKilograms: 852
-        source: 'https://github.com/rarecoil/laptop-co2e'
+        source: https://github.com/rarecoil/laptop-co2e
         unit: item
         usage: 10%
-      'Lenovo Thinkpad X280':
+      Lenovo Thinkpad X280:
         icon: laptop
         intensityKilograms: 334
-        source: 'https://www.lenovo.com/us/en/social_responsibility/PCF-ThinkPad-X280.pdf'
+        source: https://www.lenovo.com/us/en/social_responsibility/PCF-ThinkPad-X280.pdf
         unit: item
         usage: 23%
-      'Lenovo Thinkpad X380 Yoga':
+      Lenovo Thinkpad X380 Yoga:
         icon: laptop
         intensityKilograms: 339
-        source: 'https://www.lenovo.com/us/en/social_responsibility/PCF-ThinkPad-S1-Yoga-4th-X380-Yoga.pdf'
+        source: https://www.lenovo.com/us/en/social_responsibility/PCF-ThinkPad-S1-Yoga-4th-X380-Yoga.pdf
         unit: item
         usage: 21%
-      'Lenovo Thinkpad X390':
+      Lenovo Thinkpad X390:
         icon: laptop
         intensityKilograms: 290
-        source: 'https://static.lenovo.com/ww/docs/regulatory/PCF_ThinkPad_X390.pdf'
+        source: https://static.lenovo.com/ww/docs/regulatory/PCF_ThinkPad_X390.pdf
         unit: item
         usage: 15%
   Entertainment:
     _children:
-      Amusement park:
-        icon: credit-card
-        intensityKilograms: 0.10314
-        oldKeys:
-          - PURCHASE_CATEGORY_ENTERTAINMENT_AMUSEMENT_PARKS
-        source: 'http://www.balticproject.org/en/calculator-page'
-        unit: EUR
-      Bar or nightclub:
-        icon: glass-cheers
-        intensityKilograms: 0.08105
-        oldKeys:
-          - PURCHASE_CATEGORY_ENTERTAINMENT_BAR_NIGHTCLUB
-        source: 'http://www.balticproject.org/en/calculator-page'
-        unit: EUR
-      Cinema:
-        icon: film
-        intensityKilograms: 0.02738
-        oldKeys:
-          - PURCHASE_CATEGORY_ENTERTAINMENT_MOVIE_THEATER
-        source: 'http://www.balticproject.org/en/calculator-page'
-        unit: EUR
-      Cruise:
-        icon: ship
-        intensityKilograms: 0.43479
-        oldKeys:
-          - PURCHASE_CATEGORY_ENTERTAINMENT_CRUISE_LINES
-        source: 'http://www.balticproject.org/en/calculator-page'
-        unit: EUR
-      Gambling:
-        icon: dice
-        intensityKilograms: 0.38066
-        oldKeys:
-          - PURCHASE_CATEGORY_ENTERTAINMENT_GAMBLING
-        source: 'http://www.balticproject.org/en/calculator-page'
-        unit: EUR
-      Hotel:
-        icon: credit-card
-        intensityKilograms: 0.43479
-        oldKeys:
-          - PURCHASE_CATEGORY_ENTERTAINMENT_HOTEL
-        source: 'http://www.balticproject.org/en/calculator-page'
-        unit: EUR
-      Liquor store:
+      ALCOHOLIC BEVERAGES:
         icon: wine-bottle
         intensityKilograms: 0.8061
         oldKeys:
           - PURCHASE_CATEGORY_ENTERTAINMENT_LIQUOR_STORE
-          - 'Liquor Store'
-        source: 'http://www.balticproject.org/en/calculator-page'
+          - Liquor Store
+          - Liquor store
+        source: http://www.balticproject.org/en/calculator-page
         unit: EUR
-      Tobacco store:
+        coicopCode: '2.1'
+      TOBACCO:
         icon: smoking
         intensityKilograms: 0.04627
         oldKeys:
           - PURCHASE_CATEGORY_ENTERTAINMENT_CIGAR_STORES
-        source: 'http://www.balticproject.org/en/calculator-page'
+          - Tobacco store
+        source: http://www.balticproject.org/en/calculator-page
         unit: EUR
+        coicopCode: '2.3'
+      RECREATIONAL SERVICES:
+        icon: credit-card
+        intensityKilograms: 0.10314
+        oldKeys:
+          - PURCHASE_CATEGORY_ENTERTAINMENT_AMUSEMENT_PARKS
+          - Amusement park
+          - Bar or nightclub
+          - Gambling
+        source: http://www.balticproject.org/en/calculator-page
+        unit: EUR
+        coicopCode: '9.4'
+      CULTURAL SERVICES:
+        icon: film
+        intensityKilograms: 0.02738
+        oldKeys:
+          - PURCHASE_CATEGORY_ENTERTAINMENT_MOVIE_THEATER
+          - Cinema
+        source: http://www.balticproject.org/en/calculator-page
+        unit: EUR
+        coicopCode: '9.6'
+      PACKAGE HOLIDAYS:
+        icon: ship
+        intensityKilograms: 0.43479
+        oldKeys:
+          - PURCHASE_CATEGORY_ENTERTAINMENT_CRUISE_LINES
+          - Cruise
+        source: http://www.balticproject.org/en/calculator-page
+        unit: EUR
+        coicopCode: '9.8'
+      ACCOMMODATION SERVICES:
+        icon: credit-card
+        intensityKilograms: 0.43479
+        oldKeys:
+          - PURCHASE_CATEGORY_ENTERTAINMENT_HOTEL
+          - Hotel
+        source: http://www.balticproject.org/en/calculator-page
+        unit: EUR
+        coicopCode: '11.2'
   Food:
     _children:
       Beverages:
@@ -1186,16 +1184,16 @@ _children:
           Almond milk:
             icon: glass
             intensityKilograms: 0.42
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversions:
               glass:
                 kilograms: 0.225
                 incrementStepSize: 1
           Beer:
-            icon: null
+            icon:
             intensityKilograms: 1.123
-            source: 'http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf'
+            source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             unit: kg
             conversions:
               glass:
@@ -1204,7 +1202,7 @@ _children:
           Coconut milk:
             icon: glass
             intensityKilograms: 0.42
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversions:
               glass:
@@ -1213,7 +1211,7 @@ _children:
           Coffee:
             icon: coffee
             intensityKilograms: 0.33
-            source: 'http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf'
+            source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             unit: kg
             conversions:
               cup:
@@ -1222,7 +1220,7 @@ _children:
           Juice:
             icon: glass
             intensityKilograms: 0.93
-            source: 'http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf'
+            source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             unit: kg
             conversions:
               glass:
@@ -1231,7 +1229,7 @@ _children:
           Soft drink:
             icon: glass
             intensityKilograms: 1.035
-            source: 'http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf'
+            source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             unit: kg
             conversions:
               glass:
@@ -1240,7 +1238,7 @@ _children:
           Soy milk:
             icon: glass
             intensityKilograms: 0.75
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversions:
               glass:
@@ -1249,7 +1247,7 @@ _children:
           Spirits:
             icon: glass-whiskey-rocks
             intensityKilograms: 3.144
-            source: 'http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf'
+            source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             unit: kg
             conversions:
               glass:
@@ -1258,7 +1256,7 @@ _children:
           Tea:
             icon: coffee
             intensityKilograms: 0.184
-            source: 'http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf'
+            source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             unit: kg
             conversions:
               cup:
@@ -1267,7 +1265,7 @@ _children:
           Water (bottled):
             icon: glass
             intensityKilograms: 0.215
-            source: 'http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf'
+            source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             unit: kg
             conversions:
               glass:
@@ -1276,7 +1274,7 @@ _children:
           Water (tap):
             icon: glass
             intensityKilograms: 0.001
-            source: 'http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf'
+            source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             unit: kg
             conversions:
               glass:
@@ -1285,84 +1283,84 @@ _children:
           Wine:
             icon: wine-glass-alt
             intensityKilograms: 2.344
-            source: 'http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf'
+            source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             unit: kg
             conversions:
               glass:
                 kilograms: 0.150
                 incrementStepSize: 1
-        icon: null
-        intensityKilograms: null
-        source: null
+        icon:
+        intensityKilograms:
+        source:
         unit: kg
       Dairy:
         _children:
           Butter:
-            icon: null
+            icon:
             intensityKilograms: 9.25
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Cheddar:
             icon: cheese-swiss
             intensityKilograms: 13.02
-            source: 'https://www.researchgate.net/publication/309672245_Protein_versus_global_warming_potential_-_a_meta---analysis_of_the_global_warming_potential_and_protein_ratios_for_human_food'
+            source: https://www.researchgate.net/publication/309672245_Protein_versus_global_warming_potential_-_a_meta---analysis_of_the_global_warming_potential_and_protein_ratios_for_human_food
             unit: kg
           Cheese:
             icon: cheese-swiss
             intensityKilograms: 8.55
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Cream:
-            icon: null
+            icon:
             intensityKilograms: 5.64
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Milk:
             icon: glass
             intensityKilograms: 1.29
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversions:
               glass:
                 kilograms: 0.225
                 incrementStepSize: 1
           Milk Yogurt:
-            icon: null
+            icon:
             intensityKilograms: 1.31
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Ice cream (Vanilla regular):
-            icon: null
+            icon:
             intensityKilograms: 3.75
             unit: kg
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652618332633'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652618332633
             conversions:
               scoop:
                 kilograms: 0.068
                 incrementStepSize: 1
           Ice cream (Vanilla premium):
-            icon: null
+            icon:
             intensityKilograms: 3.94
             unit: kg
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652618332633'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652618332633
             conversions:
               scoop:
                 kilograms: 0.068
                 incrementStepSize: 1
           Ice cream (Chocolate regular):
-            icon: null
+            icon:
             intensityKilograms: 3.66
             unit: kg
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652618332633'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652618332633
             conversions:
               scoop:
                 kilograms: 0.068
                 incrementStepSize: 1
           Ice cream (Chocolate premium):
-            icon: null
+            icon:
             intensityKilograms: 3.91
             unit: kg
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652618332633'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652618332633
             conversions:
               scoop:
                 kilograms: 0.068
@@ -1370,23 +1368,23 @@ _children:
           Mozzarella:
             icon: cheese-swiss
             intensityKilograms: 7.5
-            source: 'https://www.researchgate.net/publication/309672245_Protein_versus_global_warming_potential_-_a_meta---analysis_of_the_global_warming_potential_and_protein_ratios_for_human_food'
+            source: https://www.researchgate.net/publication/309672245_Protein_versus_global_warming_potential_-_a_meta---analysis_of_the_global_warming_potential_and_protein_ratios_for_human_food
             unit: kg
           Parmesan:
             icon: cheese-swiss
             intensityKilograms: 8.79
-            source: 'https://www.researchgate.net/publication/309672245_Protein_versus_global_warming_potential_-_a_meta---analysis_of_the_global_warming_potential_and_protein_ratios_for_human_food'
+            source: https://www.researchgate.net/publication/309672245_Protein_versus_global_warming_potential_-_a_meta---analysis_of_the_global_warming_potential_and_protein_ratios_for_human_food
             unit: kg
-        icon: null
-        intensityKilograms: null
-        source: null
+        icon:
+        intensityKilograms:
+        source:
         unit: kg
       Fruits:
         _children:
           Apples:
-            icon: null
+            icon:
             intensityKilograms: 0.29
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversions:
               item:
@@ -1394,24 +1392,24 @@ _children:
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Apricot:
-            icon: null
+            icon:
             intensityKilograms: 0.43
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversions:
               portion:
                 kilograms: 0.025
                 incrementStepSize: 1
-                source: 'https://www.yazio.com/de/kalorientabelle/aprikose-frisch.html'
+                source: https://www.yazio.com/de/kalorientabelle/aprikose-frisch.html
                 default: true
               item:
                 kilograms: 0.05
                 incrementStepSize: 1
-                source: 'https://www.yazio.com/de/kalorientabelle/aprikose-frisch.html'
+                source: https://www.yazio.com/de/kalorientabelle/aprikose-frisch.html
           Bananas:
-            icon: null
+            icon:
             intensityKilograms: 0.72
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversions:
               item:
@@ -1419,19 +1417,19 @@ _children:
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Blueberry:
-            icon: null
+            icon:
             intensityKilograms: 0.92
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversions:
               portion:
                 kilograms: 0.045
                 incrementStepSize: 1
-                source: 'https://www.yazio.com/de/kalorientabelle/blaubeeren-frisch.html'
+                source: https://www.yazio.com/de/kalorientabelle/blaubeeren-frisch.html
           Blackberry:
-            icon: null
+            icon:
             intensityKilograms: 0.599
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
             conversions:
               portion:
@@ -1439,9 +1437,9 @@ _children:
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Blackcurrant:
-            icon: null
+            icon:
             intensityKilograms: 0.29
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversions:
               portion:
@@ -1449,134 +1447,134 @@ _children:
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Boysenberry:
-            icon: null
+            icon:
             intensityKilograms: 0.599
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
           Cantaloupe:
-            icon: null
+            icon:
             intensityKilograms: 0.490
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
             conversions:
               portion:
                 kilograms: 0.069
                 incrementStepSize: 1
-                source: 'https://www.yazio.com/en/foods/cantaloupe-melon.html'
+                source: https://www.yazio.com/en/foods/cantaloupe-melon.html
                 default: true
               item:
                 kilograms: 0.35
                 incrementStepSize: 1
-                source: 'https://www.yazio.com/en/foods/cantaloupe-melon.html'
+                source: https://www.yazio.com/en/foods/cantaloupe-melon.html
           Cherries:
-            icon: null
+            icon:
             intensityKilograms: 0.39
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversions:
               portion:
                 kilograms: 0.08
                 incrementStepSize: 1
-                source: 'https://www.yazio.com/en/foods/cherries.html'
+                source: https://www.yazio.com/en/foods/cherries.html
                 default: true
               item:
                 kilograms: 0.008
                 incrementStepSize: 1
-                source: 'https://www.yazio.com/en/foods/cherries.html'
+                source: https://www.yazio.com/en/foods/cherries.html
           Cinnamon:
-            icon: null
+            icon:
             intensityKilograms: 1.87
-            source: 'http://assets.wwf.org.uk/downloads/how_low_report_1.pdf'
+            source: http://assets.wwf.org.uk/downloads/how_low_report_1.pdf
             unit: kg
           Cranberries:
-            icon: null
+            icon:
             intensityKilograms: 0.92
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversions:
               portion:
                 kilograms: 0.03
                 incrementStepSize: 1
-                source: 'https://www.yazio.com/de/kalorientabelle/preiselbeeren-frisch.html'
+                source: https://www.yazio.com/de/kalorientabelle/preiselbeeren-frisch.html
                 default: true
               item:
                 kilograms: 0.003
                 incrementStepSize: 1
-                source: 'https://www.yazio.com/de/kalorientabelle/preiselbeeren-frisch.html'
+                source: https://www.yazio.com/de/kalorientabelle/preiselbeeren-frisch.html
           Coconut:  # this refers to the coconut meat of the study
-            icon: null
+            icon:
             intensityKilograms: 1.521
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
             conversions:
               portion:
                 kilograms: 0.08
                 incrementStepSize: 1
-                source: 'https://www.yazio.com/en/foods/coconut-meat.html'
+                source: https://www.yazio.com/en/foods/coconut-meat.html
                 default: true
               item:
                 kilograms: 0.397
                 incrementStepSize: 1
-                source: 'https://www.yazio.com/en/foods/coconut-meat.html'
+                source: https://www.yazio.com/en/foods/coconut-meat.html
           Currants:
-            icon: null
+            icon:
             intensityKilograms: 0.84
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversions:
               portion:
                 kilograms: 0.03
                 incrementStepSize: 1
-                source: 'https://www.yazio.com/de/kalorientabelle/johannisbeeren-schwarz-frisch.html'
+                source: https://www.yazio.com/de/kalorientabelle/johannisbeeren-schwarz-frisch.html
                 default: true
               currant:
                 kilograms: 0.003
                 incrementStepSize: 1
-                source: 'https://www.yazio.com/de/kalorientabelle/johannisbeeren-schwarz-frisch.html'
+                source: https://www.yazio.com/de/kalorientabelle/johannisbeeren-schwarz-frisch.html
           Dates:
-            icon: null
+            icon:
             intensityKilograms: 0.32
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversion:
               portion:
                 kilograms: 0.035
                 incrementStepSize: 1
-                source: 'https://www.yazio.com/de/kalorientabelle/datteln.html'
+                source: https://www.yazio.com/de/kalorientabelle/datteln.html
                 default: true
               item:
                 kilograms: 0.007
                 incrementStepSize: 1
-                source: 'https://www.yazio.com/de/kalorientabelle/datteln.html'
+                source: https://www.yazio.com/de/kalorientabelle/datteln.html
           Figs:
-            icon: null
+            icon:
             intensityKilograms: 0.43
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversion:
               item:
                 kilograms: 0.048
                 incrementStepSize: 1
-                source: 'https://www.yazio.com/de/kalorientabelle/feigen-frisch.html'
+                source: https://www.yazio.com/de/kalorientabelle/feigen-frisch.html
           Gooseberries:
-            icon: null
+            icon:
             intensityKilograms: 0.84
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversion:
               portion:
                 kilograms: 0.04
                 incrementStepSize: 1
-                source: 'https://www.yazio.com/de/kalorientabelle/datteln.html'
+                source: https://www.yazio.com/de/kalorientabelle/datteln.html
                 default: true
               item:
                 kilograms: 0.004
                 incrementStepSize: 1
-                source: 'https://www.yazio.com/de/kalorientabelle/stachelbeeren-frisch.html'
+                source: https://www.yazio.com/de/kalorientabelle/stachelbeeren-frisch.html
           Grapefruit:
-            icon: null
+            icon:
             intensityKilograms: 0.51
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversions:
               portion:
@@ -1584,9 +1582,9 @@ _children:
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Grapes:
-            icon: null
+            icon:
             intensityKilograms: 0.37
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversions:
               portion:
@@ -1594,24 +1592,24 @@ _children:
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Grapes (raisins):
-            icon: null
+            icon:
             intensityKilograms: 0.684
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
           Guavas:
-            icon: null
+            icon:
             intensityKilograms: 0.28
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversion:
               item:
                 kilograms: 0.055
                 incrementStepSize: 1
-                source: 'https://www.yazio.com/en/foods/guava.html'
+                source: https://www.yazio.com/en/foods/guava.html
           Kiwi:
-            icon: null
+            icon:
             intensityKilograms: 0.36
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversions:
               item:
@@ -1619,84 +1617,84 @@ _children:
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Kumquat:
-            icon: null
+            icon:
             intensityKilograms: 0.320
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
             conversion:
               portion:
                 kilograms: 0.095
                 incrementStepSize: 1
-                source: 'https://www.yazio.com/de/kalorientabelle/datteln.html'
+                source: https://www.yazio.com/de/kalorientabelle/datteln.html
                 default: true
               item:
                 kilograms: 0.019
                 incrementStepSize: 1
-                source: 'https://www.yazio.com/en/foods/kumquat.html'
+                source: https://www.yazio.com/en/foods/kumquat.html
           Lemons:
-            icon: null
+            icon:
             intensityKilograms: 0.26
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversion:
               item:
                 kilograms: 0.058
                 incrementStepSize: 1
-                source: 'https://www.yazio.com/de/kalorientabelle/zitrone-ohne-schale-frisch.html'
+                source: https://www.yazio.com/de/kalorientabelle/zitrone-ohne-schale-frisch.html
           Limes:
-            icon: null
+            icon:
             intensityKilograms: 0.26
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversion:
               item:
                 kilograms: 0.067
                 incrementStepSize: 1
-                source: 'https://www.yazio.com/de/kalorientabelle/limette-limone-frisch.html'
+                source: https://www.yazio.com/de/kalorientabelle/limette-limone-frisch.html
           Lychee:
-            icon: null
+            icon:
             intensityKilograms: 0.893
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
             conversion:
               portion:
                 kilograms: 0.060
                 incrementStepSize: 1
-                source: 'https://www.yazio.com/en/foods/lychee.html'
+                source: https://www.yazio.com/en/foods/lychee.html
                 default: true
               item:
                 kilograms: 0.0096
                 incrementStepSize: 1
-                source: 'https://www.yazio.com/en/foods/lychee.html'
+                source: https://www.yazio.com/en/foods/lychee.html
           Mandarin:
-            icon: null
+            icon:
             intensityKilograms: 0.45
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversion:
               item:
                 kilograms: 0.105
                 incrementStepSize: 1
-                source: 'https://www.yazio.com/de/kalorientabelle/mandarine-frisch.html'
+                source: https://www.yazio.com/de/kalorientabelle/mandarine-frisch.html
           Mango:
-            icon: null
+            icon:
             intensityKilograms: 0.639
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
             conversion:
               portion:
                 kilograms: 0.168
                 incrementStepSize: 1
-                source: 'https://www.yazio.com/en/foods/mango.html'
+                source: https://www.yazio.com/en/foods/mango.html
                 default: true
               item:
                 kilograms: 0.336
                 incrementStepSize: 1
-                source: 'https://www.yazio.com/en/foods/mango.html'
+                source: https://www.yazio.com/en/foods/mango.html
           Melons:
-            icon: null
+            icon:
             intensityKilograms: 0.25
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversions:
               portion:
@@ -1704,19 +1702,19 @@ _children:
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Nectarines:
-            icon: null
+            icon:
             intensityKilograms: 0.43
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversion:
               item:
                 kilograms: 0.125
                 incrementStepSize: 1
-                source: 'https://www.yazio.com/de/kalorientabelle/nektarine-frisch.html'
+                source: https://www.yazio.com/de/kalorientabelle/nektarine-frisch.html
           Orange:
-            icon: null
+            icon:
             intensityKilograms: 0.33
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversions:
               item:
@@ -1724,34 +1722,34 @@ _children:
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Papaya:
-            icon: null
+            icon:
             intensityKilograms: 0.216
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
             conversion:
               portion:
                 kilograms: 0.125
                 incrementStepSize: 1
-                source: 'https://www.yazio.com/en/foods/papaya.html'
+                source: https://www.yazio.com/en/foods/papaya.html
                 default: true
               item:
                 kilograms: 0.500
                 incrementStepSize: 1
-                source: 'https://www.yazio.com/en/foods/papaya.html'
+                source: https://www.yazio.com/en/foods/papaya.html
           Passion fruit:
-            icon: null
+            icon:
             intensityKilograms: 1.663
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
             conversion:
               item:
                 kilograms: 0.0018
                 incrementStepSize: 1
-                source: 'https://www.yazio.com/en/foods/passion-fruit.html'
+                source: https://www.yazio.com/en/foods/passion-fruit.html
           Peaches:
-            icon: null
+            icon:
             intensityKilograms: 0.43
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversions:
               item:
@@ -1759,9 +1757,9 @@ _children:
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Pears:
-            icon: null
+            icon:
             intensityKilograms: 0.31
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversions:
               item:
@@ -1769,19 +1767,19 @@ _children:
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Pineapples:
-            icon: null
+            icon:
             intensityKilograms: 0.5
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversions:
               portion:
                 kilograms: 0.08
                 incrementStepSize: 1
-                source: 'https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf'
+                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Plum:
-            icon: null
+            icon:
             intensityKilograms: 0.576
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
             conversions:
               item:
@@ -1789,39 +1787,39 @@ _children:
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Pomegranate:
-            icon: null
+            icon:
             intensityKilograms: 0.462
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
             conversions:
               portion:
                 kilograms: 0.141
                 incrementStepSize: 1
-                source: 'https://www.yazio.com/en/foods/pomegranate.html'
+                source: https://www.yazio.com/en/foods/pomegranate.html
                 default: true
               pomegranate:
                 kilograms: 0.282
                 incrementStepSize: 1
-                source: 'https://www.yazio.com/en/foods/pomegranate.html'
+                source: https://www.yazio.com/en/foods/pomegranate.html
           Pomelo:
-            icon: null
+            icon:
             intensityKilograms: 0.51
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversion:
               portion:
                 kilograms: 0.06
                 incrementStepSize: 1
-                source: 'https://www.yazio.com/de/kalorientabelle/pomelo-frisch.html'
+                source: https://www.yazio.com/de/kalorientabelle/pomelo-frisch.html
                 default: true
               item:
                 kilograms: 0.120
                 incrementStepSize: 1
-                source: 'https://www.yazio.com/de/kalorientabelle/pomelo-frisch.html'
+                source: https://www.yazio.com/de/kalorientabelle/pomelo-frisch.html
           Prunes:
-            icon: null
+            icon:
             intensityKilograms: 0.273
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
             conversions:
               item:
@@ -1829,19 +1827,19 @@ _children:
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Quinces:
-            icon: null
+            icon:
             intensityKilograms: 0.31
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversion:
               item:
                 kilograms: 0.092
                 incrementStepSize: 1
-                source: 'https://www.yazio.com/de/kalorientabelle/quitte-frisch.html'
+                source: https://www.yazio.com/de/kalorientabelle/quitte-frisch.html
           Raspberries:
-            icon: null
+            icon:
             intensityKilograms: 0.84
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversions:
               portion:
@@ -1849,9 +1847,9 @@ _children:
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Rhubarb:
-            icon: null
+            icon:
             intensityKilograms: 1.528
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
             conversions:
               portion:
@@ -1859,9 +1857,9 @@ _children:
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Strawberries:
-            icon: null
+            icon:
             intensityKilograms: 0.58
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversions:
               portion:
@@ -1869,102 +1867,102 @@ _children:
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Tangerines:
-            icon: null
+            icon:
             intensityKilograms: 0.51
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversion:
               item:
                 kilograms: 0.105
                 incrementStepSize: 1
-                source: 'https://www.yazio.com/de/kalorientabelle/mandarine-frisch.html'
+                source: https://www.yazio.com/de/kalorientabelle/mandarine-frisch.html
           Vanilla:
-            icon: null
+            icon:
             intensityKilograms: 13.71
-            source: 'http://assets.wwf.org.uk/downloads/how_low_report_1.pdf'
+            source: http://assets.wwf.org.uk/downloads/how_low_report_1.pdf
             unit: kg
           Watermelon:
-            icon: null
+            icon:
             intensityKilograms: 0.32
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversion:
               portion:
                 kilograms: 0.150
                 incrementStepSize: 1
-                source: 'https://www.yazio.com/de/kalorientabelle/wassermelone-frisch.html'
+                source: https://www.yazio.com/de/kalorientabelle/wassermelone-frisch.html
                 default: true
               item:
                 kilograms: 2.5
                 incrementStepSize: 1
-                source: 'https://www.yazio.com/de/kalorientabelle/wassermelone-frisch.html'
+                source: https://www.yazio.com/de/kalorientabelle/wassermelone-frisch.html
         icon: lemon
         intensityKilograms: 0.52
         oldKeys:
           - Fruit
-        source: 'http://www.greeneatz.com/foods-carbon-footprint.html'
+        source: http://www.greeneatz.com/foods-carbon-footprint.html
         unit: kg
       Grains:
         _children:
           Barley:
-            icon: null
+            icon:
             intensityKilograms: 0.43
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Beans/tofu:
             icon: burrito
             intensityKilograms: 2
-            source: 'From http://www.greeneatz.com/foods-carbon-footprint.html'
+            source: From http://www.greeneatz.com/foods-carbon-footprint.html
             unit: kg
           Butter beans:
-            icon: null
+            icon:
             intensityKilograms: 0.39
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Chick peas:
-            icon: null
+            icon:
             intensityKilograms: 0.77
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Corn:
-            icon: null
+            icon:
             intensityKilograms: 0.47
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Dry beans:
-            icon: null
+            icon:
             intensityKilograms: 2
-            source: 'http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf'
+            source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
             unit: kg
           Green beans:
-            icon: null
+            icon:
             intensityKilograms: 0.31
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Lentils:
-            icon: null
+            icon:
             intensityKilograms: 1.03
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Morning cereals:
-            icon: null
+            icon:
             intensityKilograms: 0.864
-            source: 'From http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf'
+            source: From http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             unit: kg
           Oats:
-            icon: null
+            icon:
             intensityKilograms: 0.38
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Pasta:
             icon: wheat
             intensityKilograms: 1.2
-            source: 'From https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf'
+            source: From https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
             unit: kg
           Peas:
-            icon: null
+            icon:
             intensityKilograms: 0.38
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversions:
               portion:
@@ -1972,440 +1970,440 @@ _children:
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Quinoa:
-            icon: null
+            icon:
             intensityKilograms: 1.15
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Rice:
             icon: soup
             intensityKilograms: 2.55
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Rye:
-            icon: null
+            icon:
             intensityKilograms: 0.38
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Rye bread:
             icon: bread-loaf
             intensityKilograms: 0.93
-            source: 'From http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf'
+            source: From http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             unit: kg
           Sesame seeds:
-            icon: null
+            icon:
             intensityKilograms: 0.88
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Sesame (oil):
-            icon: null
+            icon:
             intensityKilograms: 2.334
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
           Soybean:
-            icon: null
+            icon:
             intensityKilograms: 0.49
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Sunflower seed:
-            icon: null
+            icon:
             intensityKilograms: 1.41
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Tofu:
-            icon: null
+            icon:
             intensityKilograms: 2
-            source: 'http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf'
+            source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
             unit: kg
           Wheat:
-            icon: null
+            icon:
             intensityKilograms: 0.52
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Wheat (flour):
-            icon: null
+            icon:
             intensityKilograms: 0.358
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
           White bread:
             icon: bread-loaf
             intensityKilograms: 1.054
-            source: 'From http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf'
+            source: From http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
             unit: kg
-        icon: null
-        intensityKilograms: null
-        source: null
+        icon:
+        intensityKilograms:
+        source:
         unit: kg
       Meat:
         _children:
           Beef:
             icon: steak
             intensityKilograms: 26.61
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Buffalo:
-            icon: null
+            icon:
             intensityKilograms: 60.43
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Chicken:
             icon: drumstick
             intensityKilograms: 3.65
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Duck:
-            icon: null
+            icon:
             intensityKilograms: 3.09
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Eggs:
             icon: egg
             intensityKilograms: 3.46
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversions:
               item:
                 kilograms: 0.057
                 incrementStepSize: 1
-                source: 'https://web.extension.illinois.edu/eggs/res16-egg.html'
+                source: https://web.extension.illinois.edu/eggs/res16-egg.html
                 default: true
           Ham:
             icon: pig
             intensityKilograms: 4.453
-            source: 'https://link.springer.com/article/10.1007/s11367-018-1460-x#MOESM1'
+            source: https://link.springer.com/article/10.1007/s11367-018-1460-x#MOESM1
             unit: kg
           Lamb:
             icon: sheep
             intensityKilograms: 25.58
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Pork:
             icon: pig
             intensityKilograms: 5.74
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Rabbit:
-            icon: null
+            icon:
             intensityKilograms: 4.7
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Turkey:
             icon: turkey
             intensityKilograms: 7.17
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
         icon: lemon
-        intensityKilograms: null
-        source: 'http://www.greeneatz.com/foods-carbon-footprint.html'
+        intensityKilograms:
+        source: http://www.greeneatz.com/foods-carbon-footprint.html
         unit: kg
       Miscellaneous:
         _children:
           Yeast:
-            icon: null
+            icon:
             intensityKilograms: 0.96
-            source: 'https://link.springer.com/article/10.1007/s11367-018-1460-x#MOESM1'
+            source: https://link.springer.com/article/10.1007/s11367-018-1460-x#MOESM1
             unit: kg
           Baking soda:
-            icon: null
+            icon:
             intensityKilograms: 0.0261
-            source: 'https://epdturkey.org/wp-content/uploads/eti_soda_iso_14025.pdf'
+            source: https://epdturkey.org/wp-content/uploads/eti_soda_iso_14025.pdf
             unit: kg
           Salt:
-            icon: null
+            icon:
             intensityKilograms: 0.3
-            source: 'https://link.springer.com/article/10.1007/s11367-018-1460-x#MOESM1'
+            source: https://link.springer.com/article/10.1007/s11367-018-1460-x#MOESM1
             unit: kg
       Nuts:
         _children:
           Almonds:
-            icon: null
+            icon:
             intensityKilograms: 1.54
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Cashew nut:
-            icon: null
+            icon:
             intensityKilograms: 1.44
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Chestnuts:
-            icon: null
+            icon:
             intensityKilograms: 0.43
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Hazelnuts:
-            icon: null
+            icon:
             intensityKilograms: 0.97
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Macadamia nuts:
-            icon: null
+            icon:
             intensityKilograms: 2.057
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
           Pecan nuts:
-            icon: null
+            icon:
             intensityKilograms: 2.057
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
           Peanut butter:
-            icon: null
+            icon:
             intensityKilograms: 2.3
-            source: 'http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf'
+            source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
             unit: kg
             oldKeys:
               - Peanut Butter
           Peanuts:
-            icon: null
+            icon:
             intensityKilograms: 0.83
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Pine nuts:
-            icon: null
+            icon:
             intensityKilograms: 2.057
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
           Pistachios:
-            icon: null
+            icon:
             intensityKilograms: 1.53
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Walnuts:
-            icon: null
+            icon:
             intensityKilograms: 1.51
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
         icon: acorn
         intensityKilograms: 2.3
-        source: 'http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf'
+        source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
         unit: kg
       Sweets:
         _children:
           Chocolate:
-            icon: null
+            icon:
             intensityKilograms: 11.250
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
           Cocoa powder:
-            icon: null
+            icon:
             intensityKilograms: 33.647
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
           Honey:
-            icon: null
+            icon:
             intensityKilograms: 2.440
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
           Maple syrup:
-            icon: null
+            icon:
             intensityKilograms: 6.754
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
             conversions:
               mL:
                 kilograms: 0.075
                 incrementStepSize: 50
-                source: 'http://convert-to.com/571/maple-syrup-amounts-conversion-plus-nutritional-facts.html'
+                source: http://convert-to.com/571/maple-syrup-amounts-conversion-plus-nutritional-facts.html
           Sugar (sugarcane):
-            icon: null
+            icon:
             intensityKilograms: 0.700
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
           Sugar (beet):
-            icon: null
+            icon:
             intensityKilograms: 0.391
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
       Seafood:
         _children:
           Anglerfish:
             icon: fish
             intensityKilograms: 12.29
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Brill:
             icon: fish
             intensityKilograms: 8.41
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Canned Tuna:
             icon: fish
             intensityKilograms: 6.1
-            source: 'http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf'
+            source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
             unit: kg
           Carp:
             icon: fish
             intensityKilograms: 1.76
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Clams:
-            icon: null
+            icon:
             intensityKilograms: 0.1
-            source: 'From https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf'
+            source: From https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
             unit: kg
           Cod:
             icon: fish
             intensityKilograms: 3.51
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Common Ling:
             icon: fish
             intensityKilograms: 6.45
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Eel:
             icon: fish
             intensityKilograms: 3.88
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Farmed Salmon:
             icon: fish
             intensityKilograms: 11.9
-            source: 'http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf'
+            source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
             unit: kg
           Fish (all species):
             icon: fish
             intensityKilograms: 3.49
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Flatfish:
             icon: fish
             intensityKilograms: 6.2
-            source: 'From https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf'
+            source: From https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
             unit: kg
           Haddock:
             icon: fish
             intensityKilograms: 3.41
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Hake:
             icon: fish
             intensityKilograms: 9.77
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Herring:
             icon: fish
             intensityKilograms: 1.16
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Lobster:
-            icon: null
+            icon:
             intensityKilograms: 27.8
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Mackerel:
             icon: fish
             intensityKilograms: 1.8
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Megrim:
             icon: fish
             intensityKilograms: 14.15
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Mussels:
-            icon: null
+            icon:
             intensityKilograms: 9.51
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Octopus/squid/cuttlefish:
-            icon: null
+            icon:
             intensityKilograms: 7.13
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Pollock:
             icon: fish
             intensityKilograms: 1.61
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Pomfret:
             icon: fish
             intensityKilograms: 6.63
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Porbeagle:
             icon: fish
             intensityKilograms: 11.44
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Prawns/shrimp:
-            icon: null
+            icon:
             intensityKilograms: 7.8
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Rock fish:
             icon: fish
             intensityKilograms: 6.94
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Salmon:
             icon: fish
             intensityKilograms: 3.47
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Sea bass:
             icon: fish
             intensityKilograms: 3.27
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Shrimp (Fresh):
-            icon: null
+            icon:
             intensityKilograms: 3
-            source: 'https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf'
+            source: https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
             unit: kg
           Shrimp (Frozen):
-            icon: null
+            icon:
             intensityKilograms: 10.5
-            source: 'https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf'
+            source: https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
             unit: kg
           Sole:
             icon: fish
             intensityKilograms: 20.86
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Swordfish:
             icon: fish
             intensityKilograms: 12.84
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Trout:
             icon: fish
             intensityKilograms: 4.2
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Tuna:
             icon: fish
             intensityKilograms: 2.15
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Turbot:
             icon: fish
             intensityKilograms: 14.51
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Whiting:
             icon: fish
             intensityKilograms: 2.66
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
         icon: fish
         intensityKilograms: 3.49
-        source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+        source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
         unit: kg
       Vegetables:
         _children:
           Artichokes:
-            icon: null
+            icon:
             intensityKilograms: 0.48
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Aspargus:
-            icon: null
+            icon:
             intensityKilograms: 0.83
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Avocados:
-            icon: null
+            icon:
             intensityKilograms: 1.3
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversions:
               item:
@@ -2413,24 +2411,24 @@ _children:
                 incrementStepSize: 1
                 source: https://www.yazio.com/en/foods/avocado.html
           Basil (dried):
-            icon: null
+            icon:
             intensityKilograms: 2.495
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
           Basil (fresh):
-            icon: null
+            icon:
             intensityKilograms: 0.221
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
           Beetroot:
-            icon: null
+            icon:
             intensityKilograms: 0.24
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Broccoli:
-            icon: null
+            icon:
             intensityKilograms: 2
-            source: 'http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf'
+            source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
             unit: kg
             conversions:
               portion:
@@ -2438,9 +2436,9 @@ _children:
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Brussels sprouts:
-            icon: null
+            icon:
             intensityKilograms: 0.490
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
             conversions:
               portion:
@@ -2448,9 +2446,9 @@ _children:
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Carrots:
-            icon: null
+            icon:
             intensityKilograms: 0.2
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversions:
               item:
@@ -2458,9 +2456,9 @@ _children:
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Cabbage:
-            icon: null
+            icon:
             intensityKilograms: 0.45
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversions:
               portion:
@@ -2468,9 +2466,9 @@ _children:
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Cauliflowers:
-            icon: null
+            icon:
             intensityKilograms: 0.45
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversions:
               portion:
@@ -2478,25 +2476,25 @@ _children:
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Celery:
-            icon: null
+            icon:
             intensityKilograms: 0.18
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Cilantro:
-            icon: null
+            icon:
             intensityKilograms: 0.261
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Chive:
-            icon: null
+            icon:
             intensityKilograms: 0.221
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
           Courgette:
             # remember to update Zucchini as well
-            icon: null
+            icon:
             intensityKilograms: 0.21
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversions:
               portion:
@@ -2504,9 +2502,9 @@ _children:
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Cucumbers:
-            icon: null
+            icon:
             intensityKilograms: 0.23
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversions:
               portion:
@@ -2514,55 +2512,55 @@ _children:
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Dill:
-            icon: null
+            icon:
             intensityKilograms: 0.221
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
           Endive:
-            icon: null
+            icon:
             intensityKilograms: 0.065
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
           Eggplants:
-            icon: null
+            icon:
             intensityKilograms: 1.35
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Fennel:
-            icon: null
+            icon:
             intensityKilograms: 0.48
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Garlic:
-            icon: null
+            icon:
             intensityKilograms: 0.57
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Green onion:
            # remember to update Scallion as well
-            icon: null
+            icon:
             intensityKilograms: 0.085
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
           Ginger:
-            icon: null
+            icon:
             intensityKilograms: 0.88
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Horseradish:
-            icon: null
+            icon:
             intensityKilograms: 0.88
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
           Kale:
-            icon: null
+            icon:
             intensityKilograms: 0.193
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
           Leek:
-            icon: null
+            icon:
             intensityKilograms: 0.45
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversions:
               portion:
@@ -2570,9 +2568,9 @@ _children:
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Lettuce:
-            icon: null
+            icon:
             intensityKilograms: 0.220
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
             conversions:
               portion:
@@ -2580,9 +2578,9 @@ _children:
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Mushrooms:
-            icon: null
+            icon:
             intensityKilograms: 0.27
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversions:
               portion:
@@ -2590,24 +2588,24 @@ _children:
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Nutmeg:
-            icon: null
+            icon:
             intensityKilograms: 4.82
-            source: 'http://assets.wwf.org.uk/downloads/how_low_report_1.pdf'
+            source: http://assets.wwf.org.uk/downloads/how_low_report_1.pdf
             unit: kg
           Olives:
-            icon: null
+            icon:
             intensityKilograms: 0.63
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Olive (oil):
-            icon: null
+            icon:
             intensityKilograms: 3.206
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
           Onion:
-            icon: null
+            icon:
             intensityKilograms: 0.17
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversions:
               portion:
@@ -2615,14 +2613,14 @@ _children:
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Parsley:
-            icon: null
+            icon:
             intensityKilograms: 0.232
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
           Parsnip:
-            icon: null
+            icon:
             intensityKilograms: 0.243
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
             conversions:
               portion:
@@ -2630,9 +2628,9 @@ _children:
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Peppers:
-            icon: null
+            icon:
             intensityKilograms: 0.66
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversions:
               portion:
@@ -2640,19 +2638,19 @@ _children:
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Potatoes:
-            icon: null
+            icon:
             intensityKilograms: 0.18
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Pumpkins:
-            icon: null
+            icon:
             intensityKilograms: 0.25
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
           Rutabage:
-            icon: null
+            icon:
             intensityKilograms: 0.29
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversions:
               portion:
@@ -2661,19 +2659,19 @@ _children:
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Scallion:
            # remember to update Green Onion as well
-            icon: null
+            icon:
             intensityKilograms: 0.085
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
           Shallot:
-            icon: null
+            icon:
             intensityKilograms: 0.275
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
           Spinach:
-            icon: null
+            icon:
             intensityKilograms: 0.54
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversions:
               portion:
@@ -2681,14 +2679,14 @@ _children:
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Sweet potatoes:
-            icon: null
+            icon:
             intensityKilograms: 0.302
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
           Tomatoes:
-            icon: null
+            icon:
             intensityKilograms: 0.45
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversions:
               tomato:
@@ -2696,30 +2694,30 @@ _children:
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
           Tomatoe ketchup:
-            icon: null
+            icon:
             intensityKilograms: 0.747
-            source: 'https://link.springer.com/article/10.1007/s11367-018-1460-x#MOESM1'
+            source: https://link.springer.com/article/10.1007/s11367-018-1460-x#MOESM1
             unit: kg
           Turmeric:
-            icon: null
+            icon:
             intensityKilograms: 0.213
-            source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
+            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
             unit: kg
           Vegetable oil:
-            icon: null
+            icon:
             intensityKilograms: 3.740
-            source: 'https://link.springer.com/article/10.1007/s11367-018-1460-x#MOESM1'
+            source: https://link.springer.com/article/10.1007/s11367-018-1460-x#MOESM1
             unit: kg
           Vinegar:
-            icon: null
+            icon:
             intensityKilograms: 1.327
-            source: 'https://link.springer.com/article/10.1007/s11367-018-1460-x#MOESM1'
+            source: https://link.springer.com/article/10.1007/s11367-018-1460-x#MOESM1
             unit: kg
           Zucchini:
             # remember to update Courgette as well
-            icon: null
+            icon:
             intensityKilograms: 0.21
-            source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             conversions:
               portion:
@@ -2728,31 +2726,153 @@ _children:
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
         icon: carrot
         intensityKilograms: 1.32
-        source: 'https://orbit.dtu.dk/ws/files/110722384/Climate_friendly_dietary_guidelines.pdf'
+        source: https://orbit.dtu.dk/ws/files/110722384/Climate_friendly_dietary_guidelines.pdf
         unit: kg
-  Fuel:
+  Healthcare:
+    _children:
+      MEDICINES AND HEALTH PRODUCTS:
+        icon: pills
+        intensityKilograms: 0.04387
+        oldKeys:
+          - PURCHASE_CATEGORY_HEALTHCARE_PHARMARCY
+          - Drug store or pharmacy
+        source: http://www.balticproject.org/en/calculator-page
+        unit: EUR
+        coicopCode: '6.1'
+      OUTPATIENT CARE SERVICES:
+        icon: user-md
+        intensityKilograms: 0.05675
+        oldKeys:
+          - PURCHASE_CATEGORY_HEALTHCARE_DOCTOR
+          - Doctor
+        source: http://www.balticproject.org/en/calculator-page
+        unit: EUR
+        coicopCode: '6.2'
+  Stores:
+    _children:
+      Hardware:
+        icon: tools
+        intensityKilograms: 0.03566
+        oldKeys:
+          - PURCHASE_CATEGORY_STORE_HARDWARE
+        source: http://www.balticproject.org/en/calculator-page
+        unit: EUR
+      FOOD AND NON-ALCOHOLIC BEVERAGES:
+        icon: shopping-cart
+        intensityKilograms: 0.04902
+        oldKeys:
+          - PURCHASE_CATEGORY_FOOD_SUPERMARKET
+          - Grocery store
+        source: http://www.balticproject.org/en/calculator-page
+        unit: EUR
+        coicopCode: '1'
+      Cereals and cereal products (ND):
+        icon: bread-loaf
+        intensityKilograms: 0.06334
+        oldKeys:
+          - PURCHASE_CATEGORY_FOOD_BAKERY
+          - Bakery
+        source: http://www.balticproject.org/en/calculator-page
+        unit: EUR
+        coicopCode: 01.1.1
+      CLOTHING:
+        icon: tshirt
+        intensityKilograms: 0.0296
+        oldKeys:
+          - PURCHASE_CATEGORY_STORE_CLOTHING
+          - Clothing
+          - Department store
+        source: http://www.balticproject.org/en/calculator-page
+        unit: EUR
+        coicopCode: '3.1'
+      Furniture, furnishings and loose carpets (D):
+        icon: credit-card
+        intensityKilograms: 0.03623
+        oldKeys:
+          - PURCHASE_CATEGORY_STORE_EQUIPMENT_FURNITURE
+          - Equipment furniture
+        source: http://www.balticproject.org/en/calculator-page
+        unit: EUR
+        coicopCode: 05.1.1
+      Furnishings, loose carpets and rugs (D):
+        icon: couch
+        intensityKilograms: 0.06949
+        oldKeys:
+          - PURCHASE_CATEGORY_STORE_HOUSE_FURNISHING
+          - House furnishing
+        source: http://www.balticproject.org/en/calculator-page
+        unit: EUR
+        coicopCode: 05.1.1.4
+      HOUSEHOLD APPLIANCES:
+        icon: blender
+        intensityKilograms: 0.03615
+        oldKeys:
+          - PURCHASE_CATEGORY_STORE_HOUSEHOLD_APPLIANCE
+          - Household appliances
+        source: http://www.balticproject.org/en/calculator-page
+        unit: EUR
+        coicopCode: '5.3'
+      Information and communication equipment:
+        icon: laptop
+        intensityKilograms: 0.02522
+        oldKeys:
+          - PURCHASE_CATEGORY_STORE_ELECTRONIC
+          - Electronic store
+        source: http://www.balticproject.org/en/calculator-page
+        unit: EUR
+        coicopCode: '8.1'
+      GARDEN PRODUCTS AND PETS:
+        icon: seedling
+        intensityKilograms: 0.03629
+        oldKeys:
+          - PURCHASE_CATEGORY_STORE_GARDEN
+          - Lawn and garden store
+          - Pet shop
+          - Florist
+        source: http://www.balticproject.org/en/calculator-page
+        unit: EUR
+        coicopCode: '9.3'
+      NEWSPAPERS, BOOKS AND STATIONERY:
+        icon: books
+        intensityKilograms: 0.02698
+        oldKeys:
+          - PURCHASE_CATEGORY_STORE_BOOKS
+          - Bookshop
+        source: http://www.balticproject.org/en/calculator-page
+        unit: EUR
+        coicopCode: '9.7'
+      PERSONAL CARE:
+        icon: cut
+        intensityKilograms: 0.023
+        oldKeys:
+          - PURCHASE_CATEGORY_STORE_BARBER_BEAUTY
+          - Barber or beauty shop
+        source: http://www.balticproject.org/en/calculator-page
+        unit: EUR
+        coicopCode: '13.1'
+  Fuels and lubricants for personal transport equipment (ND):
     _children:
       Diesel:
         icon: oil-can
         intensityKilograms: 3.17
-        source: 'http://www.bilans-ges.ademe.fr/static/documents/[Base%20Carbone]%20Documentation%20g%C3%A9n%C3%A9rale%20v11.0.pdf'
+        source: http://www.bilans-ges.ademe.fr/static/documents/[Base%20Carbone]%20Documentation%20g%C3%A9n%C3%A9rale%20v11.0.pdf
         unit: L
       Gasoline:
         icon: oil-can
         intensityKilograms: 2.8
-        source: 'http://www.bilans-ges.ademe.fr/static/documents/[Base%20Carbone]%20Documentation%20g%C3%A9n%C3%A9rale%20v11.0.pdf'
+        source: http://www.bilans-ges.ademe.fr/static/documents/[Base%20Carbone]%20Documentation%20g%C3%A9n%C3%A9rale%20v11.0.pdf
         unit: L
       Heating oil:
         icon: oil-can
         intensityKilograms: 3.26
-        source: 'http://www.bilans-ges.ademe.fr/static/documents/[Base%20Carbone]%20Documentation%20g%C3%A9n%C3%A9rale%20v11.0.pdf'
+        source: http://www.bilans-ges.ademe.fr/static/documents/[Base%20Carbone]%20Documentation%20g%C3%A9n%C3%A9rale%20v11.0.pdf
         unit: L
         oldKeys:
           - Heating Oil
       LPG:
         icon: burn
         intensityKilograms: 1.88
-        source: 'http://www.bilans-ges.ademe.fr/static/documents/[Base%20Carbone]%20Documentation%20g%C3%A9n%C3%A9rale%20v11.0.pdf'
+        source: http://www.bilans-ges.ademe.fr/static/documents/[Base%20Carbone]%20Documentation%20g%C3%A9n%C3%A9rale%20v11.0.pdf
         unit: L
       Natural gas:
         icon: burn
@@ -2771,121 +2891,7 @@ _children:
     intensityKilograms: 1.186
     oldKeys:
       - PURCHASE_CATEGORY_TRANSPORTATION_FUEL
-    source: 'http://www.balticproject.org/en/calculator-page'
+      - Fuel
+    source: http://www.balticproject.org/en/calculator-page
     unit: EUR
-  Healthcare:
-    _children:
-      Doctor:
-        icon: user-md
-        intensityKilograms: 0.05675
-        oldKeys:
-          - PURCHASE_CATEGORY_HEALTHCARE_DOCTOR
-        source: 'http://www.balticproject.org/en/calculator-page'
-        unit: EUR
-      Drug store or pharmacy:
-        icon: pills
-        intensityKilograms: 0.04387
-        oldKeys:
-          - PURCHASE_CATEGORY_HEALTHCARE_PHARMARCY
-        source: 'http://www.balticproject.org/en/calculator-page'
-        unit: EUR
-  Stores:
-    _children:
-      Bakery:
-        icon: bread-loaf
-        intensityKilograms: 0.06334
-        oldKeys:
-          - PURCHASE_CATEGORY_FOOD_BAKERY
-        source: 'http://www.balticproject.org/en/calculator-page'
-        unit: EUR
-      Barber or beauty shop:
-        icon: cut
-        intensityKilograms: 0.023
-        oldKeys:
-          - PURCHASE_CATEGORY_STORE_BARBER_BEAUTY
-        source: 'http://www.balticproject.org/en/calculator-page'
-        unit: EUR
-      Bookshop:
-        icon: books
-        intensityKilograms: 0.02698
-        oldKeys:
-          - PURCHASE_CATEGORY_STORE_BOOKS
-        source: 'http://www.balticproject.org/en/calculator-page'
-        unit: EUR
-      Clothing:
-        icon: tshirt
-        intensityKilograms: 0.0296
-        oldKeys:
-          - PURCHASE_CATEGORY_STORE_CLOTHING
-        source: 'http://www.balticproject.org/en/calculator-page'
-        unit: EUR
-      Department store:
-        icon: credit-card
-        intensityKilograms: 0.04902
-        oldKeys:
-          - PURCHASE_CATEGORY_STORE_DEPARTMENT
-        source: 'http://www.balticproject.org/en/calculator-page'
-        unit: EUR
-      Electronic store:
-        icon: laptop
-        intensityKilograms: 0.02522
-        oldKeys:
-          - PURCHASE_CATEGORY_STORE_ELECTRONIC
-        source: 'http://www.balticproject.org/en/calculator-page'
-        unit: EUR
-      Equipment furniture:
-        icon: credit-card
-        intensityKilograms: 0.03623
-        oldKeys:
-          - PURCHASE_CATEGORY_STORE_EQUIPMENT_FURNITURE
-        source: 'http://www.balticproject.org/en/calculator-page'
-        unit: EUR
-      Florist:
-        icon: flower-tulip
-        intensityKilograms: 0.04696
-        oldKeys:
-          - PURCHASE_CATEGORY_STORE_FLORIST
-        source: 'http://www.balticproject.org/en/calculator-page'
-        unit: EUR
-      Grocery store:
-        icon: shopping-cart
-        intensityKilograms: 0.04902
-        oldKeys:
-          - PURCHASE_CATEGORY_FOOD_SUPERMARKET
-        source: 'http://www.balticproject.org/en/calculator-page'
-        unit: EUR
-      Hardware:
-        icon: tools
-        intensityKilograms: 0.03566
-        oldKeys:
-          - PURCHASE_CATEGORY_STORE_HARDWARE
-        source: 'http://www.balticproject.org/en/calculator-page'
-        unit: EUR
-      House furnishing:
-        icon: couch
-        intensityKilograms: 0.06949
-        oldKeys:
-          - PURCHASE_CATEGORY_STORE_HOUSE_FURNISHING
-        source: 'http://www.balticproject.org/en/calculator-page'
-        unit: EUR
-      Household appliances:
-        icon: blender
-        intensityKilograms: 0.03615
-        oldKeys:
-          - PURCHASE_CATEGORY_STORE_HOUSEHOLD_APPLIANCE
-        source: 'http://www.balticproject.org/en/calculator-page'
-        unit: EUR
-      Lawn and garden store:
-        icon: seedling
-        intensityKilograms: 0.03629
-        oldKeys:
-          - PURCHASE_CATEGORY_STORE_GARDEN
-        source: 'http://www.balticproject.org/en/calculator-page'
-        unit: EUR
-      Pet shop:
-        icon: paw
-        intensityKilograms: 0.06334
-        oldKeys:
-          - PURCHASE_CATEGORY_STORE_PET
-        source: 'http://www.balticproject.org/en/calculator-page'
-        unit: EUR
+    coicopCode: 07.2.2
