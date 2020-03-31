@@ -2,6 +2,7 @@
   "extends": ["airbnb", "prettier", "prettier/react"],
   "globals": { "__DEV__": true, "fetch": false, "window": false, "Buffer": false },
   "parser": "babel-eslint",
+  "plugins": ["jest"],
   "rules": {
     "comma-dangle": ["error", {
       "arrays": "always-multiline",
