@@ -1337,7 +1337,7 @@ _children:
             unit: kg
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652618332633'
             conversions:
-              scoop:
+              portion:
                 kilograms: 0.068
                 incrementStepSize: 1
           Ice cream (Vanilla premium):
@@ -1346,7 +1346,7 @@ _children:
             unit: kg
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652618332633'
             conversions:
-              scoop:
+              portion:
                 kilograms: 0.068
                 incrementStepSize: 1
           Ice cream (Chocolate regular):
@@ -1355,7 +1355,7 @@ _children:
             unit: kg
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652618332633'
             conversions:
-              scoop:
+              portion:
                 kilograms: 0.068
                 incrementStepSize: 1
           Ice cream (Chocolate premium):
@@ -1364,7 +1364,7 @@ _children:
             unit: kg
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652618332633'
             conversions:
-              scoop:
+              portion:
                 kilograms: 0.068
                 incrementStepSize: 1
           Mozzarella:
@@ -1529,7 +1529,7 @@ _children:
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/de/kalorientabelle/johannisbeeren-schwarz-frisch.html'
                 default: true
-              currant:
+              item:
                 kilograms: 0.003
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/de/kalorientabelle/johannisbeeren-schwarz-frisch.html'
@@ -1799,7 +1799,7 @@ _children:
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/en/foods/pomegranate.html'
                 default: true
-              pomegranate:
+              item:
                 kilograms: 0.282
                 incrementStepSize: 1
                 source: 'https://www.yazio.com/en/foods/pomegranate.html'
@@ -2200,8 +2200,8 @@ _children:
             source: 'https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf'
             unit: kg
             conversions:
-              mL:
-                kilograms: 0.075
+              L:
+                kilograms: 75
                 incrementStepSize: 50
                 source: 'http://convert-to.com/571/maple-syrup-amounts-conversion-plus-nutritional-facts.html'
           Sugar (sugarcane):
@@ -2691,7 +2691,7 @@ _children:
             source: 'https://www.sciencedirect.com/science/article/pii/S0959652616303584'
             unit: kg
             conversions:
-              tomato:
+              item:
                 kilograms: 0.085
                 incrementStepSize: 1
                 source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
