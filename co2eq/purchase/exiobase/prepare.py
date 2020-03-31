@@ -36,7 +36,7 @@ with open('scope.csv') as f:
             LIFECYCLE_EMISSIONS[country_code] = {}
         sector = row['sector']
         intensity_kg_CO2e_per_M_EUR = row['Total lifecycle']
-        LIFECYCLE_EMISSIONS[country_code][sector] = float(intensity_kg_CO2e_per_M_EUR) * 1e6
+        LIFECYCLE_EMISSIONS[country_code][sector] = float(intensity_kg_CO2e_per_M_EUR) / 1e6
 
 # Scalar product
 COICOP_FOOTPRINTS = {}
