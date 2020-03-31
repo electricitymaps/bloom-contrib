@@ -12,7 +12,7 @@ import {
 export const modelName = 'model name';
 export const modelVersion = `1_${getChecksumOfFootprints()}`;
 export const explanation = {
-  text: 'The calculations take into consideration emissions of greenhouse gases across the whole lifecycle of the ingredients.', // TODO
+  text: 'The calculations take into consideration emissions of greenhouse gases across the whole lifecycle of the ingredients.',
   links: [
     { label: 'Nature (2017)', href: 'https://www.nature.com/articles/s41598-017-06466-8' },
     { label: 'Tomorrow footprint database', href: 'https://github.com/tmrowco/northapp-contrib/blob/master/co2eq/purchase/footprints.yml' },
