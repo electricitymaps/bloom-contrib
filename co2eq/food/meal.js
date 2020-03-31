@@ -14,8 +14,7 @@ const MEALS_PER_DAY = 3;
 export const modelName = 'meal';
 export const modelVersion = '6'; // This model relies on footprints.yaml
 export const explanation = {
-  // TODO(olc): Write a description for mealType as well.
-  text: 'The calculations take into consideration emissions across the whole lifecycle.',
+  text: 'The calculations take into consideration greenhouse gas emissions across the whole lifecycle for an average meal of a specific diet.',
   links: [
     { label: 'Nature (2017)', href: 'https://www.nature.com/articles/s41598-017-06466-8' },
     { label: 'Tomorrow footprint database', href: 'https://github.com/tmrowco/northapp-contrib/blob/master/co2eq/purchase/footprints.yml' },
