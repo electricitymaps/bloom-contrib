@@ -31,7 +31,6 @@ jobs:
       - run: touch integrations/env.json
       - run: yarn
       - run: cd playground && yarn
-      - run: yarn test
       - save_cache:
           paths:
             - node_modules
@@ -39,6 +38,8 @@ jobs:
           key: v1-dependencies-{{ checksum "yarn.lock" }}-{{ checksum "playground/yarn.lock" }}
       # run linter
       - run: yarn lint
+      # run tests
+      - run: yarn test
 
 workflows:
   version: 2
