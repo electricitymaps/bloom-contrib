@@ -17,6 +17,7 @@ import {
   PURCHASE_CATEGORY_STORE_GARDEN_AND_PET,
   PURCHASE_CATEGORY_STORE_FURNISHING,
   PURCHASE_CATEGORY_STORE_PERSONAL_CARE,
+  PURCHASE_CATEGORY_STORE_HARDWARE,
   ACTIVITY_TYPE_MEAL,
   ACTIVITY_TYPE_TRANSPORTATION,
   TRANSPORTATION_MODE_TRAIN,
@@ -42,7 +43,7 @@ agent.set('X-Client-Id', env.NAG_CLIENT_ID).set('X-Client-Secret', env.NAG_CLIEN
 
 const NAG_CATEGORY = {
   Supermarket: { purchaseType: PURCHASE_CATEGORY_STORE_FOOD, activityType: ACTIVITY_TYPE_PURCHASE },
-  'Remodeling & Repair': { purchaseType: PURCHASE_CATEGORY_STORE_CLOTHING, activityType: ACTIVITY_TYPE_PURCHASE },
+  'Remodeling & Repair': { purchaseType: PURCHASE_CATEGORY_STORE_HARDWARE, activityType: ACTIVITY_TYPE_PURCHASE },
   'Food & Drinks': { activityType: ACTIVITY_TYPE_MEAL },
   Transfer: null,
   'Shared Expense': null,
