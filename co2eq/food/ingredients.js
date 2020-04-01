@@ -22,8 +22,8 @@ export const explanation = {
 export const modelCanRunVersion = 1;
 export function modelCanRun(activity) {
   const {
-    mealType,
-    activityType
+    activityType,
+    lineItems,
   } = activity;
   if (activityType === ACTIVITY_TYPE_MEAL && (lineItems && lineItems.length)) {
     return true;
