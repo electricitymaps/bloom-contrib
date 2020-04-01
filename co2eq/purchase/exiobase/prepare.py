@@ -71,6 +71,9 @@ for (key, mapping) in CONCORDANCE_TABLE.items():
             weight * LIFECYCLE_EMISSIONS[country_code][exiobase_category]
             for (exiobase_category, weight) in mapping.items()
         ])
+
+        if COICOP_FOOTPRINTS[key][country_code] <= 0:
+            raise Exception(f"0 footprint for country {country_code} and coicop_code {key}")
         # print(key, country_code, COICOP_FOOTPRINTS[key][country_code])
 
 
@@ -78,7 +81,7 @@ for (key, mapping) in CONCORDANCE_TABLE.items():
 for (coicop_code, values_by_country) in COICOP_FOOTPRINTS.items():
     entry = find_entry_by_coicop(coicop_code)
     if not entry:
-        #raise Exception(f"Could not find an entry with coicopCode {coicop_code} in footprints.yml")
+        # raise Exception(f"Could not find an entry with coicopCode {coicop_code} in footprints.yml")
         print(f"WARNING: Could not find an entry with coicopCode {coicop_code} in footprints.yml")
         continue
     print(f"Found {coicop_code}. Updating..")
