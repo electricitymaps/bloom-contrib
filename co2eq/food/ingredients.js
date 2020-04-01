@@ -1,6 +1,7 @@
 import {
   PURCHASE_CATEGORY_FOOD,
   UNIT_KILOGRAMS,
+  MEAL_FROM_INGREDIENTS,
 } from '../../definitions';
 import {
   getEntryByKey,
@@ -9,10 +10,10 @@ import {
   getChecksumOfFootprints,
 } from '../purchase';
 
-export const modelName = 'model name';
+export const modelName = 'meal-from-ingredients';
 export const modelVersion = `1_${getChecksumOfFootprints()}`;
 export const explanation = {
-  text: 'The calculations take into consideration emissions across the whole lifecycle.', // TODO
+  text: 'The calculations take into consideration emissions across the whole lifecycle.',
   links: [
     { label: 'Nature (2017)', href: 'https://www.nature.com/articles/s41598-017-06466-8' },
     { label: 'Tomorrow footprint database', href: 'https://github.com/tmrowco/northapp-contrib/blob/master/co2eq/purchase/footprints.yml' },
@@ -21,8 +22,11 @@ export const explanation = {
 
 export const modelCanRunVersion = 1;
 export function modelCanRun(activity) {
-  const { lineItems } = activity;
-  if (lineItems && lineItems.length) {
+  const {
+    mealType,
+    lineItems,
+  } = activity;
+  if (mealType || (lineItems && lineItems.length)) {
     return true;
   }
   return false;
@@ -68,7 +72,15 @@ export function carbonIntensityOfIngredient(ingredient) {
 }
 
 export function carbonEmissions(activity) {
-  const { lineItems } = activity;
+  const {
+    mealType,
+    lineItems,
+  } = activity;
+
+  if (mealType !== MEAL_FROM_INGREDIENTS) {
+    throw new Error(`Incorrect mealType. Diet related mealType run throught the meal model.
+      Meal from ingredients require {MEAL_FROM_INGREDIENTS} mealType.`)
+  }
 
   if (lineItems && Object.keys(lineItems).length > 0) {
     return lineItems
