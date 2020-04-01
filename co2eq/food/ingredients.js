@@ -1,7 +1,7 @@
 import {
   PURCHASE_CATEGORY_FOOD,
   UNIT_KILOGRAMS,
-  MEAL_FROM_INGREDIENTS,
+  ACTIVITY_TYPE_MEAL,
 } from '../../definitions';
 import {
   getEntryByKey,
@@ -23,9 +23,9 @@ export const modelCanRunVersion = 1;
 export function modelCanRun(activity) {
   const {
     mealType,
-    lineItems,
+    activityType
   } = activity;
-  if (mealType || (lineItems && lineItems.length)) {
+  if (activityType === ACTIVITY_TYPE_MEAL && (lineItems && lineItems.length)) {
     return true;
   }
   return false;
@@ -71,15 +71,7 @@ export function carbonIntensityOfIngredient(ingredient) {
 }
 
 export function carbonEmissions(activity) {
-  const {
-    mealType,
-    lineItems,
-  } = activity;
-
-  if (mealType !== MEAL_FROM_INGREDIENTS) {
-    throw new Error(`Incorrect mealType. Diet related mealType run throught the meal model.
-      Meal from ingredients require {MEAL_FROM_INGREDIENTS} mealType.`)
-  }
+  const { lineItems } = activity;
 
   if (lineItems && Object.keys(lineItems).length > 0) {
     return lineItems
