@@ -8,6 +8,7 @@ import {
   MEAL_TYPE_MEAT_OR_FISH,
   PURCHASE_CATEGORY_FOOD,
   UNIT_KILOGRAMS,
+  UNIT_GRAMS,
 } from '../definitions';
 import {
   getEntryByKey,
@@ -56,8 +57,8 @@ export const ingredientConversionStepsize = {}; // Only the first conversion
 Object.entries(ingredients).forEach(([k, v]) => {
   ingredientCategory[k] = v.parentKey;
   ingredientIcon[k] = v.icon;
-  ingredientConversions[k] = v.conversions || { grams: { kilograms: 0.001, incrementStepSize: 50 } };
-  ingredientConversionUnit[k] = v.conversions ? Object.keys(v.conversions)[0] : 'gram';
+  ingredientConversions[k] = v.conversions || { [UNIT_GRAMS]: { kilograms: 0.001, incrementStepSize: 50 } };
+  ingredientConversionUnit[k] = v.conversions ? Object.keys(v.conversions)[0] : UNIT_GRAMS;
   ingredientConversionKilograms[k] = v.conversions ? v.conversions[Object.keys(v.conversions)[0]].kilograms : 0.001;
   ingredientConversionStepsize[k] = v.conversions ? v.conversions[Object.keys(v.conversions)[0]].incrementStepSize : 50;
 });
@@ -75,7 +76,7 @@ export function carbonIntensityOfIngredient({ identifier, value, unit }) {
   if (!entry.intensityKilograms) {
     throw new Error(`Missing carbon intensity for ingredient: ${identifier}`);
   }
-  if (entry.unit !== 'kg') {
+  if (entry.unit !== UNIT_KILOGRAMS) {
     throw new Error(`Unexpected footprint unit ${entry.unit}. Expected 'kg'`);
   }
 
@@ -83,9 +84,11 @@ export function carbonIntensityOfIngredient({ identifier, value, unit }) {
   let conversionKilograms;
   if (unit === UNIT_KILOGRAMS) {
     conversionKilograms = 1;
+  } else if (unit === UNIT_GRAMS) {
+    conversionKilograms = 0.001;
   } else {
     // Note: Use the helper map ingredientConversion as it contains defaults for entries without conversions!
-    const conversion = ingredientConversions[identifier] && ingredientConversions[identifier][unit];
+    const conversion = ingredientConversions[identifier] && ingredientConversions[identifier][unit]
     if (!conversion || !conversion.kilograms) {
       throw new Error("Invalid or no conversion to kilograms")
     }
