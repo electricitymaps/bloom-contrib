@@ -65,18 +65,32 @@ Object.entries(ingredients).forEach(([k, v]) => {
 /*
 Carbon intensity of ingredient (kgCO2 per kg).
 */
-export function carbonIntensityOfIngredient(ingredient) {
-  const entry = getEntryByKey(ingredient);
+export function carbonIntensityOfIngredient({ identifier, value, unit }) {
+
+  const entry = getEntryByKey(identifier);
   if (!entry) {
-    throw new Error(`Unknown ingredient: ${ingredient}`);
+    throw new Error(`Unknown ingredient: ${identifier}`);
   }
   if (!entry.intensityKilograms) {
-    throw new Error(`Missing carbon intensity for ingredient: ${ingredient}`);
+    throw new Error(`Missing carbon intensity for ingredient: ${identifier}`);
   }
   if (entry.unit !== 'kg') {
     throw new Error(`Unexpected footprint unit ${entry.unit}. Expected 'kg'`);
   }
-  return entry.intensityKilograms;
+
+  // Calculate emissions (always relative to kg) by getting possible conversions
+  let conversionKilograms;
+  if (unit === UNIT_KILOGRAMS) {
+    conversionKilograms = 1;
+  } else {
+    // Note: Use the helper map ingredientConversion as it contains defaults for entries without conversions!
+    const conversion = ingredientConversions[identifier] && ingredientConversions[identifier][unit];
+    if (!conversion || !conversion.kilograms) {
+      throw new Error("Invalid or no conversion to kilograms")
+    }
+      conversionKilograms = conversion.kilograms;
+  }
+  return entry.intensityKilograms * conversionKilograms * value;
 }
 
 /*
@@ -114,22 +128,8 @@ export function carbonEmissions(activity) {
   const { mealType, lineItems } = activity;
 
   if (lineItems && Object.keys(lineItems).length > 0) {
-    return lineItems
-      .map(l => {
-        // Calculate emissions (always relative to kg) by getting possible conversions
-        let conversionKilograms;
-        if (l.unit === UNIT_KILOGRAMS) {
-          conversionKilograms = 1;
-        } else {
-          const conversion = ingredientConversions[l.identifier] && ingredientConversions[l.identifier][l.unit];
-          if (!conversion || !conversion.kilograms) {
-            throw new Error("Invalid or no conversion to kilograms")
-          }
-          conversionKilograms = conversion.kilograms;
-        }
-        return carbonIntensityOfIngredient(l.identifier) * l.value * conversionKilograms;
-      })
-      .reduce((a, b) => a + b, 0);
+    console.log(lineItems.reduce((a, b) => a + carbonIntensityOfIngredient(b), 0));
+    return lineItems.reduce((a, b) => a + carbonIntensityOfIngredient(b), 0)
   }
 
   if (mealType) {
