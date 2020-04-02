@@ -128,7 +128,6 @@ export function carbonEmissions(activity) {
   const { mealType, lineItems } = activity;
 
   if (lineItems && Object.keys(lineItems).length > 0) {
-    console.log(lineItems.reduce((a, b) => a + carbonIntensityOfIngredient(b), 0));
     return lineItems.reduce((a, b) => a + carbonIntensityOfIngredient(b), 0)
   }
 
