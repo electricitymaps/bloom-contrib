@@ -8,7 +8,6 @@ import {
   MEAL_TYPE_MEAT_OR_FISH,
   PURCHASE_CATEGORY_FOOD,
   UNIT_KILOGRAMS,
-  UNIT_GRAMS,
 } from '../definitions';
 import {
   getEntryByKey,
@@ -57,15 +56,15 @@ export const ingredientConversionStepsize = {}; // Only the first conversion
 Object.entries(ingredients).forEach(([k, v]) => {
   ingredientCategory[k] = v.parentKey;
   ingredientIcon[k] = v.icon;
-  ingredientConversions[k] = v.conversions || { [UNIT_GRAMS]: { kilograms: 0.001, incrementStepSize: 50 } };
-  ingredientConversionUnit[k] = v.conversions ? Object.keys(v.conversions)[0] : UNIT_GRAMS;
-  ingredientConversionKilograms[k] = v.conversions ? v.conversions[Object.keys(v.conversions)[0]].kilograms : 0.001;
-  ingredientConversionStepsize[k] = v.conversions ? v.conversions[Object.keys(v.conversions)[0]].incrementStepSize : 50;
+  ingredientConversions[k] = v.conversions || { [UNIT_KILOGRAMS]: { kilograms: 0.001, incrementStepSize: 0.05 } };
+  ingredientConversionUnit[k] = v.conversions ? Object.keys(v.conversions)[0] : UNIT_KILOGRAMS;
+  ingredientConversionKilograms[k] = v.conversions ? v.conversions[Object.keys(v.conversions)[0]].kilograms : 1;
+  ingredientConversionStepsize[k] = v.conversions ? v.conversions[Object.keys(v.conversions)[0]].incrementStepSize : 0.05;
 });
 
 /**
  * Returns the carbon intensity of an ingredient (kgCO2 per kg).
- * @param {lineItem} lineItem - Object with properties identifier, value and a unit 
+ * @param {lineItem} lineItem - Object with properties identifier, value and a unit
  */
 export function carbonIntensityOfIngredient({ identifier, value, unit }) {
 
