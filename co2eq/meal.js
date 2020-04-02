@@ -83,8 +83,6 @@ export function carbonIntensityOfIngredient({ identifier, value, unit }) {
   let conversionKilograms;
   if (unit === UNIT_KILOGRAMS) {
     conversionKilograms = 1;
-  } else if (unit === UNIT_GRAMS) {
-    conversionKilograms = 0.001;
   } else {
     // Note: Use the helper map ingredientConversion as it contains defaults for entries without conversions!
     const conversion = ingredientConversions[identifier] && ingredientConversions[identifier][unit]
