@@ -1,7 +1,11 @@
 {
-  "extends": ["airbnb", "prettier", "prettier/react"],
+  "extends": ["airbnb", "prettier", "prettier/react", "plugin:jest/recommended"],
+  "env": {
+    "jest/globals": true
+  },
   "globals": { "__DEV__": true, "fetch": false, "window": false, "Buffer": false },
   "parser": "babel-eslint",
+  "plugins": ["jest"],
   "rules": {
     "comma-dangle": ["error", {
       "arrays": "always-multiline",
@@ -10,6 +14,7 @@
       "exports": "always-multiline",
       "functions": "ignore"
     }],
+    "curly": "error",
     "brace-style": "warn",
     "class-methods-use-this": "warn",
     "dot-notation": "warn",
@@ -26,7 +31,7 @@
     "prefer-destructuring": "warn",
     "quote-props": "warn",
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
-    "react/prop-types": "warn",
+    "react/prop-types": "off",
     "react/sort-comp": "warn"
   },
   "settings": {
