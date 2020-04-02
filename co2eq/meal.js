@@ -62,9 +62,10 @@ Object.entries(ingredients).forEach(([k, v]) => {
   ingredientConversionStepsize[k] = v.conversions ? v.conversions[Object.keys(v.conversions)[0]].incrementStepSize : 50;
 });
 
-/*
-Carbon intensity of ingredient (kgCO2 per kg).
-*/
+/**
+ * Returns the carbon intensity of an ingredient (kgCO2 per kg).
+ * @param {lineItem} lineItem - Object with properties identifier, value and a unit 
+ */
 export function carbonIntensityOfIngredient({ identifier, value, unit }) {
 
   const entry = getEntryByKey(identifier);
