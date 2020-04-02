@@ -2202,7 +2202,7 @@ _children:
             conversions:
               L:
                 kilograms: 75
-                incrementStepSize: 50
+                incrementStepSize: 0.05
                 source: 'http://convert-to.com/571/maple-syrup-amounts-conversion-plus-nutritional-facts.html'
           Sugar (sugarcane):
             icon: null
