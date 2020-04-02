@@ -115,7 +115,20 @@ export function carbonEmissions(activity) {
 
   if (lineItems && Object.keys(lineItems).length > 0) {
     return lineItems
-      .map(k => carbonIntensityOfIngredient(k.identifier) * k.value)
+      .map(l => {
+        // Calculate emissions (always relative to kg) by getting possible conversions
+        let conversionKilograms;
+        if (l.unit === UNIT_KILOGRAMS) {
+          conversionKilograms = 1;
+        } else {
+          const conversion = ingredientConversions[l.identifier] && ingredientConversions[l.identifier][l.unit];
+          if (!conversion || !conversion.kilograms) {
+            throw new Error("Invalid or no conversion to kilograms")
+          }
+          conversionKilograms = conversion.kilograms;
+        }
+        return carbonIntensityOfIngredient(l.identifier) * l.value * conversionKilograms;
+      })
       .reduce((a, b) => a + b, 0);
   }
 
