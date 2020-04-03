@@ -73,9 +73,15 @@ for (key, mapping) in CONCORDANCE_TABLE.items():
         ])
 
         if COICOP_FOOTPRINTS[key][country_code] <= 0:
-            raise Exception(f"0 footprint for country {country_code} and coicop_code {key}")
+            # print([
+            #     (exiobase_category, weight, LIFECYCLE_EMISSIONS[country_code][exiobase_category])
+            #     for (exiobase_category, weight) in mapping.items()
+            # ])
+            # print(mapping)
+            #raise Exception(f"0 footprint for country {country_code} and coicop_code {key}")
+            print(f"0 footprint for country {country_code} and coicop_code {key}. Skipping..")
+            del COICOP_FOOTPRINTS[key][country_code]
         # print(key, country_code, COICOP_FOOTPRINTS[key][country_code])
-
 
 # Set in footprints.yml
 for (coicop_code, values_by_country) in COICOP_FOOTPRINTS.items():
