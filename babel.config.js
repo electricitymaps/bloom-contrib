@@ -11,5 +11,6 @@ module.exports = {
       'exts': ['js', 'es6', 'es', 'jsx', 'javascript', 'png'],
       'useCamelCase': true,
     }],
+    "convert-to-json",
   ],
 };
