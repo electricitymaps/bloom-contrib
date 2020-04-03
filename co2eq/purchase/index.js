@@ -169,6 +169,7 @@ export function carbonEmissionOfLineItem(lineItem, countryCodeISO2) {
   }
   if (countryCodeISO2 == null) {
     // Use average of all countries
+    // TODO: weight by the GDP of countries or by population
     const values = Object.values(entry.intensityKilograms);
     return (values.reduce((a, b) => a + b, 0) / values.length) * amount;
   }
