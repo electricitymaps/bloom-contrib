@@ -168,7 +168,9 @@ export function carbonEmissionOfLineItem(lineItem, countryCodeISO2) {
     throw new Error(`Invalid unit ${entry.unit} given. Expected ${UNIT_MONETARY_EUR}`);
   }
   if (countryCodeISO2 == null) {
-    throw new Error(`Missing countryCodeISO2 value`);
+    // Use average of all countries
+    const values = Object.values(entry.intensityKilograms);
+    return (values.reduce((a, b) => a + b, 0) / values.length) * amount;
   }
   if (!entry.intensityKilograms[countryCodeISO2]) {
     throw new Error(`Missing carbon intensity for country ${countryCodeISO2} and identifier ${identifier}`);
