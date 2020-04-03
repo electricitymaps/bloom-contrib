@@ -176,6 +176,7 @@ const config = {
   description: 'collects electricity data from your smart meter',
   type: ACTIVITY_TYPE_ELECTRICITY,
   isPrivate: true,
+  signupLink: 'https://espace-client-particuliers.enedis.fr/web/espace-particuliers/creation-de-compte',
   // minRefreshInterval: 60
 };
 
