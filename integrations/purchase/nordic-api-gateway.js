@@ -196,7 +196,7 @@ async function parseTransactions(transactions, accountDisplayName, bankDisplayNa
       const costAmount = -transactions[i].amount.value;
       const costCurrency = transactions[i].amount.currency;
       const { purchaseType } = category;
-      const lineItems = purchaseType ? [{ identifier: purchaseType, costAmount, costCurrency }] : undefined;
+      const lineItems = purchaseType ? [{ identifier: purchaseType, value: costAmount, unit: costCurrency }] : undefined;
       res.push({
         id: `nag_${transactions[i].id}`,
         activityType: category.activityType,
