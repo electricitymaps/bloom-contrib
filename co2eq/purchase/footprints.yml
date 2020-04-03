@@ -1277,19 +1277,12 @@ _children:
           - Amusement park
           - Bar or nightclub
           - Gambling
+          - PURCHASE_CATEGORY_ENTERTAINMENT_MOVIE_THEATER
+          - Cinema
         source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
         coicopCode: '09.4'
         year: 2011
-      CULTURAL SERVICES:
-        icon: film
-        intensityKilograms: 0.02738
-        oldKeys:
-          - PURCHASE_CATEGORY_ENTERTAINMENT_MOVIE_THEATER
-          - Cinema
-        source: http://www.balticproject.org/en/calculator-page
-        unit: EUR
-        coicopCode: '09.6'
       PACKAGE HOLIDAYS:
         icon: ship
         intensityKilograms:
@@ -3563,7 +3556,7 @@ _children:
           - Grocery store
         source: http://www.balticproject.org/en/calculator-page
         unit: EUR
-        coicopCode: '1'
+        coicopCode: '01'
       TOOLS AND EQUIPMENT FOR HOUSE AND GARDEN:
         icon: tools
         intensityKilograms:
