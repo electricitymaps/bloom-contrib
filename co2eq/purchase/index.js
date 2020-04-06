@@ -1,4 +1,3 @@
-import md5 from 'tiny-hashes/md5';
 import {
   ACTIVITY_TYPE_MEAL,
   ACTIVITY_TYPE_TRANSPORTATION,
@@ -13,6 +12,7 @@ import {
 } from '../../definitions';
 import { convertToEuro, getAvailableCurrencies } from '../../integrations/utils/currency/currency';
 import footprints from './footprints.yml';
+import { getChecksum } from '../utils';
 
 export const explanation = {
   text: null,
@@ -57,7 +57,7 @@ export function getEntryByPath(path) {
 }
 
 export function getChecksumOfFootprints() {
-  return md5(JSON.stringify(footprints));
+  return getChecksum(footprints);
 }
 
 export function getDescendants(entry, filter = (_ => true), includeRoot = false) {
