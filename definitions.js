@@ -67,33 +67,28 @@ export const MEAL_TYPE_MEAT_HIGH = 'MEAL_TYPE_MEAT_HIGH';
 /* Purchases */
 // Food and beverages
 export const PURCHASE_CATEGORY_FOOD = 'Food';
-export const PURCHASE_CATEGORY_FOOD_SUPERMARKET = 'Grocery store';
-export const PURCHASE_CATEGORY_FOOD_BAKERY = 'Bakery';
+export const PURCHASE_CATEGORY_FOOD_BAKERY = 'Cereals and cereal products (ND)';
 export const PURCHASE_CATEGORY_MOBILE_PHONE = 'Mobile phone';
 
 // Stores
-export const PURCHASE_CATEGORY_STORE_DEPARTMENT = 'Department store';
-export const PURCHASE_CATEGORY_STORE_CLOTHING = 'Clothing';
-export const PURCHASE_CATEGORY_STORE_HARDWARE = 'Hardware';
-export const PURCHASE_CATEGORY_STORE_PET = 'Pet shop';
-export const PURCHASE_CATEGORY_STORE_ELECTRONIC = 'Electronic store';
-export const PURCHASE_CATEGORY_STORE_BOOKS = 'Bookshop';
-export const PURCHASE_CATEGORY_STORE_GARDEN = 'Lawn and garden store';
-export const PURCHASE_CATEGORY_STORE_FLORIST = 'Florist';
-export const PURCHASE_CATEGORY_STORE_BARBER_BEAUTY = 'Barber or beauty shop';
-export const PURCHASE_CATEGORY_STORE_HOUSE_FURNISHING = 'House furnishing';
-export const PURCHASE_CATEGORY_STORE_EQUIPMENT_FURNITURE = 'Equipment furniture';
-export const PURCHASE_CATEGORY_STORE_HOUSEHOLD_APPLIANCE = 'Household appliances';
+export const PURCHASE_CATEGORY_STORE_CLOTHING = 'CLOTHING';
+export const PURCHASE_CATEGORY_STORE_FOOD = 'FOOD AND NON-ALCOHOLIC BEVERAGES';
+export const PURCHASE_CATEGORY_STORE_HARDWARE = 'TOOLS AND EQUIPMENT FOR HOUSE AND GARDEN';
+export const PURCHASE_CATEGORY_STORE_GARDEN_AND_PET = 'GARDEN PRODUCTS AND PETS';
+export const PURCHASE_CATEGORY_STORE_ELECTRONIC = 'Information and communication equipment';
+export const PURCHASE_CATEGORY_STORE_BOOKS = 'NEWSPAPERS, BOOKS AND STATIONERY';
+export const PURCHASE_CATEGORY_STORE_PERSONAL_CARE = 'PERSONAL CARE';
+export const PURCHASE_CATEGORY_STORE_FURNISHING = 'Furnishings, loose carpets and rugs (D)';
+export const PURCHASE_CATEGORY_STORE_HOUSEHOLD_APPLIANCE = 'HOUSEHOLD APPLIANCES';
 
 // Healthcare
-export const PURCHASE_CATEGORY_HEALTHCARE_PHARMARCY = 'Drug store or pharmacy';
-export const PURCHASE_CATEGORY_HEALTHCARE_DOCTOR = 'Doctor';
+export const PURCHASE_CATEGORY_MEDICINES_AND_HEALTH_PRODUCTS = 'MEDICINES AND HEALTH PRODUCTS'
+export const PURCHASE_CATEGORY_HEALTHCARE_DOCTOR = 'OUTPATIENT CARE SERVICES';
 
 // Transportation
-export const PURCHASE_CATEGORY_TRANSPORTATION_FUEL = 'Fuel';
-export const PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARKING = 'Parking lot';
-export const PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARTS = 'Automotive parts or accessories';
-export const PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_SERVICE = 'Automotive services';
+export const PURCHASE_CATEGORY_TRANSPORTATION_FUEL = 'Fuels and lubricants for personal transport equipment (ND)';
+export const PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_MAINTENANCE_AND_REPAIR = 'Maintenance and repair of personal transport equipment (S)';
+export const PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARTS = 'Parts and accessories for personal transport equipment (SD)';
 
 // Car
 // Size (values are used in co2eq/car/cars.json)

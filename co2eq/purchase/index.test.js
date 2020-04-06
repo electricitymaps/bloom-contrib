@@ -1,5 +1,10 @@
-import { UNITS } from '../../definitions';
-import { getDescendants, getRootEntry } from './index';
+import {
+  UNITS,
+  PURCHASE_CATEGORY_STORE_HOUSEHOLD_APPLIANCE,
+  UNIT_MONETARY_EUR,
+  ACTIVITY_TYPE_PURCHASE,
+} from '../../definitions';
+import { getDescendants, getRootEntry, modelCanRun, carbonEmissions } from './index';
 
 
 Object.entries(getDescendants(getRootEntry()))
@@ -20,3 +25,17 @@ Object.entries(getDescendants(getRootEntry()))
         });
       });
   });
+
+test(`test household appliance for DK in EUR`, () => {
+  const activity = {
+    activityType: ACTIVITY_TYPE_PURCHASE,
+    countryCodeISO2: 'DK',
+    lineItems: [{
+      unit: UNIT_MONETARY_EUR,
+      value: 15,
+      identifier: PURCHASE_CATEGORY_STORE_HOUSEHOLD_APPLIANCE,
+    }],
+  };
+  expect(modelCanRun(activity)).toBeTruthy();
+  expect(carbonEmissions(activity)).toBeCloseTo(15 * 0.4028253119428596);
+});

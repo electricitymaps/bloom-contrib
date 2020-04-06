@@ -1,42 +1,33 @@
 import {
-  MEAL_TYPE_VEGAN,
-  MEAL_TYPE_VEGETARIAN,
-  MEAL_TYPE_PESCETARIAN,
-  MEAL_TYPE_MEAT_LOW,
-  MEAL_TYPE_MEAT_MEDIUM,
-  MEAL_TYPE_MEAT_HIGH,
-  MEAL_TYPE_MEAT_OR_FISH,
   PURCHASE_CATEGORY_FOOD,
   UNIT_KILOGRAMS,
-} from '../definitions';
+  ACTIVITY_TYPE_MEAL,
+} from '../../definitions';
 import {
   getEntryByKey,
   getDescendants,
   getEntryByPath,
   getChecksumOfFootprints,
-} from './purchase';
+} from '../purchase';
 
-const MEALS_PER_DAY = 3;
-
-// ** modelName must not be changed. If changed then old activities will not be re-calculated **
-export const modelName = 'meal';
-export const modelVersion = `5_${getChecksumOfFootprints()}`; // This model relies on footprints.yaml
+export const modelName = 'meal-from-ingredients';
+export const modelVersion = `1_${getChecksumOfFootprints()}`;
 export const explanation = {
-  // TODO(olc): Write a description for mealType as well.
-  text: 'The calculations take into consideration emissions across the whole lifecycle.',
+  text: 'The calculations take into consideration emissions of greenhouse gases across the whole lifecycle of the ingredients.',
   links: [
-    { label: 'Nature (2017)', href: 'https://www.nature.com/articles/s41598-017-06466-8' },
     { label: 'Tomorrow footprint database', href: 'https://github.com/tmrowco/northapp-contrib/blob/master/co2eq/purchase/footprints.yml' },
   ],
 };
 
 export const modelCanRunVersion = 1;
 export function modelCanRun(activity) {
-  const { mealType, lineItems } = activity;
-  if (mealType || (lineItems && lineItems.length)) {
+  const {
+    activityType,
+    lineItems,
+  } = activity;
+  if (activityType === ACTIVITY_TYPE_MEAL && (lineItems && lineItems.length)) {
     return true;
   }
-
   return false;
 }
 
@@ -94,47 +85,12 @@ export function carbonIntensityOfIngredient({ identifier, value, unit }) {
   return entry.intensityKilograms * conversionKilograms * value;
 }
 
-/*
-Carbon intensity of meals (kgCO2 per meal).
-// Source: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4372775/
-The values are age-and-sex-adjusted means per 2000 kcal.
-*/
-function carbonIntensityOfMealType(mealType) {
-  switch (mealType) {
-    case MEAL_TYPE_VEGAN:
-      return 2890.0 / MEALS_PER_DAY / 1000.0;
-    case MEAL_TYPE_VEGETARIAN:
-      return 3810.0 / MEALS_PER_DAY / 1000.0;
-    case MEAL_TYPE_PESCETARIAN:
-      return 3910.0 / MEALS_PER_DAY / 1000.0;
-    case MEAL_TYPE_MEAT_LOW:
-      return 4770.0 / MEALS_PER_DAY / 1000.0;
-    case MEAL_TYPE_MEAT_MEDIUM:
-      return 5630.0 / MEALS_PER_DAY / 1000.0;
-    case MEAL_TYPE_MEAT_HIGH:
-      return 7190.0 / MEALS_PER_DAY / 1000.0;
-    // Source: https://www.nature.com/articles/s41598-017-06466-8
-    // should be removed as inconsistent with previous source.
-    case MEAL_TYPE_MEAT_OR_FISH:
-      return 3959.3 / MEALS_PER_DAY / 1000.0;
-    default:
-      throw new Error(`Unknown meal type: ${mealType}`);
-  }
-}
-
-/*
-Carbon emissions of an activity (in kgCO2eq)
-*/
 export function carbonEmissions(activity) {
-  const { mealType, lineItems } = activity;
+  const { lineItems } = activity;
 
   if (lineItems && Object.keys(lineItems).length > 0) {
     return lineItems.reduce((a, b) => a + carbonIntensityOfIngredient(b), 0)
   }
 
-  if (mealType) {
-    return carbonIntensityOfMealType(mealType);
-  }
-
-  throw new Error('Couldn\'t calculate carbonEmissions for activity because it does not have any ingredients or meal type');
+  throw new Error('Couldn\'t calculate carbonEmissions for activity because it does not have any ingredients.');
 }

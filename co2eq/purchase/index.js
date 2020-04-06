@@ -141,7 +141,7 @@ function extractComptabileUnitAndAmount(lineItem, entry) {
  * Calculates the carbon emissions of a line item entry
  * @param {*} lineItem - Object of the the type { identifier: <string>, unit: <string>, value: <string>, costAmount: <float>, costCurrency: <string> }
  */
-export function carbonEmissionOfLineItem(lineItem) {
+export function carbonEmissionOfLineItem(lineItem, countryCodeISO2) {
   // The generic identifier property holds the purchaseType value, so rename to make clear..
   const { identifier } = lineItem;
   const entry = getEntryByKey(identifier);
@@ -160,7 +160,23 @@ export function carbonEmissionOfLineItem(lineItem) {
   if (entry.unit !== unit) {
     throw new Error(`Invalid unit ${unit} given for purchaseType ${identifier}. Expected ${entry.unit}`);
   }
-  return entry.intensityKilograms * amount;
+
+  if (typeof entry.intensityKilograms === 'number') {
+    return entry.intensityKilograms * amount;
+  }
+  if (entry.unit !== UNIT_MONETARY_EUR) {
+    throw new Error(`Invalid unit ${entry.unit} given. Expected ${UNIT_MONETARY_EUR}`);
+  }
+  if (countryCodeISO2 == null) {
+    // Use average of all countries
+    // TODO: weight by the GDP of countries or by population
+    const values = Object.values(entry.intensityKilograms);
+    return (values.reduce((a, b) => a + b, 0) / values.length) * amount;
+  }
+  if (!entry.intensityKilograms[countryCodeISO2]) {
+    throw new Error(`Missing carbon intensity for country ${countryCodeISO2} and identifier ${identifier}`);
+  }
+  return entry.intensityKilograms[countryCodeISO2] * amount;
 }
 
 /*
@@ -197,12 +213,14 @@ export function carbonEmissions(activity) {
       break;
 
     case ACTIVITY_TYPE_PURCHASE: {
-      const { lineItems } = activity;
+      const { lineItems, countryCodeISO2 } = activity;
 
       // First check if lineItems contains and calculate total of all line items
       if (lineItems && lineItems.length) {
         // TODO(df): What to do on a single line error? Abort all? Skip item?
-        footprint = lineItems.map(l => carbonEmissionOfLineItem(l)).reduce((a, b) => a + b, 0);
+        footprint = lineItems
+          .map(l => carbonEmissionOfLineItem(l, countryCodeISO2))
+          .reduce((a, b) => a + b, 0);
       }
       break;
     }
