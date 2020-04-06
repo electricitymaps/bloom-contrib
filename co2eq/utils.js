@@ -1,3 +1,4 @@
+import md5 from 'tiny-hashes/md5';
 import moment from "moment";
 
 /**
@@ -8,4 +9,12 @@ import moment from "moment";
 export function getActivityDurationHours(activity, precise = true) {
     if (!activity.endDatetime) return null;
     return moment(activity.endDatetime).diff(moment(activity.datetime), 'hours', precise);
+}
+
+/**
+ * Returns the md5-checksum of an object
+ * @param {*} obj
+ */
+export function getChecksum(obj) {
+    return md5(JSON.stringify(obj));
 }
