@@ -2536,7 +2536,7 @@ _children:
             unit: kg
             conversions:
               L:
-                kilograms: 75
+                kilograms: 1.34
                 incrementStepSize: 0.05
                 source: http://convert-to.com/571/maple-syrup-amounts-conversion-plus-nutritional-facts.html
           Sugar (sugarcane):
