@@ -5,7 +5,6 @@ export function convertToEuro(amount, currency) {
 
   const exchangeRate = exchangeRates.rates[currency.toUpperCase()];
   if (!exchangeRate) throw new Error(`Unknown currency '${currency}'`);
-
   return amount / exchangeRate;
 }
 
