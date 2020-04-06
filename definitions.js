@@ -1,5 +1,3 @@
-import { getAvailableCurrencies } from './integrations/utils/currency/currency';
-
 // Declare all types
 // The value should not changed as it is stored in the database
 // The variable name can however be changed
@@ -8,7 +6,6 @@ import { getAvailableCurrencies } from './integrations/utils/currency/currency';
 export const UNIT_LITER = 'L';
 export const UNIT_KILOGRAMS = 'kg';
 export const UNIT_MONETARY_EUR = 'EUR';
-export const UNIT_MONETARY_DKK = 'DKK';
 export const UNIT_ITEM = 'item';
 export const UNIT_ENERGY = 'kWh';
 export const UNIT_PORTION = 'portion';
@@ -18,14 +15,48 @@ export const UNITS = [
   UNIT_LITER,
   UNIT_KILOGRAMS,
   UNIT_MONETARY_EUR,
-  UNIT_MONETARY_DKK,
   UNIT_ITEM,
   UNIT_ENERGY,
   UNIT_PORTION,
   UNIT_GLASS,
   UNIT_CUP,
 ];
-export const UNIT_CURRENCIES = getAvailableCurrencies();
+
+export const UNIT_CURRENCIES = {
+  AUD: 'AUD',
+  BGN: 'BGN',
+  BRL: 'BRL',
+  CAD: 'CAD',
+  CHF: 'CHF',
+  CNY: 'CNY',
+  CZK: 'CZK',
+  DKK: 'DKK',
+  EUR: 'EUR',
+  GBP: 'GBP',
+  HKD: 'HKD',
+  HRK: 'HRK',
+  HUF: 'HUF',
+  IDR: 'IDR',
+  ILS: 'ILS',
+  INR: 'INR',
+  ISK: 'ISK',
+  JPY: 'JPY',
+  KRW: 'KRW',
+  MXN: 'MXN',
+  MYR: 'MYR',
+  NOK: 'NOK',
+  NZD: 'NZD',
+  PHP: 'PHP',
+  PLN: 'PLN',
+  RON: 'RON',
+  RUB: 'RUB',
+  SEK: 'SEK',
+  SGD: 'SGD',
+  THB: 'THB',
+  TRY: 'TRY',
+  USD: 'USD',
+  ZAR: 'ZAR',
+};
 
 /* Activity Types
 Each activity type is tied to a specific UI

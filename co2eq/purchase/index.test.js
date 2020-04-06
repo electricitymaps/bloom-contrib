@@ -2,11 +2,11 @@ import {
   UNITS,
   PURCHASE_CATEGORY_STORE_HOUSEHOLD_APPLIANCE,
   PURCHASE_CATEGORY_STORE_FOOD,
-  UNIT_MONETARY_EUR,
-  UNIT_MONETARY_DKK,
+  UNIT_CURRENCIES,
   ACTIVITY_TYPE_PURCHASE,
 } from '../../definitions';
 import { getDescendants, getRootEntry, modelCanRun, carbonEmissions } from './index';
+import { getAvailableCurrencies } from '../../integrations/utils/currency/currency';
 
 
 Object.entries(getDescendants(getRootEntry()))
@@ -28,12 +28,18 @@ Object.entries(getDescendants(getRootEntry()))
       });
   });
 
+test(`available currencies match definition`, () => {
+    const defined = Object.keys(UNIT_CURRENCIES);
+    const available = getAvailableCurrencies();
+    expect(defined.sort()).toEqual(available.sort());
+  });
+
 test(`test household appliance for DK in EUR`, () => {
   const activity = {
     activityType: ACTIVITY_TYPE_PURCHASE,
     countryCodeISO2: 'DK',
     lineItems: [{
-      unit: UNIT_MONETARY_EUR,
+      unit: UNIT_CURRENCIES.EUR,
       value: 15,
       identifier: PURCHASE_CATEGORY_STORE_HOUSEHOLD_APPLIANCE,
     }],
@@ -47,7 +53,7 @@ test(`test household appliance for DK in DKK`, () => {
     activityType: ACTIVITY_TYPE_PURCHASE,
     countryCodeISO2: 'DK',
     lineItems: [{
-      unit: UNIT_MONETARY_DKK,
+      unit: UNIT_CURRENCIES.DKK,
       value: 1150,
       identifier: PURCHASE_CATEGORY_STORE_FOOD,
     }],
