@@ -34,7 +34,7 @@
     {"euroCarSegment": "M", "engineType": "petrol", "brand": null, "carbonIntensity": 0.19940},
 
     {"euroCarSegment": null, "engineType": "plugInHybridElectric", "brand": null, "carbonIntensity": 0.11473},
-    {"euroCarSegment": "A", "engineType": "plugInHybridElectric", "carbonIntensity": 0.07347},
+    {"euroCarSegment": "A", "engineType": "plugInHybridElectric", "brand": null, "carbonIntensity": 0.07347},
     {"euroCarSegment": "B", "engineType": "plugInHybridElectric", "brand": null, "carbonIntensity": 0.07347},
     {"euroCarSegment": "C", "engineType": "plugInHybridElectric", "brand": null, "carbonIntensity": 0.10104},
     {"euroCarSegment": "D", "engineType": "plugInHybridElectric", "brand": null, "carbonIntensity": 0.11448},
