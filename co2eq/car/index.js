@@ -19,14 +19,14 @@ export function modelCanRun(activity) {
 }
 
 // look up carbonIntensity by brand name
-export function carbonIntensityByBrand(brand) {
-  const entry = cars.footprints.find(d => d.brand === brand);
-  if (!entry) {
-    throw new Error(`Unknown brand name ${brand}`);
-  } else {
-    return entry.carbonIntensity;
-  }
-}
+// function carbonIntensityByBrand(brand) {
+//   const entry = cars.footprints.find(d => d.brand === brand);
+//   if (!entry) {
+//     throw new Error(`Unknown brand name ${brand}`);
+//   } else {
+//     return entry.carbonIntensity;
+//   }
+// }
 
 // look up carbon intensity for cars by Euro car segment and engine type,
 // input can be null
