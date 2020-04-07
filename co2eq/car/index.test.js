@@ -83,7 +83,6 @@ describe('model runs with specific cars', () => {
   };
 
   test(`throw on unsupported car`, () => {
-    // expect thing
     const unsupportedActivity = {
       ...activity,
       euroCarSegment: 'A',
