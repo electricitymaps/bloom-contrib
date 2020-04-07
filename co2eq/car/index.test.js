@@ -25,28 +25,49 @@ test(`model has valid API`, () => {
 });
 
 describe('model runs with unknown car', () => {
-  test(`with duration`, () => {
-    const durationHours = 2;
-    const activity = {
-      activityType: ACTIVITY_TYPE_TRANSPORTATION,
-      transportationMode: TRANSPORTATION_MODE_CAR,
-      datetime: moment(),
-      endDatetime: moment().add(durationHours, 'hours'),
-    };
+  const durationHours = 2;
+  const distance = 20;
 
-    const expectedCO2 = durationHours * 45;
-    expect(modelCanRun(activity)).toBeTruthy();
-    expect(carbonEmissions(activity)).toBeCloseTo(expectedCO2 * 0.1771);
+  const distanceActivity = {
+    activityType: ACTIVITY_TYPE_TRANSPORTATION,
+    distanceKilometers: distance,
+    transportationMode: TRANSPORTATION_MODE_CAR,
+  };
+  const durationActivity = {
+    activityType: ACTIVITY_TYPE_TRANSPORTATION,
+    transportationMode: TRANSPORTATION_MODE_CAR,
+    datetime: moment(),
+    endDatetime: moment().add(durationHours, 'hours'),
+  };
+
+  const failingActivity = {
+    ...distanceActivity,
+    activityType: 'unknown',
+  };
+
+  test(`modelCanRun`, () => {
+    expect(modelCanRun(distanceActivity)).toBeTruthy();
+    expect(modelCanRun(failingActivity)).toBeFalsy();
   });
-  test(`with distance`, () => {
-    const distance = 20;
-    const activity = {
-      activityType: ACTIVITY_TYPE_TRANSPORTATION,
-      distanceKilometers: distance,
-      transportationMode: TRANSPORTATION_MODE_CAR,
-    };
-    expect(modelCanRun(activity)).toBeTruthy();
-    expect(carbonEmissions(activity)).toBeCloseTo(distance * 0.1771);
+
+  test('with distance', () => {
+    expect(carbonEmissions(distanceActivity)).toBeCloseTo(distance * 0.1771);
+  });
+
+  test('with duration', () => {
+    const durationToDistance = durationHours * 45;
+    expect(modelCanRun(durationActivity)).toBeTruthy();
+    expect(carbonEmissions(durationActivity)).toBeCloseTo(durationToDistance * 0.1771);
+  });
+  test('throw on zero duration', () => {
+    const zeroDurationActivity = {
+      ...durationActivity,
+      endDatetime: durationActivity.datetime,
+    }
+
+    expect(() => {
+      carbonEmissions(zeroDurationActivity)
+    }).toThrow();
   });
 });
 
@@ -60,6 +81,18 @@ describe('model runs with specific cars', () => {
     distanceKilometers: distance,
     transportationMode: TRANSPORTATION_MODE_CAR,
   };
+
+  test(`throw on unsupported car`, () => {
+    // expect thing
+    const unsupportedActivity = {
+      ...activity,
+      euroCarSegment: 'A',
+      engineType: 'nuclear',
+    };
+    expect(() => {
+      carbonEmissions(unsupportedActivity);
+    }).toThrow();
+  });
 
   cars.footprints.forEach(car => {
     const testActivity = { ...activity, ...car };
