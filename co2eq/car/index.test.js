@@ -86,7 +86,7 @@ describe('model runs with specific cars', () => {
     const unsupportedActivity = {
       ...activity,
       euroCarSegment: 'A',
-      engineType: 'nuclear',
+      engineType: 'thorium-based',
     };
     expect(() => {
       carbonEmissions(unsupportedActivity);
