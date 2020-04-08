@@ -35,8 +35,14 @@
     "jest": "^25.2.4",
     "prettier": "^1.19.1"
   },
+  "jest": {
+    "verbose": true,
+    "collectCoverageFrom": [
+      "co2eq/**/*.js"
+    ]
+  },
   "scripts": {
     "lint": "eslint --quiet *.js co2eq integrations playground",
-    "test": "jest --verbose --no-cache"
+    "test": "jest --no-cache"
   }
 }
