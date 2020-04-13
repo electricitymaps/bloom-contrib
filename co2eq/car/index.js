@@ -31,9 +31,9 @@ export function carbonIntensityByBrand(brand) {
 // look up carbon intensity for cars by Euro car segment and engine type,
 // input can be null
 function carbonIntensity(euroCarSegment, engineType, brand) {
-  // Using == instead of === because we want undefined to match with null in cars.json
-  // eslint-disable-next-line eqeqeq
   const entry = cars.footprints.find(
+    // Using == instead of === because we want undefined to match with null in cars.json
+    // eslint-disable-next-line eqeqeq
     d => d.euroCarSegment == euroCarSegment && d.engineType == engineType && d.brand == brand
   );
   if (!entry) {

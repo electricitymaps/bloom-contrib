@@ -297,10 +297,11 @@ async function parseTransactions(
 }
 
 async function connect(requestLogin, requestWebView) {
-  if (!env.NAG_CLIENT_ID || !env.NAG_CLIENT_SECRET)
+  if (!env.NAG_CLIENT_ID || !env.NAG_CLIENT_SECRET) {
     throw new Error(
       'Environment variables for nordic-api-gateway not set. Please set NAG_CLIENT_ID & NAG_CLIENT_SECRET.'
     );
+  }
   const state = {};
 
   // Unique id for user
