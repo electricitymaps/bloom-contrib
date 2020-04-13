@@ -14,10 +14,9 @@ const MEALS_PER_DAY = 3;
 export const modelName = 'meal';
 export const modelVersion = '6';
 export const explanation = {
-  text: 'The calculations take into consideration greenhouse gas emissions across the whole lifecycle for an average meal of a specific diet.',
-  links: [
-    { label: 'Nature (2017)', href: 'https://www.nature.com/articles/s41598-017-06466-8' },
-  ],
+  text:
+    'The calculations take into consideration greenhouse gas emissions across the whole lifecycle for an average meal of a specific diet.',
+  links: [{ label: 'Nature (2017)', href: 'https://www.nature.com/articles/s41598-017-06466-8' }],
 };
 
 export const modelCanRunVersion = 2;
@@ -68,5 +67,7 @@ export function carbonEmissions(activity) {
     return carbonIntensityOfMealType(mealType);
   }
 
-  throw new Error('Couldn\'t calculate carbonEmissions for activity because it does not have any ingredients or meal type');
+  throw new Error(
+    "Couldn't calculate carbonEmissions for activity because it does not have any ingredients or meal type"
+  );
 }

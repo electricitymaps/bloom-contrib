@@ -20,11 +20,11 @@ let BOOKINGS_URL;
 async function logIn(username, password) {
   // urls have to be assigned here as they're asynchronous and have to be awaited
   await Promise.all(
-    API_URL = await getApiVersionUrl(),
-    BASE_URL = JSON.parse(API_URL.trim()).apiUrl,
-    LOGIN_URL = `${await BASE_URL}/customer/login`,
-    ITINERARY_URL = `${await BASE_URL}/booking/itinerary`,
-    BOOKINGS_URL = `${await BASE_URL}/customer/mybookings`,
+    (API_URL = await getApiVersionUrl()),
+    (BASE_URL = JSON.parse(API_URL.trim()).apiUrl),
+    (LOGIN_URL = `${await BASE_URL}/customer/login`),
+    (ITINERARY_URL = `${await BASE_URL}/booking/itinerary`),
+    (BOOKINGS_URL = `${await BASE_URL}/customer/mybookings`)
   );
 
   const res = await agent
@@ -70,57 +70,65 @@ async function getPastBookings() {
 async function getAllFlights(booking) {
   const allFlights = [];
 
-  await Promise.all(booking.map(async (singleFlight) => {
-    await agent
-      .post(ITINERARY_URL)
-      .type('application/json')
-      .set('Accept', '*/*')
-      .send({
-        keepBooking: false,
-        lastName: singleFlight.contactLastName,
-        pnr: singleFlight.recordLocator,
-      })
-      .then(
-        (res) => {
-          allFlights.push({
-            id: `pnr${res.body.pnr}fn${res.body.outboundFlight.flightNumber}`,
-            flight: res.body.outboundFlight || false, // not every booking has both an outbound and a return flight, hence false
-            pnr: res.body.pnr,
-          }, {
-            id: `pnr${res.body.pnr}fn${res.body.returnFlight.flightNumber}`,
-            flight: res.body.returnFlight || false,
-            pnr: res.body.pnr,
-          });
-        }, (async (res) => {
-          if (!res.ok) {
-            const text = await res.text();
-            throw new HTTPError(text, res.status);
-          }
+  await Promise.all(
+    booking.map(async singleFlight => {
+      await agent
+        .post(ITINERARY_URL)
+        .type('application/json')
+        .set('Accept', '*/*')
+        .send({
+          keepBooking: false,
+          lastName: singleFlight.contactLastName,
+          pnr: singleFlight.recordLocator,
         })
-      );
-  }));
+        .then(
+          res => {
+            allFlights.push(
+              {
+                id: `pnr${res.body.pnr}fn${res.body.outboundFlight.flightNumber}`,
+                flight: res.body.outboundFlight || false, // not every booking has both an outbound and a return flight, hence false
+                pnr: res.body.pnr,
+              },
+              {
+                id: `pnr${res.body.pnr}fn${res.body.returnFlight.flightNumber}`,
+                flight: res.body.returnFlight || false,
+                pnr: res.body.pnr,
+              }
+            );
+          },
+          async res => {
+            if (!res.ok) {
+              const text = await res.text();
+              throw new HTTPError(text, res.status);
+            }
+          }
+        );
+    })
+  );
 
   // WHY: there can be multiple bookings for the same flight (e.g. for different passengers)
   // HOW: filters flights with the same flight number
-  const allUniqueFlights = Array.from(new Set(allFlights.map(a => a.flight.flightNumber)))
-    .map(mappedFlightNumber => allFlights.find(a => a.flight.flightNumber === mappedFlightNumber));
+  const allUniqueFlights = Array.from(
+    new Set(allFlights.map(a => a.flight.flightNumber))
+  ).map(mappedFlightNumber => allFlights.find(a => a.flight.flightNumber === mappedFlightNumber));
   const noNullFlights = allUniqueFlights.filter(entry => entry.flight !== false);
 
   return noNullFlights;
 }
 
 async function getActivities(allUniqueFlights) {
-  const activities = Object.values(allUniqueFlights)
-    .map(k => ({
-      id: k.id,
-      datetime: k.flight.departureDate,
-      endDatetime: moment(k.flight.departureDate).add(k.flight.duration).toDate(),
-      activityType: ACTIVITY_TYPE_TRANSPORTATION,
-      transportationMode: TRANSPORTATION_MODE_PLANE,
-      carrier: 'Wizzair',
-      departureAirportCode: k.flight.departureStation,
-      destinationAirportCode: k.flight.arrivalStation,
-    }));
+  const activities = Object.values(allUniqueFlights).map(k => ({
+    id: k.id,
+    datetime: k.flight.departureDate,
+    endDatetime: moment(k.flight.departureDate)
+      .add(k.flight.duration)
+      .toDate(),
+    activityType: ACTIVITY_TYPE_TRANSPORTATION,
+    transportationMode: TRANSPORTATION_MODE_PLANE,
+    carrier: 'Wizzair',
+    departureAirportCode: k.flight.departureStation,
+    destinationAirportCode: k.flight.arrivalStation,
+  }));
   return activities;
 }
 
@@ -151,9 +159,7 @@ function disconnect() {
 
 async function collect(state) {
   await logIn(state.username, state.password);
-  const {
-    pastBookings,
-  } = await getPastBookings();
+  const { pastBookings } = await getPastBookings();
 
   let fetchIndex = state.lastTotalCount || 0;
   const slicedResults = pastBookings.slice(fetchIndex, fetchIndex + HISTORY_API_FETCH_LIMIT);
