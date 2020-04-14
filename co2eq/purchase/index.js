@@ -17,7 +17,10 @@ import { getChecksum } from '../utils';
 export const explanation = {
   text: null,
   links: [
-    { label: 'Tomorrow footprint database', href: 'https://github.com/tmrowco/northapp-contrib/blob/master/co2eq/purchase/footprints.yml' },
+    {
+      label: 'Tomorrow footprint database',
+      href: 'https://github.com/tmrowco/northapp-contrib/blob/master/co2eq/purchase/footprints.yml',
+    },
   ],
 };
 
@@ -60,31 +63,30 @@ export function getChecksumOfFootprints() {
   return getChecksum(footprints);
 }
 
-export function getDescendants(entry, filter = (_ => true), includeRoot = false) {
+export function getDescendants(entry, filter = _ => true, includeRoot = false) {
   // Note: `getDescendants` is very close to `indexNodeChildren`
   // Note2: if a node gets filtered out, its children won't be visited
-  if (!entry) { throw new Error('Invalid `entry`'); }
-  let descendants = includeRoot
-    ? { [entry.key]: entry }
-    : {};
-  Object.values(entry._children || []).filter(filter).forEach((child) => {
-    descendants = {
-      ...descendants,
-      ...getDescendants(child, filter, true),
-    };
-  });
+  if (!entry) {
+    throw new Error('Invalid `entry`');
+  }
+  let descendants = includeRoot ? { [entry.key]: entry } : {};
+  Object.values(entry._children || [])
+    .filter(filter)
+    .forEach(child => {
+      descendants = {
+        ...descendants,
+        ...getDescendants(child, filter, true),
+      };
+    });
   return descendants;
 }
-
 
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'purchase';
 export const modelVersion = `3_${getChecksumOfFootprints()}`; // This model relies on footprints.yaml
 export const modelCanRunVersion = 1;
 export function modelCanRun(activity) {
-  const {
-    costAmount, costCurrency, activityType, transportationMode, lineItems,
-  } = activity;
+  const { costAmount, costCurrency, activityType, transportationMode, lineItems } = activity;
   if (costAmount && costCurrency) {
     if (activityType === ACTIVITY_TYPE_MEAL) return true;
     if (activityType === ACTIVITY_TYPE_TRANSPORTATION) {
@@ -109,9 +111,7 @@ function correctWithParticipants(footprint, participants) {
   return footprint / (participants || 1);
 }
 function extractEur({ costAmount, costCurrency }) {
-  return (costAmount && costCurrency)
-    ? convertToEuro(costAmount, costCurrency)
-    : null;
+  return costAmount && costCurrency ? convertToEuro(costAmount, costCurrency) : null;
 }
 
 /**
@@ -122,7 +122,10 @@ function extractEur({ costAmount, costCurrency }) {
 function extractComptabileUnitAndAmount(lineItem, entry) {
   const isMonetaryItem = getAvailableCurrencies().includes(lineItem.unit);
   // Extract eurAmount if applicable
-  const eurAmount = extractEur({ costCurrency: isMonetaryItem ? lineItem.unit : null, costAmount: isMonetaryItem ? lineItem.value : null });
+  const eurAmount = extractEur({
+    costCurrency: isMonetaryItem ? lineItem.unit : null,
+    costAmount: isMonetaryItem ? lineItem.value : null,
+  });
   // TODO(olc): Also look at potential available conversions
   const availableEntryUnit = entry.unit;
   if (availableEntryUnit === UNIT_LITER && lineItem.unit === UNIT_LITER) {
@@ -154,11 +157,15 @@ export function carbonEmissionOfLineItem(lineItem, countryCodeISO2) {
 
   const { unit, amount } = extractComptabileUnitAndAmount(lineItem, entry);
   if (unit == null || amount == null || !Number.isFinite(amount)) {
-    throw new Error(`Invalid unit ${unit} or amount ${amount} for purchaseType ${identifier}. Expected ${entry.unit}`);
+    throw new Error(
+      `Invalid unit ${unit} or amount ${amount} for purchaseType ${identifier}. Expected ${entry.unit}`
+    );
   }
 
   if (entry.unit !== unit) {
-    throw new Error(`Invalid unit ${unit} given for purchaseType ${identifier}. Expected ${entry.unit}`);
+    throw new Error(
+      `Invalid unit ${unit} given for purchaseType ${identifier}. Expected ${entry.unit}`
+    );
   }
 
   if (typeof entry.intensityKilograms === 'number') {
@@ -174,7 +181,9 @@ export function carbonEmissionOfLineItem(lineItem, countryCodeISO2) {
     return (values.reduce((a, b) => a + b, 0) / values.length) * amount;
   }
   if (!entry.intensityKilograms[countryCodeISO2]) {
-    throw new Error(`Missing carbon intensity for country ${countryCodeISO2} and identifier ${identifier}`);
+    throw new Error(
+      `Missing carbon intensity for country ${countryCodeISO2} and identifier ${identifier}`
+    );
   }
   return entry.intensityKilograms[countryCodeISO2] * amount;
 }
@@ -189,21 +198,21 @@ export function carbonEmissions(activity) {
   switch (activity.activityType) {
     case ACTIVITY_TYPE_MEAL:
       // Source: http://www.balticproject.org/en/calculator-page
-      footprint = eurAmount * 79.64 / 1000; // Restaurant bill
+      footprint = (eurAmount * 79.64) / 1000; // Restaurant bill
       break;
 
     case ACTIVITY_TYPE_TRANSPORTATION:
       // Source: http://www.balticproject.org/en/calculator-page
       switch (activity.transportationMode) {
         case TRANSPORTATION_MODE_CAR:
-          footprint = eurAmount * 1186 / 1000; // Taxi bill
+          footprint = (eurAmount * 1186) / 1000; // Taxi bill
           break;
         case TRANSPORTATION_MODE_TRAIN:
         case TRANSPORTATION_MODE_PUBLIC_TRANSPORT:
-          footprint = eurAmount * 335.63 / 1000;
+          footprint = (eurAmount * 335.63) / 1000;
           break;
         case TRANSPORTATION_MODE_PLANE:
-          footprint = eurAmount * 1121.52 / 1000;
+          footprint = (eurAmount * 1121.52) / 1000;
           break;
         default:
           throw new Error(

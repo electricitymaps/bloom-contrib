@@ -82,7 +82,7 @@ async function collect(state, logger, utils) {
   const vehicleId = vehicle.VehicleID;
 
   const data = await fetchVehicleCharges(token, vehicleId);
-  const activities = data.map((d) => {
+  const activities = data.map(d => {
     if (d.ChargeEndDateISO === '') {
       // Skip that element
       logger.logWarning('Skipping item as it has no ChargeEndDateISO');
@@ -98,7 +98,7 @@ async function collect(state, logger, utils) {
       efficiency = 1;
     }
 
-    const energyWattHours = parseFloat(d.ChargeJuice.replace(',', '.')) / efficiency * 1000;
+    const energyWattHours = (parseFloat(d.ChargeJuice.replace(',', '.')) / efficiency) * 1000;
     if (energyWattHours <= 0) {
       logger.logWarning(`Invalid ChargeJuice ${d.ChargeJuice} received. Ignoring..`);
       return null;
@@ -118,7 +118,9 @@ async function collect(state, logger, utils) {
     ];
 
     if (!Number.isFinite(locationLat) || !Number.isFinite(locationLon)) {
-      throw new Error(`Could not parse location. Input was lon=${d.ChargerLongitude}, lat=${d.ChargerLatitude}. Output was lon=${locationLon}, lat=${locationLat}`);
+      throw new Error(
+        `Could not parse location. Input was lon=${d.ChargerLongitude}, lat=${d.ChargerLatitude}. Output was lon=${locationLon}, lat=${locationLat}`
+      );
     }
 
     return {

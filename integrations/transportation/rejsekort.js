@@ -3,7 +3,10 @@ import request from 'superagent';
 import { DOMParser } from 'xmldom';
 import { ValidationError } from '../utils/errors';
 
-import { ACTIVITY_TYPE_TRANSPORTATION, TRANSPORTATION_MODE_PUBLIC_TRANSPORT } from '../../definitions';
+import {
+  ACTIVITY_TYPE_TRANSPORTATION,
+  TRANSPORTATION_MODE_PUBLIC_TRANSPORT,
+} from '../../definitions';
 
 /*
 Potential improvements:
@@ -14,13 +17,16 @@ Potential improvements:
 const LOGIN_URL = 'https://selvbetjening.rejsekort.dk/CWS/Home/UserNameLogin';
 const LOGIN_FORM_URL = 'https://selvbetjening.rejsekort.dk/CWS/Home/Index';
 const TRAVELS_URL = 'https://selvbetjening.rejsekort.dk/CWS/TransactionServices/TravelCardHistory';
-const TRAVELS_FORM_URL = 'https://selvbetjening.rejsekort.dk/CWS/TransactionServices/TravelCardHistory';
+const TRAVELS_FORM_URL =
+  'https://selvbetjening.rejsekort.dk/CWS/TransactionServices/TravelCardHistory';
 
 // Create an agent that can hold cookies
 const agent = request.agent();
 
 function extractRequestToken(text) {
-  const tokenString = text.match(/antiForgeryToken = '<input name="__RequestVerificationToken.*/)[0];
+  const tokenString = text.match(
+    /antiForgeryToken = '<input name="__RequestVerificationToken.*/
+  )[0];
   const value = tokenString.match(/value=".*"/)[0];
   // Extract
   const token = value.slice(7, value.length - 1);
@@ -29,9 +35,7 @@ function extractRequestToken(text) {
 
 // Get login token
 async function getLoginRequestToken(logger) {
-  const res = await agent
-    .get(LOGIN_URL)
-    .set('Accept-Language', 'en;en-US');
+  const res = await agent.get(LOGIN_URL).set('Accept-Language', 'en;en-US');
   let token = extractRequestToken(res.text);
   // Sometimes the token has a length > 92 which indicates a problem
   // This never happens in node. It only happens on Android
@@ -40,7 +44,7 @@ async function getLoginRequestToken(logger) {
     token = await getLoginRequestToken(logger);
   }
   if (res.text.match(/(is logged in|er logget in)/)) {
-    logger.logWarning('We\'re already logged in..');
+    logger.logWarning("We're already logged in..");
   }
   return token;
 }
@@ -66,8 +70,7 @@ async function logIn(username, password, logger) {
     // Try to parse error
     const parser = new DOMParser();
     const document = parser.parseFromString(res.text, 'text/html');
-    const container = document
-      .getElementById('validation-summary-v5-container');
+    const container = document.getElementById('validation-summary-v5-container');
     if (res.text.match(/Error404/)) {
       // Note: this seems to happen when POST request to `LOGIN_FORM_URL` fails
       // which redirects to a page that causes a 404
@@ -77,23 +80,22 @@ async function logIn(username, password, logger) {
       // As a result, we're not logged in.
       throw new Error('Unknown error');
     } else {
-      const errors = Array.from(container.getElementsByTagName('li'))
-        .map(d => d.firstChild.textContent);
+      const errors = Array.from(container.getElementsByTagName('li')).map(
+        d => d.firstChild.textContent
+      );
       throw new ValidationError(errors.join(', '));
     }
   } else if (!res.text.match(/(is logged in|er logget in)/)) {
     // Log more info
     logger.logDebug(`Seems like logIn failed. Headers: ${JSON.stringify(res.header)}`);
-    throw Error('This doesn\'t look like the logged-in home page');
+    throw Error("This doesn't look like the logged-in home page");
   }
   logger.logDebug('Successfully logged in.');
 }
 
 // Get token for form to get all travels
 async function getTravelFormRequestToken() {
-  const res = await agent
-    .set('Accept-Language', 'en;en-US')
-    .get(TRAVELS_URL);
+  const res = await agent.set('Accept-Language', 'en;en-US').get(TRAVELS_URL);
   return extractRequestToken(res.text);
 }
 
@@ -107,15 +109,18 @@ async function getAllTravels(logger) {
   // Loop over all pages until all travels are included
   for (let i = 0; i < MAX_ITERATIONS; i += 1) {
     // Load next page.
-    const res = await agent.post(TRAVELS_FORM_URL).type('form').send({
-      periodSelected: 'All',
-      __RequestVerificationToken: travelRequestToken,
-      page: `${i * 5 + 1}`,
-    });
+    const res = await agent
+      .post(TRAVELS_FORM_URL)
+      .type('form')
+      .send({
+        periodSelected: 'All',
+        __RequestVerificationToken: travelRequestToken,
+        page: `${i * 5 + 1}`,
+      });
 
     if (!res.text.match(/(is logged in|er logget in)/)) {
       logger.logDebug(`Seems like logIn failed. Headers: ${JSON.stringify(res.header)}`);
-      throw Error('We\'re not logged in.');
+      throw Error("We're not logged in.");
     }
 
     if (!res.text.match(/(Mine rejser|My journeys)/)) {
@@ -201,7 +206,9 @@ function parseTravels(allTravelsHTML, logger) {
   for (let a = 0; a < travelList.length; a += 1) {
     const splitToken = travelList[a].date.indexOf('-') !== -1 ? '-' : '/';
     const dateSplit = travelList[a].date.split(splitToken);
-    const startTime = new Date(`20${dateSplit[2]}-${dateSplit[1]}-${dateSplit[0]}T${travelList[a]['start-time']}`);
+    const startTime = new Date(
+      `20${dateSplit[2]}-${dateSplit[1]}-${dateSplit[0]}T${travelList[a]['start-time']}`
+    );
     const endStr = `20${dateSplit[2]}-${dateSplit[1]}-${dateSplit[0]}T${travelList[a]['end-time']}`;
     let endTime = new Date(endStr);
 
@@ -212,7 +219,9 @@ function parseTravels(allTravelsHTML, logger) {
     }
 
     if (endTime < startTime) {
-      endTime = moment(endTime).add(1, 'day').toDate();
+      endTime = moment(endTime)
+        .add(1, 'day')
+        .toDate();
     }
 
     activities.push({
