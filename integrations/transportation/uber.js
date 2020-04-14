@@ -15,7 +15,6 @@ const manager = new OAuth2Manager({
 const MILES_TO_KM = 1.60934;
 const HISTORY_API_FETCH_LIMIT = 50;
 
-
 async function connect(requestLogin, requestWebView, logger) {
   const state = await manager.authorize(requestWebView, logger);
   return state;
@@ -60,10 +59,9 @@ async function collect(state, { logDebug }) {
   manager.setState(state);
 
   // fetch first result to check total number of rides
-  const {
-    activities: latestActivities,
-    totalCount,
-  } = await queryActivitiesFromOffset(0, { logDebug });
+  const { activities: latestActivities, totalCount } = await queryActivitiesFromOffset(0, {
+    logDebug,
+  });
   const fetches = [];
   // return all items or the difference since last collect()
   const itemsToFetch = totalCount - (state.lastTotalCount || 0);
@@ -76,8 +74,10 @@ async function collect(state, { logDebug }) {
     fetchIndex += HISTORY_API_FETCH_LIMIT;
   }
 
-  const allResults = (await Promise.all(fetches))
-    .reduce((acc, val) => acc.concat(val.activities), latestActivities);
+  const allResults = (await Promise.all(fetches)).reduce(
+    (acc, val) => acc.concat(val.activities),
+    latestActivities
+  );
 
   // we possibly fetched too many results, only return new items
   const cappedResults = allResults.slice(0, itemsToFetch);

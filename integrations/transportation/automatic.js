@@ -16,7 +16,8 @@ const manager = new OAuth2Manager({
   baseUrl: 'https://api.automatic.com',
   clientId: env.AUTOMATIC_CLIENT_ID,
   clientSecret: env.AUTOMATIC_CLIENT_SECRET,
-  scope: 'scope=scope:public%20scope:user:profile%20scope:location%20scope:vehicle:profile%20scope:vehicle:events%20scope:trip%20scope:behavior',
+  scope:
+    'scope=scope:public%20scope:user:profile%20scope:location%20scope:vehicle:profile%20scope:vehicle:events%20scope:trip%20scope:behavior',
 });
 
 async function connect(requestLogin, requestWebView) {
@@ -44,7 +45,8 @@ async function fetchTripsFromURL(tripURL, logger) {
   return data;
 }
 
-const toActivities = tripArray => (tripArray || []).map(k => {
+const toActivities = tripArray =>
+  (tripArray || []).map(k => {
     const datetime = new Date(k.started_at);
     return {
       id: k.id,
@@ -58,13 +60,14 @@ const toActivities = tripArray => (tripArray || []).map(k => {
       startLon: k.start_location.lon,
       endLat: k.end_location.lat,
       endLon: k.end_location.lon,
-    }
-  }
-);
+    };
+  });
 
 async function fetchOffsetActivities(start, end, logger) {
   const startDateString = start === null ? '' : `started_at_gte=${toUnixSeconds(start)}&`;
-  const tripURL = `/trip/?${startDateString}ended_at__lte=${toUnixSeconds(end)}&limit=${API_FETCH_LIMIT}`;
+  const tripURL = `/trip/?${startDateString}ended_at__lte=${toUnixSeconds(
+    end
+  )}&limit=${API_FETCH_LIMIT}`;
 
   // fetching first batch to check the number of trips
   let data = await fetchTripsFromURL(tripURL, logger);

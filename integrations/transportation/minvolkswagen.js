@@ -136,7 +136,6 @@ async function collect(state, logger) {
   const token = await loginWithDeviceToken(deviceToken, logger);
   const cars = await getCarIds(token, userId, logger);
 
-
   let trips = [];
   // eslint-disable-next-line no-restricted-syntax
   for (const vehicleId of cars) {
@@ -153,8 +152,8 @@ async function collect(state, logger) {
       endDatetime: new Date(datetime.getTime() + 60000 * trip.duration),
       distanceKilometers: trip.mileage,
       transportationMode: TRANSPORTATION_MODE_CAR,
-      pathLonLats: trip.positions.map(p => ([p.longitude, p.latitude])),
-    }
+      pathLonLats: trip.positions.map(p => [p.longitude, p.latitude]),
+    };
   });
 
   return { state: { ...state, lastUpdate: new Date().toISOString() }, activities };
