@@ -3,15 +3,18 @@ import {
   HOTEL_CLASS_THREE_STARS,
   HOTEL_CLASS_FOUR_STARS,
   HOTEL_CLASS_FIVE_STARS,
-} from '../definitions';
-import { getActivityDurationHours } from './utils';
+} from '../../definitions'
+import { getActivityDurationHours } from '../utils';
 
 export const modelName = 'lodging';
 export const modelVersion = '1';
 export const explanation = {
   text: 'Calculations take into account the energy usage of a stay',
   links: [
-    { label: 'UK GOV DEFRA (2009)', href: 'https://shop.southpolecarbon.com/uploads/assets/en/_Overnight%20Stays.pdf' },
+    {
+      label: 'UK GOV DEFRA (2009)',
+      href: 'https://shop.southpolecarbon.com/uploads/assets/en/_Overnight%20Stays.pdf',
+    },
   ],
 };
 
@@ -31,16 +34,16 @@ function carbonIntensity(hotelClass) {
   switch (hotelClass) {
     case HOTEL_CLASS_ZERO_TO_TWO_STARS:
       return 11.6;
-      // https://shop.southpolecarbon.com/uploads/assets/en/_Overnight%20Stays.pdf
+    // https://shop.southpolecarbon.com/uploads/assets/en/_Overnight%20Stays.pdf
     case HOTEL_CLASS_THREE_STARS:
       return 14.3;
-      // https://shop.southpolecarbon.com/uploads/assets/en/_Overnight%20Stays.pdf
+    // https://shop.southpolecarbon.com/uploads/assets/en/_Overnight%20Stays.pdf
     case HOTEL_CLASS_FOUR_STARS:
       // https://shop.southpolecarbon.com/uploads/assets/en/_Overnight%20Stays.pdf
       return 18.5;
     case HOTEL_CLASS_FIVE_STARS:
       return 33.1;
-      // https://shop.southpolecarbon.com/uploads/assets/en/_Overnight%20Stays.pdf
+    // https://shop.southpolecarbon.com/uploads/assets/en/_Overnight%20Stays.pdf
     default:
       throw new Error(`Unknown hotel class: ${hotelClass}`);
   }
