@@ -3,7 +3,7 @@ import {
   HOTEL_CLASS_THREE_STARS,
   HOTEL_CLASS_FOUR_STARS,
   HOTEL_CLASS_FIVE_STARS,
-} from '../../definitions'
+} from '../../definitions';
 import { getActivityDurationHours } from '../utils';
 
 export const modelName = 'lodging';
