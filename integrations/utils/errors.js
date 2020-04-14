@@ -1,4 +1,3 @@
-
 // Class to represent all of our errors
 export class CustomError extends Error {
   constructor(message) {

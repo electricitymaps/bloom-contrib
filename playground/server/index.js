@@ -42,9 +42,11 @@ if (devServerEnabled) {
   const compiler = webpack(config);
 
   // Enable "webpack-dev-middleware"
-  app.use(webpackDevMiddleware(compiler, {
-    publicPath: config.output.publicPath,
-  }));
+  app.use(
+    webpackDevMiddleware(compiler, {
+      publicPath: config.output.publicPath,
+    })
+  );
 
   // Enable "webpack-hot-middleware"
   app.use(webpackHotMiddleware(compiler));
@@ -60,20 +62,21 @@ const serializeError = e => ({
 const oauthCallbackUrl = 'http://localhost:3000/oauth_callback';
 let resolveWebView = null;
 
-io.on('connection', (socket) => {
+io.on('connection', socket => {
   console.log('client connected');
 
   socket.emit('integrations', Object.keys(sourceImplementations));
 
-  socket.on('run', async (data) => {
+  socket.on('run', async data => {
     console.log(`running ${data.sourceIdentifier}..`);
     const log = [];
-    const pushLog = (level, obj) => log.push({
-      key: log.length.toString(),
-      datetime: new Date(),
-      level,
-      obj: (obj instanceof Error) ? serializeError(obj) : obj,
-    });
+    const pushLog = (level, obj) =>
+      log.push({
+        key: log.length.toString(),
+        datetime: new Date(),
+        level,
+        obj: obj instanceof Error ? serializeError(obj) : obj,
+      });
     const logger = {
       logDebug: obj => pushLog('debug', obj),
       logWarning: obj => pushLog('warning', obj),
@@ -90,7 +93,9 @@ io.on('connection', (socket) => {
     const requestWebView = (url, callbackUrl) => {
       return new Promise((resolve, reject) => {
         if (callbackUrl !== oauthCallbackUrl) {
-          reject(new Error(`Invalid OAuth callback url ${callbackUrl}. Should be ${oauthCallbackUrl}`));
+          reject(
+            new Error(`Invalid OAuth callback url ${callbackUrl}. Should be ${oauthCallbackUrl}`)
+          );
         } else {
           resolveWebView = resolve;
           socket.emit('openUrl', url);
@@ -118,7 +123,6 @@ io.on('connection', (socket) => {
     console.log('..done');
   });
 });
-
 
 app.get('/oauth_callback', (req, res) => {
   // Fulfill promise and make sure client closes the window
