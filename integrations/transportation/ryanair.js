@@ -1,13 +1,7 @@
 import moment from 'moment';
 import request from 'superagent';
-import {
-  ACTIVITY_TYPE_TRANSPORTATION,
-  TRANSPORTATION_MODE_PLANE,
-} from '../../definitions';
-import {
-  HTTPError,
-  ValidationError,
-} from '../utils/errors';
+import { ACTIVITY_TYPE_TRANSPORTATION, TRANSPORTATION_MODE_PLANE } from '../../definitions';
+import { HTTPError, ValidationError } from '../utils/errors';
 
 const agent = request.agent();
 const BASE_URL = 'https://api.ryanair.com/usrprof/rest/api/v1/';
@@ -40,10 +34,7 @@ async function connect(requestLogin) {
 
   // Here we can use two functions to invoke screens
   // requestLogin() or requestWebView()
-  const {
-    username,
-    password,
-  } = await requestLogin();
+  const { username, password } = await requestLogin();
 
   if (!(password || '').length) {
     throw new ValidationError('Password cannot be empty');
@@ -65,28 +56,30 @@ function disconnect() {
 async function getAllFlights(bookings, customerId, token) {
   const allFlights = [];
 
-  await Promise.all(bookings.map(async (entry) => {
-    const res = await agent
-      .put(`${PROFILE_URL}${customerId}/bookings/booking`)
-      .set('Accept', 'application/json')
-      .set('X-Auth-Token', token)
-      .send({
-        bookingId: entry.bookingId,
-        pnr: entry.pnr,
-      });
-
-    if (res.ok) {
-      res.body.Flights.forEach((singleFlight) => {
-        allFlights.push({
-          bookingId: res.body.BookingId,
-          flightInfo: singleFlight,
-          pnr: res.body.RecordLocator,
+  await Promise.all(
+    bookings.map(async entry => {
+      const res = await agent
+        .put(`${PROFILE_URL}${customerId}/bookings/booking`)
+        .set('Accept', 'application/json')
+        .set('X-Auth-Token', token)
+        .send({
+          bookingId: entry.bookingId,
+          pnr: entry.pnr,
         });
-      });
-    } else {
-      throw new HTTPError(res.text, res.status);
-    }
-  }));
+
+      if (res.ok) {
+        res.body.Flights.forEach(singleFlight => {
+          allFlights.push({
+            bookingId: res.body.BookingId,
+            flightInfo: singleFlight,
+            pnr: res.body.RecordLocator,
+          });
+        });
+      } else {
+        throw new HTTPError(res.text, res.status);
+      }
+    })
+  );
   return allFlights;
 }
 
@@ -109,40 +102,37 @@ async function getActivities(pastBookings, customerId, token) {
 
   // WHY: there can be multiple bookings for the same flight (e.g. for different passengers)
   // HOW: filters flights with the same flight number
-  const uniqueFlights = Array.from(new Set(allFlights.map(a => a.flightInfo.FlightNumber)))
-    .map(mappedFlightNumber => allFlights
-      .find(a => a.flightInfo.FlightNumber === mappedFlightNumber));
+  const uniqueFlights = Array.from(
+    new Set(allFlights.map(a => a.flightInfo.FlightNumber))
+  ).map(mappedFlightNumber =>
+    allFlights.find(a => a.flightInfo.FlightNumber === mappedFlightNumber)
+  );
 
-  const activities = Object.values(uniqueFlights)
-    .map(k => ({
-      id: `ryanairB${k.bookingId}${k.flightInfo.FlightNumber}`,
-      datetime: k.flightInfo.DepartLocal,
-      endDatetime: moment(k.flightInfo.DepartLocal).add(moment(k.flightInfo.Arrive).diff(moment(k.flightInfo.Depart))).toDate(),
-      activityType: ACTIVITY_TYPE_TRANSPORTATION,
-      transportationMode: TRANSPORTATION_MODE_PLANE,
-      carrier: 'Ryanair',
-      departureAirportCode: k.flightInfo.Origin,
-      destinationAirportCode: k.flightInfo.Destination,
-    }));
+  const activities = Object.values(uniqueFlights).map(k => ({
+    id: `ryanairB${k.bookingId}${k.flightInfo.FlightNumber}`,
+    datetime: k.flightInfo.DepartLocal,
+    endDatetime: moment(k.flightInfo.DepartLocal)
+      .add(moment(k.flightInfo.Arrive).diff(moment(k.flightInfo.Depart)))
+      .toDate(),
+    activityType: ACTIVITY_TYPE_TRANSPORTATION,
+    transportationMode: TRANSPORTATION_MODE_PLANE,
+    carrier: 'Ryanair',
+    departureAirportCode: k.flightInfo.Origin,
+    destinationAirportCode: k.flightInfo.Destination,
+  }));
 
   return activities;
 }
 
 async function collect(state) {
-  const {
-    username,
-    password,
-  } = state;
+  const { username, password } = state;
 
   // WHY: compatibility with previous versions' states to avoid users having to reconnect
   let { token } = state;
   let { customerId } = state;
 
   if (token === undefined || customerId === undefined) {
-    ({
-      token,
-      customerId,
-    } = await logIn(username, password));
+    ({ token, customerId } = await logIn(username, password));
   }
 
   const pastBookings = await getPastBookings(customerId, token);

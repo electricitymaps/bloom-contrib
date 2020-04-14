@@ -10,13 +10,8 @@ import {
 } from '@material-ui/core';
 import Icon from './icon';
 
-
 // As defined here: https://github.com/tmrowco/northapp-contrib/blob/master/playground/server/index.js#L77-L81
-export const logLevels = new Set([
-  'error',
-  'warn',
-  'debug',
-]);
+export const logLevels = new Set(['error', 'warn', 'debug']);
 
 export default function ConsoleHeader({
   searchValue,
@@ -27,7 +22,7 @@ export default function ConsoleHeader({
   updateDirection,
   onClearConsole,
 }) {
-  const handleFilterChange = (event) => {
+  const handleFilterChange = event => {
     event.persist();
     const value = event && event.currentTarget && event.currentTarget.value;
 
@@ -44,30 +39,15 @@ export default function ConsoleHeader({
       title={`Sort output ${oppositeDirection}`}
       aria-label={`sort-output-${oppositeDirection}`}
     >
-      <IconButton
-        aria-label={`sort-${oppositeDirection}`}
-        onClick={() =>
-          updateDirection()
-        }
-      >
-        {direction === 'descending' ? (
-          <Icon type="arrow-down" />
-        ) : (
-          <Icon type="arrow-up" />
-        )}
+      <IconButton aria-label={`sort-${oppositeDirection}`} onClick={() => updateDirection()}>
+        {direction === 'descending' ? <Icon type="arrow-down" /> : <Icon type="arrow-up" />}
       </IconButton>
     </Tooltip>
   );
 
   const clearButton = (
-    <Tooltip
-      title="Clear console output"
-      aria-label="clear-console-output"
-    >
-      <IconButton
-        aria-label={`sort-${oppositeDirection}`}
-        onClick={onClearConsole}
-      >
+    <Tooltip title="Clear console output" aria-label="clear-console-output">
+      <IconButton aria-label={`sort-${oppositeDirection}`} onClick={onClearConsole}>
         <Icon type="clear" />
       </IconButton>
     </Tooltip>
@@ -93,13 +73,8 @@ export default function ConsoleHeader({
         {[...logLevels].map(m => (
           <FormControlLabel
             key={m}
-            control={(
-              <Checkbox
-                value={m}
-                checked={filters.includes(m)}
-                onChange={handleFilterChange}
-              />
-              )
+            control={
+              <Checkbox value={m} checked={filters.includes(m)} onChange={handleFilterChange} />
             }
             label={m}
             labelPlacement="bottom"

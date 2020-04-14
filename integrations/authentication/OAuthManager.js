@@ -39,7 +39,9 @@ export default class {
     const method = 'POST';
     let req = {
       method,
-      body: objectToURLParams(this.oauth.authorize({ url: this.requestTokenUrl, method, data: {} })),
+      body: objectToURLParams(
+        this.oauth.authorize({ url: this.requestTokenUrl, method, data: {} })
+      ),
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
@@ -62,10 +64,12 @@ export default class {
     // Step 3 - Obtain an access token
     req = {
       method,
-      body: objectToURLParams(this.oauth.authorize(
-        { url: this.accessTokenUrl, method, data: {} },
-        { key: oauthToken, secret: oauthTokenSecret },
-      )),
+      body: objectToURLParams(
+        this.oauth.authorize(
+          { url: this.accessTokenUrl, method, data: {} },
+          { key: oauthToken, secret: oauthTokenSecret }
+        )
+      ),
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
@@ -95,10 +99,12 @@ export default class {
     const req = {
       method,
       body: data,
-      headers: this.oauth.toHeader(this.oauth.authorize(
-        { url, method, data },
-        { key: this.state.oauthToken, secret: this.state.oauthTokenSecret }
-      )),
+      headers: this.oauth.toHeader(
+        this.oauth.authorize(
+          { url, method, data },
+          { key: this.state.oauthToken, secret: this.state.oauthTokenSecret }
+        )
+      ),
     };
     return fetch(url, req);
   }
