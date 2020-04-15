@@ -152,7 +152,6 @@ Activities require a certain formatting:
   label, // a string that represents the transaction
   activityType: ACTIVITY_TYPE_PURCHASE,
   merchantDisplayName, // (optional) a string that represents the merchant where the purchase was made
-  purchaseCategory, // (optional) a string that represents the category of the purchase. Categories can be found here: https://github.com/tmrowco/northapp-contrib/blob/master/definitions.js
   lineItems, // an array with specific items that can be either in monetary or amount-based form: [{ identifier: XX, value: 2.1, unit: XX}] where `identifier` is a key from footprints.yml and `unit` a valid unit from definitions.js. See purchase/index.test.js for examples.
   bankDisplayName, // (required for integrations with banks) a string that represents the banks' name
   bankIdentifier, // (required for integrations with banks) a string that uniquely represents the bank.
