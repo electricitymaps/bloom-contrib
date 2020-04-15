@@ -150,6 +150,7 @@ Activities require a certain formatting:
   id, // a string that uniquely represents this activity
   datetime, // a javascript Date object that represents the start of the activity
   label, // a string that represents the transaction
+  activityType: ACTIVITY_TYPE_PURCHASE,
   merchantDisplayName, // (optional) a string that represents the merchant where the purchase was made
   purchaseCategory, // a string that represents the category of the purchase. Categories can be found here: https://github.com/tmrowco/northapp-contrib/blob/master/definitions.js
   costAmount, // a floating point that represents the amount of the purchase
@@ -158,6 +159,18 @@ Activities require a certain formatting:
   bankIdentifier, // (required for integrations with banks) a string that uniquely represents the bank.
 }
 ```
+##### Meal activity formatting
+```javascript
+{
+  id, // a string that uniquely represents this activity
+  datetime, // a javascript Date object that represents the start of the activity
+  label, // a string that represents the meal
+  activityType: ACTIVITY_TYPE_MEAL,
+  lineItems, // (required if the activity contains ingredients) an array with a key being an ingredient from footprints.yml, the amount as a float, and the unit from definitions.js
+  mealType, // (required if the activity is a meal type) a string with the value being one of the meal type options in definitions.js
+}
+```
+
 
 ### Adding or updating Life Cycle Assessment / Carbon Footprint of purchases and activities
 
