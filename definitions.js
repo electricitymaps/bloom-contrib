@@ -139,6 +139,18 @@ export const EUROCARSEGMENT_F = 'F'; // corresponds to size "Luxury" in https://
 export const EUROCARSEGMENT_S = 'S'; // corresponds to size "Sports" in https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
 export const EUROCARSEGMENT_J = 'J'; // corresponds to size "Dual purpose 4X4" in https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
 export const EUROCARSEGMENT_M = 'M'; // corresponds to size "MPV" in https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
+export const EUROCARSEGMENTS = [
+  EUROCARSEGMENT_A,
+  EUROCARSEGMENT_B,
+  EUROCARSEGMENT_C,
+  EUROCARSEGMENT_D,
+  EUROCARSEGMENT_E,
+  EUROCARSEGMENT_F,
+  EUROCARSEGMENT_S,
+  EUROCARSEGMENT_J,
+  EUROCARSEGMENT_M,
+];
+
 // Engine type (values are used in co2eq/car/cars.json)
 export const ENGINETYPE_DIESEL = 'diesel';
 export const ENGINETYPE_PETROL = 'petrol';
@@ -147,6 +159,15 @@ export const ENGINETYPE_BATTERY_ELECTRIC = 'batteryElectric';
 export const ENGINETYPE_HYBRID = 'hybrid';
 export const ENGINETYPE_LPG = 'lpg';
 export const ENGINETYPE_CNG = 'cng';
+export const ENGINETYPES = [
+  ENGINETYPE_DIESEL,
+  ENGINETYPE_PETROL,
+  ENGINETYPE_PLUGIN_HYBRID_ELECTRIC,
+  ENGINETYPE_BATTERY_ELECTRIC,
+  ENGINETYPE_HYBRID,
+  ENGINETYPE_LPG,
+  ENGINETYPE_CNG,
+];
 
 // Heating source
 export const HEATING_SOURCE_COAL_BOILER = 'HEATING_SOURCE_COAL_BOILER';

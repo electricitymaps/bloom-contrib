@@ -9,9 +9,9 @@ import {
   TRANSPORTATION_MODE_ESCOOTER,
   TRANSPORTATION_MODE_MOTORBIKE,
   TRANSPORTATION_MODE_FOOT,
-} from '../definitions';
+} from '../../definitions';
 
-import { getActivityDurationHours } from './utils';
+import { getActivityDurationHours } from '../utils';
 
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'transportation';
@@ -137,7 +137,7 @@ export function durationToDistance(durationHours, mode) {
 Carbon emissions of an activity (in kgCO2eq)
 */
 export function carbonEmissions(activity) {
-  let distanceKilometers = activity.distanceKilometers;
+  let { distanceKilometers } = activity;
   if (!distanceKilometers) {
     const durationHours = getActivityDurationHours(activity);
     // fallback on duration if available
