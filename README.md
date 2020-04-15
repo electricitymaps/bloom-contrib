@@ -165,7 +165,7 @@ Activities require a certain formatting:
   datetime, // a javascript Date object that represents the start of the activity
   label, // a string that represents the meal
   activityType: ACTIVITY_TYPE_MEAL,
-  lineItems, // (required if the activity contains ingredients) an array with an object [{ identifier: xx, amount: 2.1, unit: 'kg'}] where `identifier` is a key from footprints.yml and `unit` a valid unit from definitions.js
+  lineItems, // (required if the activity contains ingredients) an array with an object [{ identifier: xx, value: 2.1, unit: 'kg'}] where `identifier` is a key from footprints.yml and `unit` a valid unit from definitions.js
   mealType, // (required if the activity is a meal type) a string with the value being one of the meal type options in definitions.js
 }
 ```
