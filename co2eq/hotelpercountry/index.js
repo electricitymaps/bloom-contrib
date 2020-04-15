@@ -1,6 +1,6 @@
-import countries from './countries.json';
-import { ACTIVITY_TYPE_PURCHASE, PURCHASE_CATEGORY_ENTERTAINMENT_HOTEL } from '../definitions';
-import { getActivityDurationHours } from './utils';
+import countries from '../countries.json';
+import { ACTIVITY_TYPE_PURCHASE, PURCHASE_CATEGORY_ENTERTAINMENT_HOTEL } from '../../definitions';
+import { getActivityDurationHours } from '../utils';
 
 export const modelName = 'hotelpercountry';
 export const modelVersion = '1';
