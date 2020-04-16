@@ -139,8 +139,8 @@ Activities require a certain formatting:
   activityType: ACTIVITY_TYPE_ELECTRICITY,
   energyWattHours, // a float that represents the total energy used
   hourlyEnergyWattHours, // (optional) an array of 24 floats that represent the hourly metering values
-  locationLon, // (optional) the longitude of the location of the hotel
-  locationLat, // (optional) the latitude of the location of the hotel
+  locationLon, // (optional) the longitude of the location of the electricity usage
+  locationLat, // (optional) the latitude of the location of the electricity usage
 }
 ```
 
