@@ -13,6 +13,7 @@ import {
 } from '../../definitions';
 import { convertToEuro, getAvailableCurrencies } from '../../integrations/utils/currency/currency';
 import footprints from './footprints.yml';
+import consumerPriceIndex from './consumerpriceindex.yml'
 
 export const explanation = {
   text: null,
@@ -22,15 +23,16 @@ export const explanation = {
 };
 
 const ENTRY_BY_KEY = {};
+const CPI_BY_COUNTRY = {};
 export const purchaseIcon = {};
 
 // Traverse and index tree
-function indexNodeChildren(branch, i = 1) {
+function indexNodeChildren(branch, storage_dict, i = 1) {
   Object.entries(branch._children || []).forEach(([k, v]) => {
-    if (ENTRY_BY_KEY[k]) {
+    if (storage_dict[k]) {
       throw new Error(`Error while indexing footprint tree: There's already an entry for ${k}`);
     }
-    ENTRY_BY_KEY[k] = v;
+    storage_dict[k] = v;
     purchaseIcon[k] = v.icon;
     // Also make sure we add additional props
     v.key = k;
@@ -40,7 +42,8 @@ function indexNodeChildren(branch, i = 1) {
     indexNodeChildren(v, i + 1);
   });
 }
-indexNodeChildren(footprints);
+indexNodeChildren(footprints, ENTRY_BY_KEY);
+indexNodeChildren(consumerPriceIndex, CPI_BY_COUNTRY);
 
 export function getRootEntry() {
   return footprints;
@@ -105,13 +108,40 @@ export function modelCanRun(activity) {
 
   return false;
 }
+
 function correctWithParticipants(footprint, participants) {
   return footprint / (participants || 1);
 }
+
 function extractEur({ costAmount, costCurrency }) {
   return (costAmount && costCurrency)
     ? convertToEuro(costAmount, costCurrency)
     : null;
+}
+
+function CPIConversion(eurAmount, coicopCode, countryCodeISO2, datetime) {
+  if ((!eurAmount) || (!datetime)) {
+    return eurAmount;
+  }
+  if (countryCodeISO2) {
+    const countryIndicator = countryCodeISO2;
+  } else {
+    const countryIndicator = 'AVERAGE'; // TODO(ps): add that to definition
+  }
+  if (coicopCode) {
+    const coicopIndicator = coicopCode;
+  } else {
+    const coicopIndicator = 'average'; // TODO(ps): add that to definition
+  }
+
+  // TODO(ps): get cpi for 2011 and datetime
+  currentDateIndicator = datetime.getFullYear()
+  currentCPI = CPI_BY_COUNTRY[countryIndicator][coicopIndicator][currentDateIndicator]
+  2011CPI = CPI_BY_COUNTRY[countryIndicator][coicopIndicator]['2011']
+
+  // ref: https://www.investopedia.com/terms/c/consumerpriceindex.asp
+  2011eurAmount = eurAmount * (currentCPI/2011CPI)
+  return 2011eurAmount
 }
 
 /**
@@ -119,11 +149,13 @@ function extractEur({ costAmount, costCurrency }) {
  * @param {*} lineItem - Object of the the type { name: <string>, unit: <string>, value: <string>, costAmount: <float>, costCurrency: <string> }
  * @param {*} entry - A purchase entry
  */
-function extractComptabileUnitAndAmount(lineItem, entry) {
+function extractComptabileUnitAndAmount(lineItem, entry, countryCodeISO2, datetime) {
   const isMonetaryItem = getAvailableCurrencies().includes(lineItem.unit);
   // Extract eurAmount if applicable
-  const eurAmount = extractEur({ costCurrency: isMonetaryItem ? lineItem.unit : null, costAmount: isMonetaryItem ? lineItem.value : null });
+  let eurAmount = extractEur({ costAmount: isMonetaryItem ? lineItem.value : null, costCurrency: isMonetaryItem ? lineItem.unit : null });
   // TODO(olc): Also look at potential available conversions
+  // TODO(ps): Add CPI conversion somewhere here
+  eurAmount = CPIConversion(eurAmount, entry.coicopCode, countryCodeISO2, datetime);
   const availableEntryUnit = entry.unit;
   if (availableEntryUnit === UNIT_LITER && lineItem.unit === UNIT_LITER) {
     return { unit: UNIT_LITER, amount: lineItem.value };
@@ -140,8 +172,9 @@ function extractComptabileUnitAndAmount(lineItem, entry) {
 /**
  * Calculates the carbon emissions of a line item entry
  * @param {*} lineItem - Object of the the type { identifier: <string>, unit: <string>, value: <string>, costAmount: <float>, costCurrency: <string> }
+ * TODO(ps): check doc
  */
-export function carbonEmissionOfLineItem(lineItem, countryCodeISO2) {
+export function carbonEmissionOfLineItem(lineItem, countryCodeISO2, datetime) {
   // The generic identifier property holds the purchaseType value, so rename to make clear..
   const { identifier } = lineItem;
   const entry = getEntryByKey(identifier);
@@ -152,7 +185,7 @@ export function carbonEmissionOfLineItem(lineItem, countryCodeISO2) {
     throw new Error(`Missing carbon intensity for purchaseType: ${identifier}`);
   }
 
-  const { unit, amount } = extractComptabileUnitAndAmount(lineItem, entry);
+  const { unit, amount } = extractComptabileUnitAndAmount(lineItem, entry, countryCodeISO2, datetime);
   if (unit == null || amount == null || !Number.isFinite(amount)) {
     throw new Error(`Invalid unit ${unit} or amount ${amount} for purchaseType ${identifier}. Expected ${entry.unit}`);
   }
@@ -213,13 +246,13 @@ export function carbonEmissions(activity) {
       break;
 
     case ACTIVITY_TYPE_PURCHASE: {
-      const { lineItems, countryCodeISO2 } = activity;
+      const { lineItems, countryCodeISO2, datetime } = activity;
 
       // First check if lineItems contains and calculate total of all line items
       if (lineItems && lineItems.length) {
         // TODO(df): What to do on a single line error? Abort all? Skip item?
         footprint = lineItems
-          .map(l => carbonEmissionOfLineItem(l, countryCodeISO2))
+          .map(l => carbonEmissionOfLineItem(l, countryCodeISO2, datetime))
           .reduce((a, b) => a + b, 0);
       }
       break;
