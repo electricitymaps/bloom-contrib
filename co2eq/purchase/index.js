@@ -25,7 +25,6 @@ export const explanation = {
 };
 
 const ENTRY_BY_KEY = {};
-const CPI_BY_COUNTRY = consumerPriceIndex;
 export const purchaseIcon = {};
 
 // Traverse and index tree
@@ -44,7 +43,7 @@ function indexNodeChildren(branch, i = 1) {
     indexNodeChildren(v, i + 1);
   });
 }
-indexNodeChildren(footprints, ENTRY_BY_KEY);
+indexNodeChildren(footprints);
 
 
 export function getRootEntry() {
@@ -129,8 +128,8 @@ function CPIConversion(eurAmount, countryCodeISO2, datetime) {
   const coicopIndicator = AVERAGE_CPI_COICOPCODE_INDICATOR;
 
   const currentDateIndicator = datetime.getFullYear()
-  const CPIcurrent = CPI_BY_COUNTRY[countryIndicator][coicopIndicator][currentDateIndicator]
-  const CPI2011 = CPI_BY_COUNTRY[countryIndicator][coicopIndicator]['2011']
+  const CPIcurrent = consumerPriceIndex[countryIndicator][coicopIndicator][currentDateIndicator]
+  const CPI2011 = consumerPriceIndex[countryIndicator][coicopIndicator]['2011']
 
   // ref: https://www.investopedia.com/terms/c/consumerpriceindex.asp
   const eurAmount2011 = eurAmount * (CPIcurrent/CPI2011)
