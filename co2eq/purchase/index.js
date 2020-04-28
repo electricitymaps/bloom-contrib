@@ -45,7 +45,6 @@ function indexNodeChildren(branch, i = 1) {
 }
 indexNodeChildren(footprints);
 
-
 export function getRootEntry() {
   return footprints;
 }
@@ -79,7 +78,6 @@ export function getDescendants(entry, filter = (_ => true), includeRoot = false)
   });
   return descendants;
 }
-
 
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'purchase';
