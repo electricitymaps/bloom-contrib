@@ -101,6 +101,11 @@ export const MEAL_TYPE_MEAT_MEDIUM = 'MEAL_TYPE_MEAT_MEDIUM';
 export const MEAL_TYPE_MEAT_HIGH = 'MEAL_TYPE_MEAT_HIGH';
 
 /* Purchases */
+// Consumer price index defaults
+export const AVERAGE_CPI_COUNTRY_INDICATOR = 'AVERAGE';
+export const AVERAGE_CPI_COICOPCODE_INDICATOR = 'average';
+
+
 // Food and beverages
 export const PURCHASE_CATEGORY_FOOD = 'Food';
 export const PURCHASE_CATEGORY_FOOD_BAKERY = 'Cereals and cereal products (ND)';

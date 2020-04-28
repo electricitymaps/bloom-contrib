@@ -3,6 +3,8 @@ import {
   ACTIVITY_TYPE_MEAL,
   ACTIVITY_TYPE_TRANSPORTATION,
   ACTIVITY_TYPE_PURCHASE,
+  AVERAGE_CPI_COICOPCODE_INDICATOR,
+  AVERAGE_CPI_COUNTRY_INDICATOR,
   TRANSPORTATION_MODE_CAR,
   TRANSPORTATION_MODE_TRAIN,
   TRANSPORTATION_MODE_PLANE,
@@ -13,7 +15,7 @@ import {
 } from '../../definitions';
 import { convertToEuro, getAvailableCurrencies } from '../../integrations/utils/currency/currency';
 import footprints from './footprints.yml';
-import consumerPriceIndex from './consumerpriceindex.yml'
+import consumerPriceIndex from './consumerpriceindices.yml'
 
 export const explanation = {
   text: null,
@@ -23,16 +25,16 @@ export const explanation = {
 };
 
 const ENTRY_BY_KEY = {};
-const CPI_BY_COUNTRY = {};
+const CPI_BY_COUNTRY = consumerPriceIndex;
 export const purchaseIcon = {};
 
 // Traverse and index tree
-function indexNodeChildren(branch, storage_dict, i = 1) {
+function indexNodeChildren(branch, i = 1) {
   Object.entries(branch._children || []).forEach(([k, v]) => {
-    if (storage_dict[k]) {
+    if (ENTRY_BY_KEY[k]) {
       throw new Error(`Error while indexing footprint tree: There's already an entry for ${k}`);
     }
-    storage_dict[k] = v;
+    ENTRY_BY_KEY[k] = v;
     purchaseIcon[k] = v.icon;
     // Also make sure we add additional props
     v.key = k;
@@ -43,7 +45,7 @@ function indexNodeChildren(branch, storage_dict, i = 1) {
   });
 }
 indexNodeChildren(footprints, ENTRY_BY_KEY);
-indexNodeChildren(consumerPriceIndex, CPI_BY_COUNTRY);
+
 
 export function getRootEntry() {
   return footprints;
@@ -82,7 +84,7 @@ export function getDescendants(entry, filter = (_ => true), includeRoot = false)
 
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'purchase';
-export const modelVersion = `3_${getChecksumOfFootprints()}`; // This model relies on footprints.yaml
+export const modelVersion = `4_${getChecksumOfFootprints()}`; // This model relies on footprints.yaml
 export const modelCanRunVersion = 1;
 export function modelCanRun(activity) {
   const {
@@ -119,42 +121,34 @@ function extractEur({ costAmount, costCurrency }) {
     : null;
 }
 
-function CPIConversion(eurAmount, coicopCode, countryCodeISO2, datetime) {
+function CPIConversion(eurAmount, countryCodeISO2, datetime) {
   if ((!eurAmount) || (!datetime)) {
     return eurAmount;
   }
-  if (countryCodeISO2) {
-    const countryIndicator = countryCodeISO2;
-  } else {
-    const countryIndicator = 'AVERAGE'; // TODO(ps): add that to definition
-  }
-  if (coicopCode) {
-    const coicopIndicator = coicopCode;
-  } else {
-    const coicopIndicator = 'average'; // TODO(ps): add that to definition
-  }
+  const countryIndicator = countryCodeISO2 || AVERAGE_CPI_COUNTRY_INDICATOR;
+  const coicopIndicator = AVERAGE_CPI_COICOPCODE_INDICATOR;
 
-  // TODO(ps): get cpi for 2011 and datetime
-  currentDateIndicator = datetime.getFullYear()
-  currentCPI = CPI_BY_COUNTRY[countryIndicator][coicopIndicator][currentDateIndicator]
-  2011CPI = CPI_BY_COUNTRY[countryIndicator][coicopIndicator]['2011']
+  const currentDateIndicator = datetime.getFullYear()
+  const CPIcurrent = CPI_BY_COUNTRY[countryIndicator][coicopIndicator][currentDateIndicator]
+  const CPI2011 = CPI_BY_COUNTRY[countryIndicator][coicopIndicator]['2011']
 
   // ref: https://www.investopedia.com/terms/c/consumerpriceindex.asp
-  2011eurAmount = eurAmount * (currentCPI/2011CPI)
-  return 2011eurAmount
+  const eurAmount2011 = eurAmount * (CPIcurrent/CPI2011)
+  return eurAmount2011;
 }
 
 /**
  * Returns the compatible unit and amounts of a line item
  * @param {*} lineItem - Object of the the type { name: <string>, unit: <string>, value: <string>, costAmount: <float>, costCurrency: <string> }
  * @param {*} entry - A purchase entry
+ * @param {*} countryCodeISO2 - country code of the activity
+ * @param {*} datetime - datetime of the activity
  */
 function extractComptabileUnitAndAmount(lineItem, entry, countryCodeISO2, datetime) {
   const isMonetaryItem = getAvailableCurrencies().includes(lineItem.unit);
   // Extract eurAmount if applicable
   let eurAmount = extractEur({ costAmount: isMonetaryItem ? lineItem.value : null, costCurrency: isMonetaryItem ? lineItem.unit : null });
   // TODO(olc): Also look at potential available conversions
-  // TODO(ps): Add CPI conversion somewhere here
   eurAmount = CPIConversion(eurAmount, entry.coicopCode, countryCodeISO2, datetime);
   const availableEntryUnit = entry.unit;
   if (availableEntryUnit === UNIT_LITER && lineItem.unit === UNIT_LITER) {
@@ -172,7 +166,8 @@ function extractComptabileUnitAndAmount(lineItem, entry, countryCodeISO2, dateti
 /**
  * Calculates the carbon emissions of a line item entry
  * @param {*} lineItem - Object of the the type { identifier: <string>, unit: <string>, value: <string>, costAmount: <float>, costCurrency: <string> }
- * TODO(ps): check doc
+ * @param {*} countryCodeISO2 - country code of the activity
+ * @param {*} datetime - datetime of the activity
  */
 export function carbonEmissionOfLineItem(lineItem, countryCodeISO2, datetime) {
   // The generic identifier property holds the purchaseType value, so rename to make clear..
