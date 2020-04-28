@@ -47,7 +47,23 @@ test(`test household appliance for DK in EUR`, () => {
   };
   expect(modelCanRun(activity)).toBeTruthy();
   // original price * cpi correction * intensity
-  expect(carbonEmissions(activity)).toBeCloseTo(15 * (102.93611111111107/96.77407407407406) * 0.4028253119428596);
+  expect(carbonEmissions(activity)).toBeCloseTo(15 * (103.3/95.9) * 0.4028253119428596);
+});
+
+test(`test household appliance for AU in EUR in 2020, for which there is no cpi data`, () => {
+  const activity = {
+    activityType: ACTIVITY_TYPE_PURCHASE,
+    countryCodeISO2: 'AU',
+    datetime: new Date('2020-04-11T10:20:30Z'),
+    lineItems: [{
+      unit: UNIT_CURRENCIES.EUR,
+      value: 15,
+      identifier: PURCHASE_CATEGORY_STORE_HOUSEHOLD_APPLIANCE,
+    }],
+  };
+  expect(modelCanRun(activity)).toBeTruthy();
+  // original price * cpi correction * intensity
+  expect(carbonEmissions(activity)).toBeCloseTo(15 * (110.72093023255815/92.2) * 0.4428823364363346);
 });
 
 test(`test household appliance for DK in DKK`, () => {
@@ -62,5 +78,5 @@ test(`test household appliance for DK in DKK`, () => {
     }],
   };
   expect(modelCanRun(activity)).toBeTruthy();
-  expect(carbonEmissions(activity)).toBeCloseTo(1150 / 7.4644 * (102.93611111111107/96.77407407407406) * 0.817390437852872);
+  expect(carbonEmissions(activity)).toBeCloseTo(1150 / 7.4644 * (103.3/95.9) * 0.817390437852872);
 });

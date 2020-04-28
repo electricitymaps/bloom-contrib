@@ -16,6 +16,7 @@ import footprints from './footprints.yml';
 import consumerPriceIndex from './consumerpriceindices.yml'
 
 const AVERAGE_CPI_COUNTRY_INDICATOR = 'average'
+const COUNTRY_CPI_INDICATOR = 'countries'
 
 export const explanation = {
   text: null,
@@ -119,15 +120,25 @@ function extractEur({ costAmount, costCurrency }) {
 }
 
 function CPIConversion(eurAmount, referenceYear, countryCodeISO2, datetime) {
-  console.log(datetime);
   if ((!eurAmount) || (!datetime)) {
     return eurAmount;
   }
-  const countryIndicator = countryCodeISO2 || AVERAGE_CPI_COUNTRY_INDICATOR;
 
   const currentDateIndicator = datetime.getFullYear();
-  const CPIcurrent = consumerPriceIndex[countryIndicator][currentDateIndicator];
-  const CPIreference = consumerPriceIndex[countryIndicator][referenceYear];
+
+  let CPIcurrent;
+  if (countryCodeISO2 && consumerPriceIndex[COUNTRY_CPI_INDICATOR][countryCodeISO2][currentDateIndicator]) {
+    CPIcurrent = consumerPriceIndex[COUNTRY_CPI_INDICATOR][countryCodeISO2][currentDateIndicator];
+  } else {
+    CPIcurrent = consumerPriceIndex[AVERAGE_CPI_COUNTRY_INDICATOR][currentDateIndicator];
+  }
+
+  let CPIreference;
+  if (countryCodeISO2 && consumerPriceIndex[COUNTRY_CPI_INDICATOR][countryCodeISO2][referenceYear]) {
+    CPIreference = consumerPriceIndex[COUNTRY_CPI_INDICATOR][countryCodeISO2][referenceYear];
+  } else {
+    CPIreference = consumerPriceIndex[AVERAGE_CPI_COUNTRY_INDICATOR][referenceYear];
+  }
 
   // ref: https://www.investopedia.com/terms/c/consumerpriceindex.asp
   const eurAmountAdjusted = eurAmount * (CPIcurrent/CPIreference);
