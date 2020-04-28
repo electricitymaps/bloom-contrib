@@ -38,6 +38,7 @@ test(`test household appliance for DK in EUR`, () => {
   const activity = {
     activityType: ACTIVITY_TYPE_PURCHASE,
     countryCodeISO2: 'DK',
+    datetime: new Date('2020-04-11T10:20:30Z'),
     lineItems: [{
       unit: UNIT_CURRENCIES.EUR,
       value: 15,
@@ -45,13 +46,15 @@ test(`test household appliance for DK in EUR`, () => {
     }],
   };
   expect(modelCanRun(activity)).toBeTruthy();
-  expect(carbonEmissions(activity)).toBeCloseTo(15 * 0.4028253119428596);
+  // original price * cpi correction * intensity
+  expect(carbonEmissions(activity)).toBeCloseTo(15 * (102.93611111111107/96.77407407407406) * 0.4028253119428596);
 });
 
 test(`test household appliance for DK in DKK`, () => {
   const activity = {
     activityType: ACTIVITY_TYPE_PURCHASE,
     countryCodeISO2: 'DK',
+    datetime: new Date('2020-04-11T10:20:30Z'),
     lineItems: [{
       unit: UNIT_CURRENCIES.DKK,
       value: 1150,
@@ -59,5 +62,5 @@ test(`test household appliance for DK in DKK`, () => {
     }],
   };
   expect(modelCanRun(activity)).toBeTruthy();
-  expect(carbonEmissions(activity)).toBeCloseTo(1150 / 7.4644 * 0.817390437852872);
+  expect(carbonEmissions(activity)).toBeCloseTo(1150 / 7.4644 * (102.93611111111107/96.77407407407406) * 0.817390437852872);
 });

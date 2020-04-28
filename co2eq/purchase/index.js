@@ -3,8 +3,6 @@ import {
   ACTIVITY_TYPE_MEAL,
   ACTIVITY_TYPE_TRANSPORTATION,
   ACTIVITY_TYPE_PURCHASE,
-  AVERAGE_CPI_COICOPCODE_INDICATOR,
-  AVERAGE_CPI_COUNTRY_INDICATOR,
   TRANSPORTATION_MODE_CAR,
   TRANSPORTATION_MODE_TRAIN,
   TRANSPORTATION_MODE_PLANE,
@@ -16,6 +14,8 @@ import {
 import { convertToEuro, getAvailableCurrencies } from '../../integrations/utils/currency/currency';
 import footprints from './footprints.yml';
 import consumerPriceIndex from './consumerpriceindices.yml'
+
+const AVERAGE_CPI_COUNTRY_INDICATOR = 'average'
 
 export const explanation = {
   text: null,
@@ -120,20 +120,20 @@ function extractEur({ costAmount, costCurrency }) {
     : null;
 }
 
-function CPIConversion(eurAmount, countryCodeISO2, datetime) {
+function CPIConversion(eurAmount, referenceYear, countryCodeISO2, datetime) {
+  console.log(datetime);
   if ((!eurAmount) || (!datetime)) {
     return eurAmount;
   }
   const countryIndicator = countryCodeISO2 || AVERAGE_CPI_COUNTRY_INDICATOR;
-  const coicopIndicator = AVERAGE_CPI_COICOPCODE_INDICATOR;
 
-  const currentDateIndicator = datetime.getFullYear()
-  const CPIcurrent = consumerPriceIndex[countryIndicator][coicopIndicator][currentDateIndicator]
-  const CPI2011 = consumerPriceIndex[countryIndicator][coicopIndicator]['2011']
+  const currentDateIndicator = datetime.getFullYear();
+  const CPIcurrent = consumerPriceIndex[countryIndicator][currentDateIndicator];
+  const CPIreference = consumerPriceIndex[countryIndicator][referenceYear];
 
   // ref: https://www.investopedia.com/terms/c/consumerpriceindex.asp
-  const eurAmount2011 = eurAmount * (CPIcurrent/CPI2011)
-  return eurAmount2011;
+  const eurAmountAdjusted = eurAmount * (CPIcurrent/CPIreference);
+  return eurAmountAdjusted;
 }
 
 /**
@@ -148,7 +148,7 @@ function extractComptabileUnitAndAmount(lineItem, entry, countryCodeISO2, dateti
   // Extract eurAmount if applicable
   let eurAmount = extractEur({ costAmount: isMonetaryItem ? lineItem.value : null, costCurrency: isMonetaryItem ? lineItem.unit : null });
   // TODO(olc): Also look at potential available conversions
-  eurAmount = CPIConversion(eurAmount, entry.coicopCode, countryCodeISO2, datetime);
+  eurAmount = CPIConversion(eurAmount, entry.year, countryCodeISO2, datetime);
   const availableEntryUnit = entry.unit;
   if (availableEntryUnit === UNIT_LITER && lineItem.unit === UNIT_LITER) {
     return { unit: UNIT_LITER, amount: lineItem.value };
@@ -178,6 +178,9 @@ export function carbonEmissionOfLineItem(lineItem, countryCodeISO2, datetime) {
   if (!entry.intensityKilograms) {
     throw new Error(`Missing carbon intensity for purchaseType: ${identifier}`);
   }
+  if(!entry.year) {
+    throw new Error(`Missing consumer price index reference year for purchaseType: ${identifier}`);
+  }
 
   const { unit, amount } = extractComptabileUnitAndAmount(lineItem, entry, countryCodeISO2, datetime);
   if (unit == null || amount == null || !Number.isFinite(amount)) {
@@ -187,6 +190,7 @@ export function carbonEmissionOfLineItem(lineItem, countryCodeISO2, datetime) {
   if (entry.unit !== unit) {
     throw new Error(`Invalid unit ${unit} given for purchaseType ${identifier}. Expected ${entry.unit}`);
   }
+
 
   if (typeof entry.intensityKilograms === 'number') {
     return entry.intensityKilograms * amount;
