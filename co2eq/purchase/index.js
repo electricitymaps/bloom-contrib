@@ -160,7 +160,7 @@ function conversionCPI(eurAmount, referenceYear, countryCodeISO2, datetime) {
 function extractComptabileUnitAndAmount(lineItem, entry, countryCodeISO2, datetime) {
   const isMonetaryItem = getAvailableCurrencies().includes(lineItem.unit);
   // Extract eurAmount if applicable
-  const eurAmount = extractEur({
+  let eurAmount = extractEur({
     costCurrency: isMonetaryItem ? lineItem.unit : null,
     costAmount: isMonetaryItem ? lineItem.value : null,
   });
