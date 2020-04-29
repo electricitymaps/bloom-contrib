@@ -78,7 +78,8 @@ test(`test cpi conversion with a datetime without any cpi`, () => {
   };
   expect(modelCanRun(activity)).toBeTruthy();
   // original price * intensity (cpi correction not applied as there is no date)
-  // expect requires need anonymous function.
+  // expect requires anonymous function here, as it is the function that is expected to throw an error, we are
+  // not interested in the return value per se.
   expect(() => carbonEmissions(activity)).toThrowError(new Error(`Unknown CPI for activity date ${activity.datetime}`));
 });
 
