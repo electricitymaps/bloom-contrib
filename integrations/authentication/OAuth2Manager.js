@@ -47,11 +47,16 @@ export default class {
     });
 
     if (response.status === 401 || response.status === 403) {
-      throw new AuthenticationError('OAuth authority unable to re-authenticate user with refresh token, suggest re-authorizing.');
+      throw new AuthenticationError(
+        'OAuth authority unable to re-authenticate user with refresh token, suggest re-authorizing.'
+      );
     }
 
     if (!response.ok) {
-      throw new HTTPError('unable to re-authenticate user with refresh token, suggest retrying later', response.status);
+      throw new HTTPError(
+        'unable to re-authenticate user with refresh token, suggest retrying later',
+        response.status
+      );
     }
 
     const responseJson = await response.json();
@@ -61,7 +66,7 @@ export default class {
     this.state.tokenExpiresAt = responseJson.expires_in * 1000 + Date.now();
   }
 
-  async authorize(openUrlAndWaitForCallback, logger=noOpLogger, omitRedirectUri=false) {
+  async authorize(openUrlAndWaitForCallback, logger = noOpLogger, omitRedirectUri = false) {
     // Step 1 - user authorizes app
     // "Automatic's" API doesn't accept the function's URL-encoded colons, hence scope attached separately
     const requestURLParamObj = {
@@ -72,7 +77,8 @@ export default class {
     if (!omitRedirectUri) {
       requestURLParamObj.redirect_uri = getCallbackUrl();
     }
-    const requestURLParams = objectToURLParams(requestURLParamObj) + (this.scope ? `&${this.scope}` : '');
+    const requestURLParams =
+      objectToURLParams(requestURLParamObj) + (this.scope ? `&${this.scope}` : '');
 
     const authorizationCodeRequestUrl = `${this.authorizeUrl}?${requestURLParams}`;
     const authorizationResponseQuery = await openUrlAndWaitForCallback(
@@ -80,10 +86,7 @@ export default class {
       getCallbackUrl()
     );
     // Redirect response from authorization dialog contains auth code
-    const {
-      code: authorizationCode,
-      ...extras
-    } = authorizationResponseQuery;
+    const { code: authorizationCode, ...extras } = authorizationResponseQuery;
     this.state.extras = extras;
     logger.logDebug('Authorization successful');
 
@@ -108,11 +111,16 @@ export default class {
     });
 
     if (response.status === 401 || response.status === 403) {
-      throw new AuthenticationError('OAuth authority unable to authenticate user with fresh auth code, suggest re-authorizing.');
+      throw new AuthenticationError(
+        'OAuth authority unable to authenticate user with fresh auth code, suggest re-authorizing.'
+      );
     }
 
     if (!response.ok) {
-      throw new HTTPError(`Unable to authenticate user with fresh auth code, suggest retrying. API response: ${await response.text()}`, response.status);
+      throw new HTTPError(
+        `Unable to authenticate user with fresh auth code, suggest retrying. API response: ${await response.text()}`,
+        response.status
+      );
     }
 
     const responseJson = await response.json();

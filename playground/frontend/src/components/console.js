@@ -1,9 +1,5 @@
-import React, { 
-  useState, 
-} from 'react';
-import { 
-  Console as ConsoleLib,
-} from 'console-feed';
+import React, { useState } from 'react';
+import { Console as ConsoleLib } from 'console-feed';
 
 import { Grid, Paper, makeStyles } from '@material-ui/core';
 
@@ -11,7 +7,7 @@ import ConsoleHeader from './consoleheader';
 
 /**
  * Maps log levels to console API methods
- * @param {*} logLevel 
+ * @param {*} logLevel
  */
 function mapLevelToMethods(logLevel) {
   switch (logLevel) {
@@ -24,7 +20,7 @@ function mapLevelToMethods(logLevel) {
 
 /**
  * Converts server side logs (as defined: https://github.com/tmrowco/northapp-contrib/blob/master/playground/server/index.js#L71-L76) to internal console feed format
- * @param {*} logs 
+ * @param {*} logs
  */
 function transformToConsoleFeedFormat(logs) {
   return logs.map(l => ({ method: mapLevelToMethods(l.level), data: [l.obj] }));
@@ -49,7 +45,6 @@ export default function Console({ logs, onClearLogs }) {
     onClearLogs();
   }
 
-
   function handleDirectionChange() {
     setDirection(oldDirection => (oldDirection === 'descending' ? 'ascending' : 'descending'));
   }
@@ -70,7 +65,11 @@ export default function Console({ logs, onClearLogs }) {
         </Grid>
         <Grid item style={{ backgroundColor: 'grey', margin: '0px' }} xs={12}>
           <ConsoleLib
-            logs={direction === 'descending' ? transformToConsoleFeedFormat(logs).reverse() : transformToConsoleFeedFormat(logs)}
+            logs={
+              direction === 'descending'
+                ? transformToConsoleFeedFormat(logs).reverse()
+                : transformToConsoleFeedFormat(logs)
+            }
             variant="light" // TODO(df): If the whole playground would accept a theme, would be nice if this could be current viewers theme dependent.
             searchKeywords={searchValue}
             filter={filters.map(f => mapLevelToMethods(f))}

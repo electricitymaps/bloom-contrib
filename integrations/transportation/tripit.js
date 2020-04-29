@@ -40,10 +40,16 @@ function convertNanToNull(number) {
 
 function parseDatetime(tripItDatetime) {
   if (tripItDatetime.date && tripItDatetime.time && tripItDatetime.utc_offset) {
-    return moment(`${tripItDatetime.date}T${tripItDatetime.time}${tripItDatetime.utc_offset}`).toDate();
+    return moment(
+      `${tripItDatetime.date}T${tripItDatetime.time}${tripItDatetime.utc_offset}`
+    ).toDate();
   }
   if (tripItDatetime.date) {
-    console.warn(`Local time assumed because no timezone could be parsed from ${JSON.stringify(tripItDatetime)}.`);
+    console.warn(
+      `Local time assumed because no timezone could be parsed from ${JSON.stringify(
+        tripItDatetime
+      )}.`
+    );
     return moment(`${tripItDatetime.date}T00:00:00`).toDate();
   }
   throw Error(`Invalid date encountered: ${JSON.stringify(tripItDatetime)}`);
@@ -73,15 +79,12 @@ async function fetchAir(modifiedSince, isPast = true, logger) {
   if (!Array.isArray(objects)) {
     objects = [objects];
   }
-  const activities = objects.map((d) => {
+  const activities = objects.map(d => {
     const segments = Array.isArray(d.Segment) ? d.Segment : [d.Segment];
     // Iterate over all segments (legs) of this reservation
-    return segments.map((s) => {
+    return segments.map(s => {
       try {
-        const [startDate, endDate] = [
-          parseDatetime(s.StartDateTime),
-          parseDatetime(s.EndDateTime),
-        ];
+        const [startDate, endDate] = [parseDatetime(s.StartDateTime), parseDatetime(s.EndDateTime)];
         if (s.stops && !['nonstop', 'NON STOP'].includes(s.stops)) {
           throw new Error(`Unexpected stops "${s.stops}". Expected "nonstop".`);
         }
@@ -90,7 +93,10 @@ async function fetchAir(modifiedSince, isPast = true, logger) {
           activityType: ACTIVITY_TYPE_TRANSPORTATION,
           transportationMode: TRANSPORTATION_MODE_PLANE,
           datetime: parseDatetime(s.StartDateTime),
-          endDatetime: parseDatetime(s.EndDateTime) <= parseDatetime(s.StartDateTime) ? null : parseDatetime(s.EndDateTime),
+          endDatetime:
+            parseDatetime(s.EndDateTime) <= parseDatetime(s.StartDateTime)
+              ? null
+              : parseDatetime(s.EndDateTime),
           // distanceKilometers: s.distance && parseInt(s.distance.replace(' km', '').replace(',', '.'), 10),
           // distance is not reliable unfortunately
           distanceKilometers: null,
@@ -134,22 +140,20 @@ async function fetchRail(modifiedSince, isPast = true, logger) {
     objects = [objects];
   }
 
-  const activities = objects.map((d) => {
+  const activities = objects.map(d => {
     const segments = Array.isArray(d.Segment) ? d.Segment : [d.Segment];
     // Iterate over all segments (legs) of this reservation
-    return segments.map((s) => {
+    return segments.map(s => {
       try {
-        const [startDate, endDate] = [
-          parseDatetime(s.StartDateTime),
-          parseDatetime(s.EndDateTime),
-        ];
+        const [startDate, endDate] = [parseDatetime(s.StartDateTime), parseDatetime(s.EndDateTime)];
         return {
           id: s.id,
           activityType: ACTIVITY_TYPE_TRANSPORTATION,
           transportationMode: TRANSPORTATION_MODE_TRAIN,
           datetime: startDate,
           endDatetime: endDate.getTime() - startDate.getTime() <= 0 ? null : endDate,
-          distanceKilometers: s.distance && parseInt(s.distance.replace(' km', '').replace(',', '.'), 10),
+          distanceKilometers:
+            s.distance && parseInt(s.distance.replace(' km', '').replace(',', '.'), 10),
           carrier: s.carrier_name,
           departureStation: s.start_station_name,
           destinationStation: s.end_station_name,
@@ -190,12 +194,9 @@ async function fetchLodging(modifiedSince, isPast = true, logger) {
     objects = [objects];
   }
 
-  const activities = objects.map((s) => {
+  const activities = objects.map(s => {
     try {
-      const [startDate, endDate] = [
-        parseDatetime(s.StartDateTime),
-        parseDatetime(s.EndDateTime),
-      ];
+      const [startDate, endDate] = [parseDatetime(s.StartDateTime), parseDatetime(s.EndDateTime)];
       if (s.number_rooms != null && parseInt(s.number_rooms, 10) !== 1) {
         logger.logWarning(`Skipping item having multiple rooms: ${JSON.stringify(s)}`);
         return null;
@@ -208,7 +209,9 @@ async function fetchLodging(modifiedSince, isPast = true, logger) {
       return {
         id: s.id,
         activityType: ACTIVITY_TYPE_PURCHASE,
-        lineItems: [{ identifier: PURCHASE_CATEGORY_ENTERTAINMENT_HOTEL, unit: UNIT_ITEM, value: 1 }],
+        lineItems: [
+          { identifier: PURCHASE_CATEGORY_ENTERTAINMENT_HOTEL, unit: UNIT_ITEM, value: 1 },
+        ],
         countryCodeISO2: s.Address ? s.Address.country : null,
         locationLon: convertNanToNull(locationLon),
         locationLat: convertNanToNull(locationLat),
@@ -249,9 +252,7 @@ async function collect(state = {}, logger) {
 
   // Logding was introduced in version 1
   // so make sure we do a full fetch first time
-  const logdgingLastModifiedSince = oldVersion < 1
-    ? null
-    : state.lastModifiedSince;
+  const logdgingLastModifiedSince = oldVersion < 1 ? null : state.lastModifiedSince;
 
   const allResults = await Promise.all([
     fetchAir(state.lastModifiedSince, true, logger), // past
@@ -271,7 +272,6 @@ async function collect(state = {}, logger) {
     },
   };
 }
-
 
 export default {
   connect,

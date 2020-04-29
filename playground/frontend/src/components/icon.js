@@ -12,10 +12,7 @@ const ICONS = {
 };
 
 const Icon = ({ type }) => (
-  <span
-    style={{ height: 24 }}
-    dangerouslySetInnerHTML={{ __html: ICONS[type] }}
-  />
+  <span style={{ height: 24 }} dangerouslySetInnerHTML={{ __html: ICONS[type] }} />
 );
 
 export default Icon;

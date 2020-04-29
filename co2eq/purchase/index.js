@@ -1,4 +1,3 @@
-import md5 from 'tiny-hashes/md5';
 import {
   ACTIVITY_TYPE_MEAL,
   ACTIVITY_TYPE_TRANSPORTATION,
@@ -12,6 +11,7 @@ import {
   UNIT_LITER,
 } from '../../definitions';
 import { convertToEuro, getAvailableCurrencies } from '../../integrations/utils/currency/currency';
+import { getChecksum } from '../utils';
 import footprints from './footprints.yml';
 import consumerPriceIndex from './consumerpriceindices.yml'
 
@@ -21,7 +21,10 @@ const COUNTRY_CPI_INDICATOR = 'countries'
 export const explanation = {
   text: null,
   links: [
-    { label: 'Tomorrow footprint database', href: 'https://github.com/tmrowco/northapp-contrib/blob/master/co2eq/purchase/footprints.yml' },
+    {
+      label: 'Tomorrow footprint database',
+      href: 'https://github.com/tmrowco/northapp-contrib/blob/master/co2eq/purchase/footprints.yml',
+    },
   ],
 };
 
@@ -61,22 +64,24 @@ export function getEntryByPath(path) {
 }
 
 export function getChecksumOfFootprints() {
-  return md5(JSON.stringify(footprints));
+  return getChecksum(footprints);
 }
 
-export function getDescendants(entry, filter = (_ => true), includeRoot = false) {
+export function getDescendants(entry, filter = _ => true, includeRoot = false) {
   // Note: `getDescendants` is very close to `indexNodeChildren`
   // Note2: if a node gets filtered out, its children won't be visited
-  if (!entry) { throw new Error('Invalid `entry`'); }
-  let descendants = includeRoot
-    ? { [entry.key]: entry }
-    : {};
-  Object.values(entry._children || []).filter(filter).forEach((child) => {
-    descendants = {
-      ...descendants,
-      ...getDescendants(child, filter, true),
-    };
-  });
+  if (!entry) {
+    throw new Error('Invalid `entry`');
+  }
+  let descendants = includeRoot ? { [entry.key]: entry } : {};
+  Object.values(entry._children || [])
+    .filter(filter)
+    .forEach(child => {
+      descendants = {
+        ...descendants,
+        ...getDescendants(child, filter, true),
+      };
+    });
   return descendants;
 }
 
@@ -85,9 +90,7 @@ export const modelName = 'purchase';
 export const modelVersion = `4_${getChecksumOfFootprints()}`; // This model relies on footprints.yaml
 export const modelCanRunVersion = 1;
 export function modelCanRun(activity) {
-  const {
-    costAmount, costCurrency, activityType, transportationMode, lineItems,
-  } = activity;
+  const { costAmount, costCurrency, activityType, transportationMode, lineItems } = activity;
   if (costAmount && costCurrency) {
     if (activityType === ACTIVITY_TYPE_MEAL) return true;
     if (activityType === ACTIVITY_TYPE_TRANSPORTATION) {
@@ -114,9 +117,7 @@ function correctWithParticipants(footprint, participants) {
 }
 
 function extractEur({ costAmount, costCurrency }) {
-  return (costAmount && costCurrency)
-    ? convertToEuro(costAmount, costCurrency)
-    : null;
+  return costAmount && costCurrency ? convertToEuro(costAmount, costCurrency) : null;
 }
 
 function conversionCPI(eurAmount, referenceYear, countryCodeISO2, datetime) {
@@ -159,7 +160,10 @@ function conversionCPI(eurAmount, referenceYear, countryCodeISO2, datetime) {
 function extractComptabileUnitAndAmount(lineItem, entry, countryCodeISO2, datetime) {
   const isMonetaryItem = getAvailableCurrencies().includes(lineItem.unit);
   // Extract eurAmount if applicable
-  let eurAmount = extractEur({ costAmount: isMonetaryItem ? lineItem.value : null, costCurrency: isMonetaryItem ? lineItem.unit : null });
+  const eurAmount = extractEur({
+    costCurrency: isMonetaryItem ? lineItem.unit : null,
+    costAmount: isMonetaryItem ? lineItem.value : null,
+  });
   // TODO(olc): Also look at potential available conversions
   eurAmount = conversionCPI(eurAmount, entry.year, countryCodeISO2, datetime);
   const availableEntryUnit = entry.unit;
@@ -197,11 +201,15 @@ export function carbonEmissionOfLineItem(lineItem, countryCodeISO2, datetime) {
 
   const { unit, amount } = extractComptabileUnitAndAmount(lineItem, entry, countryCodeISO2, datetime);
   if (unit == null || amount == null || !Number.isFinite(amount)) {
-    throw new Error(`Invalid unit ${unit} or amount ${amount} for purchaseType ${identifier}. Expected ${entry.unit}`);
+    throw new Error(
+      `Invalid unit ${unit} or amount ${amount} for purchaseType ${identifier}. Expected ${entry.unit}`
+    );
   }
 
   if (entry.unit !== unit) {
-    throw new Error(`Invalid unit ${unit} given for purchaseType ${identifier}. Expected ${entry.unit}`);
+    throw new Error(
+      `Invalid unit ${unit} given for purchaseType ${identifier}. Expected ${entry.unit}`
+    );
   }
 
 
@@ -218,7 +226,9 @@ export function carbonEmissionOfLineItem(lineItem, countryCodeISO2, datetime) {
     return (values.reduce((a, b) => a + b, 0) / values.length) * amount;
   }
   if (!entry.intensityKilograms[countryCodeISO2]) {
-    throw new Error(`Missing carbon intensity for country ${countryCodeISO2} and identifier ${identifier}`);
+    throw new Error(
+      `Missing carbon intensity for country ${countryCodeISO2} and identifier ${identifier}`
+    );
   }
   return entry.intensityKilograms[countryCodeISO2] * amount;
 }
@@ -233,21 +243,21 @@ export function carbonEmissions(activity) {
   switch (activity.activityType) {
     case ACTIVITY_TYPE_MEAL:
       // Source: http://www.balticproject.org/en/calculator-page
-      footprint = eurAmount * 79.64 / 1000; // Restaurant bill
+      footprint = (eurAmount * 79.64) / 1000; // Restaurant bill
       break;
 
     case ACTIVITY_TYPE_TRANSPORTATION:
       // Source: http://www.balticproject.org/en/calculator-page
       switch (activity.transportationMode) {
         case TRANSPORTATION_MODE_CAR:
-          footprint = eurAmount * 1186 / 1000; // Taxi bill
+          footprint = (eurAmount * 1186) / 1000; // Taxi bill
           break;
         case TRANSPORTATION_MODE_TRAIN:
         case TRANSPORTATION_MODE_PUBLIC_TRANSPORT:
-          footprint = eurAmount * 335.63 / 1000;
+          footprint = (eurAmount * 335.63) / 1000;
           break;
         case TRANSPORTATION_MODE_PLANE:
-          footprint = eurAmount * 1121.52 / 1000;
+          footprint = (eurAmount * 1121.52) / 1000;
           break;
         default:
           throw new Error(

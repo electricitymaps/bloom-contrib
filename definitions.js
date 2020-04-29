@@ -77,7 +77,6 @@ export const ELECTRICITY_ACTIVITIES = [
   ACTIVITY_TYPE_ELECTRIC_HEATING,
 ];
 
-
 /* Transportation */
 export const TRANSPORTATION_MODE_PLANE = 'plane';
 export const TRANSPORTATION_MODE_BIKE = 'bike';
@@ -118,13 +117,16 @@ export const PURCHASE_CATEGORY_STORE_FURNISHING = 'Furnishings, loose carpets an
 export const PURCHASE_CATEGORY_STORE_HOUSEHOLD_APPLIANCE = 'HOUSEHOLD APPLIANCES';
 
 // Healthcare
-export const PURCHASE_CATEGORY_MEDICINES_AND_HEALTH_PRODUCTS = 'MEDICINES AND HEALTH PRODUCTS'
+export const PURCHASE_CATEGORY_MEDICINES_AND_HEALTH_PRODUCTS = 'MEDICINES AND HEALTH PRODUCTS';
 export const PURCHASE_CATEGORY_HEALTHCARE_DOCTOR = 'OUTPATIENT CARE SERVICES';
 
 // Transportation
-export const PURCHASE_CATEGORY_TRANSPORTATION_FUEL = 'Fuels and lubricants for personal transport equipment (ND)';
-export const PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_MAINTENANCE_AND_REPAIR = 'Maintenance and repair of personal transport equipment (S)';
-export const PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARTS = 'Parts and accessories for personal transport equipment (SD)';
+export const PURCHASE_CATEGORY_TRANSPORTATION_FUEL =
+  'Fuels and lubricants for personal transport equipment (ND)';
+export const PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_MAINTENANCE_AND_REPAIR =
+  'Maintenance and repair of personal transport equipment (S)';
+export const PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARTS =
+  'Parts and accessories for personal transport equipment (SD)';
 
 // Car
 // Size (values are used in co2eq/car/cars.json)
@@ -137,6 +139,18 @@ export const EUROCARSEGMENT_F = 'F'; // corresponds to size "Luxury" in https://
 export const EUROCARSEGMENT_S = 'S'; // corresponds to size "Sports" in https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
 export const EUROCARSEGMENT_J = 'J'; // corresponds to size "Dual purpose 4X4" in https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
 export const EUROCARSEGMENT_M = 'M'; // corresponds to size "MPV" in https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
+export const EUROCARSEGMENTS = [
+  EUROCARSEGMENT_A,
+  EUROCARSEGMENT_B,
+  EUROCARSEGMENT_C,
+  EUROCARSEGMENT_D,
+  EUROCARSEGMENT_E,
+  EUROCARSEGMENT_F,
+  EUROCARSEGMENT_S,
+  EUROCARSEGMENT_J,
+  EUROCARSEGMENT_M,
+];
+
 // Engine type (values are used in co2eq/car/cars.json)
 export const ENGINETYPE_DIESEL = 'diesel';
 export const ENGINETYPE_PETROL = 'petrol';
@@ -145,12 +159,22 @@ export const ENGINETYPE_BATTERY_ELECTRIC = 'batteryElectric';
 export const ENGINETYPE_HYBRID = 'hybrid';
 export const ENGINETYPE_LPG = 'lpg';
 export const ENGINETYPE_CNG = 'cng';
+export const ENGINETYPES = [
+  ENGINETYPE_DIESEL,
+  ENGINETYPE_PETROL,
+  ENGINETYPE_PLUGIN_HYBRID_ELECTRIC,
+  ENGINETYPE_BATTERY_ELECTRIC,
+  ENGINETYPE_HYBRID,
+  ENGINETYPE_LPG,
+  ENGINETYPE_CNG,
+];
 
 // Heating source
 export const HEATING_SOURCE_COAL_BOILER = 'HEATING_SOURCE_COAL_BOILER';
 export const HEATING_SOURCE_OIL_BOILER = 'HEATING_SOURCE_OIL_BOILER';
 export const HEATING_SOURCE_GAS_BOILER = 'HEATING_SOURCE_GAS_BOILER';
-export const HEATING_SOURCE_GAS_MICRO_COMBINED_HEAT_AND_POWER = 'HEATING_SOURCE_GAS_MICRO_COMBINED_HEAT_AND_POWER';
+export const HEATING_SOURCE_GAS_MICRO_COMBINED_HEAT_AND_POWER =
+  'HEATING_SOURCE_GAS_MICRO_COMBINED_HEAT_AND_POWER';
 export const HEATING_SOURCE_GAS_ABSORPTION_HEAT_PUMP = 'HEATING_SOURCE_GAS_ABSORPTION_HEAT_PUMP';
 export const HEATING_SOURCE_BIOSOURCED_GASES = 'HEATING_SOURCE_BIOSOURCED_GASES';
 export const HEATING_SOURCE_BIOMASS_BOILER = 'HEATING_SOURCE_BIOMASS_BOILER';
