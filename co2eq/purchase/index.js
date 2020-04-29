@@ -119,7 +119,7 @@ function extractEur({ costAmount, costCurrency }) {
     : null;
 }
 
-function CPIConversion(eurAmount, referenceYear, countryCodeISO2, datetime) {
+function conversionCPI(eurAmount, referenceYear, countryCodeISO2, datetime) {
   if ((!eurAmount) || (!datetime)) {
     return eurAmount;
   }
@@ -129,15 +129,19 @@ function CPIConversion(eurAmount, referenceYear, countryCodeISO2, datetime) {
   let CPIcurrent;
   if (countryCodeISO2 && consumerPriceIndex[COUNTRY_CPI_INDICATOR][countryCodeISO2][currentDateIndicator]) {
     CPIcurrent = consumerPriceIndex[COUNTRY_CPI_INDICATOR][countryCodeISO2][currentDateIndicator];
-  } else {
+  } else if (consumerPriceIndex[AVERAGE_CPI_COUNTRY_INDICATOR][currentDateIndicator]) {
     CPIcurrent = consumerPriceIndex[AVERAGE_CPI_COUNTRY_INDICATOR][currentDateIndicator];
+  } else {
+    throw new Error(`Unknown CPI for activity date ${datetime}`)
   }
 
   let CPIreference;
   if (countryCodeISO2 && consumerPriceIndex[COUNTRY_CPI_INDICATOR][countryCodeISO2][referenceYear]) {
     CPIreference = consumerPriceIndex[COUNTRY_CPI_INDICATOR][countryCodeISO2][referenceYear];
-  } else {
+  } else if (consumerPriceIndex[AVERAGE_CPI_COUNTRY_INDICATOR][referenceYear]) {
     CPIreference = consumerPriceIndex[AVERAGE_CPI_COUNTRY_INDICATOR][referenceYear];
+  } else {
+    throw new Error(`Unknown CPI for reference year ${referenceYear}`)
   }
 
   // ref: https://www.investopedia.com/terms/c/consumerpriceindex.asp
@@ -157,7 +161,7 @@ function extractComptabileUnitAndAmount(lineItem, entry, countryCodeISO2, dateti
   // Extract eurAmount if applicable
   let eurAmount = extractEur({ costAmount: isMonetaryItem ? lineItem.value : null, costCurrency: isMonetaryItem ? lineItem.unit : null });
   // TODO(olc): Also look at potential available conversions
-  eurAmount = CPIConversion(eurAmount, entry.year, countryCodeISO2, datetime);
+  eurAmount = conversionCPI(eurAmount, entry.year, countryCodeISO2, datetime);
   const availableEntryUnit = entry.unit;
   if (availableEntryUnit === UNIT_LITER && lineItem.unit === UNIT_LITER) {
     return { unit: UNIT_LITER, amount: lineItem.value };

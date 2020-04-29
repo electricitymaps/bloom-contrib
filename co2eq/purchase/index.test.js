@@ -50,6 +50,38 @@ test(`test household appliance for DK in EUR`, () => {
   expect(carbonEmissions(activity)).toBeCloseTo(15 * (103.3/95.9) * 0.4028253119428596);
 });
 
+test(`test household appliance for DK in EUR, without any date specified`, () => {
+  const activity = {
+    activityType: ACTIVITY_TYPE_PURCHASE,
+    countryCodeISO2: 'DK',
+    lineItems: [{
+      unit: UNIT_CURRENCIES.EUR,
+      value: 15,
+      identifier: PURCHASE_CATEGORY_STORE_HOUSEHOLD_APPLIANCE,
+    }],
+  };
+  expect(modelCanRun(activity)).toBeTruthy();
+  // original price * intensity (cpi correction not applied as there is no date)
+  expect(carbonEmissions(activity)).toBeCloseTo(15 * 0.4028253119428596);
+});
+
+test(`test cpi conversion with a datetime without any cpi`, () => {
+  const activity = {
+    activityType: ACTIVITY_TYPE_PURCHASE,
+    countryCodeISO2: 'DK',
+    datetime: new Date('2005-04-11T10:20:30Z'),
+    lineItems: [{
+      unit: UNIT_CURRENCIES.EUR,
+      value: 15,
+      identifier: PURCHASE_CATEGORY_STORE_HOUSEHOLD_APPLIANCE,
+    }],
+  };
+  expect(modelCanRun(activity)).toBeTruthy();
+  // original price * intensity (cpi correction not applied as there is no date)
+  // expect requires need anonymous function.
+  expect(() => carbonEmissions(activity)).toThrowError(new Error(`Unknown CPI for activity date ${activity.datetime}`));
+});
+
 test(`test household appliance for AU in EUR in 2020, for which there is no cpi data`, () => {
   const activity = {
     activityType: ACTIVITY_TYPE_PURCHASE,
@@ -63,6 +95,7 @@ test(`test household appliance for AU in EUR in 2020, for which there is no cpi 
   };
   expect(modelCanRun(activity)).toBeTruthy();
   // original price * cpi correction * intensity
+  // (average fallback used for 2020 as AU does not have data for 2020 yet)
   expect(carbonEmissions(activity)).toBeCloseTo(15 * (110.72093023255815/92.2) * 0.4428823364363346);
 });
 
