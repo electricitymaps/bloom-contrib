@@ -11,8 +11,12 @@ import {
   UNIT_LITER,
 } from '../../definitions';
 import { convertToEuro, getAvailableCurrencies } from '../../integrations/utils/currency/currency';
-import footprints from './footprints.yml';
 import { getChecksum } from '../utils';
+import footprints from './footprints.yml';
+import consumerPriceIndex from './consumerpriceindices.yml'
+
+const AVERAGE_CPI_COUNTRY_INDICATOR = 'average'
+const COUNTRY_CPI_INDICATOR = 'countries'
 
 export const explanation = {
   text: null,
@@ -83,7 +87,7 @@ export function getDescendants(entry, filter = _ => true, includeRoot = false) {
 
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'purchase';
-export const modelVersion = `3_${getChecksumOfFootprints()}`; // This model relies on footprints.yaml
+export const modelVersion = `4_${getChecksumOfFootprints()}`; // This model relies on footprints.yaml
 export const modelCanRunVersion = 1;
 export function modelCanRun(activity) {
   const { costAmount, costCurrency, activityType, transportationMode, lineItems } = activity;
@@ -107,26 +111,61 @@ export function modelCanRun(activity) {
 
   return false;
 }
+
 function correctWithParticipants(footprint, participants) {
   return footprint / (participants || 1);
 }
+
 function extractEur({ costAmount, costCurrency }) {
   return costAmount && costCurrency ? convertToEuro(costAmount, costCurrency) : null;
+}
+
+function conversionCPI(eurAmount, referenceYear, countryCodeISO2, datetime) {
+  if ((!eurAmount) || (!datetime)) {
+    return eurAmount;
+  }
+
+  const currentDateIndicator = datetime.getFullYear();
+
+  let CPIcurrent;
+  if (countryCodeISO2 && consumerPriceIndex[COUNTRY_CPI_INDICATOR][countryCodeISO2][currentDateIndicator]) {
+    CPIcurrent = consumerPriceIndex[COUNTRY_CPI_INDICATOR][countryCodeISO2][currentDateIndicator];
+  } else if (consumerPriceIndex[AVERAGE_CPI_COUNTRY_INDICATOR][currentDateIndicator]) {
+    CPIcurrent = consumerPriceIndex[AVERAGE_CPI_COUNTRY_INDICATOR][currentDateIndicator];
+  } else {
+    throw new Error(`Unknown CPI for activity date ${datetime}`)
+  }
+
+  let CPIreference;
+  if (countryCodeISO2 && consumerPriceIndex[COUNTRY_CPI_INDICATOR][countryCodeISO2][referenceYear]) {
+    CPIreference = consumerPriceIndex[COUNTRY_CPI_INDICATOR][countryCodeISO2][referenceYear];
+  } else if (consumerPriceIndex[AVERAGE_CPI_COUNTRY_INDICATOR][referenceYear]) {
+    CPIreference = consumerPriceIndex[AVERAGE_CPI_COUNTRY_INDICATOR][referenceYear];
+  } else {
+    throw new Error(`Unknown CPI for reference year ${referenceYear}`)
+  }
+
+  // ref: https://www.investopedia.com/terms/c/consumerpriceindex.asp
+  const eurAmountAdjusted = eurAmount * (CPIcurrent/CPIreference);
+  return eurAmountAdjusted;
 }
 
 /**
  * Returns the compatible unit and amounts of a line item
  * @param {*} lineItem - Object of the the type { name: <string>, unit: <string>, value: <string>, costAmount: <float>, costCurrency: <string> }
  * @param {*} entry - A purchase entry
+ * @param {*} countryCodeISO2 - country code of the activity
+ * @param {*} datetime - datetime of the activity
  */
-function extractComptabileUnitAndAmount(lineItem, entry) {
+function extractComptabileUnitAndAmount(lineItem, entry, countryCodeISO2, datetime) {
   const isMonetaryItem = getAvailableCurrencies().includes(lineItem.unit);
   // Extract eurAmount if applicable
-  const eurAmount = extractEur({
+  let eurAmount = extractEur({
     costCurrency: isMonetaryItem ? lineItem.unit : null,
     costAmount: isMonetaryItem ? lineItem.value : null,
   });
   // TODO(olc): Also look at potential available conversions
+  eurAmount = conversionCPI(eurAmount, entry.year, countryCodeISO2, datetime);
   const availableEntryUnit = entry.unit;
   if (availableEntryUnit === UNIT_LITER && lineItem.unit === UNIT_LITER) {
     return { unit: UNIT_LITER, amount: lineItem.value };
@@ -143,8 +182,10 @@ function extractComptabileUnitAndAmount(lineItem, entry) {
 /**
  * Calculates the carbon emissions of a line item entry
  * @param {*} lineItem - Object of the the type { identifier: <string>, unit: <string>, value: <string>, costAmount: <float>, costCurrency: <string> }
+ * @param {*} countryCodeISO2 - country code of the activity
+ * @param {*} datetime - datetime of the activity
  */
-export function carbonEmissionOfLineItem(lineItem, countryCodeISO2) {
+export function carbonEmissionOfLineItem(lineItem, countryCodeISO2, datetime) {
   // The generic identifier property holds the purchaseType value, so rename to make clear..
   const { identifier } = lineItem;
   const entry = getEntryByKey(identifier);
@@ -154,8 +195,11 @@ export function carbonEmissionOfLineItem(lineItem, countryCodeISO2) {
   if (!entry.intensityKilograms) {
     throw new Error(`Missing carbon intensity for purchaseType: ${identifier}`);
   }
+  if(!entry.year) {
+    throw new Error(`Missing consumer price index reference year for purchaseType: ${identifier}`);
+  }
 
-  const { unit, amount } = extractComptabileUnitAndAmount(lineItem, entry);
+  const { unit, amount } = extractComptabileUnitAndAmount(lineItem, entry, countryCodeISO2, datetime);
   if (unit == null || amount == null || !Number.isFinite(amount)) {
     throw new Error(
       `Invalid unit ${unit} or amount ${amount} for purchaseType ${identifier}. Expected ${entry.unit}`
@@ -167,6 +211,7 @@ export function carbonEmissionOfLineItem(lineItem, countryCodeISO2) {
       `Invalid unit ${unit} given for purchaseType ${identifier}. Expected ${entry.unit}`
     );
   }
+
 
   if (typeof entry.intensityKilograms === 'number') {
     return entry.intensityKilograms * amount;
@@ -222,13 +267,13 @@ export function carbonEmissions(activity) {
       break;
 
     case ACTIVITY_TYPE_PURCHASE: {
-      const { lineItems, countryCodeISO2 } = activity;
+      const { lineItems, countryCodeISO2, datetime } = activity;
 
       // First check if lineItems contains and calculate total of all line items
       if (lineItems && lineItems.length) {
         // TODO(df): What to do on a single line error? Abort all? Skip item?
         footprint = lineItems
-          .map(l => carbonEmissionOfLineItem(l, countryCodeISO2))
+          .map(l => carbonEmissionOfLineItem(l, countryCodeISO2, datetime))
           .reduce((a, b) => a + b, 0);
       }
       break;
