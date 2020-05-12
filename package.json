@@ -36,6 +36,7 @@
     "prettier": "^1.19.1"
   },
   "scripts": {
+    "postinstall": "cd playground && yarn",
     "lint": "eslint --quiet *.js co2eq integrations playground",
     "test": "jest --verbose --no-cache"
   }
