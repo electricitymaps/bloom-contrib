@@ -1,3 +1,4 @@
+/* eslint-disable react/sort-comp */
 import React from 'react';
 import socketIOClient from 'socket.io-client';
 import {
