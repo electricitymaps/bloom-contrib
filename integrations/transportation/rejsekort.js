@@ -1,3 +1,5 @@
+/* eslint-disable no-continue */
+/* eslint-disable no-await-in-loop */
 import moment from 'moment';
 import request from 'superagent';
 import { DOMParser } from 'xmldom';
@@ -11,6 +13,9 @@ import {
 /*
 Potential improvements:
 - only refetch items since last fetch.
+- handle fetching, parsing DOM and error parsing (looking for "Fejl" once)
+- less fragile DOM parsing
+- remove accept language headers, as they are not working
 */
 
 // Urls for requests
@@ -19,6 +24,7 @@ const LOGIN_FORM_URL = 'https://selvbetjening.rejsekort.dk/CWS/Home/Index';
 const TRAVELS_URL = 'https://selvbetjening.rejsekort.dk/CWS/TransactionServices/TravelCardHistory';
 const TRAVELS_FORM_URL =
   'https://selvbetjening.rejsekort.dk/CWS/TransactionServices/TravelCardHistory';
+const TRAVEL_FORM_CHANGE_CARD_URL = 'https://selvbetjening.rejsekort.dk/CWS/Home/ChangeCard';
 
 // Create an agent that can hold cookies
 const agent = request.agent();
@@ -105,17 +111,15 @@ async function logIn(username, password, logger) {
   logger.logDebug('Successfully logged in.');
 }
 
-// Get token for form to get all travels
-async function getTravelFormRequestToken() {
-  const res = await agent.set('Accept-Language', 'en;en-US').get(TRAVELS_URL);
-  return extractRequestToken(res.text);
-}
-
-// Get all travels
 const MAX_ITERATIONS = 10;
 
-async function getAllTravels(logger) {
-  let travelRequestToken = await getTravelFormRequestToken();
+/**
+ * Get all travels for the selected card
+ * @param {{logger: Function, token: string}} options
+ * @returns Promise<{{allTravelsHTML: string, travelRequestToken: string}> result
+ */
+async function getAllTravelsForToken({ logger, requestToken }) {
+  let travelRequestToken = requestToken;
   let allTravelsHTML = '';
 
   // Loop over all pages until all travels are included
@@ -153,7 +157,65 @@ async function getAllTravels(logger) {
     travelRequestToken = extractRequestToken(res.text);
   }
 
-  return allTravelsHTML;
+  return { allTravelsHTML, travelRequestToken };
+}
+
+async function getTravelFormInformation() {
+  const res = await agent.set('Accept-Language', 'en;en-US').get(TRAVELS_URL);
+
+  const document = parseHtmlToDocument(res.text);
+  const cardContainer = document.getElementById('cardSelectedId');
+
+  const cards = cardContainer
+    ? Array.from(cardContainer.getElementsByTagName('option')).map(element =>
+        element.getAttribute('value')
+      )
+    : ['unknown-card-id'];
+
+  return {
+    requestToken: extractRequestToken(res.text),
+    cards,
+  };
+}
+
+async function getAllTravels(logger) {
+  const travelFormInformation = await getTravelFormInformation();
+  const { cards } = travelFormInformation;
+  let { requestToken } = travelFormInformation;
+
+  let result = '';
+
+  for (let i = 0; i < cards.length; i += 1) {
+    const card = cards[i];
+
+    if (cards.length > 1) {
+      logger.logDebug(`Changing card to ${card}`);
+
+      const res = await agent
+        .post(TRAVEL_FORM_CHANGE_CARD_URL)
+        .type('form')
+        .send({
+          __RequestVerificationToken: requestToken, // FIXME: might be too old now
+          cardSelected: card,
+          controller: 'TransactionServices',
+          action: 'TravelCardHistory',
+        });
+
+      if (res.text.match(/(Error|Fejl)/)) {
+        throw new Error('Failed changing card');
+      }
+    }
+
+    const { allTravelsHTML, travelRequestToken } = await getAllTravelsForToken({
+      logger,
+      requestToken,
+    });
+
+    result += allTravelsHTML;
+    requestToken = travelRequestToken;
+  }
+
+  return result;
 }
 
 // Parse travels by looping over all 'tr' elements across tables
