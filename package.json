@@ -41,5 +41,14 @@
     "lint": "yarn lint:bail --fix --quiet",
     "lint:bail": "eslint *.js co2eq integrations playground",
     "test": "jest --verbose --no-cache"
+  },
+  "jest": {
+    "clearMocks": true,
+    "collectCoverageFrom": [
+      "co2eq/**/*.js",
+      "integrations/**/*.js",
+      "!**/__tests__/**",
+      "!**/*.test.*"
+    ]
   }
 }
