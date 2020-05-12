@@ -38,7 +38,8 @@
   },
   "scripts": {
     "postinstall": "cd playground && yarn",
-    "lint": "eslint --quiet *.js co2eq integrations playground",
+    "lint": "yarn lint:bail --fix --quiet",
+    "lint:bail": "eslint *.js co2eq integrations playground",
     "test": "jest --verbose --no-cache"
   }
 }
