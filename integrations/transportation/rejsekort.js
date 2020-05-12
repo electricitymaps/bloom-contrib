@@ -265,28 +265,6 @@ async function collect(state, logger) {
   const allTravelsHTML = await getAllTravels(logger);
   const activities = parseTravels(allTravelsHTML, logger);
 
-  // Test activities:
-  // activities = [{ id: 'rejsekort10',
-  //   datetime: new Date(),
-  //   activityType: TRANSPORTATION_MODE_PUBLIC_TRANSPORT,
-  //   durationHours: 0.23333333333333334,
-  //   transportationMode: 'bus' },
-  // { id: 'rejsekort9',
-  //   datetime: new Date(),
-  //   activityType: TRANSPORTATION_MODE_PUBLIC_TRANSPORT,
-  //   durationHours: 0.18333333333333332,
-  //   transportationMode: 'bus' },
-  // { id: 'rejsekort8',
-  //   datetime: new Date(),
-  //   activityType: TRANSPORTATION_MODE_PUBLIC_TRANSPORT,
-  //   durationHours: 0.5333333333333333,
-  //   transportationMode: 'bus' },
-  // { id: 'rejsekort7',
-  //   datetime: new Date(),
-  //   activityType: TRANSPORTATION_MODE_PUBLIC_TRANSPORT,
-  //   durationHours: 0.5833333333333334,
-  //   transportationMode: 'bus' } ]
-
   return { activities, state };
 }
 
