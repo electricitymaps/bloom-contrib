@@ -316,6 +316,53 @@ describe('collect', () => {
       ]
     `);
   });
+
+  it('returns activities for all cards and does pagination', async () => {
+    mockPathToResult = {
+      [RESOURCES.LOGIN_PAGE]: [RESPONSE.REQUEST_TOKEN_RESPONSE],
+      [RESOURCES.LOGIN_FORM]: [RESPONSE.POST_HOME_INDEX_RESPONSE],
+      [RESOURCES.TRAVEL_PAGE]: [
+        mockTravelPageResponse({
+          cards: 2,
+          hasActivities: true,
+        }),
+      ],
+      [RESOURCES.CHANGE_CARD_FORM]: [
+        RESPONSE.REQUEST_TOKEN_RESPONSE,
+        RESPONSE.REQUEST_TOKEN_RESPONSE,
+      ],
+      [RESOURCES.TRAVEL_FORM]: [
+        mockTravelPageResponse({
+          cards: 2,
+          hasActivities: true,
+          sequenceNumberStartIndex: 1,
+        }),
+        mockTravelPageResponse({
+          cards: 2,
+          hasActivities: true,
+          sequenceNumberStartIndex: 100,
+        }),
+        RESPONSE.TRAVEL_FORM_END_RESPONSE,
+        mockTravelPageResponse({
+          cards: 2,
+          hasActivities: true,
+          sequenceNumberStartIndex: 200,
+        }),
+        mockTravelPageResponse({
+          cards: 2,
+          hasActivities: true,
+          sequenceNumberStartIndex: 300,
+        }),
+        RESPONSE.TRAVEL_FORM_END_RESPONSE,
+      ],
+    };
+
+    const { activities } = await rejsekort.collect(AUTH, logger);
+    const activityIds = new Set(activities.map(activity => activity.id));
+
+    expect(activities.length).toBe(4 * 10);
+    expect(activityIds.size).toBe(4 * 10);
+  });
 });
 
 /**
