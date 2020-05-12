@@ -276,7 +276,6 @@ const config = {
   isPrivate: true,
   signupLink: 'https://selvbetjening.rejsekort.dk/CWS/CustomerRegistration/ValidateNemId',
   contributors: ['tranberg'],
-  // minRefreshInterval: 60
 };
 
 export default {
