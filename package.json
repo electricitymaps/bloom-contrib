@@ -40,7 +40,7 @@
     "postinstall": "cd playground && yarn",
     "lint": "yarn lint:bail --fix --quiet",
     "lint:bail": "eslint *.js co2eq integrations playground",
-    "test": "jest --verbose --no-cache"
+    "test": "jest --no-cache"
   },
   "jest": {
     "clearMocks": true,
