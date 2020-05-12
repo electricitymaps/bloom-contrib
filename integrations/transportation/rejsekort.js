@@ -33,6 +33,18 @@ function extractRequestToken(text) {
   return token;
 }
 
+function parseHtmlToDocument(html) {
+  // Before parsing we have to fix:
+  // - missing quotes in class tags (missing for all station names).
+  // - use of the deprecated nowrap attribute
+  // Otherwise it will cause errors for the DOMParser below.
+  const parser = new DOMParser();
+  return parser.parseFromString(
+    html.replace(/class=>/g, 'class="">').replace(/ nowrap[ ]?/g, ''),
+    'text/html'
+  );
+}
+
 // Get login token
 async function getLoginRequestToken(logger) {
   const res = await agent.get(LOGIN_URL).set('Accept-Language', 'en;en-US');
@@ -147,11 +159,8 @@ async function getAllTravels(logger) {
 // Parse travels by looping over all 'tr' elements across tables
 // Travels are split in several tables for pagination
 function parseTravels(allTravelsHTML, logger) {
-  // Before parsing we have to fix missing quotes in class tags.
-  // Otherwise it will cause errors for the DOMParser below.
-  // These quotes are missing for all station names for all travels
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(allTravelsHTML.replace(/class=>/g, "class=''>"), 'text/html');
+  const doc = parseHtmlToDocument(allTravelsHTML);
+
   const rows = doc.getElementsByTagName('tr');
   const travelList = [];
   let travelIndex = -1;
