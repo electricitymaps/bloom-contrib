@@ -13,10 +13,10 @@ import {
 import { convertToEuro, getAvailableCurrencies } from '../../integrations/utils/currency/currency';
 import { getChecksum } from '../utils';
 import footprints from './footprints.yml';
-import consumerPriceIndex from './consumerpriceindices.yml'
+import consumerPriceIndex from './consumerpriceindices.yml';
 
-const AVERAGE_CPI_COUNTRY_INDICATOR = 'average'
-const COUNTRY_CPI_INDICATOR = 'countries'
+const AVERAGE_CPI_COUNTRY_INDICATOR = 'average';
+const COUNTRY_CPI_INDICATOR = 'countries';
 
 export const explanation = {
   text: null,
@@ -121,32 +121,38 @@ function extractEur({ costAmount, costCurrency }) {
 }
 
 function conversionCPI(eurAmount, referenceYear, countryCodeISO2, datetime) {
-  if ((!eurAmount) || (!datetime)) {
+  if (!eurAmount || !datetime) {
     return eurAmount;
   }
 
   const currentDateIndicator = datetime.getFullYear();
 
   let CPIcurrent;
-  if (countryCodeISO2 && consumerPriceIndex[COUNTRY_CPI_INDICATOR][countryCodeISO2][currentDateIndicator]) {
+  if (
+    countryCodeISO2 &&
+    consumerPriceIndex[COUNTRY_CPI_INDICATOR][countryCodeISO2][currentDateIndicator]
+  ) {
     CPIcurrent = consumerPriceIndex[COUNTRY_CPI_INDICATOR][countryCodeISO2][currentDateIndicator];
   } else if (consumerPriceIndex[AVERAGE_CPI_COUNTRY_INDICATOR][currentDateIndicator]) {
     CPIcurrent = consumerPriceIndex[AVERAGE_CPI_COUNTRY_INDICATOR][currentDateIndicator];
   } else {
-    throw new Error(`Unknown CPI for activity date ${datetime}`)
+    throw new Error(`Unknown CPI for activity date ${datetime}`);
   }
 
   let CPIreference;
-  if (countryCodeISO2 && consumerPriceIndex[COUNTRY_CPI_INDICATOR][countryCodeISO2][referenceYear]) {
+  if (
+    countryCodeISO2 &&
+    consumerPriceIndex[COUNTRY_CPI_INDICATOR][countryCodeISO2][referenceYear]
+  ) {
     CPIreference = consumerPriceIndex[COUNTRY_CPI_INDICATOR][countryCodeISO2][referenceYear];
   } else if (consumerPriceIndex[AVERAGE_CPI_COUNTRY_INDICATOR][referenceYear]) {
     CPIreference = consumerPriceIndex[AVERAGE_CPI_COUNTRY_INDICATOR][referenceYear];
   } else {
-    throw new Error(`Unknown CPI for reference year ${referenceYear}`)
+    throw new Error(`Unknown CPI for reference year ${referenceYear}`);
   }
 
   // ref: https://www.investopedia.com/terms/c/consumerpriceindex.asp
-  const eurAmountAdjusted = eurAmount * (CPIcurrent/CPIreference);
+  const eurAmountAdjusted = eurAmount * (CPIcurrent / CPIreference);
   return eurAmountAdjusted;
 }
 
@@ -195,11 +201,16 @@ export function carbonEmissionOfLineItem(lineItem, countryCodeISO2, datetime) {
   if (!entry.intensityKilograms) {
     throw new Error(`Missing carbon intensity for purchaseType: ${identifier}`);
   }
-  if(!entry.year) {
+  if (!entry.year) {
     throw new Error(`Missing consumer price index reference year for purchaseType: ${identifier}`);
   }
 
-  const { unit, amount } = extractComptabileUnitAndAmount(lineItem, entry, countryCodeISO2, datetime);
+  const { unit, amount } = extractComptabileUnitAndAmount(
+    lineItem,
+    entry,
+    countryCodeISO2,
+    datetime
+  );
   if (unit == null || amount == null || !Number.isFinite(amount)) {
     throw new Error(
       `Invalid unit ${unit} or amount ${amount} for purchaseType ${identifier}. Expected ${entry.unit}`
@@ -211,7 +222,6 @@ export function carbonEmissionOfLineItem(lineItem, countryCodeISO2, datetime) {
       `Invalid unit ${unit} given for purchaseType ${identifier}. Expected ${entry.unit}`
     );
   }
-
 
   if (typeof entry.intensityKilograms === 'number') {
     return entry.intensityKilograms * amount;

@@ -6,10 +6,7 @@ import {
   ENGINETYPES,
 } from '../../definitions';
 import cars from './cars.json';
-import {
-  modelCanRun,
-  carbonEmissions,
-} from './index';
+import { modelCanRun, carbonEmissions } from './index';
 
 describe('model runs with unknown car', () => {
   const durationHours = 2;
@@ -50,10 +47,10 @@ describe('model runs with unknown car', () => {
     const zeroDurationActivity = {
       ...durationActivity,
       endDatetime: durationActivity.datetime,
-    }
+    };
 
     expect(() => {
-      carbonEmissions(zeroDurationActivity)
+      carbonEmissions(zeroDurationActivity);
     }).toThrow();
   });
 });

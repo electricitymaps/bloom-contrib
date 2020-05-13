@@ -2,3 +2,5 @@ env.json
 node_modules
 playground/dist
 .DS_Store
+coverage
+*.log

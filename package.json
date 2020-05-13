@@ -31,12 +31,24 @@
     "eslint-plugin-import": "2.12.0",
     "eslint-plugin-jest": "^23.8.2",
     "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-react": "^7.11.1",
     "jest": "^25.2.4",
     "prettier": "^1.19.1"
   },
   "scripts": {
-    "lint": "eslint --quiet *.js co2eq integrations playground",
-    "test": "jest --verbose --no-cache"
+    "postinstall": "cd playground && yarn",
+    "lint": "yarn lint:bail --fix --quiet",
+    "lint:bail": "eslint *.js co2eq integrations playground",
+    "test": "jest --no-cache"
+  },
+  "jest": {
+    "clearMocks": true,
+    "collectCoverageFrom": [
+      "co2eq/**/*.js",
+      "integrations/**/*.js",
+      "!**/__tests__/**",
+      "!**/*.test.*"
+    ]
   }
 }

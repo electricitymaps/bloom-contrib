@@ -12,6 +12,7 @@ const ICONS = {
 };
 
 const Icon = ({ type }) => (
+  // eslint-disable-next-line react/no-danger
   <span style={{ height: 24 }} dangerouslySetInnerHTML={{ __html: ICONS[type] }} />
 );
 

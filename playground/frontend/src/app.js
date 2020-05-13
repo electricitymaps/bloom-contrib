@@ -1,3 +1,4 @@
+/* eslint-disable react/sort-comp */
 import React from 'react';
 import socketIOClient from 'socket.io-client';
 import {
@@ -91,21 +92,6 @@ class App extends React.Component {
     socket.on('openUrl', url => window.open(url));
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    const prevSelectedIntegration = prevState.selectedIntegration;
-    const prevUsername = prevState.username;
-    const prevPassword = prevState.password;
-
-    const { selectedIntegration, username, password } = this.state;
-    if (
-      prevSelectedIntegration !== selectedIntegration ||
-      prevUsername !== username ||
-      prevPassword !== password
-    ) {
-      this.run();
-    }
-  }
-
   handleChange = event => {
     this.setState({
       selectedIntegration: event.target.value,
@@ -136,7 +122,7 @@ class App extends React.Component {
               <p>
                 1/ Select an integration
                 <br />
-                2/ Fill out username/password if needed
+                2/ Fill out username/password if needed and press Run
                 <br />
                 3/ Open Chrome console to see results (any change in any field will trigger a
                 re-run)

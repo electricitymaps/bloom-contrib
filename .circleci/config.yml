@@ -30,14 +30,13 @@ jobs:
             - v1-dependencies-
       - run: touch integrations/env.json
       - run: yarn
-      - run: cd playground && yarn
       - save_cache:
           paths:
             - node_modules
             - playground/node_modules
           key: v1-dependencies-{{ checksum "yarn.lock" }}-{{ checksum "playground/yarn.lock" }}
       # run linter
-      - run: yarn lint
+      - run: yarn lint:bail
       # run tests
       - run: yarn test
 

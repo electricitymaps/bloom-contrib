@@ -76,7 +76,7 @@ async function fetchActivities(usagePointId, frequency, startDate, endDate, logg
       `Unexpected usage point id ${data.usage_point_id} received. Expected ${usagePointId}`
     );
   }
-  const unit = data.reading_type.unit;
+  const { unit } = data.reading_type;
 
   // Parse in French timezone instead of the phone's local timezone
   const startMoment = moment.tz(data.start, 'YYYY-MM-DD', 'Europe/Paris');
