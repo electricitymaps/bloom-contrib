@@ -346,7 +346,7 @@ const config = {
   description: 'collects trips from your travel card',
   isPrivate: true,
   signupLink: 'https://selvbetjening.rejsekort.dk/CWS/CustomerRegistration/ValidateNemId',
-  contributors: ['tranberg'],
+  contributors: ['tranberg', 'skovhus'],
 };
 
 export default {
