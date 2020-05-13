@@ -1,3 +1,5 @@
+/* eslint-disable no-continue */
+/* eslint-disable no-await-in-loop */
 import moment from 'moment';
 import request from 'superagent';
 import { DOMParser } from 'xmldom';
@@ -11,6 +13,9 @@ import {
 /*
 Potential improvements:
 - only refetch items since last fetch.
+- handle fetching, parsing DOM and error parsing (looking for "Fejl" once)
+- less fragile DOM parsing
+- remove accept language headers, as they are not working
 */
 
 // Urls for requests
@@ -19,6 +24,7 @@ const LOGIN_FORM_URL = 'https://selvbetjening.rejsekort.dk/CWS/Home/Index';
 const TRAVELS_URL = 'https://selvbetjening.rejsekort.dk/CWS/TransactionServices/TravelCardHistory';
 const TRAVELS_FORM_URL =
   'https://selvbetjening.rejsekort.dk/CWS/TransactionServices/TravelCardHistory';
+const TRAVEL_FORM_CHANGE_CARD_URL = 'https://selvbetjening.rejsekort.dk/CWS/Home/ChangeCard';
 
 // Create an agent that can hold cookies
 const agent = request.agent();
@@ -31,6 +37,18 @@ function extractRequestToken(text) {
   // Extract
   const token = value.slice(7, value.length - 1);
   return token;
+}
+
+function parseHtmlToDocument(html) {
+  // Before parsing we have to fix:
+  // - missing quotes in class tags (missing for all station names).
+  // - use of the deprecated nowrap attribute
+  // Otherwise it will cause errors for the DOMParser below.
+  const parser = new DOMParser();
+  return parser.parseFromString(
+    html.replace(/class=>/g, 'class="">').replace(/ nowrap[ ]?/g, ''),
+    'text/html'
+  );
 }
 
 // Get login token
@@ -93,17 +111,15 @@ async function logIn(username, password, logger) {
   logger.logDebug('Successfully logged in.');
 }
 
-// Get token for form to get all travels
-async function getTravelFormRequestToken() {
-  const res = await agent.set('Accept-Language', 'en;en-US').get(TRAVELS_URL);
-  return extractRequestToken(res.text);
-}
-
-// Get all travels
 const MAX_ITERATIONS = 10;
 
-async function getAllTravels(logger) {
-  let travelRequestToken = await getTravelFormRequestToken();
+/**
+ * Get all travels for the selected card
+ * @param {{logger: Function, token: string}} options
+ * @returns Promise<{{allTravelsHTML: string, travelRequestToken: string}> result
+ */
+async function getAllTravelsForToken({ logger, requestToken }) {
+  let travelRequestToken = requestToken;
   let allTravelsHTML = '';
 
   // Loop over all pages until all travels are included
@@ -141,17 +157,72 @@ async function getAllTravels(logger) {
     travelRequestToken = extractRequestToken(res.text);
   }
 
-  return allTravelsHTML;
+  return { allTravelsHTML, travelRequestToken };
+}
+
+async function getTravelFormInformation() {
+  const res = await agent.set('Accept-Language', 'en;en-US').get(TRAVELS_URL);
+
+  const document = parseHtmlToDocument(res.text);
+  const cardContainer = document.getElementById('cardSelectedId');
+
+  const cards = cardContainer
+    ? Array.from(cardContainer.getElementsByTagName('option')).map(element =>
+        element.getAttribute('value')
+      )
+    : ['unknown-card-id'];
+
+  return {
+    requestToken: extractRequestToken(res.text),
+    cards,
+  };
+}
+
+async function getAllTravels(logger) {
+  const travelFormInformation = await getTravelFormInformation();
+  const { cards } = travelFormInformation;
+  let { requestToken } = travelFormInformation;
+
+  let result = '';
+
+  for (let i = 0; i < cards.length; i += 1) {
+    const card = cards[i];
+
+    if (cards.length > 1) {
+      logger.logDebug(`Changing card to ${card}`);
+
+      const res = await agent
+        .post(TRAVEL_FORM_CHANGE_CARD_URL)
+        .type('form')
+        .send({
+          __RequestVerificationToken: requestToken, // FIXME: might be too old now
+          cardSelected: card,
+          controller: 'TransactionServices',
+          action: 'TravelCardHistory',
+        });
+
+      if (res.text.match(/(Error|Fejl)/)) {
+        throw new Error('Failed changing card');
+      }
+    }
+
+    const { allTravelsHTML, travelRequestToken } = await getAllTravelsForToken({
+      logger,
+      requestToken,
+    });
+
+    result += allTravelsHTML;
+    requestToken = travelRequestToken;
+  }
+
+  return result;
 }
 
 // Parse travels by looping over all 'tr' elements across tables
 // Travels are split in several tables for pagination
 function parseTravels(allTravelsHTML, logger) {
-  // Before parsing we have to fix missing quotes in class tags.
-  // Otherwise it will cause errors for the DOMParser below.
-  // These quotes are missing for all station names for all travels
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(allTravelsHTML.replace(/class=>/g, "class=''>"), 'text/html');
+  const doc = parseHtmlToDocument(allTravelsHTML);
+
   const rows = doc.getElementsByTagName('tr');
   const travelList = [];
   let travelIndex = -1;
@@ -265,28 +336,6 @@ async function collect(state, logger) {
   const allTravelsHTML = await getAllTravels(logger);
   const activities = parseTravels(allTravelsHTML, logger);
 
-  // Test activities:
-  // activities = [{ id: 'rejsekort10',
-  //   datetime: new Date(),
-  //   activityType: TRANSPORTATION_MODE_PUBLIC_TRANSPORT,
-  //   durationHours: 0.23333333333333334,
-  //   transportationMode: 'bus' },
-  // { id: 'rejsekort9',
-  //   datetime: new Date(),
-  //   activityType: TRANSPORTATION_MODE_PUBLIC_TRANSPORT,
-  //   durationHours: 0.18333333333333332,
-  //   transportationMode: 'bus' },
-  // { id: 'rejsekort8',
-  //   datetime: new Date(),
-  //   activityType: TRANSPORTATION_MODE_PUBLIC_TRANSPORT,
-  //   durationHours: 0.5333333333333333,
-  //   transportationMode: 'bus' },
-  // { id: 'rejsekort7',
-  //   datetime: new Date(),
-  //   activityType: TRANSPORTATION_MODE_PUBLIC_TRANSPORT,
-  //   durationHours: 0.5833333333333334,
-  //   transportationMode: 'bus' } ]
-
   return { activities, state };
 }
 
@@ -297,8 +346,7 @@ const config = {
   description: 'collects trips from your travel card',
   isPrivate: true,
   signupLink: 'https://selvbetjening.rejsekort.dk/CWS/CustomerRegistration/ValidateNemId',
-  contributors: ['tranberg'],
-  // minRefreshInterval: 60
+  contributors: ['tranberg', 'skovhus'],
 };
 
 export default {
