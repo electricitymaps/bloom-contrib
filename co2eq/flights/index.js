@@ -163,16 +163,16 @@ function emissionsBetweenShortAndLongHaul(
   const eMin = emissionsForShortOrLongHaul(
     shortHaulDistanceThreshold,
     bookingClass,
-    true,
     passengerLoadFactor,
-    passengerToFreightRatio
+    passengerToFreightRatio,
+    true
   );
   const eMax = emissionsForShortOrLongHaul(
     longHaulDistanceThreshold,
     bookingClass,
-    false,
     passengerLoadFactor,
-    passengerToFreightRatio
+    passengerToFreightRatio,
+    false
   );
   // x is between 0 (short haul) and 1 (long haul)
   const x =
@@ -246,7 +246,7 @@ export function activityDistance(activity) {
 export function carbonEmissions(activity) {
   const distance = activityDistance(activity);
   const [passengerLoadFactor, passengerToFreightRatio] = getLoadFactors(activity);
-
+  console.log('***', passengerToFreightRatio);
   if (!Number.isFinite(distance)) {
     throw new Error(`Incorrect distance obtained: ${distance}`);
   }
