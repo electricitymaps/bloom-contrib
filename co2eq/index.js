@@ -14,8 +14,8 @@ const carbonModels = [
   ingredientsCarbonModel,
   mealCarbonModel,
   carCarbonModel,
-  transportationCarbonModel,
   flightCarbonModel,
+  transportationCarbonModel,
   energyCarbonModel,
   hotelCarbonModel,
 ];

@@ -205,7 +205,13 @@ function getLoadFactors(activity) {
   if (activity.departureAirportCode && activity.destinationAirportCode) {
     const departureAirportRegion = airportIataCodeToRegion(activity.departureAirportCode);
     const destinationAirportRegion = airportIataCodeToRegion(activity.destinationAirportCode);
-    if (departureAirportRegion && destinationAirportRegion) {
+    if (
+      departureAirportRegion &&
+      destinationAirportRegion &&
+      Object.keys(loadfactors[departureAirportRegion][PASSENGER_LOAD_FACTORS_KEY]).includes(
+        destinationAirportRegion
+      )
+    ) {
       return [
         loadfactors[departureAirportRegion][PASSENGER_LOAD_FACTORS_KEY][destinationAirportRegion] /
           100,
@@ -248,6 +254,9 @@ export function carbonEmissions(activity) {
   const [passengerLoadFactor, passengerToFreightRatio] = getLoadFactors(activity);
   if (!Number.isFinite(distance)) {
     throw new Error(`Incorrect distance obtained: ${distance}`);
+  }
+  if (!Number.isFinite(passengerLoadFactor)) {
+    throw new Error(`Incorrect load factor obtained: ${passengerLoadFactor}`);
   }
   return computeFootprint(
     distance,
