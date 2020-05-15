@@ -1,7 +1,4 @@
-import {
-  ACTIVITY_TYPE_TRANSPORTATION,
-  TRANSPORTATION_MODE_PLANE,
-} from '../../definitions';
+import { ACTIVITY_TYPE_TRANSPORTATION, TRANSPORTATION_MODE_PLANE } from '../../definitions';
 import { carbonEmissions, modelCanRun } from './index';
 
 test(`test flight with airport codes`, () => {
