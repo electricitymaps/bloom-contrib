@@ -246,7 +246,6 @@ export function activityDistance(activity) {
 export function carbonEmissions(activity) {
   const distance = activityDistance(activity);
   const [passengerLoadFactor, passengerToFreightRatio] = getLoadFactors(activity);
-  console.log('***', passengerToFreightRatio);
   if (!Number.isFinite(distance)) {
     throw new Error(`Incorrect distance obtained: ${distance}`);
   }
