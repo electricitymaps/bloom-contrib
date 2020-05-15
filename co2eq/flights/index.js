@@ -258,6 +258,16 @@ export function carbonEmissions(activity) {
   if (!Number.isFinite(passengerLoadFactor)) {
     throw new Error(`Incorrect load factor obtained: ${passengerLoadFactor}`);
   }
+  if (
+    !Number.isFinite(passengerToFreightRatio(true)) ||
+    !Number.isFinite(passengerToFreightRatio(false))
+  ) {
+    throw new Error(
+      `Incorrect passenger freight ratio obtained: short haul: ${passengerToFreightRatio(
+        true
+      )}, long haul: ${passengerToFreightRatio(false)}`
+    );
+  }
   return computeFootprint(
     distance,
     activity.bookingClass,
