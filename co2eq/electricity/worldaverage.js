@@ -35,8 +35,8 @@ function correctWithParticipants(footprint, participants) {
   return footprint / (participants || 1);
 }
 const countriesWithStateData = ['CA', 'US', 'AU'];
-function getCarbonFactor(locationLon, locationLat) {
-  const features = featuresContaining([locationLon, locationLat]);
+function getCarbonFactor(locationLat, locationLon) {
+  const features = featuresContaining([locationLon, locationLat]); // order of parameters for this lib goes against conventions
   if (!features || features.length === 0) {
     return undefined;
   }
@@ -72,7 +72,7 @@ Carbon emissions of an activity (in kgCO2eq)
 function carbonEmissionsWithoutParticipants(activity) {
   let carbonFactor = worldCarbonIntensity;
   if (activity.locationLon && activity.locationLat) {
-    const preciseFactor = getCarbonFactor(activity.locationLon, activity.locationLat);
+    const preciseFactor = getCarbonFactor(activity.locationLat, activity.locationLon);
     if (preciseFactor) {
       carbonFactor = preciseFactor;
     }
