@@ -40,7 +40,6 @@
     "prettier": "^1.19.1"
   },
   "scripts": {
-    "postinstall": "cd playground && yarn",
     "lint": "yarn lint:bail --fix --quiet",
     "lint:bail": "eslint *.js co2eq integrations playground",
     "test": "TZ='Europe/Copenhagen' jest --no-cache"
