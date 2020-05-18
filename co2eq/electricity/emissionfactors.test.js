@@ -59,6 +59,6 @@ describe('model uses emission factor', () => {
       locationLon: -0.118092,
     };
 
-    expect(carbonEmissions(activity)).toBe(0.2273);
+    expect(carbonEmissions(activity)).toBe(0.2773);
   });
 });
