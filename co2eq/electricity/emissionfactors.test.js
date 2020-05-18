@@ -15,10 +15,20 @@ describe('model uses emission factor', () => {
     const activity = {
       activityType: ACTIVITY_TYPE_ELECTRICITY,
       energyWattHours: wattHours,
-      locationLon: -73.55468,
       locationLat: 45.5124,
+      locationLon: -73.55468,
     };
 
     expect(carbonEmissions(activity)).toBe(0.0015);
+  });
+  test(`with Torontos factor`, () => {
+    const activity = {
+      activityType: ACTIVITY_TYPE_ELECTRICITY,
+      energyWattHours: wattHours,
+      locationLat: 43.761539,
+      locationLon: -79.411079,
+    };
+
+    expect(carbonEmissions(activity)).toBe(0.02);
   });
 });

@@ -1,4 +1,5 @@
 import { featuresContaining } from '@ideditor/country-coder';
+import { lookup } from 'reverse-geocode';
 import { ELECTRICITY_ACTIVITIES } from '../../definitions';
 import { factors } from './emissionfactors.json';
 
@@ -33,7 +34,7 @@ export function modelCanRun(activity) {
 function correctWithParticipants(footprint, participants) {
   return footprint / (participants || 1);
 }
-
+const countriesWithStateData = ['CA', 'US'];
 function getCarbonFactor(locationLon, locationLat) {
   const features = featuresContaining([locationLon, locationLat]);
   if (!features || features.length === 0) {
@@ -44,19 +45,25 @@ function getCarbonFactor(locationLon, locationLat) {
     return undefined;
   }
   const country = countries[0];
-  const potentialStates = features.filter(x => x.level === 'territory');
-  const state = potentialStates && potentialStates.length > 0 ? potentialStates[0] : undefined;
   const potentialFactors = factors.filter(x => x.country === country.properties.iso1A3);
-  if (potentialFactors.length === 0) {
-    return undefined;
-  }
-  if (potentialFactors.length === 1 || !state) {
+  if (potentialFactors.length === 1) {
     return potentialFactors[0].factor;
   }
-  const potentialStateFactors = potentialFactors.filter(x => x.state === state.properties.iso1A2);
-  return potentialStateFactors.length === 0
-    ? potentialFactors[0].factor
-    : potentialStateFactors[0].factor;
+  if (
+    potentialFactors.length > 1 &&
+    countriesWithStateData.indexOf(country.properties.iso1A2) !== -1
+  ) {
+    const reverseInformation = lookup(locationLat, locationLon, country.properties.iso1A2);
+    if (reverseInformation && reverseInformation.state_abbr) {
+      const stateCode = reverseInformation.state_abbr.toUpperCase();
+      const potentialStateFactors = potentialFactors.filter(x => x.state === stateCode);
+      return potentialStateFactors.length === 0
+        ? potentialFactors[0].factor
+        : potentialStateFactors[0].factor;
+    }
+    return potentialFactors[0].factor;
+  }
+  return undefined;
 }
 
 /*
