@@ -31,4 +31,24 @@ describe('model uses emission factor', () => {
 
     expect(carbonEmissions(activity)).toBe(0.02);
   });
+  test(`with New Yorks factor`, () => {
+    const activity = {
+      activityType: ACTIVITY_TYPE_ELECTRICITY,
+      energyWattHours: wattHours,
+      locationLat: 40.73061,
+      locationLon: -73.935242,
+    };
+
+    expect(carbonEmissions(activity)).toBeCloseTo(0.2212); // roundup issue here
+  });
+  test(`with Sidneys factor`, () => {
+    const activity = {
+      activityType: ACTIVITY_TYPE_ELECTRICITY,
+      energyWattHours: wattHours,
+      locationLat: -33.865143,
+      locationLon: 151.2099,
+    };
+
+    expect(carbonEmissions(activity)).toBe(0.92);
+  });
 });
