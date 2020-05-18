@@ -34,7 +34,7 @@ export function modelCanRun(activity) {
 function correctWithParticipants(footprint, participants) {
   return footprint / (participants || 1);
 }
-const countriesWithStateData = ['CA', 'US'];
+const countriesWithStateData = ['CA', 'US', 'AU'];
 function getCarbonFactor(locationLon, locationLat) {
   const features = featuresContaining([locationLon, locationLat]);
   if (!features || features.length === 0) {

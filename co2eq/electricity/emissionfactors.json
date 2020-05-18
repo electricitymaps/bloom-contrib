@@ -64,6 +64,46 @@
       "country": "CAN",
       "state": "YT",
       "factor": 57
+    },
+    {
+      "country": "AUS",
+      "state": "ACT",
+      "factor": 900
+    },
+    {
+      "country": "AUS",
+      "state": "NSW",
+      "factor": 920
+    },
+    {
+      "country": "AUS",
+      "state": "NT",
+      "factor": 730
+    },
+    {
+      "country": "AUS",
+      "state": "QLD",
+      "factor": 930
+    },
+    {
+      "country": "AUS",
+      "state": "SA",
+      "factor": 610
+    },
+    {
+      "country": "AUS",
+      "state": "TAS",
+      "factor": 220
+    },
+    {
+      "country": "AUS",
+      "state": "VIC",
+      "factor": 1170
+    },
+    {
+      "country": "AUS",
+      "state": "WA",
+      "factor": 750
     }
   ]
 }
