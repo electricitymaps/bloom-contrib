@@ -51,4 +51,14 @@ describe('model uses emission factor', () => {
 
     expect(carbonEmissions(activity)).toBe(0.92);
   });
+  test(`with Londons factor`, () => {
+    const activity = {
+      activityType: ACTIVITY_TYPE_ELECTRICITY,
+      energyWattHours: wattHours,
+      locationLat: 51.509865,
+      locationLon: -0.118092,
+    };
+
+    expect(carbonEmissions(activity)).toBe(0.2273);
+  });
 });
