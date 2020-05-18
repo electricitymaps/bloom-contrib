@@ -187,6 +187,20 @@
     { "country": "ESP", "state": "", "factor": 288 },
     { "country": "SWE", "state": "", "factor": 12 },
     { "country": "CHE", "state": "", "factor": 14 },
-    { "country": "GBR", "state": "", "factor": 277.3 }
+    { "country": "GBR", "state": "", "factor": 277.3 },
+    { "country": "ZAF", "state": "", "factor": 960.6 },
+    { "country": "CHN", "state": "", "factor": 623.6 },
+    { "country": "HKG", "state": "", "factor": 770 },
+    { "country": "IND", "state": "", "factor": 742.9 },
+    { "country": "IDN", "state": "", "factor": 755.1 },
+    { "country": "JPN", "state": "", "factor": 491.6 },
+    { "country": "KOR", "state": "", "factor": 517 },
+    { "country": "NZL", "state": "", "factor": 105.1 },
+    { "country": "SAU", "state": "", "factor": 717.6 },
+    { "country": "TUR", "state": "", "factor": 543.4 },
+    { "country": "ARE", "state": "", "factor": 433.3 },
+    { "country": "MEX", "state": "", "factor": 464 },
+    { "country": "ARG", "state": "", "factor": 358.3 },
+    { "country": "BRA", "state": "", "factor": 92.7 }
   ]
 }
