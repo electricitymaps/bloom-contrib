@@ -1,110 +1,26 @@
 {
   "factors": [
-    {
-      "country": "CAN",
-      "state": "QC",
-      "factor": 1.5
-    },
-    {
-      "country": "CAN",
-      "state": "AB",
-      "factor": 800
-    },
-    {
-      "country": "CAN",
-      "state": "BC",
-      "factor": 9.7
-    },
-    {
-      "country": "CAN",
-      "state": "MT",
-      "factor": 2.1
-    },
-    {
-      "country": "CAN",
-      "state": "NB",
-      "factor": 330
-    },
-    {
-      "country": "CAN",
-      "state": "NL",
-      "factor": 40
-    },
-    {
-      "country": "CAN",
-      "state": "NS",
-      "factor": 720
-    },
-    {
-      "country": "CAN",
-      "state": "NT",
-      "factor": 200
-    },
-    {
-      "country": "CAN",
-      "state": "NU",
-      "factor": 790
-    },
-    {
-      "country": "CAN",
-      "state": "ON",
-      "factor": 20
-    },
-    {
-      "country": "CAN",
-      "state": "PE",
-      "factor": 16
-    },
-    {
-      "country": "CAN",
-      "state": "SK",
-      "factor": 710
-    },
-    {
-      "country": "CAN",
-      "state": "YT",
-      "factor": 57
-    },
-    {
-      "country": "AUS",
-      "state": "ACT",
-      "factor": 900
-    },
-    {
-      "country": "AUS",
-      "state": "NSW",
-      "factor": 920
-    },
-    {
-      "country": "AUS",
-      "state": "NT",
-      "factor": 730
-    },
-    {
-      "country": "AUS",
-      "state": "QLD",
-      "factor": 930
-    },
-    {
-      "country": "AUS",
-      "state": "SA",
-      "factor": 610
-    },
-    {
-      "country": "AUS",
-      "state": "TAS",
-      "factor": 220
-    },
-    {
-      "country": "AUS",
-      "state": "VIC",
-      "factor": 1170
-    },
-    {
-      "country": "AUS",
-      "state": "WA",
-      "factor": 750
-    },
+    { "country": "CAN", "state": "QC", "factor": 1.5 },
+    { "country": "CAN", "state": "AB", "factor": 800 },
+    { "country": "CAN", "state": "BC", "factor": 9.7 },
+    { "country": "CAN", "state": "MT", "factor": 2.1 },
+    { "country": "CAN", "state": "NB", "factor": 330 },
+    { "country": "CAN", "state": "NL", "factor": 40 },
+    { "country": "CAN", "state": "NS", "factor": 720 },
+    { "country": "CAN", "state": "NT", "factor": 200 },
+    { "country": "CAN", "state": "NU", "factor": 790 },
+    { "country": "CAN", "state": "ON", "factor": 20 },
+    { "country": "CAN", "state": "PE", "factor": 16 },
+    { "country": "CAN", "state": "SK", "factor": 710 },
+    { "country": "CAN", "state": "YT", "factor": 57 },
+    { "country": "AUS", "state": "ACT", "factor": 900 },
+    { "country": "AUS", "state": "NSW", "factor": 920 },
+    { "country": "AUS", "state": "NT", "factor": 730 },
+    { "country": "AUS", "state": "QLD", "factor": 930 },
+    { "country": "AUS", "state": "SA", "factor": 610 },
+    { "country": "AUS", "state": "TAS", "factor": 220 },
+    { "country": "AUS", "state": "VIC", "factor": 1170 },
+    { "country": "AUS", "state": "WA", "factor": 750 },
     { "country": "USA", "state": "AK ", "factor": 445.2 },
     { "country": "USA", "state": "AL", "factor": 435.8 },
     { "country": "USA", "state": "AR", "factor": 533.1 },
