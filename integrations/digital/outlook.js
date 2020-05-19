@@ -4,11 +4,7 @@ import { Client } from '@microsoft/microsoft-graph-client';
 
 import env from '../loadEnv';
 import { OAuth2Manager } from '../authentication';
-import {
-  ACTIVITY_TYPE_DIGITAL,
-  DIGITAL_CATEGORY_EMAIL,
-  UNIT_ITEM,
-} from '../../definitions';
+import { ACTIVITY_TYPE_DIGITAL, DIGITAL_CATEGORY_EMAIL, UNIT_ITEM } from '../../definitions';
 
 const config = {
   label: 'Outlook',
