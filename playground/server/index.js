@@ -5,11 +5,13 @@ global.fetch = require('node-fetch');
 import * as electricityContribSources from '../../integrations/electricity'; // eslint-disable-line
 import * as purchaseContribSources from '../../integrations/purchase'; // eslint-disable-line
 import * as transportationContribSources from '../../integrations/transportation'; // eslint-disable-line
+import * as digitalContribSources from '../../integrations/digital'; // eslint-disable-line
 
 const sourceImplementations = {
   ...electricityContribSources,
   ...purchaseContribSources,
   ...transportationContribSources,
+  ...digitalContribSources,
 };
 
 const express = require('express');
