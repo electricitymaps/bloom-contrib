@@ -78,7 +78,7 @@ export default class {
       requestURLParamObj.redirect_uri = getCallbackUrl();
     }
     const requestURLParams =
-      objectToURLParams(requestURLParamObj) + (this.scope ? `&${this.scope}` : '');
+      objectToURLParams(requestURLParamObj) + (this.scope ? `&scope=${this.scope}` : '');
 
     const authorizationCodeRequestUrl = `${this.authorizeUrl}?${requestURLParams}`;
     const authorizationResponseQuery = await openUrlAndWaitForCallback(
@@ -96,6 +96,7 @@ export default class {
       client_id: this.clientId,
       code: authorizationCode,
       grant_type: 'authorization_code',
+      scope: this.scope,
     };
 
     if (!omitRedirectUri) {
