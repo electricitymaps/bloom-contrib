@@ -46,7 +46,7 @@ async function queryActivitiesFromOffset(offset, logger) {
     datetime: new Date(d.start_time * 1000.0),
     endDatetime:
       d.start_time === d.end_time
-        ? new Date((d.end_time + 3600) * 1000.0) // set a default ride time of an hour
+        ? new Date((d.start_time + 3600) * 1000.0) // set a default ride time of an hour
         : new Date(d.end_time * 1000.0),
     distanceKilometers: d.distance * MILES_TO_KM, // the origin in given in miles
     transportationMode: TRANSPORTATION_MODE_CAR,
