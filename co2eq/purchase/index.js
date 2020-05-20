@@ -124,8 +124,8 @@ function conversionCPI(eurAmount, referenceYear, countryCodeISO2, datetime) {
   if (!eurAmount || !datetime) {
     return eurAmount;
   }
-
-  const currentDateIndicator = datetime.getFullYear();
+  // Ensure that date is actually a date (and not just a string)
+  const currentDateIndicator = new Date(datetime).getFullYear();
 
   let CPIcurrent;
   if (
@@ -278,7 +278,7 @@ export function carbonEmissions(activity) {
 
     case ACTIVITY_TYPE_PURCHASE: {
       const { lineItems, countryCodeISO2, datetime } = activity;
-
+      // console.log(typeof datetime, datetime);
       // First check if lineItems contains and calculate total of all line items
       if (lineItems && lineItems.length) {
         // TODO(df): What to do on a single line error? Abort all? Skip item?
