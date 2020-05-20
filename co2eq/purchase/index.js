@@ -278,7 +278,6 @@ export function carbonEmissions(activity) {
 
     case ACTIVITY_TYPE_PURCHASE: {
       const { lineItems, countryCodeISO2, datetime } = activity;
-      // console.log(typeof datetime, datetime);
       // First check if lineItems contains and calculate total of all line items
       if (lineItems && lineItems.length) {
         // TODO(df): What to do on a single line error? Abort all? Skip item?
