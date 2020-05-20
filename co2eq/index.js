@@ -7,6 +7,7 @@ import * as carCarbonModel from './car/index';
 import * as purchaseCarbonModel from './purchase/index';
 import * as energyCarbonModel from './energy/index';
 import * as hotelCarbonModel from './hotelpercountry/index';
+import * as waterWorldAverageCarbonModel from './water/worldaverage';
 
 // Note: fallback models must be at the end
 const carbonModels = [
@@ -19,6 +20,7 @@ const carbonModels = [
   hotelCarbonModel,
   purchaseCarbonModel,
   electricityWorldAverageCarbonModel,
+  waterWorldAverageCarbonModel,
 ];
 
 export default carbonModels;

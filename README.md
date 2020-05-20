@@ -136,6 +136,7 @@ Activities require a certain formatting:
   id, // a string that uniquely represents this activity
   datetime, // a javascript Date object that represents the start of the activity
   endDatetime, // a javascript Date object that represents the end of the activity. If the activity has no duration, set to "null"
+  participants: 1, // a int defining the number of people this usage was for
   activityType: ACTIVITY_TYPE_ELECTRICITY,
   energyWattHours, // a float that represents the total energy used
   hourlyEnergyWattHours, // (optional) an array of 24 floats that represent the hourly metering values
@@ -143,6 +144,19 @@ Activities require a certain formatting:
   locationLat, // (optional) the latitude of the location of the electricity usage
 }
 ```
+
+##### Water consumption activity formatting
+```javascript
+{
+  id, // a string that uniquely represents this activity
+  datetime, // a javascript Date object that represents the start of the activity
+  endDatetime, // a javascript Date object that represents the end of the activity. If the activity has no duration, set to "null"
+  participants: 1, // a int defining the number of people this usage was for
+  activityType: ACTIVITY_TYPE_WATER,
+  waterCubicMeters, // a float that represents the water used
+  locationLon, // (optional) the longitude of the location of the electricity usage
+  locationLat, // (optional) the latitude of the location of the electricity usage
+}
 
 ##### Transaction activity formatting
 ```javascript
