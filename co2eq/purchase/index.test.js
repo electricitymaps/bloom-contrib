@@ -129,7 +129,7 @@ test(`test household appliance for DK in DKK`, () => {
   );
 });
 
-test(`test diesel 10L`, () => {
+test(`test non-monetary units`, () => {
   const activity = {
     activityType: ACTIVITY_TYPE_PURCHASE,
     datetime: new Date('2020-04-11T10:20:30Z'),
