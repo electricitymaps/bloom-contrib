@@ -125,6 +125,10 @@ function conversionCPI(eurAmount, referenceYear, countryCodeISO2, datetime) {
     return eurAmount;
   }
 
+  if (!referenceYear) {
+    throw new Error(`Missing consumer price index reference year`);
+  }
+
   const currentDateIndicator = datetime.getFullYear();
 
   let CPIcurrent;
