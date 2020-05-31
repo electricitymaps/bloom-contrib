@@ -6,6 +6,8 @@ import env from '../loadEnv';
 import { OAuth2Manager } from '../authentication';
 import { ACTIVITY_TYPE_DIGITAL, DIGITAL_CATEGORY_EMAIL, UNIT_ITEM } from '../../definitions';
 
+import parsers from './parsers/index';
+
 const config = {
   label: 'Outlook',
   description:
@@ -49,6 +51,20 @@ async function fetchRemainingEmailActivities(client, nextLink) {
     resultActivities.push(...activities);
     resultDeltaLink = deltaLink;
   }
+  resultActivities.push(
+    ...flatten(
+      messages.value.map(x =>
+        parsers.map(y =>
+          y(
+            x.subject,
+            x.from && x.from.emailAddress && x.from.emailAddress.address,
+            x.body && x.body.content,
+            new Date(x.lastModifiedDateTime)
+          )
+        )
+      )
+    ).filter(x => x !== undefined)
+  );
   resultActivities.push(...messages.value.map(x => getActivityFromEmail(x)));
   return { activities: resultActivities, deltaLink: resultDeltaLink };
 }
@@ -57,7 +73,7 @@ async function fetchEmail(client, previousDeltaLink, folderId) {
     ...(await fetchRemainingEmailActivities(
       client,
       previousDeltaLink === undefined
-        ? `me/mailFolders/${folderId}/messages/delta?$select=id,lastModifiedDateTime`
+        ? `me/mailFolders/${folderId}/messages/delta?$select=id,lastModifiedDateTime,body,subject,from`
         : previousDeltaLink
     )),
     folderId,
