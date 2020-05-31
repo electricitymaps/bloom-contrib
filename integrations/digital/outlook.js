@@ -52,18 +52,28 @@ async function fetchRemainingEmailActivities(client, nextLink) {
   resultActivities.push(...messages.value.map(x => getActivityFromEmail(x)));
   return { activities: resultActivities, deltaLink: resultDeltaLink };
 }
-function fetchEmail(accessToken, previousDeltaLink) {
-  const client = Client.init({
-    authProvider: done => {
-      done(undefined, accessToken);
-    },
-  });
-  return fetchRemainingEmailActivities(
-    client,
-    previousDeltaLink !== undefined
-      ? previousDeltaLink
-      : 'me/mailFolders/inbox/messages/delta?$select=id,lastModifiedDateTime'
-  );
+async function fetchEmail(client, previousDeltaLink, folderId) {
+  return {
+    ...(await fetchRemainingEmailActivities(
+      client,
+      previousDeltaLink === undefined
+        ? `me/mailFolders/${folderId}/messages/delta?$select=id,lastModifiedDateTime`
+        : previousDeltaLink
+    )),
+    folderId,
+  };
+}
+
+async function fetchEmailFolders(client, nextLink) {
+  const result = [];
+  const response = await client
+    .api(nextLink === undefined ? `me/mailFolders?$select=id` : nextLink)
+    .get();
+  result.push(...response.value.map(x => x.id));
+  if (response[odataNextLinkPropertyName] !== undefined) {
+    result.push(...(await fetchEmailFolders(client, response[odataNextLinkPropertyName])));
+  }
+  return result;
 }
 
 async function connect(requestLogin, requestWebView) {
@@ -78,15 +88,34 @@ async function disconnect() {
 async function collect(state = {}, logger) {
   manager.setState(state);
 
-  logger.logDebug(`Initiating collect() with deltaLink=${state.inboxDeltaLink}`);
+  logger.logDebug(`Initiating collect() for Outlook`);
 
-  const allResults = await Promise.all([fetchEmail(state.accessToken, state.inboxDeltaLink)]);
+  const client = Client.init({
+    authProvider: done => {
+      done(undefined, state.accessToken);
+    },
+  });
 
+  if (!state.emailFolders) {
+    state.emailFolders = (await fetchEmailFolders(client)).map(x => {
+      return { folderId: x, deltaLink: undefined };
+    });
+    logger.logDebug(`Found ${state.emailFolders.length} email folders for Outlook`);
+  }
+
+  const allResults = await Promise.all(
+    state.emailFolders.map(x => fetchEmail(client, x.deltaLink, x.folderId))
+  );
+  const activities = flatten(allResults.map(d => d.activities)).filter(d => d);
+  logger.logDebug(`Found ${activities.length} activities for Outlook`);
+  const emailFolders = allResults.map(d => {
+    return { folderId: d.folderId, deltaLink: d.deltaLink };
+  });
   return {
-    activities: flatten(allResults.map(d => d.activities)).filter(d => d),
+    activities,
     state: {
       ...state,
-      inboxDeltaLink: allResults[0].deltaLink,
+      emailFolders,
     },
   };
 }
