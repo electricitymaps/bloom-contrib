@@ -125,6 +125,10 @@ function conversionCPI(eurAmount, referenceYear, countryCodeISO2, datetime) {
     return eurAmount;
   }
 
+  if (!referenceYear) {
+    throw new Error(`Missing consumer price index reference year`);
+  }
+
   const currentDateIndicator = datetime.getFullYear();
 
   let CPIcurrent;
@@ -163,15 +167,16 @@ function conversionCPI(eurAmount, referenceYear, countryCodeISO2, datetime) {
  * @param {*} countryCodeISO2 - country code of the activity
  * @param {*} datetime - datetime of the activity
  */
-function extractComptabileUnitAndAmount(lineItem, entry, countryCodeISO2, datetime) {
+function extractCompatibleUnitAndAmount(lineItem, entry, countryCodeISO2, datetime) {
   const isMonetaryItem = getAvailableCurrencies().includes(lineItem.unit);
   // Extract eurAmount if applicable
   let eurAmount = extractEur({
     costCurrency: isMonetaryItem ? lineItem.unit : null,
     costAmount: isMonetaryItem ? lineItem.value : null,
   });
-  // TODO(olc): Also look at potential available conversions
-  eurAmount = conversionCPI(eurAmount, entry.year, countryCodeISO2, datetime);
+  if (eurAmount) {
+    eurAmount = conversionCPI(eurAmount, entry.year, countryCodeISO2, datetime);
+  }
   const availableEntryUnit = entry.unit;
   if (availableEntryUnit === UNIT_LITER && lineItem.unit === UNIT_LITER) {
     return { unit: UNIT_LITER, amount: lineItem.value };
@@ -201,11 +206,8 @@ export function carbonEmissionOfLineItem(lineItem, countryCodeISO2, datetime) {
   if (!entry.intensityKilograms) {
     throw new Error(`Missing carbon intensity for purchaseType: ${identifier}`);
   }
-  if (!entry.year) {
-    throw new Error(`Missing consumer price index reference year for purchaseType: ${identifier}`);
-  }
 
-  const { unit, amount } = extractComptabileUnitAndAmount(
+  const { unit, amount } = extractCompatibleUnitAndAmount(
     lineItem,
     entry,
     countryCodeISO2,
