@@ -128,3 +128,13 @@ test(`test household appliance for DK in DKK`, () => {
     (1150 / 7.4644) * (103.3 / 95.9) * 0.817390437852872
   );
 });
+
+test(`test non-monetary units`, () => {
+  const activity = {
+    activityType: ACTIVITY_TYPE_PURCHASE,
+    datetime: new Date('2020-04-11T10:20:30Z'),
+    lineItems: [{ identifier: 'Diesel', unit: 'L', value: 10 }],
+  };
+  expect(modelCanRun(activity)).toBeTruthy();
+  expect(carbonEmissions(activity)).toBeCloseTo(31.7);
+});
