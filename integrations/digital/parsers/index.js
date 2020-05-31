@@ -2,4 +2,6 @@ import { evaluateEmail as ikeaParser } from './ikea';
 
 const parsers = [ikeaParser];
 
-export default parsers;
+export function getActivitiesFromEmail(subject, from, bodyAsHtml, sendDate) {
+  return parsers.map(y => y(subject, from, bodyAsHtml, sendDate)).filter(x => x !== undefined);
+}

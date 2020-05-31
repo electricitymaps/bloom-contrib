@@ -6,7 +6,7 @@ import env from '../loadEnv';
 import { OAuth2Manager } from '../authentication';
 import { ACTIVITY_TYPE_DIGITAL, DIGITAL_CATEGORY_EMAIL, UNIT_ITEM } from '../../definitions';
 
-import parsers from './parsers/index';
+import { getActivitiesFromEmail } from './parsers/index';
 
 const config = {
   label: 'Outlook',
@@ -54,16 +54,14 @@ async function fetchRemainingEmailActivities(client, nextLink) {
   resultActivities.push(
     ...flatten(
       messages.value.map(x =>
-        parsers.map(y =>
-          y(
-            x.subject,
-            x.from && x.from.emailAddress && x.from.emailAddress.address,
-            x.body && x.body.content,
-            new Date(x.lastModifiedDateTime)
-          )
+        getActivitiesFromEmail(
+          x.subject,
+          x.from && x.from.emailAddress && x.from.emailAddress.address,
+          x.body && x.body.content,
+          new Date(x.lastModifiedDateTime)
         )
       )
-    ).filter(x => x !== undefined)
+    )
   );
   resultActivities.push(...messages.value.map(x => getActivityFromEmail(x)));
   return { activities: resultActivities, deltaLink: resultDeltaLink };
