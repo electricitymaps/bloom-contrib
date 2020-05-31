@@ -54,6 +54,7 @@ Community-supported integrations:
 - ⚡ Sense (contributor:[snarfed](https://github.com/snarfed))
 - ⚡ Linky (contributor:[bokub](https://github.com/bokub))
 - ⚡ Ørsted (contributor:[felixdq](https://github.com/felixdq))
+- 📧 Outlook (contributor:[baywet](https://github.com/baywet))
 - 🚗 Renault Zoé
 - 🚗 Uber (contributor:[willtonkin](https://github.com/willtonkin))
 - 🚗 Automatic (contributor:[lauvrenn](https://github.com/lauvrenn))
@@ -218,7 +219,34 @@ export const modelVersion = '0';
 
 must be incremented.
 
+### Email parsers
 
+Because a number of apps/sites do not provide an API to access data but send emails instead (eg: e-commerce), you can also implement email parsers that will be run on each email imported by email integrations.
+
+To do so add a new parser in `integrations\digital\parsers` and implement the following method:
+
+```JS
+export function evaluateEmail(subject, from, bodyAsHtml, sendDate) {
+  // whatever code needed for the detection
+  return { // return the activity parsing the email discovered
+    id: `IKEA-${orderMatches.length > 1 && orderMatches[1]}`,
+    datetime: sendDate,
+    label: `IKEA order ${orderMatches.length > 1 && orderMatches[1]}`,
+    activityType: ACTIVITY_TYPE_PURCHASE,
+    merchantDisplayName: 'IKEA',
+    lineItems: [
+      {
+        id: PURCHASE_CATEGORY_STORE_FURNISHING,
+        value: parseFloat(priceMatches[1]),
+        countryCodeISO2: currencyAndCode.code,
+        unit: currencyAndCode.cur,
+      },
+    ],
+  };
+}
+```
+
+> Note: if you are implementing an email integration don't forget to run `getActivitiesFromEmail` from `integration/digital/parsers/index` for each email discovered and return the activities found by the parser in addition to your email activities.
 
 ### Giving ideas, features requests or bugs
 
