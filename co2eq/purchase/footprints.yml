@@ -1,4 +1,4 @@
-_children:
+# yamllint disable rule:empty-lines rule:line-length_children:
   Car parts and services:
     _children:
       Parts and accessories for personal transport equipment (SD):

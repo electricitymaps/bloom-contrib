@@ -116,5 +116,6 @@ def add_display_name(footprints):
 add_display_name(footprints)
 
 with open('../footprints.yml', 'wt') as f:
+    f.write('# yamllint disable rule:empty-lines rule:line-length')
     yaml.indent(offset=2)
     yaml.dump(footprints, f)
