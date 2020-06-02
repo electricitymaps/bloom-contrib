@@ -116,6 +116,11 @@ def add_display_name(footprints):
 add_display_name(footprints)
 
 with open('../footprints.yml', 'wt') as f:
-    f.write('# yamllint disable rule:empty-lines rule:line-length')
+    f.write('# yamllint disable rule:empty-lines rule:line-length\n')
+    f.write('#\n')
+    f.write('# /!\ Remember to update the version of the associated\n')
+    f.write('# carbon model when changing this file.\n')
+    f.write('#\n')
+    f.write('---\n')
     yaml.indent(offset=2)
     yaml.dump(footprints, f)
