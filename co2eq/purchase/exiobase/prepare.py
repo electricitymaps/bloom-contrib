@@ -1,5 +1,6 @@
 import csv
 import ruamel.yaml
+import re
 yaml = ruamel.yaml.YAML()
 
 # Load concordance table in memory, indexed by coicop category
@@ -96,6 +97,23 @@ for (coicop_code, values_by_country) in COICOP_FOOTPRINTS.items():
     entry['source'] = 'https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase'
     entry['intensityKilograms'] = values_by_country
 
+def parse_add_display_name(name):
+    # Only keep first letter capitalised
+    name = name.capitalize()
+    # Remove (*)
+    name = re.sub(r"([(].*[)])", '', name)
+    # Trailing spaces
+    name = name.strip()
+    return name
+
+def add_display_name(footprints):
+    for (key, value) in footprints.get('_children', {}).items():
+        value['displayName'] = parse_add_display_name(key)
+        if len(value.get('_children', {}).items()) > 0:
+             add_display_name(value)
+    return
+
+add_display_name(footprints)
 
 with open('../footprints.yml', 'wt') as f:
     yaml.indent(offset=2)
