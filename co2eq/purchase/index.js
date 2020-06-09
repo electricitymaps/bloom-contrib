@@ -10,7 +10,7 @@ import {
   UNIT_ITEM,
   UNIT_LITER,
 } from '../../definitions';
-import { 
+import {
   convertTo2011Euro,
   getAvailableCurrencies2011,
 } from '../../integrations/utils/currency/currency';
