@@ -168,7 +168,7 @@ function conversionCPI(eurAmount, referenceYear, countryCodeISO2, datetime) {
  * @param {*} datetime - datetime of the activity
  */
 function extractCompatibleUnitAndAmount(lineItem, entry, countryCodeISO2, datetime) {
-  const isMonetaryItem = getAvailableCurrencies().includes(lineItem.unit);
+  const isMonetaryItem = getAvailableCurrencies2011().includes(lineItem.unit);
   // Extract eurAmount if applicable
   let eurAmount = extractEur({
     costCurrency: isMonetaryItem ? lineItem.unit : null,
