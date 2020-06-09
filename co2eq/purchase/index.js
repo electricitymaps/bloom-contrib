@@ -10,7 +10,7 @@ import {
   UNIT_ITEM,
   UNIT_LITER,
 } from '../../definitions';
-import { convertToEuro, getAvailableCurrencies } from '../../integrations/utils/currency/currency';
+import { convertTo2011Euro, getAvailableCurrencies2011 } from '../../integrations/utils/currency/currency';
 import { getChecksum } from '../utils';
 import footprints from './footprints.yml';
 import consumerPriceIndex from './consumerpriceindices.yml';
@@ -117,7 +117,7 @@ function correctWithParticipants(footprint, participants) {
 }
 
 function extractEur({ costAmount, costCurrency }) {
-  return costAmount && costCurrency ? convertToEuro(costAmount, costCurrency) : null;
+  return costAmount && costCurrency ? convertTo2011Euro(costAmount, costCurrency) : null;
 }
 
 function conversionCPI(eurAmount, referenceYear, countryCodeISO2, datetime) {
