@@ -7,6 +7,7 @@ import {
 } from '../../definitions';
 import { getDescendants, getRootEntry, modelCanRun, carbonEmissions } from './index';
 import { getAvailableCurrencies } from '../../integrations/utils/currency/currency';
+import { getAvailableCurrencies2011 } from '../../integrations/utils/currency/currency';
 
 Object.entries(getDescendants(getRootEntry()))
   .filter(([k, v]) => v.unit)
@@ -30,6 +31,12 @@ test(`available currencies match definition`, () => {
   const defined = Object.keys(UNIT_CURRENCIES);
   const available = getAvailableCurrencies();
   expect(defined.sort()).toEqual(available.sort());
+});
+
+test(`available 2011 currencies match definition`, () => {
+  const defined = Object.keys(UNIT_CURRENCIES);
+  const available2011 = getAvailableCurrencies2011();
+  expect(defined.sort()).toEqual(available2011.sort());
 });
 
 test(`test household appliance for DK in EUR`, () => {
