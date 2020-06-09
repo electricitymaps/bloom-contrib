@@ -10,7 +10,10 @@ import {
   UNIT_ITEM,
   UNIT_LITER,
 } from '../../definitions';
-import { convertTo2011Euro, getAvailableCurrencies2011 } from '../../integrations/utils/currency/currency';
+import { 
+  convertTo2011Euro, 
+  getAvailableCurrencies2011 
+} from '../../integrations/utils/currency/currency';
 import { getChecksum } from '../utils';
 import footprints from './footprints.yml';
 import consumerPriceIndex from './consumerpriceindices.yml';
