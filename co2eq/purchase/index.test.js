@@ -134,7 +134,7 @@ test(`test household appliance for DK in DKK`, () => {
   };
   expect(modelCanRun(activity)).toBeTruthy();
   expect(carbonEmissions(activity)).toBeCloseTo(
-    (1150 / 7.4644) * (103.3 / 95.9) * 0.817390437852872
+    (1150 / 7.4506) * (103.3 / 95.9) * 0.817390437852872
   );
 });
 
