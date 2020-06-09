@@ -40,6 +40,6 @@
     "ZAR": 10.097
   },
   "base": "EUR",
-  "date": "2011"
+  "date": "2011",
   "source": "https://appsso.eurostat.ec.europa.eu/nui/show.do?dataset=ert_bil_eur_a&lang=en"
 }
