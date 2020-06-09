@@ -6,7 +6,10 @@ import {
   ACTIVITY_TYPE_PURCHASE,
 } from '../../definitions';
 import { getDescendants, getRootEntry, modelCanRun, carbonEmissions } from './index';
-import { getAvailableCurrencies, getAvailableCurrencies2011 } from '../../integrations/utils/currency/currency';
+import { 
+  getAvailableCurrencies,
+  getAvailableCurrencies2011 
+} from '../../integrations/utils/currency/currency';
 
 Object.entries(getDescendants(getRootEntry()))
   .filter(([k, v]) => v.unit)
