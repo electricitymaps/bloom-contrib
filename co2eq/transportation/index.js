@@ -137,7 +137,7 @@ export function durationToDistance(durationHours, mode) {
  * Fallback to a reasonable duration if we're missing data to calculate duration
  * @param {string} mode string
  * @returns {number} Fallback duration in hours.
-*/
+ */
 function getDurationFallback(mode) {
   switch (mode) {
     // http://ced.berkeley.edu/downloads/dcrp/docs/dai-weinzimmer-shuttles.pdf
@@ -172,7 +172,12 @@ export function carbonEmissions(activity) {
   let { distanceKilometers } = activity;
   if (!distanceKilometers) {
     const activityDuration = getActivityDurationHours(activity);
-    const durationHours = activityDuration ?? getDurationFallback(activity.transportationMode);
+    let durationHours = 0;
+    if (activityDuration !== null) {
+      durationHours = activityDuration;
+    } else {
+      durationHours = getDurationFallback(activity.transportationMode);
+    }
     if (durationHours > 0) {
       distanceKilometers = durationToDistance(durationHours, activity.transportationMode);
     } else {
