@@ -134,14 +134,46 @@ export function durationToDistance(durationHours, mode) {
 }
 
 /*
+ * Fallback to a reasonable duration if we're missing data to calculate duration
+ * @param {string} mode string
+ * @returns {number} Fallback duration in hours.
+*/
+function getDurationFallback(mode) {
+  switch (mode) {
+    // http://ced.berkeley.edu/downloads/dcrp/docs/dai-weinzimmer-shuttles.pdf
+    case TRANSPORTATION_MODE_FOOT:
+      return 0.25;
+    // https://mapazdashboard.arizona.edu/infrastructure/commute-time
+    // based off average commute times (23 minutes)
+    case TRANSPORTATION_MODE_BUS:
+    case TRANSPORTATION_MODE_CAR:
+    case TRANSPORTATION_MODE_MOTORBIKE:
+    case TRANSPORTATION_MODE_ESCOOTER:
+    case TRANSPORTATION_MODE_PUBLIC_TRANSPORT:
+    case TRANSPORTATION_MODE_TRAIN:
+      return 0.38;
+    // https://sanfranciscobayferry.com/route/ballpark/oakland
+    case TRANSPORTATION_MODE_FERRY:
+      return 0.5;
+    // https://www.caee.utexas.edu/prof/Bhat/ABSTRACTS/sener_eluru_bhat_bicycle_rev_Jan18_TRBstyle.pdf (page 6)
+    case TRANSPORTATION_MODE_BIKE:
+    case TRANSPORTATION_MODE_EBIKE:
+      // 10.5 km average distance / average speed 23.5 km/h
+      return 0.45;
+    default:
+      throw Error(`Unknown transportation mode: ${mode}`);
+  }
+}
+
+/*
 Carbon emissions of an activity (in kgCO2eq)
 */
 export function carbonEmissions(activity) {
   let { distanceKilometers } = activity;
   if (!distanceKilometers) {
-    const durationHours = getActivityDurationHours(activity);
-    // fallback on duration if available
-    if ((durationHours || 0) > 0) {
+    const activityDuration = getActivityDurationHours(activity);
+    const durationHours = activityDuration ?? getDurationFallback(activity.transportationMode);
+    if (durationHours > 0) {
       distanceKilometers = durationToDistance(durationHours, activity.transportationMode);
     } else {
       throw new Error(
