@@ -11,7 +11,7 @@ import {
   modelCanRun,
   carbonEmissions,
   getAvailableCurrencies2011,
-} from '../index';
+} from './index';
 import { getAvailableCurrencies} from '../../integrations/utils/currency/currency';
 
 Object.entries(getDescendants(getRootEntry()))
