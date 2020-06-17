@@ -5,13 +5,8 @@ import {
   UNIT_CURRENCIES,
   ACTIVITY_TYPE_PURCHASE,
 } from '../../definitions';
-import {
-  getDescendants,
-  getRootEntry,
-  modelCanRun,
-  carbonEmissions,
-} from './index';
-import { getAvailableCurrencies} from '../../integrations/utils/currency/currency';
+import { getDescendants, getRootEntry, modelCanRun, carbonEmissions } from './index';
+import { getAvailableCurrencies } from '../../integrations/utils/currency/currency';
 
 const exchangeRates2011 = require('./exchange_rates_2011.json');
 
