@@ -17,16 +17,13 @@ import consumerPriceIndex from './consumerpriceindices.yml';
 const exchangeRates2011 = require('./exchange_rates_2011.json');
 
 export function convertTo2011Euro(amount, currency) {
-  if (currency.toUpperCase() === 'EUR') return amount;
-
+  if !(currencyUpperCase in Object.keys(exchangeRates2011.rates)) {
+    throw new Error(`Unknown currency '${currency}'`)
+  }
   const exchangeRate2011 = exchangeRates2011.rates[currency.toUpperCase()];
-  if (!exchangeRate2011) throw new Error(`Unknown currency '${currency}'`);
   return amount / exchangeRate2011;
 }
 
-export function getAvailableCurrencies2011() {
-  return [...Object.keys(exchangeRates2011.rates), 'EUR'];
-}
 
 
 
@@ -184,7 +181,7 @@ function conversionCPI(eurAmount, referenceYear, countryCodeISO2, datetime) {
  * @param {*} datetime - datetime of the activity
  */
 function extractCompatibleUnitAndAmount(lineItem, entry, countryCodeISO2, datetime) {
-  const isMonetaryItem = getAvailableCurrencies2011().includes(lineItem.unit);
+  const isMonetaryItem = Object.keys(exchangeRates2011.rates).includes(lineItem.unit);
   // Extract eurAmount if applicable
   let eurAmount = extractEur({
     costCurrency: isMonetaryItem ? lineItem.unit : null,
