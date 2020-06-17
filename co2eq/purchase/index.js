@@ -17,16 +17,12 @@ import consumerPriceIndex from './consumerpriceindices.yml';
 const exchangeRates2011 = require('./exchange_rates_2011.json');
 
 export function convertTo2011Euro(amount, currency) {
-  if (!Object.keys(exchangeRates2011.rates).contains(currencyUpperCase)) {
-    throw new Error(`Unknown currency '${currency}'`)
+  if (!Object.keys(exchangeRates2011.rates).contains(currency.toUpperCase())) {
+    throw new Error(`Unknown currency '${currency}'`);
   }
   const exchangeRate2011 = exchangeRates2011.rates[currency.toUpperCase()];
   return amount / exchangeRate2011;
 }
-
-
-
-
 
 const AVERAGE_CPI_COUNTRY_INDICATOR = 'average';
 const COUNTRY_CPI_INDICATOR = 'countries';
