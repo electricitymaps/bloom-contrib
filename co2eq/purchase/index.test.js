@@ -10,9 +10,10 @@ import {
   getRootEntry,
   modelCanRun,
   carbonEmissions,
-  getAvailableCurrencies2011,
 } from './index';
 import { getAvailableCurrencies} from '../../integrations/utils/currency/currency';
+
+const exchangeRates2011 = require('./exchange_rates_2011.json');
 
 Object.entries(getDescendants(getRootEntry()))
   .filter(([k, v]) => v.unit)
@@ -40,7 +41,7 @@ test(`available currencies match definition`, () => {
 
 test(`available 2011 currencies match definition`, () => {
   const defined = Object.keys(UNIT_CURRENCIES);
-  const available2011 = getAvailableCurrencies2011();
+  const available2011 = Object.keys(exchangeRates2011.rates);
   expect(defined.sort()).toEqual(available2011.sort());
 });
 
