@@ -7,8 +7,7 @@ import {
 } from '../../definitions';
 import { getDescendants, getRootEntry, modelCanRun, carbonEmissions } from './index';
 import { getAvailableCurrencies } from '../../integrations/utils/currency/currency';
-
-const exchangeRates2011 = require('./exchange_rates_2011.json');
+import exchangeRates2011 from './exchange_rates_2011.json';
 
 Object.entries(getDescendants(getRootEntry()))
   .filter(([k, v]) => v.unit)

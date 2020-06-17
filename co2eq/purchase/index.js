@@ -13,8 +13,7 @@ import {
 import { getChecksum } from '../utils';
 import footprints from './footprints.yml';
 import consumerPriceIndex from './consumerpriceindices.yml';
-
-const exchangeRates2011 = require('./exchange_rates_2011.json');
+import exchangeRates2011 from './exchange_rates_2011.json';
 
 export function convertTo2011Euro(amount, currency) {
   if (!Object.keys(exchangeRates2011.rates).contains(currency.toUpperCase())) {
