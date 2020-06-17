@@ -6,12 +6,12 @@ import {
   ACTIVITY_TYPE_PURCHASE,
 } from '../../definitions';
 import {
-  getDescendants, 
+  getDescendants,
   getRootEntry,
   modelCanRun,
   carbonEmissions,
-  getAvailableCurrencies2011
-       } from './index';
+  getAvailableCurrencies2011,
+} from '../index';
 import { getAvailableCurrencies} from '../../integrations/utils/currency/currency';
 
 Object.entries(getDescendants(getRootEntry()))
