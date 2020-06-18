@@ -16,7 +16,7 @@ import consumerPriceIndex from './consumerpriceindices.yml';
 import exchangeRates2011 from './exchange_rates_2011.json';
 
 export function convertTo2011Euro(amount, currency) {
-  if (!Object.keys(exchangeRates2011.rates).includes(currency.toUpperCase())) {
+  if (exchangeRate2011 != null) {
     throw new Error(`Unknown currency '${currency}'`);
   }
   const exchangeRate2011 = exchangeRates2011.rates[currency.toUpperCase()];
