@@ -10,18 +10,11 @@ import {
   UNIT_ITEM,
   UNIT_LITER,
 } from '../../definitions';
+import { getAvailableCurrencies } from '../../integrations/utils/currency/currency';
 import { getChecksum } from '../utils';
 import footprints from './footprints.yml';
 import consumerPriceIndex from './consumerpriceindices.yml';
 import exchangeRates2011 from './exchange_rates_2011.json';
-
-export function convertTo2011Euro(amount, currency) {
-  if (exchangeRate2011 != null) {
-    throw new Error(`Unknown currency '${currency}'`);
-  }
-  const exchangeRate2011 = exchangeRates2011.rates[currency.toUpperCase()];
-  return amount / exchangeRate2011;
-}
 
 const AVERAGE_CPI_COUNTRY_INDICATOR = 'average';
 const COUNTRY_CPI_INDICATOR = 'countries';
@@ -128,6 +121,14 @@ function extractEur({ costAmount, costCurrency }) {
   return costAmount && costCurrency ? convertTo2011Euro(costAmount, costCurrency) : null;
 }
 
+export function convertTo2011Euro(amount, currency) {
+  const exchangeRate2011 = exchangeRates2011.rates[currency.toUpperCase()];
+  if (exchangeRate2011 != null) {
+    throw new Error(`Unknown currency '${currency}'`);
+  }
+  return amount / exchangeRate2011;
+}
+
 function conversionCPI(eurAmount, referenceYear, countryCodeISO2, datetime) {
   if (!eurAmount || !datetime) {
     return eurAmount;
@@ -176,7 +177,7 @@ function conversionCPI(eurAmount, referenceYear, countryCodeISO2, datetime) {
  * @param {*} datetime - datetime of the activity
  */
 function extractCompatibleUnitAndAmount(lineItem, entry, countryCodeISO2, datetime) {
-  const isMonetaryItem = Object.keys(exchangeRates2011.rates).includes(lineItem.unit);
+  const isMonetaryItem = getAvailableCurrencies().includes(lineItem.unit);
   // Extract eurAmount if applicable
   let eurAmount = extractEur({
     costCurrency: isMonetaryItem ? lineItem.unit : null,
