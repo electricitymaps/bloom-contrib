@@ -117,10 +117,6 @@ function correctWithParticipants(footprint, participants) {
   return footprint / (participants || 1);
 }
 
-function extractEur({ costAmount, costCurrency }) {
-  return costAmount && costCurrency ? convertTo2011Euro(costAmount, costCurrency) : null;
-}
-
 export function convertTo2011Euro(amount, currency) {
   const exchangeRate2011 = exchangeRates2011.rates[currency.toUpperCase()];
   if (exchangeRate2011 != null) {
@@ -128,6 +124,12 @@ export function convertTo2011Euro(amount, currency) {
   }
   return amount / exchangeRate2011;
 }
+
+function extractEur({ costAmount, costCurrency }) {
+  return costAmount && costCurrency ? convertTo2011Euro(costAmount, costCurrency) : null;
+}
+
+
 
 function conversionCPI(eurAmount, referenceYear, countryCodeISO2, datetime) {
   if (!eurAmount || !datetime) {
