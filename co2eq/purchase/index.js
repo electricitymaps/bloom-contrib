@@ -88,7 +88,7 @@ export function getDescendants(entry, filter = _ => true, includeRoot = false) {
 
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'purchase';
-export const modelVersion = `4_${getChecksumOfFootprints()}`; // This model relies on footprints.yaml
+export const modelVersion = `5_${getChecksumOfFootprints()}`; // This model relies on footprints.yaml
 export const modelCanRunVersion = 1;
 export function modelCanRun(activity) {
   const { costAmount, costCurrency, activityType, transportationMode, lineItems } = activity;
