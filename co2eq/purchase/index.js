@@ -119,7 +119,7 @@ function correctWithParticipants(footprint, participants) {
 
 export function convertTo2011Euro(amount, currency) {
   const exchangeRate2011 = exchangeRates2011.rates[currency.toUpperCase()];
-  if (!exchangeRate2011 && exchangeRate2011 !== 0) {
+  if (exchangeRate2011 == null) {
     throw new Error(`Unknown currency '${currency}'`);
   }
   return amount / exchangeRate2011;
