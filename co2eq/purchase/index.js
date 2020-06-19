@@ -129,8 +129,6 @@ function extractEur({ costAmount, costCurrency }) {
   return costAmount && costCurrency ? convertTo2011Euro(costAmount, costCurrency) : null;
 }
 
-
-
 function conversionCPI(eurAmount, referenceYear, countryCodeISO2, datetime) {
   if (!eurAmount || !datetime) {
     return eurAmount;
