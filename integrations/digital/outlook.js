@@ -28,17 +28,17 @@ const manager = new OAuth2Manager({
 });
 const odataNextLinkPropertyName = '@odata.nextLink';
 const odataDeltaLinkPropertyName = '@odata.deltaLink';
-function getActivityFromEmail(message) {
-  return {
-    id: message.id,
-    activityType: ACTIVITY_TYPE_DIGITAL,
-    lineItems: [{ identifier: DIGITAL_CATEGORY_EMAIL, unit: UNIT_ITEM, value: 1 }],
-    locationLabel: 'Outlook',
-    label: 'Email received',
-    carrier: 'Microsoft',
-    datetime: moment.parseZone(message.lastModifiedDateTime).toDate(),
-  };
-}
+// function getActivityFromEmail(message) {
+//   return {
+//     id: message.id,
+//     activityType: ACTIVITY_TYPE_DIGITAL,
+//     lineItems: [{ identifier: DIGITAL_CATEGORY_EMAIL, unit: UNIT_ITEM, value: 1 }],
+//     locationLabel: 'Outlook',
+//     label: 'Email received',
+//     carrier: 'Microsoft',
+//     datetime: moment.parseZone(message.lastModifiedDateTime).toDate(),
+//   };
+// }
 async function fetchRemainingEmailActivities(client, nextLink) {
   const resultActivities = [];
   const messages = await client.api(nextLink).get();
@@ -63,7 +63,8 @@ async function fetchRemainingEmailActivities(client, nextLink) {
       )
     )
   );
-  resultActivities.push(...messages.value.map(x => getActivityFromEmail(x)));
+  // resultActivities.push(...messages.value.map(x => getActivityFromEmail(x)));
+  // TODO: uncomment line above and corresponding function when digital footprint is enabled
   return { activities: resultActivities, deltaLink: resultDeltaLink };
 }
 async function fetchEmail(client, previousDeltaLink, folderId) {
