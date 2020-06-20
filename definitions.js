@@ -23,7 +23,10 @@ export const UNITS = [
 ];
 
 export const UNIT_CURRENCIES = {
+  ALL: 'ALL',
+  ARS: 'ARS',
   AUD: 'AUD',
+  BAM: 'BAM',
   BGN: 'BGN',
   BRL: 'BRL',
   CAD: 'CAD',
@@ -42,6 +45,7 @@ export const UNIT_CURRENCIES = {
   ISK: 'ISK',
   JPY: 'JPY',
   KRW: 'KRW',
+  MKD: 'MKD',
   MXN: 'MXN',
   MYR: 'MYR',
   NOK: 'NOK',
@@ -49,11 +53,13 @@ export const UNIT_CURRENCIES = {
   PHP: 'PHP',
   PLN: 'PLN',
   RON: 'RON',
+  RSD: 'RSD',
   RUB: 'RUB',
   SEK: 'SEK',
   SGD: 'SGD',
   THB: 'THB',
   TRY: 'TRY',
+  TWD: 'TWD',
   USD: 'USD',
   ZAR: 'ZAR',
 };

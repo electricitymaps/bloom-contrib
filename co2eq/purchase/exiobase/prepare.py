@@ -1,6 +1,8 @@
 import csv
 import ruamel.yaml
+import re
 yaml = ruamel.yaml.YAML()
+
 
 # Load concordance table in memory, indexed by coicop category
 CONCORDANCE_TABLE = {}
@@ -96,7 +98,47 @@ for (coicop_code, values_by_country) in COICOP_FOOTPRINTS.items():
     entry['source'] = 'https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase'
     entry['intensityKilograms'] = values_by_country
 
+to_remove_in_parenthesis = [
+    '(ND)',
+    '(D)',
+    '(S)',
+    '(SD)',
+]
+to_remove_in_parenthesis = [expr.lower() for expr in to_remove_in_parenthesis]
+
+def parse_add_display_name(name):
+    # Only keep first letter capitalised
+    name = name.capitalize()
+    # Remove (*)
+    regex = r"([(].*[)])"
+    parenthesis_occurences = re.findall(regex, name)
+    print(name, parenthesis_occurences)
+    while len(parenthesis_occurences) > 0:
+     if parenthesis_occurences[0].lower() in to_remove_in_parenthesis:
+         name = re.sub(regex, '', name)
+         parenthesis_occurences = re.findall(regex, name)
+     else:
+        parenthesis_occurences.pop(0)
+    # Trailing spaces
+    name = name.strip()
+    print(name)
+    return name
+
+def add_display_name(footprints):
+    for (key, value) in footprints.get('_children', {}).items():
+        value['displayName'] = parse_add_display_name(key)
+        if len(value.get('_children', {}).items()) > 0:
+             add_display_name(value)
+    return
+
+add_display_name(footprints)
 
 with open('../footprints.yml', 'wt') as f:
+    f.write('# yamllint disable rule:empty-lines rule:line-length\n')
+    f.write('#\n')
+    f.write('# /!\ Remember to update the version of the associated\n')
+    f.write('# carbon model when changing this file.\n')
+    f.write('#\n')
+    f.write('---\n')
     yaml.indent(offset=2)
     yaml.dump(footprints, f)
