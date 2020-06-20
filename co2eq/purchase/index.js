@@ -10,10 +10,11 @@ import {
   UNIT_ITEM,
   UNIT_LITER,
 } from '../../definitions';
-import { convertToEuro, getAvailableCurrencies } from '../../integrations/utils/currency/currency';
+import { getAvailableCurrencies } from '../../integrations/utils/currency/currency';
 import { getChecksum } from '../utils';
 import footprints from './footprints.yml';
 import consumerPriceIndex from './consumerpriceindices.yml';
+import exchangeRates2011 from './exchange_rates_2011.json';
 
 const AVERAGE_CPI_COUNTRY_INDICATOR = 'average';
 const COUNTRY_CPI_INDICATOR = 'countries';
@@ -87,7 +88,7 @@ export function getDescendants(entry, filter = _ => true, includeRoot = false) {
 
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'purchase';
-export const modelVersion = `4_${getChecksumOfFootprints()}`; // This model relies on footprints.yaml
+export const modelVersion = `5_${getChecksumOfFootprints()}`; // This model relies on footprints.yaml
 export const modelCanRunVersion = 1;
 export function modelCanRun(activity) {
   const { costAmount, costCurrency, activityType, transportationMode, lineItems } = activity;
@@ -116,8 +117,16 @@ function correctWithParticipants(footprint, participants) {
   return footprint / (participants || 1);
 }
 
+export function convertTo2011Euro(amount, currency) {
+  const exchangeRate2011 = exchangeRates2011.rates[currency.toUpperCase()];
+  if (exchangeRate2011 == null) {
+    throw new Error(`Unknown currency '${currency}'`);
+  }
+  return amount / exchangeRate2011;
+}
+
 function extractEur({ costAmount, costCurrency }) {
-  return costAmount && costCurrency ? convertToEuro(costAmount, costCurrency) : null;
+  return costAmount && costCurrency ? convertTo2011Euro(costAmount, costCurrency) : null;
 }
 
 function conversionCPI(eurAmount, referenceYear, countryCodeISO2, datetime) {
