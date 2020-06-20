@@ -16,7 +16,7 @@ export function evaluateEmail(subject, from, bodyAsHtml, sendDate) {
     const priceMatches = /<b>\$([\d,.]+)/gm.exec(bodyAsHtml);
     const orderMatches = /(\d{9})/gm.exec(bodyAsHtml);
     const currencyAndCode = getCurrencyAndCountryCode(bodyAsHtml);
-    if (priceMatches.length > 1 && priceMatches[1]) {
+    if (priceMatches && priceMatches.length > 1 && priceMatches[1]) {
       return {
         id: `IKEA-${orderMatches.length > 1 && orderMatches[1]}`,
         datetime: sendDate,
