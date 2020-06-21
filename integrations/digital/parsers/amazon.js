@@ -34,9 +34,9 @@ export function evaluateEmail(subject, from, bodyAsHtml, sendDate) {
       return {
         id: `AMAZON-${orderMatches.length > 1 && orderMatches[1]}`,
         datetime: sendDate,
-        label: `AMAZON order ${orderMatches.length > 1 && orderMatches[1]}`,
+        label: `Amazon order ${orderMatches.length > 1 && orderMatches[1]}`,
         activityType: ACTIVITY_TYPE_PURCHASE,
-        merchantDisplayName: 'AMAZON',
+        supplierName: 'Amazon',
         lineItems: [
           {
             value: price,

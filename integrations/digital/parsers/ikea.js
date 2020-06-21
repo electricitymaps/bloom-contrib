@@ -20,9 +20,9 @@ export function evaluateEmail(subject, from, bodyAsHtml, sendDate) {
       return {
         id: `IKEA-${orderMatches.length > 1 && orderMatches[1]}`,
         datetime: sendDate,
-        label: `IKEA order ${orderMatches.length > 1 && orderMatches[1]}`,
+        label: `Ikea order ${orderMatches.length > 1 && orderMatches[1]}`,
         activityType: ACTIVITY_TYPE_PURCHASE,
-        merchantDisplayName: 'IKEA',
+        supplierName: 'Ikea',
         lineItems: [
           {
             id: PURCHASE_CATEGORY_STORE_FURNISHING,

@@ -4,15 +4,14 @@ import { Client } from '@microsoft/microsoft-graph-client';
 
 import env from '../loadEnv';
 import { OAuth2Manager } from '../authentication';
-import { ACTIVITY_TYPE_DIGITAL, DIGITAL_CATEGORY_EMAIL, UNIT_ITEM } from '../../definitions';
+import { UNIT_ITEM } from '../../definitions';
 
 import { getActivitiesFromEmail } from './parsers/index';
 
 const config = {
   label: 'Outlook',
   description:
-    "free personal email service from Microsoft that doesn't scan your email for the purpose of serving you ads",
-  type: ACTIVITY_TYPE_DIGITAL,
+    "Detects activities from your outlook email account",
   isPrivate: true,
   // minRefreshInterval: 60
   version: 1,
