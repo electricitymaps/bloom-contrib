@@ -7,11 +7,9 @@ import * as carCarbonModel from './car/index';
 import * as purchaseCarbonModel from './purchase/index';
 import * as energyCarbonModel from './energy/index';
 import * as hotelCarbonModel from './hotelpercountry/index';
-import * as emailCarbonModel from './digital/email';
 
 // Note: fallback models must be at the end
 const carbonModels = [
-  emailCarbonModel,
   ingredientsCarbonModel,
   mealCarbonModel,
   carCarbonModel,
