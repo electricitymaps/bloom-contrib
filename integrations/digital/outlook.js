@@ -1,17 +1,16 @@
-import moment from 'moment';
+// import moment from 'moment';
 import flatten from 'lodash/flatten';
 import { Client } from '@microsoft/microsoft-graph-client';
 
 import env from '../loadEnv';
 import { OAuth2Manager } from '../authentication';
-import { UNIT_ITEM } from '../../definitions';
+// import { UNIT_ITEM } from '../../definitions';
 
 import { getActivitiesFromEmail } from './parsers/index';
 
 const config = {
   label: 'Outlook',
   description: 'Detects activities from your outlook email account',
-
   isPrivate: true,
   // minRefreshInterval: 60
   version: 1,
