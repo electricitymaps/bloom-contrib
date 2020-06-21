@@ -10,8 +10,8 @@ import { getActivitiesFromEmail } from './parsers/index';
 
 const config = {
   label: 'Outlook',
-  description:
-    "Detects activities from your outlook email account",
+  description: 'Detects activities from your outlook email account',
+
   isPrivate: true,
   // minRefreshInterval: 60
   version: 1,
