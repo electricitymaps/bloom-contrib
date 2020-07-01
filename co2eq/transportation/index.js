@@ -79,7 +79,8 @@ function carbonIntensity(mode) {
       );
     case TRANSPORTATION_MODE_FERRY:
       // See https://en.wikipedia.org/wiki/Carbon_footprint
-      return 120 / 1000.0;
+      // New source: https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019  -- tab: 'Business travel- sea'
+      return 112.86 / 1000.0;
     case TRANSPORTATION_MODE_BIKE:
       // https://ecf.com/files/wp-content/uploads/ECF_BROCHURE_EN_planche.pdf
       return 5 / 1000.0;

@@ -1,0 +1,7 @@
+{
+  "footprints": [
+    {"withVehicle": null, "carbonIntensity": 0.11286},
+    {"withVehicle": true, "carbonIntensity": 0.12952},
+    {"withVehicle": false, "carbonIntensity": 0.01874}
+  ]
+}
