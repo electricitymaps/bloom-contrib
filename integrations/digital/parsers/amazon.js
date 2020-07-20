@@ -1,4 +1,8 @@
-import { ACTIVITY_TYPE_PURCHASE, UNIT_CURRENCIES } from '../../../definitions';
+import {
+  ACTIVITY_TYPE_PURCHASE,
+  PURCHASE_CATEGORY_STORE_BOOKS,
+  UNIT_CURRENCIES,
+} from '../../../definitions';
 
 const fromEmails = ['digital-no-reply@amazon.ca', 'shipment-tracking@amazon.ca'];
 function getCurrencyAndCountryCode(signal) {
@@ -26,7 +30,7 @@ export function evaluateEmail(subject, from, bodyAsHtml, sendDate) {
     const priceMatches = priceRegex.exec(bodyAsHtml);
     const orderRegex = /orderID%3D(D?[\d-]+)&/gm; // unique match group 1
     const orderMatches = orderRegex.exec(bodyAsHtml);
-    if (priceMatches.length > 0 && orderMatches && orderMatches.length > 0) {
+    if (priceMatches && priceMatches.length > 0 && orderMatches && orderMatches.length > 0) {
       const priceMatch = findLastMatch(priceRegex, bodyAsHtml);
       const price = parseFloat(priceMatch[2]);
       const currencySignal = priceMatch[1];
@@ -37,11 +41,12 @@ export function evaluateEmail(subject, from, bodyAsHtml, sendDate) {
         label: `Amazon order ${orderMatches.length > 1 && orderMatches[1]}`,
         activityType: ACTIVITY_TYPE_PURCHASE,
         supplierName: 'Amazon',
+        countryCodeISO2: currencyAndCode.code,
         lineItems: [
           {
             value: price,
-            countryCodeISO2: currencyAndCode.code,
             unit: currencyAndCode.cur,
+            identifier: PURCHASE_CATEGORY_STORE_BOOKS,
           },
         ],
       };
