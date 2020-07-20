@@ -14,6 +14,5 @@ describe('finds price', () => {
     expect(result.lineItems.length).toBe(1);
     expect(result.lineItems[0].unit).toBe('CAD');
     expect(result.lineItems[0].value).toBe(37.92);
-    expect(result.lineItems[0].countryCodeISO2).toBe('CA');
   });
 });
