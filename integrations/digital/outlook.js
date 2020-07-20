@@ -10,10 +10,11 @@ import { getActivitiesFromEmail } from './parsers/index';
 
 const config = {
   label: 'Outlook',
-  description: 'Detects activities from your outlook email account',
+  description: 'Detects purchases from your outlook email account from amazon.ca and ikea.ca.',
   isPrivate: true,
   // minRefreshInterval: 60
   version: 1,
+  contributors: ['baywet'],
 };
 
 const manager = new OAuth2Manager({
