@@ -44,10 +44,10 @@ export const explanation = {
   ],
 };
 
-export const modelCanRunVersion = 2;
+export const modelCanRunVersion = 3;
 export function modelCanRun(activity) {
-  const { transportationMode, distanceKilometers, endDatetime } = activity;
-  if (transportationMode && (distanceKilometers || endDatetime)) {
+  const { transportationMode } = activity;
+  if (transportationMode) {
     return true;
   }
 
