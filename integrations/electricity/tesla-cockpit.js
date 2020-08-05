@@ -28,7 +28,7 @@ async function requestToken(username, password) {
   return data[0].CreatorToken;
 }
 
-async function connect(requestLogin, requestWebView) {
+async function connect(requestLogin, requestToken, requestWebView, logger) {
   const { username, password } = await requestLogin();
   // Try to login, but don't save the token as it has an expiry date
   await requestToken(username, password);

@@ -23,6 +23,8 @@ async function login(username, password) {
     throw new HTTPError(res.text, res.status);
   }
 
+  console.log(res.body);
+
   return res.body;
 }
 

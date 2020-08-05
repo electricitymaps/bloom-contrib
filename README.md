@@ -76,7 +76,7 @@ An integration gathers activities from a 3rd party datasource.
 To this end, 3 async methods need to be exported:
 
 ```javascript
-async function connect(requestLogin, requestWebView) {
+async function connect(requestLogin, requestToken, requestWebView, logger) {
   const { username, password } = await requestLogin();
   // ...
   return newState;
