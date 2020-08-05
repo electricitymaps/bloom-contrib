@@ -1,14 +1,16 @@
 import request from 'superagent';
 import moment from 'moment';
+import groupBy from 'lodash/groupBy';
 import { ACTIVITY_TYPE_ELECTRICITY } from '../../definitions';
 import { HTTPError, ValidationError } from '../utils/errors';
+import { cityToLonLat } from "../utils/location";
 
 const BASE_URL = 'https://api.eloverblik.dk/CustomerApi/api';
 const TOKEN_URL = `${BASE_URL}/Token`;
 const METER_POINTS_URL = `${BASE_URL}/MeteringPoints/MeteringPoints?includeAll=false`;
 const TIME_SERIES_URL = `${BASE_URL}/MeterData/GetTimeSeries/{dateFrom}/{dateTo}/{aggregation}`;
 
-const AGGREGATION = 'Day';
+const AGGREGATION = 'Hour';
 const DATE_FORMAT = 'YYYY-MM-DD';
 
 async function getAccessToken(refreshToken) {
@@ -27,13 +29,28 @@ async function getMeteringPoints(accessToken) {
   }
 
   const meterPointIds = res.body.result.map(meterPointInfo => meterPointInfo.meteringPointId);
-  return meterPointIds;
+  const meterPointAddresses = res.body.result.map(meterPointInfo => ({
+    buildingNumber: meterPointInfo.buildingNumber,
+    cityName: meterPointInfo.cityName,
+    postcode: meterPointInfo.postcode,
+    streetCode: meterPointInfo.streetCode,
+    streetName: meterPointInfo.streetName,
+  }));
+  return {
+    meterPointIds,
+    meterPointAddresses,
+  };
 }
 
-async function getTimeSeries(accessToken, meterPointIds) {
+async function getTimeSeries(accessToken, meterPointIds, lastCollect) {
   const now = moment();
-  const url = TIME_SERIES_URL.replace('{dateFrom}', now.subtract(3, 'days').format(DATE_FORMAT))
-    .replace('{dateTo}', now.subtract(2, 'days').format(DATE_FORMAT))
+  const dateFrom = lastCollect.clone();
+  if (dateFrom.clone().add(1, 'hour').isAfter(now)) {
+    return [];
+  }
+  const dateTo = moment.min(lastCollect.clone().add(14, 'days'), moment());
+  const url = TIME_SERIES_URL.replace('{dateFrom}', dateFrom.format(DATE_FORMAT))
+    .replace('{dateTo}', dateTo.format(DATE_FORMAT))
     .replace('{aggregation}', AGGREGATION);
   const bodyMeterPoints = {
     meteringPoints: {
@@ -49,33 +66,83 @@ async function getTimeSeries(accessToken, meterPointIds) {
     throw new HTTPError(res.text, res.status);
   }
 
-  return res.body
+  const timeSeries = res.body.result[0].MyEnergyData_MarketDocument.TimeSeries.map(meteringPoint => {
+    const mRID = meteringPoint.mRID;
+    return meteringPoint.Period.map(period => {
+    const periodStart = period.timeInterval.start;
+    return period.Point.map(periodPoint => {
+      return {
+        datetime: moment(periodStart).add(parseInt(periodPoint.position), 'hours'),
+        value: parseFloat(periodPoint["out_Quantity.quantity"]),
+        mRID,
+      }});
+  })}).flat(Infinity);
+
+
+  return timeSeries.concat(
+    await getTimeSeries(accessToken, meterPointIds, dateTo)
+  );
 }
 
-async function connect(requestToken) {
+async function connect(requestLogin, requestToken, requestWebView, logger) {
   const { token } = await requestToken();
   // Test that the provided token is valid and allows to fetch an access token
-  const accessToken = getAccessToken(token);
-  return { token };
+  // Test of all requests used for collect
+  const accessToken = await getAccessToken(token);
+  const { meterPointIds, meterPointAddresses } = await getMeteringPoints(accessToken);
+  const timeSeries = await getTimeSeries(accessToken, meterPointIds, moment().subtract(3,'days'));
+
+  // Take first meter point as reference for address
+  let lonLat = [null, null];
+  if (meterPointAddresses.length > 0) {
+    lonLat = await cityToLonLat('DK', meterPointAddresses[0].postcode);
+  }
+
+  return {
+    refreshToken: token,
+    locationLon: lonLat[0],
+    locationLat: lonLat[1],
+  };
 }
 
-async function collect(state = {}, logger) {
-  const { refreshToken } = state;
-  const accessToken = getAccessToken(refreshToken);
-  const meterPointIds = getMeteringPoints(accessToken);
-  const timeSeries = getTimeSeries(accessToken, meterPointIds);
+async function collect(state, logger) {
+  const { refreshToken, locationLon, locationLat } = state;
+  const accessToken = await getAccessToken(refreshToken);
+  const { meterPointIds, meterPointAddresses } = await getMeteringPoints(accessToken);
 
-  const activity = {
-    id, // a string that uniquely represents this activity
-    datetime, // a javascript Date object that represents the start of the activity
-    endDatetime, // a javascript Date object that represents the end of the activity. If the activity has no duration, set to "null"
+  // Fetch from last update. If not available, then fetch data from the last 90 days.
+  const lastCollect = state.lastCollect
+    ? moment(state.lastCollect)
+    : moment().subtract(6, 'days');
+
+  const timeSeries = await getTimeSeries(accessToken, meterPointIds, lastCollect);
+  console.log('collect ts', timeSeries);
+  const activities = Object.entries(
+    groupBy(timeSeries, dataPoint =>
+      dataPoint.datetime.startOf('day').toISOString()
+    )
+  ).map(([k, values]) => ({
+    id: `energinet${values[0].mRID}${k}`,
+    datetime: moment(k).toDate(),
+    endDatetime: moment.max(values.map(dataPoint => dataPoint.datetime))
+      .toDate(),
     activityType: ACTIVITY_TYPE_ELECTRICITY,
-    energyWattHours, // a float that represents the total energy used
-    hourlyEnergyWattHours, // (optional) an array of 24 floats that represent the hourly metering values
-    locationLon, // (optional) the longitude of the location of the electricity usage
-    locationLat, // (optional) the latitude of the location of the electricity usage
-  };
-  return { activities, state: newState };
+    energyWattHours: values
+      .map(x => x.value * 1000.0) // kWh -> Wh
+      .reduce((a, b) => a + b, 0),
+    hourlyEnergyWattHours: Object.values(
+      groupBy(values, dataPoint =>
+        dataPoint.datetime.toISOString()
+      )).map(dataPointsByDatetime =>
+        dataPointsByDatetime
+          .map(x => x.value * 1000.0)
+          .reduce((a, b) => a + b, 0)),
+    locationLon,
+    locationLat,
+  }));
+  console.log(activities);
+
+  return { activities, state: { ...state, lastCollect: new Date().toISOString() } };
 }
 async function disconnect() {
   // Here we should do any cleanup (deleting tokens etc..)
@@ -88,7 +155,7 @@ const config = {
   country: 'DK',
   isPrivate: true,
   type: ACTIVITY_TYPE_ELECTRICITY,
-  signupLink: 'https://eloverblik.dk/Customer/login/',
+  signupLink: 'https://www.notion.so/tmrow/How-to-get-a-token-for-Energinet-c4cdc0e568424177892056c284f45c23',
   contributors: ['pierresegonne'],
 };
 
