@@ -5,7 +5,7 @@ import { HTTPError } from '../utils/errors';
 
 const BASE_URL = 'https://creators.teslacockpit.com';
 
-async function requestToken(username, password) {
+async function requestTeslaToken(username, password) {
   const res = await fetch(`${BASE_URL}/Account/TeslaLogin`, {
     method: 'POST',
     headers: {
@@ -31,7 +31,7 @@ async function requestToken(username, password) {
 async function connect(requestLogin, requestToken, requestWebView, logger) {
   const { username, password } = await requestLogin();
   // Try to login, but don't save the token as it has an expiry date
-  await requestToken(username, password);
+  await requestTeslaToken(username, password);
   return { username, password };
 }
 
