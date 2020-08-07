@@ -2,7 +2,7 @@ import request from 'superagent';
 import moment from 'moment';
 import groupBy from 'lodash/groupBy';
 import { ACTIVITY_TYPE_ELECTRICITY } from '../../definitions';
-import { HTTPError, ValidationError } from '../utils/errors';
+import { HTTPError } from '../utils/errors';
 import { cityToLonLat } from '../utils/location';
 
 const BASE_URL = 'https://api.eloverblik.dk/CustomerApi/api';
@@ -45,7 +45,7 @@ async function getMeteringPoints(accessToken) {
 /*
   Format for a data point in the concatenated time series
   {
-    datetime: Datetime,
+    datetime: String # ISO datetime format,
     value: Float,
     mRID: String # a use might have several meters associated with him
   }
@@ -86,7 +86,10 @@ async function getTimeSeries(accessToken, meterPointIds, lastCollect) {
         const periodStart = period.timeInterval.start;
         return period.Point.map(periodPoint => {
           return {
-            datetime: moment(periodStart).add(parseInt(periodPoint.position, 10), 'hours'),
+            datetime: moment(periodStart)
+              .clone()
+              .add(parseInt(periodPoint.position, 10) - 1, 'hours')
+              .toISOString(),
             value: parseFloat(periodPoint['out_Quantity.quantity']),
             mRID,
           };
@@ -103,11 +106,8 @@ async function connect(requestLogin, requestToken, requestWebView, logger) {
   // Test that the provided token is valid and allows to fetch an access token
   // Test of all requests used for collect
   const accessToken = await getAccessToken(token);
-  console.log(accessToken);
   const { meterPointIds, meterPointAddresses } = await getMeteringPoints(accessToken);
-  console.log(meterPointIds);
   const timeSeries = await getTimeSeries(accessToken, meterPointIds, moment().subtract(3, 'days'));
-  console.log(timeSeries);
 
   // Take first meter point as reference for address
   let lonLat = [null, null];
@@ -128,29 +128,35 @@ async function collect(state, logger) {
   const { meterPointIds, meterPointAddresses } = await getMeteringPoints(accessToken);
 
   // Fetch from last update. If not available, then fetch data from the last 90 days.
-  const lastCollect = state.lastCollect ? moment(state.lastCollect) : moment().subtract(6, 'days');
+  const lastCollect = state.lastCollect ? moment(state.lastCollect) : moment().subtract(90, 'days');
 
   const timeSeries = await getTimeSeries(accessToken, meterPointIds, lastCollect);
-  console.log('collect ts', timeSeries);
   const activities = Object.entries(
-    groupBy(timeSeries, dataPoint => dataPoint.datetime.startOf('day').toISOString()) // regroup by day
+    groupBy(timeSeries, dataPoint =>
+      moment(dataPoint.datetime)
+        .startOf('day')
+        .toISOString()
+    ) // regroup by day
   ).map(([k, values]) => ({
     id: `energinet${values[0].mRID}${k}`,
     datetime: moment(k).toDate(),
-    endDatetime: moment.max(values.map(dataPoint => dataPoint.datetime)).toDate(), // finish at the latest time in that day
+    endDatetime: moment.max(values.map(dataPoint => moment(dataPoint.datetime))).toDate(), // finish at the latest time in that day
     activityType: ACTIVITY_TYPE_ELECTRICITY,
     energyWattHours: values
       .map(x => x.value * 1000.0) // kWh -> Wh
       .reduce((a, b) => a + b, 0), // sum all values for the day + all meters
     hourlyEnergyWattHours: Object.values(
-      groupBy(values, dataPoint => dataPoint.datetime.startOf('hour').toISOString())
+      groupBy(values, dataPoint =>
+        moment(dataPoint.datetime)
+          .startOf('hour')
+          .toISOString()
+      )
     ).map(dataPointsByDatetime =>
       dataPointsByDatetime.map(x => x.value * 1000.0).reduce((a, b) => a + b, 0)
     ),
     locationLon,
     locationLat,
   }));
-  console.log(activities);
 
   return { activities, state: { ...state, lastCollect: new Date().toISOString() } };
 }
