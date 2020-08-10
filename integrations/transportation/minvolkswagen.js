@@ -116,7 +116,7 @@ async function getTrips(token, vehicleId, lastUpdate, logger) {
   return res.body.data.vehicle.trips.items;
 }
 
-async function connect(requestLogin, requestToken, requestWebView, logger) {
+async function connect({ requestLogin }, logger) {
   const { username, password } = await requestLogin();
 
   const token = await loginWithPassword(username, password, logger);

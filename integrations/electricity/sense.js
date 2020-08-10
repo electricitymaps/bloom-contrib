@@ -33,7 +33,7 @@ async function request(method, call, token, params) {
   return response;
 }
 
-async function connect(requestLogin, requestToken, requestWebView, logger) {
+async function connect({ requestLogin }, logger) {
   const { username, password } = await requestLogin();
 
   if (!(password || '').length) {

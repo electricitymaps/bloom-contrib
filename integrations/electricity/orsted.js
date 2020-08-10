@@ -73,7 +73,7 @@ async function getMeteringPoints(token, ean, external_id, lastCollect) {
   );
 }
 
-async function connect(requestLogin) {
+async function connect({ requestLogin }, logger) {
   const { username, password } = await requestLogin();
 
   const { token, external_id, address } = await login(username, password);

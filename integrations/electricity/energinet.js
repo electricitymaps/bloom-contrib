@@ -101,7 +101,7 @@ async function getTimeSeries(accessToken, meterPointIds, lastCollect) {
   return timeSeries.concat(await getTimeSeries(accessToken, meterPointIds, dateTo));
 }
 
-async function connect(requestLogin, requestToken, requestWebView, logger) {
+async function connect({ requestToken }, logger) {
   const { token } = await requestToken();
   // Test that the provided token is valid and allows to fetch an access token
   // Test of all requests used for collect

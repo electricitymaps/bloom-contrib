@@ -144,14 +144,19 @@ describe('connect', () => {
     };
 
     const requestLogin = jest.fn(() => Promise.resolve(AUTH));
+    const requestToken = jest.fn();
     const requestWebView = jest.fn();
 
-    const connectResult = await rejsekort.connect(requestLogin, requestWebView, logger);
+    const connectResult = await rejsekort.connect(
+      { requestLogin, requestToken, requestWebView },
+      logger
+    );
 
     // returns authentication details after logging in
     expect(connectResult).toEqual(AUTH);
 
     expect(requestLogin).toHaveBeenCalledTimes(1);
+    expect(requestToken).toHaveBeenCalledTimes(0);
     expect(requestWebView).toHaveBeenCalledTimes(0);
   });
 
@@ -162,9 +167,12 @@ describe('connect', () => {
     };
 
     const requestLogin = jest.fn(() => Promise.resolve(AUTH));
+    const requestToken = jest.fn();
     const requestWebView = jest.fn();
 
-    await expect(rejsekort.connect(requestLogin, requestWebView, logger)).rejects.toThrowError(
+    await expect(
+      rejsekort.connect({ requestLogin, requestToken, requestWebView }, logger)
+    ).rejects.toThrowError(
       new ValidationError('Dit brugernavn eller din adgangskode er indtastet forkert.')
     );
   });

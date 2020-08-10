@@ -29,7 +29,7 @@ async function logIn(username, password) {
   };
 }
 
-async function connect(requestLogin, requestToken, requestWebView, logger) {
+async function connect({ requestLogin }, logger) {
   // Here we can request credentials etc..
 
   // Here we can use two functions to invoke screens

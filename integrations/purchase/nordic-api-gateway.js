@@ -296,7 +296,7 @@ async function parseTransactions(
   return res;
 }
 
-async function connect(requestLogin, requestToken, requestWebView, logger) {
+async function connect({ requestWebView }, logger) {
   if (!env.NAG_CLIENT_ID || !env.NAG_CLIENT_SECRET) {
     throw new Error(
       'Environment variables for nordic-api-gateway not set. Please set NAG_CLIENT_ID & NAG_CLIENT_SECRET.'
