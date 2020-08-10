@@ -71,7 +71,7 @@ async function fetchVehicleInfo(token) {
 
 async function collect(state, logger, utils) {
   const { username, password } = state;
-  const token = await requestToken(username, password);
+  const token = await requestTeslaToken(username, password);
   // Get timezone of vehicle
   const vehicles = await fetchVehicleInfo(token);
   if (!vehicles.length) {
