@@ -13,8 +13,11 @@ const manager = new OAuth2Manager({
   scope: 'scope=tibber_graph',
 });
 
-async function connect(requestLogin, requestWebView) {
-  return manager.authorize(requestWebView);
+async function connect({ requestWebView }, logger) {
+  console.log(`requestWebView: ${JSON.stringify(requestWebView)}`);
+  console.log(`logger: ${JSON.stringify(logger)}`);
+  const state = await manager.authorize(requestWebView, logger);
+  return state;
 }
 
 async function disconnect() {
@@ -22,7 +25,7 @@ async function disconnect() {
   return {};
 }
 
-const homesQuery = (nofDays) => /* GraphQL */ `
+const homesQuery = nofDays => /* GraphQL */ `
     {
       viewer { 
         homes {
@@ -42,8 +45,7 @@ const homesQuery = (nofDays) => /* GraphQL */ `
   `;
 
 async function fetchActivities(state, startDate) {
-  const nofDays = moment(startDate)
-    .diff(moment(), 'days');
+  const nofDays = moment(startDate).diff(moment(), 'days');
   const { homes } = (await state.gqlClient.request(homesQuery(nofDays))).viewer;
   const nodes = homes.flatMap(h => h.consumption.nodes);
   const { latitude, longitude } = homes[0].address;
@@ -55,8 +57,7 @@ async function fetchActivities(state, startDate) {
       id: `tibber${moment(n.to)
         .toDate()
         .toISOString()}`,
-      datetime: moment(n.to)
-        .toDate(),
+      datetime: moment(n.to).toDate(),
       activityType: ACTIVITY_TYPE_ELECTRICITY,
       energyWattHours: n.consumption,
       durationHours: 24,
@@ -69,8 +70,7 @@ async function fetchActivities(state, startDate) {
     activities,
     state: {
       ...state,
-      lastCollect: lastFullyCollectedDay.toDate()
-        .toISOString(),
+      lastCollect: lastFullyCollectedDay.toDate().toISOString(),
     },
   };
 }
@@ -78,20 +78,20 @@ async function fetchActivities(state, startDate) {
 async function collect(state) {
   manager.setState(state);
 
-  const startDate = state.lastFullyCollectedDay || moment()
-    .subtract(3, 'month')
-    .format('DD/MM/YYYY');
+  const startDate =
+    state.lastFullyCollectedDay ||
+    moment()
+      .subtract(3, 'month')
+      .format('DD/MM/YYYY');
 
   if (!state.gqlClient) {
     const endpoint = 'https://api.tibber.com/v1-beta/gql';
-    state.gqlClient = new GraphQLClient(
-      endpoint, {
-        headers: {
-          Authorization: `Bearer ${state.accessToken}`,
-          'Content-Type': 'application/json',
-        },
-      }
-    );
+    state.gqlClient = new GraphQLClient(endpoint, {
+      headers: {
+        Authorization: `Bearer ${state.accessToken}`,
+        'Content-Type': 'application/json',
+      },
+    });
   }
 
   return fetchActivities(state, startDate);
