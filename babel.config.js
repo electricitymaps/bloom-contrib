@@ -1,15 +1,20 @@
 module.exports = {
-  'presets': ['@babel/preset-env'],
-  'plugins': [
+  presets: ['@babel/preset-env'],
+  plugins: [
+    ['@babel/plugin-proposal-class-properties'],
     [
-      '@babel/plugin-proposal-class-properties',
+      '@babel/plugin-transform-runtime',
+      {
+        regenerator: true,
+      },
     ],
-    ['@babel/plugin-transform-runtime', {
-      'regenerator': true,
-    }],
-    ['wildcard', {
-      'exts': ['js', 'es6', 'es', 'jsx', 'javascript', 'png'],
-      'useCamelCase': true,
-    }],
+    [
+      'wildcard',
+      {
+        exts: ['js', 'es6', 'es', 'jsx', 'javascript', 'png'],
+        useCamelCase: true,
+      },
+    ],
+    'convert-to-json',
   ],
 };

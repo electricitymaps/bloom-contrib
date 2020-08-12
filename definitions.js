@@ -7,6 +7,62 @@ export const UNIT_LITER = 'L';
 export const UNIT_KILOGRAMS = 'kg';
 export const UNIT_MONETARY_EUR = 'EUR';
 export const UNIT_ITEM = 'item';
+export const UNIT_ENERGY = 'kWh';
+export const UNIT_PORTION = 'portion';
+export const UNIT_GLASS = 'glass';
+export const UNIT_CUP = 'cup';
+export const UNITS = [
+  UNIT_LITER,
+  UNIT_KILOGRAMS,
+  UNIT_MONETARY_EUR,
+  UNIT_ITEM,
+  UNIT_ENERGY,
+  UNIT_PORTION,
+  UNIT_GLASS,
+  UNIT_CUP,
+];
+
+export const UNIT_CURRENCIES = {
+  ALL: 'ALL',
+  ARS: 'ARS',
+  AUD: 'AUD',
+  BAM: 'BAM',
+  BGN: 'BGN',
+  BRL: 'BRL',
+  CAD: 'CAD',
+  CHF: 'CHF',
+  CNY: 'CNY',
+  CZK: 'CZK',
+  DKK: 'DKK',
+  EUR: 'EUR',
+  GBP: 'GBP',
+  HKD: 'HKD',
+  HRK: 'HRK',
+  HUF: 'HUF',
+  IDR: 'IDR',
+  ILS: 'ILS',
+  INR: 'INR',
+  ISK: 'ISK',
+  JPY: 'JPY',
+  KRW: 'KRW',
+  MKD: 'MKD',
+  MXN: 'MXN',
+  MYR: 'MYR',
+  NOK: 'NOK',
+  NZD: 'NZD',
+  PHP: 'PHP',
+  PLN: 'PLN',
+  RON: 'RON',
+  RSD: 'RSD',
+  RUB: 'RUB',
+  SEK: 'SEK',
+  SGD: 'SGD',
+  THB: 'THB',
+  TRY: 'TRY',
+  TWD: 'TWD',
+  USD: 'USD',
+  ZAR: 'ZAR',
+};
 
 /* Activity Types
 Each activity type is tied to a specific UI
@@ -26,7 +82,6 @@ export const ELECTRICITY_ACTIVITIES = [
   ACTIVITY_TYPE_ELECTRIC_VEHICLE_CHARGING,
   ACTIVITY_TYPE_ELECTRIC_HEATING,
 ];
-
 
 /* Transportation */
 export const TRANSPORTATION_MODE_PLANE = 'plane';
@@ -53,33 +108,31 @@ export const MEAL_TYPE_MEAT_HIGH = 'MEAL_TYPE_MEAT_HIGH';
 /* Purchases */
 // Food and beverages
 export const PURCHASE_CATEGORY_FOOD = 'Food';
-export const PURCHASE_CATEGORY_FOOD_SUPERMARKET = 'Grocery store';
-export const PURCHASE_CATEGORY_FOOD_BAKERY = 'Bakery';
+export const PURCHASE_CATEGORY_FOOD_BAKERY = 'Cereals and cereal products (ND)';
 export const PURCHASE_CATEGORY_MOBILE_PHONE = 'Mobile phone';
 
 // Stores
-export const PURCHASE_CATEGORY_STORE_DEPARTMENT = 'Department store';
-export const PURCHASE_CATEGORY_STORE_CLOTHING = 'Clothing';
-export const PURCHASE_CATEGORY_STORE_HARDWARE = 'Hardware';
-export const PURCHASE_CATEGORY_STORE_PET = 'Pet shop';
-export const PURCHASE_CATEGORY_STORE_ELECTRONIC = 'Electronic store';
-export const PURCHASE_CATEGORY_STORE_BOOKS = 'Bookshop';
-export const PURCHASE_CATEGORY_STORE_GARDEN = 'Lawn and garden store';
-export const PURCHASE_CATEGORY_STORE_FLORIST = 'Florist';
-export const PURCHASE_CATEGORY_STORE_BARBER_BEAUTY = 'Barber or beauty shop';
-export const PURCHASE_CATEGORY_STORE_HOUSE_FURNISHING = 'House furnishing';
-export const PURCHASE_CATEGORY_STORE_EQUIPMENT_FURNITURE = 'Equipment furniture';
-export const PURCHASE_CATEGORY_STORE_HOUSEHOLD_APPLIANCE = 'Household appliances';
+export const PURCHASE_CATEGORY_STORE_CLOTHING = 'CLOTHING';
+export const PURCHASE_CATEGORY_STORE_FOOD = 'FOOD AND NON-ALCOHOLIC BEVERAGES';
+export const PURCHASE_CATEGORY_STORE_HARDWARE = 'TOOLS AND EQUIPMENT FOR HOUSE AND GARDEN';
+export const PURCHASE_CATEGORY_STORE_GARDEN_AND_PET = 'GARDEN PRODUCTS AND PETS';
+export const PURCHASE_CATEGORY_STORE_ELECTRONIC = 'Information and communication equipment';
+export const PURCHASE_CATEGORY_STORE_BOOKS = 'NEWSPAPERS, BOOKS AND STATIONERY';
+export const PURCHASE_CATEGORY_STORE_PERSONAL_CARE = 'PERSONAL CARE';
+export const PURCHASE_CATEGORY_STORE_FURNISHING = 'Furnishings, loose carpets and rugs (D)';
+export const PURCHASE_CATEGORY_STORE_HOUSEHOLD_APPLIANCE = 'HOUSEHOLD APPLIANCES';
 
 // Healthcare
-export const PURCHASE_CATEGORY_HEALTHCARE_PHARMARCY = 'Drug store or pharmacy';
-export const PURCHASE_CATEGORY_HEALTHCARE_DOCTOR = 'Doctor';
+export const PURCHASE_CATEGORY_MEDICINES_AND_HEALTH_PRODUCTS = 'MEDICINES AND HEALTH PRODUCTS';
+export const PURCHASE_CATEGORY_HEALTHCARE_DOCTOR = 'OUTPATIENT CARE SERVICES';
 
 // Transportation
-export const PURCHASE_CATEGORY_TRANSPORTATION_FUEL = 'Fuel';
-export const PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARKING = 'Parking lot';
-export const PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARTS = 'Automotive parts or accessories';
-export const PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_SERVICE = 'Automotive services';
+export const PURCHASE_CATEGORY_TRANSPORTATION_FUEL =
+  'Fuels and lubricants for personal transport equipment (ND)';
+export const PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_MAINTENANCE_AND_REPAIR =
+  'Maintenance and repair of personal transport equipment (S)';
+export const PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARTS =
+  'Parts and accessories for personal transport equipment (SD)';
 
 // Car
 // Size (values are used in co2eq/car/cars.json)
@@ -92,6 +145,18 @@ export const EUROCARSEGMENT_F = 'F'; // corresponds to size "Luxury" in https://
 export const EUROCARSEGMENT_S = 'S'; // corresponds to size "Sports" in https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
 export const EUROCARSEGMENT_J = 'J'; // corresponds to size "Dual purpose 4X4" in https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
 export const EUROCARSEGMENT_M = 'M'; // corresponds to size "MPV" in https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
+export const EUROCARSEGMENTS = [
+  EUROCARSEGMENT_A,
+  EUROCARSEGMENT_B,
+  EUROCARSEGMENT_C,
+  EUROCARSEGMENT_D,
+  EUROCARSEGMENT_E,
+  EUROCARSEGMENT_F,
+  EUROCARSEGMENT_S,
+  EUROCARSEGMENT_J,
+  EUROCARSEGMENT_M,
+];
+
 // Engine type (values are used in co2eq/car/cars.json)
 export const ENGINETYPE_DIESEL = 'diesel';
 export const ENGINETYPE_PETROL = 'petrol';
@@ -100,12 +165,22 @@ export const ENGINETYPE_BATTERY_ELECTRIC = 'batteryElectric';
 export const ENGINETYPE_HYBRID = 'hybrid';
 export const ENGINETYPE_LPG = 'lpg';
 export const ENGINETYPE_CNG = 'cng';
+export const ENGINETYPES = [
+  ENGINETYPE_DIESEL,
+  ENGINETYPE_PETROL,
+  ENGINETYPE_PLUGIN_HYBRID_ELECTRIC,
+  ENGINETYPE_BATTERY_ELECTRIC,
+  ENGINETYPE_HYBRID,
+  ENGINETYPE_LPG,
+  ENGINETYPE_CNG,
+];
 
 // Heating source
 export const HEATING_SOURCE_COAL_BOILER = 'HEATING_SOURCE_COAL_BOILER';
 export const HEATING_SOURCE_OIL_BOILER = 'HEATING_SOURCE_OIL_BOILER';
 export const HEATING_SOURCE_GAS_BOILER = 'HEATING_SOURCE_GAS_BOILER';
-export const HEATING_SOURCE_GAS_MICRO_COMBINED_HEAT_AND_POWER = 'HEATING_SOURCE_GAS_MICRO_COMBINED_HEAT_AND_POWER';
+export const HEATING_SOURCE_GAS_MICRO_COMBINED_HEAT_AND_POWER =
+  'HEATING_SOURCE_GAS_MICRO_COMBINED_HEAT_AND_POWER';
 export const HEATING_SOURCE_GAS_ABSORPTION_HEAT_PUMP = 'HEATING_SOURCE_GAS_ABSORPTION_HEAT_PUMP';
 export const HEATING_SOURCE_BIOSOURCED_GASES = 'HEATING_SOURCE_BIOSOURCED_GASES';
 export const HEATING_SOURCE_BIOMASS_BOILER = 'HEATING_SOURCE_BIOMASS_BOILER';
@@ -117,7 +192,7 @@ export const HEATING_SOURCE_DISTRICT_HEATING = 'HEATING_SOURCE_DISTRICT_HEATING'
 export const PURCHASE_CATEGORY_ENTERTAINMENT_CIGAR_STORES = 'Tobacco store';
 export const PURCHASE_CATEGORY_ENTERTAINMENT_AMUSEMENT_PARKS = 'Amusement park';
 export const PURCHASE_CATEGORY_ENTERTAINMENT_MOVIE_THEATER = 'Cinema';
-export const PURCHASE_CATEGORY_ENTERTAINMENT_HOTEL = 'Hotel';
+export const PURCHASE_CATEGORY_ENTERTAINMENT_HOTEL = 'ACCOMMODATION SERVICES';
 export const PURCHASE_CATEGORY_ENTERTAINMENT_BAR_NIGHTCLUB = 'Bar or nightclub';
 export const PURCHASE_CATEGORY_ENTERTAINMENT_GAMBLING = 'Gambling';
 export const PURCHASE_CATEGORY_ENTERTAINMENT_CRUISE_LINES = 'Cruise';

@@ -54,6 +54,7 @@ Community-supported integrations:
 - ⚡ Sense (contributor:[snarfed](https://github.com/snarfed))
 - ⚡ Linky (contributor:[bokub](https://github.com/bokub))
 - ⚡ Ørsted (contributor:[felixdq](https://github.com/felixdq))
+- 📧 Outlook (contributor:[baywet](https://github.com/baywet))
 - 🚗 Renault Zoé
 - 🚗 Uber (contributor:[willtonkin](https://github.com/willtonkin))
 - 🚗 Automatic (contributor:[lauvrenn](https://github.com/lauvrenn))
@@ -68,14 +69,14 @@ If you don't have an idea on your own or prefer to debug an integration, you can
 To make it easy for anyone to help out, a development playground is available:
 
 First, run `yarn` to install dependencies at the root of the repository.
-Next from the `playground` folder, run `yarn` to install dependencies, then run `yarn serve` to start the playground and point your browser to [localhost:3000](http://localhost:3000) to get started.
+Next from the `playground` folder, run  `yarn serve` to start the playground and point your browser to [localhost:3000](http://localhost:3000) to get started.
 
 #### How to make an integration work
 An integration gathers activities from a 3rd party datasource.
 To this end, 3 async methods need to be exported:
 
 ```javascript
-async function connect(requestLogin, requestWebView) {
+async function connect({ requestLogin, requestToken, requestWebView }, logger) {
   const { username, password } = await requestLogin();
   // ...
   return newState;
@@ -101,7 +102,7 @@ Activities require a certain formatting:
 {
   id, // a string that uniquely represents this activity
   datetime, // a javascript Date object that represents the start of the activity
-  durationHours, // a floating point that represents the duration of the activity in decimal hours
+  endDatetime, // a javascript Date object that represents the end of the activity. If the activity has no duration, set to "null"
   distanceKilometers, // a floating point that represents the amount of kilometers traveled
   activityType: ACTIVITY_TYPE_TRANSPORTATION,
   transportationMode, // a variable (from definitions.js) that represents the transportation mode
@@ -119,7 +120,7 @@ Activities require a certain formatting:
 {
   id, // a string that uniquely represents this activity
   datetime, // a javascript Date object that represents the start of the activity
-  durationHours, // a floating point that represents the duration of the activity in decimal hours
+  endDatetime, // a javascript Date object that represents the end of the activity. If the activity has no duration, set to "null"
   activityType: ACTIVITY_TYPE_LODGING,
   hotelClass, // a variable (from definitions.js) that represents the class of the hotel
   countryCodeISO2, // a string with the ISO2 country code that represents the country of the hotel
@@ -135,12 +136,12 @@ Activities require a certain formatting:
 {
   id, // a string that uniquely represents this activity
   datetime, // a javascript Date object that represents the start of the activity
-  durationHours, // an integer that represents the duration of the activity
+  endDatetime, // a javascript Date object that represents the end of the activity. If the activity has no duration, set to "null"
   activityType: ACTIVITY_TYPE_ELECTRICITY,
   energyWattHours, // a float that represents the total energy used
   hourlyEnergyWattHours, // (optional) an array of 24 floats that represent the hourly metering values
-  locationLon, // (optional) the longitude of the location of the hotel
-  locationLat, // (optional) the latitude of the location of the hotel
+  locationLon, // (optional) the longitude of the location of the electricity usage
+  locationLat, // (optional) the latitude of the location of the electricity usage
 }
 ```
 
@@ -150,14 +151,25 @@ Activities require a certain formatting:
   id, // a string that uniquely represents this activity
   datetime, // a javascript Date object that represents the start of the activity
   label, // a string that represents the transaction
+  activityType: ACTIVITY_TYPE_PURCHASE,
   merchantDisplayName, // (optional) a string that represents the merchant where the purchase was made
-  purchaseCategory, // a string that represents the category of the purchase. Categories can be found here: https://github.com/tmrowco/northapp-contrib/blob/master/definitions.js
-  costAmount, // a floating point that represents the amount of the purchase
-  costCurrency, // a string that represents the currency in which the currency was made
+  lineItems, // an array with specific items that can be either in monetary or amount-based form: [{ identifier: XX, value: 2.1, unit: XX}] where `identifier` is a key from footprints.yml and `unit` a valid unit from definitions.js. See purchase/index.test.js for examples.
   bankDisplayName, // (required for integrations with banks) a string that represents the banks' name
   bankIdentifier, // (required for integrations with banks) a string that uniquely represents the bank.
 }
 ```
+##### Meal activity formatting
+```javascript
+{
+  id, // a string that uniquely represents this activity
+  datetime, // a javascript Date object that represents the start of the activity
+  label, // a string that represents the meal
+  activityType: ACTIVITY_TYPE_MEAL,
+  lineItems, // (required if the activity contains ingredients) an array with an object [{ identifier: xx, value: 2.1, unit: 'kg'}] where `identifier` is a key from footprints.yml and `unit` a valid unit from definitions.js
+  mealType, // (required if the activity is a meal type) a string with the value being one of the meal type options in definitions.js
+}
+```
+
 
 ### Adding or updating Life Cycle Assessment / Carbon Footprint of purchases and activities
 
@@ -165,8 +177,78 @@ Our current models and Life Cycle assessments are accessible [here](https://gith
 
 If you want to add individual items or ingredients, this is done [here](https://github.com/tmrowco/northapp-contrib/blob/master/co2eq/purchase/footprints.yml). Ideally, the studies used should be as global as possible and it's even better if they're systemic reviews (multiple studies in one!).
 
+#### CO2 Model Structure
+
+Currently, CO2 models must expose the following variables:
+
+```javascript
+export const modelName = 'model name'; // Specify name of the model
+export const modelVersion = '0'; // Specify the current model version
+export const explanation = {
+  text: 'description of the model',
+  links: [
+    { label: 'Source Name (year)', href: 'link to source' }
+  ],
+}; // Description and sources of the model
+export const modelCanRunVersion = 0; // Specify the current version of the can run function
+
+export function modelCanRun(activity) {
+  const {
+    ...
+  } = activity; // Deconstruction of activity for relevant fields
+  if (fields are present) {
+    return true;
+  }
+  return false;
+} // Verifies that an activity trigger the model to compute CO2 footprint
+
+export function carbonEmissions(activity) {
+  // ...
+  return co2eqEmission
+  }
+} // Computes the CO2 footprint of the activity
+```
+
+#### CO2 Model Update
+
+After each update of a CO2 model, its version, controlled by variable
+
+```javascript
+export const modelVersion = '0';
+```
+
+must be incremented.
+
+### Email parsers
+
+Because a number of apps/sites do not provide an API to access data but send emails instead (eg: e-commerce), you can also implement email parsers that will be run on each email imported by email integrations.
+
+To do so add a new parser in `integrations\digital\parsers` and implement the following method:
+
+```JS
+export function evaluateEmail(subject, from, bodyAsHtml, sendDate) {
+  // whatever code needed for the detection
+  return { // return the activity parsing the email discovered
+    id: `IKEA-${orderMatches.length > 1 && orderMatches[1]}`,
+    datetime: sendDate,
+    label: `IKEA order ${orderMatches.length > 1 && orderMatches[1]}`,
+    activityType: ACTIVITY_TYPE_PURCHASE,
+    merchantDisplayName: 'IKEA',
+    lineItems: [
+      {
+        id: PURCHASE_CATEGORY_STORE_FURNISHING,
+        value: parseFloat(priceMatches[1]),
+        countryCodeISO2: currencyAndCode.code,
+        unit: currencyAndCode.cur,
+      },
+    ],
+  };
+}
+```
+
+> Note: if you are implementing an email integration don't forget to run `getActivitiesFromEmail` from `integration/digital/parsers/index` for each email discovered and return the activities found by the parser in addition to your email activities.
+> Note: if you are implementing an email integration you don't add any email activites for each email (digital footprint), only activities generated by the parsers will be added from the content found in emails. This is because it'd impact the performance of the application and it's been decided to disbale adding email activities at the moment. [More information](https://github.com/tmrowco/northapp-contrib/pull/401), the email emission factor is available [here](https://gist.github.com/baywet/38f21c202db5baf22a630ccbb7bae2ef).
 
 ### Giving ideas, features requests or bugs
 
 Please [add an issue here](https://github.com/tmrowco/northapp-contrib/issues/new) or directly in the app.
-

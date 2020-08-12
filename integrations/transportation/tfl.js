@@ -1,5 +1,8 @@
 import moment from 'moment';
-import { ACTIVITY_TYPE_TRANSPORTATION, TRANSPORTATION_MODE_PUBLIC_TRANSPORT } from '../../definitions';
+import {
+  ACTIVITY_TYPE_TRANSPORTATION,
+  TRANSPORTATION_MODE_PUBLIC_TRANSPORT,
+} from '../../definitions';
 import { HTTPError, ValidationError, AuthenticationError } from '../utils/errors'; // For fetching data
 import env from '../loadEnv';
 
@@ -16,13 +19,14 @@ async function requestJSON(url, opts) {
 
 function generateOysterActivities(travelDays) {
   const activities = [];
-  travelDays.forEach((day) => {
-    day.Journeys.forEach((journey) => {
-      if (journey.Charge <= 0) { // ignore topups
+  travelDays.forEach(day => {
+    day.Journeys.forEach(journey => {
+      if (journey.Charge <= 0) {
+        // ignore topups
         activities.push({
           id: journey.StartTime, // a string that uniquely represents this activity
           datetime: journey.StartTime, // a javascript Date object that represents the start of the activity
-          durationHours: journey.EndTime && moment(journey.EndTime).diff(moment(journey.StartTime)) / (60 * 60 * 1000), // a floating point that represents the duration of the activity in decimal hours
+          endDatetime: journey.EndTime,
           distanceKilometers: null, // a floating point that represents the amount of kilometers traveled (https://www.whatdotheyknow.com/request/bus_passenger_journey_times)
           activityType: ACTIVITY_TYPE_TRANSPORTATION,
           transportationMode: TRANSPORTATION_MODE_PUBLIC_TRANSPORT, // a variable (from definitions.js) that represents the transportation mode
@@ -42,45 +46,55 @@ async function fetchOysterCardTravelDays(newState) {
 
   const startDate = newState.lastUpdate
     ? moment(newState.lastUpdate).startOf('day')
-    : moment().subtract(56, 'days').startOf('day'); // Not sure what max date range is... more than for oyster though
+    : moment()
+        .subtract(56, 'days')
+        .startOf('day'); // Not sure what max date range is... more than for oyster though
 
   // Array put the fetch promises into to be resolved later
   const apiPromises = [];
 
-  oysterCardNumbers.forEach((oysterCardNumber) => {
+  oysterCardNumbers.forEach(oysterCardNumber => {
     // First, get most recent data (between startDate and today)
     let fetchStart = startDate;
 
     while (fetchStart < today) {
-      const fetchEnd = moment(fetchStart).add(6, 'days') > today
-        ? today
-        : moment(fetchStart).add(6, 'days'); // Make sure query is no further than today
+      const fetchEnd =
+        moment(fetchStart).add(6, 'days') > today ? today : moment(fetchStart).add(6, 'days'); // Make sure query is no further than today
 
       apiPromises.push(
-        requestJSON(`${BASE_PATH}/Cards/Oyster/Journeys?startDate=${fetchStart.format(moment.HTML5_FMT.DATE)}&endDate=${fetchEnd.format(moment.HTML5_FMT.DATE)}`, {
-          method: 'get',
-          headers: {
-            'x-zumo-auth': accessToken,
-            oystercardnumber: oysterCardNumber,
-          },
-        })
+        requestJSON(
+          `${BASE_PATH}/Cards/Oyster/Journeys?startDate=${fetchStart.format(
+            moment.HTML5_FMT.DATE
+          )}&endDate=${fetchEnd.format(moment.HTML5_FMT.DATE)}`,
+          {
+            method: 'get',
+            headers: {
+              'x-zumo-auth': accessToken,
+              oystercardnumber: oysterCardNumber,
+            },
+          }
+        )
       );
       // Add one day to the end date to get the new start date
       fetchStart = moment(fetchEnd).add(1, 'days');
     }
   });
   const apiResponses = await Promise.all(apiPromises);
-  return apiResponses.reduce((accumulator, json) => (json && json.TravelDays.length > 0 ? [...accumulator, ...json.TravelDays] : accumulator), []);
+  return apiResponses.reduce(
+    (accumulator, json) =>
+      json && json.TravelDays.length > 0 ? [...accumulator, ...json.TravelDays] : accumulator,
+    []
+  );
 }
 
 function generateContactlessActivities(travelDays) {
   const activities = [];
-  travelDays.forEach((day) => {
-    day.Journeys.forEach((journey) => {
+  travelDays.forEach(day => {
+    day.Journeys.forEach(journey => {
       activities.push({
         id: journey.StartTime, // a string that uniquely represents this activity
         datetime: journey.StartTime, // a javascript Date object that represents the start of the activity
-        durationHours: journey.EndTime && moment(journey.EndTime).diff(moment(journey.StartTime)) / (60 * 60 * 1000), // a floating point that represents the duration of the activity in decimal hours
+        endDatetime: journey.EndTime,
         distanceKilometers: null, // a floating point that represents the amount of kilometers traveled (https://www.whatdotheyknow.com/request/bus_passenger_journey_times)
         activityType: ACTIVITY_TYPE_TRANSPORTATION,
         transportationMode: TRANSPORTATION_MODE_PUBLIC_TRANSPORT, // a variable (from definitions.js) that represents the transportation mode
@@ -99,18 +113,19 @@ async function fetchContactlessCardTravelDays(newState) {
 
   const startDate = newState.lastUpdate
     ? moment(newState.lastUpdate).startOf('day')
-    : moment().subtract(100, 'days').startOf('day'); // Not sure what max date range is... more than for oyster though
+    : moment()
+        .subtract(100, 'days')
+        .startOf('day'); // Not sure what max date range is... more than for oyster though
 
   // Array put the fetch promises into to be resolved later
   const apiPromises = [];
 
-  contactlessCardIds.forEach((contactlessCardId) => {
+  contactlessCardIds.forEach(contactlessCardId => {
     let fetchStart = startDate;
 
     while (fetchStart < today) {
-      const fetchEnd = moment(fetchStart).add(30, 'days') > today
-        ? today
-        : moment(fetchStart).add(30, 'days'); // Make sure query is no further than today
+      const fetchEnd =
+        moment(fetchStart).add(30, 'days') > today ? today : moment(fetchStart).add(30, 'days'); // Make sure query is no further than today
 
       apiPromises.push(
         requestJSON(`${BASE_PATH}/contactless/statements/journeys`, {
@@ -128,10 +143,14 @@ async function fetchContactlessCardTravelDays(newState) {
     }
   });
   const apiResponses = await Promise.all(apiPromises);
-  return apiResponses.reduce((accumulator, json) => (json && json.Days.length > 0 ? [...accumulator, ...json.Days] : accumulator), []);
+  return apiResponses.reduce(
+    (accumulator, json) =>
+      json && json.Days.length > 0 ? [...accumulator, ...json.Days] : accumulator,
+    []
+  );
 }
 
-async function connect(requestLogin) {
+async function connect({ requestLogin }, logger) {
   const { username, password } = await requestLogin();
   if (!(password || '').length) {
     throw new ValidationError('Password cannot be empty');
@@ -208,13 +227,11 @@ async function collect(state, logger) {
   const oysterCards = oysterCardResponse.OysterCards;
   const contactlessCards = contactlessCardResponse;
 
-  newState.oysterCardNumbers = oysterCards && oysterCards.length > 0
-    ? oysterCards.map(oc => oc.OysterCardNumber)
-    : [];
+  newState.oysterCardNumbers =
+    oysterCards && oysterCards.length > 0 ? oysterCards.map(oc => oc.OysterCardNumber) : [];
 
-  newState.contactlessCardIds = contactlessCards && contactlessCards.length > 0
-    ? contactlessCards.map(cc => cc.Id)
-    : [];
+  newState.contactlessCardIds =
+    contactlessCards && contactlessCards.length > 0 ? contactlessCards.map(cc => cc.Id) : [];
 
   logger.logDebug(`${newState.oysterCardNumbers.length} oyster cards found`);
   logger.logDebug(`${newState.contactlessCardIds.length} contactless cards found`);

@@ -2,23 +2,22 @@ import { v4 as uuid } from 'uuid';
 import request from 'superagent';
 import {
   ACTIVITY_TYPE_PURCHASE,
-  PURCHASE_CATEGORY_FOOD_SUPERMARKET,
-  PURCHASE_CATEGORY_STORE_DEPARTMENT,
   PURCHASE_CATEGORY_TRANSPORTATION_FUEL,
-  PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARKING,
+  PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_MAINTENANCE_AND_REPAIR,
   PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARTS,
-  PURCHASE_CATEGORY_HEALTHCARE_PHARMARCY,
   PURCHASE_CATEGORY_ENTERTAINMENT_AMUSEMENT_PARKS,
-  PURCHASE_CATEGORY_STORE_GARDEN,
   PURCHASE_CATEGORY_ENTERTAINMENT_LIQUOR_STORE,
-  PURCHASE_CATEGORY_STORE_PET,
   PURCHASE_CATEGORY_ENTERTAINMENT_MOVIE_THEATER,
   PURCHASE_CATEGORY_STORE_BOOKS,
-  PURCHASE_CATEGORY_STORE_BARBER_BEAUTY,
   PURCHASE_CATEGORY_STORE_ELECTRONIC,
-  PURCHASE_CATEGORY_STORE_HOUSE_FURNISHING,
   PURCHASE_CATEGORY_STORE_CLOTHING,
+  PURCHASE_CATEGORY_STORE_FOOD,
   PURCHASE_CATEGORY_HEALTHCARE_DOCTOR,
+  PURCHASE_CATEGORY_MEDICINES_AND_HEALTH_PRODUCTS,
+  PURCHASE_CATEGORY_STORE_GARDEN_AND_PET,
+  PURCHASE_CATEGORY_STORE_FURNISHING,
+  PURCHASE_CATEGORY_STORE_PERSONAL_CARE,
+  PURCHASE_CATEGORY_STORE_HARDWARE,
   ACTIVITY_TYPE_MEAL,
   ACTIVITY_TYPE_TRANSPORTATION,
   TRANSPORTATION_MODE_TRAIN,
@@ -38,13 +37,18 @@ const providerInfoUrl = `${baseUrl}/v1/providers/{providerId}`;
 const transactionsUrl = `${baseUrl}/v2/accounts/{accountId}/transactions`;
 const categoriesUrl = `${baseUrl}/v1/category-sets/DK/categories`;
 
-
 const agent = request.agent();
-agent.set('X-Client-Id', env.NAG_CLIENT_ID).set('X-Client-Secret', env.NAG_CLIENT_SECRET).set('Accept-Language', 'en');
+agent
+  .set('X-Client-Id', env.NAG_CLIENT_ID)
+  .set('X-Client-Secret', env.NAG_CLIENT_SECRET)
+  .set('Accept-Language', 'en');
 
 const NAG_CATEGORY = {
-  Supermarket: { purchaseType: PURCHASE_CATEGORY_FOOD_SUPERMARKET, activityType: ACTIVITY_TYPE_PURCHASE },
-  'Remodeling & Repair': { purchaseType: PURCHASE_CATEGORY_STORE_DEPARTMENT, activityType: ACTIVITY_TYPE_PURCHASE },
+  Supermarket: { purchaseType: PURCHASE_CATEGORY_STORE_FOOD, activityType: ACTIVITY_TYPE_PURCHASE },
+  'Remodeling & Repair': {
+    purchaseType: PURCHASE_CATEGORY_STORE_HARDWARE,
+    activityType: ACTIVITY_TYPE_PURCHASE,
+  },
   'Food & Drinks': { activityType: ACTIVITY_TYPE_MEAL },
   Transfer: null,
   'Shared Expense': null,
@@ -66,21 +70,51 @@ const NAG_CATEGORY = {
   'Vacation Home Expenses': null,
   'Auto loan etc.': null,
   'Auto Loan etc.': null,
-  Fuel: { purchaseType: PURCHASE_CATEGORY_TRANSPORTATION_FUEL, activityType: ACTIVITY_TYPE_PURCHASE },
+  Fuel: {
+    purchaseType: PURCHASE_CATEGORY_TRANSPORTATION_FUEL,
+    activityType: ACTIVITY_TYPE_PURCHASE,
+  },
   'Auto Insurance & Assistance': null,
   'Road Tax & Green Tax': null,
-  'Public Transport': { transportationMode: TRANSPORTATION_MODE_TRAIN, activityType: ACTIVITY_TYPE_TRANSPORTATION },
+  'Public Transport': {
+    transportationMode: TRANSPORTATION_MODE_TRAIN,
+    activityType: ACTIVITY_TYPE_TRANSPORTATION,
+  },
   Taxi: { transportationMode: TRANSPORTATION_MODE_CAR, activityType: ACTIVITY_TYPE_TRANSPORTATION },
-  Parking: { purchaseType: PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARKING, activityType: ACTIVITY_TYPE_PURCHASE },
-  'Auto & Transport': { purchaseType: PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARTS, activityType: ACTIVITY_TYPE_PURCHASE },
-  'Garage & Auto Parts': { purchaseType: PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARTS, activityType: ACTIVITY_TYPE_PURCHASE },
-  'Mini-markets & Delicacies': { purchaseType: PURCHASE_CATEGORY_FOOD_SUPERMARKET, activityType: ACTIVITY_TYPE_PURCHASE },
-  Pharmacy: { purchaseType: PURCHASE_CATEGORY_HEALTHCARE_PHARMARCY, activityType: ACTIVITY_TYPE_PURCHASE },
+  Parking: {
+    purchaseType: PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_MAINTENANCE_AND_REPAIR,
+    activityType: ACTIVITY_TYPE_PURCHASE,
+  },
+  'Auto & Transport': {
+    purchaseType: PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARTS,
+    activityType: ACTIVITY_TYPE_PURCHASE,
+  },
+  'Garage & Auto Parts': {
+    purchaseType: PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARTS,
+    activityType: ACTIVITY_TYPE_PURCHASE,
+  },
+  'Mini-markets & Delicacies': {
+    purchaseType: PURCHASE_CATEGORY_STORE_FOOD,
+    activityType: ACTIVITY_TYPE_PURCHASE,
+  },
+  Pharmacy: {
+    purchaseType: PURCHASE_CATEGORY_MEDICINES_AND_HEALTH_PRODUCTS,
+    activityType: ACTIVITY_TYPE_PURCHASE,
+  },
   'Flights & Hotels': null,
-  'Car Rental': { transportationMode: TRANSPORTATION_MODE_CAR, activityType: ACTIVITY_TYPE_TRANSPORTATION },
-  'Vacation Home & Camping': { purchaseType: PURCHASE_CATEGORY_STORE_DEPARTMENT, activityType: ACTIVITY_TYPE_PURCHASE },
+  'Car Rental': {
+    transportationMode: TRANSPORTATION_MODE_CAR,
+    activityType: ACTIVITY_TYPE_TRANSPORTATION,
+  },
+  'Vacation Home & Camping': {
+    purchaseType: PURCHASE_CATEGORY_STORE_GARDEN_AND_PET,
+    activityType: ACTIVITY_TYPE_PURCHASE,
+  },
   Household: null,
-  'Vacation Activities': { purchaseType: PURCHASE_CATEGORY_ENTERTAINMENT_AMUSEMENT_PARKS, activityType: ACTIVITY_TYPE_PURCHASE },
+  'Vacation Activities': {
+    purchaseType: PURCHASE_CATEGORY_ENTERTAINMENT_AMUSEMENT_PARKS,
+    activityType: ACTIVITY_TYPE_PURCHASE,
+  },
   'Travel Insurance': null,
   'Child Care & Tuition': null,
   'Union & Unemployment Insurance': null,
@@ -88,14 +122,20 @@ const NAG_CATEGORY = {
   'Pension & Savings': null,
   Salary: null,
   'Public fee': null,
-  'Garden & Plants': { purchaseType: PURCHASE_CATEGORY_STORE_GARDEN, activityType: ACTIVITY_TYPE_PURCHASE },
+  'Garden & Plants': {
+    purchaseType: PURCHASE_CATEGORY_STORE_GARDEN_AND_PET,
+    activityType: ACTIVITY_TYPE_PURCHASE,
+  },
   'Advisors & Services': null,
-  'Meal Plan': { purchaseType: PURCHASE_CATEGORY_FOOD_SUPERMARKET, activityType: ACTIVITY_TYPE_PURCHASE },
+  'Meal Plan': { purchaseType: PURCHASE_CATEGORY_STORE_FOOD, activityType: ACTIVITY_TYPE_PURCHASE },
   Memberships: null,
   'Housing Benefit': null,
   'Debt & Interest': null,
   Education: null,
-  'Tobacco & Alcohol': { purchaseType: PURCHASE_CATEGORY_ENTERTAINMENT_LIQUOR_STORE, activityType: ACTIVITY_TYPE_PURCHASE },
+  'Tobacco & Alcohol': {
+    purchaseType: PURCHASE_CATEGORY_ENTERTAINMENT_LIQUOR_STORE,
+    activityType: ACTIVITY_TYPE_PURCHASE,
+  },
   'Other Housing Expenses': null,
   'Online Services & Software': null,
   'Stock Trading': null,
@@ -114,21 +154,54 @@ const NAG_CATEGORY = {
   'Other Private Consumption': null,
   Leisure: null,
   'Gifts & Charity': null,
-  Pets: { purchaseType: PURCHASE_CATEGORY_STORE_PET, activityType: ACTIVITY_TYPE_PURCHASE },
-  Baby: { purchaseType: PURCHASE_CATEGORY_STORE_DEPARTMENT, activityType: ACTIVITY_TYPE_PURCHASE },
+  Pets: {
+    purchaseType: PURCHASE_CATEGORY_STORE_GARDEN_AND_PET,
+    activityType: ACTIVITY_TYPE_PURCHASE,
+  },
+  Baby: { purchaseType: PURCHASE_CATEGORY_STORE_CLOTHING, activityType: ACTIVITY_TYPE_PURCHASE },
   Betting: null,
-  'Cinema, Concerts & Entertainment': { purchaseType: PURCHASE_CATEGORY_ENTERTAINMENT_MOVIE_THEATER, activityType: ACTIVITY_TYPE_PURCHASE },
-  'Movies, Music & Books': { purchaseType: PURCHASE_CATEGORY_STORE_BOOKS, activityType: ACTIVITY_TYPE_PURCHASE },
-  'Hairdresser & Personal Care': { purchaseType: PURCHASE_CATEGORY_STORE_BARBER_BEAUTY, activityType: ACTIVITY_TYPE_PURCHASE },
-  'Hobby & Sports Equipment': { purchaseType: PURCHASE_CATEGORY_STORE_DEPARTMENT, activityType: ACTIVITY_TYPE_PURCHASE },
-  'Games & Toys': { purchaseType: PURCHASE_CATEGORY_STORE_DEPARTMENT, activityType: ACTIVITY_TYPE_PURCHASE },
-  'Electronics & Computer': { purchaseType: PURCHASE_CATEGORY_STORE_ELECTRONIC, activityType: ACTIVITY_TYPE_PURCHASE },
-  'Furniture & Interior': { purchaseType: PURCHASE_CATEGORY_STORE_HOUSE_FURNISHING, activityType: ACTIVITY_TYPE_PURCHASE },
-  'Clothing & Accessories': { purchaseType: PURCHASE_CATEGORY_STORE_CLOTHING, activityType: ACTIVITY_TYPE_PURCHASE },
+  'Cinema, Concerts & Entertainment': {
+    purchaseType: PURCHASE_CATEGORY_ENTERTAINMENT_MOVIE_THEATER,
+    activityType: ACTIVITY_TYPE_PURCHASE,
+  },
+  'Movies, Music & Books': {
+    purchaseType: PURCHASE_CATEGORY_STORE_BOOKS,
+    activityType: ACTIVITY_TYPE_PURCHASE,
+  },
+  'Hairdresser & Personal Care': {
+    purchaseType: PURCHASE_CATEGORY_STORE_PERSONAL_CARE,
+    activityType: ACTIVITY_TYPE_PURCHASE,
+  },
+  'Hobby & Sports Equipment': {
+    purchaseType: PURCHASE_CATEGORY_STORE_GARDEN_AND_PET,
+    activityType: ACTIVITY_TYPE_PURCHASE,
+  },
+  'Games & Toys': {
+    purchaseType: PURCHASE_CATEGORY_STORE_GARDEN_AND_PET,
+    activityType: ACTIVITY_TYPE_PURCHASE,
+  },
+  'Electronics & Computer': {
+    purchaseType: PURCHASE_CATEGORY_STORE_ELECTRONIC,
+    activityType: ACTIVITY_TYPE_PURCHASE,
+  },
+  'Furniture & Interior': {
+    purchaseType: PURCHASE_CATEGORY_STORE_FURNISHING,
+    activityType: ACTIVITY_TYPE_PURCHASE,
+  },
+  'Clothing & Accessories': {
+    purchaseType: PURCHASE_CATEGORY_STORE_CLOTHING,
+    activityType: ACTIVITY_TYPE_PURCHASE,
+  },
   'Fast Food & Takeaway': { activityType: ACTIVITY_TYPE_MEAL },
   'Glasses & Contacts': null,
-  'Medical Specialists': { purchaseType: PURCHASE_CATEGORY_HEALTHCARE_DOCTOR, activityType: ACTIVITY_TYPE_PURCHASE },
-  'Housekeeping & Gardening': { purchaseType: PURCHASE_CATEGORY_STORE_GARDEN, activityType: ACTIVITY_TYPE_PURCHASE },
+  'Medical Specialists': {
+    purchaseType: PURCHASE_CATEGORY_HEALTHCARE_DOCTOR,
+    activityType: ACTIVITY_TYPE_PURCHASE,
+  },
+  'Housekeeping & Gardening': {
+    purchaseType: PURCHASE_CATEGORY_STORE_GARDEN_AND_PET,
+    activityType: ACTIVITY_TYPE_PURCHASE,
+  },
   Travel: null,
   'Phone & Internet': null,
   'TV license & Cable': null,
@@ -174,7 +247,12 @@ async function getCategories() {
   return res.body;
 }
 
-async function parseTransactions(transactions, accountDisplayName, bankDisplayName, bankIdentifier) {
+async function parseTransactions(
+  transactions,
+  accountDisplayName,
+  bankDisplayName,
+  bankIdentifier
+) {
   // { id: '20190608-2600-0',
   //   date: '2019-06-08',
   //   creationTime: null,
@@ -194,26 +272,36 @@ async function parseTransactions(transactions, accountDisplayName, bankDisplayNa
     const category = parseCategory(transactions[i].category, categories);
 
     if (category && transactions[i].amount.value < 0) {
+      const costAmount = -transactions[i].amount.value;
+      const costCurrency = transactions[i].amount.currency;
+      const { purchaseType } = category;
+      const lineItems = purchaseType
+        ? [{ identifier: purchaseType, value: costAmount, unit: costCurrency }]
+        : undefined;
       res.push({
         id: `nag_${transactions[i].id}`,
         activityType: category.activityType,
-        datetime: (transactions[i].creationTime || transactions[i].date), // Creation time is not always available. Fallback to booked date
+        datetime: transactions[i].creationTime || transactions[i].date, // Creation time is not always available. Fallback to booked date
         label: transactions[i].text,
         transportationMode: category.transportationMode, // Only set on transportation purchases
         accountDisplayName,
         bankDisplayName,
         bankIdentifier,
-        purchaseType: category.purchaseType,
-        costAmount: -transactions[i].amount.value,
-        costCurrency: transactions[i].amount.currency,
+        lineItems,
+        costAmount,
+        costCurrency,
       });
     }
   }
   return res;
 }
 
-async function connect(requestLogin, requestWebView) {
-  if (!env.NAG_CLIENT_ID || !env.NAG_CLIENT_SECRET) throw new Error('Environment variables for nordic-api-gateway not set. Please set NAG_CLIENT_ID & NAG_CLIENT_SECRET.');
+async function connect({ requestWebView }, logger) {
+  if (!env.NAG_CLIENT_ID || !env.NAG_CLIENT_SECRET) {
+    throw new Error(
+      'Environment variables for nordic-api-gateway not set. Please set NAG_CLIENT_ID & NAG_CLIENT_SECRET.'
+    );
+  }
   const state = {};
 
   // Unique id for user
@@ -277,7 +365,9 @@ async function disconnect() {
 }
 
 async function fetchTransactions(accountId, fromDate, pagingToken) {
-  const res = await agent.get(transactionsUrl.replace('{accountId}', accountId)).query({ fromDate, pagingToken });
+  const res = await agent
+    .get(transactionsUrl.replace('{accountId}', accountId))
+    .query({ fromDate, pagingToken });
   if (!res.ok) {
     const text = await res.text();
     throw new HTTPError(text, res.status);
@@ -285,7 +375,9 @@ async function fetchTransactions(accountId, fromDate, pagingToken) {
 
   // If there's more pages of transactions
   if (res.body.pagingToken) {
-    return res.body.transactions.concat(await fetchTransactions(accountId, fromDate, res.body.pagingToken));
+    return res.body.transactions.concat(
+      await fetchTransactions(accountId, fromDate, res.body.pagingToken)
+    );
   }
 
   return res.body.transactions;
@@ -332,7 +424,12 @@ async function collect(state, { logDebug }) {
       throw new HTTPError(text, provider.status);
     }
 
-    const a = await parseTransactions(transactions, account.name, provider.body.name, account.providerId);
+    const a = await parseTransactions(
+      transactions,
+      account.name,
+      provider.body.name,
+      account.providerId
+    );
     activities = a.concat(activities);
   }
   state.lastUpdate = new Date().toISOString();

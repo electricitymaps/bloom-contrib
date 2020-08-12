@@ -8,7 +8,8 @@ import { cityToLonLat } from '../utils/location';
 
 const LOGIN_URL = 'https://api.obviux.dk/v2/authenticate';
 const DELIVERIES_URL = 'https://api.obviux.dk/v2/deliveries';
-const METER_POINTS_URL = 'https://capi.obviux.dk/v1/consumption/customer/{external_id}/ean/{ean}/hourly';
+const METER_POINTS_URL =
+  'https://capi.obviux.dk/v1/consumption/customer/{external_id}/ean/{ean}/hourly';
 
 const CUSTOMER_IP = '127.0.0.1';
 const DATE_FORMAT = 'YYYY-MM-DD';
@@ -21,6 +22,8 @@ async function login(username, password) {
   if (!res.ok) {
     throw new HTTPError(res.text, res.status);
   }
+
+  console.log(res.body);
 
   return res.body;
 }
@@ -70,7 +73,7 @@ async function getMeteringPoints(token, ean, external_id, lastCollect) {
   );
 }
 
-async function connect(requestLogin) {
+async function connect({ requestLogin }, logger) {
   const { username, password } = await requestLogin();
 
   const { token, external_id, address } = await login(username, password);
@@ -90,9 +93,7 @@ function disconnect() {
 }
 
 async function collect(state, logger) {
-  const {
-    username, password, locationLon, locationLat,
-  } = state;
+  const { username, password, locationLon, locationLat } = state;
 
   const { token, external_id } = await login(username, password);
   const ean = await getUsersElectricityId(token);
@@ -105,17 +106,21 @@ async function collect(state, logger) {
   const points = await getMeteringPoints(token, ean, external_id, lastCollect);
 
   const activities = Object.entries(
-    groupBy(points, d => moment(d.start)
-      .startOf('day')
-      .toISOString())
+    groupBy(points, d =>
+      moment(d.start)
+        .startOf('day')
+        .toISOString()
+    )
   ).map(([k, values]) => ({
     id: `orsted${k}`,
     datetime: moment(k).toDate(),
+    endDatetime: moment(k)
+      .add(values.length, 'hour')
+      .toDate(),
     activityType: ACTIVITY_TYPE_ELECTRICITY,
     energyWattHours: values
       .map(x => x.kWh * 1000.0) // kWh -> Wh
       .reduce((a, b) => a + b, 0),
-    durationHours: values.length,
     hourlyEnergyWattHours: values.map(x => x.kWh * 1000.0),
     locationLon,
     locationLat,

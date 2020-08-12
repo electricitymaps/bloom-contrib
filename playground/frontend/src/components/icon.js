@@ -12,10 +12,8 @@ const ICONS = {
 };
 
 const Icon = ({ type }) => (
-  <span
-    style={{ height: 24 }}
-    dangerouslySetInnerHTML={{ __html: ICONS[type] }}
-  />
+  // eslint-disable-next-line react/no-danger
+  <span style={{ height: 24 }} dangerouslySetInnerHTML={{ __html: ICONS[type] }} />
 );
 
 export default Icon;

@@ -16,10 +16,11 @@ const manager = new OAuth2Manager({
   baseUrl: 'https://api.automatic.com',
   clientId: env.AUTOMATIC_CLIENT_ID,
   clientSecret: env.AUTOMATIC_CLIENT_SECRET,
-  scope: 'scope=scope:public%20scope:user:profile%20scope:location%20scope:vehicle:profile%20scope:vehicle:events%20scope:trip%20scope:behavior',
+  scope:
+    'scope=scope:public%20scope:user:profile%20scope:location%20scope:vehicle:profile%20scope:vehicle:events%20scope:trip%20scope:behavior',
 });
 
-async function connect(requestLogin, requestWebView) {
+async function connect({ requestWebView }, logger) {
   const state = await manager.authorize(requestWebView);
   return state;
 }
@@ -40,27 +41,33 @@ async function fetchTripsFromURL(tripURL, logger) {
     throw new HTTPError(text, res.status);
   }
 
-  const data = await res.json(); 
+  const data = await res.json();
   return data;
 }
 
-const toActivities = tripArray => (tripArray || []).map(k => ({
-  id: k.id,
-  activityType: ACTIVITY_TYPE_TRANSPORTATION,
-  datetime: new Date(k.started_at),
-  vehicle: k.vehicle,
-  durationHours: (Math.round(k.duration_s) / 3600).toFixed(2),
-  distanceKilometers: k.distance_m / 1000,
-  transportationMode: TRANSPORTATION_MODE_CAR,
-  startLat: k.start_location.lat,
-  startLon: k.start_location.lon,
-  endLat: k.end_location.lat,
-  endLon: k.end_location.lon,
-}));
+const toActivities = tripArray =>
+  (tripArray || []).map(k => {
+    const datetime = new Date(k.started_at);
+    return {
+      id: k.id,
+      activityType: ACTIVITY_TYPE_TRANSPORTATION,
+      datetime,
+      vehicle: k.vehicle,
+      endDatetime: new Date(datetime.getTime() + k.duration_s * 1000),
+      distanceKilometers: k.distance_m / 1000,
+      transportationMode: TRANSPORTATION_MODE_CAR,
+      startLat: k.start_location.lat,
+      startLon: k.start_location.lon,
+      endLat: k.end_location.lat,
+      endLon: k.end_location.lon,
+    };
+  });
 
 async function fetchOffsetActivities(start, end, logger) {
   const startDateString = start === null ? '' : `started_at_gte=${toUnixSeconds(start)}&`;
-  const tripURL = `/trip/?${startDateString}ended_at__lte=${toUnixSeconds(end)}&limit=${API_FETCH_LIMIT}`;
+  const tripURL = `/trip/?${startDateString}ended_at__lte=${toUnixSeconds(
+    end
+  )}&limit=${API_FETCH_LIMIT}`;
 
   // fetching first batch to check the number of trips
   let data = await fetchTripsFromURL(tripURL, logger);

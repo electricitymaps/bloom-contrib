@@ -1,3 +1,4 @@
+/* eslint-disable react/sort-comp */
 import React from 'react';
 import socketIOClient from 'socket.io-client';
 import {
@@ -35,8 +36,12 @@ class App extends React.Component {
     const { selectedIntegration, username, password } = this.state;
     console.warn('selectedIntegration', selectedIntegration);
 
-    if (!socket.connected) { return; }
-    if (!selectedIntegration) { return; }
+    if (!socket.connected) {
+      return;
+    }
+    if (!selectedIntegration) {
+      return;
+    }
 
     console.log(`Running ${selectedIntegration}..`);
     socket.emit('run', {
@@ -56,10 +61,10 @@ class App extends React.Component {
     socket.on('integrations', integrations => this.setState({ integrations }));
     socket.on('reconnecting', () => this.setState({ connection: 'reconnecting ⌛️' }));
     socket.on('runError', () => this.setState({ connection: 'error 💥' }));
-    socket.on('runLogs', (logs) => {
+    socket.on('runLogs', logs => {
       console.clear();
       console.log('############### EXECUTION LOGS ###############');
-      logs.forEach((log) => {
+      logs.forEach(log => {
         switch (log.level) {
           case 'warning':
             console.warn(log.obj);
@@ -76,7 +81,7 @@ class App extends React.Component {
       }));
       console.log('############### END EXECUTION LOGS ###############');
     });
-    socket.on('runResults', (results) => {
+    socket.on('runResults', results => {
       // console.log('state:', results.state);
       console.table(results.activities);
       this.setState({
@@ -87,49 +92,27 @@ class App extends React.Component {
     socket.on('openUrl', url => window.open(url));
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    const prevSelectedIntegration = prevState.selectedIntegration;
-    const prevUsername = prevState.username;
-    const prevPassword = prevState.password;
-
-    const { selectedIntegration, username, password } = this.state;
-    if (prevSelectedIntegration !== selectedIntegration
-      || prevUsername !== username
-      || prevPassword !== password
-    ) {
-      this.run();
-    }
-  }
-
-  handleChange = (event) => {
+  handleChange = event => {
     this.setState({
       selectedIntegration: event.target.value,
       logs: [],
     });
-  }
+  };
 
   handleClearLogs = () => {
     this.setState({
       logs: [],
     });
-  }
+  };
 
   render() {
-    const {
-      connection,
-      integrations,
-      selectedIntegration,
-      results,
-      logs,
-    } = this.state;
+    const { connection, integrations, selectedIntegration, results, logs } = this.state;
     return (
       <div className="App">
         <header className="App-header">
           <h2>North App Playground</h2>
           <p>
-            status:
-            {' '}
-            <span id="connection-state">{connection}</span>
+            status: <span id="connection-state">{connection}</span>
           </p>
         </header>
         <div className="main-content-container">
@@ -137,16 +120,15 @@ class App extends React.Component {
             <Grid item xs={3}>
               <h3>How to test an integration</h3>
               <p>
-                  1/ Select an integration
+                1/ Select an integration
                 <br />
-                  2/ Fill out username/password if needed
+                2/ Fill out username/password if needed and press Run
                 <br />
-                  3/ Open Chrome console to see results (any change in any field will trigger a re-run)
+                3/ Open Chrome console to see results (any change in any field will trigger a
+                re-run)
                 <br />
               </p>
-              <FormControl
-                style={{ width: '100%' }}
-              >
+              <FormControl style={{ width: '100%' }}>
                 <InputLabel htmlFor="age-simple">Integration</InputLabel>
                 <Select
                   value={selectedIntegration || ''}
@@ -154,8 +136,10 @@ class App extends React.Component {
                   displayEmpty
                   onChange={this.handleChange}
                 >
-                  {integrations.map(integration => (
-                    <MenuItem key={integration} value={integration}>{integration}</MenuItem>
+                  {integrations.sort().map(integration => (
+                    <MenuItem key={integration} value={integration}>
+                      {integration}
+                    </MenuItem>
                   ))}
                 </Select>
                 <TextField
@@ -163,18 +147,22 @@ class App extends React.Component {
                   type="username"
                   autoComplete="current-password"
                   margin="normal"
-                  onChange={event => this.setState({
-                    username: event.target.value,
-                  })}
+                  onChange={event =>
+                    this.setState({
+                      username: event.target.value,
+                    })
+                  }
                 />
                 <TextField
                   label="Password"
                   type="password"
                   autoComplete="current-password"
                   margin="normal"
-                  onChange={event => this.setState({
-                    password: event.target.value,
-                  })}
+                  onChange={event =>
+                    this.setState({
+                      password: event.target.value,
+                    })
+                  }
                 />
                 <Button
                   variant="contained"
@@ -182,9 +170,7 @@ class App extends React.Component {
                   onClick={this.run}
                   style={{ marginTop: '16px' }}
                 >
-                  Run
-                  {' '}
-                  <Icon type="double-arrow" />
+                  Run <Icon type="double-arrow" />
                 </Button>
               </FormControl>
             </Grid>

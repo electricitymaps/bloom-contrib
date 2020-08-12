@@ -1,4 +1,3 @@
-import md5 from 'tiny-hashes/md5';
 import {
   ACTIVITY_TYPE_MEAL,
   ACTIVITY_TYPE_TRANSPORTATION,
@@ -11,13 +10,22 @@ import {
   UNIT_ITEM,
   UNIT_LITER,
 } from '../../definitions';
-import { convertToEuro } from '../../integrations/utils/currency/currency';
+import { getAvailableCurrencies } from '../../integrations/utils/currency/currency';
+import { getChecksum } from '../utils';
 import footprints from './footprints.yml';
+import consumerPriceIndex from './consumerpriceindices.yml';
+import exchangeRates2011 from './exchange_rates_2011.json';
+
+const AVERAGE_CPI_COUNTRY_INDICATOR = 'average';
+const COUNTRY_CPI_INDICATOR = 'countries';
 
 export const explanation = {
   text: null,
   links: [
-    { label: 'Tomorrow footprint database', href: 'https://github.com/tmrowco/northapp-contrib/blob/master/co2eq/purchase/footprints.yml' },
+    {
+      label: 'Tomorrow footprint database',
+      href: 'https://github.com/tmrowco/northapp-contrib/blob/master/co2eq/purchase/footprints.yml',
+    },
   ],
 };
 
@@ -26,7 +34,7 @@ export const purchaseIcon = {};
 
 // Traverse and index tree
 function indexNodeChildren(branch, i = 1) {
-  Object.entries(branch['_children'] || []).forEach(([k, v]) => {
+  Object.entries(branch._children || []).forEach(([k, v]) => {
     if (ENTRY_BY_KEY[k]) {
       throw new Error(`Error while indexing footprint tree: There's already an entry for ${k}`);
     }
@@ -51,40 +59,39 @@ export function getEntryByKey(key) {
 export function getEntryByPath(path) {
   let entry = footprints; // root node
   for (let i = 0; i < path.length; i += 1) {
-    entry = (entry['_children'] || {})[path[i]];
+    entry = (entry._children || {})[path[i]];
   }
   return entry;
 }
 
 export function getChecksumOfFootprints() {
-  return md5(JSON.stringify(footprints));
+  return getChecksum(footprints);
 }
 
-export function getDescendants(entry, filter = (_ => true), includeRoot = false) {
+export function getDescendants(entry, filter = _ => true, includeRoot = false) {
   // Note: `getDescendants` is very close to `indexNodeChildren`
   // Note2: if a node gets filtered out, its children won't be visited
-  if (!entry) { throw new Error('Invalid `entry`'); }
-  let descendants = includeRoot
-    ? { [entry.key]: entry }
-    : {};
-  Object.values(entry['_children'] || []).filter(filter).forEach((child) => {
-    descendants = {
-      ...descendants,
-      ...getDescendants(child, filter, true),
-    };
-  });
+  if (!entry) {
+    throw new Error('Invalid `entry`');
+  }
+  let descendants = includeRoot ? { [entry.key]: entry } : {};
+  Object.values(entry._children || [])
+    .filter(filter)
+    .forEach(child => {
+      descendants = {
+        ...descendants,
+        ...getDescendants(child, filter, true),
+      };
+    });
   return descendants;
 }
 
-
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'purchase';
-export const modelVersion = `3_${getChecksumOfFootprints()}`; // This model relies on footprints.yaml
+export const modelVersion = `5_${getChecksumOfFootprints()}`; // This model relies on footprints.yaml
 export const modelCanRunVersion = 1;
 export function modelCanRun(activity) {
-  const {
-    costAmount, costCurrency, activityType, transportationMode, purchaseType,
-  } = activity;
+  const { costAmount, costCurrency, activityType, transportationMode, lineItems } = activity;
   if (costAmount && costCurrency) {
     if (activityType === ACTIVITY_TYPE_MEAL) return true;
     if (activityType === ACTIVITY_TYPE_TRANSPORTATION) {
@@ -99,26 +106,89 @@ export function modelCanRun(activity) {
       }
     }
   }
-  if (activityType === ACTIVITY_TYPE_PURCHASE && purchaseType) {
+  if (activityType === ACTIVITY_TYPE_PURCHASE && lineItems && lineItems.length) {
     return true;
   }
 
   return false;
 }
+
 function correctWithParticipants(footprint, participants) {
   return footprint / (participants || 1);
 }
-function extractEur(activity) {
-  return (activity.costAmount && activity.costCurrency)
-    ? convertToEuro(activity.costAmount, activity.costCurrency)
-    : null;
+
+export function convertTo2011Euro(amount, currency) {
+  const exchangeRate2011 = exchangeRates2011.rates[currency.toUpperCase()];
+  if (exchangeRate2011 == null) {
+    throw new Error(`Unknown currency '${currency}'`);
+  }
+  return amount / exchangeRate2011;
 }
-function extractComptabileUnitAndAmount(activity, entry) {
-  const eurAmount = extractEur(activity);
-  // TODO(olc): Also look at potential available conversions
+
+function extractEur({ costAmount, costCurrency }) {
+  return costAmount && costCurrency ? convertTo2011Euro(costAmount, costCurrency) : null;
+}
+
+function conversionCPI(eurAmount, referenceYear, countryCodeISO2, datetime) {
+  if (!eurAmount || !datetime) {
+    return eurAmount;
+  }
+
+  if (!referenceYear) {
+    throw new Error(`Missing consumer price index reference year`);
+  }
+
+  const currentDateIndicator = datetime.getFullYear();
+
+  let CPIcurrent;
+  if (
+    countryCodeISO2 &&
+    consumerPriceIndex[COUNTRY_CPI_INDICATOR][countryCodeISO2][currentDateIndicator]
+  ) {
+    CPIcurrent = consumerPriceIndex[COUNTRY_CPI_INDICATOR][countryCodeISO2][currentDateIndicator];
+  } else if (consumerPriceIndex[AVERAGE_CPI_COUNTRY_INDICATOR][currentDateIndicator]) {
+    CPIcurrent = consumerPriceIndex[AVERAGE_CPI_COUNTRY_INDICATOR][currentDateIndicator];
+  } else {
+    throw new Error(`Unknown CPI for activity date ${datetime}`);
+  }
+
+  let CPIreference;
+  if (
+    countryCodeISO2 &&
+    consumerPriceIndex[COUNTRY_CPI_INDICATOR][countryCodeISO2][referenceYear]
+  ) {
+    CPIreference = consumerPriceIndex[COUNTRY_CPI_INDICATOR][countryCodeISO2][referenceYear];
+  } else if (consumerPriceIndex[AVERAGE_CPI_COUNTRY_INDICATOR][referenceYear]) {
+    CPIreference = consumerPriceIndex[AVERAGE_CPI_COUNTRY_INDICATOR][referenceYear];
+  } else {
+    throw new Error(`Unknown CPI for reference year ${referenceYear}`);
+  }
+
+  // ref: https://www.investopedia.com/terms/c/consumerpriceindex.asp
+  const eurAmountAdjusted = eurAmount * (CPIcurrent / CPIreference);
+  return eurAmountAdjusted;
+}
+
+/**
+ * Returns the compatible unit and amounts of a line item
+ * @param {*} lineItem - Object of the the type { name: <string>, unit: <string>, value: <string>, costAmount: <float>, costCurrency: <string> }
+ * @param {*} entry - A purchase entry
+ * @param {*} countryCodeISO2 - country code of the activity
+ * @param {*} datetime - datetime of the activity
+ */
+function extractCompatibleUnitAndAmount(lineItem, entry, countryCodeISO2, datetime) {
+  const isMonetaryItem = getAvailableCurrencies().includes(lineItem.unit);
+  // Extract eurAmount if applicable
+  let eurAmount = extractEur({
+    costCurrency: isMonetaryItem ? lineItem.unit : null,
+    costAmount: isMonetaryItem ? lineItem.value : null,
+  });
+  if (eurAmount) {
+    eurAmount = conversionCPI(eurAmount, entry.year, countryCodeISO2, datetime);
+  }
   const availableEntryUnit = entry.unit;
-  if (availableEntryUnit === UNIT_LITER && activity.volumeLiters != null) {
-    return { unit: UNIT_LITER, amount: activity.volumeLiters };
+  if (availableEntryUnit === UNIT_LITER && lineItem.unit === UNIT_LITER) {
+    return { unit: UNIT_LITER, amount: lineItem.value };
   }
   if (availableEntryUnit === UNIT_MONETARY_EUR && eurAmount != null) {
     return { unit: UNIT_MONETARY_EUR, amount: eurAmount };
@@ -126,7 +196,62 @@ function extractComptabileUnitAndAmount(activity, entry) {
   if (availableEntryUnit === UNIT_ITEM) {
     return { unit: UNIT_ITEM, amount: 1 };
   }
-  throw new Error(`Activity has no compatible purchase unit.`);
+  throw new Error(`Line item of activity has no compatible purchase unit.`);
+}
+
+/**
+ * Calculates the carbon emissions of a line item entry
+ * @param {*} lineItem - Object of the the type { identifier: <string>, unit: <string>, value: <string>, costAmount: <float>, costCurrency: <string> }
+ * @param {*} countryCodeISO2 - country code of the activity
+ * @param {*} datetime - datetime of the activity
+ */
+export function carbonEmissionOfLineItem(lineItem, countryCodeISO2, datetime) {
+  // The generic identifier property holds the purchaseType value, so rename to make clear..
+  const { identifier } = lineItem;
+  const entry = getEntryByKey(identifier);
+  if (!entry) {
+    throw new Error(`Unknown purchaseType identifier: ${identifier}`);
+  }
+  if (!entry.intensityKilograms) {
+    throw new Error(`Missing carbon intensity for purchaseType: ${identifier}`);
+  }
+
+  const { unit, amount } = extractCompatibleUnitAndAmount(
+    lineItem,
+    entry,
+    countryCodeISO2,
+    datetime
+  );
+  if (unit == null || amount == null || !Number.isFinite(amount)) {
+    throw new Error(
+      `Invalid unit ${unit} or amount ${amount} for purchaseType ${identifier}. Expected ${entry.unit}`
+    );
+  }
+
+  if (entry.unit !== unit) {
+    throw new Error(
+      `Invalid unit ${unit} given for purchaseType ${identifier}. Expected ${entry.unit}`
+    );
+  }
+
+  if (typeof entry.intensityKilograms === 'number') {
+    return entry.intensityKilograms * amount;
+  }
+  if (entry.unit !== UNIT_MONETARY_EUR) {
+    throw new Error(`Invalid unit ${entry.unit} given. Expected ${UNIT_MONETARY_EUR}`);
+  }
+  if (countryCodeISO2 == null) {
+    // Use average of all countries
+    // TODO: weight by the GDP of countries or by population
+    const values = Object.values(entry.intensityKilograms);
+    return (values.reduce((a, b) => a + b, 0) / values.length) * amount;
+  }
+  if (!entry.intensityKilograms[countryCodeISO2]) {
+    throw new Error(
+      `Missing carbon intensity for country ${countryCodeISO2} and identifier ${identifier}`
+    );
+  }
+  return entry.intensityKilograms[countryCodeISO2] * amount;
 }
 
 /*
@@ -139,21 +264,21 @@ export function carbonEmissions(activity) {
   switch (activity.activityType) {
     case ACTIVITY_TYPE_MEAL:
       // Source: http://www.balticproject.org/en/calculator-page
-      footprint = eurAmount * 79.64 / 1000; // Restaurant bill
+      footprint = (eurAmount * 79.64) / 1000; // Restaurant bill
       break;
 
     case ACTIVITY_TYPE_TRANSPORTATION:
       // Source: http://www.balticproject.org/en/calculator-page
       switch (activity.transportationMode) {
         case TRANSPORTATION_MODE_CAR:
-          footprint = eurAmount * 1186 / 1000; // Taxi bill
+          footprint = (eurAmount * 1186) / 1000; // Taxi bill
           break;
         case TRANSPORTATION_MODE_TRAIN:
         case TRANSPORTATION_MODE_PUBLIC_TRANSPORT:
-          footprint = eurAmount * 335.63 / 1000;
+          footprint = (eurAmount * 335.63) / 1000;
           break;
         case TRANSPORTATION_MODE_PLANE:
-          footprint = eurAmount * 1121.52 / 1000;
+          footprint = (eurAmount * 1121.52) / 1000;
           break;
         default:
           throw new Error(
@@ -163,24 +288,15 @@ export function carbonEmissions(activity) {
       break;
 
     case ACTIVITY_TYPE_PURCHASE: {
-      const { purchaseType } = activity;
-      const entry = getEntryByKey(purchaseType);
-      if (!entry) {
-        throw new Error(`Unknown purchaseType: ${purchaseType}`);
-      }
-      if (!entry.intensityKilograms) {
-        throw new Error(`Missing carbon intensity for purchaseType: ${purchaseType}`);
-      }
+      const { lineItems, countryCodeISO2, datetime } = activity;
 
-      const { unit, amount } = extractComptabileUnitAndAmount(activity, entry);
-      if (unit == null || amount == null || !Number.isFinite(amount)) {
-        throw new Error(`Invalid unit ${unit} or amount ${amount} for purchaseType ${purchaseType}. Expected ${entry.unit}`);
+      // First check if lineItems contains and calculate total of all line items
+      if (lineItems && lineItems.length) {
+        // TODO(df): What to do on a single line error? Abort all? Skip item?
+        footprint = lineItems
+          .map(l => carbonEmissionOfLineItem(l, countryCodeISO2, datetime))
+          .reduce((a, b) => a + b, 0);
       }
-
-      if (entry.unit !== unit) {
-        throw new Error(`Invalid unit ${unit} given for purchaseType ${purchaseType}. Expected ${entry.unit}`);
-      }
-      footprint = entry.intensityKilograms * amount;
       break;
     }
 

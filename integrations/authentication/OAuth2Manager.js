@@ -2,6 +2,12 @@ import { AuthenticationError, HTTPError } from '../utils/errors';
 import objectToURLParams from './objectToURLParams';
 import { getCallbackUrl } from '../utils/oauth';
 
+const noOpLogger = {
+  logDebug: () => {},
+  logWarning: () => {},
+  logError: () => {},
+};
+
 export default class {
   constructor({
     accessTokenUrl,
@@ -11,6 +17,7 @@ export default class {
     clientId,
     clientSecret,
     scope,
+    authorizeExtraParams,
   }) {
     this.accessTokenUrl = accessTokenUrl;
     this.apiUrl = apiUrl;
@@ -20,6 +27,7 @@ export default class {
     this.clientSecret = clientSecret;
     this.state = {};
     this.scope = scope;
+    this.state.authorizeExtraParams = authorizeExtraParams;
   }
 
   async _authorizeWithRefreshToken() {
@@ -39,11 +47,16 @@ export default class {
     });
 
     if (response.status === 401 || response.status === 403) {
-      throw new AuthenticationError('OAuth authority unable to re-authenticate user with refresh token, suggest re-authorizing.');
+      throw new AuthenticationError(
+        'OAuth authority unable to re-authenticate user with refresh token, suggest re-authorizing.'
+      );
     }
 
     if (!response.ok) {
-      throw new HTTPError('unable to re-authenticate user with refresh token, suggest retrying later', response.status);
+      throw new HTTPError(
+        'unable to re-authenticate user with refresh token, suggest retrying later',
+        response.status
+      );
     }
 
     const responseJson = await response.json();
@@ -53,14 +66,19 @@ export default class {
     this.state.tokenExpiresAt = responseJson.expires_in * 1000 + Date.now();
   }
 
-  async authorize(openUrlAndWaitForCallback) {
+  async authorize(openUrlAndWaitForCallback, logger = noOpLogger, omitRedirectUri = false) {
     // Step 1 - user authorizes app
     // "Automatic's" API doesn't accept the function's URL-encoded colons, hence scope attached separately
-    const requestURLParams = objectToURLParams({
+    const requestURLParamObj = {
       client_id: this.clientId,
-      redirect_uri: getCallbackUrl(),
       response_type: 'code',
-    }) + (this.scope ? `&${this.scope}` : '');
+      ...this.state.authorizeExtraParams,
+    };
+    if (!omitRedirectUri) {
+      requestURLParamObj.redirect_uri = getCallbackUrl();
+    }
+    const requestURLParams =
+      objectToURLParams(requestURLParamObj) + (this.scope ? `&scope=${this.scope}` : '');
 
     const authorizationCodeRequestUrl = `${this.authorizeUrl}?${requestURLParams}`;
     const authorizationResponseQuery = await openUrlAndWaitForCallback(
@@ -68,7 +86,9 @@ export default class {
       getCallbackUrl()
     );
     // Redirect response from authorization dialog contains auth code
-    const { code: authorizationCode } = authorizationResponseQuery;
+    const { code: authorizationCode, ...extras } = authorizationResponseQuery;
+    this.state.extras = extras;
+    logger.logDebug('Authorization successful');
 
     // Step 2 - Obtain an access token
     const formData = {
@@ -76,9 +96,12 @@ export default class {
       client_id: this.clientId,
       code: authorizationCode,
       grant_type: 'authorization_code',
-      redirect_uri: getCallbackUrl(),
-      scope: 'history offline_access',
+      scope: this.scope,
     };
+
+    if (!omitRedirectUri) {
+      formData.redirect_uri = getCallbackUrl();
+    }
 
     const response = await fetch(this.accessTokenUrl, {
       method: 'POST',
@@ -89,11 +112,16 @@ export default class {
     });
 
     if (response.status === 401 || response.status === 403) {
-      throw new AuthenticationError('OAuth authority unable to authenticate user with fresh auth code, suggest re-authorizing.');
+      throw new AuthenticationError(
+        'OAuth authority unable to authenticate user with fresh auth code, suggest re-authorizing.'
+      );
     }
 
     if (!response.ok) {
-      throw new HTTPError('unable to authenticate user with fresh auth code, suggest retrying', response.status);
+      throw new HTTPError(
+        `Unable to authenticate user with fresh auth code, suggest retrying. API response: ${await response.text()}`,
+        response.status
+      );
     }
 
     const responseJson = await response.json();
@@ -101,6 +129,7 @@ export default class {
     this.state.accessToken = responseJson.access_token;
     this.state.refreshToken = responseJson.refresh_token;
     this.state.tokenExpiresAt = responseJson.expires_in * 1000 + Date.now();
+    logger.logDebug('Access token obtained');
 
     return this.state;
   }
@@ -119,7 +148,7 @@ export default class {
 
   async fetch(route, init, logger) {
     if (typeof this.state.accessToken === 'undefined') {
-      throw new AuthenticationError('not currently logged in, suggest re-authorizing.');
+      throw new AuthenticationError('accessToken missing: did you forget to call `setState()`?.');
     }
 
     if (this.state.tokenExpiresAt < Date.now()) {

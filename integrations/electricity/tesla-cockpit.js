@@ -5,7 +5,7 @@ import { HTTPError } from '../utils/errors';
 
 const BASE_URL = 'https://creators.teslacockpit.com';
 
-async function requestToken(username, password) {
+async function requestTeslaToken(username, password) {
   const res = await fetch(`${BASE_URL}/Account/TeslaLogin`, {
     method: 'POST',
     headers: {
@@ -28,10 +28,10 @@ async function requestToken(username, password) {
   return data[0].CreatorToken;
 }
 
-async function connect(requestLogin, requestWebView) {
+async function connect({ requestLogin }, logger) {
   const { username, password } = await requestLogin();
   // Try to login, but don't save the token as it has an expiry date
-  await requestToken(username, password);
+  await requestTeslaToken(username, password);
   return { username, password };
 }
 
@@ -71,7 +71,7 @@ async function fetchVehicleInfo(token) {
 
 async function collect(state, logger, utils) {
   const { username, password } = state;
-  const token = await requestToken(username, password);
+  const token = await requestTeslaToken(username, password);
   // Get timezone of vehicle
   const vehicles = await fetchVehicleInfo(token);
   if (!vehicles.length) {
@@ -82,7 +82,7 @@ async function collect(state, logger, utils) {
   const vehicleId = vehicle.VehicleID;
 
   const data = await fetchVehicleCharges(token, vehicleId);
-  const activities = data.map((d) => {
+  const activities = data.map(d => {
     if (d.ChargeEndDateISO === '') {
       // Skip that element
       logger.logWarning('Skipping item as it has no ChargeEndDateISO');
@@ -98,7 +98,7 @@ async function collect(state, logger, utils) {
       efficiency = 1;
     }
 
-    const energyWattHours = parseFloat(d.ChargeJuice.replace(',', '.')) / efficiency * 1000;
+    const energyWattHours = (parseFloat(d.ChargeJuice.replace(',', '.')) / efficiency) * 1000;
     if (energyWattHours <= 0) {
       logger.logWarning(`Invalid ChargeJuice ${d.ChargeJuice} received. Ignoring..`);
       return null;
@@ -118,14 +118,16 @@ async function collect(state, logger, utils) {
     ];
 
     if (!Number.isFinite(locationLat) || !Number.isFinite(locationLon)) {
-      throw new Error(`Could not parse location. Input was lon=${d.ChargerLongitude}, lat=${d.ChargerLatitude}. Output was lon=${locationLon}, lat=${locationLat}`);
+      throw new Error(
+        `Could not parse location. Input was lon=${d.ChargerLongitude}, lat=${d.ChargerLatitude}. Output was lon=${locationLon}, lat=${locationLat}`
+      );
     }
 
     return {
       id: `teslacockpit${d.ChargeID}`,
       activityType: ACTIVITY_TYPE_ELECTRIC_VEHICLE_CHARGING,
       datetime: startMoment.toDate(),
-      durationHours: endMoment.diff(startMoment, 'minutes') / 60.0,
+      endDatetime: endMoment.toDate(),
       energyWattHours,
       locationLat,
       locationLon,
