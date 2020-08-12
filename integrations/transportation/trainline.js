@@ -44,7 +44,7 @@ function calculateDurationFromLegs(legs) {
     .reduce((out, leg) => out + leg.duration / 60 || 0, 0);
 }
 
-async function connect(requestLogin, requestWebView, logger) {
+async function connect({ requestLogin }, logger) {
   const { username, password } = await requestLogin();
 
   if (!(password || '').length) {

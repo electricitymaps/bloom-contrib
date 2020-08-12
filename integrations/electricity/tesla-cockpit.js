@@ -5,7 +5,7 @@ import { HTTPError } from '../utils/errors';
 
 const BASE_URL = 'https://creators.teslacockpit.com';
 
-async function requestToken(username, password) {
+async function requestTeslaToken(username, password) {
   const res = await fetch(`${BASE_URL}/Account/TeslaLogin`, {
     method: 'POST',
     headers: {
@@ -28,10 +28,10 @@ async function requestToken(username, password) {
   return data[0].CreatorToken;
 }
 
-async function connect(requestLogin, requestWebView) {
+async function connect({ requestLogin }, logger) {
   const { username, password } = await requestLogin();
   // Try to login, but don't save the token as it has an expiry date
-  await requestToken(username, password);
+  await requestTeslaToken(username, password);
   return { username, password };
 }
 
@@ -71,7 +71,7 @@ async function fetchVehicleInfo(token) {
 
 async function collect(state, logger, utils) {
   const { username, password } = state;
-  const token = await requestToken(username, password);
+  const token = await requestTeslaToken(username, password);
   // Get timezone of vehicle
   const vehicles = await fetchVehicleInfo(token);
   if (!vehicles.length) {
