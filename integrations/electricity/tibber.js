@@ -10,14 +10,11 @@ const manager = new OAuth2Manager({
   baseUrl: 'https://thewall.tibber.com',
   clientId: env.TIBBER_CLIENT_ID,
   clientSecret: env.TIBBER_CLIENT_SECRET,
-  scope: 'scope=tibber_graph',
+  scope: 'tibber_graph',
 });
 
 async function connect({ requestWebView }, logger) {
-  console.log(`requestWebView: ${JSON.stringify(requestWebView)}`);
-  console.log(`logger: ${JSON.stringify(logger)}`);
-  const state = await manager.authorize(requestWebView, logger);
-  return state;
+  return manager.authorize(requestWebView, logger);
 }
 
 async function disconnect() {
@@ -44,9 +41,12 @@ const homesQuery = nofDays => /* GraphQL */ `
     }
   `;
 
-async function fetchActivities(state, startDate) {
-  const nofDays = moment(startDate).diff(moment(), 'days');
-  const { homes } = (await state.gqlClient.request(homesQuery(nofDays))).viewer;
+async function fetchActivities(state, startDate, logDebug) {
+  logDebug(`Start date: ${startDate}`);
+  const nofDays = moment().diff(moment(startDate), 'days');
+  const query = homesQuery(nofDays);
+  logDebug(`GraphQL query: ${query}`);
+  const { homes } = (await state.gqlClient.request(query)).viewer;
   const nodes = homes.flatMap(h => h.consumption.nodes);
   const { latitude, longitude } = homes[0].address;
 
@@ -75,14 +75,10 @@ async function fetchActivities(state, startDate) {
   };
 }
 
-async function collect(state) {
+async function collect(state, { logDebug }) {
   manager.setState(state);
 
-  const startDate =
-    state.lastFullyCollectedDay ||
-    moment()
-      .subtract(3, 'month')
-      .format('DD/MM/YYYY');
+  const startDate = state.lastFullyCollectedDay || moment().subtract(3, 'month');
 
   if (!state.gqlClient) {
     const endpoint = 'https://api.tibber.com/v1-beta/gql';
@@ -94,7 +90,7 @@ async function collect(state) {
     });
   }
 
-  return fetchActivities(state, startDate);
+  return fetchActivities(state, startDate, logDebug);
 }
 
 const config = {
