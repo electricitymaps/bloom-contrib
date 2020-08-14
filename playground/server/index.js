@@ -106,7 +106,13 @@ io.on('connection', socket => {
     };
     try {
       pushLog('debug', '## start connect()');
-      const initState = await sourceImplementation.connect(requestLogin, requestWebView, logger);
+      const initState = await sourceImplementation.connect(
+        {
+          requestLogin,
+          requestWebView,
+        },
+        logger
+      );
       pushLog('debug', '## end connect()');
       pushLog('debug', `## initial state: ${JSON.stringify(initState)}`);
       pushLog('debug', '## start collect()');
