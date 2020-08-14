@@ -90,7 +90,7 @@ async function fetchEmailFolders(client, nextLink) {
   return result;
 }
 
-async function connect({ requestWebView }, logger) {
+async function connect({ requestWebView, logger }) {
   const state = await manager.authorize(requestWebView);
   return state;
 }

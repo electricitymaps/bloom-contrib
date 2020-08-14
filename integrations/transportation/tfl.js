@@ -150,7 +150,7 @@ async function fetchContactlessCardTravelDays(newState) {
   );
 }
 
-async function connect({ requestLogin }, logger) {
+async function connect({ requestLogin, logger }) {
   const { username, password } = await requestLogin();
   if (!(password || '').length) {
     throw new ValidationError('Password cannot be empty');

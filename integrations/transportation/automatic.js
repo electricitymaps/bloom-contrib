@@ -20,7 +20,7 @@ const manager = new OAuth2Manager({
     'scope=scope:public%20scope:user:profile%20scope:location%20scope:vehicle:profile%20scope:vehicle:events%20scope:trip%20scope:behavior',
 });
 
-async function connect({ requestWebView }, logger) {
+async function connect({ requestWebView, logger }) {
   const state = await manager.authorize(requestWebView);
   return state;
 }

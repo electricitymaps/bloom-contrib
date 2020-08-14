@@ -230,7 +230,7 @@ async function fetchLodging(modifiedSince, isPast = true, logger) {
   return { activities, modifiedSince: data.timestamp };
 }
 
-async function connect({ requestWebView }, logger) {
+async function connect({ requestWebView, logger }) {
   const state = await manager.authorize(requestWebView);
   return state;
 }

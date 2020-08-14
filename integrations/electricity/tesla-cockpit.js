@@ -28,7 +28,7 @@ async function requestTeslaToken(username, password) {
   return data[0].CreatorToken;
 }
 
-async function connect({ requestLogin }, logger) {
+async function connect({ requestLogin, logger }) {
   const { username, password } = await requestLogin();
   // Try to login, but don't save the token as it has an expiry date
   await requestTeslaToken(username, password);

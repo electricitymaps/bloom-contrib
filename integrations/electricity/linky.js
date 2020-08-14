@@ -30,7 +30,7 @@ function arrayGroupByReduce(arr, groupByAccessor, reduceAccessor) {
   return Object.values(groupByReduce(arr, groupByAccessor, reduceAccessor));
 }
 
-async function connect({ requestWebView }, logger) {
+async function connect({ requestWebView, logger }) {
   const state = await manager.authorize(requestWebView, logger, omitRedirectUri);
   return state;
 }

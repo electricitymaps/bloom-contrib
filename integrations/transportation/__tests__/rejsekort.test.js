@@ -171,7 +171,7 @@ describe('connect', () => {
     const requestWebView = jest.fn();
 
     await expect(
-      rejsekort.connect({ requestLogin, requestToken, requestWebView }, logger)
+      rejsekort.connect({ requestLogin, requestToken, requestWebView, logger })
     ).rejects.toThrowError(
       new ValidationError('Dit brugernavn eller din adgangskode er indtastet forkert.')
     );

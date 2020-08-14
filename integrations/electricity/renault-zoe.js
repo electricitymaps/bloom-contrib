@@ -306,7 +306,7 @@ async function _login(username, password) {
   };
 }
 
-async function connect({ requestLogin }, logger) {
+async function connect({ requestLogin, logger }) {
   // Here we can request credentials etc..
 
   // Here we can use two functions to invoke screens
