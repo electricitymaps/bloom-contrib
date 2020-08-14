@@ -4,3 +4,4 @@ playground/dist
 .DS_Store
 coverage
 *.log
+.idea/
