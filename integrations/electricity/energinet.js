@@ -1,5 +1,6 @@
 import request from 'superagent';
 import moment from 'moment';
+import flattenDeep from 'lodash/flattenDeep';
 import groupBy from 'lodash/groupBy';
 import { ACTIVITY_TYPE_ELECTRICITY } from '../../definitions';
 import { HTTPError } from '../utils/errors';
@@ -53,15 +54,11 @@ async function getMeteringPoints(accessToken) {
 async function getTimeSeries(accessToken, meterPointIds, lastCollect) {
   const now = moment();
   const dateFrom = lastCollect.clone();
-  if (
-    dateFrom
-      .clone()
-      .add(1, 'hour')
-      .isAfter(now)
-  ) {
+  // the Energinet returns bad request if dateFrom and dateTo are on same day
+  if (dateFrom.isSameOrAfter(now, 'day')) {
     return [];
   }
-  const dateTo = moment.min(lastCollect.clone().add(14, 'days'), moment());
+  const dateTo = moment.min(lastCollect.clone().add(14, 'days'), now);
   const url = TIME_SERIES_URL.replace('{dateFrom}', dateFrom.format(DATE_FORMAT))
     .replace('{dateTo}', dateTo.format(DATE_FORMAT))
     .replace('{aggregation}', AGGREGATION);
@@ -70,6 +67,7 @@ async function getTimeSeries(accessToken, meterPointIds, lastCollect) {
       meteringPoint: meterPointIds,
     },
   };
+
   const res = await request
     .post(url)
     .send(bodyMeterPoints)
@@ -79,8 +77,8 @@ async function getTimeSeries(accessToken, meterPointIds, lastCollect) {
     throw new HTTPError(res.text, res.status);
   }
 
-  const timeSeries = res.body.result[0].MyEnergyData_MarketDocument.TimeSeries.map(
-    meteringPoint => {
+  const timeSeries = flattenDeep(
+    res.body.result[0].MyEnergyData_MarketDocument.TimeSeries.map(meteringPoint => {
       const { mRID } = meteringPoint;
       return meteringPoint.Period.map(period => {
         const periodStart = period.timeInterval.start;
@@ -95,8 +93,8 @@ async function getTimeSeries(accessToken, meterPointIds, lastCollect) {
           };
         });
       });
-    }
-  ).flat(Infinity);
+    })
+  );
 
   return timeSeries.concat(await getTimeSeries(accessToken, meterPointIds, dateTo));
 }
@@ -140,7 +138,10 @@ async function collect(state, logger) {
   ).map(([k, values]) => ({
     id: `energinet${values[0].mRID}${k}`,
     datetime: moment(k).toDate(),
-    endDatetime: moment.max(values.map(dataPoint => moment(dataPoint.datetime))).toDate(), // finish at the latest time in that day
+    endDatetime: moment
+      .max(values.map(dataPoint => moment(dataPoint.datetime)))
+      .add(1, 'hours')
+      .toDate(), // finish at the latest time in that day
     activityType: ACTIVITY_TYPE_ELECTRICITY,
     energyWattHours: values
       .map(x => x.value * 1000.0) // kWh -> Wh
