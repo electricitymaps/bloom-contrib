@@ -54,15 +54,11 @@ async function getMeteringPoints(accessToken) {
 async function getTimeSeries(accessToken, meterPointIds, lastCollect) {
   const now = moment();
   const dateFrom = lastCollect.clone();
-  if (
-    dateFrom
-      .clone()
-      .add(1, 'hour')
-      .isAfter(now)
-  ) {
+  // the Energinet returns bad request if dateFrom and dateTo are on same day
+  if (dateFrom.isSameOrAfter(now, 'day')) {
     return [];
   }
-  const dateTo = moment.min(lastCollect.clone().add(14, 'days'), moment());
+  const dateTo = moment.min(lastCollect.clone().add(14, 'days'), now);
   const url = TIME_SERIES_URL.replace('{dateFrom}', dateFrom.format(DATE_FORMAT))
     .replace('{dateTo}', dateTo.format(DATE_FORMAT))
     .replace('{aggregation}', AGGREGATION);
