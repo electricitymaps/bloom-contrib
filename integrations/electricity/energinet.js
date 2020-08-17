@@ -1,5 +1,6 @@
 import request from 'superagent';
 import moment from 'moment';
+import flattenDeep from 'lodash/flattenDeep';
 import groupBy from 'lodash/groupBy';
 import { ACTIVITY_TYPE_ELECTRICITY } from '../../definitions';
 import { HTTPError } from '../utils/errors';
@@ -12,14 +13,6 @@ const TIME_SERIES_URL = `${BASE_URL}/MeterData/GetTimeSeries/{dateFrom}/{dateTo}
 
 const AGGREGATION = 'Hour';
 const DATE_FORMAT = 'YYYY-MM-DD';
-
-Object.defineProperty(Array.prototype, 'flat', {
-  value: function(depth = 1) {
-    return this.reduce(function (flat, toFlatten) {
-      return flat.concat((Array.isArray(toFlatten) && (depth>1)) ? toFlatten.flat(depth-1) : toFlatten);
-    }, []);
-  }
-});
 
 async function getAccessToken(refreshToken) {
   const res = await request.get(TOKEN_URL).set('Authorization', `Bearer ${refreshToken}`);
@@ -88,8 +81,8 @@ async function getTimeSeries(accessToken, meterPointIds, lastCollect) {
     throw new HTTPError(res.text, res.status);
   }
 
-  const timeSeries = res.body.result[0].MyEnergyData_MarketDocument.TimeSeries.map(
-    meteringPoint => {
+  const timeSeries = flattenDeep(
+    res.body.result[0].MyEnergyData_MarketDocument.TimeSeries.map(meteringPoint => {
       const { mRID } = meteringPoint;
       return meteringPoint.Period.map(period => {
         const periodStart = period.timeInterval.start;
@@ -104,8 +97,8 @@ async function getTimeSeries(accessToken, meterPointIds, lastCollect) {
           };
         });
       });
-    }
-  ).flat(Infinity);
+    })
+  );
 
   return timeSeries.concat(await getTimeSeries(accessToken, meterPointIds, dateTo));
 }
