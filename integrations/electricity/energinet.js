@@ -13,6 +13,14 @@ const TIME_SERIES_URL = `${BASE_URL}/MeterData/GetTimeSeries/{dateFrom}/{dateTo}
 const AGGREGATION = 'Hour';
 const DATE_FORMAT = 'YYYY-MM-DD';
 
+Object.defineProperty(Array.prototype, 'flat', {
+  value: function(depth = 1) {
+    return this.reduce(function (flat, toFlatten) {
+      return flat.concat((Array.isArray(toFlatten) && (depth>1)) ? toFlatten.flat(depth-1) : toFlatten);
+    }, []);
+  }
+});
+
 async function getAccessToken(refreshToken) {
   const res = await request.get(TOKEN_URL).set('Authorization', `Bearer ${refreshToken}`);
   if (!res.ok) {
@@ -70,6 +78,7 @@ async function getTimeSeries(accessToken, meterPointIds, lastCollect) {
       meteringPoint: meterPointIds,
     },
   };
+
   const res = await request
     .post(url)
     .send(bodyMeterPoints)
@@ -140,7 +149,10 @@ async function collect(state, logger) {
   ).map(([k, values]) => ({
     id: `energinet${values[0].mRID}${k}`,
     datetime: moment(k).toDate(),
-    endDatetime: moment.max(values.map(dataPoint => moment(dataPoint.datetime))).toDate(), // finish at the latest time in that day
+    endDatetime: moment
+      .max(values.map(dataPoint => moment(dataPoint.datetime)))
+      .add(1, 'hours')
+      .toDate(), // finish at the latest time in that day
     activityType: ACTIVITY_TYPE_ELECTRICITY,
     energyWattHours: values
       .map(x => x.value * 1000.0) // kWh -> Wh
