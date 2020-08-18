@@ -383,7 +383,7 @@ async function fetchTransactions(accountId, fromDate, pagingToken) {
   return res.body.transactions;
 }
 
-async function collect(state, { logDebug }) {
+async function collect(state, logger) {
   await refreshToken(state);
 
   // Get accounts
