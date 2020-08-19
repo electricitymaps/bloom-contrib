@@ -26,7 +26,8 @@ export function modelCanRun(activity) {
   const isElectricActivity = ELECTRICITY_ACTIVITIES.includes(activityType);
   if (!heatingSource || isElectricActivity) {
     return false;
-  } else if (heatingSource === HEATING_SOURCE_DISTRICT_HEATING && !countryCodeISO2) {
+  }
+  if (heatingSource === HEATING_SOURCE_DISTRICT_HEATING && !countryCodeISO2) {
     return false;
   }
   return true;
