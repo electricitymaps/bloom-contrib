@@ -1,6 +1,6 @@
 import md5 from 'tiny-hashes/md5';
 
-import { ELECTRICITY_ACTIVITIES } from '../../definitions';
+import { ELECTRICITY_ACTIVITIES, HEATING_SOURCE_DISTRICT_HEATING } from '../../definitions';
 import energyFootprints from './energyfootprints.yml';
 
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
@@ -21,10 +21,13 @@ export const explanation = {
 
 export const modelCanRunVersion = 1;
 export function modelCanRun(activity) {
-  const { heatingSource, activityType } = activity;
+  const { heatingSource, activityType, countryCodeISO2 } = activity;
   // Leave the electric activities up to the electricity model
   const isElectricActivity = ELECTRICITY_ACTIVITIES.includes(activityType);
   if (!heatingSource || isElectricActivity) {
+    return false;
+  }
+  if (heatingSource === HEATING_SOURCE_DISTRICT_HEATING && !countryCodeISO2) {
     return false;
   }
   return true;
