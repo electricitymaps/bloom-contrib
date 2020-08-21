@@ -104,11 +104,13 @@ io.on('connection', socket => {
         }
       });
     };
+    const requestToken = () => data.token;
     try {
       pushLog('debug', '## start connect()');
       const initState = await sourceImplementation.connect(
         {
           requestLogin,
+          requestToken,
           requestWebView,
         },
         logger
