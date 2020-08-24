@@ -6,7 +6,7 @@ Welcome to the open-source repository for the carbon footprint behind Bloom and 
 
 ## What is Bloom?
 
-[Bloom](https://www.bloomclimate.com) is an SaaS that allow companies to become climate leaders, from calculating their climate impact to communicating about their climate efforts. It connects to as many data sources as possible to assess your carbon footprint and find mitigation opportunities.
+[Bloom](https://www.bloomclimate.com) is a SaaS that allow companies to become climate leaders, from calculating their climate impact to communicating about their climate efforts. It connects to as many data sources as possible to assess your carbon footprint and find mitigation opportunities.
 
 
 ## What is the North app?
