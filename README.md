@@ -1,6 +1,6 @@
 ![Image description](https://north-app.com/appblogheader.png)
 
-# northapp-contrib [![Slack Status](http://slack.tmrow.com/badge.svg)](http://slack.tmrow.com) [![DroneCI](https://drone.tmrow.com/api/badges/tmrowco/tmrow/status.svg)](https://circleci.com/gh/tmrowco/northapp-contrib)
+# northapp-contrib [![Slack Status](http://slack.tmrow.com/badge.svg)](http://slack.tmrow.com) [![CircleCI](https://circleci.com/gh/tmrowco/northapp-contrib.svg?style=shield)](https://circleci.com/gh/tmrowco/northapp-contrib)
 
 Welcome to the open-source repository for the carbon footprint behind Bloom and North!👋
 
