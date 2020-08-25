@@ -4,7 +4,7 @@
 
 Welcome to the open-source repository for the carbon models and integrations used at Tomorrow! 👋
 
-## What is Bloom?
+## Bloom
 
 [Bloom](https://www.bloomclimate.com) is a SaaS that allow companies to become climate leaders, from calculating their climate impact to communicating about their climate efforts. It connects to as many data sources as possible to assess your carbon footprint and find mitigation opportunities.
 
