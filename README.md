@@ -116,7 +116,7 @@ Next from the `playground` folder, run  `yarn serve` to start the playground and
 To this end, 3 async methods need to be exported:
 
 ```javascript
-async function connect(requestLogin, requestWebView) {
+async function connect({ requestLogin, requestToken, requestWebView }, logger) {
   const { username, password } = await requestLogin();
   // ...
   return newState;

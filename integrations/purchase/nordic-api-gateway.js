@@ -1,28 +1,8 @@
 import { v4 as uuid } from 'uuid';
 import request from 'superagent';
-import {
-  ACTIVITY_TYPE_PURCHASE,
-  PURCHASE_CATEGORY_TRANSPORTATION_FUEL,
-  PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_MAINTENANCE_AND_REPAIR,
-  PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARTS,
-  PURCHASE_CATEGORY_ENTERTAINMENT_AMUSEMENT_PARKS,
-  PURCHASE_CATEGORY_ENTERTAINMENT_LIQUOR_STORE,
-  PURCHASE_CATEGORY_ENTERTAINMENT_MOVIE_THEATER,
-  PURCHASE_CATEGORY_STORE_BOOKS,
-  PURCHASE_CATEGORY_STORE_ELECTRONIC,
-  PURCHASE_CATEGORY_STORE_CLOTHING,
-  PURCHASE_CATEGORY_STORE_FOOD,
-  PURCHASE_CATEGORY_HEALTHCARE_DOCTOR,
-  PURCHASE_CATEGORY_MEDICINES_AND_HEALTH_PRODUCTS,
-  PURCHASE_CATEGORY_STORE_GARDEN_AND_PET,
-  PURCHASE_CATEGORY_STORE_FURNISHING,
-  PURCHASE_CATEGORY_STORE_PERSONAL_CARE,
-  PURCHASE_CATEGORY_STORE_HARDWARE,
-  ACTIVITY_TYPE_MEAL,
-  ACTIVITY_TYPE_TRANSPORTATION,
-  TRANSPORTATION_MODE_TRAIN,
-  TRANSPORTATION_MODE_CAR,
-} from '../../definitions';
+
+import { ACTIVITY_TYPE_PURCHASE } from '../../definitions';
+import { NAG_CATEGORY } from './nag-categories';
 import { HTTPError, AuthenticationError } from '../utils/errors';
 
 import env from '../loadEnv';
@@ -42,183 +22,6 @@ agent
   .set('X-Client-Id', env.NAG_CLIENT_ID)
   .set('X-Client-Secret', env.NAG_CLIENT_SECRET)
   .set('Accept-Language', 'en');
-
-const NAG_CATEGORY = {
-  Supermarket: { purchaseType: PURCHASE_CATEGORY_STORE_FOOD, activityType: ACTIVITY_TYPE_PURCHASE },
-  'Remodeling & Repair': {
-    purchaseType: PURCHASE_CATEGORY_STORE_HARDWARE,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Food & Drinks': { activityType: ACTIVITY_TYPE_MEAL },
-  Transfer: null,
-  'Shared Expense': null,
-  Exclude: null,
-  'Pension Payout': null,
-  'Unemployment Benefits': null,
-  'Student Grant': null,
-  'Child Benefits': null,
-  'Alimony & Child Support': null,
-  'Holiday Pay': null,
-  Income: null,
-  'Yield & Returns': null,
-  'Overpaid Tax': null,
-  'Mortgage/Rent': null,
-  'Building Insurance': null,
-  'Contents Insurance': null,
-  Home: null,
-  'Home Security': null,
-  'Vacation Home Expenses': null,
-  'Auto loan etc.': null,
-  'Auto Loan etc.': null,
-  Fuel: {
-    purchaseType: PURCHASE_CATEGORY_TRANSPORTATION_FUEL,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Auto Insurance & Assistance': null,
-  'Road Tax & Green Tax': null,
-  'Public Transport': {
-    transportationMode: TRANSPORTATION_MODE_TRAIN,
-    activityType: ACTIVITY_TYPE_TRANSPORTATION,
-  },
-  Taxi: { transportationMode: TRANSPORTATION_MODE_CAR, activityType: ACTIVITY_TYPE_TRANSPORTATION },
-  Parking: {
-    purchaseType: PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_MAINTENANCE_AND_REPAIR,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Auto & Transport': {
-    purchaseType: PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARTS,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Garage & Auto Parts': {
-    purchaseType: PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARTS,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Mini-markets & Delicacies': {
-    purchaseType: PURCHASE_CATEGORY_STORE_FOOD,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  Pharmacy: {
-    purchaseType: PURCHASE_CATEGORY_MEDICINES_AND_HEALTH_PRODUCTS,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Flights & Hotels': null,
-  'Car Rental': {
-    transportationMode: TRANSPORTATION_MODE_CAR,
-    activityType: ACTIVITY_TYPE_TRANSPORTATION,
-  },
-  'Vacation Home & Camping': {
-    purchaseType: PURCHASE_CATEGORY_STORE_GARDEN_AND_PET,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  Household: null,
-  'Vacation Activities': {
-    purchaseType: PURCHASE_CATEGORY_ENTERTAINMENT_AMUSEMENT_PARKS,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Travel Insurance': null,
-  'Child Care & Tuition': null,
-  'Union & Unemployment Insurance': null,
-  'Life & Accident Insurance': null,
-  'Pension & Savings': null,
-  Salary: null,
-  'Public fee': null,
-  'Garden & Plants': {
-    purchaseType: PURCHASE_CATEGORY_STORE_GARDEN_AND_PET,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Advisors & Services': null,
-  'Meal Plan': { purchaseType: PURCHASE_CATEGORY_STORE_FOOD, activityType: ACTIVITY_TYPE_PURCHASE },
-  Memberships: null,
-  'Housing Benefit': null,
-  'Debt & Interest': null,
-  Education: null,
-  'Tobacco & Alcohol': {
-    purchaseType: PURCHASE_CATEGORY_ENTERTAINMENT_LIQUOR_STORE,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Other Housing Expenses': null,
-  'Online Services & Software': null,
-  'Stock Trading': null,
-  'Child Savings': null,
-  'Pension Savings': null,
-  Interest: null,
-  'Private Loan (Friends & Family}': null,
-  Other: null,
-  'Consumer Loan': null,
-  'Unpayed Tax': null,
-  Fines: null,
-  'Late Fees': null,
-  'Bank Fees': null,
-  'ATM & Checks': null,
-  Unknown: null,
-  'Other Private Consumption': null,
-  Leisure: null,
-  'Gifts & Charity': null,
-  Pets: {
-    purchaseType: PURCHASE_CATEGORY_STORE_GARDEN_AND_PET,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  Baby: { purchaseType: PURCHASE_CATEGORY_STORE_CLOTHING, activityType: ACTIVITY_TYPE_PURCHASE },
-  Betting: null,
-  'Cinema, Concerts & Entertainment': {
-    purchaseType: PURCHASE_CATEGORY_ENTERTAINMENT_MOVIE_THEATER,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Movies, Music & Books': {
-    purchaseType: PURCHASE_CATEGORY_STORE_BOOKS,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Hairdresser & Personal Care': {
-    purchaseType: PURCHASE_CATEGORY_STORE_PERSONAL_CARE,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Hobby & Sports Equipment': {
-    purchaseType: PURCHASE_CATEGORY_STORE_GARDEN_AND_PET,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Games & Toys': {
-    purchaseType: PURCHASE_CATEGORY_STORE_GARDEN_AND_PET,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Electronics & Computer': {
-    purchaseType: PURCHASE_CATEGORY_STORE_ELECTRONIC,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Furniture & Interior': {
-    purchaseType: PURCHASE_CATEGORY_STORE_FURNISHING,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Clothing & Accessories': {
-    purchaseType: PURCHASE_CATEGORY_STORE_CLOTHING,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Fast Food & Takeaway': { activityType: ACTIVITY_TYPE_MEAL },
-  'Glasses & Contacts': null,
-  'Medical Specialists': {
-    purchaseType: PURCHASE_CATEGORY_HEALTHCARE_DOCTOR,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Housekeeping & Gardening': {
-    purchaseType: PURCHASE_CATEGORY_STORE_GARDEN_AND_PET,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  Travel: null,
-  'Phone & Internet': null,
-  'TV license & Cable': null,
-  'Sports & Leisure': null,
-  'Health Insurance': null,
-  Utilities: null,
-  'Other Savings': null,
-  'Other Transport': null,
-  'Other Income': null,
-  Hide: null,
-  'Interest Income': null,
-  'Homeowners Association': null,
-  'Property Tax': null,
-  'Basic Expenses': null,
-  'Student Loan': null,
-  Tuition: null,
-};
 
 function parseCategory(category, categoryList) {
   if (category) {
@@ -296,7 +99,7 @@ async function parseTransactions(
   return res;
 }
 
-async function connect(requestLogin, requestWebView) {
+async function connect({ requestWebView }, logger) {
   if (!env.NAG_CLIENT_ID || !env.NAG_CLIENT_SECRET) {
     throw new Error(
       'Environment variables for nordic-api-gateway not set. Please set NAG_CLIENT_ID & NAG_CLIENT_SECRET.'
@@ -383,7 +186,7 @@ async function fetchTransactions(accountId, fromDate, pagingToken) {
   return res.body.transactions;
 }
 
-async function collect(state, { logDebug }) {
+async function collect(state, logger) {
   await refreshToken(state);
 
   // Get accounts

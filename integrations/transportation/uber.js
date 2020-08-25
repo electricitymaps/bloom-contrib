@@ -15,7 +15,7 @@ const manager = new OAuth2Manager({
 const MILES_TO_KM = 1.60934;
 const HISTORY_API_FETCH_LIMIT = 50;
 
-async function connect(requestLogin, requestWebView, logger) {
+async function connect({ requestWebView }, logger) {
   const state = await manager.authorize(requestWebView, logger);
   return state;
 }
