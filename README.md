@@ -33,7 +33,7 @@ If you want to add individual items or ingredients, this is done [here](https://
 We also have open-sourced how we calculate the monetary emission factors used to compute the carbon footprint of a transactions.
 This can be found [here](https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase). 
 
-#### CO2 Model Structure
+#### Structure of a carbon model
 
 Currently, CO2 models must expose the following variables:
 
