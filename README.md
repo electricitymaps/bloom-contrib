@@ -22,7 +22,7 @@ We're often hiring great people to join our team in Copenhagen. Head over to [ou
 - `./definitions.js`: constant definitions
 
 ## How can I help?
-You can help by helping us find, add and improve our Life Cycle Assesment / Carbon footprint data.
+You can help by helping us find, add and improve our Life Cycle Assessment (LCA) data as well as our carbon models.
 
 ### Adding or updating Life Cycle Assessment / carbon footprint of purchases and activities
 
