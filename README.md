@@ -67,7 +67,7 @@ export function carbonEmissions(activity) {
 
 #### Updating a carbon model
 
-After each update of a CO2 model, its version, controlled by variable
+When a carbon model is updated, its version, controlled by the variable
 
 ```javascript
 export const modelVersion = '0';
