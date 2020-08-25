@@ -65,7 +65,7 @@ export function carbonEmissions(activity) {
 } // Computes the CO2 footprint of the activity
 ```
 
-#### CO2 Model Update
+#### Updating a carbon model
 
 After each update of a CO2 model, its version, controlled by variable
 
