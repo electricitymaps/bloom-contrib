@@ -26,7 +26,7 @@ You can help by helping us find, add and improve our Life Cycle Assessment (LCA)
 
 ### Adding or updating Life Cycle Assessment / carbon footprint of purchases and activities
 
-Our current models and Life Cycle Assessments that we use are accessible [here](https://github.com/tmrowco/northapp-contrib/tree/master/co2eq). Feel free to suggest new sources or add your own LCAs.
+Our current models and Life Cycle Assessments (LCAs) that we use are accessible [here](https://github.com/tmrowco/northapp-contrib/tree/master/co2eq). Feel free to suggest new sources or add your own LCAs.
 
 If you want to add individual items or ingredients, this is done [here](https://github.com/tmrowco/northapp-contrib/blob/master/co2eq/purchase/footprints.yml). Ideally, the studies used should be as global as possible and it's even better if they're systemic reviews (multiple studies in one!).
 
