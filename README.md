@@ -35,7 +35,7 @@ This can be found [here](https://github.com/tmrowco/northapp-contrib/tree/master
 
 #### Structure of a carbon model
 
-Currently, CO2 models must expose the following variables:
+Currently, carbon models must expose the following variables:
 
 ```javascript
 export const modelName = 'model name'; // Specify name of the model
