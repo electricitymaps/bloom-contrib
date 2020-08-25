@@ -30,7 +30,8 @@ Our current models and Life Cycle Assessments (LCAs) that we use are accessible 
 
 If you want to add individual items or ingredients, this is done [here](https://github.com/tmrowco/northapp-contrib/blob/master/co2eq/purchase/footprints.yml). Ideally, the studies used should be as global as possible and it's even better if they're systemic reviews (multiple studies in one!).
 
-We also have open-sourced how we calculate the carbon footprint of transactions. This can be found [here](https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase). 
+We also have open-sourced how we calculate the monetary emission factors used to compute the carbon footprint of a transactions.
+This can be found [here](https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase). 
 
 #### CO2 Model Structure
 
