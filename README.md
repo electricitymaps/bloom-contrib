@@ -1,47 +1,88 @@
-![Image description](https://north-app.com/appblogheader.png)
+# northapp-contrib [![Slack Status](http://slack.tmrow.com/badge.svg)](http://slack.tmrow.com) [![CircleCI](https://circleci.com/gh/tmrowco/northapp-contrib.svg?style=shield)](https://circleci.com/gh/tmrowco/northapp-contrib)
 
-# northapp-contrib [![Slack Status](http://slack.tmrow.com/badge.svg)](http://slack.tmrow.com) [![DroneCI](https://drone.tmrow.com/api/badges/tmrowco/tmrow/status.svg)](https://circleci.com/gh/tmrowco/northapp-contrib)
+Welcome to the open-source repository for the carbon models and integrations used at Tomorrow! 👋
 
-Welcome to the open-source repository of the North app!👋
+## Bloom
 
-## What is the North app?
-The [North](https://www.north-app.com) app automatically calculates your carbon footprint by connecting to other services and apps in your life and translating activities from these apps and activities to greenhouse gas emissions.
-
-The app is private-by-design: data will stay on device, unless the user explicitly gives consent. This code is maintained by [Tomorrow](https://www.tmrow.com).
-
-Feel free to watch [the presentation](https://www.youtube.com/watch?v=keOPXD-ojWY) our Founder Olivier gave to the CopenhagenJS meetup, explaining what a JavaScript developer can do to combat climate change. If you have any questions, want early access to the app or just want to hang out with people fighting climate change with code, join [our Slack community](https://slack.tmrow.com).
+[Bloom](https://www.bloomclimate.com) is a SaaS that allow companies to become climate leaders, from calculating their climate impact to communicating about their climate efforts. It connects to as many data sources as possible to assess your carbon footprint and find mitigation opportunities.
 
 ## Tomorrow is hiring!
-The company behind the North app builds tech to empower organisations and individuals to understand and reduce their carbon footprint.
+Tomorrow, the organisation behind Bloom builds tech to empower organisations and individuals to understand and reduce their carbon footprint.
 
-We're hiring great people to join our team in Copenhagen. Head over to [our jobs page](https://www.tmrow.com/jobs) if you want to help out!
+We're often hiring great people to join our team in Copenhagen. Head over to [our jobs page](https://www.tmrow.com/jobs) if you want to help out!
 
 ## Structure of this repository
 
 - `./co2eq`: carbon models
 - `./integrations`: contains all integrations
 - `./integrations/img`: contains all integration logos
-- `./playground`: source code of the playground
+- `./playground`: source code of the playground for integrations
 - `./definitions.js`: constant definitions
 
-
 ## How can I help?
-You can help by:
+You can help by helping us find, add and improve our Life Cycle Assessment (LCA) data as well as our carbon models.
 
-- Helping us find, add and improve integrations with 3rd party services
-- Helping us find, add and improve our Life Cycle Assesment / Carbon footprint data
-- Giving us ideas, feedback and reporting bugs
+### Adding or updating Life Cycle Assessment / carbon footprint of purchases and activities
 
-### Integrating purchases and activities
-[We wrote a little article about what we believe makes a great integration](https://tmrow.slite.com/api/s/note/8LLSWazeBZZyS4BEQiLTnJ/What-makes-a-great-integration-for-Tomorrow).
-However, that shouldn't stop you from doing an integration which is interesting and useful to you! Our only requirement is that it can be quantified in greenhouse gas emissions.
+Our current models and Life Cycle Assessments (LCAs) that we use are accessible [here](https://github.com/tmrowco/northapp-contrib/tree/master/co2eq). Feel free to suggest new sources or add your own LCAs.
 
-Integrations can rely on an API or even on scrapers if necessary.
+If you want to add individual items or ingredients, this is done [here](https://github.com/tmrowco/northapp-contrib/blob/master/co2eq/purchase/footprints.yml). Ideally, the studies used should be as global as possible and it's even better if they're systemic reviews (multiple studies in one!).
 
-#### Suggesting an integration
+We also have open-sourced how we calculate the monetary emission factors used to compute the carbon footprint of a transactions.
+This can be found [here](https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase). 
+
+#### Structure of a carbon model
+
+Currently, carbon models must expose the following variables:
+
+```javascript
+export const modelName = 'model name'; // Specify name of the model
+export const modelVersion = '0'; // Specify the current model version
+export const explanation = {
+  text: 'description of the model',
+  links: [
+    { label: 'Source Name (year)', href: 'link to source' }
+  ],
+}; // Description and sources of the model
+export const modelCanRunVersion = 0; // Specify the current version of the can run function
+
+export function modelCanRun(activity) {
+  const {
+    ...
+  } = activity; // Deconstruction of activity for relevant fields
+  if (fields are present) {
+    return true;
+  }
+  return false;
+} // Verifies that an activity trigger the model to compute CO2 footprint
+
+export function carbonEmissions(activity) {
+  // ...
+  return co2eqEmission
+  }
+} // Computes the CO2 footprint of the activity
+```
+
+#### Updating a carbon model
+
+When a carbon model is updated, its version, controlled by the variable
+
+```javascript
+export const modelVersion = '0';
+```
+
+must be incremented.
+
+
+
+### Integrations
+
+Our community has built integrations, that gather activities from a 3rd party datasource. 
+All of them are used in the North app. Some of them may be used in Bloom.
+
 Here is the list of current 3rd party integrations:
 Official integrations:
-- ✈️ Tripit (tracks most airlines!)
+- ✈️ Tripit
 - ⚡ Barry
 - 🚗 Tesla Cockpit
 
@@ -60,11 +101,10 @@ Community-supported integrations:
 - 🚗 Automatic (contributor:[lauvrenn](https://github.com/lauvrenn))
 - 🚗 MinVolkswagen (contributor:[folkev0gn](https://github.com/folkev0gn))
 
-You can [suggest a new integration here](https://github.com/tmrowco/northapp-contrib/issues/new).
 
-#### Coding or debugging a new integration
+#### Coding or debugging an integration
 
-If you don't have an idea on your own or prefer to debug an integration, you can find integration suggestions and bugs in [the issues](https://github.com/tmrowco/northapp-contrib/issues).
+If you want to work on or debug an integration, you may be able to find integration suggestions and bugs in [the issues](https://github.com/tmrowco/northapp-contrib/issues).
 
 To make it easy for anyone to help out, a development playground is available:
 
@@ -72,7 +112,7 @@ First, run `yarn` to install dependencies at the root of the repository.
 Next from the `playground` folder, run  `yarn serve` to start the playground and point your browser to [localhost:3000](http://localhost:3000) to get started.
 
 #### How to make an integration work
-An integration gathers activities from a 3rd party datasource.
+
 To this end, 3 async methods need to be exported:
 
 ```javascript
@@ -170,56 +210,7 @@ Activities require a certain formatting:
 }
 ```
 
-
-### Adding or updating Life Cycle Assessment / Carbon Footprint of purchases and activities
-
-Our current models and Life Cycle assessments are accessible [here](https://github.com/tmrowco/northapp-contrib/tree/master/co2eq). If you know better sources, please contribute with your knowledge.
-
-If you want to add individual items or ingredients, this is done [here](https://github.com/tmrowco/northapp-contrib/blob/master/co2eq/purchase/footprints.yml). Ideally, the studies used should be as global as possible and it's even better if they're systemic reviews (multiple studies in one!).
-
-#### CO2 Model Structure
-
-Currently, CO2 models must expose the following variables:
-
-```javascript
-export const modelName = 'model name'; // Specify name of the model
-export const modelVersion = '0'; // Specify the current model version
-export const explanation = {
-  text: 'description of the model',
-  links: [
-    { label: 'Source Name (year)', href: 'link to source' }
-  ],
-}; // Description and sources of the model
-export const modelCanRunVersion = 0; // Specify the current version of the can run function
-
-export function modelCanRun(activity) {
-  const {
-    ...
-  } = activity; // Deconstruction of activity for relevant fields
-  if (fields are present) {
-    return true;
-  }
-  return false;
-} // Verifies that an activity trigger the model to compute CO2 footprint
-
-export function carbonEmissions(activity) {
-  // ...
-  return co2eqEmission
-  }
-} // Computes the CO2 footprint of the activity
-```
-
-#### CO2 Model Update
-
-After each update of a CO2 model, its version, controlled by variable
-
-```javascript
-export const modelVersion = '0';
-```
-
-must be incremented.
-
-### Email parsers
+#### Email parsers
 
 Because a number of apps/sites do not provide an API to access data but send emails instead (eg: e-commerce), you can also implement email parsers that will be run on each email imported by email integrations.
 
@@ -251,4 +242,4 @@ export function evaluateEmail(subject, from, bodyAsHtml, sendDate) {
 
 ### Giving ideas, features requests or bugs
 
-Please [add an issue here](https://github.com/tmrowco/northapp-contrib/issues/new) or directly in the app.
+Please [add an issue here](https://github.com/tmrowco/northapp-contrib/issues/new).
