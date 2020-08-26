@@ -27,13 +27,14 @@ class App extends React.Component {
       selectedIntegration: null,
       username: null,
       password: null,
+      token: null,
       results: [],
       logs: [],
     };
   }
 
   run = () => {
-    const { selectedIntegration, username, password } = this.state;
+    const { selectedIntegration, username, password, token } = this.state;
     console.warn('selectedIntegration', selectedIntegration);
 
     if (!socket.connected) {
@@ -48,6 +49,7 @@ class App extends React.Component {
       sourceIdentifier: selectedIntegration,
       username,
       password,
+      token,
     });
   };
 
@@ -145,7 +147,7 @@ class App extends React.Component {
                 <TextField
                   label="Username"
                   type="username"
-                  autoComplete="current-password"
+                  autoComplete="current-username"
                   margin="normal"
                   onChange={event =>
                     this.setState({
@@ -164,6 +166,18 @@ class App extends React.Component {
                     })
                   }
                 />
+                <TextField
+                  label="Token"
+                  type="token"
+                  autoComplete="current-token"
+                  margin="normal"
+                  onChange={event =>
+                    this.setState({
+                      token: event.target.value,
+                    })
+                  }
+                />
+
                 <Button
                   variant="contained"
                   color="secondary"
