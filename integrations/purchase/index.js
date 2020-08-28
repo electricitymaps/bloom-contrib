@@ -1,1 +1,1 @@
-export * from './nordic-api-gateway';
+export { default as nordicApiGateway } from './nordic-api-gateway';
