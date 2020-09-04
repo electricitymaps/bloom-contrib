@@ -130,6 +130,7 @@ async function collect(state, logger) {
 }
 
 const config = {
+  id: 'orsted',
   description: 'collects electricity data from your smart meter',
   label: 'Ørsted',
   country: 'DK',

@@ -139,6 +139,7 @@ async function collect(state, logger) {
 }
 
 const config = {
+  id: 'trainline',
   label: 'Trainline',
   type: ACTIVITY_TYPE_TRANSPORTATION,
   description: 'collects trips from your train and bus journeys',

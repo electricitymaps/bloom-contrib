@@ -179,6 +179,7 @@ async function collect(state) {
 }
 
 const config = {
+  id: 'wizzair',
   label: 'WizzAir',
   description: 'collects your Wizz Air plane rides',
   type: ACTIVITY_TYPE_TRANSPORTATION,

@@ -167,10 +167,10 @@ async function disconnect() {
 }
 
 const config = {
-  description: 'collects electricity data from your smart meter',
+  id: 'energinet',
+  description: 'Collects electricity data from your smart meter',
   label: 'Energinet',
   country: 'DK',
-  isPrivate: true,
   type: ACTIVITY_TYPE_ELECTRICITY,
   signupLink:
     'https://www.notion.so/tmrow/How-to-get-a-token-for-Energinet-c4cdc0e568424177892056c284f45c23',

@@ -160,6 +160,7 @@ async function collect(state, logger) {
 }
 
 const config = {
+  id: 'minvolkswagen',
   label: 'MinVolkswagen',
   description: 'collects data from your volkswagen car rides',
   type: ACTIVITY_TYPE_TRANSPORTATION,
