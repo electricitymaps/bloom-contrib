@@ -110,6 +110,7 @@ async function collect(state, logger) {
 }
 
 const config = {
+  id: 'automatic',
   label: 'Automatic',
   description: 'collects data from your car rides',
   type: ACTIVITY_TYPE_TRANSPORTATION,

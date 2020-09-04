@@ -96,6 +96,7 @@ async function collect(state, { logWarning }, { settings }) {
 }
 
 const config = {
+  id: 'sense',
   description: 'collects electricity usage from your Sense device',
   label: 'Sense',
   // Sense is currently in US and CA as of June 2019.

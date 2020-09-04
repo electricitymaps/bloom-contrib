@@ -145,6 +145,7 @@ async function collect(state) {
 }
 
 const config = {
+  id: 'ryanair',
   label: 'Ryanair',
   description: 'collects your Ryanair plane rides',
   type: ACTIVITY_TYPE_TRANSPORTATION,

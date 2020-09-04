@@ -411,6 +411,7 @@ async function collect(state = {}, logger, utils) {
 }
 
 const config = {
+  id: 'renault-zoe',
   label: 'Renault Zoé',
   description: 'collects vehicle charging hours',
   type: ACTIVITY_TYPE_ELECTRIC_VEHICLE_CHARGING,

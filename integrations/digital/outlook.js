@@ -9,6 +9,7 @@ import { OAuth2Manager } from '../authentication';
 import { getActivitiesFromEmail } from './parsers/index';
 
 const config = {
+  id: 'outlook',
   label: 'Outlook',
   description: 'Detects purchases from your outlook email account from amazon.ca and ikea.ca.',
   isPrivate: true,

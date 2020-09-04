@@ -340,6 +340,7 @@ async function collect(state, logger) {
 }
 
 const config = {
+  id: 'rejsekort',
   label: 'Rejsekort',
   country: 'DK',
   type: ACTIVITY_TYPE_TRANSPORTATION,

@@ -253,6 +253,7 @@ async function disconnect() {
 }
 
 const config = {
+  id: 'tfl',
   label: 'Transport for London',
   country: 'UK',
   type: ACTIVITY_TYPE_TRANSPORTATION,

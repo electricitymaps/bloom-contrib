@@ -92,6 +92,7 @@ async function collect(state, { logDebug }) {
 }
 
 const config = {
+  id: 'uber',
   contributors: ['willtonkin', 'corradio'],
   label: 'Uber',
   type: ACTIVITY_TYPE_TRANSPORTATION,

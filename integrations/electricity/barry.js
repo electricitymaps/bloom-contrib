@@ -201,6 +201,7 @@ async function collect(state, { logWarning }) {
 }
 
 const config = {
+  id: 'barry',
   description: 'collects electricity data from your smart meter',
   label: 'Barry',
   country: 'DK',

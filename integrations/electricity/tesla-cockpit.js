@@ -138,6 +138,7 @@ async function collect(state, logger, utils) {
 }
 
 const config = {
+  id: 'tesla-cockpit',
   contributors: ['corradio'],
   label: 'Tesla Cockpit',
   signupLink: 'https://beta.teslacockpit.com/',

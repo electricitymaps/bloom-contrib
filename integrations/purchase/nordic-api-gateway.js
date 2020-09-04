@@ -241,6 +241,7 @@ async function collect(state, logger) {
 }
 
 const config = {
+  id: 'nordic-api-gateway',
   contributors: ['FelixDQ', 'Kongkille'],
   label: 'Nordic API Gateway',
   country: 'DK',

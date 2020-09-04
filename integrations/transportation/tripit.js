@@ -14,6 +14,7 @@ import {
 import { HTTPError } from '../utils/errors';
 
 const config = {
+  id: 'tripit',
   label: 'TripIt',
   description: 'collects plane, train and hotel activities from your emails',
   type: ACTIVITY_TYPE_TRANSPORTATION,
