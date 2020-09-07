@@ -8,6 +8,7 @@ import {
   TRANSPORTATION_MODE_PUBLIC_TRANSPORT,
   UNIT_MONETARY_EUR,
   UNIT_ITEM,
+  UNIT_KILOGRAMS,
   UNIT_LITER,
 } from '../../definitions';
 import { getAvailableCurrencies } from '../../integrations/utils/currency/currency';
@@ -189,6 +190,9 @@ function extractCompatibleUnitAndAmount(lineItem, entry, countryCodeISO2, dateti
   const availableEntryUnit = entry.unit;
   if (availableEntryUnit === UNIT_LITER && lineItem.unit === UNIT_LITER) {
     return { unit: UNIT_LITER, amount: lineItem.value };
+  }
+  if (availableEntryUnit === UNIT_KILOGRAMS && lineItem.unit === UNIT_KILOGRAMS) {
+    return { unit: UNIT_KILOGRAMS, amount: lineItem.value };
   }
   if (availableEntryUnit === UNIT_MONETARY_EUR && eurAmount != null) {
     return { unit: UNIT_MONETARY_EUR, amount: eurAmount };
