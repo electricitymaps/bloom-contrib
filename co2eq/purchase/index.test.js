@@ -54,7 +54,7 @@ test(`test household appliance for DK in EUR`, () => {
   };
   expect(modelCanRun(activity)).toBeTruthy();
   // original price * cpi correction * intensity
-  expect(carbonEmissions(activity)).toBeCloseTo(15 * (103.3 / 95.9) * 0.4028253119428596);
+  expect(carbonEmissions(activity)).toBeCloseTo(15 * (95.9 / 103.3) * 0.4028253119428596);
 });
 
 test(`test household appliance for DK in EUR, without any date specified`, () => {
@@ -113,7 +113,7 @@ test(`test household appliance for AU in EUR in 2020, for which there is no cpi 
   // original price * cpi correction * intensity
   // (average fallback used for 2020 as AU does not have data for 2020 yet)
   expect(carbonEmissions(activity)).toBeCloseTo(
-    15 * (110.72093023255815 / 92.2) * 0.4428823364363346
+    15 * (92.2 / 110.72093023255815) * 0.4428823364363346
   );
 });
 
@@ -132,7 +132,7 @@ test(`test household appliance for DK in DKK`, () => {
   };
   expect(modelCanRun(activity)).toBeTruthy();
   expect(carbonEmissions(activity)).toBeCloseTo(
-    (1150 / 7.4506) * (103.3 / 95.9) * 0.817390437852872
+    (1150 / 7.4506) * (95.9 / 103.3) * 0.817390437852872
   );
 });
 

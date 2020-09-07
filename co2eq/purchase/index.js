@@ -165,7 +165,7 @@ function conversionCPI(eurAmount, referenceYear, countryCodeISO2, datetime) {
   }
 
   // ref: https://www.investopedia.com/terms/c/consumerpriceindex.asp
-  const eurAmountAdjusted = eurAmount * (CPIcurrent / CPIreference);
+  const eurAmountAdjusted = eurAmount * (CPIreference / CPIcurrent);
   return eurAmountAdjusted;
 }
 
