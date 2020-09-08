@@ -14,8 +14,8 @@ const TIME_SERIES_URL = `${BASE_URL}/MeterData/GetTimeSeries/{dateFrom}/{dateTo}
 const AGGREGATION = 'Hour';
 const DATE_FORMAT = 'YYYY-MM-DD';
 
-async function getAccessToken(refreshToken) {
-  const res = await request.get(TOKEN_URL).set('Authorization', `Bearer ${refreshToken}`);
+async function getAccessToken(authToken) {
+  const res = await request.get(TOKEN_URL).set('Authorization', `Bearer ${authToken}`);
   if (!res.ok) {
     throw new HTTPError(res.text, res.status);
   }
@@ -114,15 +114,15 @@ async function connect({ requestToken }, logger) {
   }
 
   return {
-    refreshToken: token,
+    authToken: token,
     locationLon: lonLat[0],
     locationLat: lonLat[1],
   };
 }
 
 async function collect(state, logger) {
-  const { refreshToken, locationLon, locationLat } = state;
-  const accessToken = await getAccessToken(refreshToken);
+  const { authToken, locationLon, locationLat } = state;
+  const accessToken = await getAccessToken(authToken);
   const { meterPointIds, meterPointAddresses } = await getMeteringPoints(accessToken);
 
   // Fetch from last update. If not available, then fetch data from the last year.
