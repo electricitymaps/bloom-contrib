@@ -14,8 +14,8 @@ const TIME_SERIES_URL = `${BASE_URL}/MeterData/GetTimeSeries/{dateFrom}/{dateTo}
 const AGGREGATION = 'Hour';
 const DATE_FORMAT = 'YYYY-MM-DD';
 
-async function getAccessToken(refreshToken) {
-  const res = await request.get(TOKEN_URL).set('Authorization', `Bearer ${refreshToken}`);
+async function getAccessToken(authToken) {
+  const res = await request.get(TOKEN_URL).set('Authorization', `Bearer ${authToken}`);
   if (!res.ok) {
     throw new HTTPError(res.text, res.status);
   }
