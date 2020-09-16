@@ -104,7 +104,7 @@ io.on('connection', socket => {
         }
       });
     };
-    const requestToken = () => data.token;
+    const requestToken = () => ({ token: data.token });
     try {
       pushLog('debug', '## start connect()');
       const initState = await sourceImplementation.connect(

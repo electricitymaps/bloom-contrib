@@ -126,7 +126,7 @@ async function collect(state, logger) {
   const { meterPointIds, meterPointAddresses } = await getMeteringPoints(accessToken);
 
   // Fetch from last update. If not available, then fetch data from the last year.
-  const lastCollect = state.lastCollect ? moment(state.lastCollect) : moment().subtract(1, 'years');
+  const lastCollect = state.lastCollect ? moment(state.lastCollect) : moment().subtract(1, 'week'); // TODO 1 year
 
   const timeSeries = await getTimeSeries(accessToken, meterPointIds, lastCollect);
   const activities = Object.entries(
@@ -159,7 +159,15 @@ async function collect(state, logger) {
     locationLat,
   }));
 
-  return { activities, state: { ...state, lastCollect: new Date().toISOString() } };
+  return {
+    activities,
+    state: {
+      ...state,
+      lastCollect: moment()
+        .substract(5, 'days') // force refetch to update incomplete recent data.
+        .toISOString(),
+    },
+  };
 }
 async function disconnect() {
   // Here we should do any cleanup (deleting tokens etc..)
