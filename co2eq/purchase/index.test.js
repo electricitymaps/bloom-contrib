@@ -136,7 +136,7 @@ test(`test household appliance for DK in DKK`, () => {
   );
 });
 
-test(`test non-monetary units`, () => {
+test(`test non-monetary units (in L)`, () => {
   const activity = {
     activityType: ACTIVITY_TYPE_PURCHASE,
     datetime: new Date('2020-04-11T10:20:30Z'),
@@ -144,4 +144,14 @@ test(`test non-monetary units`, () => {
   };
   expect(modelCanRun(activity)).toBeTruthy();
   expect(carbonEmissions(activity)).toBeCloseTo(31.7);
+});
+
+test(`test non-monetary units (in kg)`, () => {
+  const activity = {
+    activityType: ACTIVITY_TYPE_PURCHASE,
+    datetime: new Date('2020-04-11T10:20:30Z'),
+    lineItems: [{ identifier: 'Butter', unit: 'kg', value: 10 }],
+  };
+  expect(modelCanRun(activity)).toBeTruthy();
+  expect(carbonEmissions(activity)).toBeCloseTo(92.5);
 });
