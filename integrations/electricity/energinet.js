@@ -126,7 +126,7 @@ async function collect(state, logger) {
   const { meterPointIds, meterPointAddresses } = await getMeteringPoints(accessToken);
 
   // Fetch from last update. If not available, then fetch data from the last year.
-  const lastCollect = state.lastCollect ? moment(state.lastCollect) : moment().subtract(1, 'week'); // TODO 1 year
+  const lastCollect = state.lastCollect ? moment(state.lastCollect) : moment().subtract(1, 'years');
 
   const timeSeries = await getTimeSeries(accessToken, meterPointIds, lastCollect);
   const activities = Object.entries(
