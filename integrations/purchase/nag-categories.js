@@ -33,371 +33,119 @@ import {
   PURCHASE_CATEGORY_TRANSPORT_ROAD,
   PURCHASE_CATEGORY_ALCOHOL,
   PURCHASE_CATEGORY_OTHER_ENERGY_HEATING_COOLING,
-  ACTIVITY_TYPE_TRANSPORTATION,
-  TRANSPORTATION_MODE_CAR,
+  PURCHASE_CATEGORY_ELECTRICITY,
 } from '../../definitions';
 
+const purchaseActivity = purchaseType =>
+  purchaseType
+    ? {
+        purchaseType,
+        activityType: ACTIVITY_TYPE_PURCHASE,
+      }
+    : null;
+
 export const NAG_CATEGORY = {
-  'ATM & Checks': {
-    purchaseType: PURCHASE_CATEGORY_FINANCIAL_SERVICES,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Advisors & Services': {
-    purchaseType: PURCHASE_CATEGORY_OTHER_SERVICES,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Alimony & Child Support': {
-    purchaseType: PURCHASE_CATEGORY_SOCIAL_PROTECTION,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Auto & Transport': {
-    purchaseType: PURCHASE_CATEGORY_OTHER_TRANSPORT_SERVICES,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Auto Insurance & Assistance': {
-    purchaseType: PURCHASE_CATEGORY_INSURANCE,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Auto Loan etc.': {
-    purchaseType: PURCHASE_CATEGORY_FINANCIAL_SERVICES,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  Baby: {
-    purchaseType: PURCHASE_CATEGORY_OTHER_PERSONAL_EFFECTS,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Bank Fees': {
-    purchaseType: PURCHASE_CATEGORY_FINANCIAL_SERVICES,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Basic Expenses': {
-    purchaseType: PURCHASE_CATEGORY_FOOD,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  Betting: {
-    purchaseType: PURCHASE_CATEGORY_OTHER_SERVICES,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Building Insurance': {
-    purchaseType: PURCHASE_CATEGORY_INSURANCE,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Car Rental': {
-    transportationMode: TRANSPORTATION_MODE_CAR,
-    activityType: ACTIVITY_TYPE_TRANSPORTATION,
-  },
-  'Child Benefits': {
-    purchaseType: PURCHASE_CATEGORY_SOCIAL_PROTECTION,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Child Care & Tuition': null,
-  'Child Savings': {
-    purchaseType: PURCHASE_CATEGORY_FINANCIAL_SERVICES,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Cinema, Concerts & Entertainment': {
-    purchaseType: PURCHASE_CATEGORY_RECREATIONAL_SERVICES,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Clothing & Accessories': {
-    purchaseType: PURCHASE_CATEGORY_STORE_CLOTHING,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Consumer Loan': {
-    purchaseType: PURCHASE_CATEGORY_FINANCIAL_SERVICES,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Contents Insurance': {
-    purchaseType: PURCHASE_CATEGORY_INSURANCE,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Debt & Interest': {
-    purchaseType: PURCHASE_CATEGORY_FINANCIAL_SERVICES,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  Education: null,
-  'Electronics & Computer': {
-    purchaseType: PURCHASE_CATEGORY_INFORMATION_COMMUNICATION,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  Exclude: null,
-  'Fast Food & Takeaway': {
-    purchaseType: PURCHASE_CATEGORY_FOOD_SERVING_SERVICES,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  Fines: {
-    purchaseType: PURCHASE_CATEGORY_OTHER_SERVICES,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Flights & Hotels': {
-    purchaseType: PURCHASE_CATEGORY_TRANSPORT_AIR,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Food & Drinks': {
-    purchaseType: PURCHASE_CATEGORY_STORE_FOOD,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  Fuel: {
-    purchaseType: PURCHASE_CATEGORY_TRANSPORTATION_FUEL,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Furniture & Interior': {
-    purchaseType: PURCHASE_CATEGORY_STORE_FURNISHING,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Games & Toys': {
-    purchaseType: PURCHASE_CATEGORY_RECREATIONAL_DURABLES,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Garage & Auto Parts': {
-    purchaseType: PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_MAINTENANCE_AND_REPAIR,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Garden & Plants': {
-    purchaseType: PURCHASE_CATEGORY_STORE_GARDEN_AND_PET,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Gifts & Charity': null,
-  'Glasses & Contacts': {
-    purchaseType: PURCHASE_CATEGORY_MEDICINES_AND_HEALTH_PRODUCTS,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Hairdresser & Personal Care': {
-    purchaseType: PURCHASE_CATEGORY_STORE_PERSONAL_CARE,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Health Insurance': {
-    purchaseType: PURCHASE_CATEGORY_INSURANCE,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  Hide: null,
-  'Hobby & Sports Equipment': {
-    purchaseType: PURCHASE_CATEGORY_RECREATIONAL_DURABLES,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Holiday Pay': null,
-  Home: {
-    purchaseType: PURCHASE_CATEGORY_NON_DURABLE_HOUSEHOLD_GOODS,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Home Security': {
-    purchaseType: PURCHASE_CATEGORY_MAINTENANCE_DWELLING,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Homeowners Association': {
-    purchaseType: PURCHASE_CATEGORY_MISC_DWELLING,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  Household: {
-    purchaseType: PURCHASE_CATEGORY_NON_DURABLE_HOUSEHOLD_GOODS,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Housekeeping & Gardening': {
-    purchaseType: PURCHASE_CATEGORY_STORE_HARDWARE,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Housing Benefit': {
-    purchaseType: PURCHASE_CATEGORY_SOCIAL_PROTECTION,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  Income: null,
-  Interest: {
-    purchaseType: PURCHASE_CATEGORY_FINANCIAL_SERVICES,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Interest Income': {
-    purchaseType: PURCHASE_CATEGORY_FINANCIAL_SERVICES,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Late Fees': {
-    purchaseType: PURCHASE_CATEGORY_FINANCIAL_SERVICES,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  Leisure: {
-    purchaseType: PURCHASE_CATEGORY_RECREATIONAL_SERVICES,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Life & Accident Insurance': {
-    purchaseType: PURCHASE_CATEGORY_INSURANCE,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Meal Plan': {
-    purchaseType: PURCHASE_CATEGORY_STORE_FOOD,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Medical Specialists': {
-    purchaseType: PURCHASE_CATEGORY_HEALTHCARE_DOCTOR,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  Memberships: {
-    purchaseType: PURCHASE_CATEGORY_OTHER_SERVICES,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Mini-markets & Delicacies': {
-    purchaseType: PURCHASE_CATEGORY_READY_FOOD,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Mortgage/Rent': {
-    purchaseType: PURCHASE_CATEGORY_RENTAL,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Movies, Music & Books': {
-    purchaseType: PURCHASE_CATEGORY_STORE_BOOKS,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Online Services & Software': {
-    purchaseType: PURCHASE_CATEGORY_INFORMATION_COMMUNICATION,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  Other: null,
-  'Other Housing Expenses': {
-    purchaseType: PURCHASE_CATEGORY_NON_DURABLE_HOUSEHOLD_GOODS,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Other Income': null,
-  'Other Private Consumption': null,
-  'Other Savings': {
-    purchaseType: PURCHASE_CATEGORY_FINANCIAL_SERVICES,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Other Transport': {
-    purchaseType: PURCHASE_CATEGORY_COMBINED_PASSENGER_TRANSPORT,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Overpaid Tax': null,
-  Parking: {
-    purchaseType: PURCHASE_CATEGORY_MISC_SERVICES_PERSONAL_TRANSPORT,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Pension & Savings': {
-    purchaseType: PURCHASE_CATEGORY_FINANCIAL_SERVICES,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Pension Payout': {
-    purchaseType: PURCHASE_CATEGORY_FINANCIAL_SERVICES,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Pension Savings': {
-    purchaseType: PURCHASE_CATEGORY_FINANCIAL_SERVICES,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  Pets: {
-    purchaseType: PURCHASE_CATEGORY_STORE_GARDEN_AND_PET,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  Pharmacy: {
-    purchaseType: PURCHASE_CATEGORY_MEDICINES_AND_HEALTH_PRODUCTS,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Phone & Internet': {
-    purchaseType: PURCHASE_CATEGORY_INFORMATION_COMMUNICATION,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Private Loan (Friends & Family)': {
-    purchaseType: PURCHASE_CATEGORY_FINANCIAL_SERVICES,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Property Tax': {
-    purchaseType: PURCHASE_CATEGORY_OTHER_SERVICES,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Public Transport': {
-    purchaseType: PURCHASE_CATEGORY_COMBINED_PASSENGER_TRANSPORT,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Public fee': {
-    purchaseType: PURCHASE_CATEGORY_OTHER_SERVICES,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Remodeling & Repair': {
-    purchaseType: PURCHASE_CATEGORY_STORE_HARDWARE,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Road Tax & Green Tax': {
-    purchaseType: PURCHASE_CATEGORY_OTHER_SERVICES,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  Salary: null,
-  'Shared Expense': null,
-  'Sports & Leisure': {
-    purchaseType: PURCHASE_CATEGORY_RECREATIONAL_SERVICES,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Stock Trading': {
-    purchaseType: PURCHASE_CATEGORY_FINANCIAL_SERVICES,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Student Grant': {
-    purchaseType: PURCHASE_CATEGORY_FINANCIAL_SERVICES,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Student Loan': {
-    purchaseType: PURCHASE_CATEGORY_FINANCIAL_SERVICES,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  Supermarket: {
-    purchaseType: PURCHASE_CATEGORY_STORE_FOOD,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'TV license & Cable': {
-    purchaseType: PURCHASE_CATEGORY_INFORMATION_COMMUNICATION,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  Taxi: {
-    purchaseType: PURCHASE_CATEGORY_TRANSPORT_ROAD,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Tobacco & Alcohol': {
-    purchaseType: PURCHASE_CATEGORY_ALCOHOL,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  Transfer: {
-    purchaseType: PURCHASE_CATEGORY_FINANCIAL_SERVICES,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  Travel: {
-    purchaseType: PURCHASE_CATEGORY_OTHER_TRANSPORT_SERVICES,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Travel Insurance': {
-    purchaseType: PURCHASE_CATEGORY_INSURANCE,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  Tuition: {
-    purchaseType: PURCHASE_CATEGORY_OTHER_SERVICES,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Unemployment Benefits': {
-    purchaseType: PURCHASE_CATEGORY_SOCIAL_PROTECTION,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Union & Unemployment Insurance': {
-    purchaseType: PURCHASE_CATEGORY_INSURANCE,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  Unknown: null,
-  'Unpayed Tax': {
-    purchaseType: PURCHASE_CATEGORY_OTHER_SERVICES,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  Utilities: {
-    purchaseType: PURCHASE_CATEGORY_OTHER_ENERGY_HEATING_COOLING,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Vacation Activities': {
-    purchaseType: PURCHASE_CATEGORY_RECREATIONAL_SERVICES,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Vacation Home & Camping': {
-    purchaseType: PURCHASE_CATEGORY_RECREATIONAL_SERVICES,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Vacation Home Expenses': {
-    purchaseType: PURCHASE_CATEGORY_NON_DURABLE_HOUSEHOLD_GOODS,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
-  'Yield & Returns': {
-    purchaseType: PURCHASE_CATEGORY_FINANCIAL_SERVICES,
-    activityType: ACTIVITY_TYPE_PURCHASE,
-  },
+  'ATM & Checks': purchaseActivity(),
+  'Advisors & Services': purchaseActivity(PURCHASE_CATEGORY_OTHER_SERVICES),
+  'Alimony & Child Support': purchaseActivity(PURCHASE_CATEGORY_SOCIAL_PROTECTION),
+  'Auto & Transport': purchaseActivity(PURCHASE_CATEGORY_OTHER_SERVICES),
+  'Auto Insurance & Assistance': purchaseActivity(),
+  'Auto Loan etc.': purchaseActivity(),
+  Baby: purchaseActivity(PURCHASE_CATEGORY_OTHER_PERSONAL_EFFECTS),
+  'Bank Fees': purchaseActivity(PURCHASE_CATEGORY_FINANCIAL_SERVICES),
+  'Basic Expenses': purchaseActivity(PURCHASE_CATEGORY_FOOD),
+  Betting: purchaseActivity(PURCHASE_CATEGORY_OTHER_SERVICES),
+  'Building Insurance': purchaseActivity(),
+  'Car Rental': purchaseActivity(PURCHASE_CATEGORY_TRANSPORT_ROAD),
+  'Child Benefits': purchaseActivity(),
+  'Child Care & Tuition': purchaseActivity(),
+  'Child Savings': purchaseActivity(),
+  'Cinema, Concerts & Entertainment': purchaseActivity(PURCHASE_CATEGORY_RECREATIONAL_SERVICES),
+  'Clothing & Accessories': purchaseActivity(PURCHASE_CATEGORY_STORE_CLOTHING),
+  'Consumer Loan': purchaseActivity(),
+  'Contents Insurance': purchaseActivity(),
+  'Debt & Interest': purchaseActivity(),
+  Education: purchaseActivity(),
+  'Electronics & Computer': purchaseActivity(PURCHASE_CATEGORY_INFORMATION_COMMUNICATION),
+  Exclude: purchaseActivity(),
+  'Fast Food & Takeaway': purchaseActivity(PURCHASE_CATEGORY_FOOD_SERVING_SERVICES),
+  Fines: purchaseActivity(),
+  'Flights & Hotels': purchaseActivity(PURCHASE_CATEGORY_TRANSPORT_AIR),
+  'Food & Drinks': purchaseActivity(PURCHASE_CATEGORY_STORE_FOOD),
+  Fuel: purchaseActivity(PURCHASE_CATEGORY_TRANSPORTATION_FUEL),
+  'Furniture & Interior': purchaseActivity(PURCHASE_CATEGORY_STORE_FURNISHING),
+  'Games & Toys': purchaseActivity(PURCHASE_CATEGORY_RECREATIONAL_DURABLES),
+  'Garage & Auto Parts': purchaseActivity(
+    PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_MAINTENANCE_AND_REPAIR
+  ),
+  'Garden & Plants': purchaseActivity(PURCHASE_CATEGORY_STORE_GARDEN_AND_PET),
+  'Gifts & Charity': purchaseActivity(),
+  'Glasses & Contacts': purchaseActivity(PURCHASE_CATEGORY_MEDICINES_AND_HEALTH_PRODUCTS),
+  'Hairdresser & Personal Care': purchaseActivity(PURCHASE_CATEGORY_STORE_PERSONAL_CARE),
+  'Health Insurance': purchaseActivity(PURCHASE_CATEGORY_INSURANCE),
+  Hide: purchaseActivity(),
+  'Hobby & Sports Equipment': purchaseActivity(PURCHASE_CATEGORY_RECREATIONAL_DURABLES),
+  'Holiday Pay': purchaseActivity(),
+  Home: purchaseActivity(PURCHASE_CATEGORY_NON_DURABLE_HOUSEHOLD_GOODS),
+  'Home Security': purchaseActivity(PURCHASE_CATEGORY_MAINTENANCE_DWELLING),
+  'Homeowners Association': purchaseActivity(PURCHASE_CATEGORY_MISC_DWELLING),
+  Household: purchaseActivity(PURCHASE_CATEGORY_NON_DURABLE_HOUSEHOLD_GOODS),
+  'Housekeeping & Gardening': purchaseActivity(PURCHASE_CATEGORY_STORE_HARDWARE),
+  'Housing Benefit': purchaseActivity(),
+  Income: purchaseActivity(),
+  Interest: purchaseActivity(),
+  'Interest Income': purchaseActivity(),
+  'Late Fees': purchaseActivity(PURCHASE_CATEGORY_FINANCIAL_SERVICES),
+  Leisure: purchaseActivity(PURCHASE_CATEGORY_RECREATIONAL_SERVICES),
+  'Life & Accident Insurance': purchaseActivity(),
+  'Meal Plan': purchaseActivity(PURCHASE_CATEGORY_STORE_FOOD),
+  'Medical Specialists': purchaseActivity(PURCHASE_CATEGORY_HEALTHCARE_DOCTOR),
+  Memberships: purchaseActivity(PURCHASE_CATEGORY_OTHER_SERVICES),
+  'Mini-markets & Delicacies': purchaseActivity(PURCHASE_CATEGORY_READY_FOOD),
+  'Mortgage/Rent': purchaseActivity(PURCHASE_CATEGORY_RENTAL),
+  'Movies, Music & Books': purchaseActivity(PURCHASE_CATEGORY_STORE_BOOKS),
+  'Online Services & Software': purchaseActivity(PURCHASE_CATEGORY_INFORMATION_COMMUNICATION),
+  Other: purchaseActivity(),
+  'Other Housing Expenses': purchaseActivity(PURCHASE_CATEGORY_NON_DURABLE_HOUSEHOLD_GOODS),
+  'Other Income': purchaseActivity(),
+  'Other Private Consumption': purchaseActivity(),
+  'Other Savings': purchaseActivity(),
+  'Other Transport': purchaseActivity(PURCHASE_CATEGORY_COMBINED_PASSENGER_TRANSPORT),
+  'Overpaid Tax': purchaseActivity(),
+  Parking: purchaseActivity(PURCHASE_CATEGORY_MISC_SERVICES_PERSONAL_TRANSPORT),
+  'Pension & Savings': purchaseActivity(),
+  'Pension Payout': purchaseActivity(),
+  'Pension Savings': purchaseActivity(),
+  Pets: purchaseActivity(PURCHASE_CATEGORY_STORE_GARDEN_AND_PET),
+  Pharmacy: purchaseActivity(PURCHASE_CATEGORY_MEDICINES_AND_HEALTH_PRODUCTS),
+  'Phone & Internet': purchaseActivity(PURCHASE_CATEGORY_INFORMATION_COMMUNICATION),
+  'Private Loan (Friends & Family)': purchaseActivity(),
+  'Property Tax': purchaseActivity(),
+  'Public Transport': purchaseActivity(PURCHASE_CATEGORY_COMBINED_PASSENGER_TRANSPORT),
+  'Public fee': purchaseActivity(),
+  'Remodeling & Repair': purchaseActivity(PURCHASE_CATEGORY_STORE_HARDWARE),
+  'Road Tax & Green Tax': purchaseActivity(),
+  Salary: purchaseActivity(),
+  'Shared Expense': purchaseActivity(),
+  'Sports & Leisure': purchaseActivity(PURCHASE_CATEGORY_RECREATIONAL_SERVICES),
+  'Stock Trading': purchaseActivity(),
+  'Student Grant': purchaseActivity(),
+  'Student Loan': purchaseActivity(),
+  Supermarket: purchaseActivity(PURCHASE_CATEGORY_STORE_FOOD),
+  'TV license & Cable': purchaseActivity(PURCHASE_CATEGORY_INFORMATION_COMMUNICATION),
+  Taxi: purchaseActivity(PURCHASE_CATEGORY_TRANSPORT_ROAD),
+  'Tobacco & Alcohol': purchaseActivity(PURCHASE_CATEGORY_ALCOHOL),
+  Transfer: purchaseActivity(),
+  Travel: purchaseActivity(PURCHASE_CATEGORY_OTHER_TRANSPORT_SERVICES),
+  'Travel Insurance': purchaseActivity(),
+  Tuition: purchaseActivity(PURCHASE_CATEGORY_OTHER_SERVICES),
+  'Unemployment Benefits': purchaseActivity(),
+  'Union & Unemployment Insurance': purchaseActivity(),
+  Unknown: purchaseActivity(),
+  'Unpayed Tax': purchaseActivity(),
+  Utilities: purchaseActivity(PURCHASE_CATEGORY_ELECTRICITY),
+  'Vacation Activities': purchaseActivity(PURCHASE_CATEGORY_RECREATIONAL_SERVICES),
+  'Vacation Home & Camping': purchaseActivity(PURCHASE_CATEGORY_RECREATIONAL_SERVICES),
+  'Vacation Home Expenses': purchaseActivity(PURCHASE_CATEGORY_NON_DURABLE_HOUSEHOLD_GOODS),
+  'Yield & Returns': purchaseActivity(),
 };
