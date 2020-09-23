@@ -159,7 +159,15 @@ async function collect(state, logger) {
     locationLat,
   }));
 
-  return { activities, state: { ...state, lastCollect: new Date().toISOString() } };
+  return {
+    activities,
+    state: {
+      ...state,
+      lastCollect: moment()
+        .substract(5, 'days') // force refetch to update incomplete recent data.
+        .toISOString(),
+    },
+  };
 }
 async function disconnect() {
   // Here we should do any cleanup (deleting tokens etc..)
