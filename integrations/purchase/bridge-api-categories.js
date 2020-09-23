@@ -202,7 +202,8 @@ const idToCategory = {
 };
 
 export const BRIDGE_API_CATEGORIES = Object.fromEntries(
-  Object.entries(idToCategory).map(([id, purchaseType]) =>
-    purchaseType ? { purchaseType, activityType: ACTIVITY_TYPE_PURCHASE } : purchaseType
-  )
+  Object.entries(idToCategory).map(([id, purchaseType]) => [
+    id,
+    purchaseType ? { purchaseType, activityType: ACTIVITY_TYPE_PURCHASE } : purchaseType,
+  ])
 );

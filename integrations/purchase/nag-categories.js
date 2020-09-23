@@ -140,7 +140,8 @@ const categoryToCategory = {
 };
 
 export const NAG_CATEGORY = Object.fromEntries(
-  Object.entries(categoryToCategory).map(([id, purchaseType]) =>
-    purchaseType ? { purchaseType, activityType: ACTIVITY_TYPE_PURCHASE } : purchaseType
-  )
+  Object.entries(categoryToCategory).map(([id, purchaseType]) => [
+    id,
+    purchaseType ? { purchaseType, activityType: ACTIVITY_TYPE_PURCHASE } : purchaseType,
+  ])
 );
