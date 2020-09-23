@@ -34,6 +34,7 @@ import {
   PURCHASE_CATEGORY_ENTERTAINMENT_HOTEL,
   PURCHASE_CATEGORY_ENTERTAINMENT_CIGAR_STORES,
   PURCHASE_CATEGORY_PACKAGE_HOLIDAYS,
+  PURCHASE_CATEGORY_OTHER_SERVICES,
 } from '../../definitions';
 
 /*
@@ -102,29 +103,29 @@ const idToCategory = {
   218: PURCHASE_CATEGORY_GAS, // Gas
   217: PURCHASE_CATEGORY_ELECTRICITY, // Electricity
 
-  166: null, // - Business services
+  166: PURCHASE_CATEGORY_OTHER_SERVICES, // - Business services
   221: PURCHASE_CATEGORY_STORE_FURNISHING, // Office improvement
   220: PURCHASE_CATEGORY_NON_DURABLE_HOUSEHOLD_GOODS, // Offices - Others
   216: PURCHASE_CATEGORY_RENTAL, // Office Rent
-  441900: null, // Marketing
-  441899: null, // Legal Fees
+  441900: PURCHASE_CATEGORY_OTHER_SERVICES, // Marketing
+  441899: PURCHASE_CATEGORY_OTHER_SERVICES, // Legal Fees
   441898: null, // Training taxes
   441897: PURCHASE_CATEGORY_INSURANCE, // Disability Insurance
-  441896: null, // Outsourcing
-  441895: null, // Consulting
+  441896: PURCHASE_CATEGORY_OTHER_SERVICES, // Outsourcing
+  441895: PURCHASE_CATEGORY_OTHER_SERVICES, // Consulting
   441892: null, // Hiring fees
   441891: null, // Salary of executives
   441890: null, // Salaries
-  441889: null, // Accounting
+  441889: PURCHASE_CATEGORY_OTHER_SERVICES, // Accounting
   441886: null, // Employer contributions
   274: PURCHASE_CATEGORY_NON_DURABLE_HOUSEHOLD_GOODS, // Office supplies
   270: PURCHASE_CATEGORY_INFORMATION_COMMUNICATION, // Online services
-  265: null, // Business expenses
+  265: PURCHASE_CATEGORY_OTHER_SERVICES, // Business expenses
   205: null, // Printing
   204: null, // Shipping
-  203: null, // Office services
-  202: null, // Advertising
-  90: null, // General expenses - Others
+  203: PURCHASE_CATEGORY_OTHER_SERVICES, // Office services
+  202: PURCHASE_CATEGORY_OTHER_SERVICES, // Advertising
+  90: PURCHASE_CATEGORY_OTHER_SERVICES, // General expenses - Others
 
   164: null, // - Bank
   756587: null, // Payment incidents
