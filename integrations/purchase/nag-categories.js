@@ -139,8 +139,10 @@ const categoryToCategory = {
   'Yield & Returns': null,
 };
 
-export const NAG_CATEGORY = Object.fromEntries(
-  Object.entries(categoryToCategory).map(([id, purchaseType]) =>
-    purchaseType ? { purchaseType, activityType: ACTIVITY_TYPE_PURCHASE } : purchaseType
-  )
+export const NAG_CATEGORY = Object.entries(categoryToCategory).reduce(
+  (accumulator, [id, purchaseType]) => {
+    accumulator[id] = purchaseType ? { activityType: ACTIVITY_TYPE_PURCHASE, purchaseType } : null;
+    return accumulator;
+  },
+  {}
 );

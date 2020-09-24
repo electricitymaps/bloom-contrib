@@ -201,8 +201,10 @@ const idToCategory = {
   3: null, // Other incomes
 };
 
-export const BRIDGE_API_CATEGORIES = Object.fromEntries(
-  Object.entries(idToCategory).map(([id, purchaseType]) =>
-    purchaseType ? { purchaseType, activityType: ACTIVITY_TYPE_PURCHASE } : purchaseType
-  )
+export const BRIDGE_API_CATEGORIES = Object.entries(idToCategory).reduce(
+  (accumulator, [id, purchaseType]) => {
+    accumulator[id] = purchaseType ? { activityType: ACTIVITY_TYPE_PURCHASE, purchaseType } : null;
+    return accumulator;
+  },
+  {}
 );
