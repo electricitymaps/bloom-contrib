@@ -1,4 +1,4 @@
-# northapp-contrib [![Slack Status](http://slack.tmrow.com/badge.svg)](http://slack.tmrow.com) [![CircleCI](https://circleci.com/gh/tmrowco/northapp-contrib.svg?style=shield)](https://circleci.com/gh/tmrowco/northapp-contrib)
+# Northapp-Contribution [![Slack Status](http://slack.tmrow.com/badge.svg)](http://slack.tmrow.com) [![CircleCI](https://circleci.com/gh/tmrowco/northapp-contrib.svg?style=shield)](https://circleci.com/gh/tmrowco/northapp-contrib)
 
 Welcome to the open-source repository for the carbon models and integrations used at Tomorrow! 👋
 
