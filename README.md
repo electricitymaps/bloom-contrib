@@ -7,6 +7,7 @@ Welcome to the open-source repository for the carbon models and integrations use
 [Bloom](https://www.bloomclimate.com) is a SaaS that allow companies to become climate leaders, from calculating their climate impact to communicating about their climate efforts. It connects to as many data sources as possible to assess your carbon footprint and find mitigation opportunities.
 
 ## Tomorrow is hiring!
+
 Tomorrow, the organisation behind Bloom builds tech to empower organisations and individuals to understand and reduce their carbon footprint.
 
 We're often hiring great people to join our team in Copenhagen. Head over to [our jobs page](https://www.tmrow.com/jobs) if you want to help out!
@@ -20,6 +21,7 @@ We're often hiring great people to join our team in Copenhagen. Head over to [ou
 - `./definitions.js`: constant definitions
 
 ## How can I help?
+
 You can help by helping us find, add and improve our Life Cycle Assessment (LCA) data as well as our carbon models.
 
 ### Adding or updating Life Cycle Assessment / carbon footprint of purchases and activities
@@ -29,7 +31,7 @@ Our current models and Life Cycle Assessments (LCAs) that we use are accessible 
 If you want to add individual items or ingredients, this is done [here](https://github.com/tmrowco/northapp-contrib/blob/master/co2eq/purchase/footprints.yml). Ideally, the studies used should be as global as possible and it's even better if they're systemic reviews (multiple studies in one!).
 
 We also have open-sourced how we calculate the monetary emission factors used to compute the carbon footprint of a transactions.
-This can be found [here](https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase). 
+This can be found [here](https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase).
 
 #### Structure of a carbon model
 
@@ -73,20 +75,20 @@ export const modelVersion = '0';
 
 must be incremented.
 
-
-
 ### Integrations
 
-Our community has built integrations, that gather activities from a 3rd party datasource. 
+Our community has built integrations, that gather activities from a 3rd party datasource.
 All of them are used in the North app. Some of them may be used in Bloom.
 
 Here is the list of current 3rd party integrations:
 Official integrations:
+
 - ✈️ Tripit
 - ⚡ Barry
 - 🚗 Tesla Cockpit
 
 Community-supported integrations:
+
 - ✈️ Ryanair (contributor:[lauvrenn](https://github.com/lauvrenn))
 - ✈️ Wizzair (contributor:[lauvrenn](https://github.com/lauvrenn))
 - 🚂 Rejsekort
@@ -100,7 +102,6 @@ Community-supported integrations:
 - 🚗 Uber (contributor:[willtonkin](https://github.com/willtonkin))
 - 🚗 Automatic (contributor:[lauvrenn](https://github.com/lauvrenn))
 - 🚗 MinVolkswagen (contributor:[folkev0gn](https://github.com/folkev0gn))
-
 
 #### Coding or debugging an integration
 
@@ -138,6 +139,7 @@ As the methods are pure, and to avoid re-asking the user for credentials everyti
 Activities require a certain formatting:
 
 ##### Transportation activity formatting
+
 ```javascript
 {
   id, // a string that uniquely represents this activity
@@ -156,6 +158,7 @@ Activities require a certain formatting:
 ```
 
 ##### Lodging activity formatting
+
 ```javascript
 {
   id, // a string that uniquely represents this activity
@@ -172,6 +175,7 @@ Activities require a certain formatting:
 ```
 
 ##### Electricity consumption activity formatting
+
 ```javascript
 {
   id, // a string that uniquely represents this activity
@@ -186,6 +190,7 @@ Activities require a certain formatting:
 ```
 
 ##### Transaction activity formatting
+
 ```javascript
 {
   id, // a string that uniquely represents this activity
@@ -198,7 +203,9 @@ Activities require a certain formatting:
   bankIdentifier, // (required for integrations with banks) a string that uniquely represents the bank.
 }
 ```
+
 ##### Meal activity formatting
+
 ```javascript
 {
   id, // a string that uniquely represents this activity
