@@ -1967,6 +1967,17 @@ _children:
                 incrementStepSize: 1
                 source: https://www.yazio.com/de/kalorientabelle/aprikose-frisch.html
             displayName: Apricot
+          Avocados:
+            icon:
+            intensityKilograms: 1.3
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+            unit: kg
+            conversions:
+              item:
+                kilograms: 0.270
+                incrementStepSize: 1
+                source: https://www.yazio.com/en/foods/avocado.html
+            displayName: Avocados
           Bananas:
             icon:
             intensityKilograms: 0.72
@@ -3102,17 +3113,6 @@ _children:
             source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
             unit: kg
             displayName: Aspargus
-          Avocados:
-            icon:
-            intensityKilograms: 1.3
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversions:
-              item:
-                kilograms: 0.270
-                incrementStepSize: 1
-                source: https://www.yazio.com/en/foods/avocado.html
-            displayName: Avocados
           Basil (dried):
             icon:
             intensityKilograms: 2.495
