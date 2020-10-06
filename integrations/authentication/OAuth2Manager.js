@@ -96,8 +96,11 @@ export default class {
       client_id: this.clientId,
       code: authorizationCode,
       grant_type: 'authorization_code',
-      scope: this.scope,
     };
+    // The Linky API doesn't provide a scope and fails if it is added with value `undefined`
+    if (this.scope) {
+      formData.scope = this.scope;
+    }
 
     if (!omitRedirectUri) {
       formData.redirect_uri = getCallbackUrl();
