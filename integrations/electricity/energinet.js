@@ -164,7 +164,7 @@ async function collect(state, logger) {
     state: {
       ...state,
       lastCollect: moment()
-        .substract(5, 'days') // force refetch to update incomplete recent data.
+        .subtract(5, 'days') // force refetch to update incomplete recent data.
         .toISOString(),
     },
   };
