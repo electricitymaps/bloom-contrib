@@ -59,7 +59,6 @@ export function modelCanRun(activity) {
 export function carbonEmissions(activity) {
   // ...
   return co2eqEmission
-  }
 } // Computes the CO2 footprint of the activity
 ```
 
@@ -111,7 +110,7 @@ To make it easy for anyone to help out, a development playground is available:
 First, run `yarn` to install dependencies at the root of the repository.
 Next from the `playground` folder, run  `yarn serve` to start the playground and point your browser to [localhost:3000](http://localhost:3000) to get started.
 
-#### How to make an integration work
+#### How to make an integration
 
 To this end, 3 async methods need to be exported:
 
@@ -123,6 +122,7 @@ async function connect({ requestLogin, requestToken, requestWebView }, logger) {
 }
 async function collect(state = {}, logger) {
   // ...
+  logger.logDebug('Running integration..');
   return { activities, state: newState };
 }
 async function disconnect() {

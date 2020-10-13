@@ -33,7 +33,7 @@ import {
   PURCHASE_CATEGORY_TRANSPORT_ROAD,
   PURCHASE_CATEGORY_ALCOHOL,
   PURCHASE_CATEGORY_ELECTRICITY,
-} from '../../definitions';
+} from '../../../definitions';
 
 const categoryToCategory = {
   'ATM & Checks': null,

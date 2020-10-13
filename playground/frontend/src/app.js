@@ -112,7 +112,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h2>North App Playground</h2>
+          <h2>Integration Playground</h2>
           <p>
             status: <span id="connection-state">{connection}</span>
           </p>
