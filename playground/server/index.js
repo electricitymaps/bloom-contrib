@@ -1,5 +1,5 @@
 // Import all integrations that should/can be tested
-import sourceImplementations from '../../integrations/index';
+import sourceImplementations from '../../integrations';
 
 // Polyfill to mimic react-native environment
 global.fetch = require('node-fetch');

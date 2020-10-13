@@ -11,7 +11,7 @@ export default {
   energinet,
   linky,
   orsted,
-  'renault-zoe': renaultZoe,
+  renaultZoe,
   sense,
-  'tesla-cockpit': teslaCockpit,
+  teslaCockpit,
 };

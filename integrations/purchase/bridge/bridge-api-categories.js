@@ -35,7 +35,7 @@ import {
   PURCHASE_CATEGORY_ENTERTAINMENT_CIGAR_STORES,
   PURCHASE_CATEGORY_PACKAGE_HOLIDAYS,
   PURCHASE_CATEGORY_OTHER_SERVICES,
-} from '../../definitions';
+} from '../../../definitions';
 
 /*
  * Structure:
