@@ -1,1 +1,5 @@
-export { default as nordicApiGateway } from './nordic-api-gateway';
+import nag from './nordic-api-gateway';
+
+export default {
+  'nordic-api-gateway': nag,
+};

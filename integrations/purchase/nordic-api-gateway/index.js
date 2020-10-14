@@ -1,12 +1,12 @@
 import { v4 as uuid } from 'uuid';
 import request from 'superagent';
 
-import { ACTIVITY_TYPE_PURCHASE } from '../../definitions';
+import { ACTIVITY_TYPE_PURCHASE } from '../../../definitions';
 import { NAG_CATEGORY } from './nag-categories';
-import { HTTPError, AuthenticationError } from '../utils/errors';
+import { HTTPError, AuthenticationError } from '../../utils/errors';
 
-import env from '../loadEnv';
-import { getCallbackUrl } from '../utils/oauth';
+import env from '../../loadEnv';
+import { getCallbackUrl } from '../../utils/oauth';
 
 const baseUrl = 'https://api.nordicapigateway.com';
 const initializeUrl = `${baseUrl}/v1/authentication/initialize`;
