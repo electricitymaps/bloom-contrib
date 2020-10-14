@@ -51,14 +51,14 @@ async function getMeteringPoints(accessToken) {
     mRID: String # a use might have several meters associated with him
   }
 */
-async function getTimeSeries(accessToken, meterPointIds, lastCollect) {
+async function getTimeSeries(accessToken, meterPointIds, fromMoment) {
   const now = moment();
-  const dateFrom = lastCollect.clone();
+  const dateFrom = fromMoment.clone();
   // the Energinet returns bad request if dateFrom and dateTo are on same day
   if (dateFrom.isSameOrAfter(now, 'day')) {
     return [];
   }
-  const dateTo = moment.min(lastCollect.clone().add(14, 'days'), now);
+  const dateTo = moment.min(fromMoment.clone().add(14, 'days'), now);
   const url = TIME_SERIES_URL.replace('{dateFrom}', dateFrom.format(DATE_FORMAT))
     .replace('{dateTo}', dateTo.format(DATE_FORMAT))
     .replace('{aggregation}', AGGREGATION);
@@ -120,15 +120,18 @@ async function connect({ requestToken }, logger) {
   };
 }
 
-async function collect(state, logger) {
+async function collect(state = {}, logger) {
   const { authToken, locationLon, locationLat } = state;
   const accessToken = await getAccessToken(authToken);
   const { meterPointIds, meterPointAddresses } = await getMeteringPoints(accessToken);
 
-  // Fetch from last update. If not available, then fetch data from the last year.
-  const lastCollect = state.lastCollect ? moment(state.lastCollect) : moment().subtract(1, 'years');
+  // Fetch from last successful date. If not available, then fetch data from the last year.
+  const lastFullyCollectedMoment = state.lastFullyCollectedDay
+    ? moment(state.lastFullyCollectedDay)
+    : moment().subtract(1, 'years');
+  logger.logDebug(`Fetching from ${lastFullyCollectedMoment.toISOString()}`);
 
-  const timeSeries = await getTimeSeries(accessToken, meterPointIds, lastCollect);
+  const timeSeries = await getTimeSeries(accessToken, meterPointIds, lastFullyCollectedMoment);
   const activities = Object.entries(
     groupBy(timeSeries, dataPoint =>
       moment(dataPoint.datetime)
@@ -163,9 +166,9 @@ async function collect(state, logger) {
     activities,
     state: {
       ...state,
-      lastCollect: moment()
-        .substract(5, 'days') // force refetch to update incomplete recent data.
-        .toISOString(),
+      lastFullyCollectedDay: activities.length
+        ? activities[activities.length - 1].datetime.toISOString()
+        : state.lastFullyCollectedDay,
     },
   };
 }
