@@ -15,7 +15,8 @@ const AGGREGATION = 'Hour';
 const DATE_FORMAT = 'YYYY-MM-DD';
 
 async function getAccessToken(authToken) {
-  const res = await request.get(TOKEN_URL).set('Authorization', `Bearer ${authToken}`);
+  const res = await request.get(TOKEN_URL).set('Authorization', `Bearer ${'authToken'}`);
+
   if (!res.ok) {
     throw new HTTPError(res.text, res.status);
   }
@@ -25,6 +26,7 @@ async function getAccessToken(authToken) {
 
 async function getMeteringPoints(accessToken) {
   const res = await request.get(METER_POINTS_URL).set('Authorization', `Bearer ${accessToken}`);
+
   if (!res.ok) {
     throw new HTTPError(res.text, res.status);
   }
@@ -52,7 +54,7 @@ async function getMeteringPoints(accessToken) {
   }
 */
 async function getTimeSeries(accessToken, meterPointIds, fromMoment) {
-  const now = moment();
+  const now = moment().startOf('hour');
   const dateFrom = fromMoment.clone();
   // the Energinet returns bad request if dateFrom and dateTo are on same day
   if (dateFrom.isSameOrAfter(now, 'day')) {
@@ -62,11 +64,11 @@ async function getTimeSeries(accessToken, meterPointIds, fromMoment) {
   const url = TIME_SERIES_URL.replace('{dateFrom}', dateFrom.format(DATE_FORMAT))
     .replace('{dateTo}', dateTo.format(DATE_FORMAT))
     .replace('{aggregation}', AGGREGATION);
-  const bodyMeterPoints = {
+  const bodyMeterPoints = JSON.stringify({
     meteringPoints: {
       meteringPoint: meterPointIds,
     },
-  };
+  });
 
   const res = await request
     .post(url)
@@ -105,7 +107,13 @@ async function connect({ requestToken }, logger) {
   // Test of all requests used for collect
   const accessToken = await getAccessToken(token);
   const { meterPointIds, meterPointAddresses } = await getMeteringPoints(accessToken);
-  const timeSeries = await getTimeSeries(accessToken, meterPointIds, moment().subtract(3, 'days'));
+  const timeSeries = await getTimeSeries(
+    accessToken,
+    meterPointIds,
+    moment()
+      .subtract(3, 'days')
+      .startOf('day')
+  );
 
   // Take first meter point as reference for address
   let lonLat = [null, null];
