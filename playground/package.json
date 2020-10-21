@@ -26,7 +26,6 @@
     "@babel/preset-env": "^7.6.2",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
-    "babel-plugin-wildcard": "^5.0.0",
     "babel-watch": "^7.0.0",
     "css-loader": "^3.2.0",
     "file-loader": "^4.2.0",
