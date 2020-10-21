@@ -15,7 +15,7 @@ const AGGREGATION = 'Hour';
 const DATE_FORMAT = 'YYYY-MM-DD';
 
 async function getAccessToken(authToken) {
-  const res = await request.get(TOKEN_URL).set('Authorization', `Bearer ${'authToken'}`);
+  const res = await request.get(TOKEN_URL).set('Authorization', `Bearer ${authToken}`);
 
   if (!res.ok) {
     throw new HTTPError(res.text, res.status);

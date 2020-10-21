@@ -1,11 +1,6 @@
 import moment from 'moment';
 import energinet from '../energinet';
 
-const fromMoment = moment()
-  .subtract(3, 'days')
-  .startOf('day');
-const toMoment = moment().startOf('hour');
-
 const RESOURCES = {
   ACCESS_TOKEN: 'GET:/CustomerApi/api/Token',
   METERING_POINT: 'GET:/CustomerApi/api/MeteringPoints/MeteringPoints?includeAll=false',
@@ -386,6 +381,11 @@ const logger = {
 
 describe('connect', () => {
   test('with a valid token', async () => {
+    const fromMoment = moment()
+      .subtract(3, 'days')
+      .startOf('day');
+    const toMoment = moment().startOf('hour');
+
     mockPathToResult = {
       [RESOURCES.ACCESS_TOKEN]: [RESPONSE.ACCESS_TOKEN_API_RESPONSE],
       [RESOURCES.METERING_POINT]: [RESPONSE.METERING_POINT_API_RESPONSE],
