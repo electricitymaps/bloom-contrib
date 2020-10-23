@@ -1473,6 +1473,13 @@ _children:
         coicopCode: '09.4'
         year: 2011
         displayName: Recreational services
+        keywords:
+          - golf
+          - bowling
+          - tennis
+          - climbing
+          - pool
+          - skiing
       PACKAGE HOLIDAYS:
         icon: ship
         intensityKilograms:
@@ -1533,6 +1540,10 @@ _children:
         coicopCode: '09.8'
         year: 2011
         displayName: Package holidays
+        keywords:
+          - trip
+          - cruise
+          - resort
       ACCOMMODATION SERVICES:
         icon: credit-card
         intensityKilograms:
@@ -1593,6 +1604,17 @@ _children:
         coicopCode: '11.2'
         year: 2011
         displayName: Accommodation services
+        keywords:
+          - hotel
+          - airbnb
+          - hostel
+          - b&b
+          - bed and breakfast
+          - lodge
+          - inn
+          - campsite
+          - dwelling
+          - motel
       ALCOHOLIC BEVERAGES:
         icon: wine-bottle
         intensityKilograms:
@@ -1654,6 +1676,12 @@ _children:
         coicopCode: '02.1'
         year: 2011
         displayName: Alcoholic beverages
+        keywords:
+          - beer
+          - wine
+          - pastis
+          - vodka
+          - gin
       TOBACCO:
         icon: smoking
         intensityKilograms:
@@ -3540,6 +3568,13 @@ _children:
         coicopCode: '06.2'
         year: 2011
         displayName: Outpatient care services
+        keywords:
+          - ambulatory
+          - rehabilitation
+          - consultation
+          - lab test
+          - psychological
+          - therapy
       MEDICINES AND HEALTH PRODUCTS:
         icon: pills
         intensityKilograms:
@@ -3600,6 +3635,12 @@ _children:
         coicopCode: '06.1'
         year: 2011
         displayName: Medicines and health products
+        keywords:
+          - pharmacy
+          - care
+          - medication
+          - drugstore
+          - apothecary
     displayName: Healthcare
   Stores:
     _children:
@@ -3663,6 +3704,10 @@ _children:
         coicopCode: 01.1.1
         year: 2011
         displayName: Cereals and cereal products
+        keywords:
+          - wheat
+          - rice
+          - oat
       PERSONAL CARE:
         icon: cut
         intensityKilograms:
@@ -3723,6 +3768,11 @@ _children:
         coicopCode: '13.1'
         year: 2011
         displayName: Personal care
+        keywords:
+          - razor
+          - comb
+          - dental
+          - hygiene
       NEWSPAPERS, BOOKS AND STATIONERY:
         icon: books
         intensityKilograms:
@@ -3783,6 +3833,15 @@ _children:
         coicopCode: '09.7'
         year: 2011
         displayName: Newspapers, books and stationery
+        keywords:
+          - magazine
+          - periodical
+          - text
+          - drawing
+          - tapes
+          - drive
+          - multimedia
+          - guide
       CLOTHING:
         icon: tshirt
         intensityKilograms:
@@ -3844,6 +3903,15 @@ _children:
         coicopCode: '03.1'
         year: 2011
         displayName: Clothing
+        keywords:
+          - garment
+          - footwear
+          - accessories
+          - fashion
+          - retail
+          - apparel
+          - fabrics
+          - tailor
       Information and communication equipment:
         icon: laptop
         intensityKilograms:
@@ -3904,6 +3972,26 @@ _children:
         coicopCode: '08.1'
         year: 2011
         displayName: Information and communication equipment
+        keywords:
+          - computer
+          - electronics
+          - cables
+          - tv
+          - hardware
+          - telephone
+          - radio
+          - speaker
+          - mobile
+          - smartphone
+          - printer
+          - copyer
+          - scanner
+          - modem
+          - router
+          - monitor
+          - projector
+          - keyboard
+          - tablet
       Furniture, furnishings and loose carpets (D):
         icon: credit-card
         intensityKilograms:
@@ -3964,6 +4052,21 @@ _children:
         coicopCode: 05.1.1
         year: 2011
         displayName: Furniture, furnishings and loose carpets
+        keywords:
+          - sofa
+          - couch
+          - chair
+          - drawer
+          - shelf
+          - stand
+          - bed
+          - table
+          - cupboard
+          - camping
+          - artwork
+          - statue
+          - sculpture
+          - porcelain
       FOOD AND NON-ALCOHOLIC BEVERAGES:
         icon: shopping-cart
         intensityKilograms:
@@ -4196,6 +4299,10 @@ _children:
                   WM: 2.584798206095876
                   ZA: 1.6191725458493484
                 displayName: Milk, other dairy products and eggs
+                keywords:
+                  - cheese
+                  - butter
+                  - cream
               Oils and fats (ND):
                 coicopCode: 01.1.5
                 year: 2011
@@ -4647,6 +4754,16 @@ _children:
         coicopCode: '05.5'
         year: 2011
         displayName: Tools and equipment for house and garden
+        keywords:
+          - diy
+          - construction
+          - hardware
+          - lawn
+          - utensils
+          - paint
+          - building
+          - plumbing
+          - tool
       Furnishings, loose carpets and rugs (D):
         icon: couch
         intensityKilograms:
@@ -4707,6 +4824,12 @@ _children:
         coicopCode: 05.1.1.4
         year: 2011
         displayName: Furnishings, loose carpets and rugs
+        keywords:
+          - clock
+          - artwork
+          - statue
+          - sculpture
+          - porcelain
       HOUSEHOLD APPLIANCES:
         icon: blender
         intensityKilograms:
@@ -4767,6 +4890,22 @@ _children:
         coicopCode: '05.3'
         year: 2011
         displayName: Household appliances
+        keywords:
+          - fridge
+          - refrigerator
+          - dishwasher
+          - panel
+          - oven
+          - cooker
+          - microwave
+          - washing
+          - machine
+          - dryer
+          - vacuum
+          - air-conditioner
+          - ac
+          - heater
+          - radiator
       GARDEN PRODUCTS AND PETS:
         icon: seedling
         intensityKilograms:
@@ -4829,6 +4968,13 @@ _children:
         coicopCode: '09.3'
         year: 2011
         displayName: Garden products and pets
+        keywords:
+          - soil
+          - ornament
+          - flower
+          - plant
+          - pot
+          - tree
     displayName: Stores
   Fuels and lubricants for personal transport equipment (ND):
     _children:
@@ -4989,6 +5135,9 @@ _children:
           WM: 0.9834796551204319
           ZA: 5.003082036520036
         displayName: Footwear
+        keywords:
+          - shoe
+          - sneaker
     displayName: Clothing and footwear
   HOUSING, WATER, ELECTRICITY, GAS AND OTHER FUELS:
     _children:
@@ -5160,6 +5309,16 @@ _children:
           WM: 2.345575427724313
           ZA: 2.978342773344058
         displayName: Maintenance, repair and security of the dwelling
+        keywords:
+          - refurbish
+          - material
+          - decoration
+          - paint
+          - door
+          - fire
+          - plumbing
+          - plaster
+          - detector
       WATER SUPPLY AND MISCELLANEOUS SERVICES RELATING TO THE DWELLING:
         coicopCode: '04.4'
         year: 2011
@@ -5560,6 +5719,8 @@ _children:
               ZA: 1.206156079478417
             displayName: Repair, installation and hire of furniture, furnishings and
               loose carpets
+            keywords:
+              - restoration
         displayName: Furniture, furnishings, and loose carpets
       HOUSEHOLD TEXTILES:
         coicopCode: '05.2'
@@ -5617,6 +5778,18 @@ _children:
           WM: 1.1178986891609513
           ZA: 5.563781733172359
         displayName: Household textiles
+        keywords:
+          - fabric
+          - curtain
+          - bedding
+          - hammock
+          - linen
+          - sheet
+          - blanket
+          - plaid
+          - bag
+          - mat
+          - home
       GLASSWARE, TABLEWARE AND HOUSEHOLD UTENSILS:
         coicopCode: '05.4'
         year: 2011
@@ -5673,6 +5846,9 @@ _children:
           WM: 3.1134126618679163
           ZA: 4.583158027166673
         displayName: Glassware, tableware and household utensils
+        keywords:
+          - cutlery
+          - pan
       GOODS AND SERVICES FOR ROUTINE HOUSEHOLD MAINTENANCE:
         _children:
           Non-durable household goods (ND):
@@ -5731,6 +5907,14 @@ _children:
               WM: 2.2249220190723413
               ZA: 5.362984598238365
             displayName: Non-durable household goods
+            keywords:
+              - cleaning
+              - detergent
+              - cleanser
+              - disinfectant
+              - bleach
+              - disposable
+              - chemical
           Domestic services and household services (S):
             coicopCode: 05.6.2
             year: 2011
@@ -5787,6 +5971,17 @@ _children:
               WM: 0.6129236529946916
               ZA: 0.8345173072377863
             displayName: Domestic services and household services
+            keywords:
+              - cook
+              - butler
+              - maid
+              - cleaner
+              - gardener
+              - babysittig
+              - dry-cleaning
+              - pest
+              - fumigation
+              - laundering
         displayName: Goods and services for routine household maintenance
     displayName: Furnishings, household equipment and routine household maintenance
   HEALTH:
@@ -5847,6 +6042,11 @@ _children:
           WM: 0.5789407333691907
           ZA: 0.5626692859782424
         displayName: Inpatient care services
+        keywords:
+          - treatment
+          - hospital
+          - medical
+          - health
     displayName: Health
   TRANSPORT:
     _children:
@@ -5906,6 +6106,11 @@ _children:
           WM: 0.7619484069170387
           ZA: 1.5214888293712263
         displayName: Purchase of vehicles
+        keywords:
+          - car
+          - bike
+          - scooter
+          - dealer
       OPERATION OF PERSONAL TRANSPORT EQUIPMENT:
         _children:
           Other services in respect of personal transport equipment (S):
@@ -5964,6 +6169,12 @@ _children:
               WM: 0.6953733434843732
               ZA: 0.805322125077863
             displayName: Other services in respect of personal transport equipment
+            keywords:
+              - garage
+              - parking
+              - permit
+              - toll
+              - driving
         displayName: Operation of personal transport equipment
       PASSENGER TRANSPORT SERVICES:
         _children:
@@ -6023,6 +6234,11 @@ _children:
               WM: 0.7120818294124031
               ZA: 0.22043272641899714
             displayName: Passenger transport by railway
+            keywords:
+              - train
+              - metro
+              - underground
+              - tram
           Passenger transport by road (S):
             coicopCode: 07.3.2
             year: 2011
@@ -6079,6 +6295,14 @@ _children:
               WM: 0.5900063059961445
               ZA: 0.3873130910882631
             displayName: Passenger transport by road
+            keywords:
+              - bus
+              - coach
+              - car
+              - taxi
+              - driver
+              - auto
+              - moto
           Passenger transport by air (S):
             coicopCode: 07.3.3
             year: 2011
@@ -6135,6 +6359,9 @@ _children:
               WM: 3.1270321193427693
               ZA: 3.1806258132953453
             displayName: Passenger transport by air
+            keywords:
+              - flight
+              - plane
           Passenger transport by sea and inland waterway (S):
             coicopCode: 07.3.4
             year: 2011
@@ -6191,6 +6418,10 @@ _children:
               WM: 2.080746791517273
               ZA: 0.9637843911205218
             displayName: Passenger transport by sea and inland waterway
+            keywords:
+              - ship
+              - boat
+              - ferry
           Combined passenger transport (S):
             coicopCode: 07.3.5
             year: 2011
@@ -6303,6 +6534,10 @@ _children:
               WM: 0.6491589211543322
               ZA: 0.594045690074334
             displayName: Other purchased transport services
+            keywords:
+              - funicular
+              - elevator
+              - bridge
         displayName: Passenger transport services
     displayName: Transport
   INFORMATION AND COMMUNICATION:
@@ -6361,6 +6596,27 @@ _children:
       WM: 0.6399868954626976
       ZA: 0.621587984068687
     displayName: Information and communication
+    keywords:
+      - software
+      - video
+      - game
+      - telephone
+      - radio
+      - tv
+      - streaming
+      - cloud
+      - compute
+      - music
+      - film
+      - peripheral
+      - recording
+      - application
+      - operating system
+      - programming
+      - package
+      - online
+      - saas
+      - subscription
   RECREATION, SPORT AND CULTURE:
     _children:
       RECREATIONAL DURABLES:
@@ -6419,6 +6675,16 @@ _children:
           WM: 1.1452333275065105
           ZA: 0.756769727362514
         displayName: Recreational durables
+        keywords:
+          - camera
+          - microphone
+          - film
+          - screen
+          - golf cart
+          - kayak
+          - bicycle
+          - yacht
+          - sailing
     displayName: Recreation, sport and culture
   RESTAURANTS AND ACCOMMODATION SERVICES:
     _children:
@@ -6478,6 +6744,13 @@ _children:
           WM: 0.8850067511928775
           ZA: 0.4066581331517043
         displayName: Food and beverage serving services
+        keywords:
+          - restaurant
+          - cafe
+          - canteen
+          - cafeteria
+          - eating
+          - deli
     displayName: Restaurants and accommodation services
   INSURANCE AND FINANCIAL SERVICES:
     _children:
@@ -6593,6 +6866,9 @@ _children:
           WM: 4.960903034487888
           ZA: 1.794318124451391
         displayName: Financial services
+        keywords:
+          - bank
+          - fee
     displayName: Insurance and financial services
   PERSONAL CARE, SOCIAL PROTECTION AND MISCELLANEOUS GOODS AND SERVICES:
     _children:
@@ -6823,4 +7099,17 @@ _children:
           WM: 0.5816901232229408
           ZA: 0.2601298382933392
         displayName: Other services
+        keywords:
+          - legal
+          - lawyer
+          - agency
+          - accountant
+          - notary
+          - fees
+          - private detective
+          - prostitution
+          - bodyguard
+          - administration
+          - photocopies
+          - intermediaries
     displayName: Personal care, social protection and miscellaneous goods and services
