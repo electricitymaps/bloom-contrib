@@ -1,7 +1,7 @@
 import moment from 'moment';
 import energinet from '../energinet';
 
-const setDate = (timestamp) => {
+const setDate = timestamp => {
   global.Date.now = jest.fn(() => new Date(timestamp).getTime());
 };
 
@@ -278,7 +278,7 @@ let mockPathToResult = {};
  * like fetch-mock. Here we mock the node https module used by Superagent internally.
  */
 jest.mock('https', () => ({
-  request: jest.fn((options) => {
+  request: jest.fn(options => {
     const { path, method } = options;
     const mockPathKey = `${method}:${path}`;
     const results = mockPathToResult[mockPathKey];
@@ -313,7 +313,7 @@ jest.mock('https', () => ({
       on: jest.fn((event, callback) => {
         setupCallbacks(event, callback);
       }),
-      getHeader: (header) => headers[header.toLowerCase()],
+      getHeader: header => headers[header.toLowerCase()],
       end: jest.fn(() => {
         const { error, response } = results.shift();
         if (error) {
@@ -339,7 +339,7 @@ beforeEach(() => {
 
 afterEach(() => {
   // Check for unmatched mocks
-  Object.keys(mockPathToResult).forEach((mockPath) => {
+  Object.keys(mockPathToResult).forEach(mockPath => {
     const result = mockPathToResult[mockPath];
     if (result.length > 0) {
       throw new Error(`Found ${result.length} unmatched mock path result(s) for ${mockPath}`);
@@ -347,7 +347,7 @@ afterEach(() => {
   });
 });
 
-const mockSuccessJSONResponse = (body) => ({
+const mockSuccessJSONResponse = body => ({
   error: undefined,
   response: {
     aborted: false,
@@ -386,7 +386,9 @@ const logger = {
 describe('connect', () => {
   test('with a valid token', async () => {
     setDate('2020-10-11T22:00:00Z');
-    const fromMoment = moment().subtract(3, 'days').startOf('day');
+    const fromMoment = moment()
+      .subtract(3, 'days')
+      .startOf('day');
     const toMoment = moment().startOf('hour');
 
     mockPathToResult = {
@@ -436,7 +438,9 @@ describe('collect', () => {
     expect(activities).toEqual([SAMPLE_ACTIVITY]);
     expect(state).toEqual({
       ...AUTH,
-      lastFullyCollectedDay: moment(LAST_FULLY_COLLECTED_DAY).add(1, 'days').toISOString(),
+      lastFullyCollectedDay: moment(LAST_FULLY_COLLECTED_DAY)
+        .add(1, 'days')
+        .toISOString(),
     });
   });
 });
