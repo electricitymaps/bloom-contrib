@@ -1,6 +1,10 @@
 import moment from 'moment';
 import energinet from '../energinet';
 
+const setDate = timestamp => {
+  global.Date.now = jest.fn(() => new Date(timestamp).getTime());
+};
+
 const RESOURCES = {
   ACCESS_TOKEN: 'GET:/CustomerApi/api/Token',
   METERING_POINT: 'GET:/CustomerApi/api/MeteringPoints/MeteringPoints?includeAll=false',
@@ -381,6 +385,7 @@ const logger = {
 
 describe('connect', () => {
   test('with a valid token', async () => {
+    setDate('2020-10-11T22:00:00Z');
     const fromMoment = moment()
       .subtract(3, 'days')
       .startOf('day');
@@ -413,6 +418,7 @@ describe('connect', () => {
 
 describe('collect', () => {
   test('verify correct creation of sample activity', async () => {
+    setDate('2020-10-11T22:00:00Z');
     const toDate = moment.min(moment(FROM_DATE).add(14, 'days'), moment());
     mockPathToResult = {
       [RESOURCES.ACCESS_TOKEN]: [RESPONSE.ACCESS_TOKEN_API_RESPONSE],
