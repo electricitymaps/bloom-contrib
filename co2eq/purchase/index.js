@@ -107,7 +107,9 @@ export function modelCanRun(activity) {
       }
     }
   }
-  if (activityType === ACTIVITY_TYPE_PURCHASE && lineItems && lineItems.length) {
+  const hasLineItems = lineItems && lineItems.length > 0;
+  const hasIdentifiers = lineItems && lineItems.every(item => item.identifier);
+  if (activityType === ACTIVITY_TYPE_PURCHASE && hasLineItems && hasIdentifiers) {
     return true;
   }
 
