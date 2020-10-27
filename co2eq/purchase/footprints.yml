@@ -3842,6 +3842,10 @@ _children:
           - drive
           - multimedia
           - guide
+          - paper
+          - pens
+          - office supplies
+          - postit
       CLOTHING:
         icon: tshirt
         intensityKilograms:
@@ -3992,6 +3996,7 @@ _children:
           - projector
           - keyboard
           - tablet
+          - phone
       Furniture, furnishings and loose carpets (D):
         icon: credit-card
         intensityKilograms:
@@ -4053,6 +4058,8 @@ _children:
         year: 2011
         displayName: Furniture, furnishings and loose carpets
         keywords:
+          - office furniture
+          - desk
           - sofa
           - couch
           - chair
@@ -5197,6 +5204,11 @@ _children:
           WM: 0.4284458202413502
           ZA: 0.27258596954249964
         displayName: Actual rentals for housing
+        keywords:
+          - rent
+          - office space
+          - office
+          - building
       IMPUTED RENTALS FOR HOUSING:
         coicopCode: '04.2'
         year: 2011
@@ -5982,6 +5994,7 @@ _children:
               - pest
               - fumigation
               - laundering
+              - laundry
         displayName: Goods and services for routine household maintenance
     displayName: Furnishings, household equipment and routine household maintenance
   HEALTH:
@@ -6303,6 +6316,7 @@ _children:
               - driver
               - auto
               - moto
+              - ridesharing
           Passenger transport by air (S):
             coicopCode: 07.3.3
             year: 2011
@@ -6605,6 +6619,10 @@ _children:
       - tv
       - streaming
       - cloud
+      - computing
+      - hosting
+      - app
+      - plugin
       - compute
       - music
       - film
@@ -6751,6 +6769,10 @@ _children:
           - cafeteria
           - eating
           - deli
+          - lunch
+          - dinner
+          - meal
+          - breakfast
     displayName: Restaurants and accommodation services
   INSURANCE AND FINANCIAL SERVICES:
     _children:
@@ -7112,4 +7134,14 @@ _children:
           - administration
           - photocopies
           - intermediaries
+          - consultant
+          - freelancer
+          - upwork
+          - fiverr
+          - ads
+          - advertising
+          - advertisement
+          - job posts
+          - recruiter
+          - recruitment agency
     displayName: Personal care, social protection and miscellaneous goods and services
