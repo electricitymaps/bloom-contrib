@@ -211,7 +211,7 @@ export const BRIDGE_API_CATEGORIES = Object.entries(idToCategory).reduce(
 
 // Deliberately want activities that match the following
 // To be created with the ignored=true value
-export const BRIDGE_API_CATEGORIES_ID_TO_IGNORE = [
+export const CATEGORIES_TO_IGNORE = [
   230, // Salaries
   80, // Interest incomes
   3, // Other incomes

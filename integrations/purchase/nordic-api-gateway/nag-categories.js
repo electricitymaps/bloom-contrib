@@ -150,7 +150,7 @@ export const NAG_CATEGORY = Object.entries(categoryToCategory).reduce(
 
 // Deliberately want activities that match the following
 // To be created with the ignored=true value
-export const NAG_CATEGORY_TO_IGNORE = [
+export const CATEGORIES_TO_IGNORE = [
   'Auto Loan etc.',
   'Child Benefits',
   'Child Care & Tuition',
