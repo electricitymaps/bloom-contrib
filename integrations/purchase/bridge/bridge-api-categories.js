@@ -208,3 +208,38 @@ export const BRIDGE_API_CATEGORIES = Object.entries(idToCategory).reduce(
   },
   {}
 );
+
+// Deliberately want activities that match the following
+// To be created with the ignored=true value
+export const CATEGORIES_TO_IGNORE = [
+  230, // Salaries
+  80, // Interest incomes
+  3, // Other incomes
+  289, // Savings
+  283, // Business refunds
+  282, // Internal transfer
+  279, // Retirement
+  271, // Deposit
+  233, // Extra incomes
+  2, // - Incomes
+  441894, // Loans
+  441893, // Grants
+  327, // Pension
+  89, // Mortgage refund
+  194, // Mortgage
+  192, // Savings
+  441891, // Salary of executives
+  441890, // Salaries
+  441886, // Employer contributions
+  303, // - Withdrawals, checks & transfer
+  326, // Internal transfer
+  88, // Checks
+  85, // Withdrawals
+  78, // Transfer
+  159, // - Taxes
+  302, // Taxes
+  209, // Property taxes
+  208, // Income taxes
+  207, // Taxes
+  206, // Taxes - Others
+];
