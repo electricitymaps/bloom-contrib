@@ -103,12 +103,12 @@ Community-supported integrations:
 
 #### Coding or debugging an integration
 
-If you want to work on or debug an integration, you may be able to find integration suggestions and bugs in [the issues](https://github.com/tmrowco/northapp-contrib/issues).
+If you want to work on or debug an integration, you may be able to find integration suggestions and bugs in [the issues](https://github.com/tmrowco/bloom-contrib/issues).
 
 To make it easy for anyone to help out, a development playground is available:
 
 First, run `yarn` to install dependencies at the root of the repository.
-Next from the `playground` folder, run  `yarn serve` to start the playground and point your browser to [localhost:3000](http://localhost:3000) to get started.
+Next from the `playground` folder, run  `yarn serve` to start the playground and point your browser to [localhost:3000](http://localhost:8000) to get started.
 
 #### How to make an integration
 

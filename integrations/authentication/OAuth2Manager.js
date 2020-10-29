@@ -70,7 +70,7 @@ export default class {
     // Step 1 - user authorizes app
     // "Automatic's" API doesn't accept the function's URL-encoded colons, hence scope attached separately
     const requestURLParamObj = {
-      client_id: this.clientId,
+      client_id: encodeURIComponent(this.clientId),
       response_type: 'code',
       ...this.state.authorizeExtraParams,
     };
@@ -92,8 +92,8 @@ export default class {
 
     // Step 2 - Obtain an access token
     const formData = {
-      client_secret: this.clientSecret,
-      client_id: this.clientId,
+      client_secret: encodeURIComponent(this.clientSecret),
+      client_id: encodeURIComponent(this.clientId),
       code: authorizationCode,
       grant_type: 'authorization_code',
     };
@@ -116,7 +116,7 @@ export default class {
 
     if (response.status === 401 || response.status === 403) {
       throw new AuthenticationError(
-        'OAuth authority unable to authenticate user with fresh auth code, suggest re-authorizing.'
+        `OAuth authority unable to authenticate user with fresh auth code, suggest re-authorizing. More info: ${response.headers.get('www-authenticate')}`
       );
     }
 
