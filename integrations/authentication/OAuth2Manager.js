@@ -116,7 +116,9 @@ export default class {
 
     if (response.status === 401 || response.status === 403) {
       throw new AuthenticationError(
-        `OAuth authority unable to authenticate user with fresh auth code, suggest re-authorizing. More info: ${response.headers.get('www-authenticate')}`
+        `OAuth authority unable to authenticate user with fresh auth code, suggest re-authorizing. More info: ${response.headers.get(
+          'www-authenticate'
+        )}`
       );
     }
 
