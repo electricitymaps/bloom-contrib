@@ -5153,6 +5153,7 @@ _children:
         year: 2011
         unit: EUR
         source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+        icon: home
         intensityKilograms:
           AT: 0.14087843881478576
           AU: 0.07724554347685257
@@ -6558,6 +6559,7 @@ _children:
     coicopCode: '08'
     year: 2011
     unit: EUR
+    icon: laptop
     source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
     intensityKilograms:
       AT: 0.16165337175967465
