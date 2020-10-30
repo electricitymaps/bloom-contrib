@@ -53,7 +53,7 @@ async function getMeteringPoints(accessToken) {
     mRID: String # a use might have several meters associated with him
   }
 */
-async function getTimeSeries(accessToken, meterPointIds, fromMoment) {
+async function getTimeSeries(accessToken, meterPointIds, fromMoment, logger) {
   const now = moment().startOf('hour');
   const dateFrom = fromMoment.clone();
   // the Energinet returns bad request if dateFrom and dateTo are on same day
@@ -64,6 +64,7 @@ async function getTimeSeries(accessToken, meterPointIds, fromMoment) {
   const url = TIME_SERIES_URL.replace('{dateFrom}', dateFrom.format(DATE_FORMAT))
     .replace('{dateTo}', dateTo.format(DATE_FORMAT))
     .replace('{aggregation}', AGGREGATION);
+  logger.logDebug(`Querying ${url}..`);
   const bodyMeterPoints = JSON.stringify({
     meteringPoints: {
       meteringPoint: meterPointIds,
@@ -98,7 +99,7 @@ async function getTimeSeries(accessToken, meterPointIds, fromMoment) {
     })
   );
 
-  return timeSeries.concat(await getTimeSeries(accessToken, meterPointIds, dateTo));
+  return timeSeries.concat(await getTimeSeries(accessToken, meterPointIds, dateTo, logger));
 }
 
 async function connect({ requestToken }, logger) {
@@ -112,7 +113,8 @@ async function connect({ requestToken }, logger) {
     meterPointIds,
     moment()
       .subtract(3, 'days')
-      .startOf('day')
+      .startOf('day'),
+    logger
   );
 
   // Take first meter point as reference for address
@@ -139,7 +141,12 @@ async function collect(state = {}, logger) {
     : moment().subtract(1, 'years');
   logger.logDebug(`Fetching from ${lastFullyCollectedMoment.toISOString()}`);
 
-  const timeSeries = await getTimeSeries(accessToken, meterPointIds, lastFullyCollectedMoment);
+  const timeSeries = await getTimeSeries(
+    accessToken,
+    meterPointIds,
+    lastFullyCollectedMoment,
+    logger
+  );
   const activities = Object.entries(
     groupBy(timeSeries, dataPoint =>
       moment(dataPoint.datetime)
