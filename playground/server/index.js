@@ -124,13 +124,13 @@ io.on('connection', socket => {
   });
 });
 
-app.get('/oauth_callback', (req, res) => {
+app.get('/auth-callback', (req, res) => {
   // Fulfill promise and make sure client closes the window
   resolveWebView(req.query);
   res.send('<script type="text/javascript">window.close()</script>');
 });
 app.use(express.static('./public'));
 
-server.listen(3000, () => {
-  console.log('Listening on *:3000');
+server.listen(8000, () => {
+  console.log('Listening on *:8000');
 });
