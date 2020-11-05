@@ -1,3 +1,3 @@
-const { env } = process;
+const { env } = process || {};
 
 export default env;
