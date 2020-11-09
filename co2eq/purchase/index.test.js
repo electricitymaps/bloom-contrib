@@ -18,7 +18,7 @@ import {
   TRANSPORTATION_MODE_PLANE,
 } from '../../definitions';
 import { getDescendants, getRootEntry, modelCanRun, carbonEmissions } from './index';
-import * as mealCarbonModel from '../meal';
+import * as mealCarbonModel from '../food/meal';
 import * as transportCarbonModel from '../transportation';
 import { getAvailableCurrencies } from '../../integrations/utils/currency/currency';
 import exchangeRates2011 from './exchange_rates_2011.json';
