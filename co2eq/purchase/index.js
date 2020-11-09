@@ -270,7 +270,6 @@ export function carbonEmissionOfLineItem(lineItem, countryCodeISO2, datetime) {
 */
 export function carbonEmissions(activity) {
   let footprint;
-  // const eurAmount = extractEur(activity);
 
   switch (activity.activityType) {
     case ACTIVITY_TYPE_MEAL:

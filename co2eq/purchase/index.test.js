@@ -18,6 +18,8 @@ import {
   TRANSPORTATION_MODE_PLANE,
 } from '../../definitions';
 import { getDescendants, getRootEntry, modelCanRun, carbonEmissions } from './index';
+import * as mealCarbonModel from '../meal';
+import * as transportCarbonModel from '../transportation';
 import { getAvailableCurrencies } from '../../integrations/utils/currency/currency';
 import exchangeRates2011 from './exchange_rates_2011.json';
 
@@ -177,8 +179,9 @@ test(`test equivalence of purchase and activityType=ACTIVITY_TYPE_MEAL`, () => {
     costCurrency: UNIT_MONETARY_EUR,
     costAmount: 10,
   };
+  expect(modelCanRun(activity)).toBeTruthy();
   expect(carbonEmissions(activity)).toBeCloseTo(
-    carbonEmissions({ ...activity, activityType: ACTIVITY_TYPE_MEAL })
+    mealCarbonModel.carbonEmissions({ ...activity, activityType: ACTIVITY_TYPE_MEAL })
   );
 });
 const TRANSPORTATION_MODE_TO_PURCHASE_IDENTIFIER = {
@@ -196,8 +199,9 @@ Object.entries(TRANSPORTATION_MODE_TO_PURCHASE_IDENTIFIER).forEach(
         costCurrency: UNIT_MONETARY_EUR,
         costAmount: 10,
       };
+      expect(modelCanRun(activity)).toBeTruthy();
       expect(carbonEmissions(activity)).toBeCloseTo(
-        carbonEmissions({
+        transportCarbonModel.carbonEmissions({
           ...activity,
           transportationMode,
           activityType: ACTIVITY_TYPE_TRANSPORTATION,
