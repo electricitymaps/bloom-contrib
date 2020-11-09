@@ -315,7 +315,7 @@ export function carbonEmissions(activity) {
         activity.datetime
       );
       break;
-      }
+    }
 
     case ACTIVITY_TYPE_PURCHASE: {
       const { lineItems, countryCodeISO2, datetime } = activity;
