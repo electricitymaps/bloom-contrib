@@ -18,8 +18,6 @@ import {
   TRANSPORTATION_MODE_PLANE,
 } from '../../definitions';
 import { getDescendants, getRootEntry, modelCanRun, carbonEmissions } from './index';
-import * as mealCarbonModel from '../food/meal';
-import * as transportCarbonModel from '../transportation';
 import { getAvailableCurrencies } from '../../integrations/utils/currency/currency';
 import exchangeRates2011 from './exchange_rates_2011.json';
 
@@ -170,7 +168,7 @@ test(`test non-monetary units (in kg)`, () => {
   expect(carbonEmissions(activity)).toBeCloseTo(92.5);
 });
 
-test(`test equivalence of purchase and activityType=ACTIVITY_TYPE_MEAL`, () => {
+test(`test equivalence of activityType=ACTIVITY_TYPE_PURCHASE and activityType=ACTIVITY_TYPE_MEAL`, () => {
   const activity = {
     activityType: ACTIVITY_TYPE_PURCHASE,
     lineItems: [
@@ -181,7 +179,7 @@ test(`test equivalence of purchase and activityType=ACTIVITY_TYPE_MEAL`, () => {
   };
   expect(modelCanRun(activity)).toBeTruthy();
   expect(carbonEmissions(activity)).toBeCloseTo(
-    mealCarbonModel.carbonEmissions({ ...activity, activityType: ACTIVITY_TYPE_MEAL })
+    carbonEmissions({ ...activity, activityType: ACTIVITY_TYPE_MEAL })
   );
 });
 const TRANSPORTATION_MODE_TO_PURCHASE_IDENTIFIER = {
@@ -192,7 +190,7 @@ const TRANSPORTATION_MODE_TO_PURCHASE_IDENTIFIER = {
 };
 Object.entries(TRANSPORTATION_MODE_TO_PURCHASE_IDENTIFIER).forEach(
   ([transportationMode, identifier]) => {
-    test(`test equivalence of purchase and activityType=ACTIVITY_TYPE_TRANSPORTATION for transportationMode=${transportationMode}`, () => {
+    test(`test equivalence of activityType=ACTIVITY_TYPE_PURCHASE and activityType=ACTIVITY_TYPE_TRANSPORTATION for transportationMode=${transportationMode}`, () => {
       const activity = {
         activityType: ACTIVITY_TYPE_PURCHASE,
         lineItems: [{ identifier, unit: UNIT_MONETARY_EUR, value: 10 }],
@@ -201,7 +199,7 @@ Object.entries(TRANSPORTATION_MODE_TO_PURCHASE_IDENTIFIER).forEach(
       };
       expect(modelCanRun(activity)).toBeTruthy();
       expect(carbonEmissions(activity)).toBeCloseTo(
-        transportCarbonModel.carbonEmissions({
+        carbonEmissions({
           ...activity,
           transportationMode,
           activityType: ACTIVITY_TYPE_TRANSPORTATION,
