@@ -22,7 +22,7 @@ export function modelCanRun(activity) {
     activityType === ACTIVITY_TYPE_PURCHASE &&
     lineItems &&
     lineItems.length &&
-    lineItems.some((l) => l.identifier === PURCHASE_CATEGORY_ENTERTAINMENT_HOTEL) &&
+    lineItems.some(l => l.identifier === PURCHASE_CATEGORY_ENTERTAINMENT_HOTEL) &&
     countryCodeISO2 &&
     endDatetime
   ) {

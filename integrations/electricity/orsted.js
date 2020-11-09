@@ -38,7 +38,7 @@ async function getUsersElectricityId(token) {
     throw new HTTPError(res.text, res.status);
   }
 
-  const electricityDelivery = res.body.find((d) => d.type === 'electrical');
+  const electricityDelivery = res.body.find(d => d.type === 'electrical');
   if (!electricityDelivery) {
     throw new ValidationError(
       'User does not have an electricity service connected to their orsted account'
@@ -106,16 +106,22 @@ async function collect(state, logger) {
   const points = await getMeteringPoints(token, ean, external_id, lastCollect);
 
   const activities = Object.entries(
-    groupBy(points, (d) => moment(d.start).startOf('day').toISOString())
+    groupBy(points, d =>
+      moment(d.start)
+        .startOf('day')
+        .toISOString()
+    )
   ).map(([k, values]) => ({
     id: `orsted${k}`,
     datetime: moment(k).toDate(),
-    endDatetime: moment(k).add(values.length, 'hour').toDate(),
+    endDatetime: moment(k)
+      .add(values.length, 'hour')
+      .toDate(),
     activityType: ACTIVITY_TYPE_ELECTRICITY,
     energyWattHours: values
-      .map((x) => x.kWh * 1000.0) // kWh -> Wh
+      .map(x => x.kWh * 1000.0) // kWh -> Wh
       .reduce((a, b) => a + b, 0),
-    hourlyEnergyWattHours: values.map((x) => x.kWh * 1000.0),
+    hourlyEnergyWattHours: values.map(x => x.kWh * 1000.0),
     locationLon,
     locationLat,
   }));

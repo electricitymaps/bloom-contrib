@@ -31,7 +31,7 @@ async function disconnect() {
   return {};
 }
 
-const toUnixSeconds = (ISOdate) => moment(ISOdate).format('X');
+const toUnixSeconds = ISOdate => moment(ISOdate).format('X');
 
 async function fetchTripsFromURL(tripURL, logger) {
   const res = await manager.fetch(tripURL, {}, logger);
@@ -45,8 +45,8 @@ async function fetchTripsFromURL(tripURL, logger) {
   return data;
 }
 
-const toActivities = (tripArray) =>
-  (tripArray || []).map((k) => {
+const toActivities = tripArray =>
+  (tripArray || []).map(k => {
     const datetime = new Date(k.started_at);
     return {
       id: k.id,
@@ -77,14 +77,14 @@ async function fetchOffsetActivities(start, end, logger) {
   const tripCount = data._metadata.count;
   let nextURL = data._metadata.next;
 
-  toActivities(latestTrips).map((a) => trips.push(a));
+  toActivities(latestTrips).map(a => trips.push(a));
 
   // safety counter
   let counter = API_FETCH_LIMIT;
 
   while (nextURL && counter < tripCount) {
     data = await fetchTripsFromURL(nextURL, logger);
-    toActivities(data.results).map((a) => trips.push(a));
+    toActivities(data.results).map(a => trips.push(a));
     nextURL = data._metadata.next;
     counter += API_FETCH_LIMIT;
   }

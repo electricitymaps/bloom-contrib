@@ -82,7 +82,7 @@ async function fetchActivities(usagePointId, frequency, startDate, endDate, logg
   const startMoment = moment.tz(data.start, 'YYYY-MM-DD', 'Europe/Paris');
   const endMoment = moment.tz(data.end, 'YYYY-MM-DD', 'Europe/Paris');
 
-  const parseValue = (d) => {
+  const parseValue = d => {
     if (d.value == null) {
       return 0;
     }
@@ -106,7 +106,10 @@ async function fetchActivities(usagePointId, frequency, startDate, endDate, logg
           dateMoment: moment.tz(d.date, 'Europe/Paris'),
         })
       ),
-      (d) => moment(d.dateMoment).startOf('day').toISOString()
+      d =>
+        moment(d.dateMoment)
+          .startOf('day')
+          .toISOString()
     )
   )
     // Now that values are grouped by day,
@@ -116,8 +119,11 @@ async function fetchActivities(usagePointId, frequency, startDate, endDate, logg
       // so it needs to be aggregated by `frequency`
       const processedValues = arrayGroupByReduce(
         values,
-        (d) => moment(d.dateMoment).startOf(frequency).toISOString(),
-        (arr) => arr.map(parseValue).reduce((a, b) => a + b, 0)
+        d =>
+          moment(d.dateMoment)
+            .startOf(frequency)
+            .toISOString(),
+        arr => arr.map(parseValue).reduce((a, b) => a + b, 0)
       );
 
       return {
@@ -131,7 +137,7 @@ async function fetchActivities(usagePointId, frequency, startDate, endDate, logg
         hourlyEnergyWattHours: frequency === 'hour' ? processedValues : undefined,
       };
     })
-    .filter((d) => {
+    .filter(d => {
       const durationHours = getActivityDurationHours(d);
       if (durationHours === 24) {
         return true;

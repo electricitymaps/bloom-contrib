@@ -22,12 +22,12 @@ export default function ConsoleHeader({
   updateDirection,
   onClearConsole,
 }) {
-  const handleFilterChange = (event) => {
+  const handleFilterChange = event => {
     event.persist();
     const value = event && event.currentTarget && event.currentTarget.value;
 
     const updatedFilters = filters.includes(value)
-      ? filters.filter((f) => f !== value)
+      ? filters.filter(f => f !== value)
       : [...filters, value];
     updateFilters(updatedFilters);
   };
@@ -63,14 +63,14 @@ export default function ConsoleHeader({
             label="Search console"
             variant="outlined"
             size="small"
-            onChange={(event) => updateSearchValue(event.currentTarget.value)}
+            onChange={event => updateSearchValue(event.currentTarget.value)}
           >
             {searchValue}
           </TextField>
         </form>
       </Grid>
       <Grid item container xs={12} sm={6} justify="flex-end">
-        {[...logLevels].map((m) => (
+        {[...logLevels].map(m => (
           <FormControlLabel
             key={m}
             control={

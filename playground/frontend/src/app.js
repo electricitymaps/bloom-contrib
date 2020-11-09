@@ -14,7 +14,7 @@ import ResultsTable from './components/resultstable';
 import Console from './components/console';
 import Icon from './components/icon';
 
-const deSerializeError = (obj) => Object.assign(new Error(), { stack: undefined }, obj);
+const deSerializeError = obj => Object.assign(new Error(), { stack: undefined }, obj);
 
 const socket = socketIOClient(window.location.origin);
 
@@ -60,13 +60,13 @@ class App extends React.Component {
       this.run();
     });
 
-    socket.on('integrations', (integrations) => this.setState({ integrations }));
+    socket.on('integrations', integrations => this.setState({ integrations }));
     socket.on('reconnecting', () => this.setState({ connection: 'reconnecting ⌛️' }));
     socket.on('runError', () => this.setState({ connection: 'error 💥' }));
-    socket.on('runLogs', (logs) => {
+    socket.on('runLogs', logs => {
       console.clear();
       console.log('############### EXECUTION LOGS ###############');
-      logs.forEach((log) => {
+      logs.forEach(log => {
         switch (log.level) {
           case 'warning':
             console.warn(log.obj);
@@ -78,12 +78,12 @@ class App extends React.Component {
             console.log(log.obj);
         }
       });
-      this.setState((prevState) => ({
+      this.setState(prevState => ({
         logs: [...prevState.logs, ...logs],
       }));
       console.log('############### END EXECUTION LOGS ###############');
     });
-    socket.on('runResults', (results) => {
+    socket.on('runResults', results => {
       // console.log('state:', results.state);
       console.table(results.activities);
       this.setState({
@@ -91,10 +91,10 @@ class App extends React.Component {
         results: results.activities,
       });
     });
-    socket.on('openUrl', (url) => window.open(url));
+    socket.on('openUrl', url => window.open(url));
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     this.setState({
       selectedIntegration: event.target.value,
       logs: [],
@@ -138,7 +138,7 @@ class App extends React.Component {
                   displayEmpty
                   onChange={this.handleChange}
                 >
-                  {integrations.sort().map((integration) => (
+                  {integrations.sort().map(integration => (
                     <MenuItem key={integration} value={integration}>
                       {integration}
                     </MenuItem>
@@ -149,7 +149,7 @@ class App extends React.Component {
                   type="username"
                   autoComplete="current-username"
                   margin="normal"
-                  onChange={(event) =>
+                  onChange={event =>
                     this.setState({
                       username: event.target.value,
                     })
@@ -160,7 +160,7 @@ class App extends React.Component {
                   type="password"
                   autoComplete="current-password"
                   margin="normal"
-                  onChange={(event) =>
+                  onChange={event =>
                     this.setState({
                       password: event.target.value,
                     })
@@ -171,7 +171,7 @@ class App extends React.Component {
                   type="token"
                   autoComplete="current-token"
                   margin="normal"
-                  onChange={(event) =>
+                  onChange={event =>
                     this.setState({
                       token: event.target.value,
                     })

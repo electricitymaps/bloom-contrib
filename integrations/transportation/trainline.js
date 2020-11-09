@@ -40,7 +40,7 @@ async function login(username, password) {
 function calculateDurationFromLegs(legs) {
   return []
     .concat(legs)
-    .filter((leg) => leg)
+    .filter(leg => leg)
     .reduce((out, leg) => out + leg.duration / 60 || 0, 0);
 }
 
@@ -86,7 +86,7 @@ async function collect(state, logger) {
   const tripResults = get(pastBookingsRes, 'body.pastBookings.results', []);
 
   const activities = [];
-  tripResults.forEach((trip) => {
+  tripResults.forEach(trip => {
     const tripId = trip.booking.id;
     if (get(trip, 'booking.outward')) {
       const outwardDate = get(trip, 'booking.outward.date');

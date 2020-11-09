@@ -23,10 +23,10 @@ function mapLevelToMethods(logLevel) {
  * @param {*} logs
  */
 function transformToConsoleFeedFormat(logs) {
-  return logs.map((l) => ({ method: mapLevelToMethods(l.level), data: [l.obj] }));
+  return logs.map(l => ({ method: mapLevelToMethods(l.level), data: [l.obj] }));
 }
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   wrapper: {},
   header: {
     padding: theme.spacing(2),
@@ -46,7 +46,7 @@ export default function Console({ logs, onClearLogs }) {
   }
 
   function handleDirectionChange() {
-    setDirection((oldDirection) => (oldDirection === 'descending' ? 'ascending' : 'descending'));
+    setDirection(oldDirection => (oldDirection === 'descending' ? 'ascending' : 'descending'));
   }
 
   return (
@@ -72,7 +72,7 @@ export default function Console({ logs, onClearLogs }) {
             }
             variant="light" // TODO(df): If the whole playground would accept a theme, would be nice if this could be current viewers theme dependent.
             searchKeywords={searchValue}
-            filter={filters.map((f) => mapLevelToMethods(f))}
+            filter={filters.map(f => mapLevelToMethods(f))}
           />
         </Grid>
       </Grid>

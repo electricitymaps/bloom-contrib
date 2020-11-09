@@ -40,12 +40,12 @@ function getCarbonFactor(locationLat, locationLon) {
   if (!features || features.length === 0) {
     return undefined;
   }
-  const countries = features.filter((x) => x.properties.level === 'country');
+  const countries = features.filter(x => x.properties.level === 'country');
   if (countries.length === 0) {
     return undefined;
   }
   const country = countries[0];
-  const potentialFactors = factors.filter((x) => x.country === country.properties.iso1A3);
+  const potentialFactors = factors.filter(x => x.country === country.properties.iso1A3);
   if (potentialFactors.length === 1) {
     return potentialFactors[0].factor;
   }
@@ -56,7 +56,7 @@ function getCarbonFactor(locationLat, locationLon) {
     const reverseInformation = lookup(locationLat, locationLon, country.properties.iso1A2);
     if (reverseInformation && reverseInformation.state_abbr) {
       const stateCode = reverseInformation.state_abbr.toUpperCase();
-      const potentialStateFactors = potentialFactors.filter((x) => x.state === stateCode);
+      const potentialStateFactors = potentialFactors.filter(x => x.state === stateCode);
       return potentialStateFactors.length === 0
         ? potentialFactors[0].factor
         : potentialStateFactors[0].factor;

@@ -39,7 +39,7 @@ async function queryActivitiesFromOffset(offset, logger) {
   }
 
   const data = await res.json();
-  const activities = (data.history || []).map((d) => ({
+  const activities = (data.history || []).map(d => ({
     id: d.request_id, // unique id that will be used in case of de-duplication
     activityType: ACTIVITY_TYPE_TRANSPORTATION,
     carrier: 'Uber',

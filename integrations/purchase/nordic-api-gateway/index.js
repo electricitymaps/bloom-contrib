@@ -26,7 +26,7 @@ agent
 function parseCategory(category, categoryList) {
   if (category) {
     // Map id to name
-    const nagCategory = categoryList.categories.find((cat) => cat.category.id === category.id);
+    const nagCategory = categoryList.categories.find(cat => cat.category.id === category.id);
     if (!nagCategory) throw new Error(`Couldn't find category matching id '${category.id}'`);
     const nagName = nagCategory.category.name.en;
 
