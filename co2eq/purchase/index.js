@@ -6,6 +6,11 @@ import {
   TRANSPORTATION_MODE_TRAIN,
   TRANSPORTATION_MODE_PLANE,
   TRANSPORTATION_MODE_PUBLIC_TRANSPORT,
+  PURCHASE_CATEGORY_FOOD_SERVING_SERVICES,
+  PURCHASE_CATEGORY_COMBINED_PASSENGER_TRANSPORT,
+  PURCHASE_CATEGORY_TRANSPORT_AIR,
+  PURCHASE_CATEGORY_TRANSPORT_RAIL,
+  PURCHASE_CATEGORY_TRANSPORT_ROAD,
   UNIT_MONETARY_EUR,
   UNIT_ITEM,
   UNIT_KILOGRAMS,
@@ -69,7 +74,7 @@ export function getChecksumOfFootprints() {
   return getChecksum(footprints);
 }
 
-export function getDescendants(entry, filter = _ => true, includeRoot = false) {
+export function getDescendants(entry, filter = (_) => true, includeRoot = false) {
   // Note: `getDescendants` is very close to `indexNodeChildren`
   // Note2: if a node gets filtered out, its children won't be visited
   if (!entry) {
@@ -78,7 +83,7 @@ export function getDescendants(entry, filter = _ => true, includeRoot = false) {
   let descendants = includeRoot ? { [entry.key]: entry } : {};
   Object.values(entry._children || [])
     .filter(filter)
-    .forEach(child => {
+    .forEach((child) => {
       descendants = {
         ...descendants,
         ...getDescendants(child, filter, true),
@@ -108,7 +113,7 @@ export function modelCanRun(activity) {
     }
   }
   const hasLineItems = lineItems && lineItems.length > 0;
-  const hasIdentifiers = lineItems && lineItems.every(item => item.identifier);
+  const hasIdentifiers = lineItems && lineItems.every((item) => item.identifier);
   if (activityType === ACTIVITY_TYPE_PURCHASE && hasLineItems && hasIdentifiers) {
     return true;
   }
@@ -265,32 +270,50 @@ export function carbonEmissionOfLineItem(lineItem, countryCodeISO2, datetime) {
 */
 export function carbonEmissions(activity) {
   let footprint;
-  const eurAmount = extractEur(activity);
+  // const eurAmount = extractEur(activity);
 
   switch (activity.activityType) {
     case ACTIVITY_TYPE_MEAL:
-      // Source: http://www.balticproject.org/en/calculator-page
-      footprint = (eurAmount * 79.64) / 1000; // Restaurant bill
+      footprint = carbonEmissionOfLineItem(
+        {
+          identifier: PURCHASE_CATEGORY_FOOD_SERVING_SERVICES,
+          unit: activity.costCurrency,
+          value: activity.costAmount,
+        },
+        activity.countryCodeISO2,
+        activity.datetime
+      );
       break;
 
     case ACTIVITY_TYPE_TRANSPORTATION:
-      // Source: http://www.balticproject.org/en/calculator-page
+      let identifier;
       switch (activity.transportationMode) {
         case TRANSPORTATION_MODE_CAR:
-          footprint = (eurAmount * 1186) / 1000; // Taxi bill
+          identifier = PURCHASE_CATEGORY_TRANSPORT_ROAD; // Taxi bill
           break;
         case TRANSPORTATION_MODE_TRAIN:
+          identifier = PURCHASE_CATEGORY_TRANSPORT_RAIL;
+          break;
         case TRANSPORTATION_MODE_PUBLIC_TRANSPORT:
-          footprint = (eurAmount * 335.63) / 1000;
+          identifier = PURCHASE_CATEGORY_COMBINED_PASSENGER_TRANSPORT;
           break;
         case TRANSPORTATION_MODE_PLANE:
-          footprint = (eurAmount * 1121.52) / 1000;
+          identifier = PURCHASE_CATEGORY_TRANSPORT_AIR;
           break;
         default:
           throw new Error(
             `Couldn't calculate purchase carbonIntensity for transporation activity with mode ${activity.transportationMode}`
           );
       }
+      footprint = carbonEmissionOfLineItem(
+        {
+          identifier,
+          unit: activity.costCurrency,
+          value: activity.costAmount,
+        },
+        activity.countryCodeISO2,
+        activity.datetime
+      );
       break;
 
     case ACTIVITY_TYPE_PURCHASE: {
@@ -300,7 +323,7 @@ export function carbonEmissions(activity) {
       if (lineItems && lineItems.length) {
         // TODO(df): What to do on a single line error? Abort all? Skip item?
         footprint = lineItems
-          .map(l => carbonEmissionOfLineItem(l, countryCodeISO2, datetime))
+          .map((l) => carbonEmissionOfLineItem(l, countryCodeISO2, datetime))
           .reduce((a, b) => a + b, 0);
       }
       break;
