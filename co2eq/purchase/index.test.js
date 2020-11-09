@@ -174,6 +174,8 @@ test(`test equivalence of purchase and activityType=ACTIVITY_TYPE_MEAL`, () => {
     lineItems: [
       { identifier: PURCHASE_CATEGORY_FOOD_SERVING_SERVICES, unit: UNIT_MONETARY_EUR, value: 10 },
     ],
+    costCurrency: UNIT_MONETARY_EUR,
+    costAmount: 10,
   };
   expect(carbonEmissions(activity)).toBeCloseTo(
     carbonEmissions({ ...activity, activityType: ACTIVITY_TYPE_MEAL })
@@ -191,6 +193,8 @@ Object.entries(TRANSPORTATION_MODE_TO_PURCHASE_IDENTIFIER).forEach(
       const activity = {
         activityType: ACTIVITY_TYPE_PURCHASE,
         lineItems: [{ identifier, unit: UNIT_MONETARY_EUR, value: 10 }],
+        costCurrency: UNIT_MONETARY_EUR,
+        costAmount: 10,
       };
       expect(carbonEmissions(activity)).toBeCloseTo(
         carbonEmissions({
