@@ -31,8 +31,8 @@ async function getMeteringPoints(accessToken) {
     throw new HTTPError(res.text, res.status);
   }
 
-  const meterPointIds = res.body.result.map(meterPointInfo => meterPointInfo.meteringPointId);
-  const meterPointAddresses = res.body.result.map(meterPointInfo => ({
+  const meterPointIds = res.body.result.map((meterPointInfo) => meterPointInfo.meteringPointId);
+  const meterPointAddresses = res.body.result.map((meterPointInfo) => ({
     buildingNumber: meterPointInfo.buildingNumber,
     cityName: meterPointInfo.cityName,
     postcode: meterPointInfo.postcode,
@@ -81,11 +81,11 @@ async function getTimeSeries(accessToken, meterPointIds, fromMoment, logger) {
   }
 
   const timeSeries = flattenDeep(
-    res.body.result[0].MyEnergyData_MarketDocument.TimeSeries.map(meteringPoint => {
+    res.body.result[0].MyEnergyData_MarketDocument.TimeSeries.map((meteringPoint) => {
       const { mRID } = meteringPoint;
-      return meteringPoint.Period.map(period => {
+      return meteringPoint.Period.map((period) => {
         const periodStart = period.timeInterval.start;
-        return period.Point.map(periodPoint => {
+        return period.Point.map((periodPoint) => {
           return {
             datetime: moment(periodStart)
               .clone()
@@ -111,9 +111,7 @@ async function connect({ requestToken }, logger) {
   const timeSeries = await getTimeSeries(
     accessToken,
     meterPointIds,
-    moment()
-      .subtract(3, 'days')
-      .startOf('day'),
+    moment().subtract(3, 'days').startOf('day'),
     logger
   );
 
@@ -148,30 +146,22 @@ async function collect(state = {}, logger) {
     logger
   );
   const activities = Object.entries(
-    groupBy(timeSeries, dataPoint =>
-      moment(dataPoint.datetime)
-        .startOf('day')
-        .toISOString()
-    ) // regroup by day
+    groupBy(timeSeries, (dataPoint) => moment(dataPoint.datetime).startOf('day').toISOString()) // regroup by day
   ).map(([k, values]) => ({
     id: `energinet${values[0].mRID}${k}`,
     datetime: moment(k).toDate(),
     endDatetime: moment
-      .max(values.map(dataPoint => moment(dataPoint.datetime)))
+      .max(values.map((dataPoint) => moment(dataPoint.datetime)))
       .add(1, 'hours')
       .toDate(), // finish at the latest time in that day
     activityType: ACTIVITY_TYPE_ELECTRICITY,
     energyWattHours: values
-      .map(x => x.value * 1000.0) // kWh -> Wh
+      .map((x) => x.value * 1000.0) // kWh -> Wh
       .reduce((a, b) => a + b, 0), // sum all values for the day + all meters
     hourlyEnergyWattHours: Object.values(
-      groupBy(values, dataPoint =>
-        moment(dataPoint.datetime)
-          .startOf('hour')
-          .toISOString()
-      )
-    ).map(dataPointsByDatetime =>
-      dataPointsByDatetime.map(x => x.value * 1000.0).reduce((a, b) => a + b, 0)
+      groupBy(values, (dataPoint) => moment(dataPoint.datetime).startOf('hour').toISOString())
+    ).map((dataPointsByDatetime) =>
+      dataPointsByDatetime.map((x) => x.value * 1000.0).reduce((a, b) => a + b, 0)
     ),
     locationLon,
     locationLat,

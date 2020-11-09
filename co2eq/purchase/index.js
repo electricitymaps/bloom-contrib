@@ -74,7 +74,7 @@ export function getChecksumOfFootprints() {
   return getChecksum(footprints);
 }
 
-export function getDescendants(entry, filter = (_) => true, includeRoot = false) {
+export function getDescendants(entry, filter = _ => true, includeRoot = false) {
   // Note: `getDescendants` is very close to `indexNodeChildren`
   // Note2: if a node gets filtered out, its children won't be visited
   if (!entry) {
@@ -83,7 +83,7 @@ export function getDescendants(entry, filter = (_) => true, includeRoot = false)
   let descendants = includeRoot ? { [entry.key]: entry } : {};
   Object.values(entry._children || [])
     .filter(filter)
-    .forEach((child) => {
+    .forEach(child => {
       descendants = {
         ...descendants,
         ...getDescendants(child, filter, true),
@@ -113,7 +113,7 @@ export function modelCanRun(activity) {
     }
   }
   const hasLineItems = lineItems && lineItems.length > 0;
-  const hasIdentifiers = lineItems && lineItems.every((item) => item.identifier);
+  const hasIdentifiers = lineItems && lineItems.every(item => item.identifier);
   if (activityType === ACTIVITY_TYPE_PURCHASE && hasLineItems && hasIdentifiers) {
     return true;
   }
@@ -285,7 +285,7 @@ export function carbonEmissions(activity) {
       );
       break;
 
-    case ACTIVITY_TYPE_TRANSPORTATION:
+    case ACTIVITY_TYPE_TRANSPORTATION: {
       let identifier;
       switch (activity.transportationMode) {
         case TRANSPORTATION_MODE_CAR:
@@ -315,6 +315,7 @@ export function carbonEmissions(activity) {
         activity.datetime
       );
       break;
+      }
 
     case ACTIVITY_TYPE_PURCHASE: {
       const { lineItems, countryCodeISO2, datetime } = activity;
@@ -323,7 +324,7 @@ export function carbonEmissions(activity) {
       if (lineItems && lineItems.length) {
         // TODO(df): What to do on a single line error? Abort all? Skip item?
         footprint = lineItems
-          .map((l) => carbonEmissionOfLineItem(l, countryCodeISO2, datetime))
+          .map(l => carbonEmissionOfLineItem(l, countryCodeISO2, datetime))
           .reduce((a, b) => a + b, 0);
       }
       break;

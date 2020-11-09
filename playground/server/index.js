@@ -44,7 +44,7 @@ if (devServerEnabled) {
   app.use(webpackHotMiddleware(compiler));
 }
 
-const serializeError = e => ({
+const serializeError = (e) => ({
   name: e.name,
   message: e.message,
   stack: e.stack,
@@ -54,12 +54,12 @@ const serializeError = e => ({
 const oauthCallbackUrl = 'http://localhost:3000/oauth_callback';
 let resolveWebView = null;
 
-io.on('connection', socket => {
+io.on('connection', (socket) => {
   console.log('client connected');
 
   socket.emit('integrations', Object.keys(sourceImplementations));
 
-  socket.on('run', async data => {
+  socket.on('run', async (data) => {
     console.log(`running ${data.sourceIdentifier}..`);
     const log = [];
     const pushLog = (level, obj) =>
@@ -70,9 +70,9 @@ io.on('connection', socket => {
         obj: obj instanceof Error ? serializeError(obj) : obj,
       });
     const logger = {
-      logDebug: obj => pushLog('debug', obj),
-      logWarning: obj => pushLog('warning', obj),
-      logError: obj => pushLog('error', obj),
+      logDebug: (obj) => pushLog('debug', obj),
+      logWarning: (obj) => pushLog('warning', obj),
+      logError: (obj) => pushLog('error', obj),
     };
 
     const sourceImplementation = sourceImplementations[data.sourceIdentifier];

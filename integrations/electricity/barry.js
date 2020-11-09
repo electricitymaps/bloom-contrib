@@ -6,7 +6,7 @@ import { ACTIVITY_TYPE_ELECTRICITY } from '../../definitions';
 import { AuthenticationError, HTTPError } from '../utils/errors';
 import { getActivityDurationHours } from '../../co2eq/utils';
 
-const btoa = b => Buffer.from(b).toString('base64');
+const btoa = (b) => Buffer.from(b).toString('base64');
 
 const REGION_TO_LOCATION = {
   DK1: {
@@ -129,11 +129,7 @@ async function collect(state, { logWarning }) {
   // (in older version it wasn't)
   const customerId = state.customerId || (await getUser(username, password)).customerId;
 
-  const startDate =
-    state.lastFullyCollectedDay ||
-    moment()
-      .subtract(1, 'month')
-      .toISOString();
+  const startDate = state.lastFullyCollectedDay || moment().subtract(1, 'month').toISOString();
   const endDate = moment().toISOString();
 
   const response = await getHourlyConsumption(
@@ -157,28 +153,22 @@ async function collect(state, { logWarning }) {
   */
 
   const activities = Object.entries(
-    groupBy(response, d =>
-      moment(d.date)
-        .startOf('day')
-        .toISOString()
-    )
+    groupBy(response, (d) => moment(d.date).startOf('day').toISOString())
   ).map(([k, values]) => ({
     id: `barry${k}`,
     datetime: moment(k).toDate(),
-    endDatetime: moment(k)
-      .add(values.length, 'hours')
-      .toDate(),
+    endDatetime: moment(k).add(values.length, 'hours').toDate(),
     activityType: ACTIVITY_TYPE_ELECTRICITY,
     energyWattHours: values
-      .map(x => x.value * 1000.0) // kWh -> Wh
+      .map((x) => x.value * 1000.0) // kWh -> Wh
       .reduce((a, b) => a + b, 0),
-    hourlyEnergyWattHours: values.map(x => x.value * 1000.0),
+    hourlyEnergyWattHours: values.map((x) => x.value * 1000.0),
     locationLon,
     locationLat,
   }));
   activities
-    .filter(d => getActivityDurationHours(d) !== 24)
-    .forEach(d =>
+    .filter((d) => getActivityDurationHours(d) !== 24)
+    .forEach((d) =>
       logWarning(
         `Ignoring activity from ${d.datetime.toISOString()} 
         to ${d.endDatetime.toISOString()} as not 24 hours`
@@ -195,7 +185,7 @@ async function collect(state, { logWarning }) {
     .toISOString();
 
   return {
-    activities: activities.filter(d => d.durationHours === 24),
+    activities: activities.filter((d) => d.durationHours === 24),
     state: { ...state, customerId, lastFullyCollectedDay },
   };
 }

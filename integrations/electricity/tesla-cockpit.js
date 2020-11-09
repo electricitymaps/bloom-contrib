@@ -82,7 +82,7 @@ async function collect(state, logger, utils) {
   const vehicleId = vehicle.VehicleID;
 
   const data = await fetchVehicleCharges(token, vehicleId);
-  const activities = data.map(d => {
+  const activities = data.map((d) => {
     if (d.ChargeEndDateISO === '') {
       // Skip that element
       logger.logWarning('Skipping item as it has no ChargeEndDateISO');
@@ -134,7 +134,7 @@ async function collect(state, logger, utils) {
     };
   });
 
-  return { activities: activities.filter(a => a), state };
+  return { activities: activities.filter((a) => a), state };
 }
 
 const config = {

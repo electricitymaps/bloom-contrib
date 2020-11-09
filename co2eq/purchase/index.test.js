@@ -32,7 +32,7 @@ Object.entries(getDescendants(getRootEntry()))
 Object.entries(getDescendants(getRootEntry()))
   .filter(([k, v]) => v.conversions)
   .forEach(([entryKey, v]) => {
-    Object.keys(v.conversions).forEach((k) => {
+    Object.keys(v.conversions).forEach(k => {
       test(`conversion units of ${entryKey}`, () => {
         expect(UNITS).toContain(k);
       });

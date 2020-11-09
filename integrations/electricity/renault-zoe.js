@@ -335,16 +335,10 @@ async function collect(state = {}, logger, utils) {
   if (!countryISO2) {
     throw Error('countryISO2 is missing from state');
   }
-  const startMonth =
-    state.lastFullyCollectedMonth ||
-    moment()
-      .subtract(2, 'year')
-      .format('MMYY');
+  const startMonth = state.lastFullyCollectedMonth || moment().subtract(2, 'year').format('MMYY');
   const endMonth = moment().format('MMYY');
   // Subtract one month to make sure we always have a full month
-  const lastFullyCollectedMonth = moment()
-    .subtract(1, 'month')
-    .format('MMYY');
+  const lastFullyCollectedMonth = moment().subtract(1, 'month').format('MMYY');
 
   // TODO: Describe conditions under which `connect` should be called upon failure
   const newState = {

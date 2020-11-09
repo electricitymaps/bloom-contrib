@@ -10,13 +10,10 @@ const PROFILE_URL = `${BASE_URL}secure/users/`;
 // user info available at `${PROFILE_URL}${customerId}/profile/full/`
 
 async function logIn(username, password) {
-  const res = await agent
-    .post(LOGIN_URL)
-    .type('application/x-www-form-urlencoded')
-    .send({
-      password,
-      username,
-    });
+  const res = await agent.post(LOGIN_URL).type('application/x-www-form-urlencoded').send({
+    password,
+    username,
+  });
 
   if (!res.ok || !res.body.token || !res.body.customerId) {
     const text = await res.text();
@@ -57,7 +54,7 @@ async function getAllFlights(bookings, customerId, token) {
   const allFlights = [];
 
   await Promise.all(
-    bookings.map(async entry => {
+    bookings.map(async (entry) => {
       const res = await agent
         .put(`${PROFILE_URL}${customerId}/bookings/booking`)
         .set('Accept', 'application/json')
@@ -68,7 +65,7 @@ async function getAllFlights(bookings, customerId, token) {
         });
 
       if (res.ok) {
-        res.body.Flights.forEach(singleFlight => {
+        res.body.Flights.forEach((singleFlight) => {
           allFlights.push({
             bookingId: res.body.BookingId,
             flightInfo: singleFlight,
@@ -93,7 +90,7 @@ async function getPastBookings(customerId, token) {
     const text = await pastBookings.text();
     throw new HTTPError(text, pastBookings.status);
   }
-  return pastBookings.body.bookings.filter(entry => entry.status === 'Confirmed');
+  return pastBookings.body.bookings.filter((entry) => entry.status === 'Confirmed');
 }
 
 async function getActivities(pastBookings, customerId, token) {
@@ -103,12 +100,12 @@ async function getActivities(pastBookings, customerId, token) {
   // WHY: there can be multiple bookings for the same flight (e.g. for different passengers)
   // HOW: filters flights with the same flight number
   const uniqueFlights = Array.from(
-    new Set(allFlights.map(a => a.flightInfo.FlightNumber))
-  ).map(mappedFlightNumber =>
-    allFlights.find(a => a.flightInfo.FlightNumber === mappedFlightNumber)
+    new Set(allFlights.map((a) => a.flightInfo.FlightNumber))
+  ).map((mappedFlightNumber) =>
+    allFlights.find((a) => a.flightInfo.FlightNumber === mappedFlightNumber)
   );
 
-  const activities = Object.values(uniqueFlights).map(k => ({
+  const activities = Object.values(uniqueFlights).map((k) => ({
     id: `ryanairB${k.bookingId}${k.flightInfo.FlightNumber}`,
     datetime: k.flightInfo.DepartLocal,
     endDatetime: moment(k.flightInfo.DepartLocal)

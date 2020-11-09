@@ -53,7 +53,7 @@ async function fetchRemainingEmailActivities(client, nextLink) {
   }
   resultActivities.push(
     ...flatten(
-      messages.value.map(x =>
+      messages.value.map((x) =>
         getActivitiesFromEmail(
           x.subject,
           x.from && x.from.emailAddress && x.from.emailAddress.address,
@@ -84,7 +84,7 @@ async function fetchEmailFolders(client, nextLink) {
   const response = await client
     .api(nextLink === undefined ? `me/mailFolders?$select=id` : nextLink)
     .get();
-  result.push(...response.value.map(x => x.id));
+  result.push(...response.value.map((x) => x.id));
   if (response[odataNextLinkPropertyName] !== undefined) {
     result.push(...(await fetchEmailFolders(client, response[odataNextLinkPropertyName])));
   }
@@ -106,24 +106,24 @@ async function collect(state = {}, logger) {
   logger.logDebug(`Initiating collect() for Outlook`);
 
   const client = Client.init({
-    authProvider: done => {
+    authProvider: (done) => {
       done(undefined, state.accessToken);
     },
   });
 
   if (!state.emailFolders) {
-    state.emailFolders = (await fetchEmailFolders(client)).map(x => {
+    state.emailFolders = (await fetchEmailFolders(client)).map((x) => {
       return { folderId: x, deltaLink: undefined };
     });
     logger.logDebug(`Found ${state.emailFolders.length} email folders for Outlook`);
   }
 
   const allResults = await Promise.all(
-    state.emailFolders.map(x => fetchEmail(client, x.deltaLink, x.folderId))
+    state.emailFolders.map((x) => fetchEmail(client, x.deltaLink, x.folderId))
   );
-  const activities = flatten(allResults.map(d => d.activities)).filter(d => d);
+  const activities = flatten(allResults.map((d) => d.activities)).filter((d) => d);
   logger.logDebug(`Found ${activities.length} activities for Outlook`);
-  const emailFolders = allResults.map(d => {
+  const emailFolders = allResults.map((d) => {
     return { folderId: d.folderId, deltaLink: d.deltaLink };
   });
   return {

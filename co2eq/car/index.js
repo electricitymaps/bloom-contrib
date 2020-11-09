@@ -34,7 +34,7 @@ function carbonIntensity(euroCarSegment, engineType, brand) {
   const entry = cars.footprints.find(
     // Using == instead of === because we want undefined to match with null in cars.json
     // eslint-disable-next-line eqeqeq
-    d => d.euroCarSegment == euroCarSegment && d.engineType == engineType && d.brand == brand
+    (d) => d.euroCarSegment == euroCarSegment && d.engineType == engineType && d.brand == brand
   );
   if (!entry) {
     throw new Error(`Unknown size, type, or brand ${euroCarSegment}_${engineType}_${brand}`);
