@@ -8,15 +8,25 @@ import { ACTIVITY_TYPE_ELECTRICITY } from '../../definitions';
 import { getActivityDurationHours } from '../../co2eq/utils';
 import { HTTPError } from '../utils/errors';
 
+// TODO: Change implementation so we stay consistent with Bloom
+const isProd = process.env.NODE_ENV && process.env.NODE_ENV === 'production';
+const URLS_PROXY = isProd
+  ? 'https://backend.north-app.com/proxy'
+  : `http://${process.env.HOST || 'localhost'}:9000/proxy`;
+
 const manager = new OAuth2Manager({
-  accessTokenUrl: 'https://gw.prd.api.enedis.fr/v1/oauth2/token',
-  authorizeUrl: 'https://mon-compte-particulier.enedis.fr/dataconnect/v1/oauth2/authorize',
+  // baseUrl: 'https://gw.prd.api.enedis.fr',
+  // accessTokenUrl: 'https://gw.prd.api.enedis.fr/v1/oauth2/token',
+  // authorizeUrl: 'https://mon-compte-particulier.enedis.fr/dataconnect/v1/oauth2/authorize',
+  baseUrl: `${URLS_PROXY}/gw.prd.api.enedis.fr`,
+  accessTokenUrl: `${URLS_PROXY}/gw.prd.api.enedis.fr/v1/oauth2/token`,
+  authorizeUrl: `${URLS_PROXY}/mon-compte-particulier.enedis.fr/dataconnect/v1/oauth2/authorize`,
+
   authorizeExtraParams: {
     duration: 'P2Y', // ISO duration (https://en.wikipedia.org/wiki/ISO_8601#Durations)
   },
-  baseUrl: 'https://gw.prd.api.enedis.fr',
-  clientId: env.LINKY_CLIENT_ID,
-  clientSecret: env.LINKY_CLIENT_SECRET,
+  clientId: 'sm://tmrowapp/LINKY_CLIENT_ID', // previously env.LINKY_CLIENT_ID
+  clientSecret: 'sm://tmrowapp/LINKY_CLIENT_SECRET', // previously env.LINKY_CLIENT_SECRET
 });
 // The Linky endpoint does not support receiving a custom redirect URI
 const omitRedirectUri = true;
