@@ -6,6 +6,11 @@ import {
   TRANSPORTATION_MODE_TRAIN,
   TRANSPORTATION_MODE_PLANE,
   TRANSPORTATION_MODE_PUBLIC_TRANSPORT,
+  PURCHASE_CATEGORY_FOOD_SERVING_SERVICES,
+  PURCHASE_CATEGORY_COMBINED_PASSENGER_TRANSPORT,
+  PURCHASE_CATEGORY_TRANSPORT_AIR,
+  PURCHASE_CATEGORY_TRANSPORT_RAIL,
+  PURCHASE_CATEGORY_TRANSPORT_ROAD,
   UNIT_MONETARY_EUR,
   UNIT_ITEM,
   UNIT_KILOGRAMS,
@@ -89,7 +94,7 @@ export function getDescendants(entry, filter = _ => true, includeRoot = false) {
 
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'purchase';
-export const modelVersion = `6_${getChecksumOfFootprints()}`; // This model relies on footprints.yaml
+export const modelVersion = `7_${getChecksumOfFootprints()}`; // This model relies on footprints.yaml
 export const modelCanRunVersion = 1;
 export function modelCanRun(activity) {
   const { costAmount, costCurrency, activityType, transportationMode, lineItems } = activity;
@@ -265,33 +270,51 @@ export function carbonEmissionOfLineItem(lineItem, countryCodeISO2, datetime) {
 */
 export function carbonEmissions(activity) {
   let footprint;
-  const eurAmount = extractEur(activity);
 
   switch (activity.activityType) {
     case ACTIVITY_TYPE_MEAL:
-      // Source: http://www.balticproject.org/en/calculator-page
-      footprint = (eurAmount * 79.64) / 1000; // Restaurant bill
+      footprint = carbonEmissionOfLineItem(
+        {
+          identifier: PURCHASE_CATEGORY_FOOD_SERVING_SERVICES,
+          unit: activity.costCurrency,
+          value: activity.costAmount,
+        },
+        activity.countryCodeISO2,
+        activity.datetime
+      );
       break;
 
-    case ACTIVITY_TYPE_TRANSPORTATION:
-      // Source: http://www.balticproject.org/en/calculator-page
+    case ACTIVITY_TYPE_TRANSPORTATION: {
+      let identifier;
       switch (activity.transportationMode) {
         case TRANSPORTATION_MODE_CAR:
-          footprint = (eurAmount * 1186) / 1000; // Taxi bill
+          identifier = PURCHASE_CATEGORY_TRANSPORT_ROAD; // Taxi bill
           break;
         case TRANSPORTATION_MODE_TRAIN:
+          identifier = PURCHASE_CATEGORY_TRANSPORT_RAIL;
+          break;
         case TRANSPORTATION_MODE_PUBLIC_TRANSPORT:
-          footprint = (eurAmount * 335.63) / 1000;
+          identifier = PURCHASE_CATEGORY_COMBINED_PASSENGER_TRANSPORT;
           break;
         case TRANSPORTATION_MODE_PLANE:
-          footprint = (eurAmount * 1121.52) / 1000;
+          identifier = PURCHASE_CATEGORY_TRANSPORT_AIR;
           break;
         default:
           throw new Error(
             `Couldn't calculate purchase carbonIntensity for transporation activity with mode ${activity.transportationMode}`
           );
       }
+      footprint = carbonEmissionOfLineItem(
+        {
+          identifier,
+          unit: activity.costCurrency,
+          value: activity.costAmount,
+        },
+        activity.countryCodeISO2,
+        activity.datetime
+      );
       break;
+    }
 
     case ACTIVITY_TYPE_PURCHASE: {
       const { lineItems, countryCodeISO2, datetime } = activity;

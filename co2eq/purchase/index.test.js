@@ -1,9 +1,21 @@
 import {
-  UNITS,
+  ACTIVITY_TYPE_PURCHASE,
+  ACTIVITY_TYPE_MEAL,
+  ACTIVITY_TYPE_TRANSPORTATION,
+  PURCHASE_CATEGORY_FOOD_SERVING_SERVICES,
   PURCHASE_CATEGORY_STORE_HOUSEHOLD_APPLIANCE,
   PURCHASE_CATEGORY_STORE_FOOD,
   UNIT_CURRENCIES,
-  ACTIVITY_TYPE_PURCHASE,
+  UNIT_MONETARY_EUR,
+  UNITS,
+  PURCHASE_CATEGORY_TRANSPORT_ROAD,
+  PURCHASE_CATEGORY_TRANSPORT_RAIL,
+  PURCHASE_CATEGORY_COMBINED_PASSENGER_TRANSPORT,
+  PURCHASE_CATEGORY_TRANSPORT_AIR,
+  TRANSPORTATION_MODE_CAR,
+  TRANSPORTATION_MODE_TRAIN,
+  TRANSPORTATION_MODE_PUBLIC_TRANSPORT,
+  TRANSPORTATION_MODE_PLANE,
 } from '../../definitions';
 import { getDescendants, getRootEntry, modelCanRun, carbonEmissions } from './index';
 import { getAvailableCurrencies } from '../../integrations/utils/currency/currency';
@@ -155,3 +167,44 @@ test(`test non-monetary units (in kg)`, () => {
   expect(modelCanRun(activity)).toBeTruthy();
   expect(carbonEmissions(activity)).toBeCloseTo(92.5);
 });
+
+test(`test equivalence of activityType=ACTIVITY_TYPE_PURCHASE and activityType=ACTIVITY_TYPE_MEAL`, () => {
+  const activity = {
+    activityType: ACTIVITY_TYPE_PURCHASE,
+    lineItems: [
+      { identifier: PURCHASE_CATEGORY_FOOD_SERVING_SERVICES, unit: UNIT_MONETARY_EUR, value: 10 },
+    ],
+    costCurrency: UNIT_MONETARY_EUR,
+    costAmount: 10,
+  };
+  expect(modelCanRun(activity)).toBeTruthy();
+  expect(carbonEmissions(activity)).toBeCloseTo(
+    carbonEmissions({ ...activity, activityType: ACTIVITY_TYPE_MEAL })
+  );
+});
+const TRANSPORTATION_MODE_TO_PURCHASE_IDENTIFIER = {
+  [TRANSPORTATION_MODE_CAR]: PURCHASE_CATEGORY_TRANSPORT_ROAD,
+  [TRANSPORTATION_MODE_TRAIN]: PURCHASE_CATEGORY_TRANSPORT_RAIL,
+  [TRANSPORTATION_MODE_PUBLIC_TRANSPORT]: PURCHASE_CATEGORY_COMBINED_PASSENGER_TRANSPORT,
+  [TRANSPORTATION_MODE_PLANE]: PURCHASE_CATEGORY_TRANSPORT_AIR,
+};
+Object.entries(TRANSPORTATION_MODE_TO_PURCHASE_IDENTIFIER).forEach(
+  ([transportationMode, identifier]) => {
+    test(`test equivalence of activityType=ACTIVITY_TYPE_PURCHASE and activityType=ACTIVITY_TYPE_TRANSPORTATION for transportationMode=${transportationMode}`, () => {
+      const activity = {
+        activityType: ACTIVITY_TYPE_PURCHASE,
+        lineItems: [{ identifier, unit: UNIT_MONETARY_EUR, value: 10 }],
+        costCurrency: UNIT_MONETARY_EUR,
+        costAmount: 10,
+      };
+      expect(modelCanRun(activity)).toBeTruthy();
+      expect(carbonEmissions(activity)).toBeCloseTo(
+        carbonEmissions({
+          ...activity,
+          transportationMode,
+          activityType: ACTIVITY_TYPE_TRANSPORTATION,
+        })
+      );
+    });
+  }
+);
