@@ -6554,7 +6554,7 @@ _children:
               - elevator
               - bridge
               - freight
-              - movers          
+              - movers
         displayName: Passenger transport services
     displayName: Transport
   INFORMATION AND COMMUNICATION:
