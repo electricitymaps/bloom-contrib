@@ -5446,6 +5446,7 @@ _children:
               WM: 3.1189092743343405
               ZA: 31.398858545353633
             displayName: Electricity
+            activityType: ACTIVITY_TYPE_ELECTRICITY
           Gas (ND):
             coicopCode: 04.5.2
             year: 2011
@@ -6253,6 +6254,8 @@ _children:
               - metro
               - underground
               - tram
+            activityType: ACTIVITY_TYPE_TRANSPORTATION
+            transportationMode: train
           Passenger transport by road (S):
             coicopCode: 07.3.2
             year: 2011
@@ -6318,6 +6321,8 @@ _children:
               - auto
               - moto
               - ridesharing
+            activityType: ACTIVITY_TYPE_TRANSPORTATION
+            transportationMode: car
           Passenger transport by air (S):
             coicopCode: 07.3.3
             year: 2011
@@ -6377,6 +6382,8 @@ _children:
             keywords:
               - flight
               - plane
+            activityType: ACTIVITY_TYPE_TRANSPORTATION
+            transportationMode: plane
           Passenger transport by sea and inland waterway (S):
             coicopCode: 07.3.4
             year: 2011
@@ -6437,6 +6444,8 @@ _children:
               - ship
               - boat
               - ferry
+            activityType: ACTIVITY_TYPE_TRANSPORTATION
+            transportationMode: ferry
           Combined passenger transport (S):
             coicopCode: 07.3.5
             year: 2011
@@ -6446,7 +6455,7 @@ _children:
               AT: 0.1374337367650893
               AU: 0.16397221933734732
               BE: 0.37984171220587076
-              BG: 0.5739356484816667
+              BG: 0.5739356484816667O
               BR: 0.3484411193343159
               CA: 0.2428584880151186
               CH: 0.16487324445174031
@@ -6493,6 +6502,8 @@ _children:
               WM: 0.5816755974827273
               ZA: 0.43075789372134865
             displayName: Combined passenger transport
+            activityType: ACTIVITY_TYPE_TRANSPORTATION
+            transportationMode: public_transport
           Other purchased transport services (S):
             coicopCode: 07.3.6
             year: 2011
@@ -6555,6 +6566,8 @@ _children:
               - bridge
               - freight
               - movers
+            activityType: ACTIVITY_TYPE_TRANSPORTATION
+            transportationMode: public_transport
         displayName: Passenger transport services
     displayName: Transport
   INFORMATION AND COMMUNICATION:
@@ -6779,6 +6792,7 @@ _children:
           - dinner
           - meal
           - breakfast
+        activityType: ACTIVITY_TYPE_MEAL
     displayName: Restaurants and accommodation services
   INSURANCE AND FINANCIAL SERVICES:
     _children:
