@@ -3,7 +3,7 @@ import { ACTIVITY_TYPE_PURCHASE, ACTIVITY_TYPE_TRANSPORTATION } from '../../defi
 
 
 export const getActivityTypeForPurchaseCategory = (purchaseCategory) => {
-    const coicopCategory = getEntryByKey[purchaseCategory];
+    const coicopCategory = getEntryByKey(purchaseCategory);
 
     const activityType = coicopCategory.activityType ? coicopCategory.activityType : ACTIVITY_TYPE_PURCHASE;
 
