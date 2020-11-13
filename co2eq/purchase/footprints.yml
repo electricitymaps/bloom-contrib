@@ -6553,6 +6553,8 @@ _children:
               - funicular
               - elevator
               - bridge
+              - freight
+              - movers
         displayName: Passenger transport services
     displayName: Transport
   INFORMATION AND COMMUNICATION:
@@ -6637,6 +6639,8 @@ _children:
       - online
       - saas
       - subscription
+      - postal services
+      - stamps
   RECREATION, SPORT AND CULTURE:
     _children:
       RECREATIONAL DURABLES:
