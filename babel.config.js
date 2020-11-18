@@ -10,4 +10,5 @@ module.exports = {
     ],
     'convert-to-json',
   ],
+  ignore: ['**/*.test.js'],
 };
