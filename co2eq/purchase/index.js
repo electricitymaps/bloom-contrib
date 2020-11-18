@@ -30,7 +30,7 @@ export const explanation = {
   links: [
     {
       label: 'Tomorrow footprint database',
-      href: 'https://github.com/tmrowco/northapp-contrib/blob/master/co2eq/purchase/footprints.yml',
+      href: 'https://github.com/tmrowco/bloom-contrib/blob/master/co2eq/purchase/footprints.yml',
     },
   ],
 };

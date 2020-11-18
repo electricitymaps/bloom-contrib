@@ -19,7 +19,7 @@ function mapLevelToMethods(logLevel) {
 }
 
 /**
- * Converts server side logs (as defined: https://github.com/tmrowco/northapp-contrib/blob/master/playground/server/index.js#L71-L76) to internal console feed format
+ * Converts server side logs (as defined: https://github.com/tmrowco/bloom-contrib/blob/master/playground/server/index.js#L71-L76) to internal console feed format
  * @param {*} logs
  */
 function transformToConsoleFeedFormat(logs) {

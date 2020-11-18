@@ -1,5 +1,5 @@
 {
-  "name": "northapp-contrib-playground-frontend",
+  "name": "bloom-contrib-playground-frontend",
   "dependencies": {
     "@babel/register": "^7.6.2",
     "@material-ui/core": "^4.4.3",

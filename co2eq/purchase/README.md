@@ -21,11 +21,11 @@ There are multiple EEMRIO databases. There is a good overview of the different o
 
 EXIOBASE 3 is the output of multiple European research projects. Its database covers 43 countries and 5 bigger regions, and 200 product or 163 industries. Currently, we use EXIOBASE 3.4, accessible [here](https://www.exiobase.eu/index.php/data-download/exiobase3mon/118-exiobase3-4-iot-2011-pxp).
 
-We used the pymrio package, built and maintained by one of researchers behind EXIOBASE, to calculate the carbon footprint of the consumption of a product in a country, using an iPython Notebook accessible [here](https://github.com/tmrowco/northapp-contrib/blob/master/co2eq/purchase/exiobase/io/carbon_footprint_scopes.ipynb). While EXIOBASE gives us great crude numbers, there are a couple of adjustments to be made to have useful numbers.
+We used the pymrio package, built and maintained by one of researchers behind EXIOBASE, to calculate the carbon footprint of the consumption of a product in a country, using an iPython Notebook accessible [here](https://github.com/tmrowco/bloom-contrib/blob/master/co2eq/purchase/exiobase/io/carbon_footprint_scopes.ipynb). While EXIOBASE gives us great crude numbers, there are a couple of adjustments to be made to have useful numbers.
 
 ### COICOP
 
-The EXIOBASE product category is great for carbon intensive products, for example, there are multiple coal related products. However, the way most companies and humans understand products is a bit different. We decided to use the Classification of Individual Consumption by Purpose (COICOP) taxonomy. Because it&#39;s a UN standard, using COICOP allows us to reuse the work of other researchers and provide a common language if someone wanted to help us. To translate EXIOBASE categories into COICOP categories, we relied on a concordance table shared by Richard Woods (one of the researchers behind EXIOBASE), which is accessible [here](https://github.com/tmrowco/northapp-contrib/blob/master/co2eq/purchase/exiobase/COICOP_EU_ini.csv). This is done [here](https://github.com/tmrowco/northapp-contrib/blob/master/co2eq/purchase/exiobase/prepare.py).
+The EXIOBASE product category is great for carbon intensive products, for example, there are multiple coal related products. However, the way most companies and humans understand products is a bit different. We decided to use the Classification of Individual Consumption by Purpose (COICOP) taxonomy. Because it&#39;s a UN standard, using COICOP allows us to reuse the work of other researchers and provide a common language if someone wanted to help us. To translate EXIOBASE categories into COICOP categories, we relied on a concordance table shared by Richard Woods (one of the researchers behind EXIOBASE), which is accessible [here](https://github.com/tmrowco/bloom-contrib/blob/master/co2eq/purchase/exiobase/COICOP_EU_ini.csv). This is done [here](https://github.com/tmrowco/bloom-contrib/blob/master/co2eq/purchase/exiobase/prepare.py).
 
 ### VAT, producer price and basic price
 
@@ -35,11 +35,11 @@ In many accounting systems removing VAT is already done, but this is something w
 
 ### Consumer Price Indices
 
-EXIOBASE is using 2011 numbers. While there have been efforts to now-cast the database to 2016, we couldn&#39;t find it at the product level (only at industry level). For this reason, we use consumer price indices at least at country level to make sure purchases are converted to 2011 prices. This is done [here](https://github.com/tmrowco/northapp-contrib/blob/master/co2eq/purchase/index.js) at country level and year level using this [data-](https://github.com/tmrowco/northapp-contrib/blob/master/co2eq/purchase/consumerpriceindices.yml) in the future we could do it more accurately at sector level (documented [here](https://github.com/tmrowco/northapp-contrib/issues/392)).
+EXIOBASE is using 2011 numbers. While there have been efforts to now-cast the database to 2016, we couldn&#39;t find it at the product level (only at industry level). For this reason, we use consumer price indices at least at country level to make sure purchases are converted to 2011 prices. This is done [here](https://github.com/tmrowco/bloom-contrib/blob/master/co2eq/purchase/index.js) at country level and year level using this [data-](https://github.com/tmrowco/bloom-contrib/blob/master/co2eq/purchase/consumerpriceindices.yml) in the future we could do it more accurately at sector level (documented [here](https://github.com/tmrowco/bloom-contrib/issues/392)).
 
 ### Exchange rate
 
-Finally, EXIOBASE uses euros, so any purchases done in other currencies will be converted to euros. This is done [here](https://github.com/tmrowco/northapp-contrib/blob/master/co2eq/purchase/index.js) using exchange rates [here](https://github.com/tmrowco/northapp-contrib/blob/master/co2eq/purchase/exchange_rates_2011.json).
+Finally, EXIOBASE uses euros, so any purchases done in other currencies will be converted to euros. This is done [here](https://github.com/tmrowco/bloom-contrib/blob/master/co2eq/purchase/index.js) using exchange rates [here](https://github.com/tmrowco/bloom-contrib/blob/master/co2eq/purchase/exchange_rates_2011.json).
 
 ### How our data could be improved:
 
