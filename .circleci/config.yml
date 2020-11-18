@@ -35,10 +35,9 @@ jobs:
             - node_modules
             - playground/node_modules
           key: v1-dependencies-{{ checksum "yarn.lock" }}-{{ checksum "playground/yarn.lock" }}
-      # run linter
       - run: yarn lint:bail
-      # run tests
       - run: yarn test
+      - run: yarn build
 
 workflows:
   version: 2

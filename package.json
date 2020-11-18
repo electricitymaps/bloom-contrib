@@ -21,6 +21,7 @@
     "xmldom": "^0.1.27"
   },
   "devDependencies": {
+    "@babel/cli": "^7.12.1",
     "@babel/core": "^7.2.2",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/plugin-transform-runtime": "^7.6.2",
@@ -41,6 +42,7 @@
     "prettier": "^1.19.1"
   },
   "scripts": {
+    "build": "bash scripts/build.sh",
     "lint": "yarn lint:bail --fix --quiet",
     "lint:bail": "eslint *.js co2eq integrations playground",
     "test": "TZ='Europe/Copenhagen' jest --no-cache"
