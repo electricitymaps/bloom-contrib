@@ -1,7 +1,7 @@
 import { geoDistance } from 'd3-geo'; // todo - add d3-geo in package.json
 import { ACTIVITY_TYPE_TRANSPORTATION, TRANSPORTATION_MODE_PLANE } from '../../definitions';
 
-import airports from './airports.json';
+import { airports } from './airports';
 import { getActivityDurationHours } from '../utils';
 import loadfactors from './loadfactors.json';
 
