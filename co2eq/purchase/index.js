@@ -35,7 +35,7 @@ export const explanation = {
   ],
 };
 
-const ENTRY_BY_KEY = {};
+export const ENTRY_BY_KEY = {};
 export const purchaseIcon = {};
 
 // Traverse and index tree
