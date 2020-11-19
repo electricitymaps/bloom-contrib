@@ -40,6 +40,12 @@ jobs:
     steps:
       - attach_workspace:
           at: .
+      - run:
+          name: Configure git
+          command: |
+            git config --global user.email "kenneth.skovhus+bot@tmrow.com"
+            git config --global user.name "tmrow-bot"
+            git config --global push.default simple
       - run: bash scripts/release.sh
 
 
