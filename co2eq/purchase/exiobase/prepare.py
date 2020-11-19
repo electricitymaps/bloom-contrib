@@ -95,7 +95,7 @@ for (coicop_code, values_by_country) in COICOP_FOOTPRINTS.items():
     print(f"Found {coicop_code}. Updating..")
     entry['year'] = 2011
     entry['unit'] = 'EUR'
-    entry['source'] = 'https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase'
+    entry['source'] = 'https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase'
     entry['intensityKilograms'] = values_by_country
 
 to_remove_in_parenthesis = [

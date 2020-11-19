@@ -18,7 +18,7 @@ import {
 } from '../../definitions';
 import { getAvailableCurrencies } from '../../integrations/utils/currency/currency';
 import { getChecksum } from '../utils';
-import footprints from './footprints.yml';
+import { footprints } from './footprints';
 import consumerPriceIndex from './consumerpriceindices.yml';
 import exchangeRates2011 from './exchange_rates_2011.json';
 
@@ -30,7 +30,7 @@ export const explanation = {
   links: [
     {
       label: 'Tomorrow footprint database',
-      href: 'https://github.com/tmrowco/northapp-contrib/blob/master/co2eq/purchase/footprints.yml',
+      href: 'https://github.com/tmrowco/bloom-contrib/blob/master/co2eq/purchase/footprints.yml',
     },
   ],
 };

@@ -62,7 +62,7 @@ _children:
         oldKeys:
           - PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_PARTS
           - Automotive parts or accessories
-        source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+        source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
         coicopCode: 07.2.1
         year: 2011
@@ -123,7 +123,7 @@ _children:
           - PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_SERVICE
           - Automotive services
           - Parking lot
-        source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+        source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
         coicopCode: 07.2.3
         year: 2011
@@ -1468,7 +1468,7 @@ _children:
           - Bar or nightclub
           - Gambling
           - Cinema
-        source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+        source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
         coicopCode: '09.4'
         year: 2011
@@ -1535,7 +1535,7 @@ _children:
         oldKeys:
           - PURCHASE_CATEGORY_ENTERTAINMENT_CRUISE_LINES
           - Cruise
-        source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+        source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
         coicopCode: '09.8'
         year: 2011
@@ -1599,7 +1599,7 @@ _children:
         oldKeys:
           - PURCHASE_CATEGORY_ENTERTAINMENT_HOTEL
           - Hotel
-        source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+        source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
         coicopCode: '11.2'
         year: 2011
@@ -1671,7 +1671,7 @@ _children:
           - PURCHASE_CATEGORY_ENTERTAINMENT_LIQUOR_STORE
           - Liquor Store
           - Liquor store
-        source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+        source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
         coicopCode: '02.1'
         year: 2011
@@ -1732,7 +1732,7 @@ _children:
         oldKeys:
           - PURCHASE_CATEGORY_ENTERTAINMENT_CIGAR_STORES
           - Tobacco store
-        source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+        source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
         coicopCode: '02.3'
         year: 2011
@@ -3563,7 +3563,7 @@ _children:
         oldKeys:
           - PURCHASE_CATEGORY_HEALTHCARE_DOCTOR
           - Doctor
-        source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+        source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
         coicopCode: '06.2'
         year: 2011
@@ -3630,7 +3630,7 @@ _children:
         oldKeys:
           - PURCHASE_CATEGORY_HEALTHCARE_PHARMARCY
           - Drug store or pharmacy
-        source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+        source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
         coicopCode: '06.1'
         year: 2011
@@ -3699,7 +3699,7 @@ _children:
         oldKeys:
           - PURCHASE_CATEGORY_FOOD_BAKERY
           - Bakery
-        source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+        source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
         coicopCode: 01.1.1
         year: 2011
@@ -3763,7 +3763,7 @@ _children:
         oldKeys:
           - PURCHASE_CATEGORY_STORE_BARBER_BEAUTY
           - Barber or beauty shop
-        source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+        source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
         coicopCode: '13.1'
         year: 2011
@@ -3828,7 +3828,7 @@ _children:
         oldKeys:
           - PURCHASE_CATEGORY_STORE_BOOKS
           - Bookshop
-        source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+        source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
         coicopCode: '09.7'
         year: 2011
@@ -3902,7 +3902,7 @@ _children:
           - PURCHASE_CATEGORY_STORE_CLOTHING
           - Clothing
           - Department store
-        source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+        source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
         coicopCode: '03.1'
         year: 2011
@@ -3971,7 +3971,7 @@ _children:
         oldKeys:
           - PURCHASE_CATEGORY_STORE_ELECTRONIC
           - Electronic store
-        source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+        source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
         coicopCode: '08.1'
         year: 2011
@@ -4052,7 +4052,7 @@ _children:
         oldKeys:
           - PURCHASE_CATEGORY_STORE_EQUIPMENT_FURNITURE
           - Equipment furniture
-        source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+        source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
         coicopCode: 05.1.1
         year: 2011
@@ -4129,7 +4129,7 @@ _children:
         oldKeys:
           - PURCHASE_CATEGORY_FOOD_SUPERMARKET
           - Grocery store
-        source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+        source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
         coicopCode: '01'
         year: 2011
@@ -4141,7 +4141,7 @@ _children:
                 coicopCode: 01.1.2
                 year: 2011
                 unit: EUR
-                source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+                source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
                 intensityKilograms:
                   AT: 0.6458596804033253
                   AU: 1.2200355970120131
@@ -4198,7 +4198,7 @@ _children:
                 coicopCode: 01.1.3
                 year: 2011
                 unit: EUR
-                source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+                source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
                 intensityKilograms:
                   AT: 0.6538071632591153
                   AU: 0.7151866436004488
@@ -4254,7 +4254,7 @@ _children:
                 coicopCode: 01.1.4
                 year: 2011
                 unit: EUR
-                source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+                source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
                 intensityKilograms:
                   AT: 0.7436543711534668
                   AU: 1.2798545299946813
@@ -4314,7 +4314,7 @@ _children:
                 coicopCode: 01.1.5
                 year: 2011
                 unit: EUR
-                source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+                source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
                 intensityKilograms:
                   AT: 0.6057337241594754
                   AU: 1.2909064223784799
@@ -4370,7 +4370,7 @@ _children:
                 coicopCode: 01.1.6
                 year: 2011
                 unit: EUR
-                source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+                source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
                 intensityKilograms:
                   AT: 0.19370289605367663
                   AU: 0.8611099568546641
@@ -4426,7 +4426,7 @@ _children:
                 coicopCode: 01.1.7
                 year: 2011
                 unit: EUR
-                source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+                source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
                 intensityKilograms:
                   AT: 0.19370289605367663
                   AU: 0.8611099568546641
@@ -4482,7 +4482,7 @@ _children:
                 coicopCode: 01.1.8
                 year: 2011
                 unit: EUR
-                source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+                source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
                 intensityKilograms:
                   AT: 0.6126820350688966
                   AU: 1.1273580389252886
@@ -4538,7 +4538,7 @@ _children:
                 coicopCode: 01.1.9
                 year: 2011
                 unit: EUR
-                source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+                source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
                 intensityKilograms:
                   AT: 0.5307511843417203
                   AU: 0.7578693364698058
@@ -4592,7 +4592,7 @@ _children:
                 displayName: Ready-made food and other food products n.e.c.
             year: 2011
             unit: EUR
-            source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+            source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
             intensityKilograms:
               AT: 0.5407268278791255
               AU: 1.0117255705608155
@@ -4648,7 +4648,7 @@ _children:
             coicopCode: '01.2'
             year: 2011
             unit: EUR
-            source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+            source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
             intensityKilograms:
               AT: 0.4732692141066177
               AU: 0.5982950629919985
@@ -4756,7 +4756,7 @@ _children:
         oldKeys:
           - PURCHASE_CATEGORY_STORE_HARDWARE
           - Hardware
-        source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+        source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
         coicopCode: '05.5'
         year: 2011
@@ -4826,7 +4826,7 @@ _children:
         oldKeys:
           - PURCHASE_CATEGORY_STORE_HOUSE_FURNISHING
           - House furnishing
-        source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+        source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
         coicopCode: 05.1.1.4
         year: 2011
@@ -4892,7 +4892,7 @@ _children:
         oldKeys:
           - PURCHASE_CATEGORY_STORE_HOUSEHOLD_APPLIANCE
           - Household appliances
-        source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+        source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
         coicopCode: '05.3'
         year: 2011
@@ -4970,7 +4970,7 @@ _children:
           - Lawn and garden store
           - Pet shop
           - Florist
-        source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+        source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
         coicopCode: '09.3'
         year: 2011
@@ -5079,7 +5079,7 @@ _children:
     oldKeys:
       - PURCHASE_CATEGORY_TRANSPORTATION_FUEL
       - Fuel
-    source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+    source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
     unit: EUR
     coicopCode: 07.2.2
     year: 2011
@@ -5090,7 +5090,7 @@ _children:
         coicopCode: '03.2'
         year: 2011
         unit: EUR
-        source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+        source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         intensityKilograms:
           AT: 0.24090536171805382
           AU: 0.4184398004774378
@@ -5152,7 +5152,7 @@ _children:
         coicopCode: '04.1'
         year: 2011
         unit: EUR
-        source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+        source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         icon: home
         intensityKilograms:
           AT: 0.14087843881478576
@@ -5214,7 +5214,7 @@ _children:
         coicopCode: '04.2'
         year: 2011
         unit: EUR
-        source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+        source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         intensityKilograms:
           AT: 0.14087843881478576
           AU: 0.07724554347685257
@@ -5270,7 +5270,7 @@ _children:
         coicopCode: '04.3'
         year: 2011
         unit: EUR
-        source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+        source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         intensityKilograms:
           AT: 0.38056491587650726
           AU: 0.31363569561974763
@@ -5336,7 +5336,7 @@ _children:
         coicopCode: '04.4'
         year: 2011
         unit: EUR
-        source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+        source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         intensityKilograms:
           AT: 0.6924904836402103
           AU: 1.2765332668876004
@@ -5394,7 +5394,7 @@ _children:
             coicopCode: 04.5.1
             year: 2011
             unit: EUR
-            source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+            source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
             intensityKilograms:
               AT: 1.4050013479316374
               AU: 7.695917305376748
@@ -5450,7 +5450,7 @@ _children:
             coicopCode: 04.5.2
             year: 2011
             unit: EUR
-            source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+            source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
             intensityKilograms:
               AT: 3.7908293499585253
               AU: 12.866038513759591
@@ -5506,7 +5506,7 @@ _children:
             coicopCode: 04.5.3
             year: 2011
             unit: EUR
-            source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+            source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
             intensityKilograms:
               AT: 1.2548419017767323
               AU: 0.8783021491431163
@@ -5562,7 +5562,7 @@ _children:
             coicopCode: 04.5.4
             year: 2011
             unit: EUR
-            source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+            source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
             intensityKilograms:
               AT: 1.2599037475375774
               AU: 0.7912623205504323
@@ -5618,7 +5618,7 @@ _children:
             coicopCode: 04.5.5
             year: 2011
             unit: EUR
-            source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+            source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
             intensityKilograms:
               AT: 6.807844457727781
               BE: 8.20457678931672
@@ -5679,7 +5679,7 @@ _children:
             coicopCode: 05.1.2
             year: 2011
             unit: EUR
-            source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+            source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
             intensityKilograms:
               AT: 0.22812402805976995
               AU: 0.3649665078033194
@@ -5739,7 +5739,7 @@ _children:
         coicopCode: '05.2'
         year: 2011
         unit: EUR
-        source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+        source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         intensityKilograms:
           AT: 0.29520755617955524
           AU: 0.34154449856580765
@@ -5807,7 +5807,7 @@ _children:
         coicopCode: '05.4'
         year: 2011
         unit: EUR
-        source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+        source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         intensityKilograms:
           AT: 0.437999418642222
           AU: 1.1190644116807336
@@ -5868,7 +5868,7 @@ _children:
             coicopCode: 05.6.1
             year: 2011
             unit: EUR
-            source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+            source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
             intensityKilograms:
               AT: 0.5775486189019716
               AU: 0.482957600141181
@@ -5932,7 +5932,7 @@ _children:
             coicopCode: 05.6.2
             year: 2011
             unit: EUR
-            source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+            source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
             intensityKilograms:
               AT: 0.09816295861178499
               AU: 0.4104469659589552
@@ -6004,7 +6004,7 @@ _children:
         coicopCode: '06.3'
         year: 2011
         unit: EUR
-        source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+        source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         intensityKilograms:
           AT: 0.19637013890293112
           AU: 0.1736482164120421
@@ -6068,7 +6068,7 @@ _children:
         coicopCode: '07.1'
         year: 2011
         unit: EUR
-        source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+        source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         intensityKilograms:
           AT: 0.2929329824286619
           AU: 0.5078416503301589
@@ -6131,7 +6131,7 @@ _children:
             coicopCode: 07.2.4
             year: 2011
             unit: EUR
-            source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+            source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
             intensityKilograms:
               AT: 0.16013877400743093
               AU: 0.24653367138483467
@@ -6196,7 +6196,7 @@ _children:
             coicopCode: 07.3.1
             year: 2011
             unit: EUR
-            source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+            source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
             intensityKilograms:
               AT: 0.23689995526780824
               AU: 0.40189654374834216
@@ -6257,7 +6257,7 @@ _children:
             coicopCode: 07.3.2
             year: 2011
             unit: EUR
-            source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+            source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
             intensityKilograms:
               AT: 0.14329582412825928
               AU: 0.1592667554464537
@@ -6322,7 +6322,7 @@ _children:
             coicopCode: 07.3.3
             year: 2011
             unit: EUR
-            source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+            source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
             intensityKilograms:
               AT: 1.024562601907154
               AU: 1.3216460338378595
@@ -6381,7 +6381,7 @@ _children:
             coicopCode: 07.3.4
             year: 2011
             unit: EUR
-            source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+            source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
             intensityKilograms:
               AT: 0.798184617532687
               AU: 3.5656213549229276
@@ -6441,7 +6441,7 @@ _children:
             coicopCode: 07.3.5
             year: 2011
             unit: EUR
-            source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+            source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
             intensityKilograms:
               AT: 0.1374337367650893
               AU: 0.16397221933734732
@@ -6497,7 +6497,7 @@ _children:
             coicopCode: 07.3.6
             year: 2011
             unit: EUR
-            source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+            source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
             intensityKilograms:
               AT: 0.35132482243943225
               AU: 0.5207236634397208
@@ -6562,7 +6562,7 @@ _children:
     year: 2011
     unit: EUR
     icon: laptop
-    source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+    source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
     intensityKilograms:
       AT: 0.16165337175967465
       AU: 0.22984525614642085
@@ -6647,7 +6647,7 @@ _children:
         coicopCode: '09.1'
         year: 2011
         unit: EUR
-        source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+        source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         intensityKilograms:
           AT: 0.15698386401742823
           AU: 0.16442133740445947
@@ -6716,7 +6716,7 @@ _children:
         coicopCode: '11.1'
         year: 2011
         unit: EUR
-        source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+        source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         intensityKilograms:
           AT: 0.197102755077923
           AU: 0.39451879179304816
@@ -6786,7 +6786,7 @@ _children:
         coicopCode: '12.1'
         year: 2011
         unit: EUR
-        source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+        source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         intensityKilograms:
           AT: 0.20525212768727508
           AU: 0.20183341279967892
@@ -6842,7 +6842,7 @@ _children:
         coicopCode: '12.2'
         year: 2011
         unit: EUR
-        source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+        source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         intensityKilograms:
           AT: 0.20208118120307086
           AU: 0.3274472459684225
@@ -6906,7 +6906,7 @@ _children:
             coicopCode: 13.2.1
             year: 2011
             unit: EUR
-            source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+            source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
             intensityKilograms:
               AT: 0.02613830423837556
               AU: 0.7036380641575152
@@ -6962,7 +6962,7 @@ _children:
             coicopCode: 13.2.9
             year: 2011
             unit: EUR
-            source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+            source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
             intensityKilograms:
               AT: 0.13325050330509872
               AU: 0.0821196889822095
@@ -7019,7 +7019,7 @@ _children:
         coicopCode: '13.3'
         year: 2011
         unit: EUR
-        source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+        source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         intensityKilograms:
           AT: 0.09741379607500217
           AU: 0.053609539335968265
@@ -7075,7 +7075,7 @@ _children:
         coicopCode: '13.9'
         year: 2011
         unit: EUR
-        source: https://github.com/tmrowco/northapp-contrib/tree/master/co2eq/purchase/exiobase
+        source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         intensityKilograms:
           AT: 0.11736647849656673
           AU: 0.09097813536165757

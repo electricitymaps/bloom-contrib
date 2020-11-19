@@ -10,7 +10,7 @@ import {
 } from '@material-ui/core';
 import Icon from './icon';
 
-// As defined here: https://github.com/tmrowco/northapp-contrib/blob/master/playground/server/index.js#L77-L81
+// As defined here: https://github.com/tmrowco/bloom-contrib/blob/master/playground/server/index.js#L77-L81
 export const logLevels = new Set(['error', 'warn', 'debug']);
 
 export default function ConsoleHeader({
