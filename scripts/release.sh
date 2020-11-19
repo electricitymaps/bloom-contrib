@@ -16,3 +16,4 @@ npm publish --access public
 
 # Push new version commit and tags
 git push origin --tags
+git push
