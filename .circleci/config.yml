@@ -10,7 +10,7 @@ jobs:
 
   verify:
     docker:
-      - image: circleci/node:10.13
+      - image: circleci/node:10.23
     steps:
       - checkout
       # Download and cache dependencies
@@ -20,7 +20,7 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
       - run: touch integrations/env.json
-      - run: yarn && cd playground && yarn
+      - run: yarn --frozen-lockfile && cd playground && yarn --frozen-lockfile
       - save_cache:
           paths:
             - node_modules
@@ -36,7 +36,7 @@ jobs:
 
   deploy:
     docker:
-      - image: circleci/node:10.13
+      - image: circleci/node:10.23
     steps:
       - attach_workspace:
           at: .
