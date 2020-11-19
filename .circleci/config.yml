@@ -34,32 +34,9 @@ jobs:
           paths:
             - .
 
-  deploy:
-    docker:
-      - image: circleci/node:10.23
-    steps:
-      - attach_workspace:
-          at: .
-      - run:
-          name: Configure git
-          command: |
-            git config --global user.email "kenneth.skovhus+bot@tmrow.com"
-            git config --global user.name "tmrow-bot"
-            git config --global push.default simple
-      - run: bash scripts/release.sh
-
-
 workflows:
   version: 2
   main_workflow:
     jobs:
       - lint_yml
       - verify
-      - deploy:
-          requires:
-            - lint_yml
-            - verify
-          filters:
-            branches:
-              only:
-                - master

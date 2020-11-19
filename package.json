@@ -1,6 +1,6 @@
 {
   "name": "@tmrow/bloom-contrib",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Carbon models and integrations used at Tomorrow",
   "license": "MIT",
   "repository": {
@@ -53,7 +53,8 @@
     "build": "bash scripts/build.sh",
     "lint": "yarn lint:bail --fix --quiet",
     "lint:bail": "eslint *.js co2eq integrations playground",
-    "test": "TZ='Europe/Copenhagen' jest --no-cache"
+    "test": "TZ='Europe/Copenhagen' jest --no-cache",
+    "verify:bail": "yarn lint:bail && yarn test && yarn build"
   },
   "jest": {
     "clearMocks": true,
