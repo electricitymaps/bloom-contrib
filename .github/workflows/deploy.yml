@@ -1,0 +1,32 @@
+name: Deploy npm package
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile && cd playground && yarn --frozen-lockfile
+
+      - name: Configure git
+        run: |
+          git config --global user.email "kenneth.skovhus+bot@tmrow.com"
+          git config --global user.name "tmrow-bot"
+
+      - name: Verify changes and build
+        run: yarn verify:bail
+
+      - name: Deploy npm package
+        run: bash scripts/release.sh
+        env:
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}

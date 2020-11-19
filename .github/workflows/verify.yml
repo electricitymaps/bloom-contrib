@@ -1,0 +1,30 @@
+name: Verify changes
+
+on: [pull_request]
+
+jobs:
+  ymllint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: pip install --user yamllint
+
+      - name: Lint yml files
+        run: yamllint co2eq/**/*.yml
+
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile && cd playground && yarn --frozen-lockfile
+
+      - name: Verify changes and build
+        run: yarn verify:bail
