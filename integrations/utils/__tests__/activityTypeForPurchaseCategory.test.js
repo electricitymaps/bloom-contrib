@@ -1,4 +1,3 @@
-// TODO
 import { getEntryByKey } from '../../../co2eq/purchase/index'
 import { getActivityTypeForPurchaseCategory } from '../activityTypeForPurchaseCategory';
 import { ACTIVITY_TYPE_MEAL, ACTIVITY_TYPE_PURCHASE, ACTIVITY_TYPE_TRANSPORTATION, TRANSPORTATION_MODE_BIKE } from '../../../definitions';
@@ -43,10 +42,11 @@ import { ACTIVITY_TYPE_MEAL, ACTIVITY_TYPE_PURCHASE, ACTIVITY_TYPE_TRANSPORTATIO
 
  describe('assignation of an activity category to a purchase category', () => {;
 
-    test(`defaults to ${ACTIVITY_TYPE_PURCHASE} if the purchaseCategory has no assigned activityType`, () => {
+    test('defaults to ACTIVITY_TYPE_PURCHASE if the purchaseCategory has no assigned activityType', () => {
 
+        const activity = getActivityTypeForPurchaseCategory(PURCHASE_CATEGORY_STANDARD);
         expect(getEntryByKeySpy).toHaveBeenCalledTimes(1);
-        expect(getActivityTypeForPurchaseCategory(PURCHASE_CATEGORY_STANDARD)).toEqual({
+        expect(activity).toEqual({
             activityType: ACTIVITY_TYPE_PURCHASE,
             purchaseCategory: PURCHASE_CATEGORY_STANDARD
         });
@@ -60,7 +60,7 @@ import { ACTIVITY_TYPE_MEAL, ACTIVITY_TYPE_PURCHASE, ACTIVITY_TYPE_TRANSPORTATIO
         });
     });
 
-    test(`if the activityType is ${ACTIVITY_TYPE_TRANSPORTATION}, should specify the transportationMode`, () => {
+    test('if the activityType is ACTIVITY_TYPE_TRANSPORTATION, should specify the transportationMode', () => {
 
         expect(getActivityTypeForPurchaseCategory(PURCHASE_CATEGORY_TRANSPORTATION)).toEqual({
             activityType: ACTIVITY_TYPE_TRANSPORTATION,
