@@ -251,7 +251,7 @@ export function carbonEmissionOfLineItem(lineItem, countryCodeISO2, datetime) {
   if (entry.unit !== UNIT_MONETARY_EUR) {
     throw new Error(`Invalid unit ${entry.unit} given. Expected ${UNIT_MONETARY_EUR}`);
   }
-  if (countryCodeISO2 == null) {
+  if (!countryCodeISO2) {
     // Use average of all countries
     // TODO: weight by the GDP of countries or by population
     const values = Object.values(entry.intensityKilograms);
