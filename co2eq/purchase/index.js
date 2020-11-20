@@ -15,6 +15,9 @@ import {
   UNIT_ITEM,
   UNIT_KILOGRAMS,
   UNIT_LITER,
+  ACTIVITY_TYPE_ELECTRICITY,
+  ACTIVITY_TYPE_ELECTRIC_HEATING,
+  PURCHASE_CATEGORY_ELECTRICITY,
 } from '../../definitions';
 import { getAvailableCurrencies } from '../../integrations/utils/currency/currency';
 import { getChecksum } from '../utils';
@@ -272,6 +275,7 @@ export function carbonEmissions(activity) {
   let footprint;
 
   switch (activity.activityType) {
+    // TODO add Energy
     case ACTIVITY_TYPE_MEAL:
       footprint = carbonEmissionOfLineItem(
         {
@@ -304,6 +308,7 @@ export function carbonEmissions(activity) {
             `Couldn't calculate purchase carbonIntensity for transporation activity with mode ${activity.transportationMode}`
           );
       }
+
       footprint = carbonEmissionOfLineItem(
         {
           identifier,
@@ -315,6 +320,21 @@ export function carbonEmissions(activity) {
       );
       break;
     }
+
+    case ACTIVITY_TYPE_ELECTRICITY:
+    case ACTIVITY_TYPE_ELECTRIC_HEATING: {
+      footprint = carbonEmissionOfLineItem(
+        {
+          identifier: PURCHASE_CATEGORY_ELECTRICITY,
+          unit: activity.costCurrency,
+          value: activity.costAmount,
+        },
+        activity.countryCodeISO2,
+        activity.datetime
+      );
+      break;
+    }
+
 
     case ACTIVITY_TYPE_PURCHASE: {
       const { lineItems, countryCodeISO2, datetime } = activity;
