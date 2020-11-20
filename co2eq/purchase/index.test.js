@@ -168,6 +168,7 @@ test(`test non-monetary units (in kg)`, () => {
   expect(carbonEmissions(activity)).toBeCloseTo(92.5);
 });
 
+// TODO move that to test for meal
 test(`test equivalence of activityType=ACTIVITY_TYPE_PURCHASE and activityType=ACTIVITY_TYPE_MEAL`, () => {
   const activity = {
     activityType: ACTIVITY_TYPE_PURCHASE,
@@ -182,6 +183,8 @@ test(`test equivalence of activityType=ACTIVITY_TYPE_PURCHASE and activityType=A
     carbonEmissions({ ...activity, activityType: ACTIVITY_TYPE_MEAL })
   );
 });
+
+// TODO move that to test for transportation
 const TRANSPORTATION_MODE_TO_PURCHASE_IDENTIFIER = {
   [TRANSPORTATION_MODE_CAR]: PURCHASE_CATEGORY_TRANSPORT_ROAD,
   [TRANSPORTATION_MODE_TRAIN]: PURCHASE_CATEGORY_TRANSPORT_RAIL,
