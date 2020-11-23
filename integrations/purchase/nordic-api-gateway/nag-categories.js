@@ -142,7 +142,9 @@ const categoryToCategory = {
 
 export const NAG_CATEGORY = Object.entries(categoryToCategory).reduce(
   (accumulator, [id, purchaseCategory]) => {
-    accumulator[id] = purchaseCategory ? getActivityTypeForPurchaseCategory(purchaseCategory) : null;
+    accumulator[id] = purchaseCategory
+      ? getActivityTypeForPurchaseCategory(purchaseCategory)
+      : null;
     return accumulator;
   },
   {}

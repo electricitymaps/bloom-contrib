@@ -203,7 +203,9 @@ const idToCategory = {
 
 export const BRIDGE_API_CATEGORIES = Object.entries(idToCategory).reduce(
   (accumulator, [id, purchaseCategory]) => {
-    accumulator[id] = purchaseCategory ? getActivityTypeForPurchaseCategory(purchaseCategory) : null;
+    accumulator[id] = purchaseCategory
+      ? getActivityTypeForPurchaseCategory(purchaseCategory)
+      : null;
     return accumulator;
   },
   {}

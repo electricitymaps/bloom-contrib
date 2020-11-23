@@ -38,7 +38,7 @@ Object.entries(getDescendants(getRootEntry()))
 Object.entries(getDescendants(getRootEntry()))
   .filter(([k, v]) => v.conversions)
   .forEach(([entryKey, v]) => {
-    Object.keys(v.conversions).forEach(k => {
+    Object.keys(v.conversions).forEach((k) => {
       test(`conversion units of ${entryKey}`, () => {
         expect(UNITS).toContain(k);
       });
@@ -174,9 +174,7 @@ test(`test non-monetary units (in kg)`, () => {
   expect(carbonEmissions(activity)).toBeCloseTo(92.5);
 });
 
-
 describe('test equivalence of activityType=ACTIVITY_TYPE_PURCHASE with other activity types computed using monetary emission factors', () => {
-
   test(`test equivalence of activityType=ACTIVITY_TYPE_PURCHASE and activityType=ACTIVITY_TYPE_MEAL`, () => {
     const purchaseActivity = {
       activityType: ACTIVITY_TYPE_PURCHASE,
@@ -189,12 +187,9 @@ describe('test equivalence of activityType=ACTIVITY_TYPE_PURCHASE with other act
     const mealActivity = { ...purchaseActivity, activityType: ACTIVITY_TYPE_MEAL };
     expect(modelCanRun(purchaseActivity)).toBeTruthy();
     expect(modelCanRun(mealActivity)).toBeTruthy();
-    expect(carbonEmissions(purchaseActivity)).toBeCloseTo(
-      carbonEmissions(mealActivity)
-    );
+    expect(carbonEmissions(purchaseActivity)).toBeCloseTo(carbonEmissions(mealActivity));
   });
-  
-  
+
   const TRANSPORTATION_MODE_TO_PURCHASE_IDENTIFIER = {
     [TRANSPORTATION_MODE_CAR]: PURCHASE_CATEGORY_TRANSPORT_ROAD,
     [TRANSPORTATION_MODE_TRAIN]: PURCHASE_CATEGORY_TRANSPORT_RAIL,
@@ -226,26 +221,23 @@ describe('test equivalence of activityType=ACTIVITY_TYPE_PURCHASE with other act
     }
   );
 
-  ELECTRICITY_ACTIVITIES.forEach(
-    activityType => {
-      test(`test equivalence of activityType=ACTIVITY_TYPE_PURCHASE and of activityType=${activityType}`, () => {
-        const purchaseActivity = {
-          activityType: ACTIVITY_TYPE_PURCHASE,
-          lineItems: [{ identifier: PURCHASE_CATEGORY_ELECTRICITY, unit: UNIT_MONETARY_EUR, value: 10 }],
-          costCurrency: UNIT_MONETARY_EUR,
-          costAmount: 10,
-        };
-        const electricityActivity = {
-          ...purchaseActivity,
-          activityType,
-        };
-        expect(modelCanRun(purchaseActivity)).toBeTruthy();
-        expect(modelCanRun(electricityActivity)).toBeTruthy();
-        expect(carbonEmissions(purchaseActivity)).toBeCloseTo(
-          carbonEmissions(electricityActivity)
-        );
-      })
-    }
-  )
-
+  ELECTRICITY_ACTIVITIES.forEach((activityType) => {
+    test(`test equivalence of activityType=ACTIVITY_TYPE_PURCHASE and of activityType=${activityType}`, () => {
+      const purchaseActivity = {
+        activityType: ACTIVITY_TYPE_PURCHASE,
+        lineItems: [
+          { identifier: PURCHASE_CATEGORY_ELECTRICITY, unit: UNIT_MONETARY_EUR, value: 10 },
+        ],
+        costCurrency: UNIT_MONETARY_EUR,
+        costAmount: 10,
+      };
+      const electricityActivity = {
+        ...purchaseActivity,
+        activityType,
+      };
+      expect(modelCanRun(purchaseActivity)).toBeTruthy();
+      expect(modelCanRun(electricityActivity)).toBeTruthy();
+      expect(carbonEmissions(purchaseActivity)).toBeCloseTo(carbonEmissions(electricityActivity));
+    });
+  });
 });

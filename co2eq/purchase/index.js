@@ -48,9 +48,7 @@ export const ENTRY_BY_KEY = {};
 export const purchaseIcon = {};
 
 // Traverse and index tree
-console.log('Execute file. Footprints:', footprints);
 function indexNodeChildren(branch, i = 1) {
-  console.log('index node');
   Object.entries(branch._children || []).forEach(([k, v]) => {
     if (ENTRY_BY_KEY[k]) {
       throw new Error(`Error while indexing footprint tree: There's already an entry for ${k}`);
@@ -64,7 +62,6 @@ function indexNodeChildren(branch, i = 1) {
     // Traverse further
     indexNodeChildren(v, i + 1);
   });
-  console.log('index children', ENTRY_BY_KEY);
 }
 indexNodeChildren(footprints);
 
@@ -86,7 +83,7 @@ export function getChecksumOfFootprints() {
   return getChecksum(footprints);
 }
 
-export function getDescendants(entry, filter = _ => true, includeRoot = false) {
+export function getDescendants(entry, filter = (_) => true, includeRoot = false) {
   // Note: `getDescendants` is very close to `indexNodeChildren`
   // Note2: if a node gets filtered out, its children won't be visited
   if (!entry) {
@@ -95,7 +92,7 @@ export function getDescendants(entry, filter = _ => true, includeRoot = false) {
   let descendants = includeRoot ? { [entry.key]: entry } : {};
   Object.values(entry._children || [])
     .filter(filter)
-    .forEach(child => {
+    .forEach((child) => {
       descendants = {
         ...descendants,
         ...getDescendants(child, filter, true),
@@ -128,7 +125,7 @@ export function modelCanRun(activity) {
     if (ELECTRICITY_ACTIVITIES.includes(activityType)) return true;
   }
   const hasLineItems = lineItems && lineItems.length > 0;
-  const hasIdentifiers = lineItems && lineItems.every(item => item.identifier);
+  const hasIdentifiers = lineItems && lineItems.every((item) => item.identifier);
   if (activityType === ACTIVITY_TYPE_PURCHASE && hasLineItems && hasIdentifiers) {
     return true;
   }
@@ -354,7 +351,6 @@ export function carbonEmissions(activity) {
       break;
     }
 
-
     case ACTIVITY_TYPE_PURCHASE: {
       const { lineItems, countryCodeISO2, datetime } = activity;
 
@@ -362,7 +358,7 @@ export function carbonEmissions(activity) {
       if (lineItems && lineItems.length) {
         // TODO(df): What to do on a single line error? Abort all? Skip item?
         footprint = lineItems
-          .map(l => carbonEmissionOfLineItem(l, countryCodeISO2, datetime))
+          .map((l) => carbonEmissionOfLineItem(l, countryCodeISO2, datetime))
           .reduce((a, b) => a + b, 0);
       }
       break;
