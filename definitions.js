@@ -95,6 +95,7 @@ export const TRANSPORTATION_MODE_FERRY = 'ferry';
 export const TRANSPORTATION_MODE_ESCOOTER = 'escooter';
 export const TRANSPORTATION_MODE_MOTORBIKE = 'motorbike';
 export const TRANSPORTATION_MODE_FOOT = 'foot';
+export const TRANSPORTATION_MODE_OTHER_TRANSPORT = 'other_transport'; // funicular, elevator etc
 
 /* Meals */
 export const MEAL_TYPE_VEGAN = 'MEAL_TYPE_VEGAN';
@@ -199,6 +200,7 @@ export const PURCHASE_CATEGORY_OTHER_TRANSPORT_SERVICES = 'Other purchased trans
 export const PURCHASE_CATEGORY_TRANSPORT_ROAD = 'Passenger transport by road (S)';
 export const PURCHASE_CATEGORY_TRANSPORT_AIR = 'Passenger transport by air (S)';
 export const PURCHASE_CATEGORY_TRANSPORT_RAIL = 'Passenger transport by railway (S)';
+export const PURCHASE_CATEGORY_TRANSPORT_BOAT = 'Passenger transport by sea and inland waterway (S)';
 export const PURCHASE_CATEGORY_COMBINED_PASSENGER_TRANSPORT = 'Combined passenger transport (S)';
 export const PURCHASE_CATEGORY_MISC_SERVICES_PERSONAL_TRANSPORT =
   'Other services in respect of personal transport equipment (S)';
