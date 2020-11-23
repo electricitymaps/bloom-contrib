@@ -284,7 +284,6 @@ export function carbonEmissions(activity) {
   let footprint;
 
   switch (activity.activityType) {
-    // TODO add Energy
     case ACTIVITY_TYPE_MEAL:
       footprint = carbonEmissionOfLineItem(
         {
