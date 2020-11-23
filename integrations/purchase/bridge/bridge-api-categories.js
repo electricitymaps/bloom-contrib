@@ -33,6 +33,7 @@ import {
   PURCHASE_CATEGORY_ENTERTAINMENT_HOTEL,
   PURCHASE_CATEGORY_PACKAGE_HOLIDAYS,
   PURCHASE_CATEGORY_OTHER_SERVICES,
+  PURCHASE_CATEGORY_TOBACCO,
 } from '../../../definitions';
 import { getActivityTypeForPurchaseCategory } from '../../utils/activityTypeForPurchaseCategory';
 
@@ -163,7 +164,7 @@ const idToCategory = {
 
   160: null, // - Misc. expenses
   324: null, // Laundry / Dry cleaning
-  308: PURCHASE_CATEGORY_ENTERTAINMENT_CIGAR_STORES, // Tobacco
+  308: PURCHASE_CATEGORY_TOBACCO, // Tobacco
   294: null, // Charity
   278: PURCHASE_CATEGORY_INSURANCE, // Insurance
   276: null, // Others spending
