@@ -40,8 +40,8 @@ const mockFootprints = {
 };
 
 jest.mock('../../../co2eq/purchase/index');
-const getEntryByKeySpy = jest.fn((category) => mockFootprints[category]);
-getEntryByKey.mockImplementation((category) => getEntryByKeySpy(category));
+const getEntryByKeySpy = jest.fn(category => mockFootprints[category]);
+getEntryByKey.mockImplementation(category => getEntryByKeySpy(category));
 
 describe('assignation of an activity category to a purchase category', () => {
   test('defaults to ACTIVITY_TYPE_PURCHASE if the purchaseCategory has no assigned activityType', () => {

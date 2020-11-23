@@ -38,7 +38,7 @@ Object.entries(getDescendants(getRootEntry()))
 Object.entries(getDescendants(getRootEntry()))
   .filter(([k, v]) => v.conversions)
   .forEach(([entryKey, v]) => {
-    Object.keys(v.conversions).forEach((k) => {
+    Object.keys(v.conversions).forEach(k => {
       test(`conversion units of ${entryKey}`, () => {
         expect(UNITS).toContain(k);
       });
@@ -221,7 +221,7 @@ describe('test equivalence of activityType=ACTIVITY_TYPE_PURCHASE with other act
     }
   );
 
-  ELECTRICITY_ACTIVITIES.forEach((activityType) => {
+  ELECTRICITY_ACTIVITIES.forEach(activityType => {
     test(`test equivalence of activityType=ACTIVITY_TYPE_PURCHASE and of activityType=${activityType}`, () => {
       const purchaseActivity = {
         activityType: ACTIVITY_TYPE_PURCHASE,

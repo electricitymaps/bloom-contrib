@@ -145,7 +145,7 @@ const PURCHASE_CATEGORIES = [
 ];
 
 describe('activityType and transportationMode are correctly defined in footprints.yml', () => {
-  Object.values(ENTRY_BY_KEY).forEach((entry) => {
+  Object.values(ENTRY_BY_KEY).forEach(entry => {
     if (entry.activityType) {
       test(`category ${entry.displayName} has a valid activityType`, () => {
         expect(VALID_ACTIVITY_TYPES).toContain(entry.activityType);
@@ -153,7 +153,7 @@ describe('activityType and transportationMode are correctly defined in footprint
     }
   });
 
-  Object.values(ENTRY_BY_KEY).forEach((entry) => {
+  Object.values(ENTRY_BY_KEY).forEach(entry => {
     if (entry.transportationMode) {
       test(`category ${entry.displayName} has a valid transportationMode`, () => {
         expect(VALID_TRANSPORTATION_MODES).toContain(entry.transportationMode);
@@ -161,7 +161,7 @@ describe('activityType and transportationMode are correctly defined in footprint
     }
   });
 
-  Object.values(ENTRY_BY_KEY).forEach((entry) => {
+  Object.values(ENTRY_BY_KEY).forEach(entry => {
     if (entry.activityType) {
       test(`all parents of ${entry.displayName} have same activityType`, () => {
         const refActivityType = entry.activityType;
@@ -178,7 +178,7 @@ describe('activityType and transportationMode are correctly defined in footprint
 });
 
 describe('the purchase categories are correctly defined', () => {
-  PURCHASE_CATEGORIES.forEach((purchaseCategory) => {
+  PURCHASE_CATEGORIES.forEach(purchaseCategory => {
     test(`${purchaseCategory} does correspond to a category found in footprints.yml`, () => {
       expect(Object.keys(ENTRY_BY_KEY)).toContain(purchaseCategory);
     });
