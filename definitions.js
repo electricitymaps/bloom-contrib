@@ -95,6 +95,7 @@ export const TRANSPORTATION_MODE_FERRY = 'ferry';
 export const TRANSPORTATION_MODE_ESCOOTER = 'escooter';
 export const TRANSPORTATION_MODE_MOTORBIKE = 'motorbike';
 export const TRANSPORTATION_MODE_FOOT = 'foot';
+export const TRANSPORTATION_MODE_OTHER_TRANSPORT = 'other_transport'; // funicular, elevator etc
 
 /* Meals */
 export const MEAL_TYPE_VEGAN = 'MEAL_TYPE_VEGAN';
@@ -199,19 +200,14 @@ export const PURCHASE_CATEGORY_OTHER_TRANSPORT_SERVICES = 'Other purchased trans
 export const PURCHASE_CATEGORY_TRANSPORT_ROAD = 'Passenger transport by road (S)';
 export const PURCHASE_CATEGORY_TRANSPORT_AIR = 'Passenger transport by air (S)';
 export const PURCHASE_CATEGORY_TRANSPORT_RAIL = 'Passenger transport by railway (S)';
+export const PURCHASE_CATEGORY_TRANSPORT_BOAT =
+  'Passenger transport by sea and inland waterway (S)';
 export const PURCHASE_CATEGORY_COMBINED_PASSENGER_TRANSPORT = 'Combined passenger transport (S)';
 export const PURCHASE_CATEGORY_MISC_SERVICES_PERSONAL_TRANSPORT =
   'Other services in respect of personal transport equipment (S)';
 
 // Entertainment
-export const PURCHASE_CATEGORY_ENTERTAINMENT_CIGAR_STORES = 'Tobacco store';
-export const PURCHASE_CATEGORY_ENTERTAINMENT_AMUSEMENT_PARKS = 'Amusement park';
-export const PURCHASE_CATEGORY_ENTERTAINMENT_MOVIE_THEATER = 'Cinema';
 export const PURCHASE_CATEGORY_ENTERTAINMENT_HOTEL = 'ACCOMMODATION SERVICES';
-export const PURCHASE_CATEGORY_ENTERTAINMENT_BAR_NIGHTCLUB = 'Bar or nightclub';
-export const PURCHASE_CATEGORY_ENTERTAINMENT_GAMBLING = 'Gambling';
-export const PURCHASE_CATEGORY_ENTERTAINMENT_CRUISE_LINES = 'Cruise';
-export const PURCHASE_CATEGORY_ENTERTAINMENT_LIQUOR_STORE = 'Liquor store';
 export const PURCHASE_CATEGORY_RECREATIONAL_SERVICES = 'RECREATIONAL SERVICES';
 export const PURCHASE_CATEGORY_RECREATIONAL_DURABLES = 'RECREATIONAL DURABLES';
 export const PURCHASE_CATEGORY_PACKAGE_HOLIDAYS = 'PACKAGE HOLIDAYS';
@@ -236,6 +232,7 @@ export const PURCHASE_CATEGORY_GAS = 'Gas (ND)';
 export const PURCHASE_CATEGORY_ELECTRICITY = 'Electricity (ND)';
 
 // Purchase MISC
+export const PURCHASE_CATEGORY_TOBACCO = 'TOBACCO';
 export const PURCHASE_CATEGORY_OTHER_SERVICES = 'OTHER SERVICES';
 export const PURCHASE_CATEGORY_SOCIAL_PROTECTION = 'SOCIAL PROTECTION';
 export const PURCHASE_CATEGORY_OTHER_PERSONAL_EFFECTS = 'OTHER PERSONAL EFFECTS';

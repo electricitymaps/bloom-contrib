@@ -1,5 +1,4 @@
 import {
-  ACTIVITY_TYPE_PURCHASE,
   PURCHASE_CATEGORY_TRANSPORTATION_FUEL,
   PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_MAINTENANCE_AND_REPAIR,
   PURCHASE_CATEGORY_STORE_BOOKS,
@@ -34,6 +33,7 @@ import {
   PURCHASE_CATEGORY_ALCOHOL,
   PURCHASE_CATEGORY_ELECTRICITY,
 } from '../../../definitions';
+import { getActivityTypeForPurchaseCategory } from '../../utils/activityTypeForPurchaseCategory';
 
 // Match NAG categories to our own categories
 const categoryToCategory = {
@@ -141,8 +141,10 @@ const categoryToCategory = {
 };
 
 export const NAG_CATEGORY = Object.entries(categoryToCategory).reduce(
-  (accumulator, [id, purchaseType]) => {
-    accumulator[id] = purchaseType ? { activityType: ACTIVITY_TYPE_PURCHASE, purchaseType } : null;
+  (accumulator, [id, purchaseCategory]) => {
+    accumulator[id] = purchaseCategory
+      ? getActivityTypeForPurchaseCategory(purchaseCategory)
+      : null;
     return accumulator;
   },
   {}

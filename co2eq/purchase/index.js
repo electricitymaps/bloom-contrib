@@ -2,15 +2,24 @@ import {
   ACTIVITY_TYPE_MEAL,
   ACTIVITY_TYPE_TRANSPORTATION,
   ACTIVITY_TYPE_PURCHASE,
-  TRANSPORTATION_MODE_CAR,
-  TRANSPORTATION_MODE_TRAIN,
-  TRANSPORTATION_MODE_PLANE,
-  TRANSPORTATION_MODE_PUBLIC_TRANSPORT,
+  ACTIVITY_TYPE_ELECTRICITY,
+  ACTIVITY_TYPE_ELECTRIC_HEATING,
+  ACTIVITY_TYPE_ELECTRIC_VEHICLE_CHARGING,
+  ELECTRICITY_ACTIVITIES,
   PURCHASE_CATEGORY_FOOD_SERVING_SERVICES,
   PURCHASE_CATEGORY_COMBINED_PASSENGER_TRANSPORT,
+  PURCHASE_CATEGORY_OTHER_TRANSPORT_SERVICES,
   PURCHASE_CATEGORY_TRANSPORT_AIR,
+  PURCHASE_CATEGORY_TRANSPORT_BOAT,
   PURCHASE_CATEGORY_TRANSPORT_RAIL,
   PURCHASE_CATEGORY_TRANSPORT_ROAD,
+  PURCHASE_CATEGORY_ELECTRICITY,
+  TRANSPORTATION_MODE_CAR,
+  TRANSPORTATION_MODE_FERRY,
+  TRANSPORTATION_MODE_OTHER_TRANSPORT,
+  TRANSPORTATION_MODE_PLANE,
+  TRANSPORTATION_MODE_PUBLIC_TRANSPORT,
+  TRANSPORTATION_MODE_TRAIN,
   UNIT_MONETARY_EUR,
   UNIT_ITEM,
   UNIT_KILOGRAMS,
@@ -35,7 +44,7 @@ export const explanation = {
   ],
 };
 
-const ENTRY_BY_KEY = {};
+export const ENTRY_BY_KEY = {};
 export const purchaseIcon = {};
 
 // Traverse and index tree
@@ -103,14 +112,17 @@ export function modelCanRun(activity) {
     if (activityType === ACTIVITY_TYPE_TRANSPORTATION) {
       switch (transportationMode) {
         case TRANSPORTATION_MODE_CAR:
-        case TRANSPORTATION_MODE_TRAIN:
+        case TRANSPORTATION_MODE_FERRY:
+        case TRANSPORTATION_MODE_OTHER_TRANSPORT:
         case TRANSPORTATION_MODE_PLANE:
         case TRANSPORTATION_MODE_PUBLIC_TRANSPORT:
+        case TRANSPORTATION_MODE_TRAIN:
           return true;
         default:
           return false;
       }
     }
+    if (ELECTRICITY_ACTIVITIES.includes(activityType)) return true;
   }
   const hasLineItems = lineItems && lineItems.length > 0;
   const hasIdentifiers = lineItems && lineItems.every(item => item.identifier);
@@ -251,7 +263,7 @@ export function carbonEmissionOfLineItem(lineItem, countryCodeISO2, datetime) {
   if (entry.unit !== UNIT_MONETARY_EUR) {
     throw new Error(`Invalid unit ${entry.unit} given. Expected ${UNIT_MONETARY_EUR}`);
   }
-  if (countryCodeISO2 == null) {
+  if (!countryCodeISO2) {
     // Use average of all countries
     // TODO: weight by the GDP of countries or by population
     const values = Object.values(entry.intensityKilograms);
@@ -296,17 +308,39 @@ export function carbonEmissions(activity) {
         case TRANSPORTATION_MODE_PUBLIC_TRANSPORT:
           identifier = PURCHASE_CATEGORY_COMBINED_PASSENGER_TRANSPORT;
           break;
+        case TRANSPORTATION_MODE_OTHER_TRANSPORT:
+          identifier = PURCHASE_CATEGORY_OTHER_TRANSPORT_SERVICES;
+          break;
         case TRANSPORTATION_MODE_PLANE:
           identifier = PURCHASE_CATEGORY_TRANSPORT_AIR;
+          break;
+        case TRANSPORTATION_MODE_FERRY:
+          identifier = PURCHASE_CATEGORY_TRANSPORT_BOAT;
           break;
         default:
           throw new Error(
             `Couldn't calculate purchase carbonIntensity for transporation activity with mode ${activity.transportationMode}`
           );
       }
+
       footprint = carbonEmissionOfLineItem(
         {
           identifier,
+          unit: activity.costCurrency,
+          value: activity.costAmount,
+        },
+        activity.countryCodeISO2,
+        activity.datetime
+      );
+      break;
+    }
+
+    case ACTIVITY_TYPE_ELECTRICITY:
+    case ACTIVITY_TYPE_ELECTRIC_VEHICLE_CHARGING:
+    case ACTIVITY_TYPE_ELECTRIC_HEATING: {
+      footprint = carbonEmissionOfLineItem(
+        {
+          identifier: PURCHASE_CATEGORY_ELECTRICITY,
           unit: activity.costCurrency,
           value: activity.costAmount,
         },

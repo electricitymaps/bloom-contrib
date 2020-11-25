@@ -1,5 +1,4 @@
 import {
-  ACTIVITY_TYPE_PURCHASE,
   PURCHASE_CATEGORY_TRANSPORTATION_FUEL,
   PURCHASE_CATEGORY_TRANSPORTATION_AUTOMOTIVE_MAINTENANCE_AND_REPAIR,
   PURCHASE_CATEGORY_STORE_BOOKS,
@@ -32,10 +31,11 @@ import {
   PURCHASE_CATEGORY_GAS,
   PURCHASE_CATEGORY_HOUSEHOLD_MAINTENANCE,
   PURCHASE_CATEGORY_ENTERTAINMENT_HOTEL,
-  PURCHASE_CATEGORY_ENTERTAINMENT_CIGAR_STORES,
   PURCHASE_CATEGORY_PACKAGE_HOLIDAYS,
   PURCHASE_CATEGORY_OTHER_SERVICES,
+  PURCHASE_CATEGORY_TOBACCO,
 } from '../../../definitions';
+import { getActivityTypeForPurchaseCategory } from '../../utils/activityTypeForPurchaseCategory';
 
 /*
  * Structure:
@@ -164,7 +164,7 @@ const idToCategory = {
 
   160: null, // - Misc. expenses
   324: null, // Laundry / Dry cleaning
-  308: PURCHASE_CATEGORY_ENTERTAINMENT_CIGAR_STORES, // Tobacco
+  308: PURCHASE_CATEGORY_TOBACCO, // Tobacco
   294: null, // Charity
   278: PURCHASE_CATEGORY_INSURANCE, // Insurance
   276: null, // Others spending
@@ -202,8 +202,10 @@ const idToCategory = {
 };
 
 export const BRIDGE_API_CATEGORIES = Object.entries(idToCategory).reduce(
-  (accumulator, [id, purchaseType]) => {
-    accumulator[id] = purchaseType ? { activityType: ACTIVITY_TYPE_PURCHASE, purchaseType } : null;
+  (accumulator, [id, purchaseCategory]) => {
+    accumulator[id] = purchaseCategory
+      ? getActivityTypeForPurchaseCategory(purchaseCategory)
+      : null;
     return accumulator;
   },
   {}
