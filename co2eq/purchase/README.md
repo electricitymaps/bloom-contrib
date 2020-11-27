@@ -4,7 +4,7 @@ We looked for a way to quantify the carbon footprint of a transaction with as li
 
 At Tomorrow, we believe that climate science shouldn&#39;t be behind paywalls, or stay inside the minds of experts: everyone should be able to know the carbon footprint of everything.
 
-In this post, we explain the process that we go through to make the numbers as accurate as possible, with help from amazing people (among others Thomas Gibon, Louise Laumann Kjær, @MaximeAgez, Richard Wood, @massimopizzol, Jannick Schmidt and @konstantinstadler). At the end of this post, we will also offer insights into where we know the numbers could be improved: this is an opportunity for researchers and experts to give us a hand!
+In this post, we explain the process that we go through to make the numbers as accurate as possible, with help from amazing people (among others Thomas Gibon, Louise Laumann Kjær, [@MaximeAgez](https://github.com/MaximeAgez), Richard Wood, [@massimopizzol](https://github.com/massimopizzol), Jannick Schmidt and [@konstantinstadler](https://github.com/konstantinstadler)). At the end of this post, we will also offer insights into where we know the numbers could be improved: this is an opportunity for researchers and experts to give us a hand!
 
 ### Input-output tables
 
