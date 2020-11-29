@@ -4,7 +4,6 @@ import OAuth from 'oauth-1.0a';
 import { URLSearchParams } from 'whatwg-url';
 
 import { HTTPError } from '../utils/errors';
-import isReactNative from '../utils/isReactNative';
 import { getCallbackUrl } from '../utils/oauth';
 import objectToURLParams from './objectToURLParams';
 

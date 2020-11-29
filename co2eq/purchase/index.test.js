@@ -28,7 +28,7 @@ import exchangeRates2011 from './exchange_rates_2011.json';
 import { carbonEmissions, getDescendants, getRootEntry, modelCanRun } from './index';
 
 Object.entries(getDescendants(getRootEntry()))
-  .filter(([k, v]) => v.unit)
+  .filter(([_k, v]) => v.unit)
   .forEach(([k, v]) => {
     test(`default unit of ${k}`, () => {
       expect(UNITS).toContain(v.unit);
@@ -36,7 +36,7 @@ Object.entries(getDescendants(getRootEntry()))
   });
 
 Object.entries(getDescendants(getRootEntry()))
-  .filter(([k, v]) => v.conversions)
+  .filter(([_k, v]) => v.conversions)
   .forEach(([entryKey, v]) => {
     Object.keys(v.conversions).forEach((k) => {
       test(`conversion units of ${entryKey}`, () => {

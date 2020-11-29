@@ -85,7 +85,6 @@ async function fetchAir(modifiedSince, isPast = true, logger) {
     // Iterate over all segments (legs) of this reservation
     return segments.map((s) => {
       try {
-        const [startDate, endDate] = [parseDatetime(s.StartDateTime), parseDatetime(s.EndDateTime)];
         if (s.stops && !['nonstop', 'NON STOP'].includes(s.stops)) {
           throw new Error(`Unexpected stops "${s.stops}". Expected "nonstop".`);
         }
@@ -231,7 +230,7 @@ async function fetchLodging(modifiedSince, isPast = true, logger) {
   return { activities, modifiedSince: data.timestamp };
 }
 
-async function connect({ requestWebView }, logger) {
+async function connect({ requestWebView }) {
   const state = await manager.authorize(requestWebView);
   return state;
 }

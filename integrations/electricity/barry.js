@@ -43,7 +43,7 @@ async function request(username, password, method, params) {
   }
   const response = await res.json();
   if (response.error) {
-    const { exception, message, stacktrace } = response.error.data;
+    const { exception, message } = response.error.data;
     if (exception === 'java.lang.SecurityException') {
       // Access denied
       throw new AuthenticationError('Invalid username or password');
@@ -89,7 +89,7 @@ async function getHourlyConsumption(
   );
 }
 
-async function connect({ requestLogin }, logger) {
+async function connect({ requestLogin }) {
   // Here we can request credentials etc..
 
   // Here we can use two functions to invoke screens

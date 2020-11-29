@@ -109,7 +109,7 @@ async function connect({ requestToken }, logger) {
   // Test of all requests used for collect
   const accessToken = await getAccessToken(token);
   const { meterPointIds, meterPointAddresses } = await getMeteringPoints(accessToken);
-  const timeSeries = await getTimeSeries(
+  await getTimeSeries(
     accessToken,
     meterPointIds,
     moment().subtract(3, 'days').startOf('day'),
@@ -132,7 +132,7 @@ async function connect({ requestToken }, logger) {
 async function collect(state = {}, logger) {
   const { authToken, locationLon, locationLat } = state;
   const accessToken = await getAccessToken(authToken);
-  const { meterPointIds, meterPointAddresses } = await getMeteringPoints(accessToken);
+  const { meterPointIds } = await getMeteringPoints(accessToken);
 
   // Fetch from last successful date. If not available, then fetch data from the last year.
   const lastFullyCollectedMoment = state.lastFullyCollectedDay

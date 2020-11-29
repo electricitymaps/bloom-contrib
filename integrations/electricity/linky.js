@@ -79,7 +79,6 @@ async function fetchActivities(usagePointId, frequency, startDate, endDate, logg
   const { unit } = data.reading_type;
 
   // Parse in French timezone instead of the phone's local timezone
-  const startMoment = moment.tz(data.start, 'YYYY-MM-DD', 'Europe/Paris');
   const endMoment = moment.tz(data.end, 'YYYY-MM-DD', 'Europe/Paris');
 
   const parseValue = (d) => {
@@ -101,7 +100,7 @@ async function fetchActivities(usagePointId, frequency, startDate, endDate, logg
 
   const activities = Object.entries(
     groupBy(
-      data.interval_reading.map((d, i) =>
+      data.interval_reading.map((d) =>
         Object.assign({}, d, {
           dateMoment: moment.tz(d.date, 'Europe/Paris'),
         })

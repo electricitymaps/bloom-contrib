@@ -33,7 +33,7 @@ async function request(method, call, token, params) {
   return response;
 }
 
-async function connect({ requestLogin }, logger) {
+async function connect({ requestLogin }) {
   const { username, password } = await requestLogin();
 
   if (!(password || '').length) {
@@ -61,8 +61,8 @@ function disconnect() {
   return {};
 }
 
-async function collect(state, { logWarning }, { settings }) {
-  const { token, user, monitor } = state;
+async function collect(state, _logger, { settings }) {
+  const { token, monitor } = state;
 
   const { locationLat, locationLon } = settings;
 

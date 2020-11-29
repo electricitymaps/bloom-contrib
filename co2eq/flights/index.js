@@ -216,7 +216,7 @@ function getLoadFactors(activity) {
         loadfactors[departureAirportRegion][PASSENGER_LOAD_FACTORS_KEY][destinationAirportRegion] /
           100,
         // normal form of passenger to freight ratio is function of isshorthaul
-        (isShortHaul) =>
+        () =>
           loadfactors[departureAirportRegion][PASSENGER_FREIGHT_RATIO_KEY][
             destinationAirportRegion
           ] / 100,

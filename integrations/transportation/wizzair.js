@@ -2,7 +2,7 @@ import moment from 'moment';
 import request from 'superagent';
 
 import { ACTIVITY_TYPE_TRANSPORTATION, TRANSPORTATION_MODE_PLANE } from '../../definitions';
-import { AuthenticationError, HTTPError, ValidationError } from '../utils/errors';
+import { HTTPError, ValidationError } from '../utils/errors';
 
 const API_VERSION_URL = 'https://wizzair.com/static/metadata.json';
 const agent = request.agent();
@@ -129,7 +129,7 @@ async function getActivities(allUniqueFlights) {
   return activities;
 }
 
-async function connect({ requestLogin }, logger) {
+async function connect({ requestLogin }) {
   // Here we can request credentials etc..
 
   // Here we can use two functions to invoke screens
