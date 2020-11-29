@@ -1,10 +1,11 @@
 import moment from 'moment';
+
 import {
   ACTIVITY_TYPE_TRANSPORTATION,
   TRANSPORTATION_MODE_PUBLIC_TRANSPORT,
 } from '../../definitions';
-import { HTTPError, ValidationError, AuthenticationError } from '../utils/errors'; // For fetching data
 import env from '../loadEnv';
+import { AuthenticationError, HTTPError, ValidationError } from '../utils/errors'; // For fetching data
 
 const LOGIN_PATH = 'https://account.tfl.gov.uk/api/login';
 const BASE_PATH = 'https://mobileapi.tfl.gov.uk';
@@ -19,8 +20,8 @@ async function requestJSON(url, opts) {
 
 function generateOysterActivities(travelDays) {
   const activities = [];
-  travelDays.forEach(day => {
-    day.Journeys.forEach(journey => {
+  travelDays.forEach((day) => {
+    day.Journeys.forEach((journey) => {
       if (journey.Charge <= 0) {
         // ignore topups
         activities.push({
@@ -46,14 +47,12 @@ async function fetchOysterCardTravelDays(newState) {
 
   const startDate = newState.lastUpdate
     ? moment(newState.lastUpdate).startOf('day')
-    : moment()
-        .subtract(56, 'days')
-        .startOf('day'); // Not sure what max date range is... more than for oyster though
+    : moment().subtract(56, 'days').startOf('day'); // Not sure what max date range is... more than for oyster though
 
   // Array put the fetch promises into to be resolved later
   const apiPromises = [];
 
-  oysterCardNumbers.forEach(oysterCardNumber => {
+  oysterCardNumbers.forEach((oysterCardNumber) => {
     // First, get most recent data (between startDate and today)
     let fetchStart = startDate;
 
@@ -89,8 +88,8 @@ async function fetchOysterCardTravelDays(newState) {
 
 function generateContactlessActivities(travelDays) {
   const activities = [];
-  travelDays.forEach(day => {
-    day.Journeys.forEach(journey => {
+  travelDays.forEach((day) => {
+    day.Journeys.forEach((journey) => {
       activities.push({
         id: journey.StartTime, // a string that uniquely represents this activity
         datetime: journey.StartTime, // a javascript Date object that represents the start of the activity
@@ -113,14 +112,12 @@ async function fetchContactlessCardTravelDays(newState) {
 
   const startDate = newState.lastUpdate
     ? moment(newState.lastUpdate).startOf('day')
-    : moment()
-        .subtract(100, 'days')
-        .startOf('day'); // Not sure what max date range is... more than for oyster though
+    : moment().subtract(100, 'days').startOf('day'); // Not sure what max date range is... more than for oyster though
 
   // Array put the fetch promises into to be resolved later
   const apiPromises = [];
 
-  contactlessCardIds.forEach(contactlessCardId => {
+  contactlessCardIds.forEach((contactlessCardId) => {
     let fetchStart = startDate;
 
     while (fetchStart < today) {
@@ -150,7 +147,7 @@ async function fetchContactlessCardTravelDays(newState) {
   );
 }
 
-async function connect({ requestLogin }, logger) {
+async function connect({ requestLogin }) {
   const { username, password } = await requestLogin();
   if (!(password || '').length) {
     throw new ValidationError('Password cannot be empty');
@@ -170,7 +167,9 @@ async function connect({ requestLogin }, logger) {
     body: JSON.stringify(postBody),
   });
 
-  if (!loginResponse.SecurityToken) throw new AuthenticationError('Login failed');
+  if (!loginResponse.SecurityToken) {
+    throw new AuthenticationError('Login failed');
+  }
 
   const apiTokenResponse = await requestJSON(`${BASE_PATH}/APITokens`, {
     method: 'get',
@@ -228,10 +227,10 @@ async function collect(state, logger) {
   const contactlessCards = contactlessCardResponse;
 
   newState.oysterCardNumbers =
-    oysterCards && oysterCards.length > 0 ? oysterCards.map(oc => oc.OysterCardNumber) : [];
+    oysterCards && oysterCards.length > 0 ? oysterCards.map((oc) => oc.OysterCardNumber) : [];
 
   newState.contactlessCardIds =
-    contactlessCards && contactlessCards.length > 0 ? contactlessCards.map(cc => cc.Id) : [];
+    contactlessCards && contactlessCards.length > 0 ? contactlessCards.map((cc) => cc.Id) : [];
 
   logger.logDebug(`${newState.oysterCardNumbers.length} oyster cards found`);
   logger.logDebug(`${newState.contactlessCardIds.length} contactless cards found`);

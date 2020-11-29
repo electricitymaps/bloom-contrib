@@ -28,7 +28,7 @@ async function requestTeslaToken(username, password) {
   return data[0].CreatorToken;
 }
 
-async function connect({ requestLogin }, logger) {
+async function connect({ requestLogin }) {
   const { username, password } = await requestLogin();
   // Try to login, but don't save the token as it has an expiry date
   await requestTeslaToken(username, password);
@@ -69,7 +69,7 @@ async function fetchVehicleInfo(token) {
   return data;
 }
 
-async function collect(state, logger, utils) {
+async function collect(state, logger) {
   const { username, password } = state;
   const token = await requestTeslaToken(username, password);
   // Get timezone of vehicle
@@ -82,7 +82,7 @@ async function collect(state, logger, utils) {
   const vehicleId = vehicle.VehicleID;
 
   const data = await fetchVehicleCharges(token, vehicleId);
-  const activities = data.map(d => {
+  const activities = data.map((d) => {
     if (d.ChargeEndDateISO === '') {
       // Skip that element
       logger.logWarning('Skipping item as it has no ChargeEndDateISO');
@@ -134,7 +134,7 @@ async function collect(state, logger, utils) {
     };
   });
 
-  return { activities: activities.filter(a => a), state };
+  return { activities: activities.filter((a) => a), state };
 }
 
 const config = {

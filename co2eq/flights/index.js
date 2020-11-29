@@ -1,8 +1,8 @@
 import { geoDistance } from 'd3-geo'; // todo - add d3-geo in package.json
-import { ACTIVITY_TYPE_TRANSPORTATION, TRANSPORTATION_MODE_PLANE } from '../../definitions';
 
-import { airports } from './airports';
+import { ACTIVITY_TYPE_TRANSPORTATION, TRANSPORTATION_MODE_PLANE } from '../../definitions';
 import { getActivityDurationHours } from '../utils';
+import { airports } from './airports';
 import loadfactors from './loadfactors.json';
 
 // Constants for JSON keys
@@ -74,13 +74,13 @@ const bookingClassWeightingFactor = (bookingClass, isShortHaul) => {
 };
 
 // long/short-haul dependent constants
-const defaultPassengerToFreightRatio = isShortHaul => (isShortHaul ? 0.93 : 0.74);
+const defaultPassengerToFreightRatio = (isShortHaul) => (isShortHaul ? 0.93 : 0.74);
 // Passenger aircrafts often transport considerable amounts of freight and mail,
 // in particular in wide-body aircrafts on long-haul flights.
-const averageNumberOfSeats = isShortHaul => (isShortHaul ? 153.51 : 280.21);
-const a = isShortHaul => (isShortHaul ? 0 : 0.0001); // empiric fuel consumption parameter
-const b = isShortHaul => (isShortHaul ? 2.714 : 7.104); // empiric fuel consumption parameter
-const c = isShortHaul => (isShortHaul ? 1166.52 : 5044.93); // empiric fuel consumption parameter
+const averageNumberOfSeats = (isShortHaul) => (isShortHaul ? 153.51 : 280.21);
+const a = (isShortHaul) => (isShortHaul ? 0 : 0.0001); // empiric fuel consumption parameter
+const b = (isShortHaul) => (isShortHaul ? 2.714 : 7.104); // empiric fuel consumption parameter
+const c = (isShortHaul) => (isShortHaul ? 1166.52 : 5044.93); // empiric fuel consumption parameter
 
 function airportIataCodeToRegion(iata) {
   if (!airports[iata]) {
@@ -216,7 +216,7 @@ function getLoadFactors(activity) {
         loadfactors[departureAirportRegion][PASSENGER_LOAD_FACTORS_KEY][destinationAirportRegion] /
           100,
         // normal form of passenger to freight ratio is function of isshorthaul
-        isShortHaul =>
+        () =>
           loadfactors[departureAirportRegion][PASSENGER_FREIGHT_RATIO_KEY][
             destinationAirportRegion
           ] / 100,

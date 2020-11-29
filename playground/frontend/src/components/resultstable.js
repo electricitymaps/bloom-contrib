@@ -1,10 +1,10 @@
-import React from 'react';
+import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import React from 'react';
 
 export default function ResultsTable(results) {
   return (
@@ -23,7 +23,7 @@ export default function ResultsTable(results) {
           <TableHead>
             <TableRow>
               {results.data[0]
-                ? Object.keys(results.data[0]).map(key => (
+                ? Object.keys(results.data[0]).map((key) => (
                     <TableCell key={`headercell-${key}`} align="right">
                       {key}
                     </TableCell>
@@ -32,9 +32,9 @@ export default function ResultsTable(results) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {results.data.map(row => (
+            {results.data.map((row) => (
               <TableRow key={row.id}>
-                {Object.keys(row).map(key => (
+                {Object.keys(row).map((key) => (
                   <TableCell key={`cell-${row.id}-${key}`} align="right">
                     {row[key]}
                   </TableCell>

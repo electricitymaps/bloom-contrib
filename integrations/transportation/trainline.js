@@ -1,12 +1,13 @@
 import { get } from 'lodash';
 import request from 'superagent';
+
 import {
   ACTIVITY_TYPE_TRANSPORTATION,
-  TRANSPORTATION_MODE_TRAIN,
   TRANSPORTATION_MODE_BUS,
   TRANSPORTATION_MODE_PUBLIC_TRANSPORT,
+  TRANSPORTATION_MODE_TRAIN,
 } from '../../definitions';
-import { ValidationError, AuthenticationError } from '../utils/errors';
+import { AuthenticationError, ValidationError } from '../utils/errors';
 
 const LOGIN_PATH = 'https://www.thetrainline.com/login-service/api/login';
 const PAST_BOOKINGS_PATH = 'https://www.thetrainline.com/my-account/api/bookings/past';
@@ -34,13 +35,15 @@ async function login(username, password) {
     password,
   });
   // Check if authenticated=true on the response body
-  if (!loginResponse.body.authenticated) throw new AuthenticationError('Login failed');
+  if (!loginResponse.body.authenticated) {
+    throw new AuthenticationError('Login failed');
+  }
 }
 
 function calculateDurationFromLegs(legs) {
   return []
     .concat(legs)
-    .filter(leg => leg)
+    .filter((leg) => leg)
     .reduce((out, leg) => out + leg.duration / 60 || 0, 0);
 }
 
@@ -86,7 +89,7 @@ async function collect(state, logger) {
   const tripResults = get(pastBookingsRes, 'body.pastBookings.results', []);
 
   const activities = [];
-  tripResults.forEach(trip => {
+  tripResults.forEach((trip) => {
     const tripId = trip.booking.id;
     if (get(trip, 'booking.outward')) {
       const outwardDate = get(trip, 'booking.outward.date');

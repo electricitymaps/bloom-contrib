@@ -1,7 +1,6 @@
 import { ACTIVITY_TYPE_TRANSPORTATION, TRANSPORTATION_MODE_CAR } from '../../definitions';
-
-import env from '../loadEnv';
 import { OAuth2Manager } from '../authentication';
+import env from '../loadEnv';
 import { HTTPError } from '../utils/errors';
 
 const manager = new OAuth2Manager({
@@ -39,7 +38,7 @@ async function queryActivitiesFromOffset(offset, logger) {
   }
 
   const data = await res.json();
-  const activities = (data.history || []).map(d => ({
+  const activities = (data.history || []).map((d) => ({
     id: d.request_id, // unique id that will be used in case of de-duplication
     activityType: ACTIVITY_TYPE_TRANSPORTATION,
     carrier: 'Uber',

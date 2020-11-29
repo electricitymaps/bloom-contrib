@@ -1,8 +1,9 @@
 import request from 'superagent';
+
 import { ACTIVITY_TYPE_TRANSPORTATION, TRANSPORTATION_MODE_CAR } from '../../definitions';
 import { HTTPError } from '../utils/errors';
 
-async function loginWithPassword(email, password, logger) {
+async function loginWithPassword(email, password) {
   const res = await request
     .post('https://auth-api.connectedcars.io/auth/login/email/password')
     .set('x-organization-namespace', 'semler:minvolkswagen')
@@ -16,7 +17,7 @@ async function loginWithPassword(email, password, logger) {
   return res.body.token;
 }
 
-async function loginWithDeviceToken(deviceToken, logger) {
+async function loginWithDeviceToken(deviceToken) {
   const res = await request
     .post('https://auth-api.connectedcars.io/auth/login/deviceToken')
     .set('x-organization-namespace', 'semler:minvolkswagen')
@@ -30,7 +31,7 @@ async function loginWithDeviceToken(deviceToken, logger) {
   return res.body.token;
 }
 
-async function registerDevice(token, logger) {
+async function registerDevice(token) {
   const res = await request
     .post('https://auth-api.connectedcars.io/user/registerDevice')
     .set('x-organization-namespace', 'semler:minvolkswagen')
@@ -48,7 +49,7 @@ async function registerDevice(token, logger) {
   return res.body.deviceToken;
 }
 
-async function getCarIds(token, userId, logger) {
+async function getCarIds(token, userId) {
   const res = await request
     .post('https://api.connectedcars.io/graphql?operationName=RootQueryType')
     .set('x-organization-namespace', 'semler:minvolkswagen')
@@ -65,10 +66,10 @@ async function getCarIds(token, userId, logger) {
     throw new HTTPError(text, res.status);
   }
 
-  return res.body.data.vehicles.items.map(i => i.id);
+  return res.body.data.vehicles.items.map((i) => i.id);
 }
 
-async function getUserId(token, logger) {
+async function getUserId(token) {
   const res = await request
     .post('https://api.connectedcars.io/graphql?operationName=AccountInfo')
     .set('x-organization-namespace', 'semler:minvolkswagen')
@@ -87,7 +88,7 @@ async function getUserId(token, logger) {
   return res.body.data.viewer.id;
 }
 
-async function getTrips(token, vehicleId, lastUpdate, logger) {
+async function getTrips(token, vehicleId, lastUpdate) {
   const res = await request
     .post('https://api.connectedcars.io/graphql?operationName=Trips')
     .set('x-organization-namespace', 'semler:minvolkswagen')
@@ -143,7 +144,7 @@ async function collect(state, logger) {
     trips = trips.concat(await getTrips(token, vehicleId, lastUpdate, logger));
   }
 
-  const activities = trips.map(trip => {
+  const activities = trips.map((trip) => {
     const datetime = new Date(trip.time);
     return {
       id: `minvolkswagen_${trip.id}`,
@@ -152,7 +153,7 @@ async function collect(state, logger) {
       endDatetime: new Date(datetime.getTime() + 60000 * trip.duration),
       distanceKilometers: trip.mileage,
       transportationMode: TRANSPORTATION_MODE_CAR,
-      pathLonLats: trip.positions.map(p => [p.longitude, p.latitude]),
+      pathLonLats: trip.positions.map((p) => [p.longitude, p.latitude]),
     };
   });
 

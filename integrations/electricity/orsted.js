@@ -1,9 +1,10 @@
 /* eslint-disable camelcase */
-import request from 'superagent';
-import moment from 'moment';
 import groupBy from 'lodash/groupBy';
+import moment from 'moment';
+import request from 'superagent';
+
 import { ACTIVITY_TYPE_ELECTRICITY } from '../../definitions';
-import { AuthenticationError, HTTPError, ValidationError } from '../utils/errors';
+import { HTTPError, ValidationError } from '../utils/errors';
 import { cityToLonLat } from '../utils/location';
 
 const LOGIN_URL = 'https://api.obviux.dk/v2/authenticate';
@@ -23,8 +24,6 @@ async function login(username, password) {
     throw new HTTPError(res.text, res.status);
   }
 
-  console.log(res.body);
-
   return res.body;
 }
 
@@ -38,7 +37,7 @@ async function getUsersElectricityId(token) {
     throw new HTTPError(res.text, res.status);
   }
 
-  const electricityDelivery = res.body.find(d => d.type === 'electrical');
+  const electricityDelivery = res.body.find((d) => d.type === 'electrical');
   if (!electricityDelivery) {
     throw new ValidationError(
       'User does not have an electricity service connected to their orsted account'
@@ -73,10 +72,10 @@ async function getMeteringPoints(token, ean, external_id, lastCollect) {
   );
 }
 
-async function connect({ requestLogin }, logger) {
+async function connect({ requestLogin }) {
   const { username, password } = await requestLogin();
 
-  const { token, external_id, address } = await login(username, password);
+  const { address } = await login(username, password);
   const lonLat = await cityToLonLat('DK', address.zip_code);
 
   return {
@@ -92,7 +91,7 @@ function disconnect() {
   return {};
 }
 
-async function collect(state, logger) {
+async function collect(state) {
   const { username, password, locationLon, locationLat } = state;
 
   const { token, external_id } = await login(username, password);
@@ -106,22 +105,16 @@ async function collect(state, logger) {
   const points = await getMeteringPoints(token, ean, external_id, lastCollect);
 
   const activities = Object.entries(
-    groupBy(points, d =>
-      moment(d.start)
-        .startOf('day')
-        .toISOString()
-    )
+    groupBy(points, (d) => moment(d.start).startOf('day').toISOString())
   ).map(([k, values]) => ({
     id: `orsted${k}`,
     datetime: moment(k).toDate(),
-    endDatetime: moment(k)
-      .add(values.length, 'hour')
-      .toDate(),
+    endDatetime: moment(k).add(values.length, 'hour').toDate(),
     activityType: ACTIVITY_TYPE_ELECTRICITY,
     energyWattHours: values
-      .map(x => x.kWh * 1000.0) // kWh -> Wh
+      .map((x) => x.kWh * 1000.0) // kWh -> Wh
       .reduce((a, b) => a + b, 0),
-    hourlyEnergyWattHours: values.map(x => x.kWh * 1000.0),
+    hourlyEnergyWattHours: values.map((x) => x.kWh * 1000.0),
     locationLon,
     locationLat,
   }));

@@ -1,6 +1,6 @@
 import { AuthenticationError, HTTPError } from '../utils/errors';
-import objectToURLParams from './objectToURLParams';
 import { getCallbackUrl } from '../utils/oauth';
+import objectToURLParams from './objectToURLParams';
 
 const noOpLogger = {
   logDebug: () => {},

@@ -1,11 +1,11 @@
 import { getEntryByKey } from '../../../co2eq/purchase/index';
-import { getActivityTypeForPurchaseCategory } from '../activityTypeForPurchaseCategory';
 import {
   ACTIVITY_TYPE_MEAL,
   ACTIVITY_TYPE_PURCHASE,
   ACTIVITY_TYPE_TRANSPORTATION,
   TRANSPORTATION_MODE_BIKE,
 } from '../../../definitions';
+import { getActivityTypeForPurchaseCategory } from '../activityTypeForPurchaseCategory';
 
 /**
  * Should test
@@ -40,8 +40,8 @@ const mockFootprints = {
 };
 
 jest.mock('../../../co2eq/purchase/index');
-const getEntryByKeySpy = jest.fn(category => mockFootprints[category]);
-getEntryByKey.mockImplementation(category => getEntryByKeySpy(category));
+const getEntryByKeySpy = jest.fn((category) => mockFootprints[category]);
+getEntryByKey.mockImplementation((category) => getEntryByKeySpy(category));
 
 describe('assignation of an activity category to a purchase category', () => {
   test('defaults to ACTIVITY_TYPE_PURCHASE if the purchaseCategory has no assigned activityType', () => {

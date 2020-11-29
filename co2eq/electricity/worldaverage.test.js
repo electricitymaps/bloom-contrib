@@ -1,10 +1,9 @@
 import {
-  ACTIVITY_TYPE_ELECTRICITY,
-  ACTIVITY_TYPE_ELECTRIC_VEHICLE_CHARGING,
   ACTIVITY_TYPE_ELECTRIC_HEATING,
+  ACTIVITY_TYPE_ELECTRIC_VEHICLE_CHARGING,
+  ACTIVITY_TYPE_ELECTRICITY,
 } from '../../definitions';
-
-import { modelCanRun, carbonEmissions } from './worldaverage';
+import { carbonEmissions, modelCanRun } from './worldaverage';
 
 describe('model runs', () => {
   const wattHours = 20;
