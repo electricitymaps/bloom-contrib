@@ -1,5 +1,7 @@
+/* eslint-env node */
 module.exports = {
   extends: [
+    'eslint:recommended',
     'plugin:react/recommended',
     'plugin:jest/recommended',
     'plugin:import/errors',
@@ -10,6 +12,8 @@ module.exports = {
   parser: 'babel-eslint',
   plugins: ['jest', 'react-hooks', 'simple-import-sort', 'prettier'],
   env: {
+    node: true,
+    browser: true,
     es6: true,
   },
   root: true,
@@ -27,6 +31,8 @@ module.exports = {
     {
       files: ['*.spec.js', '*.spec.ts', '*.spec.tsx', '*.test.js', '*.test.ts', '*.test.tsx'],
       env: {
+        node: true,
+        browser: true,
         'jest/globals': true,
       },
     },
