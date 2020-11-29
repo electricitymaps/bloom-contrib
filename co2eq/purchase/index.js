@@ -1,35 +1,35 @@
 import {
-  ACTIVITY_TYPE_MEAL,
-  ACTIVITY_TYPE_TRANSPORTATION,
-  ACTIVITY_TYPE_PURCHASE,
-  ACTIVITY_TYPE_ELECTRICITY,
   ACTIVITY_TYPE_ELECTRIC_HEATING,
   ACTIVITY_TYPE_ELECTRIC_VEHICLE_CHARGING,
+  ACTIVITY_TYPE_ELECTRICITY,
+  ACTIVITY_TYPE_MEAL,
+  ACTIVITY_TYPE_PURCHASE,
+  ACTIVITY_TYPE_TRANSPORTATION,
   ELECTRICITY_ACTIVITIES,
-  PURCHASE_CATEGORY_FOOD_SERVING_SERVICES,
   PURCHASE_CATEGORY_COMBINED_PASSENGER_TRANSPORT,
+  PURCHASE_CATEGORY_ELECTRICITY,
+  PURCHASE_CATEGORY_FOOD_SERVING_SERVICES,
   PURCHASE_CATEGORY_OTHER_TRANSPORT_SERVICES,
   PURCHASE_CATEGORY_TRANSPORT_AIR,
   PURCHASE_CATEGORY_TRANSPORT_BOAT,
   PURCHASE_CATEGORY_TRANSPORT_RAIL,
   PURCHASE_CATEGORY_TRANSPORT_ROAD,
-  PURCHASE_CATEGORY_ELECTRICITY,
   TRANSPORTATION_MODE_CAR,
   TRANSPORTATION_MODE_FERRY,
   TRANSPORTATION_MODE_OTHER_TRANSPORT,
   TRANSPORTATION_MODE_PLANE,
   TRANSPORTATION_MODE_PUBLIC_TRANSPORT,
   TRANSPORTATION_MODE_TRAIN,
-  UNIT_MONETARY_EUR,
   UNIT_ITEM,
   UNIT_KILOGRAMS,
   UNIT_LITER,
+  UNIT_MONETARY_EUR,
 } from '../../definitions';
 import { getAvailableCurrencies } from '../../integrations/utils/currency/currency';
 import { getChecksum } from '../utils';
-import { footprints } from './footprints';
 import consumerPriceIndex from './consumerpriceindices.yml';
 import exchangeRates2011 from './exchange_rates_2011.json';
+import { footprints } from './footprints';
 
 const AVERAGE_CPI_COUNTRY_INDICATOR = 'average';
 const COUNTRY_CPI_INDICATOR = 'countries';
@@ -83,7 +83,7 @@ export function getChecksumOfFootprints() {
   return getChecksum(footprints);
 }
 
-export function getDescendants(entry, filter = _ => true, includeRoot = false) {
+export function getDescendants(entry, filter = (_) => true, includeRoot = false) {
   // Note: `getDescendants` is very close to `indexNodeChildren`
   // Note2: if a node gets filtered out, its children won't be visited
   if (!entry) {
@@ -92,7 +92,7 @@ export function getDescendants(entry, filter = _ => true, includeRoot = false) {
   let descendants = includeRoot ? { [entry.key]: entry } : {};
   Object.values(entry._children || [])
     .filter(filter)
-    .forEach(child => {
+    .forEach((child) => {
       descendants = {
         ...descendants,
         ...getDescendants(child, filter, true),
@@ -108,7 +108,9 @@ export const modelCanRunVersion = 1;
 export function modelCanRun(activity) {
   const { costAmount, costCurrency, activityType, transportationMode, lineItems } = activity;
   if (costAmount && costCurrency) {
-    if (activityType === ACTIVITY_TYPE_MEAL) return true;
+    if (activityType === ACTIVITY_TYPE_MEAL) {
+      return true;
+    }
     if (activityType === ACTIVITY_TYPE_TRANSPORTATION) {
       switch (transportationMode) {
         case TRANSPORTATION_MODE_CAR:
@@ -122,10 +124,12 @@ export function modelCanRun(activity) {
           return false;
       }
     }
-    if (ELECTRICITY_ACTIVITIES.includes(activityType)) return true;
+    if (ELECTRICITY_ACTIVITIES.includes(activityType)) {
+      return true;
+    }
   }
   const hasLineItems = lineItems && lineItems.length > 0;
-  const hasIdentifiers = lineItems && lineItems.every(item => item.identifier);
+  const hasIdentifiers = lineItems && lineItems.every((item) => item.identifier);
   if (activityType === ACTIVITY_TYPE_PURCHASE && hasLineItems && hasIdentifiers) {
     return true;
   }
@@ -357,7 +361,7 @@ export function carbonEmissions(activity) {
       if (lineItems && lineItems.length) {
         // TODO(df): What to do on a single line error? Abort all? Skip item?
         footprint = lineItems
-          .map(l => carbonEmissionOfLineItem(l, countryCodeISO2, datetime))
+          .map((l) => carbonEmissionOfLineItem(l, countryCodeISO2, datetime))
           .reduce((a, b) => a + b, 0);
       }
       break;

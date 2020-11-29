@@ -1,8 +1,9 @@
 import moment from 'moment';
+
 import { ACTIVITY_TYPE_TRANSPORTATION, TRANSPORTATION_MODE_CAR } from '../../definitions';
 import { OAuth2Manager } from '../authentication';
-import { HTTPError } from '../utils/errors';
 import env from '../loadEnv';
+import { HTTPError } from '../utils/errors';
 /*
 API documentation: https://developer.automatic.com/api-reference/
 testing activities: https://developer.automatic.com/api-reference/#get-a-list-of-my-trips
@@ -31,7 +32,7 @@ async function disconnect() {
   return {};
 }
 
-const toUnixSeconds = ISOdate => moment(ISOdate).format('X');
+const toUnixSeconds = (ISOdate) => moment(ISOdate).format('X');
 
 async function fetchTripsFromURL(tripURL, logger) {
   const res = await manager.fetch(tripURL, {}, logger);
@@ -45,8 +46,8 @@ async function fetchTripsFromURL(tripURL, logger) {
   return data;
 }
 
-const toActivities = tripArray =>
-  (tripArray || []).map(k => {
+const toActivities = (tripArray) =>
+  (tripArray || []).map((k) => {
     const datetime = new Date(k.started_at);
     return {
       id: k.id,
@@ -77,14 +78,14 @@ async function fetchOffsetActivities(start, end, logger) {
   const tripCount = data._metadata.count;
   let nextURL = data._metadata.next;
 
-  toActivities(latestTrips).map(a => trips.push(a));
+  toActivities(latestTrips).map((a) => trips.push(a));
 
   // safety counter
   let counter = API_FETCH_LIMIT;
 
   while (nextURL && counter < tripCount) {
     data = await fetchTripsFromURL(nextURL, logger);
-    toActivities(data.results).map(a => trips.push(a));
+    toActivities(data.results).map((a) => trips.push(a));
     nextURL = data._metadata.next;
     counter += API_FETCH_LIMIT;
   }

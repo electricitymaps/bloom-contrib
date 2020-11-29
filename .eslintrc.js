@@ -1,16 +1,16 @@
 module.exports = {
-  "extends": [
-    "plugin:react/recommended",
-    "plugin:jest/recommended",
-    "plugin:import/errors",
-    "plugin:jsx-a11y/recommended",
-    "prettier",
-    "prettier/react"
+  extends: [
+    'plugin:react/recommended',
+    'plugin:jest/recommended',
+    'plugin:import/errors',
+    'plugin:jsx-a11y/recommended',
+    'prettier',
+    'prettier/react',
   ],
   parser: 'babel-eslint',
   plugins: ['jest', 'react-hooks', 'simple-import-sort', 'prettier'],
   env: {
-    es6: true
+    es6: true,
   },
   root: true,
   settings: {
@@ -26,16 +26,18 @@ module.exports = {
       env: {
         'jest/globals': true,
       },
-    }
-
+    },
   ],
   rules: {
-    'prettier/prettier': ['error', {
-      "trailingComma": "es5",
-      "singleQuote": true,
-      "printWidth": 100,
-      "semi": true
-    }],
+    'prettier/prettier': [
+      'error',
+      {
+        trailingComma: 'es5',
+        singleQuote: true,
+        printWidth: 100,
+        semi: true,
+      },
+    ],
     'no-console': [
       'error',
       {
@@ -78,6 +80,5 @@ module.exports = {
     'react/display-name': 'off',
     'sort-imports': 'off', // replaced by simple-import-sort/sort
     'import/order': 'off', // replaced by simple-import-sort/sort
-
   },
 };

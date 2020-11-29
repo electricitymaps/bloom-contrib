@@ -1,4 +1,5 @@
 import request from 'superagent';
+
 import { ACTIVITY_TYPE_TRANSPORTATION, TRANSPORTATION_MODE_CAR } from '../../definitions';
 import { HTTPError } from '../utils/errors';
 
@@ -65,7 +66,7 @@ async function getCarIds(token, userId, logger) {
     throw new HTTPError(text, res.status);
   }
 
-  return res.body.data.vehicles.items.map(i => i.id);
+  return res.body.data.vehicles.items.map((i) => i.id);
 }
 
 async function getUserId(token, logger) {
@@ -143,7 +144,7 @@ async function collect(state, logger) {
     trips = trips.concat(await getTrips(token, vehicleId, lastUpdate, logger));
   }
 
-  const activities = trips.map(trip => {
+  const activities = trips.map((trip) => {
     const datetime = new Date(trip.time);
     return {
       id: `minvolkswagen_${trip.id}`,
@@ -152,7 +153,7 @@ async function collect(state, logger) {
       endDatetime: new Date(datetime.getTime() + 60000 * trip.duration),
       distanceKilometers: trip.mileage,
       transportationMode: TRANSPORTATION_MODE_CAR,
-      pathLonLats: trip.positions.map(p => [p.longitude, p.latitude]),
+      pathLonLats: trip.positions.map((p) => [p.longitude, p.latitude]),
     };
   });
 

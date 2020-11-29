@@ -1,14 +1,15 @@
 import moment from 'moment';
 import request from 'superagent';
+
 import { ACTIVITY_TYPE_TRANSPORTATION, TRANSPORTATION_MODE_PLANE } from '../../definitions';
-import { HTTPError, AuthenticationError, ValidationError } from '../utils/errors';
+import { AuthenticationError, HTTPError, ValidationError } from '../utils/errors';
 
 const API_VERSION_URL = 'https://wizzair.com/static/metadata.json';
 const agent = request.agent();
 const HISTORY_API_FETCH_LIMIT = 5;
 
 async function getApiVersionUrl() {
-  return fetch(API_VERSION_URL).then(response => response.text());
+  return fetch(API_VERSION_URL).then((response) => response.text());
 }
 
 let API_URL;
@@ -27,17 +28,13 @@ async function logIn(username, password) {
     (BOOKINGS_URL = `${await BASE_URL}/customer/mybookings`)
   );
 
-  const res = await agent
-    .post(LOGIN_URL)
-    .type('application/json')
-    .set('Accept', '*/*')
-    .send({
-      username,
-      password,
-      isAgencyLogin: false,
-      captchaResponse: '',
-      languageCode: 'en-gb',
-    });
+  const res = await agent.post(LOGIN_URL).type('application/json').set('Accept', '*/*').send({
+    username,
+    password,
+    isAgencyLogin: false,
+    captchaResponse: '',
+    languageCode: 'en-gb',
+  });
 
   if (!res.ok) {
     const text = await res.text();
@@ -71,7 +68,7 @@ async function getAllFlights(booking) {
   const allFlights = [];
 
   await Promise.all(
-    booking.map(async singleFlight => {
+    booking.map(async (singleFlight) => {
       await agent
         .post(ITINERARY_URL)
         .type('application/json')
@@ -82,7 +79,7 @@ async function getAllFlights(booking) {
           pnr: singleFlight.recordLocator,
         })
         .then(
-          res => {
+          (res) => {
             allFlights.push(
               {
                 id: `pnr${res.body.pnr}fn${res.body.outboundFlight.flightNumber}`,
@@ -96,7 +93,7 @@ async function getAllFlights(booking) {
               }
             );
           },
-          async res => {
+          async (res) => {
             if (!res.ok) {
               const text = await res.text();
               throw new HTTPError(text, res.status);
@@ -109,20 +106,20 @@ async function getAllFlights(booking) {
   // WHY: there can be multiple bookings for the same flight (e.g. for different passengers)
   // HOW: filters flights with the same flight number
   const allUniqueFlights = Array.from(
-    new Set(allFlights.map(a => a.flight.flightNumber))
-  ).map(mappedFlightNumber => allFlights.find(a => a.flight.flightNumber === mappedFlightNumber));
-  const noNullFlights = allUniqueFlights.filter(entry => entry.flight !== false);
+    new Set(allFlights.map((a) => a.flight.flightNumber))
+  ).map((mappedFlightNumber) =>
+    allFlights.find((a) => a.flight.flightNumber === mappedFlightNumber)
+  );
+  const noNullFlights = allUniqueFlights.filter((entry) => entry.flight !== false);
 
   return noNullFlights;
 }
 
 async function getActivities(allUniqueFlights) {
-  const activities = Object.values(allUniqueFlights).map(k => ({
+  const activities = Object.values(allUniqueFlights).map((k) => ({
     id: k.id,
     datetime: k.flight.departureDate,
-    endDatetime: moment(k.flight.departureDate)
-      .add(k.flight.duration)
-      .toDate(),
+    endDatetime: moment(k.flight.departureDate).add(k.flight.duration).toDate(),
     activityType: ACTIVITY_TYPE_TRANSPORTATION,
     transportationMode: TRANSPORTATION_MODE_PLANE,
     carrier: 'Wizzair',

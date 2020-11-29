@@ -4,8 +4,8 @@ import { ValidationError } from './errors';
 export async function cityToLonLat(country, zip) {
   if (country === 'DK') {
     return fetch(`https://dawa.aws.dk/postnumre/${zip}`)
-      .then(res => res.json())
-      .then(city => city.visueltcenter);
+      .then((res) => res.json())
+      .then((city) => city.visueltcenter);
   }
   throw new ValidationError('cityToLonLat: Country not supported');
 }

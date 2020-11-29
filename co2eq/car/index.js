@@ -1,6 +1,6 @@
 import { ACTIVITY_TYPE_TRANSPORTATION, TRANSPORTATION_MODE_CAR } from '../../definitions';
-import cars from './cars.json';
 import { getActivityDurationHours } from '../utils';
+import cars from './cars.json';
 
 export const modelName = 'car';
 export const modelVersion = '1';
@@ -34,7 +34,7 @@ function carbonIntensity(euroCarSegment, engineType, brand) {
   const entry = cars.footprints.find(
     // Using == instead of === because we want undefined to match with null in cars.json
     // eslint-disable-next-line eqeqeq
-    d => d.euroCarSegment == euroCarSegment && d.engineType == engineType && d.brand == brand
+    (d) => d.euroCarSegment == euroCarSegment && d.engineType == engineType && d.brand == brand
   );
   if (!entry) {
     throw new Error(`Unknown size, type, or brand ${euroCarSegment}_${engineType}_${brand}`);

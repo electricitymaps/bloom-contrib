@@ -1,16 +1,16 @@
-import moment from 'moment';
 import flatten from 'lodash/flatten';
+import moment from 'moment';
 
-import env from '../loadEnv';
-import { OAuthManager } from '../authentication';
 import {
-  ACTIVITY_TYPE_TRANSPORTATION,
   ACTIVITY_TYPE_PURCHASE,
+  ACTIVITY_TYPE_TRANSPORTATION,
+  PURCHASE_CATEGORY_ENTERTAINMENT_HOTEL,
   TRANSPORTATION_MODE_PLANE,
   TRANSPORTATION_MODE_TRAIN,
-  PURCHASE_CATEGORY_ENTERTAINMENT_HOTEL,
   UNIT_ITEM,
 } from '../../definitions';
+import { OAuthManager } from '../authentication';
+import env from '../loadEnv';
 import { HTTPError } from '../utils/errors';
 
 const config = {
@@ -80,10 +80,10 @@ async function fetchAir(modifiedSince, isPast = true, logger) {
   if (!Array.isArray(objects)) {
     objects = [objects];
   }
-  const activities = objects.map(d => {
+  const activities = objects.map((d) => {
     const segments = Array.isArray(d.Segment) ? d.Segment : [d.Segment];
     // Iterate over all segments (legs) of this reservation
-    return segments.map(s => {
+    return segments.map((s) => {
       try {
         const [startDate, endDate] = [parseDatetime(s.StartDateTime), parseDatetime(s.EndDateTime)];
         if (s.stops && !['nonstop', 'NON STOP'].includes(s.stops)) {
@@ -141,10 +141,10 @@ async function fetchRail(modifiedSince, isPast = true, logger) {
     objects = [objects];
   }
 
-  const activities = objects.map(d => {
+  const activities = objects.map((d) => {
     const segments = Array.isArray(d.Segment) ? d.Segment : [d.Segment];
     // Iterate over all segments (legs) of this reservation
-    return segments.map(s => {
+    return segments.map((s) => {
       try {
         const [startDate, endDate] = [parseDatetime(s.StartDateTime), parseDatetime(s.EndDateTime)];
         return {
@@ -195,7 +195,7 @@ async function fetchLodging(modifiedSince, isPast = true, logger) {
     objects = [objects];
   }
 
-  const activities = objects.map(s => {
+  const activities = objects.map((s) => {
     try {
       const [startDate, endDate] = [parseDatetime(s.StartDateTime), parseDatetime(s.EndDateTime)];
       if (s.number_rooms != null && parseInt(s.number_rooms, 10) !== 1) {
@@ -265,10 +265,10 @@ async function collect(state = {}, logger) {
   ]);
 
   return {
-    activities: flatten(allResults.map(d => d.activities)).filter(d => d),
+    activities: flatten(allResults.map((d) => d.activities)).filter((d) => d),
     state: {
       ...state,
-      lastModifiedSince: Math.max(...allResults.map(d => d.modifiedSince)),
+      lastModifiedSince: Math.max(...allResults.map((d) => d.modifiedSince)),
       version: config.version,
     },
   };

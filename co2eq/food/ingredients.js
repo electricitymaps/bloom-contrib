@@ -1,9 +1,9 @@
-import { PURCHASE_CATEGORY_FOOD, UNIT_KILOGRAMS, ACTIVITY_TYPE_MEAL } from '../../definitions';
+import { ACTIVITY_TYPE_MEAL, PURCHASE_CATEGORY_FOOD, UNIT_KILOGRAMS } from '../../definitions';
 import {
-  getEntryByKey,
-  getDescendants,
-  getEntryByPath,
   getChecksumOfFootprints,
+  getDescendants,
+  getEntryByKey,
+  getEntryByPath,
 } from '../purchase';
 
 export const modelName = 'meal-from-ingredients';

@@ -1,8 +1,9 @@
 import React from 'react';
-import doubleArrow from '../icons/double-arrow.svg';
+
 import arrowDown from '../icons/arrow-down.svg';
 import arrowUp from '../icons/arrow-up.svg';
 import clear from '../icons/clear.svg';
+import doubleArrow from '../icons/double-arrow.svg';
 
 const ICONS = {
   'double-arrow': doubleArrow,

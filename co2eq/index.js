@@ -1,12 +1,12 @@
-import * as electricityWorldAverageCarbonModel from './electricity/worldaverage';
-import * as mealCarbonModel from './food/meal';
-import * as ingredientsCarbonModel from './food/ingredients';
-import * as transportationCarbonModel from './transportation/index';
-import * as flightCarbonModel from './flights/index';
 import * as carCarbonModel from './car/index';
-import * as purchaseCarbonModel from './purchase/index';
+import * as electricityWorldAverageCarbonModel from './electricity/worldaverage';
 import * as energyCarbonModel from './energy/index';
+import * as flightCarbonModel from './flights/index';
+import * as ingredientsCarbonModel from './food/ingredients';
+import * as mealCarbonModel from './food/meal';
 import * as hotelCarbonModel from './hotelpercountry/index';
+import * as purchaseCarbonModel from './purchase/index';
+import * as transportationCarbonModel from './transportation/index';
 
 // Note: fallback models must be at the end
 const carbonModels = [

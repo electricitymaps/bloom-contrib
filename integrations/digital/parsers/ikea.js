@@ -1,7 +1,7 @@
 import {
   ACTIVITY_TYPE_PURCHASE,
-  UNIT_CURRENCIES,
   PURCHASE_CATEGORY_STORE_FURNISHING,
+  UNIT_CURRENCIES,
 } from '../../../definitions';
 
 const fromEmails = ['donotreply@ikea.com'];

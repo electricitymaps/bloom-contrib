@@ -7,8 +7,9 @@
  * 3) fill in a real username and password in the `AUTH` object
  */
 import assert from 'assert';
-import rejsekort from '../rejsekort';
+
 import { ValidationError } from '../../utils/errors';
+import rejsekort from '../rejsekort';
 
 const FORM_HEADERS = { 'content-type': 'application/x-www-form-urlencoded' };
 
@@ -35,7 +36,7 @@ let mockPathToResult = {};
  * like fetch-mock. Here we mock the node https module used by Superagent internally.
  */
 jest.mock('https', () => ({
-  request: jest.fn(options => {
+  request: jest.fn((options) => {
     const { path, method } = options;
     const mockPathKey = `${method}:${path}`;
     const results = mockPathToResult[mockPathKey];
@@ -70,7 +71,7 @@ jest.mock('https', () => ({
       on: jest.fn((event, callback) => {
         setupCallbacks(event, callback);
       }),
-      getHeader: header => headers[header.toLowerCase()],
+      getHeader: (header) => headers[header.toLowerCase()],
       end: jest.fn(() => {
         const { error, response } = results.shift();
         if (error) {
@@ -89,7 +90,7 @@ beforeEach(() => {
 
 afterEach(() => {
   // Check for unmatched mocks
-  Object.keys(mockPathToResult).forEach(mockPath => {
+  Object.keys(mockPathToResult).forEach((mockPath) => {
     const result = mockPathToResult[mockPath];
     if (result.length > 0) {
       throw new Error(`Found ${result.length} unmatched mock path result(s) for ${mockPath}`);
@@ -101,7 +102,7 @@ afterEach(() => {
  * Mock a successful html HTTP response
  * @param {string} content body of the response
  */
-const mockSuccessHtmlResponse = body => ({
+const mockSuccessHtmlResponse = (body) => ({
   error: undefined,
   response: {
     aborted: false,
@@ -366,7 +367,7 @@ describe('collect', () => {
     };
 
     const { activities } = await rejsekort.collect(AUTH, logger);
-    const activityIds = new Set(activities.map(activity => activity.id));
+    const activityIds = new Set(activities.map((activity) => activity.id));
 
     expect(activities.length).toBe(4 * 10);
     expect(activityIds.size).toBe(4 * 10);
@@ -975,7 +976,7 @@ function mockTravelPageResponse({
             <th>Saldo kr.</th>
           </tr>
           ${entriesPage1
-            .map(entry => entry.replace(/SEQUENCE_NUMBER/g, sequenceNumber++))
+            .map((entry) => entry.replace(/SEQUENCE_NUMBER/g, sequenceNumber++))
             .join('\n')}
         </tbody>
       </table>
@@ -1002,7 +1003,7 @@ function mockTravelPageResponse({
             <th>Saldo kr.</th>
           </tr>
           ${entriesPage2
-            .map(entry => entry.replace(/SEQUENCE_NUMBER/g, sequenceNumber++))
+            .map((entry) => entry.replace(/SEQUENCE_NUMBER/g, sequenceNumber++))
             .join('\n')}
         </tbody>
       </table>

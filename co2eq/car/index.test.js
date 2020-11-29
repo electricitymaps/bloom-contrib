@@ -1,12 +1,13 @@
 import moment from 'moment';
+
 import {
-  TRANSPORTATION_MODE_CAR,
   ACTIVITY_TYPE_TRANSPORTATION,
-  EUROCARSEGMENTS,
   ENGINETYPES,
+  EUROCARSEGMENTS,
+  TRANSPORTATION_MODE_CAR,
 } from '../../definitions';
 import cars from './cars.json';
-import { modelCanRun, carbonEmissions } from './index';
+import { carbonEmissions, modelCanRun } from './index';
 
 describe('model runs with unknown car', () => {
   const durationHours = 2;
@@ -77,10 +78,11 @@ describe('model runs with specific cars', () => {
     }).toThrow();
   });
 
-  cars.footprints.forEach(car => {
+  cars.footprints.forEach((car) => {
     const testActivity = { ...activity, ...car };
-    test(`${car.euroCarSegment || 'unknown'} segment car with ${car.engineType ||
-      'unknown'} engine`, () => {
+    test(`${car.euroCarSegment || 'unknown'} segment car with ${
+      car.engineType || 'unknown'
+    } engine`, () => {
       expect(supportedCarSegments).toContain(car.euroCarSegment);
       expect(supportedEngineTypes).toContain(car.engineType);
       expect(supportedBrands).toContain(car.brand);

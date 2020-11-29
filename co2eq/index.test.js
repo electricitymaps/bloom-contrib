@@ -1,7 +1,7 @@
 import carbonModels from './index';
 
 describe(`all models have valid API`, () => {
-  carbonModels.forEach(model => {
+  carbonModels.forEach((model) => {
     test(`${model.modelName}`, () => {
       expect(model.modelName).toBeDefined();
       expect(model.modelVersion).toBeDefined();

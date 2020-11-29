@@ -1,12 +1,11 @@
-import { v4 as uuid } from 'uuid';
 import request from 'superagent';
+import { v4 as uuid } from 'uuid';
 
 import { ACTIVITY_TYPE_PURCHASE } from '../../../definitions';
-import { NAG_CATEGORY } from './nag-categories';
-import { HTTPError, AuthenticationError } from '../../utils/errors';
-
 import env from '../../loadEnv';
+import { AuthenticationError, HTTPError } from '../../utils/errors';
 import { getCallbackUrl } from '../../utils/oauth';
+import { NAG_CATEGORY } from './nag-categories';
 
 const baseUrl = 'https://api.nordicapigateway.com';
 const initializeUrl = `${baseUrl}/v1/authentication/initialize`;
@@ -26,8 +25,10 @@ agent
 function parseCategory(category, categoryList) {
   if (category) {
     // Map id to name
-    const nagCategory = categoryList.categories.find(cat => cat.category.id === category.id);
-    if (!nagCategory) throw new Error(`Couldn't find category matching id '${category.id}'`);
+    const nagCategory = categoryList.categories.find((cat) => cat.category.id === category.id);
+    if (!nagCategory) {
+      throw new Error(`Couldn't find category matching id '${category.id}'`);
+    }
     const nagName = nagCategory.category.name.en;
 
     const purchaseType = NAG_CATEGORY[nagName];
