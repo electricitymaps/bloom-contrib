@@ -49,4 +49,17 @@ describe('model runs', () => {
     expect(modelCanRun(activity)).toBeTruthy();
     expect(carbonEmissions(activity)).toBeCloseTo(236.74911026391652);
   });
+
+  it('supports roundtrips', () => {
+    const activity = {
+      activityType: ACTIVITY_TYPE_TRANSPORTATION,
+      transportationMode: TRANSPORTATION_MODE_PLANE,
+      datetime: new Date('2020-04-11T10:20:30Z'),
+      endDatetime: new Date('2020-04-11T12:20:30Z'),
+      isRoundtrip: true,
+    };
+
+    expect(modelCanRun(activity)).toBeTruthy();
+    expect(carbonEmissions(activity)).toBeCloseTo(236.749 * 2);
+  });
 });

@@ -268,10 +268,17 @@ export function carbonEmissions(activity) {
       )}, long haul: ${passengerToFreightRatio(false)}`
     );
   }
-  return computeFootprint(
+
+  const footprint = computeFootprint(
     distance,
     activity.bookingClass,
     passengerLoadFactor,
     passengerToFreightRatio
   );
+
+  if (activity.isRoundtrip) {
+    return footprint * 2;
+  }
+
+  return footprint;
 }
