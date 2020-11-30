@@ -278,22 +278,24 @@ function calculateEmissions(activity) {
   Calculates emissions in kgCO2eq
 */
 export function carbonEmissions(activity) {
+  const { departureAirportCode, destinationAirportCode, isRoundtrip } = activity;
+
   const footprint = calculateEmissions(activity);
 
-  if (!activity.isRoundtrip) {
+  if (!isRoundtrip) {
     return footprint;
   }
 
   // If no airport codes are defined, we simply multiply the emissions for roundtrips
-  if (!activity.departureAirportCode || !activity.destinationAirportCode) {
+  if (!departureAirportCode || !destinationAirportCode) {
     return footprint * 2;
   }
 
   // Reversing the destination and departure to calculate more precise emissions
   const returnActivity = {
     ...activity,
-    departureAirportCode: activity.destinationAirportCode,
-    destinationAirportCode: activity.departureAirportCode,
+    departureAirportCode: destinationAirportCode,
+    destinationAirportCode: departureAirportCode,
   };
   return footprint + calculateEmissions(returnActivity);
 }
