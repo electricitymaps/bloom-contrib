@@ -15,7 +15,7 @@ import { getActivityDurationHours } from '../utils';
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'transportation';
 
-export const modelVersion = '14';
+export const modelVersion = '15';
 
 export const explanation = {
   text:
