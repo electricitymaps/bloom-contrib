@@ -168,6 +168,7 @@ function getDurationFallback(mode) {
 Carbon emissions of an activity (in kgCO2eq)
 */
 export function carbonEmissions(activity) {
+  const { transportationMode, datetime, endDatetime, isRoundtrip, participants } = activity;
   let { distanceKilometers } = activity;
   if (!distanceKilometers) {
     const activityDuration = getActivityDurationHours(activity);
@@ -175,26 +176,33 @@ export function carbonEmissions(activity) {
     if (activityDuration !== null) {
       durationHours = activityDuration;
     } else {
-      durationHours = getDurationFallback(activity.transportationMode);
+      durationHours = getDurationFallback(transportationMode);
     }
     if (durationHours > 0) {
-      distanceKilometers = durationToDistance(durationHours, activity.transportationMode);
+      distanceKilometers = durationToDistance(durationHours, transportationMode);
     } else {
       throw new Error(
-        `Couldn't calculate carbonEmissions for activity because distanceKilometers = ${distanceKilometers} and datetime = ${activity.datetime} and endDatetime = ${activity.endDatetime}`
+        `Couldn't calculate carbonEmissions for activity because distanceKilometers = ${distanceKilometers} and datetime = ${datetime} and endDatetime = ${endDatetime}`
       );
     }
   }
 
+  const baseFootprint = carbonIntensity(activity.transportationMode) * distanceKilometers;
+
   // Take into account the passenger count if this is a car or motorbike
-  if (
-    activity.transportationMode === TRANSPORTATION_MODE_CAR ||
-    activity.transportationMode === TRANSPORTATION_MODE_MOTORBIKE
-  ) {
-    return (
-      (carbonIntensity(activity.transportationMode) * distanceKilometers) /
-      (activity.participants || 1)
-    );
+  const shouldAcceptParticipants =
+    transportationMode === TRANSPORTATION_MODE_CAR ||
+    transportationMode === TRANSPORTATION_MODE_MOTORBIKE;
+
+  let updatedFootprint = baseFootprint;
+
+  if (isRoundtrip) {
+    updatedFootprint = updatedFootprint * 2;
   }
-  return carbonIntensity(activity.transportationMode) * distanceKilometers;
+
+  if (shouldAcceptParticipants && participants) {
+    updatedFootprint = updatedFootprint / participants;
+  }
+
+  return updatedFootprint;
 }
