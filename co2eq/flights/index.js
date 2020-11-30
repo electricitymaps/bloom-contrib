@@ -1,4 +1,4 @@
-import { geoDistance } from 'd3-geo'; // todo - add d3-geo in package.json
+import { geoDistance } from 'd3-geo';
 
 import { ACTIVITY_TYPE_TRANSPORTATION, TRANSPORTATION_MODE_PLANE } from '../../definitions';
 import { getActivityDurationHours } from '../utils';
@@ -11,7 +11,7 @@ const PASSENGER_LOAD_FACTORS_KEY = 'passenger_load_factors';
 const PASSENGER_FREIGHT_RATIO_KEY = 'passenger_to_freight_ratio';
 
 export const modelName = 'flight';
-export const modelVersion = '1';
+export const modelVersion = '2';
 export const explanation = {
   text:
     'Calculations take into account direct emissions from burning fuel and manufacturing of vehicle. They are based on international statistics on passenger and cargo loads and aircraft type usage.',
@@ -246,10 +246,7 @@ export function activityDistance(activity) {
   return distanceFromDuration(durationHours);
 }
 
-/*
-  Calculates emissions in kgCO2eq
-*/
-export function carbonEmissions(activity) {
+function calculateEmissions(activity) {
   const distance = activityDistance(activity);
   const [passengerLoadFactor, passengerToFreightRatio] = getLoadFactors(activity);
   if (!Number.isFinite(distance)) {
@@ -268,10 +265,37 @@ export function carbonEmissions(activity) {
       )}, long haul: ${passengerToFreightRatio(false)}`
     );
   }
+
   return computeFootprint(
     distance,
     activity.bookingClass,
     passengerLoadFactor,
     passengerToFreightRatio
   );
+}
+
+/*
+  Calculates emissions in kgCO2eq
+*/
+export function carbonEmissions(activity) {
+  const { departureAirportCode, destinationAirportCode, isRoundtrip } = activity;
+
+  const footprint = calculateEmissions(activity);
+
+  if (!isRoundtrip) {
+    return footprint;
+  }
+
+  // If no airport codes are defined, we simply multiply the emissions for roundtrips
+  if (!departureAirportCode || !destinationAirportCode) {
+    return footprint * 2;
+  }
+
+  // Reversing the destination and departure to calculate more precise emissions
+  const returnActivity = {
+    ...activity,
+    departureAirportCode: destinationAirportCode,
+    destinationAirportCode: departureAirportCode,
+  };
+  return footprint + calculateEmissions(returnActivity);
 }
