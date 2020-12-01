@@ -12,7 +12,7 @@ const MEALS_PER_DAY = 3;
 
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'meal';
-export const modelVersion = '6';
+export const modelVersion = '7';
 export const explanation = {
   text:
     'The calculations take into consideration greenhouse gas emissions across the whole lifecycle for an average meal of a specific diet.',
@@ -61,13 +61,19 @@ function carbonIntensityOfMealType(mealType) {
 Carbon emissions of an activity (in kgCO2eq)
 */
 export function carbonEmissions(activity) {
-  const { mealType } = activity;
+  const { mealType, numberOfMeals } = activity;
 
-  if (mealType) {
-    return carbonIntensityOfMealType(mealType);
+  if (!mealType) {
+    throw new Error(
+      "Couldn't calculate carbonEmissions for activity because it does not have any ingredients or meal type"
+    );
   }
 
-  throw new Error(
-    "Couldn't calculate carbonEmissions for activity because it does not have any ingredients or meal type"
-  );
+  const footprint = carbonIntensityOfMealType(mealType);
+
+  if (!numberOfMeals || numberOfMeals < 0) {
+    return footprint;
+  }
+
+  return footprint * numberOfMeals;
 }
