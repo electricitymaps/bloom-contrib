@@ -22,35 +22,35 @@ describe('model runs', () => {
     expect(() => carbonEmissions(activity)).toThrowError('Unknown meal type: not-real');
   });
 
-  it('multiplies emissions by number of participants', () => {
+  it('multiplies emissions by number of numberOfMeals', () => {
     const activity = {
       activityType: ACTIVITY_TYPE_MEAL,
       mealType: MEAL_TYPE_PESCETARIAN,
-      participants: 3,
+      numberOfMeals: 3,
     };
 
     expect(modelCanRun(activity)).toBeTruthy();
     expect(carbonEmissions(activity)).toBeCloseTo(1.303 * 3);
   });
 
-  it('ignores invalid number of participants', () => {
+  it('ignores invalid number of numberOfMeals', () => {
     const baseActivity = {
       activityType: ACTIVITY_TYPE_MEAL,
       mealType: MEAL_TYPE_PESCETARIAN,
     };
-    const activityWithNegativeParticipants = {
+    const activityWithNegativeNumberOfMeals = {
       ...baseActivity,
-      participants: -1,
+      numberOfMeals: -1,
     };
-    const activityWithZeroParticipants = {
+    const activityWithZeroNumberOfMeals = {
       ...baseActivity,
-      participants: 0,
+      numberOfMeals: 0,
     };
 
-    expect(modelCanRun(activityWithNegativeParticipants)).toBeTruthy();
-    expect(carbonEmissions(activityWithNegativeParticipants)).toBeCloseTo(1.303);
+    expect(modelCanRun(activityWithNegativeNumberOfMeals)).toBeTruthy();
+    expect(carbonEmissions(activityWithNegativeNumberOfMeals)).toBeCloseTo(1.303);
 
-    expect(modelCanRun(activityWithZeroParticipants)).toBeTruthy();
-    expect(carbonEmissions(activityWithZeroParticipants)).toBeCloseTo(1.303);
+    expect(modelCanRun(activityWithZeroNumberOfMeals)).toBeTruthy();
+    expect(carbonEmissions(activityWithZeroNumberOfMeals)).toBeCloseTo(1.303);
   });
 });

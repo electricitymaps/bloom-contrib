@@ -61,7 +61,7 @@ function carbonIntensityOfMealType(mealType) {
 Carbon emissions of an activity (in kgCO2eq)
 */
 export function carbonEmissions(activity) {
-  const { mealType, participants } = activity;
+  const { mealType, numberOfMeals } = activity;
 
   if (!mealType) {
     throw new Error(
@@ -71,9 +71,9 @@ export function carbonEmissions(activity) {
 
   const footprint = carbonIntensityOfMealType(mealType);
 
-  if (!participants || participants < 0) {
+  if (!numberOfMeals || numberOfMeals < 0) {
     return footprint;
   }
 
-  return footprint * participants;
+  return footprint * numberOfMeals;
 }
