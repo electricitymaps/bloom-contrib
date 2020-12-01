@@ -154,6 +154,7 @@ Activities require a certain formatting:
   departureStation, // (for other travel types) a string that represents the original starting point
   destinationStation, // (for other travel types) a string that represents the final destination
   participants, // (optional) the number of passengers (for car and motorbike travels)
+  isRoundtrip, // (optional) a boolean that represents whether this trip was a round/return trip
 }
 ```
 
@@ -214,6 +215,7 @@ Activities require a certain formatting:
   activityType: ACTIVITY_TYPE_MEAL,
   lineItems, // (required if the activity contains ingredients) an array with an object [{ identifier: xx, value: 2.1, unit: 'kg'}] where `identifier` is a key from footprints.yml and `unit` a valid unit from definitions.js
   mealType, // (required if the activity is a meal type) a string with the value being one of the meal type options in definitions.js
+  numberOfMeals, // the amount of meals that this activity covers
 }
 ```
 
