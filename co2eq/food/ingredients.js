@@ -7,7 +7,7 @@ import {
 } from '../purchase';
 
 export const modelName = 'meal-from-ingredients';
-export const modelVersion = `1_${getChecksumOfFootprints()}`;
+export const modelVersion = `2_${getChecksumOfFootprints()}`;
 export const explanation = {
   text:
     'The calculations take into consideration emissions of greenhouse gases across the whole lifecycle of the ingredients.',
