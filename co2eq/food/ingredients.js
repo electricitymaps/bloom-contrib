@@ -7,7 +7,7 @@ import {
 } from '../purchase';
 
 export const modelName = 'meal-from-ingredients';
-export const modelVersion = `2_${getChecksumOfFootprints()}`;
+export const modelVersion = `1_${getChecksumOfFootprints()}`;
 export const explanation = {
   text:
     'The calculations take into consideration emissions of greenhouse gases across the whole lifecycle of the ingredients.',
@@ -19,7 +19,7 @@ export const explanation = {
   ],
 };
 
-export const modelCanRunVersion = 1;
+export const modelCanRunVersion = 2;
 export function modelCanRun(activity) {
   const { activityType, lineItems } = activity;
   if (activityType === ACTIVITY_TYPE_MEAL && lineItems && lineItems.length) {
