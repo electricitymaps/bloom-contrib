@@ -19,10 +19,21 @@ export const explanation = {
   ],
 };
 
-export const modelCanRunVersion = 1;
+export const modelCanRunVersion = 2;
 export function modelCanRun(activity) {
   const { activityType, lineItems } = activity;
   if (activityType === ACTIVITY_TYPE_MEAL && lineItems && lineItems.length) {
+    const { identifier } = lineItems[0];
+    const entry = getEntryByKey(identifier);
+    if (!entry) {
+      return false;
+    }
+    if (!entry.intensityKilograms) {
+      return false;
+    }
+    if (entry.unit !== UNIT_KILOGRAMS) {
+      return false;
+    }
     return true;
   }
   return false;
