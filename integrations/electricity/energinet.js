@@ -77,24 +77,27 @@ async function getTimeSeries(accessToken, meterPointIds, fromMoment, logger) {
     .send(bodyMeterPoints)
     .set('Authorization', `Bearer ${accessToken}`)
     .set('Content-Type', 'application/json');
+
   if (!res.ok) {
     throw new HTTPError(res.text, res.status);
   }
 
   const timeSeries = flattenDeep(
-    res.body.result[0].MyEnergyData_MarketDocument.TimeSeries.map((meteringPoint) => {
-      const { mRID } = meteringPoint;
-      return meteringPoint.Period.map((period) => {
-        const periodStart = period.timeInterval.start;
-        return period.Point.map((periodPoint) => {
-          return {
-            datetime: moment(periodStart)
-              .clone()
-              .add(parseInt(periodPoint.position, 10) - 1, 'hours')
-              .toISOString(),
-            value: parseFloat(periodPoint['out_Quantity.quantity']),
-            mRID,
-          };
+    res.body.result.map((result) => {
+      return result.MyEnergyData_MarketDocument.TimeSeries.map((meteringPoint) => {
+        const { mRID } = meteringPoint;
+        return meteringPoint.Period.map((period) => {
+          const periodStart = period.timeInterval.start;
+          return period.Point.map((periodPoint) => {
+            return {
+              datetime: moment(periodStart)
+                .clone()
+                .add(parseInt(periodPoint.position, 10) - 1, 'hours')
+                .toISOString(),
+              value: parseFloat(periodPoint['out_Quantity.quantity']),
+              mRID,
+            };
+          });
         });
       });
     })
