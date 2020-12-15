@@ -152,7 +152,7 @@ async function collect(state = {}, logger) {
   const activities = Object.entries(
     groupBy(timeSeries, (dataPoint) => moment(dataPoint.datetime).startOf('day').toISOString()) // regroup by day
   ).map(([k, values]) => ({
-    id: `energinet${values[0].mRID}${k}`,
+    id: `energinet-${Array.from(new Set(values.map((v) => v.mRID))).sort()}-${k}`,
     datetime: moment(k).toDate(),
     endDatetime: moment
       .max(values.map((dataPoint) => moment(dataPoint.datetime)))

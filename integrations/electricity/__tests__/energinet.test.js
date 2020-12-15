@@ -227,7 +227,7 @@ const TIME_SERIES_API_MULTIPLE_RESPONSE = JSON.stringify({
 });
 
 const SAMPLE_ACTIVITY = {
-  id: `energinet${METERING_POINT_ID_1}2020-10-11T22:00:00.000Z`, // FIXME: this should likely be all meter ids!
+  id: `energinet-${METERING_POINT_ID_1}-2020-10-11T22:00:00.000Z`,
   datetime: moment('2020-10-11T22:00:00.000Z').toDate(),
   endDatetime: moment('2020-10-12T22:00:00.000Z').toDate(),
   activityType: 'ACTIVITY_TYPE_ELECTRICITY',
@@ -264,6 +264,7 @@ const SAMPLE_ACTIVITY = {
 
 const SAMPLE_MULTIPLE_ACTIVITY = {
   ...SAMPLE_ACTIVITY,
+  id: `energinet-${METERING_POINT_ID_1},${METERING_POINT_ID_2}-2020-10-11T22:00:00.000Z`,
   energyWattHours: SAMPLE_ACTIVITY.energyWattHours * 2,
   hourlyEnergyWattHours: SAMPLE_ACTIVITY.hourlyEnergyWattHours.map((value) => value * 2),
 };
