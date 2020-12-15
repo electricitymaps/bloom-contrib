@@ -1,7 +1,7 @@
 import flattenDeep from 'lodash/flattenDeep';
 import groupBy from 'lodash/groupBy';
 import moment from 'moment';
-import request from 'superagent';
+import request from 'superagent'; // TODO: use fetch instead
 
 import { ACTIVITY_TYPE_ELECTRICITY } from '../../definitions';
 import { HTTPError } from '../utils/errors';
@@ -77,24 +77,27 @@ async function getTimeSeries(accessToken, meterPointIds, fromMoment, logger) {
     .send(bodyMeterPoints)
     .set('Authorization', `Bearer ${accessToken}`)
     .set('Content-Type', 'application/json');
+
   if (!res.ok) {
     throw new HTTPError(res.text, res.status);
   }
 
   const timeSeries = flattenDeep(
-    res.body.result[0].MyEnergyData_MarketDocument.TimeSeries.map((meteringPoint) => {
-      const { mRID } = meteringPoint;
-      return meteringPoint.Period.map((period) => {
-        const periodStart = period.timeInterval.start;
-        return period.Point.map((periodPoint) => {
-          return {
-            datetime: moment(periodStart)
-              .clone()
-              .add(parseInt(periodPoint.position, 10) - 1, 'hours')
-              .toISOString(),
-            value: parseFloat(periodPoint['out_Quantity.quantity']),
-            mRID,
-          };
+    res.body.result.map((result) => {
+      return result.MyEnergyData_MarketDocument.TimeSeries.map((meteringPoint) => {
+        const { mRID } = meteringPoint;
+        return meteringPoint.Period.map((period) => {
+          const periodStart = period.timeInterval.start;
+          return period.Point.map((periodPoint) => {
+            return {
+              datetime: moment(periodStart)
+                .clone()
+                .add(parseInt(periodPoint.position, 10) - 1, 'hours')
+                .toISOString(),
+              value: parseFloat(periodPoint['out_Quantity.quantity']),
+              mRID,
+            };
+          });
         });
       });
     })
@@ -149,7 +152,7 @@ async function collect(state = {}, logger) {
   const activities = Object.entries(
     groupBy(timeSeries, (dataPoint) => moment(dataPoint.datetime).startOf('day').toISOString()) // regroup by day
   ).map(([k, values]) => ({
-    id: `energinet${values[0].mRID}${k}`,
+    id: `energinet-${Array.from(new Set(values.map((v) => v.mRID))).sort()}-${k}`,
     datetime: moment(k).toDate(),
     endDatetime: moment
       .max(values.map((dataPoint) => moment(dataPoint.datetime)))
