@@ -1,7 +1,7 @@
 import flattenDeep from 'lodash/flattenDeep';
 import groupBy from 'lodash/groupBy';
 import moment from 'moment';
-import request from 'superagent';
+import request from 'superagent'; // TODO: use fetch instead
 
 import { ACTIVITY_TYPE_ELECTRICITY } from '../../definitions';
 import { HTTPError } from '../utils/errors';
