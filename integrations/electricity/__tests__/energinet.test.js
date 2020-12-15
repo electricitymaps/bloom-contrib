@@ -222,7 +222,7 @@ const TIME_SERIES_API_RESPONSE = JSON.stringify({
   result: [getTimeSeriesEntry(METERING_POINT_ID_1)],
 });
 
-const TIME_SERIES_API_MULTIPLE_RESPONSE = JSON.stringify({
+const TIME_SERIES_API_RESPONSE_MULTIPLE_SMART_METERS = JSON.stringify({
   result: [getTimeSeriesEntry(METERING_POINT_ID_1), getTimeSeriesEntry(METERING_POINT_ID_2)],
 });
 
@@ -262,7 +262,7 @@ const SAMPLE_ACTIVITY = {
   locationLat: LOCATION_LAT,
 };
 
-const SAMPLE_MULTIPLE_ACTIVITY = {
+const SAMPLE_ACTIVITY_TWO_SMART_METERS = {
   ...SAMPLE_ACTIVITY,
   id: `energinet-${METERING_POINT_ID_1},${METERING_POINT_ID_2}-2020-10-11T22:00:00.000Z`,
   energyWattHours: SAMPLE_ACTIVITY.energyWattHours * 2,
@@ -387,13 +387,15 @@ const RESPONSE = {
       result: [getSmartMeter(METERING_POINT_ID_1)],
     })
   ),
-  METERING_POINT_API_MULTIPLE_RESPONSE: mockSuccessJSONResponse(
+  METERING_POINT_API_RESPONSE_MULTIPLE_SMART_METERS: mockSuccessJSONResponse(
     JSON.stringify({
       result: [getSmartMeter(METERING_POINT_ID_1), getSmartMeter(METERING_POINT_ID_2)],
     })
   ),
   TIME_SERIES_API_RESPONSE: mockSuccessJSONResponse(TIME_SERIES_API_RESPONSE),
-  TIME_SERIES_API_MULTIPLE_RESPONSE: mockSuccessJSONResponse(TIME_SERIES_API_MULTIPLE_RESPONSE),
+  TIME_SERIES_API_RESPONSE_MULTIPLE_SMART_METERS: mockSuccessJSONResponse(
+    TIME_SERIES_API_RESPONSE_MULTIPLE_SMART_METERS
+  ),
 };
 
 const logger = {
@@ -464,9 +466,9 @@ describe('collect', () => {
     const toDate = moment.min(moment(FROM_DATE).add(14, 'days'), moment());
     mockPathToResult = {
       [RESOURCES.ACCESS_TOKEN]: [RESPONSE.ACCESS_TOKEN_API_RESPONSE],
-      [RESOURCES.METERING_POINT]: [RESPONSE.METERING_POINT_API_MULTIPLE_RESPONSE],
+      [RESOURCES.METERING_POINT]: [RESPONSE.METERING_POINT_API_RESPONSE_MULTIPLE_SMART_METERS],
       [RESOURCES.TIME_SERIES(FROM_DATE, toDate.format('YYYY-MM-DD'))]: [
-        RESPONSE.TIME_SERIES_API_MULTIPLE_RESPONSE,
+        RESPONSE.TIME_SERIES_API_RESPONSE_MULTIPLE_SMART_METERS,
       ],
     };
 
@@ -477,7 +479,7 @@ describe('collect', () => {
 
     const { activities, state } = await energinet.collect(oldState, logger);
 
-    expect(activities).toEqual([SAMPLE_MULTIPLE_ACTIVITY]);
+    expect(activities).toEqual([SAMPLE_ACTIVITY_TWO_SMART_METERS]);
     expect(state).toEqual({
       ...AUTH,
       lastFullyCollectedDay: moment(LAST_FULLY_COLLECTED_DAY).add(1, 'days').toISOString(),
