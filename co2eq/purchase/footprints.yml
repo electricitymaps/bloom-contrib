@@ -76,66 +76,77 @@ _children:
                 source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                 unit: kg
                 displayName: Barley
+                associatedPurchaseCategory: Cereals and cereal products (ND)
               Beans/tofu:
                 icon: burrito
                 intensityKilograms: 2
                 source: From http://www.greeneatz.com/foods-carbon-footprint.html
                 unit: kg
                 displayName: Beans/tofu
+                associatedPurchaseCategory: Cereals and cereal products (ND)
               Butter beans:
                 icon:
                 intensityKilograms: 0.39
                 source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                 unit: kg
                 displayName: Butter beans
+                associatedPurchaseCategory: Cereals and cereal products (ND)
               Chick peas:
                 icon:
                 intensityKilograms: 0.77
                 source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                 unit: kg
                 displayName: Chick peas
+                associatedPurchaseCategory: Cereals and cereal products (ND)
               Corn:
                 icon:
                 intensityKilograms: 0.47
                 source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                 unit: kg
                 displayName: Corn
+                associatedPurchaseCategory: Cereals and cereal products (ND)
               Dry beans:
                 icon:
                 intensityKilograms: 2
                 source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
                 unit: kg
                 displayName: Dry beans
+                associatedPurchaseCategory: Cereals and cereal products (ND)
               Green beans:
                 icon:
                 intensityKilograms: 0.31
                 source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                 unit: kg
                 displayName: Green beans
+                associatedPurchaseCategory: Cereals and cereal products (ND)
               Lentils:
                 icon:
                 intensityKilograms: 1.03
                 source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                 unit: kg
                 displayName: Lentils
+                associatedPurchaseCategory: Cereals and cereal products (ND)
               Morning cereals:
                 icon:
                 intensityKilograms: 0.864
                 source: From http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
                 unit: kg
                 displayName: Morning cereals
+                associatedPurchaseCategory: Cereals and cereal products (ND)
               Oats:
                 icon:
                 intensityKilograms: 0.38
                 source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                 unit: kg
                 displayName: Oats
+                associatedPurchaseCategory: Cereals and cereal products (ND)
               Pasta:
                 icon: wheat
                 intensityKilograms: 1.2
                 source: From https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
                 unit: kg
                 displayName: Pasta
+                associatedPurchaseCategory: Cereals and cereal products (ND)
               Peas:
                 icon:
                 intensityKilograms: 0.38
@@ -147,78 +158,91 @@ _children:
                     incrementStepSize: 1
                     source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
                 displayName: Peas
+                associatedPurchaseCategory: Cereals and cereal products (ND)
               Quinoa:
                 icon:
                 intensityKilograms: 1.15
                 source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                 unit: kg
                 displayName: Quinoa
+                associatedPurchaseCategory: Cereals and cereal products (ND)
               Rice:
                 icon: soup
                 intensityKilograms: 2.55
                 source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                 unit: kg
                 displayName: Rice
+                associatedPurchaseCategory: Cereals and cereal products (ND)
               Rye:
                 icon:
                 intensityKilograms: 0.38
                 source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                 unit: kg
                 displayName: Rye
+                associatedPurchaseCategory: Cereals and cereal products (ND)
               Rye bread:
                 icon: bread-loaf
                 intensityKilograms: 0.93
                 source: From http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
                 unit: kg
                 displayName: Rye bread
+                associatedPurchaseCategory: Cereals and cereal products (ND)
               Sesame seeds:
                 icon:
                 intensityKilograms: 0.88
                 source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                 unit: kg
                 displayName: Sesame seeds
+                associatedPurchaseCategory: Cereals and cereal products (ND)
               Sesame (oil):
                 icon:
                 intensityKilograms: 2.334
                 source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
                 unit: kg
                 displayName: Sesame (oil)
+                associatedPurchaseCategory: Cereals and cereal products (ND)
               Soybean:
                 icon:
                 intensityKilograms: 0.49
                 source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                 unit: kg
                 displayName: Soybean
+                associatedPurchaseCategory: Cereals and cereal products (ND)
               Sunflower seed:
                 icon:
                 intensityKilograms: 1.41
                 source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                 unit: kg
                 displayName: Sunflower seed
+                associatedPurchaseCategory: Cereals and cereal products (ND)
               Tofu:
                 icon:
                 intensityKilograms: 2
                 source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
                 unit: kg
                 displayName: Tofu
+                associatedPurchaseCategory: Cereals and cereal products (ND)
               Wheat:
                 icon:
                 intensityKilograms: 0.52
                 source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                 unit: kg
                 displayName: Wheat
+                associatedPurchaseCategory: Cereals and cereal products (ND)
               Wheat (flour):
                 icon:
                 intensityKilograms: 0.358
                 source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
                 unit: kg
                 displayName: Wheat (flour)
+                associatedPurchaseCategory: Cereals and cereal products (ND)
               White bread:
                 icon: bread-loaf
                 intensityKilograms: 1.054
                 source: From http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
                 unit: kg
                 displayName: White bread
+                associatedPurchaseCategory: Cereals and cereal products (ND)
             icon: bread-loaf
             intensityKilograms:
               AT: 0.5796355639292761
@@ -290,24 +314,28 @@ _children:
                 source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                 unit: kg
                 displayName: Beef
+                associatedPurchaseCategory: Live animals, meat and other parts of slaughtered land animals (ND)
               Buffalo:
                 icon:
                 intensityKilograms: 60.43
                 source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                 unit: kg
                 displayName: Buffalo
+                associatedPurchaseCategory: Live animals, meat and other parts of slaughtered land animals (ND)
               Chicken:
                 icon: drumstick
                 intensityKilograms: 3.65
                 source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                 unit: kg
                 displayName: Chicken
+                associatedPurchaseCategory: Live animals, meat and other parts of slaughtered land animals (ND)
               Duck:
                 icon:
                 intensityKilograms: 3.09
                 source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                 unit: kg
                 displayName: Duck
+                associatedPurchaseCategory: Live animals, meat and other parts of slaughtered land animals (ND)
               Eggs:
                 icon: egg
                 intensityKilograms: 3.46
@@ -320,36 +348,42 @@ _children:
                     source: https://web.extension.illinois.edu/eggs/res16-egg.html
                     default: true
                 displayName: Eggs
+                associatedPurchaseCategory: Live animals, meat and other parts of slaughtered land animals (ND)
               Ham:
                 icon: pig
                 intensityKilograms: 4.453
                 source: https://link.springer.com/article/10.1007/s11367-018-1460-x#MOESM1
                 unit: kg
                 displayName: Ham
+                associatedPurchaseCategory: Live animals, meat and other parts of slaughtered land animals (ND)
               Lamb:
                 icon: sheep
                 intensityKilograms: 25.58
                 source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                 unit: kg
                 displayName: Lamb
+                associatedPurchaseCategory: Live animals, meat and other parts of slaughtered land animals (ND)
               Pork:
                 icon: pig
                 intensityKilograms: 5.74
                 source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                 unit: kg
                 displayName: Pork
+                associatedPurchaseCategory: Live animals, meat and other parts of slaughtered land animals (ND)
               Rabbit:
                 icon:
                 intensityKilograms: 4.7
                 source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                 unit: kg
                 displayName: Rabbit
+                associatedPurchaseCategory: Live animals, meat and other parts of slaughtered land animals (ND)
               Turkey:
                 icon: turkey
                 intensityKilograms: 7.17
                 source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                 unit: kg
                 displayName: Turkey
+                associatedPurchaseCategory: Live animals, meat and other parts of slaughtered land animals (ND)
             coicopCode: 01.1.2
             year: 2011
             unit: EUR
@@ -416,209 +450,244 @@ _children:
                     source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                     unit: kg
                     displayName: Anglerfish
+                    associatedPurchaseCategory: Fish and other seafood (ND)
                   Brill:
                     icon: fish
                     intensityKilograms: 8.41
                     source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                     unit: kg
                     displayName: Brill
+                    associatedPurchaseCategory: Fish and other seafood (ND)
                   Canned Tuna:
                     icon: fish
                     intensityKilograms: 6.1
                     source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
                     unit: kg
                     displayName: Canned tuna
+                    associatedPurchaseCategory: Fish and other seafood (ND)
                   Carp:
                     icon: fish
                     intensityKilograms: 1.76
                     source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                     unit: kg
                     displayName: Carp
+                    associatedPurchaseCategory: Fish and other seafood (ND)
                   Clams:
                     icon:
                     intensityKilograms: 0.1
                     source: From https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
                     unit: kg
                     displayName: Clams
+                    associatedPurchaseCategory: Fish and other seafood (ND)
                   Cod:
                     icon: fish
                     intensityKilograms: 3.51
                     source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                     unit: kg
                     displayName: Cod
+                    associatedPurchaseCategory: Fish and other seafood (ND)
                   Common Ling:
                     icon: fish
                     intensityKilograms: 6.45
                     source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                     unit: kg
                     displayName: Common ling
+                    associatedPurchaseCategory: Fish and other seafood (ND)
                   Eel:
                     icon: fish
                     intensityKilograms: 3.88
                     source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                     unit: kg
                     displayName: Eel
+                    associatedPurchaseCategory: Fish and other seafood (ND)
                   Farmed Salmon:
                     icon: fish
                     intensityKilograms: 11.9
                     source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
                     unit: kg
                     displayName: Farmed salmon
+                    associatedPurchaseCategory: Fish and other seafood (ND)
                   Fish (all species):
                     icon: fish
                     intensityKilograms: 3.49
                     source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                     unit: kg
                     displayName: Fish (all species)
+                    associatedPurchaseCategory: Fish and other seafood (ND)
                   Flatfish:
                     icon: fish
                     intensityKilograms: 6.2
                     source: From https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
                     unit: kg
                     displayName: Flatfish
+                    associatedPurchaseCategory: Fish and other seafood (ND)
                   Haddock:
                     icon: fish
                     intensityKilograms: 3.41
                     source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                     unit: kg
                     displayName: Haddock
+                    associatedPurchaseCategory: Fish and other seafood (ND)
                   Hake:
                     icon: fish
                     intensityKilograms: 9.77
                     source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                     unit: kg
                     displayName: Hake
+                    associatedPurchaseCategory: Fish and other seafood (ND)
                   Herring:
                     icon: fish
                     intensityKilograms: 1.16
                     source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                     unit: kg
                     displayName: Herring
+                    associatedPurchaseCategory: Fish and other seafood (ND)
                   Lobster:
                     icon:
                     intensityKilograms: 27.8
                     source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                     unit: kg
                     displayName: Lobster
+                    associatedPurchaseCategory: Fish and other seafood (ND)
                   Mackerel:
                     icon: fish
                     intensityKilograms: 1.8
                     source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                     unit: kg
                     displayName: Mackerel
+                    associatedPurchaseCategory: Fish and other seafood (ND)
                   Megrim:
                     icon: fish
                     intensityKilograms: 14.15
                     source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                     unit: kg
                     displayName: Megrim
+                    associatedPurchaseCategory: Fish and other seafood (ND)
                   Mussels:
                     icon:
                     intensityKilograms: 9.51
                     source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                     unit: kg
                     displayName: Mussels
+                    associatedPurchaseCategory: Fish and other seafood (ND)
                   Octopus/squid/cuttlefish:
                     icon:
                     intensityKilograms: 7.13
                     source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                     unit: kg
                     displayName: Octopus/squid/cuttlefish
+                    associatedPurchaseCategory: Fish and other seafood (ND)
                   Pollock:
                     icon: fish
                     intensityKilograms: 1.61
                     source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                     unit: kg
                     displayName: Pollock
+                    associatedPurchaseCategory: Fish and other seafood (ND)
                   Pomfret:
                     icon: fish
                     intensityKilograms: 6.63
                     source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                     unit: kg
                     displayName: Pomfret
+                    associatedPurchaseCategory: Fish and other seafood (ND)
                   Porbeagle:
                     icon: fish
                     intensityKilograms: 11.44
                     source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                     unit: kg
                     displayName: Porbeagle
+                    associatedPurchaseCategory: Fish and other seafood (ND)
                   Prawns/shrimp:
                     icon:
                     intensityKilograms: 7.8
                     source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                     unit: kg
                     displayName: Prawns/shrimp
+                    associatedPurchaseCategory: Fish and other seafood (ND)
                   Rock fish:
                     icon: fish
                     intensityKilograms: 6.94
                     source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                     unit: kg
                     displayName: Rock fish
+                    associatedPurchaseCategory: Fish and other seafood (ND)
                   Salmon:
                     icon: fish
                     intensityKilograms: 3.47
                     source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                     unit: kg
                     displayName: Salmon
+                    associatedPurchaseCategory: Fish and other seafood (ND)
                   Sea bass:
                     icon: fish
                     intensityKilograms: 3.27
                     source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                     unit: kg
                     displayName: Sea bass
+                    associatedPurchaseCategory: Fish and other seafood (ND)
                   Shrimp (Fresh):
                     icon:
                     intensityKilograms: 3
                     source: https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
                     unit: kg
                     displayName: Shrimp (fresh)
+                    associatedPurchaseCategory: Fish and other seafood (ND)
                   Shrimp (Frozen):
                     icon:
                     intensityKilograms: 10.5
                     source: https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
                     unit: kg
                     displayName: Shrimp (frozen)
+                    associatedPurchaseCategory: Fish and other seafood (ND)
                   Sole:
                     icon: fish
                     intensityKilograms: 20.86
                     source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                     unit: kg
                     displayName: Sole
+                    associatedPurchaseCategory: Fish and other seafood (ND)
                   Swordfish:
                     icon: fish
                     intensityKilograms: 12.84
                     source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                     unit: kg
                     displayName: Swordfish
+                    associatedPurchaseCategory: Fish and other seafood (ND)
                   Trout:
                     icon: fish
                     intensityKilograms: 4.2
                     source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                     unit: kg
                     displayName: Trout
+                    associatedPurchaseCategory: Fish and other seafood (ND)
                   Tuna:
                     icon: fish
                     intensityKilograms: 2.15
                     source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                     unit: kg
                     displayName: Tuna
+                    associatedPurchaseCategory: Fish and other seafood (ND)
                   Turbot:
                     icon: fish
                     intensityKilograms: 14.51
                     source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                     unit: kg
                     displayName: Turbot
+                    associatedPurchaseCategory: Fish and other seafood (ND)
                   Whiting:
                     icon: fish
                     intensityKilograms: 2.66
                     source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                     unit: kg
                     displayName: Whiting
+                    associatedPurchaseCategory: Fish and other seafood (ND)
                 icon: fish
                 intensityKilograms: 3.49
                 source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                 unit: kg
                 displayName: Seafood
+                associatedPurchaseCategory: Fish and other seafood (ND)
             coicopCode: 01.1.3
             year: 2011
             unit: EUR
@@ -682,24 +751,28 @@ _children:
                 source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                 unit: kg
                 displayName: Butter
+                associatedPurchaseCategory: Milk, other dairy products and eggs (ND)
               Cheddar:
                 icon: cheese-swiss
                 intensityKilograms: 13.02
                 source: https://www.researchgate.net/publication/309672245_Protein_versus_global_warming_potential_-_a_meta---analysis_of_the_global_warming_potential_and_protein_ratios_for_human_food
                 unit: kg
                 displayName: Cheddar
+                associatedPurchaseCategory: Milk, other dairy products and eggs (ND)
               Cheese:
                 icon: cheese-swiss
                 intensityKilograms: 8.55
                 source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                 unit: kg
                 displayName: Cheese
+                associatedPurchaseCategory: Milk, other dairy products and eggs (ND)
               Cream:
                 icon:
                 intensityKilograms: 5.64
                 source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                 unit: kg
                 displayName: Cream
+                associatedPurchaseCategory: Milk, other dairy products and eggs (ND)
               Milk:
                 icon: glass
                 intensityKilograms: 1.29
@@ -710,12 +783,14 @@ _children:
                     kilograms: 0.225
                     incrementStepSize: 1
                 displayName: Milk
+                associatedPurchaseCategory: Milk, other dairy products and eggs (ND)
               Milk Yogurt:
                 icon:
                 intensityKilograms: 1.31
                 source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                 unit: kg
                 displayName: Milk yogurt
+                associatedPurchaseCategory: Milk, other dairy products and eggs (ND)
               Ice cream (Vanilla regular):
                 icon:
                 intensityKilograms: 3.75
@@ -726,6 +801,7 @@ _children:
                     kilograms: 0.068
                     incrementStepSize: 1
                 displayName: Ice cream (vanilla regular)
+                associatedPurchaseCategory: Milk, other dairy products and eggs (ND)
               Ice cream (Vanilla premium):
                 icon:
                 intensityKilograms: 3.94
@@ -736,6 +812,7 @@ _children:
                     kilograms: 0.068
                     incrementStepSize: 1
                 displayName: Ice cream (vanilla premium)
+                associatedPurchaseCategory: Milk, other dairy products and eggs (ND)
               Ice cream (Chocolate regular):
                 icon:
                 intensityKilograms: 3.66
@@ -746,6 +823,7 @@ _children:
                     kilograms: 0.068
                     incrementStepSize: 1
                 displayName: Ice cream (chocolate regular)
+                associatedPurchaseCategory: Milk, other dairy products and eggs (ND)
               Ice cream (Chocolate premium):
                 icon:
                 intensityKilograms: 3.91
@@ -756,18 +834,21 @@ _children:
                     kilograms: 0.068
                     incrementStepSize: 1
                 displayName: Ice cream (chocolate premium)
+                associatedPurchaseCategory: Milk, other dairy products and eggs (ND)
               Mozzarella:
                 icon: cheese-swiss
                 intensityKilograms: 7.5
                 source: https://www.researchgate.net/publication/309672245_Protein_versus_global_warming_potential_-_a_meta---analysis_of_the_global_warming_potential_and_protein_ratios_for_human_food
                 unit: kg
                 displayName: Mozzarella
+                associatedPurchaseCategory: Milk, other dairy products and eggs (ND)
               Parmesan:
                 icon: cheese-swiss
                 intensityKilograms: 8.79
                 source: https://www.researchgate.net/publication/309672245_Protein_versus_global_warming_potential_-_a_meta---analysis_of_the_global_warming_potential_and_protein_ratios_for_human_food
                 unit: kg
                 displayName: Parmesan
+                associatedPurchaseCategory: Milk, other dairy products and eggs (ND)
             coicopCode: 01.1.4
             year: 2011
             unit: EUR
@@ -898,6 +979,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
                     displayName: Apples
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Apricot:
                     icon:
                     intensityKilograms: 0.43
@@ -914,6 +996,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.yazio.com/de/kalorientabelle/aprikose-frisch.html
                     displayName: Apricot
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Avocados:
                     icon:
                     intensityKilograms: 1.3
@@ -925,6 +1008,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.yazio.com/en/foods/avocado.html
                     displayName: Avocados
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Bananas:
                     icon:
                     intensityKilograms: 0.72
@@ -936,6 +1020,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
                     displayName: Bananas
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Blueberry:
                     icon:
                     intensityKilograms: 0.92
@@ -947,6 +1032,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.yazio.com/de/kalorientabelle/blaubeeren-frisch.html
                     displayName: Blueberry
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Blackberry:
                     icon:
                     intensityKilograms: 0.599
@@ -958,6 +1044,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
                     displayName: Blackberry
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Blackcurrant:
                     icon:
                     intensityKilograms: 0.29
@@ -969,12 +1056,14 @@ _children:
                         incrementStepSize: 1
                         source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
                     displayName: Blackcurrant
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Boysenberry:
                     icon:
                     intensityKilograms: 0.599
                     source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
                     unit: kg
                     displayName: Boysenberry
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Cantaloupe:
                     icon:
                     intensityKilograms: 0.490
@@ -991,6 +1080,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.yazio.com/en/foods/cantaloupe-melon.html
                     displayName: Cantaloupe
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Cherries:
                     icon:
                     intensityKilograms: 0.39
@@ -1007,12 +1097,14 @@ _children:
                         incrementStepSize: 1
                         source: https://www.yazio.com/en/foods/cherries.html
                     displayName: Cherries
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Cinnamon:
                     icon:
                     intensityKilograms: 1.87
                     source: http://assets.wwf.org.uk/downloads/how_low_report_1.pdf
                     unit: kg
                     displayName: Cinnamon
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Cranberries:
                     icon:
                     intensityKilograms: 0.92
@@ -1029,6 +1121,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.yazio.com/de/kalorientabelle/preiselbeeren-frisch.html
                     displayName: Cranberries
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Coconut:    # this refers to the coconut meat of the study
                     icon:
                     intensityKilograms: 1.521
@@ -1045,6 +1138,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.yazio.com/en/foods/coconut-meat.html
                     displayName: Coconut
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Currants:
                     icon:
                     intensityKilograms: 0.84
@@ -1061,6 +1155,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.yazio.com/de/kalorientabelle/johannisbeeren-schwarz-frisch.html
                     displayName: Currants
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Dates:
                     icon:
                     intensityKilograms: 0.32
@@ -1077,6 +1172,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.yazio.com/de/kalorientabelle/datteln.html
                     displayName: Dates
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Figs:
                     icon:
                     intensityKilograms: 0.43
@@ -1088,6 +1184,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.yazio.com/de/kalorientabelle/feigen-frisch.html
                     displayName: Figs
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Gooseberries:
                     icon:
                     intensityKilograms: 0.84
@@ -1104,6 +1201,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.yazio.com/de/kalorientabelle/stachelbeeren-frisch.html
                     displayName: Gooseberries
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Grapefruit:
                     icon:
                     intensityKilograms: 0.51
@@ -1115,6 +1213,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
                     displayName: Grapefruit
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Grapes:
                     icon:
                     intensityKilograms: 0.37
@@ -1126,12 +1225,14 @@ _children:
                         incrementStepSize: 1
                         source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
                     displayName: Grapes
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Grapes (raisins):
                     icon:
                     intensityKilograms: 0.684
                     source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
                     unit: kg
                     displayName: Grapes (raisins)
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Guavas:
                     icon:
                     intensityKilograms: 0.28
@@ -1143,6 +1244,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.yazio.com/en/foods/guava.html
                     displayName: Guavas
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Kiwi:
                     icon:
                     intensityKilograms: 0.36
@@ -1154,6 +1256,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
                     displayName: Kiwi
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Kumquat:
                     icon:
                     intensityKilograms: 0.320
@@ -1170,6 +1273,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.yazio.com/en/foods/kumquat.html
                     displayName: Kumquat
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Lemons:
                     icon:
                     intensityKilograms: 0.26
@@ -1181,6 +1285,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.yazio.com/de/kalorientabelle/zitrone-ohne-schale-frisch.html
                     displayName: Lemons
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Limes:
                     icon:
                     intensityKilograms: 0.26
@@ -1192,6 +1297,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.yazio.com/de/kalorientabelle/limette-limone-frisch.html
                     displayName: Limes
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Lychee:
                     icon:
                     intensityKilograms: 0.893
@@ -1208,6 +1314,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.yazio.com/en/foods/lychee.html
                     displayName: Lychee
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Mandarin:
                     icon:
                     intensityKilograms: 0.45
@@ -1219,6 +1326,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.yazio.com/de/kalorientabelle/mandarine-frisch.html
                     displayName: Mandarin
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Mango:
                     icon:
                     intensityKilograms: 0.639
@@ -1235,6 +1343,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.yazio.com/en/foods/mango.html
                     displayName: Mango
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Melons:
                     icon:
                     intensityKilograms: 0.25
@@ -1246,6 +1355,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
                     displayName: Melons
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Nectarines:
                     icon:
                     intensityKilograms: 0.43
@@ -1257,6 +1367,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.yazio.com/de/kalorientabelle/nektarine-frisch.html
                     displayName: Nectarines
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Orange:
                     icon:
                     intensityKilograms: 0.33
@@ -1268,6 +1379,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
                     displayName: Orange
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Papaya:
                     icon:
                     intensityKilograms: 0.216
@@ -1284,6 +1396,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.yazio.com/en/foods/papaya.html
                     displayName: Papaya
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Passion fruit:
                     icon:
                     intensityKilograms: 1.663
@@ -1295,6 +1408,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.yazio.com/en/foods/passion-fruit.html
                     displayName: Passion fruit
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Peaches:
                     icon:
                     intensityKilograms: 0.43
@@ -1306,6 +1420,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
                     displayName: Peaches
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Pears:
                     icon:
                     intensityKilograms: 0.31
@@ -1317,6 +1432,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
                     displayName: Pears
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Pineapples:
                     icon:
                     intensityKilograms: 0.5
@@ -1328,6 +1444,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
                     displayName: Pineapples
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Plum:
                     icon:
                     intensityKilograms: 0.576
@@ -1339,6 +1456,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
                     displayName: Plum
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Pomegranate:
                     icon:
                     intensityKilograms: 0.462
@@ -1355,6 +1473,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.yazio.com/en/foods/pomegranate.html
                     displayName: Pomegranate
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Pomelo:
                     icon:
                     intensityKilograms: 0.51
@@ -1371,6 +1490,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.yazio.com/de/kalorientabelle/pomelo-frisch.html
                     displayName: Pomelo
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Prunes:
                     icon:
                     intensityKilograms: 0.273
@@ -1382,6 +1502,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
                     displayName: Prunes
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Quinces:
                     icon:
                     intensityKilograms: 0.31
@@ -1393,6 +1514,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.yazio.com/de/kalorientabelle/quitte-frisch.html
                     displayName: Quinces
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Raspberries:
                     icon:
                     intensityKilograms: 0.84
@@ -1404,6 +1526,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
                     displayName: Raspberries
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Rhubarb:
                     icon:
                     intensityKilograms: 1.528
@@ -1415,6 +1538,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
                     displayName: Rhubarb
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Strawberries:
                     icon:
                     intensityKilograms: 0.58
@@ -1426,6 +1550,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
                     displayName: Strawberries
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Tangerines:
                     icon:
                     intensityKilograms: 0.51
@@ -1437,12 +1562,14 @@ _children:
                         incrementStepSize: 1
                         source: https://www.yazio.com/de/kalorientabelle/mandarine-frisch.html
                     displayName: Tangerines
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Vanilla:
                     icon:
                     intensityKilograms: 13.71
                     source: http://assets.wwf.org.uk/downloads/how_low_report_1.pdf
                     unit: kg
                     displayName: Vanilla
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                   Watermelon:
                     icon:
                     intensityKilograms: 0.32
@@ -1459,6 +1586,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.yazio.com/de/kalorientabelle/wassermelone-frisch.html
                     displayName: Watermelon
+                    associatedPurchaseCategory: Fruits and nuts (ND)
                 icon: lemon
                 intensityKilograms: 0.52
                 oldKeys:
@@ -1466,6 +1594,7 @@ _children:
                 source: http://www.greeneatz.com/foods-carbon-footprint.html
                 unit: kg
                 displayName: Fruits
+                associatedPurchaseCategory: Fruits and nuts (ND)
               Nuts:
                 _children:
                   Almonds:
@@ -1541,6 +1670,7 @@ _children:
                 source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
                 unit: kg
                 displayName: Nuts
+                associatedPurchaseCategory: Fruits and nuts (ND)
             coicopCode: 01.1.6
             year: 2011
             unit: EUR
@@ -1606,30 +1736,35 @@ _children:
                     source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                     unit: kg
                     displayName: Artichokes
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Aspargus:
                     icon:
                     intensityKilograms: 0.83
                     source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                     unit: kg
                     displayName: Aspargus
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Basil (dried):
                     icon:
                     intensityKilograms: 2.495
                     source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
                     unit: kg
                     displayName: Basil (dried)
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Basil (fresh):
                     icon:
                     intensityKilograms: 0.221
                     source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
                     unit: kg
                     displayName: Basil (fresh)
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Beetroot:
                     icon:
                     intensityKilograms: 0.24
                     source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                     unit: kg
                     displayName: Beetroot
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Broccoli:
                     icon:
                     intensityKilograms: 2
@@ -1641,6 +1776,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
                     displayName: Broccoli
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Brussels sprouts:
                     icon:
                     intensityKilograms: 0.490
@@ -1652,6 +1788,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
                     displayName: Brussels sprouts
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Carrots:
                     icon:
                     intensityKilograms: 0.2
@@ -1663,6 +1800,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
                     displayName: Carrots
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Cabbage:
                     icon:
                     intensityKilograms: 0.45
@@ -1674,6 +1812,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
                     displayName: Cabbage
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Cauliflowers:
                     icon:
                     intensityKilograms: 0.45
@@ -1685,24 +1824,28 @@ _children:
                         incrementStepSize: 1
                         source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
                     displayName: Cauliflowers
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Celery:
                     icon:
                     intensityKilograms: 0.18
                     source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                     unit: kg
                     displayName: Celery
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Cilantro:
                     icon:
                     intensityKilograms: 0.261
                     source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                     unit: kg
                     displayName: Cilantro
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Chive:
                     icon:
                     intensityKilograms: 0.221
                     source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
                     unit: kg
                     displayName: Chive
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Courgette:
                     # remember to update Zucchini as well
                     icon:
@@ -1715,6 +1858,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
                     displayName: Courgette
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Cucumbers:
                     icon:
                     intensityKilograms: 0.23
@@ -1726,36 +1870,42 @@ _children:
                         incrementStepSize: 1
                         source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
                     displayName: Cucumbers
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Dill:
                     icon:
                     intensityKilograms: 0.221
                     source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
                     unit: kg
                     displayName: Dill
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Endive:
                     icon:
                     intensityKilograms: 0.065
                     source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
                     unit: kg
                     displayName: Endive
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Eggplants:
                     icon:
                     intensityKilograms: 1.35
                     source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                     unit: kg
                     displayName: Eggplants
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Fennel:
                     icon:
                     intensityKilograms: 0.48
                     source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                     unit: kg
                     displayName: Fennel
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Garlic:
                     icon:
                     intensityKilograms: 0.57
                     source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                     unit: kg
                     displayName: Garlic
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Green onion:
                     # remember to update Scallion as well
                     icon:
@@ -1763,24 +1913,28 @@ _children:
                     source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
                     unit: kg
                     displayName: Green onion
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Ginger:
                     icon:
                     intensityKilograms: 0.88
                     source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                     unit: kg
                     displayName: Ginger
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Horseradish:
                     icon:
                     intensityKilograms: 0.88
                     source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
                     unit: kg
                     displayName: Horseradish
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Kale:
                     icon:
                     intensityKilograms: 0.193
                     source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
                     unit: kg
                     displayName: Kale
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Leek:
                     icon:
                     intensityKilograms: 0.45
@@ -1792,6 +1946,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
                     displayName: Leek
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Lettuce:
                     icon:
                     intensityKilograms: 0.220
@@ -1803,6 +1958,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
                     displayName: Lettuce
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Mushrooms:
                     icon:
                     intensityKilograms: 0.27
@@ -1814,24 +1970,28 @@ _children:
                         incrementStepSize: 1
                         source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
                     displayName: Mushrooms
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Nutmeg:
                     icon:
                     intensityKilograms: 4.82
                     source: http://assets.wwf.org.uk/downloads/how_low_report_1.pdf
                     unit: kg
                     displayName: Nutmeg
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Olives:
                     icon:
                     intensityKilograms: 0.63
                     source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                     unit: kg
                     displayName: Olives
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Olive (oil):
                     icon:
                     intensityKilograms: 3.206
                     source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
                     unit: kg
                     displayName: Olive (oil)
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Onion:
                     icon:
                     intensityKilograms: 0.17
@@ -1843,12 +2003,14 @@ _children:
                         incrementStepSize: 1
                         source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
                     displayName: Onion
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Parsley:
                     icon:
                     intensityKilograms: 0.232
                     source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
                     unit: kg
                     displayName: Parsley
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Parsnip:
                     icon:
                     intensityKilograms: 0.243
@@ -1860,6 +2022,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
                     displayName: Parsnip
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Peppers:
                     icon:
                     intensityKilograms: 0.66
@@ -1871,18 +2034,21 @@ _children:
                         incrementStepSize: 1
                         source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
                     displayName: Peppers
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Potatoes:
                     icon:
                     intensityKilograms: 0.18
                     source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                     unit: kg
                     displayName: Potatoes
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Pumpkins:
                     icon:
                     intensityKilograms: 0.25
                     source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
                     unit: kg
                     displayName: Pumpkins
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Rutabage:
                     icon:
                     intensityKilograms: 0.29
@@ -1894,6 +2060,7 @@ _children:
                         incrementStepSize: 1
                         source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
                     displayName: Rutabage
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Scallion:
                     # remember to update Green Onion as well
                     icon:
@@ -1901,12 +2068,14 @@ _children:
                     source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
                     unit: kg
                     displayName: Scallion
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Shallot:
                     icon:
                     intensityKilograms: 0.275
                     source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
                     unit: kg
                     displayName: Shallot
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Spinach:
                     icon:
                     intensityKilograms: 0.54
@@ -1918,12 +2087,14 @@ _children:
                         incrementStepSize: 1
                         source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
                     displayName: Spinach
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Sweet potatoes:
                     icon:
                     intensityKilograms: 0.302
                     source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
                     unit: kg
                     displayName: Sweet potatoes
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Tomatoes:
                     icon:
                     intensityKilograms: 0.45
@@ -1935,30 +2106,35 @@ _children:
                         incrementStepSize: 1
                         source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
                     displayName: Tomatoes
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Tomatoe ketchup:
                     icon:
                     intensityKilograms: 0.747
                     source: https://link.springer.com/article/10.1007/s11367-018-1460-x#MOESM1
                     unit: kg
                     displayName: Tomatoe ketchup
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Turmeric:
                     icon:
                     intensityKilograms: 0.213
                     source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
                     unit: kg
                     displayName: Turmeric
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Vegetable oil:
                     icon:
                     intensityKilograms: 3.740
                     source: https://link.springer.com/article/10.1007/s11367-018-1460-x#MOESM1
                     unit: kg
                     displayName: Vegetable oil
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Vinegar:
                     icon:
                     intensityKilograms: 1.327
                     source: https://link.springer.com/article/10.1007/s11367-018-1460-x#MOESM1
                     unit: kg
                     displayName: Vinegar
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                   Zucchini:
                     # remember to update Courgette as well
                     icon:
@@ -1971,11 +2147,13 @@ _children:
                         incrementStepSize: 1
                         source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
                     displayName: Zucchini
+                    associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
                 icon: carrot
                 intensityKilograms: 1.32
                 source: https://orbit.dtu.dk/ws/files/110722384/Climate_friendly_dietary_guidelines.pdf
                 unit: kg
                 displayName: Vegetables
+                associatedPurchaseCategory: Vegetables, tubers, plantains, cooking bananas and pulses (ND)
             coicopCode: 01.1.7
             year: 2011
             unit: EUR
@@ -2039,18 +2217,21 @@ _children:
                 source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
                 unit: kg
                 displayName: Chocolate
+                associatedPurchaseCategory: Sugar, confectionery and desserts (ND)
               Cocoa powder:
                 icon:
                 intensityKilograms: 33.647
                 source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
                 unit: kg
                 displayName: Cocoa powder
+                associatedPurchaseCategory: Sugar, confectionery and desserts (ND)
               Honey:
                 icon:
                 intensityKilograms: 2.440
                 source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
                 unit: kg
                 displayName: Honey
+                associatedPurchaseCategory: Sugar, confectionery and desserts (ND)
               Maple syrup:
                 icon:
                 intensityKilograms: 6.754
@@ -2062,18 +2243,21 @@ _children:
                     incrementStepSize: 0.05
                     source: http://convert-to.com/571/maple-syrup-amounts-conversion-plus-nutritional-facts.html
                 displayName: Maple syrup
+                associatedPurchaseCategory: Sugar, confectionery and desserts (ND)
               Sugar (sugarcane):
                 icon:
                 intensityKilograms: 0.700
                 source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
                 unit: kg
                 displayName: Sugar (sugarcane)
+                associatedPurchaseCategory: Sugar, confectionery and desserts (ND)
               Sugar (beet):
                 icon:
                 intensityKilograms: 0.391
                 source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
                 unit: kg
                 displayName: Sugar (beet)
+                associatedPurchaseCategory: Sugar, confectionery and desserts (ND)
             coicopCode: 01.1.8
             year: 2011
             unit: EUR
@@ -2137,18 +2321,21 @@ _children:
                 source: https://link.springer.com/article/10.1007/s11367-018-1460-x#MOESM1
                 unit: kg
                 displayName: Yeast
+                associatedPurchaseCategory: Ready-made food and other food products n.e.c (ND)
               Baking soda:
                 icon:
                 intensityKilograms: 0.0261
                 source: https://epdturkey.org/wp-content/uploads/eti_soda_iso_14025.pdf
                 unit: kg
                 displayName: Baking soda
+                associatedPurchaseCategory: Ready-made food and other food products n.e.c (ND)
               Salt:
                 icon:
                 intensityKilograms: 0.3
                 source: https://link.springer.com/article/10.1007/s11367-018-1460-x#MOESM1
                 unit: kg
                 displayName: Salt
+                associatedPurchaseCategory: Ready-made food and other food products n.e.c (ND)
             coicopCode: 01.1.9
             year: 2011
             unit: EUR
@@ -2270,6 +2457,7 @@ _children:
                 kilograms: 0.225
                 incrementStepSize: 1
             displayName: Almond milk
+            associatedPurchaseCategory: NON-ALCOHOLIC BEVERAGES
           Coconut milk:
             icon: glass
             intensityKilograms: 0.42
@@ -2280,6 +2468,7 @@ _children:
                 kilograms: 0.225
                 incrementStepSize: 1
             displayName: Coconut milk
+            associatedPurchaseCategory: NON-ALCOHOLIC BEVERAGES
           Coffee:
             icon: coffee
             intensityKilograms: 0.33
@@ -2290,6 +2479,7 @@ _children:
                 kilograms: 0.15
                 incrementStepSize: 1
             displayName: Coffee
+            associatedPurchaseCategory: NON-ALCOHOLIC BEVERAGES
           Juice:
             icon: glass
             intensityKilograms: 0.93
@@ -2300,6 +2490,7 @@ _children:
                 kilograms: 0.225
                 incrementStepSize: 1
             displayName: Juice
+            associatedPurchaseCategory: NON-ALCOHOLIC BEVERAGES
           Soft drink:
             icon: glass
             intensityKilograms: 1.035
@@ -2310,6 +2501,7 @@ _children:
                 kilograms: 0.225
                 incrementStepSize: 1
             displayName: Soft drink
+            associatedPurchaseCategory: NON-ALCOHOLIC BEVERAGES
           Soy milk:
             icon: glass
             intensityKilograms: 0.75
@@ -2320,6 +2512,7 @@ _children:
                 kilograms: 0.225
                 incrementStepSize: 1
             displayName: Soy milk
+            associatedPurchaseCategory: NON-ALCOHOLIC BEVERAGES
           Tea:
             icon: coffee
             intensityKilograms: 0.184
@@ -2330,6 +2523,7 @@ _children:
                 kilograms: 0.150
                 incrementStepSize: 1
             displayName: Tea
+            associatedPurchaseCategory: NON-ALCOHOLIC BEVERAGES
           Water (bottled):
             icon: glass
             intensityKilograms: 0.215
@@ -2340,6 +2534,7 @@ _children:
                 kilograms: 0.225
                 incrementStepSize: 1
             displayName: Water (bottled)
+            associatedPurchaseCategory: NON-ALCOHOLIC BEVERAGES
           Water (tap):
             icon: glass
             intensityKilograms: 0.001
@@ -2350,6 +2545,7 @@ _children:
                 kilograms: 0.225
                 incrementStepSize: 1
             displayName: Water (tap)
+            associatedPurchaseCategory: NON-ALCOHOLIC BEVERAGES
         coicopCode: '01.2'
         year: 2011
         unit: EUR
@@ -2420,6 +2616,7 @@ _children:
                 kilograms: 0.285
                 incrementStepSize: 1
             displayName: Beer
+            associatedPurchaseCategory: ALCOHOLIC BEVERAGES
           Wine:
             icon: wine-glass-alt
             intensityKilograms: 2.344
@@ -2430,6 +2627,7 @@ _children:
                 kilograms: 0.150
                 incrementStepSize: 1
             displayName: Wine
+            associatedPurchaseCategory: ALCOHOLIC BEVERAGES
           Spirits:
             icon: glass-whiskey-rocks
             intensityKilograms: 3.144
@@ -2440,6 +2638,7 @@ _children:
                 kilograms: 0.035
                 incrementStepSize: 1
             displayName: Spirits
+            associatedPurchaseCategory: ALCOHOLIC BEVERAGES
         icon: wine-bottle
         intensityKilograms:
           AT: 0.4732692141066177
@@ -2573,7 +2772,7 @@ _children:
             unit: item
             usage: 25%
             displayName: Shirt (viscose)
-            coicopCode: '03.1'
+            associatedPurchaseCategory: CLOTHING
           Shirt (cotton):
             icon: tshirt
             intensityKilograms: 13
@@ -2581,7 +2780,7 @@ _children:
             unit: item
             usage: 23.1%
             displayName: Shirt (cotton)
-            coicopCode: '03.1'
+            associatedPurchaseCategory: CLOTHING
           Jeans:
             icon: tshirt
             intensityKilograms: 25
@@ -2589,7 +2788,7 @@ _children:
             unit: item
             usage: 20%
             displayName: Jeans
-            coicopCode: '03.1'
+            associatedPurchaseCategory: CLOTHING
           T-shirt (cotton):
             icon: tshirt
             intensityKilograms: 7
@@ -2597,7 +2796,7 @@ _children:
             unit: item
             usage: 42.9%
             displayName: T-shirt (cotton)
-            coicopCode: '03.1'
+            associatedPurchaseCategory: CLOTHING
           T-shirt (polyester):
             icon: tshirt
             intensityKilograms: 6
@@ -2605,7 +2804,7 @@ _children:
             unit: item
             usage: 16.7%
             displayName: T-shirt (polyester)
-            coicopCode: '03.1'
+            associatedPurchaseCategory: CLOTHING
           Polo shirt:
             icon: tshirt
             intensityKilograms: 10
@@ -2613,7 +2812,7 @@ _children:
             unit: item
             usage: 30%
             displayName: Polo shirt
-            coicopCode: '03.1'
+            associatedPurchaseCategory: CLOTHING
           Sweater (acrylic):
             icon: tshirt
             intensityKilograms: 28
@@ -2621,7 +2820,7 @@ _children:
             unit: item
             usage: 17.9%
             displayName: Sweater (acrylic)
-            coicopCode: '03.1'
+            associatedPurchaseCategory: CLOTHING
           Fleece (recycled polyester):
             icon: tshirt
             intensityKilograms: 26
@@ -2629,7 +2828,7 @@ _children:
             unit: item
             usage: 23.1%
             displayName: Fleece (recycled polyester)
-            coicopCode: '03.1'
+            associatedPurchaseCategory: CLOTHING
           Sweater (cotton):
             icon: tshirt
             intensityKilograms: 31
@@ -2637,7 +2836,7 @@ _children:
             unit: item
             usage: 25.8%
             displayName: Sweater (cotton)
-            coicopCode: '03.1'
+            associatedPurchaseCategory: CLOTHING
           Pullover (wool):
             icon: tshirt
             intensityKilograms: 56
@@ -2645,7 +2844,7 @@ _children:
             unit: item
             usage: 12.5%
             displayName: Pullover (wool)
-            coicopCode: '03.1'
+            associatedPurchaseCategory: CLOTHING
           Pullover (recycled cotton):
             icon: tshirt
             intensityKilograms: 12
@@ -2653,7 +2852,7 @@ _children:
             unit: item
             usage: 41.7%
             displayName: Pullover (recycled cotton)
-            coicopCode: '03.1'
+            associatedPurchaseCategory: CLOTHING
           Jacket (generic):
             icon: tshirt
             intensityKilograms: 89
@@ -2661,7 +2860,7 @@ _children:
             unit: item
             usage: 13.5%
             displayName: Jacket (generic)
-            coicopCode: '03.1'
+            associatedPurchaseCategory: CLOTHING
           Jacket (weatherproof):
             icon: tshirt
             intensityKilograms: 39
@@ -2669,7 +2868,7 @@ _children:
             unit: item
             usage: 7.7%
             displayName: Jacket (weatherproof)
-            coicopCode: '03.1'
+            associatedPurchaseCategory: CLOTHING
           Jacket (faux leather):
             icon: tshirt
             intensityKilograms: 25
@@ -2677,7 +2876,7 @@ _children:
             unit: item
             usage: 20%
             displayName: Jacket (faux leather)
-            coicopCode: '03.1'
+            associatedPurchaseCategory: CLOTHING
           Dress (polyester):
             icon: tshirt
             intensityKilograms: 56
@@ -2685,7 +2884,7 @@ _children:
             unit: item
             usage: 19.6%
             displayName: Dress (polyester)
-            coicopCode: '03.1'
+            associatedPurchaseCategory: CLOTHING
           Dress (cotton):
             icon: tshirt
             intensityKilograms: 56
@@ -2693,7 +2892,7 @@ _children:
             unit: item
             usage: 23.2%
             displayName: Dress (cotton)
-            coicopCode: '03.1'
+            associatedPurchaseCategory: CLOTHING
           Dress (viscose):
             icon: tshirt
             intensityKilograms: 51
@@ -2701,7 +2900,7 @@ _children:
             unit: item
             usage: 25.5%
             displayName: Dress (viscose)
-            coicopCode: '03.1'
+            associatedPurchaseCategory: CLOTHING
         icon: tshirt
         intensityKilograms:
           AT: 0.253390853011105
@@ -2780,7 +2979,7 @@ _children:
             unit: item
             usage: 46.7%
             displayName: Shoes (leather)
-            coicopCode: '03.2'
+            associatedPurchaseCategory: FOOTWEAR
           Shoes (fabric):
             icon: boot
             intensityKilograms: 19
@@ -2788,7 +2987,7 @@ _children:
             unit: item
             usage: 31.6%
             displayName: Shoes (fabric)
-            coicopCode: '03.2'
+            associatedPurchaseCategory: FOOTWEAR
           Shoes (sports):
             icon: boot
             intensityKilograms: 20
@@ -2796,7 +2995,7 @@ _children:
             unit: item
             usage: 30%
             displayName: Shoes (sports)
-            coicopCode: '03.2'
+            associatedPurchaseCategory: FOOTWEAR
         coicopCode: '03.2'
         year: 2011
         unit: EUR
@@ -3394,112 +3593,112 @@ _children:
                 source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
                 unit: item
                 displayName: Chair (wood)
-                coicopCode: 05.1.1
+                associatedPurchaseCategory: Furniture, furnishings and loose carpets (D)
               Chair (plastic):
                 icon: chair
                 intensityKilograms: 28
                 source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
                 unit: item
                 displayName: Chair (plastic)
-                coicopCode: 05.1.1
+                associatedPurchaseCategory: Furniture, furnishings and loose carpets (D)
               Chair (wood and fabric):
                 icon: chair
                 intensityKilograms: 12
                 source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf'
                 unit: item
                 displayName: Chair (wood and fabric)
-                coicopCode: 05.1.1
+                associatedPurchaseCategory: Furniture, furnishings and loose carpets (D)
               Table (wood):
                 icon: chair
                 intensityKilograms: 130
                 source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
                 unit: item
                 displayName: Table (wood)
-                coicopCode: 05.1.1
+                associatedPurchaseCategory: Furniture, furnishings and loose carpets (D)
               Table (generic):
                 icon: chair
                 intensityKilograms: 96
                 source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
                 unit: item
                 displayName: Table (generic)
-                coicopCode: 05.1.1
+                associatedPurchaseCategory: Furniture, furnishings and loose carpets (D)
               Cabinet:
                 icon: chair
                 intensityKilograms: 858
                 source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
                 unit: item
                 displayName: Cabinet
-                coicopCode: 05.1.1
+                associatedPurchaseCategory: Furniture, furnishings and loose carpets (D)
               Sofa (fabric):
                 icon: couch
                 intensityKilograms: 180
                 source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
                 unit: item
                 displayName: Sofa (fabric)
-                coicopCode: 05.1.1
+                associatedPurchaseCategory: Furniture, furnishings and loose carpets (D)
               Sofa (leather):
                 icon: couch
                 intensityKilograms: 200
                 source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
                 unit: item
                 displayName: Sofa (leather)
-                coicopCode: 05.1.1
+                associatedPurchaseCategory: Furniture, furnishings and loose carpets (D)
               Pullout sofa:
                 icon: couch
                 intensityKilograms: 204
                 source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
                 unit: item
                 displayName: Pullout sofa
-                coicopCode: 05.1.1
+                associatedPurchaseCategory: Furniture, furnishings and loose carpets (D)
               Box spring:
                 icon: bed
                 intensityKilograms: 110
                 source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
                 unit: item
                 displayName: Box spring
-                coicopCode: 05.1.1
+                associatedPurchaseCategory: Furniture, furnishings and loose carpets (D)
               Slatted bed base:
                 icon: bed
                 intensityKilograms: 69
                 source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
                 unit: item
                 displayName: Slatted bed base
-                coicopCode: 05.1.1
+                associatedPurchaseCategory: Furniture, furnishings and loose carpets (D)
               Bed frame:
                 icon: bed
                 intensityKilograms: 147
                 source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
                 unit: item
                 displayName: Bed frame
-                coicopCode: 05.1.1
+                associatedPurchaseCategory: Furniture, furnishings and loose carpets (D)
               Spring mattress:
                 icon: bed
                 intensityKilograms: 219
                 source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
                 unit: item
                 displayName: Spring mattress
-                coicopCode: 05.1.1
+                associatedPurchaseCategory: Furniture, furnishings and loose carpets (D)
               Garden furniture (wood):
                 icon: chair
                 intensityKilograms: 103
                 source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
                 unit: item
                 displayName: Garden furniture (wood)
-                coicopCode: 05.1.1
+                associatedPurchaseCategory: Furniture, furnishings and loose carpets (D)
               Garden furniture (metal):
                 icon: chair
                 intensityKilograms: 224
                 source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
                 unit: item
                 displayName: Garden furniture (metal)
-                coicopCode: 05.1.1
+                associatedPurchaseCategory: Furniture, furnishings and loose carpets (D)
               Garden furniture (plastic):
                 icon: chair
                 intensityKilograms: 215
                 source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
                 unit: item
                 displayName: Garden furniture (plastic)
-                coicopCode: 05.1.1
+                associatedPurchaseCategory: Furniture, furnishings and loose carpets (D)
               Furnishings, loose carpets and rugs (D):
                 icon: couch
                 intensityKilograms:
@@ -3779,7 +3978,7 @@ _children:
             unit: item
             usage: 41.4%
             displayName: Electric oven
-            coicopCode: '05.3'
+            associatedPurchaseCategory: HOUSEHOLD APPLIANCES
           Gas oven:
             icon: blender
             intensityKilograms: 846
@@ -3787,7 +3986,7 @@ _children:
             unit: item
             usage: 84.4%
             displayName: Gas oven
-            coicopCode: '05.3'
+            associatedPurchaseCategory: HOUSEHOLD APPLIANCES
           Mini electric oven:
             icon: blender
             intensityKilograms: 190
@@ -3795,7 +3994,7 @@ _children:
             unit: item
             usage: 62.6%
             displayName: Mini electric oven
-            coicopCode: '05.3'
+            associatedPurchaseCategory: HOUSEHOLD APPLIANCES
           Microwave oven:
             icon: blender
             intensityKilograms: 118
@@ -3803,7 +4002,7 @@ _children:
             unit: item
             usage: 33.1%
             displayName: Microwave oven
-            coicopCode: '05.3'
+            associatedPurchaseCategory: HOUSEHOLD APPLIANCES
           Dishwasher:
             icon: blender
             intensityKilograms: 513
@@ -3811,7 +4010,7 @@ _children:
             unit: item
             usage: 57.1%
             displayName: Dishwasher
-            coicopCode: '05.3'
+            associatedPurchaseCategory: HOUSEHOLD APPLIANCES
           Mini dishwasher:
             icon: blender
             intensityKilograms: 431
@@ -3819,7 +4018,7 @@ _children:
             unit: item
             usage: 55.2%
             displayName: Mini dishwasher
-            coicopCode: '05.3'
+            associatedPurchaseCategory: HOUSEHOLD APPLIANCES
           Top load laundry machine:
             icon: blender
             intensityKilograms: 468
@@ -3827,7 +4026,7 @@ _children:
             unit: item
             usage: 47%
             displayName: Top load laundry machine
-            coicopCode: '05.3'
+            associatedPurchaseCategory: HOUSEHOLD APPLIANCES
           Front load laundry machine:
             icon: blender
             intensityKilograms: 539
@@ -3835,7 +4034,7 @@ _children:
             unit: item
             usage: 49%
             displayName: Front load laundry machine
-            coicopCode: '05.3'
+            associatedPurchaseCategory: HOUSEHOLD APPLIANCES
           Heat pump dryer:
             icon: blender
             intensityKilograms: 506
@@ -3843,7 +4042,7 @@ _children:
             unit: item
             usage: 48.6%
             displayName: Heat pump dryer
-            coicopCode: '05.3'
+            associatedPurchaseCategory: HOUSEHOLD APPLIANCES
           Dewatering dryer:
             icon: blender
             intensityKilograms: 588
@@ -3851,7 +4050,7 @@ _children:
             unit: item
             usage: 55.8%
             displayName: Dewatering dryer
-            coicopCode: '05.3'
+            associatedPurchaseCategory: HOUSEHOLD APPLIANCES
           Evacuation dryer:
             icon: blender
             intensityKilograms: 545
@@ -3859,7 +4058,7 @@ _children:
             unit: item
             usage: 57.4%
             displayName: Evacuation dryer
-            coicopCode: '05.3'
+            associatedPurchaseCategory: HOUSEHOLD APPLIANCES
           Refrigerator:
             icon: blender
             intensityKilograms: 343
@@ -3867,7 +4066,7 @@ _children:
             unit: item
             usage: 30.9%
             displayName: Refrigerator
-            coicopCode: '05.3'
+            associatedPurchaseCategory: HOUSEHOLD APPLIANCES
           Integrated fridge freezer:
             icon: blender
             intensityKilograms: 431
@@ -3875,7 +4074,7 @@ _children:
             unit: item
             usage: 48.7%
             displayName: Integrated fridge freezer
-            coicopCode: '05.3'
+            associatedPurchaseCategory: HOUSEHOLD APPLIANCES
           Mini Refrigerator:
             icon: blender
             intensityKilograms: 159
@@ -3883,7 +4082,7 @@ _children:
             unit: item
             usage: 56.6%
             displayName: Mini refrigerator
-            coicopCode: '05.3'
+            associatedPurchaseCategory: HOUSEHOLD APPLIANCES
           Chest freezer:
             icon: blender
             intensityKilograms: 492
@@ -3891,7 +4090,7 @@ _children:
             unit: item
             usage: 50.6%
             displayName: Chest freezer
-            coicopCode: '05.3'
+            associatedPurchaseCategory: HOUSEHOLD APPLIANCES
           Upright freezer:
             icon: blender
             intensityKilograms: 587
@@ -3899,7 +4098,7 @@ _children:
             unit: item
             usage: 43.4%
             displayName: Upright freezer
-            coicopCode: '05.3'
+            associatedPurchaseCategory: HOUSEHOLD APPLIANCES
           Vacuum cleaner:
             icon: blender
             intensityKilograms: 67
@@ -3907,7 +4106,7 @@ _children:
             unit: item
             usage: 41.8%
             displayName: Vacuum cleaner
-            coicopCode: '05.3'
+            associatedPurchaseCategory: HOUSEHOLD APPLIANCES
           Bagless vacuum cleaner:
             icon: blender
             intensityKilograms: 69
@@ -3915,7 +4114,7 @@ _children:
             unit: item
             usage: 37.7%
             displayName: Bagless vacuum cleaner
-            coicopCode: '05.3'
+            associatedPurchaseCategory: HOUSEHOLD APPLIANCES
           Stand mixer:
             icon: blender
             intensityKilograms: 43
@@ -3923,7 +4122,7 @@ _children:
             unit: item
             usage: 16.3%
             displayName: Stand mixer
-            coicopCode: '05.3'
+            associatedPurchaseCategory: HOUSEHOLD APPLIANCES
           Bread machine:
             icon: blender
             intensityKilograms: 96
@@ -3931,7 +4130,7 @@ _children:
             unit: item
             usage: 17%
             displayName: Bread machine
-            coicopCode: '05.3'
+            associatedPurchaseCategory: HOUSEHOLD APPLIANCES
           Yogurt maker:
             icon: blender
             intensityKilograms: 96
@@ -3939,7 +4138,7 @@ _children:
             unit: item
             usage: 52.1%
             displayName: Yogurt maker
-            coicopCode: '05.3'
+            associatedPurchaseCategory: HOUSEHOLD APPLIANCES
         icon: blender
         intensityKilograms:
           AT: 0.28983740072392083
@@ -4610,12 +4809,14 @@ _children:
                 source: http://www.bilans-ges.ademe.fr/static/documents/[Base%20Carbone]%20Documentation%20g%C3%A9n%C3%A9rale%20v11.0.pdf
                 unit: L
                 displayName: Diesel
+                associatedPurchaseCategory: Fuels and lubricants for personal transport equipment (ND)
               Gasoline:
                 icon: oil-can
                 intensityKilograms: 2.8
                 source: http://www.bilans-ges.ademe.fr/static/documents/[Base%20Carbone]%20Documentation%20g%C3%A9n%C3%A9rale%20v11.0.pdf
                 unit: L
                 displayName: Gasoline
+                associatedPurchaseCategory: Fuels and lubricants for personal transport equipment (ND)
               Heating oil:
                 icon: oil-can
                 intensityKilograms: 3.26
@@ -4624,12 +4825,14 @@ _children:
                 oldKeys:
                   - Heating Oil
                 displayName: Heating oil
+                associatedPurchaseCategory: Fuels and lubricants for personal transport equipment (ND)
               LPG:
                 icon: burn
                 intensityKilograms: 1.88
                 source: http://www.bilans-ges.ademe.fr/static/documents/[Base%20Carbone]%20Documentation%20g%C3%A9n%C3%A9rale%20v11.0.pdf
                 unit: L
                 displayName: Lpg
+                associatedPurchaseCategory: Fuels and lubricants for personal transport equipment (ND)
               Natural gas:
                 icon: burn
                 intensityKilograms: 0.00026409
@@ -4643,6 +4846,7 @@ _children:
                     incrementStepSize: 1
                     source: https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2019
                 displayName: Natural gas
+                associatedPurchaseCategory: Fuels and lubricants for personal transport equipment (ND)
             icon: gas-pump
             intensityKilograms:
               AT: 1.9970721272222949
@@ -4701,7 +4905,7 @@ _children:
             unit: EUR
             coicopCode: 07.2.2
             year: 2011
-            displayName: Fuels and lubricants for personal transport equipment
+            displayName: Fuels and lubricants for personal transport equipment (ND)ipment
           Maintenance and repair of personal transport equipment (S):
             icon: credit-card
             intensityKilograms:
@@ -5223,7 +5427,7 @@ _children:
                 unit: item
                 usage: 20%
                 displayName: Feature phone
-                coicopCode: '08.1'
+                associatedPurchaseCategory: Information and communication equipment
               iPhone 11:
                 deviceId: iPhone12,1      # https://gist.github.com/adamawolf/3048717
                 icon: mobile
@@ -5232,7 +5436,7 @@ _children:
                 unit: item
                 usage: 17%
                 displayName: Iphone 11
-                coicopCode: '08.1'
+                associatedPurchaseCategory: Information and communication equipment
               iPhone 11 Pro:
                 deviceId: iPhone12,3      # https://gist.github.com/adamawolf/3048717
                 icon: mobile
@@ -5241,7 +5445,7 @@ _children:
                 unit: item
                 usage: 13%
                 displayName: Iphone 11 pro
-                coicopCode: '08.1'
+                associatedPurchaseCategory: Information and communication equipment
               iPhone 11 Pro Max:
                 deviceId: iPhone12,5      # https://gist.github.com/adamawolf/3048717
                 icon: mobile
@@ -5250,7 +5454,7 @@ _children:
                 unit: item
                 usage: 18%
                 displayName: Iphone 11 pro max
-                coicopCode: '08.1'
+                associatedPurchaseCategory: Information and communication equipment
               iPhone 8:
                 deviceId: iPhone10,1      # https://gist.github.com/adamawolf/3048717
                 icon: mobile
@@ -5259,7 +5463,7 @@ _children:
                 unit: item
                 usage: 16%
                 displayName: Iphone 8
-                coicopCode: '08.1'
+                associatedPurchaseCategory: Information and communication equipment
               iPhone 8 Plus:
                 deviceId: iPhone10,2      # https://gist.github.com/adamawolf/3048717
                 icon: mobile
@@ -5268,7 +5472,7 @@ _children:
                 unit: item
                 usage: 17%
                 displayName: Iphone 8 plus
-                coicopCode: '08.1'
+                associatedPurchaseCategory: Information and communication equipment
               iPhone XR:
                 deviceId: iPhone11,8      # https://gist.github.com/adamawolf/3048717
                 icon: mobile
@@ -5277,7 +5481,7 @@ _children:
                 unit: item
                 usage: 19%
                 displayName: Iphone xr
-                coicopCode: '08.1'
+                associatedPurchaseCategory: Information and communication equipment
               iPhone SE:
                 deviceId: iPhone8,4      # https://gist.github.com/adamawolf/3048717
                 icon: mobile
@@ -5285,9 +5489,9 @@ _children:
                 source: https://www.apple.com/lae/environment/pdf/products/iphone/iPhone_SE_PER_sept2017.pdf
                 unit: item
                 displayName: Iphone se
-                coicopCode: '08.1'
+                associatedPurchaseCategory: Information and communication equipment
             displayName: Mobile phone
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           AirPort Express:
             icon: network-wired    # router only available in Font Awesome 5.11.0
             intensityKilograms: 95
@@ -5295,7 +5499,7 @@ _children:
             unit: item
             usage: 60%
             displayName: Airport express
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           AirPort Extreme:
             icon: network-wired    # router only available in Font Awesome 5.11.0
             intensityKilograms: 250
@@ -5303,7 +5507,7 @@ _children:
             unit: item
             usage: 76%
             displayName: Airport extreme
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           AirPort Time Capsule:
             icon: network-wired    # router only available in Font Awesome 5.11.0
             intensityKilograms: 310
@@ -5311,7 +5515,7 @@ _children:
             unit: item
             usage: 70%
             displayName: Airport time capsule
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Apple TV:
             icon: network-wired    # router only available in Font Awesome 5.11.0
             intensityKilograms: 65
@@ -5319,7 +5523,7 @@ _children:
             unit: item
             usage: 30%
             displayName: Apple tv
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Apple TV 4K:
             icon: network-wired    # router only available in Font Awesome 5.11.0
             intensityKilograms: 58
@@ -5327,7 +5531,7 @@ _children:
             unit: item
             usage: 29%
             displayName: Apple tv 4k
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Apple Watch Series 3 (GPS + Cellular):
             icon: watch-fitness
             intensityKilograms: 36
@@ -5335,7 +5539,7 @@ _children:
             unit: item
             usage: 15%
             displayName: Apple watch series 3 (gps + cellular)
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Apple Watch Series 3 (GPS):
             icon: watch-fitness
             intensityKilograms: 28
@@ -5343,7 +5547,7 @@ _children:
             unit: item
             usage: 20%
             displayName: Apple watch series 3 (gps)
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Apple Watch Series 5 (GPS + Cellular):
             icon: watch-fitness
             intensityKilograms: 40
@@ -5351,7 +5555,7 @@ _children:
             unit: item
             usage: 13%
             displayName: Apple watch series 5 (gps + cellular)
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Homepod:
             icon: volume    # speaker is only available in Font Awesome 5.11.0
             intensityKilograms: 146
@@ -5359,7 +5563,7 @@ _children:
             unit: item
             usage: 41%
             displayName: Homepod
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 3150:
             icon: laptop
             intensityKilograms: 216
@@ -5367,7 +5571,7 @@ _children:
             unit: item
             usage: 17.6%
             displayName: Latitude 3150
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 3160:
             icon: laptop
             intensityKilograms: 244
@@ -5375,7 +5579,7 @@ _children:
             unit: item
             usage: 27.6%
             displayName: Latitude 3160
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 3180:
             icon: laptop
             intensityKilograms: 243
@@ -5383,7 +5587,7 @@ _children:
             unit: item
             usage: 10.4%
             displayName: Latitude 3180
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 3189:
             icon: laptop
             intensityKilograms: 257
@@ -5391,7 +5595,7 @@ _children:
             unit: item
             usage: 12.1%
             displayName: Latitude 3189
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 3190:
             icon: laptop
             intensityKilograms: 226
@@ -5399,7 +5603,7 @@ _children:
             unit: item
             usage: 11.5%
             displayName: Latitude 3190
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 3190 2-in-1:
             icon: laptop
             intensityKilograms: 230
@@ -5407,7 +5611,7 @@ _children:
             unit: item
             usage: 12.9%
             displayName: Latitude 3190 2-in-1
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 3380:
             icon: laptop
             intensityKilograms: 252
@@ -5415,7 +5619,7 @@ _children:
             unit: item
             usage: 18.9%
             displayName: Latitude 3380
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 3460:
             icon: laptop
             intensityKilograms: 279
@@ -5423,7 +5627,7 @@ _children:
             unit: item
             usage: 15.1%
             displayName: Latitude 3460
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 3470:
             icon: laptop
             intensityKilograms: 286
@@ -5431,7 +5635,7 @@ _children:
             unit: item
             usage: 14.7%
             displayName: Latitude 3470
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 3480:
             icon: laptop
             intensityKilograms: 324
@@ -5439,7 +5643,7 @@ _children:
             unit: item
             usage: 24.1%
             displayName: Latitude 3480
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 3490:
             icon: laptop
             intensityKilograms: 243
@@ -5447,7 +5651,7 @@ _children:
             unit: item
             usage: 18.5%
             displayName: Latitude 3490
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 3550:
             icon: laptop
             intensityKilograms: 263
@@ -5455,7 +5659,7 @@ _children:
             unit: item
             usage: 11.8%
             displayName: Latitude 3550
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 3560:
             icon: laptop
             intensityKilograms: 298
@@ -5463,7 +5667,7 @@ _children:
             unit: item
             usage: 14.5%
             displayName: Latitude 3560
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 3570:
             icon: laptop
             intensityKilograms: 302
@@ -5471,7 +5675,7 @@ _children:
             unit: item
             usage: 14.6%
             displayName: Latitude 3570
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 3580:
             icon: laptop
             intensityKilograms: 311
@@ -5479,7 +5683,7 @@ _children:
             unit: item
             usage: 24.8%
             displayName: Latitude 3580
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 3590:
             icon: laptop
             intensityKilograms: 254
@@ -5487,7 +5691,7 @@ _children:
             unit: item
             usage: 17.8%
             displayName: Latitude 3590
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 5250:
             icon: laptop
             intensityKilograms: 235
@@ -5495,7 +5699,7 @@ _children:
             unit: item
             usage: 17.2%
             displayName: Latitude 5250
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 5280:
             icon: laptop
             intensityKilograms: 225
@@ -5503,7 +5707,7 @@ _children:
             unit: item
             usage: 16.8%
             displayName: Latitude 5280
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 5285 2-in-1:
             icon: laptop
             intensityKilograms: 258
@@ -5511,7 +5715,7 @@ _children:
             unit: item
             usage: 20%
             displayName: Latitude 5285 2-in-1
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 5289 2-in-1:
             icon: laptop
             intensityKilograms: 259
@@ -5519,7 +5723,7 @@ _children:
             unit: item
             usage: 16.7%
             displayName: Latitude 5289 2-in-1
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 5290:
             icon: laptop
             intensityKilograms: 218
@@ -5527,7 +5731,7 @@ _children:
             unit: item
             usage: 20%
             displayName: Latitude 5290
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 5290 2-in-1:
             icon: laptop
             intensityKilograms: 268
@@ -5535,7 +5739,7 @@ _children:
             unit: item
             usage: 14.3%
             displayName: Latitude 5290 2-in-1
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 5450:
             icon: laptop
             intensityKilograms: 247
@@ -5543,7 +5747,7 @@ _children:
             unit: item
             usage: 16.1%
             displayName: Latitude 5450
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 5480:
             icon: laptop
             intensityKilograms: 250
@@ -5551,7 +5755,7 @@ _children:
             unit: item
             usage: 17.5%
             displayName: Latitude 5480
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 5490:
             icon: laptop
             intensityKilograms: 251
@@ -5559,7 +5763,7 @@ _children:
             unit: item
             usage: 17.6%
             displayName: Latitude 5490
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 5491:
             icon: laptop
             intensityKilograms: 254
@@ -5567,7 +5771,7 @@ _children:
             unit: item
             usage: 14.9%
             displayName: Latitude 5491
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 5495:
             icon: laptop
             intensityKilograms: 255
@@ -5575,7 +5779,7 @@ _children:
             unit: item
             usage: 20.5%
             displayName: Latitude 5495
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 5550:
             icon: laptop
             intensityKilograms: 259
@@ -5583,7 +5787,7 @@ _children:
             unit: item
             usage: 13.4%
             displayName: Latitude 5550
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 5580:
             icon: laptop
             intensityKilograms: 299
@@ -5591,7 +5795,7 @@ _children:
             unit: item
             usage: 17.4%
             displayName: Latitude 5580
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 5590:
             icon: laptop
             intensityKilograms: 271
@@ -5599,7 +5803,7 @@ _children:
             unit: item
             usage: 22.2%
             displayName: Latitude 5590
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 5591:
             icon: laptop
             intensityKilograms: 305
@@ -5607,7 +5811,7 @@ _children:
             unit: item
             usage: 16.2%
             displayName: Latitude 5591
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 7280:
             icon: laptop
             intensityKilograms: 222
@@ -5615,7 +5819,7 @@ _children:
             unit: item
             usage: 15.4%
             displayName: Latitude 7280
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 7285:
             icon: laptop
             intensityKilograms: 282
@@ -5623,7 +5827,7 @@ _children:
             unit: item
             usage: 12.8%
             displayName: Latitude 7285
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 7290:
             icon: laptop
             intensityKilograms: 209
@@ -5631,7 +5835,7 @@ _children:
             unit: item
             usage: 14.1%
             displayName: Latitude 7290
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 7350:
             icon: laptop
             intensityKilograms: 297
@@ -5639,7 +5843,7 @@ _children:
             unit: item
             usage: 5.3%
             displayName: Latitude 7350
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 7370:
             icon: laptop
             intensityKilograms: 288
@@ -5647,7 +5851,7 @@ _children:
             unit: item
             usage: 15.1%
             displayName: Latitude 7370
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 7380:
             icon: laptop
             intensityKilograms: 259
@@ -5655,7 +5859,7 @@ _children:
             unit: item
             usage: 17.9%
             displayName: Latitude 7380
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 7389:
             icon: laptop
             intensityKilograms: 289
@@ -5663,7 +5867,7 @@ _children:
             unit: item
             usage: 16.6%
             displayName: Latitude 7389
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 7390:
             icon: laptop
             intensityKilograms: 222
@@ -5671,7 +5875,7 @@ _children:
             unit: item
             usage: 12.1%
             displayName: Latitude 7390
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 7390 2-in-1:
             icon: laptop
             intensityKilograms: 332
@@ -5679,7 +5883,7 @@ _children:
             unit: item
             usage: 12.4%
             displayName: Latitude 7390 2-in-1
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 7480:
             icon: laptop
             intensityKilograms: 249
@@ -5687,7 +5891,7 @@ _children:
             unit: item
             usage: 17.4%
             displayName: Latitude 7480
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude 7490:
             icon: laptop
             intensityKilograms: 241
@@ -5695,7 +5899,7 @@ _children:
             unit: item
             usage: 12.6%
             displayName: Latitude 7490
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude E5270:
             icon: laptop
             intensityKilograms: 240
@@ -5703,7 +5907,7 @@ _children:
             unit: item
             usage: 18.1%
             displayName: Latitude e5270
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude E5570:
             icon: laptop
             intensityKilograms: 240
@@ -5711,7 +5915,7 @@ _children:
             unit: item
             usage: 17.4%
             displayName: Latitude e5570
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude E7250:
             icon: laptop
             intensityKilograms: 223
@@ -5719,7 +5923,7 @@ _children:
             unit: item
             usage: 13.7%
             displayName: Latitude e7250
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude E7270:
             icon: laptop
             intensityKilograms: 249
@@ -5727,7 +5931,7 @@ _children:
             unit: item
             usage: 19.8%
             displayName: Latitude e7270
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude E7450:
             icon: laptop
             intensityKilograms: 238
@@ -5735,7 +5939,7 @@ _children:
             unit: item
             usage: 15.3%
             displayName: Latitude e7450
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Latitude E7470:
             icon: laptop
             intensityKilograms: 261
@@ -5743,7 +5947,7 @@ _children:
             unit: item
             usage: 19%
             displayName: Latitude e7470
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Mac Pro:
             icon: desktop
             intensityKilograms: 1000
@@ -5751,7 +5955,7 @@ _children:
             unit: item
             usage: 50%
             displayName: Mac pro
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Mac mini:
             icon: desktop
             intensityKilograms: 226
@@ -5759,7 +5963,7 @@ _children:
             unit: item
             usage: 3%
             displayName: Mac mini
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           MacBook 12-inch:
             icon: laptop
             intensityKilograms: 233
@@ -5767,7 +5971,7 @@ _children:
             unit: item
             usage: 12%
             displayName: Macbook 12-inch
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           MacBook Air 13-inch:
             icon: laptop
             intensityKilograms: 176
@@ -5775,7 +5979,7 @@ _children:
             unit: item
             usage: 6%
             displayName: Macbook air 13-inch
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           MacBook Pro 13-inch:
             icon: laptop
             intensityKilograms: 210
@@ -5783,7 +5987,7 @@ _children:
             unit: item
             usage: 6%
             displayName: Macbook pro 13-inch
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           MacBook Pro 15-inch:
             icon: laptop
             intensityKilograms: 334
@@ -5791,7 +5995,7 @@ _children:
             unit: item
             usage: 21%
             displayName: Macbook pro 15-inch
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           MacBook Pro 16-inch:
             icon: laptop
             intensityKilograms: 394
@@ -5799,7 +6003,7 @@ _children:
             unit: item
             usage: 19%
             displayName: Macbook pro 16-inch
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           iMac 21.5-inch:
             icon: desktop
             intensityKilograms: 494
@@ -5807,7 +6011,7 @@ _children:
             unit: item
             usage: 54%
             displayName: Imac 21.5-inch
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           iMac 21.5-inch with Retina 4k:
             icon: desktop
             intensityKilograms: 588
@@ -5815,7 +6019,7 @@ _children:
             unit: item
             usage: 51%
             displayName: Imac 21.5-inch with retina 4k
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           iMac 27-inch:
             icon: desktop
             intensityKilograms: 993
@@ -5823,7 +6027,7 @@ _children:
             unit: item
             usage: 55%
             displayName: Imac 27-inch
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           iMac Pro:
             icon: desktop
             intensityKilograms: 1468
@@ -5831,7 +6035,7 @@ _children:
             unit: item
             usage: 54%
             displayName: Imac pro
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           iPad (7th generation):
             icon: tablet
             intensityKilograms: 87
@@ -5839,7 +6043,7 @@ _children:
             unit: item
             usage: 14%
             displayName: Ipad (7th generation)
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           iPad Air (3rd generation):
             icon: tablet
             intensityKilograms: 86
@@ -5847,7 +6051,7 @@ _children:
             unit: item
             usage: 13%
             displayName: Ipad air (3rd generation)
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           iPad Pro (11-inch):
             icon: tablet
             intensityKilograms: 113
@@ -5855,7 +6059,7 @@ _children:
             unit: item
             usage: 5%
             displayName: Ipad pro (11-inch)
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           iPad Pro (12.9-inch) (3rd generation):
             icon: tablet
             intensityKilograms: 136
@@ -5863,7 +6067,7 @@ _children:
             unit: item
             usage: 6%
             displayName: Ipad pro (12.9-inch) (3rd generation)
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           iPad mini (5th generation):
             icon: tablet
             intensityKilograms: 70
@@ -5871,7 +6075,7 @@ _children:
             unit: item
             usage: 15%
             displayName: Ipad mini (5th generation)
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           iPod touch:
             icon: mobile    # 'mp3-player' only available on FontAwesome 5.11.0
             intensityKilograms: 32
@@ -5879,7 +6083,7 @@ _children:
             unit: item
             usage: 6%
             displayName: Ipod touch
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           OptiPlex 7760 All-in-One:
             icon: desktop
             intensityKilograms: 720
@@ -5887,7 +6091,7 @@ _children:
             unit: item
             usage: 35%
             displayName: Optiplex 7760 all-in-one
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Dell OptiPlex XE3 Tower:
             icon: desktop
             intensityKilograms: 509
@@ -5895,7 +6099,7 @@ _children:
             unit: item
             usage: 50.8%
             displayName: Dell optiplex xe3 tower
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Precision 3510:
             icon: laptop
             intensityKilograms: 331
@@ -5903,7 +6107,7 @@ _children:
             unit: item
             usage: 23%
             displayName: Precision 3510
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Precision 3520:
             icon: laptop
             intensityKilograms: 304
@@ -5911,7 +6115,7 @@ _children:
             unit: item
             usage: 16.2%
             displayName: Precision 3520
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Precision 3530:
             icon: laptop
             intensityKilograms: 335
@@ -5919,7 +6123,7 @@ _children:
             unit: item
             usage: 17.4%
             displayName: Precision 3530
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Precision 5520:
             icon: laptop
             intensityKilograms: 368
@@ -5927,7 +6131,7 @@ _children:
             unit: item
             usage: 25.7%
             displayName: Precision 5520
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Precision 5530:
             icon: laptop
             intensityKilograms: 340
@@ -5935,7 +6139,7 @@ _children:
             unit: item
             usage: 16%
             displayName: Precision 5530
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Precision 5530 2-in-1:
             icon: laptop
             intensityKilograms: 330
@@ -5943,7 +6147,7 @@ _children:
             unit: item
             usage: 13.8%
             displayName: Precision 5530 2-in-1
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Precision 7520:
             icon: laptop
             intensityKilograms: 399
@@ -5951,7 +6155,7 @@ _children:
             unit: item
             usage: 28%
             displayName: Precision 7520
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Precision 7720:
             icon: laptop
             intensityKilograms: 416
@@ -5959,7 +6163,7 @@ _children:
             unit: item
             usage: 23.1%
             displayName: Precision 7720
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Precision 7920:
             icon: desktop
             intensityKilograms: 2496
@@ -5967,7 +6171,7 @@ _children:
             unit: item
             usage: 74.8%
             displayName: Precision 7920
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           XPS 9360:
             icon: laptop
             intensityKilograms: 286
@@ -5975,7 +6179,7 @@ _children:
             unit: item
             usage: 20%
             displayName: Xps 9360
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           XPS 9365:
             icon: laptop
             intensityKilograms: 287
@@ -5983,7 +6187,7 @@ _children:
             unit: item
             usage: 16.8%
             displayName: Xps 9365
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           XPS 9370:
             icon: laptop
             intensityKilograms: 297
@@ -5991,7 +6195,7 @@ _children:
             unit: item
             usage: 12.4%
             displayName: Xps 9370
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           XPS 9560:
             icon: laptop
             intensityKilograms: 337
@@ -5999,7 +6203,7 @@ _children:
             unit: item
             usage: 21.3%
             displayName: Xps 9560
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           XPS 9570:
             icon: laptop
             intensityKilograms: 324
@@ -6007,7 +6211,7 @@ _children:
             unit: item
             usage: 17.9%
             displayName: Xps 9570
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Lenovo Thinkpad 25:
             icon: laptop
             intensityKilograms: 390
@@ -6015,7 +6219,7 @@ _children:
             unit: item
             usage: 28%
             displayName: Lenovo thinkpad 25
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Lenovo Thinkpad 11e 5th Gen:
             icon: laptop
             intensityKilograms: 326
@@ -6023,7 +6227,7 @@ _children:
             unit: item
             usage: 20%
             displayName: Lenovo thinkpad 11e 5th gen
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Lenovo Thinkpad A275:
             icon: laptop
             intensityKilograms: 511
@@ -6031,7 +6235,7 @@ _children:
             unit: item
             usage: 31%
             displayName: Lenovo thinkpad a275
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Lenovo Thinkpad A285:
             icon: laptop
             intensityKilograms: 352
@@ -6039,7 +6243,7 @@ _children:
             unit: item
             usage: 36%
             displayName: Lenovo thinkpad a285
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Lenovo Thinkpad A485:
             icon: laptop
             intensityKilograms: 419
@@ -6047,7 +6251,7 @@ _children:
             unit: item
             usage: 35%
             displayName: Lenovo thinkpad a485
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Lenovo Thinkpad L380:
             icon: laptop
             intensityKilograms: 406
@@ -6055,7 +6259,7 @@ _children:
             unit: item
             usage: 19%
             displayName: Lenovo thinkpad l380
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Lenovo Thinkpad L480:
             icon: laptop
             intensityKilograms: 455
@@ -6063,7 +6267,7 @@ _children:
             unit: item
             usage: 30%
             displayName: Lenovo thinkpad l480
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Lenovo Thinkpad L490:
             icon: laptop
             intensityKilograms: 499
@@ -6071,7 +6275,7 @@ _children:
             unit: item
             usage: 21%
             displayName: Lenovo thinkpad l490
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Lenovo Thinkpad P1:
             icon: laptop
             intensityKilograms: 477
@@ -6079,7 +6283,7 @@ _children:
             unit: item
             usage: 16%
             displayName: Lenovo thinkpad p1
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Lenovo Thinkpad P52:
             icon: laptop
             intensityKilograms: 693
@@ -6087,7 +6291,7 @@ _children:
             unit: item
             usage: 22%
             displayName: Lenovo thinkpad p52
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Lenovo Thinkpad P72:
             icon: laptop
             intensityKilograms: 610
@@ -6095,7 +6299,7 @@ _children:
             unit: item
             usage: 23%
             displayName: Lenovo thinkpad p72
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Lenovo Thinkpad P73:
             icon: laptop
             intensityKilograms: 611
@@ -6103,7 +6307,7 @@ _children:
             unit: item
             usage: 34%
             displayName: Lenovo thinkpad p73
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Lenovo Thinkpad X1 Carbon 4th Gen:
             icon: laptop
             intensityKilograms: 457
@@ -6111,7 +6315,7 @@ _children:
             unit: item
             usage: 19%
             displayName: Lenovo thinkpad x1 carbon 4th gen
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Lenovo Thinkpad X1 Carbon 5th Gen:
             icon: laptop
             intensityKilograms: 369
@@ -6119,7 +6323,7 @@ _children:
             unit: item
             usage: 17%
             displayName: Lenovo thinkpad x1 carbon 5th gen
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Lenovo Thinkpad X1 Carbon 6th Gen:
             icon: laptop
             intensityKilograms: 333
@@ -6127,7 +6331,7 @@ _children:
             unit: item
             usage: 16%
             displayName: Lenovo thinkpad x1 carbon 6th gen
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Lenovo Thinkpad X1 Carbon 7th Gen:
             icon: laptop
             intensityKilograms: 461
@@ -6135,7 +6339,7 @@ _children:
             unit: item
             usage: 13%
             displayName: Lenovo thinkpad x1 carbon 7th gen
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Lenovo Thinkpad X250:
             icon: laptop
             intensityKilograms: 338
@@ -6143,7 +6347,7 @@ _children:
             unit: item
             usage: 24%
             displayName: Lenovo thinkpad x250
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Lenovo Thinkpad X260:
             icon: laptop
             intensityKilograms: 489
@@ -6151,7 +6355,7 @@ _children:
             unit: item
             usage: 18%
             displayName: Lenovo thinkpad x260
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Lenovo Thinkpad X270:
             icon: laptop
             intensityKilograms: 852
@@ -6159,7 +6363,7 @@ _children:
             unit: item
             usage: 10%
             displayName: Lenovo thinkpad x270
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Lenovo Thinkpad X280:
             icon: laptop
             intensityKilograms: 334
@@ -6167,7 +6371,7 @@ _children:
             unit: item
             usage: 23%
             displayName: Lenovo thinkpad x280
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Lenovo Thinkpad X380 Yoga:
             icon: laptop
             intensityKilograms: 339
@@ -6175,7 +6379,7 @@ _children:
             unit: item
             usage: 21%
             displayName: Lenovo thinkpad x380 yoga
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
           Lenovo Thinkpad X390:
             icon: laptop
             intensityKilograms: 290
@@ -6183,7 +6387,7 @@ _children:
             unit: item
             usage: 15%
             displayName: Lenovo thinkpad x390
-            coicopCode: '08.1'
+            associatedPurchaseCategory: Information and communication equipment
         icon: laptop
         intensityKilograms:
           AT: 0.24624100774895624
@@ -6357,35 +6561,35 @@ _children:
             source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
             unit: item
             displayName: Backpack (trekking)
-            coicopCode: '09.1'
+            associatedPurchaseCategory: RECREATIONAL DURABLES
           Backpack (school):
             icon: backpack
             intensityKilograms: 9.8
             source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
             unit: item
             displayName: Backpack (school)
-            coicopCode: '09.1'
+            associatedPurchaseCategory: RECREATIONAL DURABLES
           Tennis racket:
             icon: racquet
             intensityKilograms: 23
             source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
             unit: item
             displayName: Tennis racket
-            coicopCode: '09.1'
+            associatedPurchaseCategory: RECREATIONAL DURABLES
           Football:
             icon: futbol
             intensityKilograms: 5.1
             source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
             unit: item
             displayName: Football
-            coicopCode: '09.1'
+            associatedPurchaseCategory: RECREATIONAL DURABLES
           Basketball:
             icon: basketball-ball
             intensityKilograms: 5.9
             source: https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf
             unit: item
             displayName: Basketball
-            coicopCode: '09.1'
+            associatedPurchaseCategory: RECREATIONAL DURABLES
         coicopCode: '09.1'
         year: 2011
         unit: EUR
@@ -7307,4 +7511,3 @@ _children:
           - recruiter
           - recruitment agency
     displayName: Personal care, social protection and miscellaneous goods and services
-  
