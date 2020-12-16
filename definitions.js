@@ -168,7 +168,7 @@ export const HOTEL_CLASS_FIVE_STARS = 'HOTEL_CLASS_FIVE_STARS';
 
 /* Purchases */
 // Food and beverages
-export const PURCHASE_CATEGORY_FOOD = 'Food';
+export const PURCHASE_CATEGORY_FOOD = 'FOOD';
 export const PURCHASE_CATEGORY_FOOD_BAKERY = 'Cereals and cereal products (ND)';
 export const PURCHASE_CATEGORY_ALCOHOL = 'ALCOHOLIC BEVERAGES';
 export const PURCHASE_CATEGORY_READY_FOOD = 'Ready-made food and other food products n.e.c. (ND)';

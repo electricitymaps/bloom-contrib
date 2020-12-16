@@ -197,3 +197,20 @@ describe('coicop codes are correctly attributed', () => {
     }
   });
 });
+
+describe('the associated purchase categories are correclty attributed', () => {
+  Object.values(ENTRY_BY_KEY).forEach(entry => {
+    // either name of parent or parent has the same associate purchase category
+    if (entry.associatedPurchaseCategory) {
+      test(`the parent of ${entry.displayName} is the associatedPurchaseCategory or has the same associatedPurchaseCategory`, () => {
+        const parent = entry.parentKey ? ENTRY_BY_KEY[entry.parentKey] : null;
+        if (parent && parent.coicopCode) {
+          expect(entry.associatedPurchaseCategory).toEqual(entry.parentKey);
+        }
+        if (parent && parent.associatedPurchaseCategory) {
+          expect(entry.associatedPurchaseCategory).toEqual(parent.associatedPurchaseCategory);
+        }
+      });
+    }
+  });
+});

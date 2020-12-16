@@ -55,6 +55,7 @@ function indexNodeChildren(branch, i = 1) {
     }
     ENTRY_BY_KEY[k] = v;
     purchaseIcon[k] = v.icon;
+
     // Also make sure we add additional props
     v.key = k;
     v.level = i;

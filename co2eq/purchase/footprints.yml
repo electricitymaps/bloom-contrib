@@ -2321,21 +2321,21 @@ _children:
                 source: https://link.springer.com/article/10.1007/s11367-018-1460-x#MOESM1
                 unit: kg
                 displayName: Yeast
-                associatedPurchaseCategory: Ready-made food and other food products n.e.c (ND)
+                associatedPurchaseCategory: Ready-made food and other food products n.e.c. (ND)
               Baking soda:
                 icon:
                 intensityKilograms: 0.0261
                 source: https://epdturkey.org/wp-content/uploads/eti_soda_iso_14025.pdf
                 unit: kg
                 displayName: Baking soda
-                associatedPurchaseCategory: Ready-made food and other food products n.e.c (ND)
+                associatedPurchaseCategory: Ready-made food and other food products n.e.c. (ND)
               Salt:
                 icon:
                 intensityKilograms: 0.3
                 source: https://link.springer.com/article/10.1007/s11367-018-1460-x#MOESM1
                 unit: kg
                 displayName: Salt
-                associatedPurchaseCategory: Ready-made food and other food products n.e.c (ND)
+                associatedPurchaseCategory: Ready-made food and other food products n.e.c. (ND)
             coicopCode: 01.1.9
             year: 2011
             unit: EUR
@@ -6932,7 +6932,6 @@ _children:
           - cruise
           - resort
     displayName: Recreation, sport and culture
-  Education services:
   RESTAURANTS AND ACCOMMODATION SERVICES:
     _children:
       FOOD AND BEVERAGE SERVING SERVICES:
