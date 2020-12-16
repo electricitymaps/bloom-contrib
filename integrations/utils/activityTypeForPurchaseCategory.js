@@ -1,7 +1,7 @@
 import { getEntryByKey } from '../../co2eq/purchase/index';
 import { ACTIVITY_TYPE_PURCHASE, ACTIVITY_TYPE_TRANSPORTATION } from '../../definitions';
 
-export const getActivityTypeForPurchaseCategory = purchaseCategory => {
+export const getActivityTypeForPurchaseCategory = (purchaseCategory) => {
   const coicopCategory = getEntryByKey(purchaseCategory);
 
   if (!coicopCategory) {

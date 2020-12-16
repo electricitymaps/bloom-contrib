@@ -1,12 +1,11 @@
-import HmacSHA1 from 'crypto-js/hmac-sha1';
 import Base64 from 'crypto-js/enc-base64';
+import HmacSHA1 from 'crypto-js/hmac-sha1';
 import OAuth from 'oauth-1.0a';
 import { URLSearchParams } from 'whatwg-url';
 
-import objectToURLParams from './objectToURLParams';
-import isReactNative from '../utils/isReactNative';
 import { HTTPError } from '../utils/errors';
 import { getCallbackUrl } from '../utils/oauth';
+import objectToURLParams from './objectToURLParams';
 
 export default class {
   constructor({

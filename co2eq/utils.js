@@ -1,5 +1,5 @@
-import md5 from 'tiny-hashes/md5';
 import moment from 'moment';
+import md5 from 'tiny-hashes/md5';
 
 /**
  * Returns the duration in hours between the start and end of an activity
@@ -7,7 +7,9 @@ import moment from 'moment';
  * @returns {number} Duration in hours between start and end of an activity. Returns null if no endDatetime
  */
 export function getActivityDurationHours(activity, precise = true) {
-  if (!activity.endDatetime) return null;
+  if (!activity.endDatetime) {
+    return null;
+  }
   return moment(activity.endDatetime).diff(moment(activity.datetime), 'hours', precise);
 }
 

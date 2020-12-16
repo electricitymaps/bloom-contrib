@@ -33,7 +33,7 @@ async function request(method, call, token, params) {
   return response;
 }
 
-async function connect({ requestLogin }, logger) {
+async function connect({ requestLogin }) {
   const { username, password } = await requestLogin();
 
   if (!(password || '').length) {
@@ -61,14 +61,12 @@ function disconnect() {
   return {};
 }
 
-async function collect(state, { logWarning }, { settings }) {
-  const { token, user, monitor } = state;
+async function collect(state, _logger, { settings }) {
+  const { token, monitor } = state;
 
   const { locationLat, locationLon } = settings;
 
-  const start = moment()
-    .startOf('day')
-    .subtract(1, 'day');
+  const start = moment().startOf('day').subtract(1, 'day');
   const response = await request('GET', 'app/history/trends', token, {
     monitor_id: monitor,
     device_id: 'usage',
@@ -77,7 +75,7 @@ async function collect(state, { logWarning }, { settings }) {
   });
 
   const kwhs = response.consumption.totals;
-  const whs = kwhs.map(kwh => kwh * 1000.0);
+  const whs = kwhs.map((kwh) => kwh * 1000.0);
   return {
     activities: [
       {

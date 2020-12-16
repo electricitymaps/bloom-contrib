@@ -3,12 +3,12 @@
 import moment from 'moment';
 import request from 'superagent';
 import { DOMParser } from 'xmldom';
-import { ValidationError } from '../utils/errors';
 
 import {
   ACTIVITY_TYPE_TRANSPORTATION,
   TRANSPORTATION_MODE_PUBLIC_TRANSPORT,
 } from '../../definitions';
+import { ValidationError } from '../utils/errors';
 
 /*
 Potential improvements:
@@ -99,7 +99,7 @@ async function logIn(username, password, logger) {
       throw new Error('Unknown error');
     } else {
       const errors = Array.from(container.getElementsByTagName('li')).map(
-        d => d.firstChild.textContent
+        (d) => d.firstChild.textContent
       );
       throw new ValidationError(errors.join(', '));
     }
@@ -167,7 +167,7 @@ async function getTravelFormInformation() {
   const cardContainer = document.getElementById('cardSelectedId');
 
   const cards = cardContainer
-    ? Array.from(cardContainer.getElementsByTagName('option')).map(element =>
+    ? Array.from(cardContainer.getElementsByTagName('option')).map((element) =>
         element.getAttribute('value')
       )
     : ['unknown-card-id'];
@@ -191,15 +191,12 @@ async function getAllTravels(logger) {
     if (cards.length > 1) {
       logger.logDebug(`Changing card to ${card}`);
 
-      const res = await agent
-        .post(TRAVEL_FORM_CHANGE_CARD_URL)
-        .type('form')
-        .send({
-          __RequestVerificationToken: requestToken, // FIXME: might be too old now
-          cardSelected: card,
-          controller: 'TransactionServices',
-          action: 'TravelCardHistory',
-        });
+      const res = await agent.post(TRAVEL_FORM_CHANGE_CARD_URL).type('form').send({
+        __RequestVerificationToken: requestToken, // FIXME: might be too old now
+        cardSelected: card,
+        controller: 'TransactionServices',
+        action: 'TravelCardHistory',
+      });
 
       if (res.text.match(/(Error|Fejl)/)) {
         throw new Error('Failed changing card');
@@ -290,9 +287,7 @@ function parseTravels(allTravelsHTML, logger) {
     }
 
     if (endTime < startTime) {
-      endTime = moment(endTime)
-        .add(1, 'day')
-        .toDate();
+      endTime = moment(endTime).add(1, 'day').toDate();
     }
 
     activities.push({

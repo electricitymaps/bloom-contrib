@@ -1,34 +1,34 @@
 import {
-  ACTIVITY_TYPE_PURCHASE,
   ACTIVITY_TYPE_MEAL,
+  ACTIVITY_TYPE_PURCHASE,
   ACTIVITY_TYPE_TRANSPORTATION,
   ELECTRICITY_ACTIVITIES,
+  PURCHASE_CATEGORY_COMBINED_PASSENGER_TRANSPORT,
   PURCHASE_CATEGORY_ELECTRICITY,
   PURCHASE_CATEGORY_FOOD_SERVING_SERVICES,
-  PURCHASE_CATEGORY_STORE_HOUSEHOLD_APPLIANCE,
-  PURCHASE_CATEGORY_STORE_FOOD,
   PURCHASE_CATEGORY_OTHER_TRANSPORT_SERVICES,
-  PURCHASE_CATEGORY_TRANSPORT_ROAD,
-  PURCHASE_CATEGORY_TRANSPORT_RAIL,
-  PURCHASE_CATEGORY_COMBINED_PASSENGER_TRANSPORT,
+  PURCHASE_CATEGORY_STORE_FOOD,
+  PURCHASE_CATEGORY_STORE_HOUSEHOLD_APPLIANCE,
   PURCHASE_CATEGORY_TRANSPORT_AIR,
   PURCHASE_CATEGORY_TRANSPORT_BOAT,
-  UNIT_CURRENCIES,
-  UNIT_MONETARY_EUR,
-  UNITS,
+  PURCHASE_CATEGORY_TRANSPORT_RAIL,
+  PURCHASE_CATEGORY_TRANSPORT_ROAD,
   TRANSPORTATION_MODE_CAR,
   TRANSPORTATION_MODE_FERRY,
   TRANSPORTATION_MODE_OTHER_TRANSPORT,
-  TRANSPORTATION_MODE_PUBLIC_TRANSPORT,
   TRANSPORTATION_MODE_PLANE,
+  TRANSPORTATION_MODE_PUBLIC_TRANSPORT,
   TRANSPORTATION_MODE_TRAIN,
+  UNIT_CURRENCIES,
+  UNIT_MONETARY_EUR,
+  UNITS,
 } from '../../definitions';
-import { getDescendants, getRootEntry, modelCanRun, carbonEmissions } from './index';
 import { getAvailableCurrencies } from '../../integrations/utils/currency/currency';
 import exchangeRates2011 from './exchange_rates_2011.json';
+import { carbonEmissions, getDescendants, getRootEntry, modelCanRun } from './index';
 
 Object.entries(getDescendants(getRootEntry()))
-  .filter(([k, v]) => v.unit)
+  .filter(([_k, v]) => v.unit)
   .forEach(([k, v]) => {
     test(`default unit of ${k}`, () => {
       expect(UNITS).toContain(v.unit);
@@ -36,9 +36,9 @@ Object.entries(getDescendants(getRootEntry()))
   });
 
 Object.entries(getDescendants(getRootEntry()))
-  .filter(([k, v]) => v.conversions)
+  .filter(([_k, v]) => v.conversions)
   .forEach(([entryKey, v]) => {
-    Object.keys(v.conversions).forEach(k => {
+    Object.keys(v.conversions).forEach((k) => {
       test(`conversion units of ${entryKey}`, () => {
         expect(UNITS).toContain(k);
       });
@@ -221,7 +221,7 @@ describe('test equivalence of activityType=ACTIVITY_TYPE_PURCHASE with other act
     }
   );
 
-  ELECTRICITY_ACTIVITIES.forEach(activityType => {
+  ELECTRICITY_ACTIVITIES.forEach((activityType) => {
     test(`test equivalence of activityType=ACTIVITY_TYPE_PURCHASE and of activityType=${activityType}`, () => {
       const purchaseActivity = {
         activityType: ACTIVITY_TYPE_PURCHASE,

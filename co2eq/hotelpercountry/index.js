@@ -1,5 +1,5 @@
-import countries from '../countries.json';
 import { ACTIVITY_TYPE_PURCHASE, PURCHASE_CATEGORY_ENTERTAINMENT_HOTEL } from '../../definitions';
+import countries from '../countries.json';
 import { getActivityDurationHours } from '../utils';
 
 export const modelName = 'hotelpercountry';
@@ -22,7 +22,7 @@ export function modelCanRun(activity) {
     activityType === ACTIVITY_TYPE_PURCHASE &&
     lineItems &&
     lineItems.length &&
-    lineItems.some(l => l.identifier === PURCHASE_CATEGORY_ENTERTAINMENT_HOTEL) &&
+    lineItems.some((l) => l.identifier === PURCHASE_CATEGORY_ENTERTAINMENT_HOTEL) &&
     countryCodeISO2 &&
     endDatetime
   ) {

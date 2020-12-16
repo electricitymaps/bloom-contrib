@@ -1,8 +1,8 @@
 import {
-  HOTEL_CLASS_ZERO_TO_TWO_STARS,
-  HOTEL_CLASS_THREE_STARS,
-  HOTEL_CLASS_FOUR_STARS,
   HOTEL_CLASS_FIVE_STARS,
+  HOTEL_CLASS_FOUR_STARS,
+  HOTEL_CLASS_THREE_STARS,
+  HOTEL_CLASS_ZERO_TO_TWO_STARS,
 } from '../../definitions';
 import { getActivityDurationHours } from '../utils';
 

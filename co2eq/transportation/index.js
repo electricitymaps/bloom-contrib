@@ -1,22 +1,21 @@
 import {
-  TRANSPORTATION_MODE_CAR,
-  TRANSPORTATION_MODE_BUS,
-  TRANSPORTATION_MODE_TRAIN,
-  TRANSPORTATION_MODE_PUBLIC_TRANSPORT,
-  TRANSPORTATION_MODE_FERRY,
   TRANSPORTATION_MODE_BIKE,
+  TRANSPORTATION_MODE_BUS,
+  TRANSPORTATION_MODE_CAR,
   TRANSPORTATION_MODE_EBIKE,
   TRANSPORTATION_MODE_ESCOOTER,
-  TRANSPORTATION_MODE_MOTORBIKE,
+  TRANSPORTATION_MODE_FERRY,
   TRANSPORTATION_MODE_FOOT,
+  TRANSPORTATION_MODE_MOTORBIKE,
+  TRANSPORTATION_MODE_PUBLIC_TRANSPORT,
+  TRANSPORTATION_MODE_TRAIN,
 } from '../../definitions';
-
 import { getActivityDurationHours } from '../utils';
 
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'transportation';
 
-export const modelVersion = '14';
+export const modelVersion = '15';
 
 export const explanation = {
   text:
@@ -169,6 +168,7 @@ function getDurationFallback(mode) {
 Carbon emissions of an activity (in kgCO2eq)
 */
 export function carbonEmissions(activity) {
+  const { transportationMode, datetime, endDatetime, isRoundtrip, participants } = activity;
   let { distanceKilometers } = activity;
   if (!distanceKilometers) {
     const activityDuration = getActivityDurationHours(activity);
@@ -176,26 +176,33 @@ export function carbonEmissions(activity) {
     if (activityDuration !== null) {
       durationHours = activityDuration;
     } else {
-      durationHours = getDurationFallback(activity.transportationMode);
+      durationHours = getDurationFallback(transportationMode);
     }
     if (durationHours > 0) {
-      distanceKilometers = durationToDistance(durationHours, activity.transportationMode);
+      distanceKilometers = durationToDistance(durationHours, transportationMode);
     } else {
       throw new Error(
-        `Couldn't calculate carbonEmissions for activity because distanceKilometers = ${distanceKilometers} and datetime = ${activity.datetime} and endDatetime = ${activity.endDatetime}`
+        `Couldn't calculate carbonEmissions for activity because distanceKilometers = ${distanceKilometers} and datetime = ${datetime} and endDatetime = ${endDatetime}`
       );
     }
   }
 
+  const baseFootprint = carbonIntensity(activity.transportationMode) * distanceKilometers;
+
   // Take into account the passenger count if this is a car or motorbike
-  if (
-    activity.transportationMode === TRANSPORTATION_MODE_CAR ||
-    activity.transportationMode === TRANSPORTATION_MODE_MOTORBIKE
-  ) {
-    return (
-      (carbonIntensity(activity.transportationMode) * distanceKilometers) /
-      (activity.participants || 1)
-    );
+  const shouldAcceptParticipants =
+    transportationMode === TRANSPORTATION_MODE_CAR ||
+    transportationMode === TRANSPORTATION_MODE_MOTORBIKE;
+
+  let updatedFootprint = baseFootprint;
+
+  if (isRoundtrip) {
+    updatedFootprint = updatedFootprint * 2;
   }
-  return carbonIntensity(activity.transportationMode) * distanceKilometers;
+
+  if (shouldAcceptParticipants && participants) {
+    updatedFootprint = updatedFootprint / participants;
+  }
+
+  return updatedFootprint;
 }

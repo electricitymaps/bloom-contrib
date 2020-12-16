@@ -1,8 +1,8 @@
-import { geoDistance } from 'd3-geo'; // todo - add d3-geo in package.json
-import { ACTIVITY_TYPE_TRANSPORTATION, TRANSPORTATION_MODE_PLANE } from '../../definitions';
+import { geoDistance } from 'd3-geo';
 
-import { airports } from './airports';
+import { ACTIVITY_TYPE_TRANSPORTATION, TRANSPORTATION_MODE_PLANE } from '../../definitions';
 import { getActivityDurationHours } from '../utils';
+import { airports } from './airports';
 import loadfactors from './loadfactors.json';
 
 // Constants for JSON keys
@@ -11,7 +11,7 @@ const PASSENGER_LOAD_FACTORS_KEY = 'passenger_load_factors';
 const PASSENGER_FREIGHT_RATIO_KEY = 'passenger_to_freight_ratio';
 
 export const modelName = 'flight';
-export const modelVersion = '1';
+export const modelVersion = '2';
 export const explanation = {
   text:
     'Calculations take into account direct emissions from burning fuel and manufacturing of vehicle. They are based on international statistics on passenger and cargo loads and aircraft type usage.',
@@ -74,13 +74,13 @@ const bookingClassWeightingFactor = (bookingClass, isShortHaul) => {
 };
 
 // long/short-haul dependent constants
-const defaultPassengerToFreightRatio = isShortHaul => (isShortHaul ? 0.93 : 0.74);
+const defaultPassengerToFreightRatio = (isShortHaul) => (isShortHaul ? 0.93 : 0.74);
 // Passenger aircrafts often transport considerable amounts of freight and mail,
 // in particular in wide-body aircrafts on long-haul flights.
-const averageNumberOfSeats = isShortHaul => (isShortHaul ? 153.51 : 280.21);
-const a = isShortHaul => (isShortHaul ? 0 : 0.0001); // empiric fuel consumption parameter
-const b = isShortHaul => (isShortHaul ? 2.714 : 7.104); // empiric fuel consumption parameter
-const c = isShortHaul => (isShortHaul ? 1166.52 : 5044.93); // empiric fuel consumption parameter
+const averageNumberOfSeats = (isShortHaul) => (isShortHaul ? 153.51 : 280.21);
+const a = (isShortHaul) => (isShortHaul ? 0 : 0.0001); // empiric fuel consumption parameter
+const b = (isShortHaul) => (isShortHaul ? 2.714 : 7.104); // empiric fuel consumption parameter
+const c = (isShortHaul) => (isShortHaul ? 1166.52 : 5044.93); // empiric fuel consumption parameter
 
 function airportIataCodeToRegion(iata) {
   if (!airports[iata]) {
@@ -216,7 +216,7 @@ function getLoadFactors(activity) {
         loadfactors[departureAirportRegion][PASSENGER_LOAD_FACTORS_KEY][destinationAirportRegion] /
           100,
         // normal form of passenger to freight ratio is function of isshorthaul
-        isShortHaul =>
+        () =>
           loadfactors[departureAirportRegion][PASSENGER_FREIGHT_RATIO_KEY][
             destinationAirportRegion
           ] / 100,
@@ -246,10 +246,7 @@ export function activityDistance(activity) {
   return distanceFromDuration(durationHours);
 }
 
-/*
-  Calculates emissions in kgCO2eq
-*/
-export function carbonEmissions(activity) {
+function calculateEmissions(activity) {
   const distance = activityDistance(activity);
   const [passengerLoadFactor, passengerToFreightRatio] = getLoadFactors(activity);
   if (!Number.isFinite(distance)) {
@@ -268,10 +265,37 @@ export function carbonEmissions(activity) {
       )}, long haul: ${passengerToFreightRatio(false)}`
     );
   }
+
   return computeFootprint(
     distance,
     activity.bookingClass,
     passengerLoadFactor,
     passengerToFreightRatio
   );
+}
+
+/*
+  Calculates emissions in kgCO2eq
+*/
+export function carbonEmissions(activity) {
+  const { departureAirportCode, destinationAirportCode, isRoundtrip } = activity;
+
+  const footprint = calculateEmissions(activity);
+
+  if (!isRoundtrip) {
+    return footprint;
+  }
+
+  // If no airport codes are defined, we simply multiply the emissions for roundtrips
+  if (!departureAirportCode || !destinationAirportCode) {
+    return footprint * 2;
+  }
+
+  // Reversing the destination and departure to calculate more precise emissions
+  const returnActivity = {
+    ...activity,
+    departureAirportCode: destinationAirportCode,
+    destinationAirportCode: departureAirportCode,
+  };
+  return footprint + calculateEmissions(returnActivity);
 }
