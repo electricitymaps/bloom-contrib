@@ -5,1782 +5,6 @@
 #
 ---
 _children:
-  Food:
-    _children:
-      Beverages:
-        _children:
-          Almond milk:
-            icon: glass
-            intensityKilograms: 0.42
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversions:
-              glass:
-                kilograms: 0.225
-                incrementStepSize: 1
-            displayName: Almond milk
-          Beer:
-            icon:
-            intensityKilograms: 1.123
-            source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
-            unit: kg
-            conversions:
-              glass:
-                kilograms: 0.285
-                incrementStepSize: 1
-            displayName: Beer
-          Coconut milk:
-            icon: glass
-            intensityKilograms: 0.42
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversions:
-              glass:
-                kilograms: 0.225
-                incrementStepSize: 1
-            displayName: Coconut milk
-          Coffee:
-            icon: coffee
-            intensityKilograms: 0.33
-            source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
-            unit: kg
-            conversions:
-              cup:
-                kilograms: 0.15
-                incrementStepSize: 1
-            displayName: Coffee
-          Juice:
-            icon: glass
-            intensityKilograms: 0.93
-            source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
-            unit: kg
-            conversions:
-              glass:
-                kilograms: 0.225
-                incrementStepSize: 1
-            displayName: Juice
-          Soft drink:
-            icon: glass
-            intensityKilograms: 1.035
-            source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
-            unit: kg
-            conversions:
-              glass:
-                kilograms: 0.225
-                incrementStepSize: 1
-            displayName: Soft drink
-          Soy milk:
-            icon: glass
-            intensityKilograms: 0.75
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversions:
-              glass:
-                kilograms: 0.225
-                incrementStepSize: 1
-            displayName: Soy milk
-          Spirits:
-            icon: glass-whiskey-rocks
-            intensityKilograms: 3.144
-            source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
-            unit: kg
-            conversions:
-              glass:
-                kilograms: 0.035
-                incrementStepSize: 1
-            displayName: Spirits
-          Tea:
-            icon: coffee
-            intensityKilograms: 0.184
-            source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
-            unit: kg
-            conversions:
-              cup:
-                kilograms: 0.150
-                incrementStepSize: 1
-            displayName: Tea
-          Water (bottled):
-            icon: glass
-            intensityKilograms: 0.215
-            source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
-            unit: kg
-            conversions:
-              glass:
-                kilograms: 0.225
-                incrementStepSize: 1
-            displayName: Water (bottled)
-          Water (tap):
-            icon: glass
-            intensityKilograms: 0.001
-            source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
-            unit: kg
-            conversions:
-              glass:
-                kilograms: 0.225
-                incrementStepSize: 1
-            displayName: Water (tap)
-          Wine:
-            icon: wine-glass-alt
-            intensityKilograms: 2.344
-            source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
-            unit: kg
-            conversions:
-              glass:
-                kilograms: 0.150
-                incrementStepSize: 1
-            displayName: Wine
-        icon:
-        intensityKilograms:
-        source:
-        unit: kg
-        displayName: Beverages
-      Dairy:
-        _children:
-          Butter:
-            icon:
-            intensityKilograms: 9.25
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Butter
-          Cheddar:
-            icon: cheese-swiss
-            intensityKilograms: 13.02
-            source: https://www.researchgate.net/publication/309672245_Protein_versus_global_warming_potential_-_a_meta---analysis_of_the_global_warming_potential_and_protein_ratios_for_human_food
-            unit: kg
-            displayName: Cheddar
-          Cheese:
-            icon: cheese-swiss
-            intensityKilograms: 8.55
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Cheese
-          Cream:
-            icon:
-            intensityKilograms: 5.64
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Cream
-          Milk:
-            icon: glass
-            intensityKilograms: 1.29
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversions:
-              glass:
-                kilograms: 0.225
-                incrementStepSize: 1
-            displayName: Milk
-          Milk Yogurt:
-            icon:
-            intensityKilograms: 1.31
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Milk yogurt
-          Ice cream (Vanilla regular):
-            icon:
-            intensityKilograms: 3.75
-            unit: kg
-            source: https://www.sciencedirect.com/science/article/pii/S0959652618332633
-            conversions:
-              portion:
-                kilograms: 0.068
-                incrementStepSize: 1
-            displayName: Ice cream (vanilla regular)
-          Ice cream (Vanilla premium):
-            icon:
-            intensityKilograms: 3.94
-            unit: kg
-            source: https://www.sciencedirect.com/science/article/pii/S0959652618332633
-            conversions:
-              portion:
-                kilograms: 0.068
-                incrementStepSize: 1
-            displayName: Ice cream (vanilla premium)
-          Ice cream (Chocolate regular):
-            icon:
-            intensityKilograms: 3.66
-            unit: kg
-            source: https://www.sciencedirect.com/science/article/pii/S0959652618332633
-            conversions:
-              portion:
-                kilograms: 0.068
-                incrementStepSize: 1
-            displayName: Ice cream (chocolate regular)
-          Ice cream (Chocolate premium):
-            icon:
-            intensityKilograms: 3.91
-            unit: kg
-            source: https://www.sciencedirect.com/science/article/pii/S0959652618332633
-            conversions:
-              portion:
-                kilograms: 0.068
-                incrementStepSize: 1
-            displayName: Ice cream (chocolate premium)
-          Mozzarella:
-            icon: cheese-swiss
-            intensityKilograms: 7.5
-            source: https://www.researchgate.net/publication/309672245_Protein_versus_global_warming_potential_-_a_meta---analysis_of_the_global_warming_potential_and_protein_ratios_for_human_food
-            unit: kg
-            displayName: Mozzarella
-          Parmesan:
-            icon: cheese-swiss
-            intensityKilograms: 8.79
-            source: https://www.researchgate.net/publication/309672245_Protein_versus_global_warming_potential_-_a_meta---analysis_of_the_global_warming_potential_and_protein_ratios_for_human_food
-            unit: kg
-            displayName: Parmesan
-        icon:
-        intensityKilograms:
-        source:
-        unit: kg
-        displayName: Dairy
-      Fruits:
-        _children:
-          Apples:
-            icon:
-            intensityKilograms: 0.29
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversions:
-              item:
-                kilograms: 0.112
-                incrementStepSize: 1
-                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-            displayName: Apples
-          Apricot:
-            icon:
-            intensityKilograms: 0.43
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversions:
-              portion:
-                kilograms: 0.025
-                incrementStepSize: 1
-                source: https://www.yazio.com/de/kalorientabelle/aprikose-frisch.html
-                default: true
-              item:
-                kilograms: 0.05
-                incrementStepSize: 1
-                source: https://www.yazio.com/de/kalorientabelle/aprikose-frisch.html
-            displayName: Apricot
-          Avocados:
-            icon:
-            intensityKilograms: 1.3
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversions:
-              item:
-                kilograms: 0.270
-                incrementStepSize: 1
-                source: https://www.yazio.com/en/foods/avocado.html
-            displayName: Avocados
-          Bananas:
-            icon:
-            intensityKilograms: 0.72
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversions:
-              item:
-                kilograms: 0.1
-                incrementStepSize: 1
-                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-            displayName: Bananas
-          Blueberry:
-            icon:
-            intensityKilograms: 0.92
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversions:
-              portion:
-                kilograms: 0.045
-                incrementStepSize: 1
-                source: https://www.yazio.com/de/kalorientabelle/blaubeeren-frisch.html
-            displayName: Blueberry
-          Blackberry:
-            icon:
-            intensityKilograms: 0.599
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            conversions:
-              portion:
-                kilograms: 0.076
-                incrementStepSize: 1
-                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-            displayName: Blackberry
-          Blackcurrant:
-            icon:
-            intensityKilograms: 0.29
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversions:
-              portion:
-                kilograms: 0.04
-                incrementStepSize: 1
-                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-            displayName: Blackcurrant
-          Boysenberry:
-            icon:
-            intensityKilograms: 0.599
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            displayName: Boysenberry
-          Cantaloupe:
-            icon:
-            intensityKilograms: 0.490
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            conversions:
-              portion:
-                kilograms: 0.069
-                incrementStepSize: 1
-                source: https://www.yazio.com/en/foods/cantaloupe-melon.html
-                default: true
-              item:
-                kilograms: 0.35
-                incrementStepSize: 1
-                source: https://www.yazio.com/en/foods/cantaloupe-melon.html
-            displayName: Cantaloupe
-          Cherries:
-            icon:
-            intensityKilograms: 0.39
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversions:
-              portion:
-                kilograms: 0.08
-                incrementStepSize: 1
-                source: https://www.yazio.com/en/foods/cherries.html
-                default: true
-              item:
-                kilograms: 0.008
-                incrementStepSize: 1
-                source: https://www.yazio.com/en/foods/cherries.html
-            displayName: Cherries
-          Cinnamon:
-            icon:
-            intensityKilograms: 1.87
-            source: http://assets.wwf.org.uk/downloads/how_low_report_1.pdf
-            unit: kg
-            displayName: Cinnamon
-          Cranberries:
-            icon:
-            intensityKilograms: 0.92
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversions:
-              portion:
-                kilograms: 0.03
-                incrementStepSize: 1
-                source: https://www.yazio.com/de/kalorientabelle/preiselbeeren-frisch.html
-                default: true
-              item:
-                kilograms: 0.003
-                incrementStepSize: 1
-                source: https://www.yazio.com/de/kalorientabelle/preiselbeeren-frisch.html
-            displayName: Cranberries
-          Coconut:    # this refers to the coconut meat of the study
-            icon:
-            intensityKilograms: 1.521
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            conversions:
-              portion:
-                kilograms: 0.08
-                incrementStepSize: 1
-                source: https://www.yazio.com/en/foods/coconut-meat.html
-                default: true
-              item:
-                kilograms: 0.397
-                incrementStepSize: 1
-                source: https://www.yazio.com/en/foods/coconut-meat.html
-            displayName: Coconut
-          Currants:
-            icon:
-            intensityKilograms: 0.84
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversions:
-              portion:
-                kilograms: 0.03
-                incrementStepSize: 1
-                source: https://www.yazio.com/de/kalorientabelle/johannisbeeren-schwarz-frisch.html
-                default: true
-              item:
-                kilograms: 0.003
-                incrementStepSize: 1
-                source: https://www.yazio.com/de/kalorientabelle/johannisbeeren-schwarz-frisch.html
-            displayName: Currants
-          Dates:
-            icon:
-            intensityKilograms: 0.32
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversion:
-              portion:
-                kilograms: 0.035
-                incrementStepSize: 1
-                source: https://www.yazio.com/de/kalorientabelle/datteln.html
-                default: true
-              item:
-                kilograms: 0.007
-                incrementStepSize: 1
-                source: https://www.yazio.com/de/kalorientabelle/datteln.html
-            displayName: Dates
-          Figs:
-            icon:
-            intensityKilograms: 0.43
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversion:
-              item:
-                kilograms: 0.048
-                incrementStepSize: 1
-                source: https://www.yazio.com/de/kalorientabelle/feigen-frisch.html
-            displayName: Figs
-          Gooseberries:
-            icon:
-            intensityKilograms: 0.84
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversion:
-              portion:
-                kilograms: 0.04
-                incrementStepSize: 1
-                source: https://www.yazio.com/de/kalorientabelle/datteln.html
-                default: true
-              item:
-                kilograms: 0.004
-                incrementStepSize: 1
-                source: https://www.yazio.com/de/kalorientabelle/stachelbeeren-frisch.html
-            displayName: Gooseberries
-          Grapefruit:
-            icon:
-            intensityKilograms: 0.51
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversions:
-              portion:
-                kilograms: 0.116
-                incrementStepSize: 1
-                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-            displayName: Grapefruit
-          Grapes:
-            icon:
-            intensityKilograms: 0.37
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversions:
-              portion:
-                kilograms: 0.07
-                incrementStepSize: 1
-                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-            displayName: Grapes
-          Grapes (raisins):
-            icon:
-            intensityKilograms: 0.684
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            displayName: Grapes (raisins)
-          Guavas:
-            icon:
-            intensityKilograms: 0.28
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversion:
-              item:
-                kilograms: 0.055
-                incrementStepSize: 1
-                source: https://www.yazio.com/en/foods/guava.html
-            displayName: Guavas
-          Kiwi:
-            icon:
-            intensityKilograms: 0.36
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversions:
-              item:
-                kilograms: 0.06
-                incrementStepSize: 1
-                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-            displayName: Kiwi
-          Kumquat:
-            icon:
-            intensityKilograms: 0.320
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            conversion:
-              portion:
-                kilograms: 0.095
-                incrementStepSize: 1
-                source: https://www.yazio.com/de/kalorientabelle/datteln.html
-                default: true
-              item:
-                kilograms: 0.019
-                incrementStepSize: 1
-                source: https://www.yazio.com/en/foods/kumquat.html
-            displayName: Kumquat
-          Lemons:
-            icon:
-            intensityKilograms: 0.26
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversion:
-              item:
-                kilograms: 0.058
-                incrementStepSize: 1
-                source: https://www.yazio.com/de/kalorientabelle/zitrone-ohne-schale-frisch.html
-            displayName: Lemons
-          Limes:
-            icon:
-            intensityKilograms: 0.26
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversion:
-              item:
-                kilograms: 0.067
-                incrementStepSize: 1
-                source: https://www.yazio.com/de/kalorientabelle/limette-limone-frisch.html
-            displayName: Limes
-          Lychee:
-            icon:
-            intensityKilograms: 0.893
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            conversion:
-              portion:
-                kilograms: 0.060
-                incrementStepSize: 1
-                source: https://www.yazio.com/en/foods/lychee.html
-                default: true
-              item:
-                kilograms: 0.0096
-                incrementStepSize: 1
-                source: https://www.yazio.com/en/foods/lychee.html
-            displayName: Lychee
-          Mandarin:
-            icon:
-            intensityKilograms: 0.45
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversion:
-              item:
-                kilograms: 0.105
-                incrementStepSize: 1
-                source: https://www.yazio.com/de/kalorientabelle/mandarine-frisch.html
-            displayName: Mandarin
-          Mango:
-            icon:
-            intensityKilograms: 0.639
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            conversion:
-              portion:
-                kilograms: 0.168
-                incrementStepSize: 1
-                source: https://www.yazio.com/en/foods/mango.html
-                default: true
-              item:
-                kilograms: 0.336
-                incrementStepSize: 1
-                source: https://www.yazio.com/en/foods/mango.html
-            displayName: Mango
-          Melons:
-            icon:
-            intensityKilograms: 0.25
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversions:
-              portion:
-                kilograms: 0.151
-                incrementStepSize: 1
-                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-            displayName: Melons
-          Nectarines:
-            icon:
-            intensityKilograms: 0.43
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversion:
-              item:
-                kilograms: 0.125
-                incrementStepSize: 1
-                source: https://www.yazio.com/de/kalorientabelle/nektarine-frisch.html
-            displayName: Nectarines
-          Orange:
-            icon:
-            intensityKilograms: 0.33
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversions:
-              item:
-                kilograms: 0.16
-                incrementStepSize: 1
-                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-            displayName: Orange
-          Papaya:
-            icon:
-            intensityKilograms: 0.216
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            conversion:
-              portion:
-                kilograms: 0.125
-                incrementStepSize: 1
-                source: https://www.yazio.com/en/foods/papaya.html
-                default: true
-              item:
-                kilograms: 0.500
-                incrementStepSize: 1
-                source: https://www.yazio.com/en/foods/papaya.html
-            displayName: Papaya
-          Passion fruit:
-            icon:
-            intensityKilograms: 1.663
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            conversion:
-              item:
-                kilograms: 0.0018
-                incrementStepSize: 1
-                source: https://www.yazio.com/en/foods/passion-fruit.html
-            displayName: Passion fruit
-          Peaches:
-            icon:
-            intensityKilograms: 0.43
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversions:
-              item:
-                kilograms: 0.12
-                incrementStepSize: 1
-                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-            displayName: Peaches
-          Pears:
-            icon:
-            intensityKilograms: 0.31
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversions:
-              item:
-                kilograms: 0.16
-                incrementStepSize: 1
-                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-            displayName: Pears
-          Pineapples:
-            icon:
-            intensityKilograms: 0.5
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversions:
-              portion:
-                kilograms: 0.08
-                incrementStepSize: 1
-                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-            displayName: Pineapples
-          Plum:
-            icon:
-            intensityKilograms: 0.576
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            conversions:
-              item:
-                kilograms: 0.092
-                incrementStepSize: 1
-                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-            displayName: Plum
-          Pomegranate:
-            icon:
-            intensityKilograms: 0.462
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            conversions:
-              portion:
-                kilograms: 0.141
-                incrementStepSize: 1
-                source: https://www.yazio.com/en/foods/pomegranate.html
-                default: true
-              item:
-                kilograms: 0.282
-                incrementStepSize: 1
-                source: https://www.yazio.com/en/foods/pomegranate.html
-            displayName: Pomegranate
-          Pomelo:
-            icon:
-            intensityKilograms: 0.51
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversion:
-              portion:
-                kilograms: 0.06
-                incrementStepSize: 1
-                source: https://www.yazio.com/de/kalorientabelle/pomelo-frisch.html
-                default: true
-              item:
-                kilograms: 0.120
-                incrementStepSize: 1
-                source: https://www.yazio.com/de/kalorientabelle/pomelo-frisch.html
-            displayName: Pomelo
-          Prunes:
-            icon:
-            intensityKilograms: 0.273
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            conversions:
-              item:
-                kilograms: 0.024
-                incrementStepSize: 1
-                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-            displayName: Prunes
-          Quinces:
-            icon:
-            intensityKilograms: 0.31
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversion:
-              item:
-                kilograms: 0.092
-                incrementStepSize: 1
-                source: https://www.yazio.com/de/kalorientabelle/quitte-frisch.html
-            displayName: Quinces
-          Raspberries:
-            icon:
-            intensityKilograms: 0.84
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversions:
-              portion:
-                kilograms: 0.114
-                incrementStepSize: 1
-                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-            displayName: Raspberries
-          Rhubarb:
-            icon:
-            intensityKilograms: 1.528
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            conversions:
-              portion:
-                kilograms: 0.09
-                incrementStepSize: 1
-                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-            displayName: Rhubarb
-          Strawberries:
-            icon:
-            intensityKilograms: 0.58
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversions:
-              portion:
-                kilograms: 0.096
-                incrementStepSize: 1
-                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-            displayName: Strawberries
-          Tangerines:
-            icon:
-            intensityKilograms: 0.51
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversion:
-              item:
-                kilograms: 0.105
-                incrementStepSize: 1
-                source: https://www.yazio.com/de/kalorientabelle/mandarine-frisch.html
-            displayName: Tangerines
-          Vanilla:
-            icon:
-            intensityKilograms: 13.71
-            source: http://assets.wwf.org.uk/downloads/how_low_report_1.pdf
-            unit: kg
-            displayName: Vanilla
-          Watermelon:
-            icon:
-            intensityKilograms: 0.32
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversion:
-              portion:
-                kilograms: 0.150
-                incrementStepSize: 1
-                source: https://www.yazio.com/de/kalorientabelle/wassermelone-frisch.html
-                default: true
-              item:
-                kilograms: 2.5
-                incrementStepSize: 1
-                source: https://www.yazio.com/de/kalorientabelle/wassermelone-frisch.html
-            displayName: Watermelon
-        icon: lemon
-        intensityKilograms: 0.52
-        oldKeys:
-          - Fruit
-        source: http://www.greeneatz.com/foods-carbon-footprint.html
-        unit: kg
-        displayName: Fruits
-      Grains:
-        _children:
-          Barley:
-            icon:
-            intensityKilograms: 0.43
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Barley
-          Beans/tofu:
-            icon: burrito
-            intensityKilograms: 2
-            source: From http://www.greeneatz.com/foods-carbon-footprint.html
-            unit: kg
-            displayName: Beans/tofu
-          Butter beans:
-            icon:
-            intensityKilograms: 0.39
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Butter beans
-          Chick peas:
-            icon:
-            intensityKilograms: 0.77
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Chick peas
-          Corn:
-            icon:
-            intensityKilograms: 0.47
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Corn
-          Dry beans:
-            icon:
-            intensityKilograms: 2
-            source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
-            unit: kg
-            displayName: Dry beans
-          Green beans:
-            icon:
-            intensityKilograms: 0.31
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Green beans
-          Lentils:
-            icon:
-            intensityKilograms: 1.03
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Lentils
-          Morning cereals:
-            icon:
-            intensityKilograms: 0.864
-            source: From http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
-            unit: kg
-            displayName: Morning cereals
-          Oats:
-            icon:
-            intensityKilograms: 0.38
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Oats
-          Pasta:
-            icon: wheat
-            intensityKilograms: 1.2
-            source: From https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
-            unit: kg
-            displayName: Pasta
-          Peas:
-            icon:
-            intensityKilograms: 0.38
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversions:
-              portion:
-                kilograms: 0.045
-                incrementStepSize: 1
-                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-            displayName: Peas
-          Quinoa:
-            icon:
-            intensityKilograms: 1.15
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Quinoa
-          Rice:
-            icon: soup
-            intensityKilograms: 2.55
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Rice
-          Rye:
-            icon:
-            intensityKilograms: 0.38
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Rye
-          Rye bread:
-            icon: bread-loaf
-            intensityKilograms: 0.93
-            source: From http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
-            unit: kg
-            displayName: Rye bread
-          Sesame seeds:
-            icon:
-            intensityKilograms: 0.88
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Sesame seeds
-          Sesame (oil):
-            icon:
-            intensityKilograms: 2.334
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            displayName: Sesame (oil)
-          Soybean:
-            icon:
-            intensityKilograms: 0.49
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Soybean
-          Sunflower seed:
-            icon:
-            intensityKilograms: 1.41
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Sunflower seed
-          Tofu:
-            icon:
-            intensityKilograms: 2
-            source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
-            unit: kg
-            displayName: Tofu
-          Wheat:
-            icon:
-            intensityKilograms: 0.52
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Wheat
-          Wheat (flour):
-            icon:
-            intensityKilograms: 0.358
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            displayName: Wheat (flour)
-          White bread:
-            icon: bread-loaf
-            intensityKilograms: 1.054
-            source: From http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
-            unit: kg
-            displayName: White bread
-        icon:
-        intensityKilograms:
-        source:
-        unit: kg
-        displayName: Grains
-      Meat:
-        _children:
-          Beef:
-            icon: steak
-            intensityKilograms: 26.61
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Beef
-          Buffalo:
-            icon:
-            intensityKilograms: 60.43
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Buffalo
-          Chicken:
-            icon: drumstick
-            intensityKilograms: 3.65
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Chicken
-          Duck:
-            icon:
-            intensityKilograms: 3.09
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Duck
-          Eggs:
-            icon: egg
-            intensityKilograms: 3.46
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversions:
-              item:
-                kilograms: 0.057
-                incrementStepSize: 1
-                source: https://web.extension.illinois.edu/eggs/res16-egg.html
-                default: true
-            displayName: Eggs
-          Ham:
-            icon: pig
-            intensityKilograms: 4.453
-            source: https://link.springer.com/article/10.1007/s11367-018-1460-x#MOESM1
-            unit: kg
-            displayName: Ham
-          Lamb:
-            icon: sheep
-            intensityKilograms: 25.58
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Lamb
-          Pork:
-            icon: pig
-            intensityKilograms: 5.74
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Pork
-          Rabbit:
-            icon:
-            intensityKilograms: 4.7
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Rabbit
-          Turkey:
-            icon: turkey
-            intensityKilograms: 7.17
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Turkey
-        icon: lemon
-        intensityKilograms:
-        source: http://www.greeneatz.com/foods-carbon-footprint.html
-        unit: kg
-        displayName: Meat
-      Miscellaneous:
-        _children:
-          Yeast:
-            icon:
-            intensityKilograms: 0.96
-            source: https://link.springer.com/article/10.1007/s11367-018-1460-x#MOESM1
-            unit: kg
-            displayName: Yeast
-          Baking soda:
-            icon:
-            intensityKilograms: 0.0261
-            source: https://epdturkey.org/wp-content/uploads/eti_soda_iso_14025.pdf
-            unit: kg
-            displayName: Baking soda
-          Salt:
-            icon:
-            intensityKilograms: 0.3
-            source: https://link.springer.com/article/10.1007/s11367-018-1460-x#MOESM1
-            unit: kg
-            displayName: Salt
-        displayName: Miscellaneous
-      Nuts:
-        _children:
-          Almonds:
-            icon:
-            intensityKilograms: 1.54
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Almonds
-          Cashew nut:
-            icon:
-            intensityKilograms: 1.44
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Cashew nut
-          Chestnuts:
-            icon:
-            intensityKilograms: 0.43
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Chestnuts
-          Hazelnuts:
-            icon:
-            intensityKilograms: 0.97
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Hazelnuts
-          Macadamia nuts:
-            icon:
-            intensityKilograms: 2.057
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            displayName: Macadamia nuts
-          Pecan nuts:
-            icon:
-            intensityKilograms: 2.057
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            displayName: Pecan nuts
-          Peanut butter:
-            icon:
-            intensityKilograms: 2.3
-            source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
-            unit: kg
-            oldKeys:
-              - Peanut Butter
-            displayName: Peanut butter
-          Peanuts:
-            icon:
-            intensityKilograms: 0.83
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Peanuts
-          Pine nuts:
-            icon:
-            intensityKilograms: 2.057
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            displayName: Pine nuts
-          Pistachios:
-            icon:
-            intensityKilograms: 1.53
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Pistachios
-          Walnuts:
-            icon:
-            intensityKilograms: 1.51
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Walnuts
-        icon: acorn
-        intensityKilograms: 2.3
-        source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
-        unit: kg
-        displayName: Nuts
-      Sweets:
-        _children:
-          Chocolate:
-            icon:
-            intensityKilograms: 11.250
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            displayName: Chocolate
-          Cocoa powder:
-            icon:
-            intensityKilograms: 33.647
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            displayName: Cocoa powder
-          Honey:
-            icon:
-            intensityKilograms: 2.440
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            displayName: Honey
-          Maple syrup:
-            icon:
-            intensityKilograms: 6.754
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            conversions:
-              L:
-                kilograms: 1.34
-                incrementStepSize: 0.05
-                source: http://convert-to.com/571/maple-syrup-amounts-conversion-plus-nutritional-facts.html
-            displayName: Maple syrup
-          Sugar (sugarcane):
-            icon:
-            intensityKilograms: 0.700
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            displayName: Sugar (sugarcane)
-          Sugar (beet):
-            icon:
-            intensityKilograms: 0.391
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            displayName: Sugar (beet)
-        displayName: Sweets
-      Seafood:
-        _children:
-          Anglerfish:
-            icon: fish
-            intensityKilograms: 12.29
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Anglerfish
-          Brill:
-            icon: fish
-            intensityKilograms: 8.41
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Brill
-          Canned Tuna:
-            icon: fish
-            intensityKilograms: 6.1
-            source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
-            unit: kg
-            displayName: Canned tuna
-          Carp:
-            icon: fish
-            intensityKilograms: 1.76
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Carp
-          Clams:
-            icon:
-            intensityKilograms: 0.1
-            source: From https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
-            unit: kg
-            displayName: Clams
-          Cod:
-            icon: fish
-            intensityKilograms: 3.51
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Cod
-          Common Ling:
-            icon: fish
-            intensityKilograms: 6.45
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Common ling
-          Eel:
-            icon: fish
-            intensityKilograms: 3.88
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Eel
-          Farmed Salmon:
-            icon: fish
-            intensityKilograms: 11.9
-            source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
-            unit: kg
-            displayName: Farmed salmon
-          Fish (all species):
-            icon: fish
-            intensityKilograms: 3.49
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Fish (all species)
-          Flatfish:
-            icon: fish
-            intensityKilograms: 6.2
-            source: From https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
-            unit: kg
-            displayName: Flatfish
-          Haddock:
-            icon: fish
-            intensityKilograms: 3.41
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Haddock
-          Hake:
-            icon: fish
-            intensityKilograms: 9.77
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Hake
-          Herring:
-            icon: fish
-            intensityKilograms: 1.16
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Herring
-          Lobster:
-            icon:
-            intensityKilograms: 27.8
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Lobster
-          Mackerel:
-            icon: fish
-            intensityKilograms: 1.8
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Mackerel
-          Megrim:
-            icon: fish
-            intensityKilograms: 14.15
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Megrim
-          Mussels:
-            icon:
-            intensityKilograms: 9.51
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Mussels
-          Octopus/squid/cuttlefish:
-            icon:
-            intensityKilograms: 7.13
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Octopus/squid/cuttlefish
-          Pollock:
-            icon: fish
-            intensityKilograms: 1.61
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Pollock
-          Pomfret:
-            icon: fish
-            intensityKilograms: 6.63
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Pomfret
-          Porbeagle:
-            icon: fish
-            intensityKilograms: 11.44
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Porbeagle
-          Prawns/shrimp:
-            icon:
-            intensityKilograms: 7.8
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Prawns/shrimp
-          Rock fish:
-            icon: fish
-            intensityKilograms: 6.94
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Rock fish
-          Salmon:
-            icon: fish
-            intensityKilograms: 3.47
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Salmon
-          Sea bass:
-            icon: fish
-            intensityKilograms: 3.27
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Sea bass
-          Shrimp (Fresh):
-            icon:
-            intensityKilograms: 3
-            source: https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
-            unit: kg
-            displayName: Shrimp (fresh)
-          Shrimp (Frozen):
-            icon:
-            intensityKilograms: 10.5
-            source: https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
-            unit: kg
-            displayName: Shrimp (frozen)
-          Sole:
-            icon: fish
-            intensityKilograms: 20.86
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Sole
-          Swordfish:
-            icon: fish
-            intensityKilograms: 12.84
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Swordfish
-          Trout:
-            icon: fish
-            intensityKilograms: 4.2
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Trout
-          Tuna:
-            icon: fish
-            intensityKilograms: 2.15
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Tuna
-          Turbot:
-            icon: fish
-            intensityKilograms: 14.51
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Turbot
-          Whiting:
-            icon: fish
-            intensityKilograms: 2.66
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Whiting
-        icon: fish
-        intensityKilograms: 3.49
-        source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-        unit: kg
-        displayName: Seafood
-      Vegetables:
-        _children:
-          Artichokes:
-            icon:
-            intensityKilograms: 0.48
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Artichokes
-          Aspargus:
-            icon:
-            intensityKilograms: 0.83
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Aspargus
-          Basil (dried):
-            icon:
-            intensityKilograms: 2.495
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            displayName: Basil (dried)
-          Basil (fresh):
-            icon:
-            intensityKilograms: 0.221
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            displayName: Basil (fresh)
-          Beetroot:
-            icon:
-            intensityKilograms: 0.24
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Beetroot
-          Broccoli:
-            icon:
-            intensityKilograms: 2
-            source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
-            unit: kg
-            conversions:
-              portion:
-                kilograms: 0.054
-                incrementStepSize: 1
-                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-            displayName: Broccoli
-          Brussels sprouts:
-            icon:
-            intensityKilograms: 0.490
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            conversions:
-              portion:
-                kilograms: 0.056
-                incrementStepSize: 1
-                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-            displayName: Brussels sprouts
-          Carrots:
-            icon:
-            intensityKilograms: 0.2
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversions:
-              item:
-                kilograms: 0.061
-                incrementStepSize: 1
-                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-            displayName: Carrots
-          Cabbage:
-            icon:
-            intensityKilograms: 0.45
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversions:
-              portion:
-                kilograms: 0.09
-                incrementStepSize: 1
-                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-            displayName: Cabbage
-          Cauliflowers:
-            icon:
-            intensityKilograms: 0.45
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversions:
-              portion:
-                kilograms: 0.06
-                incrementStepSize: 1
-                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-            displayName: Cauliflowers
-          Celery:
-            icon:
-            intensityKilograms: 0.18
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Celery
-          Cilantro:
-            icon:
-            intensityKilograms: 0.261
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Cilantro
-          Chive:
-            icon:
-            intensityKilograms: 0.221
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            displayName: Chive
-          Courgette:
-            # remember to update Zucchini as well
-            icon:
-            intensityKilograms: 0.21
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversions:
-              portion:
-                kilograms: 0.06
-                incrementStepSize: 1
-                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-            displayName: Courgette
-          Cucumbers:
-            icon:
-            intensityKilograms: 0.23
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversions:
-              portion:
-                kilograms: 0.024
-                incrementStepSize: 1
-                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-            displayName: Cucumbers
-          Dill:
-            icon:
-            intensityKilograms: 0.221
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            displayName: Dill
-          Endive:
-            icon:
-            intensityKilograms: 0.065
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            displayName: Endive
-          Eggplants:
-            icon:
-            intensityKilograms: 1.35
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Eggplants
-          Fennel:
-            icon:
-            intensityKilograms: 0.48
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Fennel
-          Garlic:
-            icon:
-            intensityKilograms: 0.57
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Garlic
-          Green onion:
-            # remember to update Scallion as well
-            icon:
-            intensityKilograms: 0.085
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            displayName: Green onion
-          Ginger:
-            icon:
-            intensityKilograms: 0.88
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Ginger
-          Horseradish:
-            icon:
-            intensityKilograms: 0.88
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            displayName: Horseradish
-          Kale:
-            icon:
-            intensityKilograms: 0.193
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            displayName: Kale
-          Leek:
-            icon:
-            intensityKilograms: 0.45
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversions:
-              portion:
-                kilograms: 0.067
-                incrementStepSize: 1
-                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-            displayName: Leek
-          Lettuce:
-            icon:
-            intensityKilograms: 0.220
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            conversions:
-              portion:
-                kilograms: 0.024
-                incrementStepSize: 1
-                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-            displayName: Lettuce
-          Mushrooms:
-            icon:
-            intensityKilograms: 0.27
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversions:
-              portion:
-                kilograms: 0.04
-                incrementStepSize: 1
-                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-            displayName: Mushrooms
-          Nutmeg:
-            icon:
-            intensityKilograms: 4.82
-            source: http://assets.wwf.org.uk/downloads/how_low_report_1.pdf
-            unit: kg
-            displayName: Nutmeg
-          Olives:
-            icon:
-            intensityKilograms: 0.63
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Olives
-          Olive (oil):
-            icon:
-            intensityKilograms: 3.206
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            displayName: Olive (oil)
-          Onion:
-            icon:
-            intensityKilograms: 0.17
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversions:
-              portion:
-                kilograms: 0.046
-                incrementStepSize: 1
-                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-            displayName: Onion
-          Parsley:
-            icon:
-            intensityKilograms: 0.232
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            displayName: Parsley
-          Parsnip:
-            icon:
-            intensityKilograms: 0.243
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            conversions:
-              portion:
-                kilograms: 0.042
-                incrementStepSize: 1
-                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-            displayName: Parsnip
-          Peppers:
-            icon:
-            intensityKilograms: 0.66
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversions:
-              portion:
-                kilograms: 0.02
-                incrementStepSize: 1
-                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-            displayName: Peppers
-          Potatoes:
-            icon:
-            intensityKilograms: 0.18
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Potatoes
-          Pumpkins:
-            icon:
-            intensityKilograms: 0.25
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            displayName: Pumpkins
-          Rutabage:
-            icon:
-            intensityKilograms: 0.29
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversions:
-              portion:
-                kilograms: 0.047
-                incrementStepSize: 1
-                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-            displayName: Rutabage
-          Scallion:
-            # remember to update Green Onion as well
-            icon:
-            intensityKilograms: 0.085
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            displayName: Scallion
-          Shallot:
-            icon:
-            intensityKilograms: 0.275
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            displayName: Shallot
-          Spinach:
-            icon:
-            intensityKilograms: 0.54
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversions:
-              portion:
-                kilograms: 0.097
-                incrementStepSize: 1
-                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-            displayName: Spinach
-          Sweet potatoes:
-            icon:
-            intensityKilograms: 0.302
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            displayName: Sweet potatoes
-          Tomatoes:
-            icon:
-            intensityKilograms: 0.45
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversions:
-              item:
-                kilograms: 0.085
-                incrementStepSize: 1
-                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-            displayName: Tomatoes
-          Tomatoe ketchup:
-            icon:
-            intensityKilograms: 0.747
-            source: https://link.springer.com/article/10.1007/s11367-018-1460-x#MOESM1
-            unit: kg
-            displayName: Tomatoe ketchup
-          Turmeric:
-            icon:
-            intensityKilograms: 0.213
-            source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
-            unit: kg
-            displayName: Turmeric
-          Vegetable oil:
-            icon:
-            intensityKilograms: 3.740
-            source: https://link.springer.com/article/10.1007/s11367-018-1460-x#MOESM1
-            unit: kg
-            displayName: Vegetable oil
-          Vinegar:
-            icon:
-            intensityKilograms: 1.327
-            source: https://link.springer.com/article/10.1007/s11367-018-1460-x#MOESM1
-            unit: kg
-            displayName: Vinegar
-          Zucchini:
-            # remember to update Courgette as well
-            icon:
-            intensityKilograms: 0.21
-            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
-            unit: kg
-            conversions:
-              portion:
-                kilograms: 0.06
-                incrementStepSize: 1
-                source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
-            displayName: Zucchini
-        icon: carrot
-        intensityKilograms: 1.32
-        source: https://orbit.dtu.dk/ws/files/110722384/Climate_friendly_dietary_guidelines.pdf
-        unit: kg
-        displayName: Vegetables
-    displayName: Food
-  
-  
-  
-  
-  
-  
-  
-  
   FOOD AND NON-ALCOHOLIC BEVERAGES:
     icon: shopping-cart
     intensityKilograms:
@@ -1845,6 +69,156 @@ _children:
         coicopCode: '01.1'
         _children:
           Cereals and cereal products (ND):
+            _children:
+              Barley:
+                icon:
+                intensityKilograms: 0.43
+                source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                unit: kg
+                displayName: Barley
+              Beans/tofu:
+                icon: burrito
+                intensityKilograms: 2
+                source: From http://www.greeneatz.com/foods-carbon-footprint.html
+                unit: kg
+                displayName: Beans/tofu
+              Butter beans:
+                icon:
+                intensityKilograms: 0.39
+                source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                unit: kg
+                displayName: Butter beans
+              Chick peas:
+                icon:
+                intensityKilograms: 0.77
+                source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                unit: kg
+                displayName: Chick peas
+              Corn:
+                icon:
+                intensityKilograms: 0.47
+                source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                unit: kg
+                displayName: Corn
+              Dry beans:
+                icon:
+                intensityKilograms: 2
+                source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
+                unit: kg
+                displayName: Dry beans
+              Green beans:
+                icon:
+                intensityKilograms: 0.31
+                source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                unit: kg
+                displayName: Green beans
+              Lentils:
+                icon:
+                intensityKilograms: 1.03
+                source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                unit: kg
+                displayName: Lentils
+              Morning cereals:
+                icon:
+                intensityKilograms: 0.864
+                source: From http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
+                unit: kg
+                displayName: Morning cereals
+              Oats:
+                icon:
+                intensityKilograms: 0.38
+                source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                unit: kg
+                displayName: Oats
+              Pasta:
+                icon: wheat
+                intensityKilograms: 1.2
+                source: From https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
+                unit: kg
+                displayName: Pasta
+              Peas:
+                icon:
+                intensityKilograms: 0.38
+                source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                unit: kg
+                conversions:
+                  portion:
+                    kilograms: 0.045
+                    incrementStepSize: 1
+                    source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+                displayName: Peas
+              Quinoa:
+                icon:
+                intensityKilograms: 1.15
+                source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                unit: kg
+                displayName: Quinoa
+              Rice:
+                icon: soup
+                intensityKilograms: 2.55
+                source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                unit: kg
+                displayName: Rice
+              Rye:
+                icon:
+                intensityKilograms: 0.38
+                source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                unit: kg
+                displayName: Rye
+              Rye bread:
+                icon: bread-loaf
+                intensityKilograms: 0.93
+                source: From http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
+                unit: kg
+                displayName: Rye bread
+              Sesame seeds:
+                icon:
+                intensityKilograms: 0.88
+                source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                unit: kg
+                displayName: Sesame seeds
+              Sesame (oil):
+                icon:
+                intensityKilograms: 2.334
+                source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                unit: kg
+                displayName: Sesame (oil)
+              Soybean:
+                icon:
+                intensityKilograms: 0.49
+                source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                unit: kg
+                displayName: Soybean
+              Sunflower seed:
+                icon:
+                intensityKilograms: 1.41
+                source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                unit: kg
+                displayName: Sunflower seed
+              Tofu:
+                icon:
+                intensityKilograms: 2
+                source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
+                unit: kg
+                displayName: Tofu
+              Wheat:
+                icon:
+                intensityKilograms: 0.52
+                source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                unit: kg
+                displayName: Wheat
+              Wheat (flour):
+                icon:
+                intensityKilograms: 0.358
+                source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                unit: kg
+                displayName: Wheat (flour)
+              White bread:
+                icon: bread-loaf
+                intensityKilograms: 1.054
+                source: From http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
+                unit: kg
+                displayName: White bread
             icon: bread-loaf
             intensityKilograms:
               AT: 0.5796355639292761
@@ -1909,6 +283,73 @@ _children:
               - rice
               - oat
           Live animals, meat and other parts of slaughtered land animals (ND):
+            _children:
+              Beef:
+                icon: steak
+                intensityKilograms: 26.61
+                source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                unit: kg
+                displayName: Beef
+              Buffalo:
+                icon:
+                intensityKilograms: 60.43
+                source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                unit: kg
+                displayName: Buffalo
+              Chicken:
+                icon: drumstick
+                intensityKilograms: 3.65
+                source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                unit: kg
+                displayName: Chicken
+              Duck:
+                icon:
+                intensityKilograms: 3.09
+                source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                unit: kg
+                displayName: Duck
+              Eggs:
+                icon: egg
+                intensityKilograms: 3.46
+                source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                unit: kg
+                conversions:
+                  item:
+                    kilograms: 0.057
+                    incrementStepSize: 1
+                    source: https://web.extension.illinois.edu/eggs/res16-egg.html
+                    default: true
+                displayName: Eggs
+              Ham:
+                icon: pig
+                intensityKilograms: 4.453
+                source: https://link.springer.com/article/10.1007/s11367-018-1460-x#MOESM1
+                unit: kg
+                displayName: Ham
+              Lamb:
+                icon: sheep
+                intensityKilograms: 25.58
+                source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                unit: kg
+                displayName: Lamb
+              Pork:
+                icon: pig
+                intensityKilograms: 5.74
+                source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                unit: kg
+                displayName: Pork
+              Rabbit:
+                icon:
+                intensityKilograms: 4.7
+                source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                unit: kg
+                displayName: Rabbit
+              Turkey:
+                icon: turkey
+                intensityKilograms: 7.17
+                source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                unit: kg
+                displayName: Turkey
             coicopCode: 01.1.2
             year: 2011
             unit: EUR
@@ -1966,6 +407,218 @@ _children:
             displayName: Live animals, meat and other parts of slaughtered land
               animals
           Fish and other seafood (ND):
+            _children:
+              Seafood:
+                _children:
+                  Anglerfish:
+                    icon: fish
+                    intensityKilograms: 12.29
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Anglerfish
+                  Brill:
+                    icon: fish
+                    intensityKilograms: 8.41
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Brill
+                  Canned Tuna:
+                    icon: fish
+                    intensityKilograms: 6.1
+                    source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
+                    unit: kg
+                    displayName: Canned tuna
+                  Carp:
+                    icon: fish
+                    intensityKilograms: 1.76
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Carp
+                  Clams:
+                    icon:
+                    intensityKilograms: 0.1
+                    source: From https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
+                    unit: kg
+                    displayName: Clams
+                  Cod:
+                    icon: fish
+                    intensityKilograms: 3.51
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Cod
+                  Common Ling:
+                    icon: fish
+                    intensityKilograms: 6.45
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Common ling
+                  Eel:
+                    icon: fish
+                    intensityKilograms: 3.88
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Eel
+                  Farmed Salmon:
+                    icon: fish
+                    intensityKilograms: 11.9
+                    source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
+                    unit: kg
+                    displayName: Farmed salmon
+                  Fish (all species):
+                    icon: fish
+                    intensityKilograms: 3.49
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Fish (all species)
+                  Flatfish:
+                    icon: fish
+                    intensityKilograms: 6.2
+                    source: From https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
+                    unit: kg
+                    displayName: Flatfish
+                  Haddock:
+                    icon: fish
+                    intensityKilograms: 3.41
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Haddock
+                  Hake:
+                    icon: fish
+                    intensityKilograms: 9.77
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Hake
+                  Herring:
+                    icon: fish
+                    intensityKilograms: 1.16
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Herring
+                  Lobster:
+                    icon:
+                    intensityKilograms: 27.8
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Lobster
+                  Mackerel:
+                    icon: fish
+                    intensityKilograms: 1.8
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Mackerel
+                  Megrim:
+                    icon: fish
+                    intensityKilograms: 14.15
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Megrim
+                  Mussels:
+                    icon:
+                    intensityKilograms: 9.51
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Mussels
+                  Octopus/squid/cuttlefish:
+                    icon:
+                    intensityKilograms: 7.13
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Octopus/squid/cuttlefish
+                  Pollock:
+                    icon: fish
+                    intensityKilograms: 1.61
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Pollock
+                  Pomfret:
+                    icon: fish
+                    intensityKilograms: 6.63
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Pomfret
+                  Porbeagle:
+                    icon: fish
+                    intensityKilograms: 11.44
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Porbeagle
+                  Prawns/shrimp:
+                    icon:
+                    intensityKilograms: 7.8
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Prawns/shrimp
+                  Rock fish:
+                    icon: fish
+                    intensityKilograms: 6.94
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Rock fish
+                  Salmon:
+                    icon: fish
+                    intensityKilograms: 3.47
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Salmon
+                  Sea bass:
+                    icon: fish
+                    intensityKilograms: 3.27
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Sea bass
+                  Shrimp (Fresh):
+                    icon:
+                    intensityKilograms: 3
+                    source: https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
+                    unit: kg
+                    displayName: Shrimp (fresh)
+                  Shrimp (Frozen):
+                    icon:
+                    intensityKilograms: 10.5
+                    source: https://naturerhverv.dk/fileadmin/user_upload/NaturErhverv/Filer/Tvaergaaende/Foedevarernes_klimaaftryk_tabel_1.pdf
+                    unit: kg
+                    displayName: Shrimp (frozen)
+                  Sole:
+                    icon: fish
+                    intensityKilograms: 20.86
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Sole
+                  Swordfish:
+                    icon: fish
+                    intensityKilograms: 12.84
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Swordfish
+                  Trout:
+                    icon: fish
+                    intensityKilograms: 4.2
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Trout
+                  Tuna:
+                    icon: fish
+                    intensityKilograms: 2.15
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Tuna
+                  Turbot:
+                    icon: fish
+                    intensityKilograms: 14.51
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Turbot
+                  Whiting:
+                    icon: fish
+                    intensityKilograms: 2.66
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Whiting
+                icon: fish
+                intensityKilograms: 3.49
+                source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                unit: kg
+                displayName: Seafood
             coicopCode: 01.1.3
             year: 2011
             unit: EUR
@@ -2022,6 +675,99 @@ _children:
               ZA: 2.4258845572090926
             displayName: Fish and other seafood
           Milk, other dairy products and eggs (ND):
+            _children:
+              Butter:
+                icon:
+                intensityKilograms: 9.25
+                source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                unit: kg
+                displayName: Butter
+              Cheddar:
+                icon: cheese-swiss
+                intensityKilograms: 13.02
+                source: https://www.researchgate.net/publication/309672245_Protein_versus_global_warming_potential_-_a_meta---analysis_of_the_global_warming_potential_and_protein_ratios_for_human_food
+                unit: kg
+                displayName: Cheddar
+              Cheese:
+                icon: cheese-swiss
+                intensityKilograms: 8.55
+                source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                unit: kg
+                displayName: Cheese
+              Cream:
+                icon:
+                intensityKilograms: 5.64
+                source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                unit: kg
+                displayName: Cream
+              Milk:
+                icon: glass
+                intensityKilograms: 1.29
+                source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                unit: kg
+                conversions:
+                  glass:
+                    kilograms: 0.225
+                    incrementStepSize: 1
+                displayName: Milk
+              Milk Yogurt:
+                icon:
+                intensityKilograms: 1.31
+                source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                unit: kg
+                displayName: Milk yogurt
+              Ice cream (Vanilla regular):
+                icon:
+                intensityKilograms: 3.75
+                unit: kg
+                source: https://www.sciencedirect.com/science/article/pii/S0959652618332633
+                conversions:
+                  portion:
+                    kilograms: 0.068
+                    incrementStepSize: 1
+                displayName: Ice cream (vanilla regular)
+              Ice cream (Vanilla premium):
+                icon:
+                intensityKilograms: 3.94
+                unit: kg
+                source: https://www.sciencedirect.com/science/article/pii/S0959652618332633
+                conversions:
+                  portion:
+                    kilograms: 0.068
+                    incrementStepSize: 1
+                displayName: Ice cream (vanilla premium)
+              Ice cream (Chocolate regular):
+                icon:
+                intensityKilograms: 3.66
+                unit: kg
+                source: https://www.sciencedirect.com/science/article/pii/S0959652618332633
+                conversions:
+                  portion:
+                    kilograms: 0.068
+                    incrementStepSize: 1
+                displayName: Ice cream (chocolate regular)
+              Ice cream (Chocolate premium):
+                icon:
+                intensityKilograms: 3.91
+                unit: kg
+                source: https://www.sciencedirect.com/science/article/pii/S0959652618332633
+                conversions:
+                  portion:
+                    kilograms: 0.068
+                    incrementStepSize: 1
+                displayName: Ice cream (chocolate premium)
+              Mozzarella:
+                icon: cheese-swiss
+                intensityKilograms: 7.5
+                source: https://www.researchgate.net/publication/309672245_Protein_versus_global_warming_potential_-_a_meta---analysis_of_the_global_warming_potential_and_protein_ratios_for_human_food
+                unit: kg
+                displayName: Mozzarella
+              Parmesan:
+                icon: cheese-swiss
+                intensityKilograms: 8.79
+                source: https://www.researchgate.net/publication/309672245_Protein_versus_global_warming_potential_-_a_meta---analysis_of_the_global_warming_potential_and_protein_ratios_for_human_food
+                unit: kg
+                displayName: Parmesan
             coicopCode: 01.1.4
             year: 2011
             unit: EUR
@@ -2138,6 +884,663 @@ _children:
               ZA: 1.841108269860735
             displayName: Oils and fats
           Fruits and nuts (ND):
+            _children:
+              Fruits:
+                _children:
+                  Apples:
+                    icon:
+                    intensityKilograms: 0.29
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversions:
+                      item:
+                        kilograms: 0.112
+                        incrementStepSize: 1
+                        source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+                    displayName: Apples
+                  Apricot:
+                    icon:
+                    intensityKilograms: 0.43
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversions:
+                      portion:
+                        kilograms: 0.025
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/de/kalorientabelle/aprikose-frisch.html
+                        default: true
+                      item:
+                        kilograms: 0.05
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/de/kalorientabelle/aprikose-frisch.html
+                    displayName: Apricot
+                  Avocados:
+                    icon:
+                    intensityKilograms: 1.3
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversions:
+                      item:
+                        kilograms: 0.270
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/en/foods/avocado.html
+                    displayName: Avocados
+                  Bananas:
+                    icon:
+                    intensityKilograms: 0.72
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversions:
+                      item:
+                        kilograms: 0.1
+                        incrementStepSize: 1
+                        source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+                    displayName: Bananas
+                  Blueberry:
+                    icon:
+                    intensityKilograms: 0.92
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversions:
+                      portion:
+                        kilograms: 0.045
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/de/kalorientabelle/blaubeeren-frisch.html
+                    displayName: Blueberry
+                  Blackberry:
+                    icon:
+                    intensityKilograms: 0.599
+                    source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                    unit: kg
+                    conversions:
+                      portion:
+                        kilograms: 0.076
+                        incrementStepSize: 1
+                        source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+                    displayName: Blackberry
+                  Blackcurrant:
+                    icon:
+                    intensityKilograms: 0.29
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversions:
+                      portion:
+                        kilograms: 0.04
+                        incrementStepSize: 1
+                        source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+                    displayName: Blackcurrant
+                  Boysenberry:
+                    icon:
+                    intensityKilograms: 0.599
+                    source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                    unit: kg
+                    displayName: Boysenberry
+                  Cantaloupe:
+                    icon:
+                    intensityKilograms: 0.490
+                    source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                    unit: kg
+                    conversions:
+                      portion:
+                        kilograms: 0.069
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/en/foods/cantaloupe-melon.html
+                        default: true
+                      item:
+                        kilograms: 0.35
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/en/foods/cantaloupe-melon.html
+                    displayName: Cantaloupe
+                  Cherries:
+                    icon:
+                    intensityKilograms: 0.39
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversions:
+                      portion:
+                        kilograms: 0.08
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/en/foods/cherries.html
+                        default: true
+                      item:
+                        kilograms: 0.008
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/en/foods/cherries.html
+                    displayName: Cherries
+                  Cinnamon:
+                    icon:
+                    intensityKilograms: 1.87
+                    source: http://assets.wwf.org.uk/downloads/how_low_report_1.pdf
+                    unit: kg
+                    displayName: Cinnamon
+                  Cranberries:
+                    icon:
+                    intensityKilograms: 0.92
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversions:
+                      portion:
+                        kilograms: 0.03
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/de/kalorientabelle/preiselbeeren-frisch.html
+                        default: true
+                      item:
+                        kilograms: 0.003
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/de/kalorientabelle/preiselbeeren-frisch.html
+                    displayName: Cranberries
+                  Coconut:    # this refers to the coconut meat of the study
+                    icon:
+                    intensityKilograms: 1.521
+                    source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                    unit: kg
+                    conversions:
+                      portion:
+                        kilograms: 0.08
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/en/foods/coconut-meat.html
+                        default: true
+                      item:
+                        kilograms: 0.397
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/en/foods/coconut-meat.html
+                    displayName: Coconut
+                  Currants:
+                    icon:
+                    intensityKilograms: 0.84
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversions:
+                      portion:
+                        kilograms: 0.03
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/de/kalorientabelle/johannisbeeren-schwarz-frisch.html
+                        default: true
+                      item:
+                        kilograms: 0.003
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/de/kalorientabelle/johannisbeeren-schwarz-frisch.html
+                    displayName: Currants
+                  Dates:
+                    icon:
+                    intensityKilograms: 0.32
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversion:
+                      portion:
+                        kilograms: 0.035
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/de/kalorientabelle/datteln.html
+                        default: true
+                      item:
+                        kilograms: 0.007
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/de/kalorientabelle/datteln.html
+                    displayName: Dates
+                  Figs:
+                    icon:
+                    intensityKilograms: 0.43
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversion:
+                      item:
+                        kilograms: 0.048
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/de/kalorientabelle/feigen-frisch.html
+                    displayName: Figs
+                  Gooseberries:
+                    icon:
+                    intensityKilograms: 0.84
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversion:
+                      portion:
+                        kilograms: 0.04
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/de/kalorientabelle/datteln.html
+                        default: true
+                      item:
+                        kilograms: 0.004
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/de/kalorientabelle/stachelbeeren-frisch.html
+                    displayName: Gooseberries
+                  Grapefruit:
+                    icon:
+                    intensityKilograms: 0.51
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversions:
+                      portion:
+                        kilograms: 0.116
+                        incrementStepSize: 1
+                        source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+                    displayName: Grapefruit
+                  Grapes:
+                    icon:
+                    intensityKilograms: 0.37
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversions:
+                      portion:
+                        kilograms: 0.07
+                        incrementStepSize: 1
+                        source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+                    displayName: Grapes
+                  Grapes (raisins):
+                    icon:
+                    intensityKilograms: 0.684
+                    source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                    unit: kg
+                    displayName: Grapes (raisins)
+                  Guavas:
+                    icon:
+                    intensityKilograms: 0.28
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversion:
+                      item:
+                        kilograms: 0.055
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/en/foods/guava.html
+                    displayName: Guavas
+                  Kiwi:
+                    icon:
+                    intensityKilograms: 0.36
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversions:
+                      item:
+                        kilograms: 0.06
+                        incrementStepSize: 1
+                        source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+                    displayName: Kiwi
+                  Kumquat:
+                    icon:
+                    intensityKilograms: 0.320
+                    source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                    unit: kg
+                    conversion:
+                      portion:
+                        kilograms: 0.095
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/de/kalorientabelle/datteln.html
+                        default: true
+                      item:
+                        kilograms: 0.019
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/en/foods/kumquat.html
+                    displayName: Kumquat
+                  Lemons:
+                    icon:
+                    intensityKilograms: 0.26
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversion:
+                      item:
+                        kilograms: 0.058
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/de/kalorientabelle/zitrone-ohne-schale-frisch.html
+                    displayName: Lemons
+                  Limes:
+                    icon:
+                    intensityKilograms: 0.26
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversion:
+                      item:
+                        kilograms: 0.067
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/de/kalorientabelle/limette-limone-frisch.html
+                    displayName: Limes
+                  Lychee:
+                    icon:
+                    intensityKilograms: 0.893
+                    source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                    unit: kg
+                    conversion:
+                      portion:
+                        kilograms: 0.060
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/en/foods/lychee.html
+                        default: true
+                      item:
+                        kilograms: 0.0096
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/en/foods/lychee.html
+                    displayName: Lychee
+                  Mandarin:
+                    icon:
+                    intensityKilograms: 0.45
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversion:
+                      item:
+                        kilograms: 0.105
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/de/kalorientabelle/mandarine-frisch.html
+                    displayName: Mandarin
+                  Mango:
+                    icon:
+                    intensityKilograms: 0.639
+                    source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                    unit: kg
+                    conversion:
+                      portion:
+                        kilograms: 0.168
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/en/foods/mango.html
+                        default: true
+                      item:
+                        kilograms: 0.336
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/en/foods/mango.html
+                    displayName: Mango
+                  Melons:
+                    icon:
+                    intensityKilograms: 0.25
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversions:
+                      portion:
+                        kilograms: 0.151
+                        incrementStepSize: 1
+                        source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+                    displayName: Melons
+                  Nectarines:
+                    icon:
+                    intensityKilograms: 0.43
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversion:
+                      item:
+                        kilograms: 0.125
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/de/kalorientabelle/nektarine-frisch.html
+                    displayName: Nectarines
+                  Orange:
+                    icon:
+                    intensityKilograms: 0.33
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversions:
+                      item:
+                        kilograms: 0.16
+                        incrementStepSize: 1
+                        source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+                    displayName: Orange
+                  Papaya:
+                    icon:
+                    intensityKilograms: 0.216
+                    source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                    unit: kg
+                    conversion:
+                      portion:
+                        kilograms: 0.125
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/en/foods/papaya.html
+                        default: true
+                      item:
+                        kilograms: 0.500
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/en/foods/papaya.html
+                    displayName: Papaya
+                  Passion fruit:
+                    icon:
+                    intensityKilograms: 1.663
+                    source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                    unit: kg
+                    conversion:
+                      item:
+                        kilograms: 0.0018
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/en/foods/passion-fruit.html
+                    displayName: Passion fruit
+                  Peaches:
+                    icon:
+                    intensityKilograms: 0.43
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversions:
+                      item:
+                        kilograms: 0.12
+                        incrementStepSize: 1
+                        source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+                    displayName: Peaches
+                  Pears:
+                    icon:
+                    intensityKilograms: 0.31
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversions:
+                      item:
+                        kilograms: 0.16
+                        incrementStepSize: 1
+                        source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+                    displayName: Pears
+                  Pineapples:
+                    icon:
+                    intensityKilograms: 0.5
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversions:
+                      portion:
+                        kilograms: 0.08
+                        incrementStepSize: 1
+                        source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+                    displayName: Pineapples
+                  Plum:
+                    icon:
+                    intensityKilograms: 0.576
+                    source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                    unit: kg
+                    conversions:
+                      item:
+                        kilograms: 0.092
+                        incrementStepSize: 1
+                        source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+                    displayName: Plum
+                  Pomegranate:
+                    icon:
+                    intensityKilograms: 0.462
+                    source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                    unit: kg
+                    conversions:
+                      portion:
+                        kilograms: 0.141
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/en/foods/pomegranate.html
+                        default: true
+                      item:
+                        kilograms: 0.282
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/en/foods/pomegranate.html
+                    displayName: Pomegranate
+                  Pomelo:
+                    icon:
+                    intensityKilograms: 0.51
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversion:
+                      portion:
+                        kilograms: 0.06
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/de/kalorientabelle/pomelo-frisch.html
+                        default: true
+                      item:
+                        kilograms: 0.120
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/de/kalorientabelle/pomelo-frisch.html
+                    displayName: Pomelo
+                  Prunes:
+                    icon:
+                    intensityKilograms: 0.273
+                    source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                    unit: kg
+                    conversions:
+                      item:
+                        kilograms: 0.024
+                        incrementStepSize: 1
+                        source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+                    displayName: Prunes
+                  Quinces:
+                    icon:
+                    intensityKilograms: 0.31
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversion:
+                      item:
+                        kilograms: 0.092
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/de/kalorientabelle/quitte-frisch.html
+                    displayName: Quinces
+                  Raspberries:
+                    icon:
+                    intensityKilograms: 0.84
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversions:
+                      portion:
+                        kilograms: 0.114
+                        incrementStepSize: 1
+                        source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+                    displayName: Raspberries
+                  Rhubarb:
+                    icon:
+                    intensityKilograms: 1.528
+                    source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                    unit: kg
+                    conversions:
+                      portion:
+                        kilograms: 0.09
+                        incrementStepSize: 1
+                        source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+                    displayName: Rhubarb
+                  Strawberries:
+                    icon:
+                    intensityKilograms: 0.58
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversions:
+                      portion:
+                        kilograms: 0.096
+                        incrementStepSize: 1
+                        source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+                    displayName: Strawberries
+                  Tangerines:
+                    icon:
+                    intensityKilograms: 0.51
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversion:
+                      item:
+                        kilograms: 0.105
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/de/kalorientabelle/mandarine-frisch.html
+                    displayName: Tangerines
+                  Vanilla:
+                    icon:
+                    intensityKilograms: 13.71
+                    source: http://assets.wwf.org.uk/downloads/how_low_report_1.pdf
+                    unit: kg
+                    displayName: Vanilla
+                  Watermelon:
+                    icon:
+                    intensityKilograms: 0.32
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversion:
+                      portion:
+                        kilograms: 0.150
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/de/kalorientabelle/wassermelone-frisch.html
+                        default: true
+                      item:
+                        kilograms: 2.5
+                        incrementStepSize: 1
+                        source: https://www.yazio.com/de/kalorientabelle/wassermelone-frisch.html
+                    displayName: Watermelon
+                icon: lemon
+                intensityKilograms: 0.52
+                oldKeys:
+                  - Fruit
+                source: http://www.greeneatz.com/foods-carbon-footprint.html
+                unit: kg
+                displayName: Fruits
+              Nuts:
+                _children:
+                  Almonds:
+                    icon:
+                    intensityKilograms: 1.54
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Almonds
+                  Cashew nut:
+                    icon:
+                    intensityKilograms: 1.44
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Cashew nut
+                  Chestnuts:
+                    icon:
+                    intensityKilograms: 0.43
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Chestnuts
+                  Hazelnuts:
+                    icon:
+                    intensityKilograms: 0.97
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Hazelnuts
+                  Macadamia nuts:
+                    icon:
+                    intensityKilograms: 2.057
+                    source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                    unit: kg
+                    displayName: Macadamia nuts
+                  Pecan nuts:
+                    icon:
+                    intensityKilograms: 2.057
+                    source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                    unit: kg
+                    displayName: Pecan nuts
+                  Peanut butter:
+                    icon:
+                    intensityKilograms: 2.3
+                    source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
+                    unit: kg
+                    oldKeys:
+                      - Peanut Butter
+                    displayName: Peanut butter
+                  Peanuts:
+                    icon:
+                    intensityKilograms: 0.83
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Peanuts
+                  Pine nuts:
+                    icon:
+                    intensityKilograms: 2.057
+                    source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                    unit: kg
+                    displayName: Pine nuts
+                  Pistachios:
+                    icon:
+                    intensityKilograms: 1.53
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Pistachios
+                  Walnuts:
+                    icon:
+                    intensityKilograms: 1.51
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Walnuts
+                icon: acorn
+                intensityKilograms: 2.3
+                source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
+                unit: kg
+                displayName: Nuts
             coicopCode: 01.1.6
             year: 2011
             unit: EUR
@@ -2194,6 +1597,385 @@ _children:
               ZA: 2.0962066964898174
             displayName: Fruits and nuts
           Vegetables, tubers, plantains, cooking bananas and pulses (ND):
+            _children:
+              Vegetables:
+                _children:
+                  Artichokes:
+                    icon:
+                    intensityKilograms: 0.48
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Artichokes
+                  Aspargus:
+                    icon:
+                    intensityKilograms: 0.83
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Aspargus
+                  Basil (dried):
+                    icon:
+                    intensityKilograms: 2.495
+                    source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                    unit: kg
+                    displayName: Basil (dried)
+                  Basil (fresh):
+                    icon:
+                    intensityKilograms: 0.221
+                    source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                    unit: kg
+                    displayName: Basil (fresh)
+                  Beetroot:
+                    icon:
+                    intensityKilograms: 0.24
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Beetroot
+                  Broccoli:
+                    icon:
+                    intensityKilograms: 2
+                    source: http://static.ewg.org/reports/2011/meateaters/pdf/methodology_ewg_meat_eaters_guide_to_health_and_climate_2011.pdf
+                    unit: kg
+                    conversions:
+                      portion:
+                        kilograms: 0.054
+                        incrementStepSize: 1
+                        source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+                    displayName: Broccoli
+                  Brussels sprouts:
+                    icon:
+                    intensityKilograms: 0.490
+                    source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                    unit: kg
+                    conversions:
+                      portion:
+                        kilograms: 0.056
+                        incrementStepSize: 1
+                        source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+                    displayName: Brussels sprouts
+                  Carrots:
+                    icon:
+                    intensityKilograms: 0.2
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversions:
+                      item:
+                        kilograms: 0.061
+                        incrementStepSize: 1
+                        source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+                    displayName: Carrots
+                  Cabbage:
+                    icon:
+                    intensityKilograms: 0.45
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversions:
+                      portion:
+                        kilograms: 0.09
+                        incrementStepSize: 1
+                        source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+                    displayName: Cabbage
+                  Cauliflowers:
+                    icon:
+                    intensityKilograms: 0.45
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversions:
+                      portion:
+                        kilograms: 0.06
+                        incrementStepSize: 1
+                        source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+                    displayName: Cauliflowers
+                  Celery:
+                    icon:
+                    intensityKilograms: 0.18
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Celery
+                  Cilantro:
+                    icon:
+                    intensityKilograms: 0.261
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Cilantro
+                  Chive:
+                    icon:
+                    intensityKilograms: 0.221
+                    source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                    unit: kg
+                    displayName: Chive
+                  Courgette:
+                    # remember to update Zucchini as well
+                    icon:
+                    intensityKilograms: 0.21
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversions:
+                      portion:
+                        kilograms: 0.06
+                        incrementStepSize: 1
+                        source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+                    displayName: Courgette
+                  Cucumbers:
+                    icon:
+                    intensityKilograms: 0.23
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversions:
+                      portion:
+                        kilograms: 0.024
+                        incrementStepSize: 1
+                        source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+                    displayName: Cucumbers
+                  Dill:
+                    icon:
+                    intensityKilograms: 0.221
+                    source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                    unit: kg
+                    displayName: Dill
+                  Endive:
+                    icon:
+                    intensityKilograms: 0.065
+                    source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                    unit: kg
+                    displayName: Endive
+                  Eggplants:
+                    icon:
+                    intensityKilograms: 1.35
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Eggplants
+                  Fennel:
+                    icon:
+                    intensityKilograms: 0.48
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Fennel
+                  Garlic:
+                    icon:
+                    intensityKilograms: 0.57
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Garlic
+                  Green onion:
+                    # remember to update Scallion as well
+                    icon:
+                    intensityKilograms: 0.085
+                    source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                    unit: kg
+                    displayName: Green onion
+                  Ginger:
+                    icon:
+                    intensityKilograms: 0.88
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Ginger
+                  Horseradish:
+                    icon:
+                    intensityKilograms: 0.88
+                    source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                    unit: kg
+                    displayName: Horseradish
+                  Kale:
+                    icon:
+                    intensityKilograms: 0.193
+                    source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                    unit: kg
+                    displayName: Kale
+                  Leek:
+                    icon:
+                    intensityKilograms: 0.45
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversions:
+                      portion:
+                        kilograms: 0.067
+                        incrementStepSize: 1
+                        source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+                    displayName: Leek
+                  Lettuce:
+                    icon:
+                    intensityKilograms: 0.220
+                    source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                    unit: kg
+                    conversions:
+                      portion:
+                        kilograms: 0.024
+                        incrementStepSize: 1
+                        source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+                    displayName: Lettuce
+                  Mushrooms:
+                    icon:
+                    intensityKilograms: 0.27
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversions:
+                      portion:
+                        kilograms: 0.04
+                        incrementStepSize: 1
+                        source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+                    displayName: Mushrooms
+                  Nutmeg:
+                    icon:
+                    intensityKilograms: 4.82
+                    source: http://assets.wwf.org.uk/downloads/how_low_report_1.pdf
+                    unit: kg
+                    displayName: Nutmeg
+                  Olives:
+                    icon:
+                    intensityKilograms: 0.63
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Olives
+                  Olive (oil):
+                    icon:
+                    intensityKilograms: 3.206
+                    source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                    unit: kg
+                    displayName: Olive (oil)
+                  Onion:
+                    icon:
+                    intensityKilograms: 0.17
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversions:
+                      portion:
+                        kilograms: 0.046
+                        incrementStepSize: 1
+                        source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+                    displayName: Onion
+                  Parsley:
+                    icon:
+                    intensityKilograms: 0.232
+                    source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                    unit: kg
+                    displayName: Parsley
+                  Parsnip:
+                    icon:
+                    intensityKilograms: 0.243
+                    source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                    unit: kg
+                    conversions:
+                      portion:
+                        kilograms: 0.042
+                        incrementStepSize: 1
+                        source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+                    displayName: Parsnip
+                  Peppers:
+                    icon:
+                    intensityKilograms: 0.66
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversions:
+                      portion:
+                        kilograms: 0.02
+                        incrementStepSize: 1
+                        source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+                    displayName: Peppers
+                  Potatoes:
+                    icon:
+                    intensityKilograms: 0.18
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Potatoes
+                  Pumpkins:
+                    icon:
+                    intensityKilograms: 0.25
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    displayName: Pumpkins
+                  Rutabage:
+                    icon:
+                    intensityKilograms: 0.29
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversions:
+                      portion:
+                        kilograms: 0.047
+                        incrementStepSize: 1
+                        source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+                    displayName: Rutabage
+                  Scallion:
+                    # remember to update Green Onion as well
+                    icon:
+                    intensityKilograms: 0.085
+                    source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                    unit: kg
+                    displayName: Scallion
+                  Shallot:
+                    icon:
+                    intensityKilograms: 0.275
+                    source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                    unit: kg
+                    displayName: Shallot
+                  Spinach:
+                    icon:
+                    intensityKilograms: 0.54
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversions:
+                      portion:
+                        kilograms: 0.097
+                        incrementStepSize: 1
+                        source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+                    displayName: Spinach
+                  Sweet potatoes:
+                    icon:
+                    intensityKilograms: 0.302
+                    source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                    unit: kg
+                    displayName: Sweet potatoes
+                  Tomatoes:
+                    icon:
+                    intensityKilograms: 0.45
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversions:
+                      item:
+                        kilograms: 0.085
+                        incrementStepSize: 1
+                        source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+                    displayName: Tomatoes
+                  Tomatoe ketchup:
+                    icon:
+                    intensityKilograms: 0.747
+                    source: https://link.springer.com/article/10.1007/s11367-018-1460-x#MOESM1
+                    unit: kg
+                    displayName: Tomatoe ketchup
+                  Turmeric:
+                    icon:
+                    intensityKilograms: 0.213
+                    source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                    unit: kg
+                    displayName: Turmeric
+                  Vegetable oil:
+                    icon:
+                    intensityKilograms: 3.740
+                    source: https://link.springer.com/article/10.1007/s11367-018-1460-x#MOESM1
+                    unit: kg
+                    displayName: Vegetable oil
+                  Vinegar:
+                    icon:
+                    intensityKilograms: 1.327
+                    source: https://link.springer.com/article/10.1007/s11367-018-1460-x#MOESM1
+                    unit: kg
+                    displayName: Vinegar
+                  Zucchini:
+                    # remember to update Courgette as well
+                    icon:
+                    intensityKilograms: 0.21
+                    source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+                    unit: kg
+                    conversions:
+                      portion:
+                        kilograms: 0.06
+                        incrementStepSize: 1
+                        source: https://www.who.int/dietphysicalactivity/publications/f&v_intake_measurement.pdf
+                    displayName: Zucchini
+                icon: carrot
+                intensityKilograms: 1.32
+                source: https://orbit.dtu.dk/ws/files/110722384/Climate_friendly_dietary_guidelines.pdf
+                unit: kg
+                displayName: Vegetables
             coicopCode: 01.1.7
             year: 2011
             unit: EUR
@@ -2250,6 +2032,48 @@ _children:
               ZA: 2.0962066964898174
             displayName: Vegetables, tubers, plantains, cooking bananas and pulses
           Sugar, confectionery and desserts (ND):
+            _children:
+              Chocolate:
+                icon:
+                intensityKilograms: 11.250
+                source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                unit: kg
+                displayName: Chocolate
+              Cocoa powder:
+                icon:
+                intensityKilograms: 33.647
+                source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                unit: kg
+                displayName: Cocoa powder
+              Honey:
+                icon:
+                intensityKilograms: 2.440
+                source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                unit: kg
+                displayName: Honey
+              Maple syrup:
+                icon:
+                intensityKilograms: 6.754
+                source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                unit: kg
+                conversions:
+                  L:
+                    kilograms: 1.34
+                    incrementStepSize: 0.05
+                    source: http://convert-to.com/571/maple-syrup-amounts-conversion-plus-nutritional-facts.html
+                displayName: Maple syrup
+              Sugar (sugarcane):
+                icon:
+                intensityKilograms: 0.700
+                source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                unit: kg
+                displayName: Sugar (sugarcane)
+              Sugar (beet):
+                icon:
+                intensityKilograms: 0.391
+                source: https://iopscience.iop.org/1748-9326/13/4/044004/media/ERL_044004_SD.pdf
+                unit: kg
+                displayName: Sugar (beet)
             coicopCode: 01.1.8
             year: 2011
             unit: EUR
@@ -2306,6 +2130,25 @@ _children:
               ZA: 1.9262341788067288
             displayName: Sugar, confectionery and desserts
           Ready-made food and other food products n.e.c. (ND):
+            _children:
+              Yeast:
+                icon:
+                intensityKilograms: 0.96
+                source: https://link.springer.com/article/10.1007/s11367-018-1460-x#MOESM1
+                unit: kg
+                displayName: Yeast
+              Baking soda:
+                icon:
+                intensityKilograms: 0.0261
+                source: https://epdturkey.org/wp-content/uploads/eti_soda_iso_14025.pdf
+                unit: kg
+                displayName: Baking soda
+              Salt:
+                icon:
+                intensityKilograms: 0.3
+                source: https://link.springer.com/article/10.1007/s11367-018-1460-x#MOESM1
+                unit: kg
+                displayName: Salt
             coicopCode: 01.1.9
             year: 2011
             unit: EUR
@@ -2416,6 +2259,97 @@ _children:
           ZA: 2.336215380140349
         displayName: Food
       NON-ALCOHOLIC BEVERAGES:
+        _children:
+          Almond milk:
+            icon: glass
+            intensityKilograms: 0.42
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+            unit: kg
+            conversions:
+              glass:
+                kilograms: 0.225
+                incrementStepSize: 1
+            displayName: Almond milk
+          Coconut milk:
+            icon: glass
+            intensityKilograms: 0.42
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+            unit: kg
+            conversions:
+              glass:
+                kilograms: 0.225
+                incrementStepSize: 1
+            displayName: Coconut milk
+          Coffee:
+            icon: coffee
+            intensityKilograms: 0.33
+            source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
+            unit: kg
+            conversions:
+              cup:
+                kilograms: 0.15
+                incrementStepSize: 1
+            displayName: Coffee
+          Juice:
+            icon: glass
+            intensityKilograms: 0.93
+            source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
+            unit: kg
+            conversions:
+              glass:
+                kilograms: 0.225
+                incrementStepSize: 1
+            displayName: Juice
+          Soft drink:
+            icon: glass
+            intensityKilograms: 1.035
+            source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
+            unit: kg
+            conversions:
+              glass:
+                kilograms: 0.225
+                incrementStepSize: 1
+            displayName: Soft drink
+          Soy milk:
+            icon: glass
+            intensityKilograms: 0.75
+            source: https://www.sciencedirect.com/science/article/pii/S0959652616303584
+            unit: kg
+            conversions:
+              glass:
+                kilograms: 0.225
+                incrementStepSize: 1
+            displayName: Soy milk
+          Tea:
+            icon: coffee
+            intensityKilograms: 0.184
+            source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
+            unit: kg
+            conversions:
+              cup:
+                kilograms: 0.150
+                incrementStepSize: 1
+            displayName: Tea
+          Water (bottled):
+            icon: glass
+            intensityKilograms: 0.215
+            source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
+            unit: kg
+            conversions:
+              glass:
+                kilograms: 0.225
+                incrementStepSize: 1
+            displayName: Water (bottled)
+          Water (tap):
+            icon: glass
+            intensityKilograms: 0.001
+            source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
+            unit: kg
+            conversions:
+              glass:
+                kilograms: 0.225
+                incrementStepSize: 1
+            displayName: Water (tap)
         coicopCode: '01.2'
         year: 2011
         unit: EUR
@@ -2475,6 +2409,37 @@ _children:
   Alcoholic beverages, tobacco and narcotics:
     _children:
       ALCOHOLIC BEVERAGES:
+        _children:
+          Beer:
+            icon:
+            intensityKilograms: 1.123
+            source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
+            unit: kg
+            conversions:
+              glass:
+                kilograms: 0.285
+                incrementStepSize: 1
+            displayName: Beer
+          Wine:
+            icon: wine-glass-alt
+            intensityKilograms: 2.344
+            source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
+            unit: kg
+            conversions:
+              glass:
+                kilograms: 0.150
+                incrementStepSize: 1
+            displayName: Wine
+          Spirits:
+            icon: glass-whiskey-rocks
+            intensityKilograms: 3.144
+            source: http://web.agrsci.dk/djfpublikation/djfpdf/DCArapport158.pdf
+            unit: kg
+            conversions:
+              glass:
+                kilograms: 0.035
+                incrementStepSize: 1
+            displayName: Spirits
         icon: wine-bottle
         intensityKilograms:
           AT: 0.4732692141066177
