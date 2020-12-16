@@ -185,7 +185,7 @@ describe('the purchase categories are correctly defined', () => {
 });
 
 describe('coicop codes are correctly attributed', () => {
-  Object.values(ENTRY_BY_KEY).forEach(entry => {
+  Object.values(ENTRY_BY_KEY).forEach((entry) => {
     if (entry.coicopCode) {
       test(`the parent of ${entry.displayName} has an adequate coicop code`, () => {
         const parent = entry.parentKey ? ENTRY_BY_KEY[entry.parentKey] : null;
@@ -198,7 +198,7 @@ describe('coicop codes are correctly attributed', () => {
 });
 
 describe('the associated purchase categories are correclty attributed', () => {
-  Object.values(ENTRY_BY_KEY).forEach(entry => {
+  Object.values(ENTRY_BY_KEY).forEach((entry) => {
     // either name of parent or parent has the same associate purchase category
     if (entry.associatedPurchaseCategory) {
       test(`the parent of ${entry.displayName} is the associatedPurchaseCategory or has the same associatedPurchaseCategory`, () => {
