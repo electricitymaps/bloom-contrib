@@ -66,7 +66,7 @@ _children:
     year: 2011
     _children:
       FOOD:
-        coicopCode: '01.1'
+        coicopCode: 01.1
         _children:
           Cereals and cereal products (ND):
             _children:
@@ -2546,7 +2546,7 @@ _children:
                 incrementStepSize: 1
             displayName: Water (tap)
             associatedPurchaseCategory: NON-ALCOHOLIC BEVERAGES
-        coicopCode: '01.2'
+        coicopCode: 01.2
         year: 2011
         unit: EUR
         source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
@@ -2696,7 +2696,7 @@ _children:
           - Liquor store
         source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
-        coicopCode: '02.1'
+        coicopCode: 02.1
         year: 2011
         displayName: Alcoholic beverages
         keywords:
@@ -2757,7 +2757,7 @@ _children:
           - Tobacco store
         source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
-        coicopCode: '02.3'
+        coicopCode: 02.3
         year: 2011
         displayName: Tobacco
     displayName: Alcoholic beverages, tobacco and narcotics
@@ -2958,7 +2958,7 @@ _children:
           - Department store
         source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
-        coicopCode: '03.1'
+        coicopCode: 03.1
         year: 2011
         displayName: Clothing
         keywords:
@@ -2996,7 +2996,7 @@ _children:
             usage: 30%
             displayName: Shoes (sports)
             associatedPurchaseCategory: FOOTWEAR
-        coicopCode: '03.2'
+        coicopCode: 03.2
         year: 2011
         unit: EUR
         source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
@@ -3058,7 +3058,7 @@ _children:
   HOUSING, WATER, ELECTRICITY, GAS AND OTHER FUELS:
     _children:
       ACTUAL RENTALS FOR HOUSING:
-        coicopCode: '04.1'
+        coicopCode: 04.1
         year: 2011
         unit: EUR
         source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
@@ -3120,7 +3120,7 @@ _children:
           - office
           - building
       IMPUTED RENTALS FOR HOUSING:
-        coicopCode: '04.2'
+        coicopCode: 04.2
         year: 2011
         unit: EUR
         source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
@@ -3176,7 +3176,7 @@ _children:
           ZA: 0.27258596954249964
         displayName: Imputed rentals for housing
       MAINTENANCE, REPAIR AND SECURITY OF THE DWELLING:
-        coicopCode: '04.3'
+        coicopCode: 04.3
         year: 2011
         unit: EUR
         source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
@@ -3242,7 +3242,7 @@ _children:
           - plaster
           - detector
       WATER SUPPLY AND MISCELLANEOUS SERVICES RELATING TO THE DWELLING:
-        coicopCode: '04.4'
+        coicopCode: 04.4
         year: 2011
         unit: EUR
         source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
@@ -3902,7 +3902,7 @@ _children:
               - restoration
         displayName: Furniture, furnishings, and loose carpets
       HOUSEHOLD TEXTILES:
-        coicopCode: '05.2'
+        coicopCode: 05.2
         year: 2011
         unit: EUR
         source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
@@ -4195,7 +4195,7 @@ _children:
           - Household appliances
         source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
-        coicopCode: '05.3'
+        coicopCode: 05.3
         year: 2011
         displayName: Household appliances
         keywords:
@@ -4215,7 +4215,7 @@ _children:
           - heater
           - radiator
       GLASSWARE, TABLEWARE AND HOUSEHOLD UTENSILS:
-        coicopCode: '05.4'
+        coicopCode: 05.4
         year: 2011
         unit: EUR
         source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
@@ -4330,7 +4330,7 @@ _children:
           - Hardware
         source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
-        coicopCode: '05.5'
+        coicopCode: 05.5
         year: 2011
         displayName: Tools and equipment for house and garden
         keywords:
@@ -4538,7 +4538,7 @@ _children:
           - Drug store or pharmacy
         source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
-        coicopCode: '06.1'
+        coicopCode: 06.1
         year: 2011
         displayName: Medicines and health products
         keywords:
@@ -4604,7 +4604,7 @@ _children:
           - Doctor
         source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
-        coicopCode: '06.2'
+        coicopCode: 06.2
         year: 2011
         displayName: Outpatient care services
         keywords:
@@ -4615,7 +4615,7 @@ _children:
           - psychological
           - therapy
       INPATIENT CARE SERVICES:
-        coicopCode: '06.3'
+        coicopCode: 06.3
         year: 2011
         unit: EUR
         source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
@@ -4679,7 +4679,7 @@ _children:
   TRANSPORT:
     _children:
       PURCHASE OF VEHICLES:
-        coicopCode: '07.1'
+        coicopCode: 07.1
         year: 2011
         unit: EUR
         source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
@@ -6444,7 +6444,7 @@ _children:
           - Electronic store
         source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
-        coicopCode: '08.1'
+        coicopCode: 08.1
         year: 2011
         displayName: Information and communication equipment
         keywords:
@@ -6590,7 +6590,7 @@ _children:
             unit: item
             displayName: Basketball
             associatedPurchaseCategory: RECREATIONAL DURABLES
-        coicopCode: '09.1'
+        coicopCode: 09.1
         year: 2011
         unit: EUR
         source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
@@ -6714,7 +6714,7 @@ _children:
           - Florist
         source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
-        coicopCode: '09.3'
+        coicopCode: 09.3
         year: 2011
         displayName: Garden products and pets
         keywords:
@@ -6784,7 +6784,7 @@ _children:
           - Cinema
         source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
-        coicopCode: '09.4'
+        coicopCode: 09.4
         year: 2011
         displayName: Recreational services
         keywords:
@@ -6851,7 +6851,7 @@ _children:
           - Bookshop
         source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
-        coicopCode: '09.7'
+        coicopCode: 09.7
         year: 2011
         displayName: Newspapers, books and stationery
         keywords:
@@ -6924,7 +6924,7 @@ _children:
           - Cruise
         source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
-        coicopCode: '09.8'
+        coicopCode: 09.8
         year: 2011
         displayName: Package holidays
         keywords:
@@ -6935,7 +6935,7 @@ _children:
   RESTAURANTS AND ACCOMMODATION SERVICES:
     _children:
       FOOD AND BEVERAGE SERVING SERVICES:
-        coicopCode: '11.1'
+        coicopCode: 11.1
         year: 2011
         unit: EUR
         source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
@@ -7059,7 +7059,7 @@ _children:
           - Hotel
         source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
-        coicopCode: '11.2'
+        coicopCode: 11.2
         year: 2011
         displayName: Accommodation services
         keywords:
@@ -7077,7 +7077,7 @@ _children:
   INSURANCE AND FINANCIAL SERVICES:
     _children:
       INSURANCE:
-        coicopCode: '12.1'
+        coicopCode: 12.1
         year: 2011
         unit: EUR
         source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
@@ -7133,7 +7133,7 @@ _children:
           ZA: 0.6170587484951258
         displayName: Insurance
       FINANCIAL SERVICES:
-        coicopCode: '12.2'
+        coicopCode: 12.2
         year: 2011
         unit: EUR
         source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
@@ -7251,7 +7251,7 @@ _children:
           - Barber or beauty shop
         source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
         unit: EUR
-        coicopCode: '13.1'
+        coicopCode: 13.1
         year: 2011
         displayName: Personal care
         keywords:
@@ -7375,7 +7375,7 @@ _children:
             displayName: Other personal effects n.e.c.
         displayName: Other personal effects
       SOCIAL PROTECTION:
-        coicopCode: '13.3'
+        coicopCode: 13.3
         year: 2011
         unit: EUR
         source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
@@ -7431,7 +7431,7 @@ _children:
           ZA: 0.08290291271354444
         displayName: Social protection
       OTHER SERVICES:
-        coicopCode: '13.9'
+        coicopCode: 13.9
         year: 2011
         unit: EUR
         source: https://github.com/tmrowco/bloom-contrib/tree/master/co2eq/purchase/exiobase
