@@ -65,7 +65,7 @@ _children:
     coicopCode: '01'
     year: 2011
     _children:
-      FOOD:
+      Food:
         coicopCode: 01.1
         _children:
           Cereals and cereal products (ND):
