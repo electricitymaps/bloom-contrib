@@ -197,7 +197,7 @@ describe('coicop codes are correctly attributed', () => {
   });
 });
 
-describe('the associated purchase categories are correclty attributed', () => {
+describe('the associated purchase categories are correctly attributed', () => {
   Object.values(ENTRY_BY_KEY).forEach((entry) => {
     // either name of parent or parent has the same associate purchase category
     if (entry.associatedPurchaseCategory) {
