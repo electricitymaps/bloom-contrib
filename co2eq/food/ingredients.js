@@ -1,4 +1,9 @@
-import { ACTIVITY_TYPE_MEAL, PURCHASE_CATEGORY_FOOD, UNIT_KILOGRAMS } from '../../definitions';
+import {
+  ACTIVITY_TYPE_MEAL,
+  PURCHASE_CATEGORY_FOOD,
+  PURCHASE_CATEGORY_STORE_FOOD,
+  UNIT_KILOGRAMS,
+} from '../../definitions';
 import {
   getChecksumOfFootprints,
   getDescendants,
@@ -38,8 +43,7 @@ export function modelCanRun(activity) {
   }
   return false;
 }
-
-const foodBranch = getEntryByPath([PURCHASE_CATEGORY_FOOD]);
+const foodBranch = getEntryByPath([PURCHASE_CATEGORY_STORE_FOOD, PURCHASE_CATEGORY_FOOD]);
 const ingredients = getDescendants(foodBranch);
 export const INGREDIENT_KEYS = Object.keys(ingredients);
 export const INGREDIENT_CATEGORIES = [...new Set(Object.keys(foodBranch._children))];
