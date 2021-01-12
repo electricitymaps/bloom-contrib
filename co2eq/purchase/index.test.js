@@ -27,36 +27,6 @@ import { getAvailableCurrencies } from '../../integrations/utils/currency/curren
 import exchangeRates2011 from './exchange_rates_2011.json';
 import { carbonEmissions, getDescendants, getRootEntry, modelCanRun } from './index';
 
-Object.entries(getDescendants(getRootEntry()))
-  .filter(([_k, v]) => v.unit)
-  .forEach(([k, v]) => {
-    test(`default unit of ${k}`, () => {
-      expect(UNITS).toContain(v.unit);
-    });
-  });
-
-Object.entries(getDescendants(getRootEntry()))
-  .filter(([_k, v]) => v.conversions)
-  .forEach(([entryKey, v]) => {
-    Object.keys(v.conversions).forEach((k) => {
-      test(`conversion units of ${entryKey}`, () => {
-        expect(UNITS).toContain(k);
-      });
-    });
-  });
-
-test(`available currencies match definition`, () => {
-  const defined = Object.keys(UNIT_CURRENCIES);
-  const available = getAvailableCurrencies();
-  expect(defined.sort()).toEqual(available.sort());
-});
-
-test(`available 2011 currencies match definition`, () => {
-  const defined = Object.keys(UNIT_CURRENCIES);
-  const available2011 = Object.keys(exchangeRates2011.rates);
-  expect(defined.sort()).toEqual(available2011.sort());
-});
-
 test(`test household appliance for DK in EUR`, () => {
   const activity = {
     activityType: ACTIVITY_TYPE_PURCHASE,
@@ -172,6 +142,42 @@ test(`test non-monetary units (in kg)`, () => {
   };
   expect(modelCanRun(activity)).toBeTruthy();
   expect(carbonEmissions(activity)).toBeCloseTo(92.5);
+});
+
+
+describe('default units', () => {
+  test('all entries have valid units', () => {
+    Object.entries(getDescendants(getRootEntry()))
+      .filter(([_k, v]) => v.unit)
+      .forEach(([_entryKey, v]) => {
+        expect(UNITS).toContain(v.unit);
+      });
+  });
+});
+
+describe('conversion units', () => {
+  test('all units are valid', () => {
+    Object.entries(getDescendants(getRootEntry()))
+      .filter(([_k, v]) => v.conversions)
+      .forEach(([_entryKey, v]) => {
+        Object.keys(v.conversions).forEach((k) => {
+          expect(UNITS).toContain(k);
+        });
+      });
+  });
+});
+
+describe('currencies', () => {
+  test(`available currencies match definition`, () => {
+    const defined = Object.keys(UNIT_CURRENCIES);
+    const available = getAvailableCurrencies();
+    expect(defined.sort()).toEqual(available.sort());
+  });
+  test(`available 2011 currencies match definition`, () => {
+    const defined = Object.keys(UNIT_CURRENCIES);
+    const available2011 = Object.keys(exchangeRates2011.rates);
+    expect(defined.sort()).toEqual(available2011.sort());
+  });
 });
 
 describe('test equivalence of activityType=ACTIVITY_TYPE_PURCHASE with other activity types computed using monetary emission factors', () => {
