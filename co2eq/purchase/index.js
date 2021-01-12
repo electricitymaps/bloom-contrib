@@ -104,7 +104,7 @@ export function getDescendants(entry, filter = (_) => true, includeRoot = false)
 
 // ** modelName must not be changed. If changed then old activities will not be re-calculated **
 export const modelName = 'purchase';
-export const modelVersion = `9_${getChecksumOfFootprints()}`; // This model relies on footprints.yaml
+export const modelVersion = `10_${getChecksumOfFootprints()}`; // This model relies on footprints.yaml
 export const modelCanRunVersion = 1;
 export function modelCanRun(activity) {
   const { costAmount, costCurrency, activityType, transportationMode, lineItems } = activity;
@@ -154,7 +154,38 @@ function extractEur({ costAmount, costCurrency }) {
   return costAmount && costCurrency ? convertTo2011Euro(costAmount, costCurrency) : null;
 }
 
-function conversionCPI(eurAmount, referenceYear, countryCodeISO2, datetime) {
+export function getClosestYear(data, year) {
+  return Object.keys(data).reduce((prev, curr) =>
+    Math.abs(curr - year) <= Math.abs(prev - year) ? curr : prev
+  );
+}
+
+function getCPI(countryCodeISO2, year) {
+  const countryData = consumerPriceIndex[COUNTRY_CPI_INDICATOR][countryCodeISO2];
+  const averageData = consumerPriceIndex[AVERAGE_CPI_COUNTRY_INDICATOR];
+
+  // Use data for country and year if possible
+  if (countryCodeISO2 && countryData[year]) {
+    return countryData[year];
+  }
+
+  // Secondly we use the closest possible year for that country
+  if (countryCodeISO2) {
+    const closestYear = getClosestYear(countryData, year);
+    return countryData[closestYear];
+  }
+
+  // Thirdly we use the global average for that year
+  if (averageData[year]) {
+    return averageData[year];
+  }
+
+  // Lastly we use the global average for the closest possible year
+  const closestYear = getClosestYear(averageData, year);
+  return averageData[closestYear];
+}
+
+export function conversionCPI(eurAmount, referenceYear, countryCodeISO2, datetime) {
   if (!eurAmount || !datetime) {
     return eurAmount;
   }
@@ -163,31 +194,10 @@ function conversionCPI(eurAmount, referenceYear, countryCodeISO2, datetime) {
     throw new Error(`Missing consumer price index reference year`);
   }
 
-  const currentDateIndicator = datetime.getFullYear();
+  const currentYear = datetime.getFullYear();
 
-  let CPIcurrent;
-  if (
-    countryCodeISO2 &&
-    consumerPriceIndex[COUNTRY_CPI_INDICATOR][countryCodeISO2][currentDateIndicator]
-  ) {
-    CPIcurrent = consumerPriceIndex[COUNTRY_CPI_INDICATOR][countryCodeISO2][currentDateIndicator];
-  } else if (consumerPriceIndex[AVERAGE_CPI_COUNTRY_INDICATOR][currentDateIndicator]) {
-    CPIcurrent = consumerPriceIndex[AVERAGE_CPI_COUNTRY_INDICATOR][currentDateIndicator];
-  } else {
-    throw new Error(`Unknown CPI for activity date ${datetime}`);
-  }
-
-  let CPIreference;
-  if (
-    countryCodeISO2 &&
-    consumerPriceIndex[COUNTRY_CPI_INDICATOR][countryCodeISO2][referenceYear]
-  ) {
-    CPIreference = consumerPriceIndex[COUNTRY_CPI_INDICATOR][countryCodeISO2][referenceYear];
-  } else if (consumerPriceIndex[AVERAGE_CPI_COUNTRY_INDICATOR][referenceYear]) {
-    CPIreference = consumerPriceIndex[AVERAGE_CPI_COUNTRY_INDICATOR][referenceYear];
-  } else {
-    throw new Error(`Unknown CPI for reference year ${referenceYear}`);
-  }
+  const CPIcurrent = getCPI(countryCodeISO2, currentYear);
+  const CPIreference = getCPI(countryCodeISO2, referenceYear);
 
   // ref: https://www.investopedia.com/terms/c/consumerpriceindex.asp
   const eurAmountAdjusted = eurAmount * (CPIreference / CPIcurrent);

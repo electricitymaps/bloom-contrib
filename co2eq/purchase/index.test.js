@@ -25,13 +25,20 @@ import {
 } from '../../definitions';
 import { getAvailableCurrencies } from '../../integrations/utils/currency/currency';
 import exchangeRates2011 from './exchange_rates_2011.json';
-import { carbonEmissions, getDescendants, getRootEntry, modelCanRun } from './index';
+import {
+  carbonEmissions,
+  conversionCPI,
+  getClosestYear,
+  getDescendants,
+  getRootEntry,
+  modelCanRun,
+} from './index';
 
 test(`test household appliance for DK in EUR`, () => {
   const activity = {
     activityType: ACTIVITY_TYPE_PURCHASE,
     countryCodeISO2: 'DK',
-    datetime: new Date('2020-04-11T10:20:30Z'),
+    datetime: new Date('2019-04-11T10:20:30Z'),
     lineItems: [
       {
         unit: UNIT_CURRENCIES.EUR,
@@ -42,7 +49,7 @@ test(`test household appliance for DK in EUR`, () => {
   };
   expect(modelCanRun(activity)).toBeTruthy();
   // original price * cpi correction * intensity
-  expect(carbonEmissions(activity)).toBeCloseTo(15 * (95.9 / 103.3) * 0.4028253119428596);
+  expect(carbonEmissions(activity)).toBeCloseTo(15 * (95.9 / 103) * 0.4028253119428596);
 });
 
 test(`test household appliance for DK in EUR, without any date specified`, () => {
@@ -76,19 +83,14 @@ test(`test cpi conversion with a datetime without any cpi`, () => {
     ],
   };
   expect(modelCanRun(activity)).toBeTruthy();
-  // original price * intensity (cpi correction not applied as there is no date)
-  // expect requires anonymous function here, as it is the function that is expected to throw an error, we are
-  // not interested in the return value per se.
-  expect(() => carbonEmissions(activity)).toThrowError(
-    new Error(`Unknown CPI for activity date ${activity.datetime}`)
-  );
+  expect(carbonEmissions(activity)).toMatchInlineSnapshot(`6.042379679142893`);
 });
 
-test(`test household appliance for AU in EUR in 2020, for which there is no cpi data`, () => {
+test(`test household appliance for AU in EUR in 2029, for which there is no cpi data`, () => {
   const activity = {
     activityType: ACTIVITY_TYPE_PURCHASE,
     countryCodeISO2: 'AU',
-    datetime: new Date('2020-04-11T10:20:30Z'),
+    datetime: new Date('2029-04-11T10:20:30Z'),
     lineItems: [
       {
         unit: UNIT_CURRENCIES.EUR,
@@ -100,16 +102,14 @@ test(`test household appliance for AU in EUR in 2020, for which there is no cpi 
   expect(modelCanRun(activity)).toBeTruthy();
   // original price * cpi correction * intensity
   // (average fallback used for 2020 as AU does not have data for 2020 yet)
-  expect(carbonEmissions(activity)).toBeCloseTo(
-    15 * (92.2 / 110.72093023255815) * 0.4428823364363346
-  );
+  expect(carbonEmissions(activity)).toBeCloseTo(15 * (92.2 / 106.9) * 0.4428823364363346);
 });
 
 test(`test household appliance for DK in DKK`, () => {
   const activity = {
     activityType: ACTIVITY_TYPE_PURCHASE,
     countryCodeISO2: 'DK',
-    datetime: new Date('2020-04-11T10:20:30Z'),
+    datetime: new Date('2019-04-11T10:20:30Z'),
     lineItems: [
       {
         unit: UNIT_CURRENCIES.DKK,
@@ -119,15 +119,14 @@ test(`test household appliance for DK in DKK`, () => {
     ],
   };
   expect(modelCanRun(activity)).toBeTruthy();
-  expect(carbonEmissions(activity)).toBeCloseTo(
-    (1150 / 7.4506) * (95.9 / 103.3) * 0.817390437852872
-  );
+  // (currency_conversion) * (cpi correction) * intensity
+  expect(carbonEmissions(activity)).toBeCloseTo((1150 / 7.4506) * (95.9 / 103) * 0.817390437852872);
 });
 
 test(`test non-monetary units (in L)`, () => {
   const activity = {
     activityType: ACTIVITY_TYPE_PURCHASE,
-    datetime: new Date('2020-04-11T10:20:30Z'),
+    datetime: new Date('2019-04-11T10:20:30Z'),
     lineItems: [{ identifier: 'Diesel', unit: 'L', value: 10 }],
   };
   expect(modelCanRun(activity)).toBeTruthy();
@@ -137,13 +136,60 @@ test(`test non-monetary units (in L)`, () => {
 test(`test non-monetary units (in kg)`, () => {
   const activity = {
     activityType: ACTIVITY_TYPE_PURCHASE,
-    datetime: new Date('2020-04-11T10:20:30Z'),
+    datetime: new Date('2019-04-11T10:20:30Z'),
     lineItems: [{ identifier: 'Butter', unit: 'kg', value: 10 }],
   };
   expect(modelCanRun(activity)).toBeTruthy();
   expect(carbonEmissions(activity)).toBeCloseTo(92.5);
 });
 
+describe('conversionCPI', () => {
+  it('should throw if reference year is missing', () => {
+    const datetime = new Date('2019-04-11T10:20:30Z');
+
+    expect(() => conversionCPI(100, null, 'DK', datetime)).toThrowErrorMatchingInlineSnapshot(
+      `"Missing consumer price index reference year"`
+    );
+  });
+  it('should correct an amount based on consumer price indicies given country and year', () => {
+    const datetime = new Date('2019-04-11T10:20:30Z');
+
+    expect(conversionCPI(100, 2011, 'DK', datetime)).toMatchInlineSnapshot(`93.10679611650487`);
+  });
+
+  it('should fallback to closest year with data available if country is provided', () => {
+    const datetime = new Date('2050-04-11T10:20:30Z');
+
+    expect(conversionCPI(100, 2011, 'DK', datetime)).toMatchInlineSnapshot(`93.10679611650487`);
+  });
+
+  it('should fallback to world average for year if country is not provided', () => {
+    const datetime = new Date('2019-04-11T10:20:30Z');
+
+    expect(conversionCPI(100, 2011, null, datetime)).toMatchInlineSnapshot(`84.29106299853491`);
+  });
+
+  it('should fallback to world average for closest year', () => {
+    const datetime = new Date('2050-04-11T10:20:30Z');
+
+    expect(conversionCPI(100, 2011, null, datetime)).toMatchInlineSnapshot(`84.29106299853491`);
+  });
+});
+
+describe('getClosestYear', () => {
+  const data = {
+    2010: 10,
+    2020: 20,
+  };
+  it('should find closest year', () => {
+    expect(getClosestYear(data, 2011)).toEqual('2010');
+    expect(getClosestYear(data, 2018)).toEqual('2020');
+  });
+
+  it('should prefer a later/more recent year', () => {
+    expect(getClosestYear(data, 2015)).toEqual('2020');
+  });
+});
 
 describe('default units', () => {
   test('all entries have valid units', () => {
