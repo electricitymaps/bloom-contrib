@@ -25,7 +25,7 @@
     "tiny-hashes": "^1.0.1",
     "uuid": "^3.3.2",
     "whatwg-url": "^7.0.0",
-    "xmldom": "^0.1.27"
+    "xmldom": "^0.5.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.1",
